@@ -1,0 +1,138 @@
+2006-04-12: pro_music_apps-2006-04-12.tar.bz2
+- update media-sound/jack-audio-connection-kit-0.100.7-r2 (USE=netjack substitute media-sound/netjack)
+2006-04-11: pro_music_apps-2006-04-11.tar.bz2
+- bump sys-kernel/rt-sources-2.6.16-rt16
+- fix media-sound/ldrum-0.6.0-r1 (link and include fixes)
+- bump media-sound/netjack-0.11_rc5
+2006-04-07: pro_music_apps-2006-04-07.tar.bz2
+- fix media-sound/fmit-0.96.5-r1 (check deps)
+2006-04-06: pro_music_apps-2006-04-06.tar.bz2
+- add media-sound/aeolus-0.3.1-r1 (includes wrapper script for auto setup)
+2006-04-06: pro_music_apps-2006-04-06.tar.bz2
+- add media-sound/fmit-0.96.5
+- add media-libs/stops-0.1.1 (Dominique_71)
+- add media-sound/aeolus-0.3.1 (Dominique_71)
+2006-04-05: pro_music_apps-2006-04-05.tar.bz2
+- fix media-sound/ardour-cvs-6
+2006-04-03: pro_music_apps-2006-04-03.tar.bz2
+- fix media-sound/ardour (NEW URI thx Dominique_71)
+- fix media-sound/ardour-cvs (NEW URI thx Dominique_71)
+  now the ebuild asks you if you want to re-download the snapshot tarball
+2006-04-03: pro_music_apps-2006-04-03.tar.bz2
+- bump sys-kernel/rt-sources-2.6.16-rt12
+- add media-sound/linuxsampler-cvs-9999 (provided by zehnan1)
+- add media-sound/qsampler-cvs-9999 (provided by zehnan1)
+- add media-libs/libgig-cvs-9999 (provided by zehnan1)
+- add media-libs/liblscp-cvs-9999 (provided by zehnan1)
+2006-04-01: pro_music_apps-2006-04-01.tar.bz2
+- bump media-libs/lash-0.5.1
+2006-03-31: pro_music_apps-2006-03-31.tar.bz2
+- fix media-sound/museseq-0.8.1-r2 (lash shutdown fix)
+2006-03-31: pro_music_apps-2006-03-31.tar.bz2
+- add media-sound/csound-5.01
+- add sys-libs/pam-0.78-r6 (rlimits support)
+2006-03-30: pro_music_apps-2006-03-30.tar.bz2
+- enhance media-sound/zynaddsubfx-2.2.1-r3 
+  enhance media-sound/zynaddsubfx-cvs-2.2.2-r3
+  some more instruments and also unsorted settings
+2006-03-28: pro_music_apps-2006-03-28.tar.bz2
+- fix media-sound/museseq-0.8.1-r1 (gcc4-fix)
+2006-03-27: pro_music_apps-2006-03-27.tar.bz2
+- bump media-sound/museseq-0.8.1
+- bump sys-kernel/rt-sources-2.6.16-rt10
+- add media-sound/kontroll-20060327
+- bump sys-apps/das_watchdog-0.2.2
+- add media-sound/mx44-20050428 (from gimpel)
+2006-03-25: pro_music_apps-2006-03-25.tar.bz2
+- add media-sound/netjack-0.11_rc1 (thx gimpel)
+- fix media-sound/freecycle-0.6a-r1 (thx gimpel)
+2006-03-23: pro_music_apps-2006-03-23.tar.bz2
+- bump media-sound/wired-cvs (contributed by gimpel)
+- bump sys-kernel/rt-sources-2.6.16-rt6
+- bump media-sound/freecycle-0.6a (seems to be broken)
+- fixed media-sound/fst-1.7-r5  
+- add media-sound/frinika-0.1.7 (contributed by gimpel)
+2006-03-20: pro_music_apps-2006-03-20.tar.bz2
+- fix media-sound/amsynth-1.1.0-r1
+- bump sys-kernel/rt-sources-2.6.16-rt1
+- add media-sound/museseq-0.8 (thx lukaz)
+2006-03-18: pro_music_apps-2006-03-18.tar.bz2
+- update media-sound/sweep-0.9.1-r1 (fix alsa compile error)
+2006-03-17: pro_music_apps-2006-03-17.tar.bz2
+- add media-plugins/sineshaper-0.4.2 (dssi-plugin COMPILES BUT WON'T LOAD)
+- add media-plugins/oscilloscope-0.2.1 (dssi-plugin)
+- add media-sound/jackmix-0.0.3 
+- add media-sound/tutka-0.12.3
+- fix media-sound/seq24-0.8.3-r2 (lash support works now)
+- add media-sound/jace-0.0.2  (suggested by phadsge)
+- bump media-libs/libclalsadrv-1.0.3
+- bump media-libs/libclthreads-2.0.1
+- bump sys-kernel/rt-sources-2.6.16_rc6-rt7
+- bump media-sound/sweep-0.9.1
+- bump media-sound/sooperlooper-1.0.8c
+2006-03-16: pro_music_apps-2006-03-16.tar.bz2
+- update media-sound/seq24-0.8.3-r1 (lash-support added -- NOT TESTED) 
+- update media-sound/meterbridge-0.9.2-r2 (lash-support added)
+- update media-sound/vkeybd-0.1.17-r1 (lash enabled by default)
+- add media-sound/specimen-0.5.1 (lash-support added)
+- bump media-libs/phat-0.3.1
+- add sys-kernel/rt-sources-2.6.16_rc6-rt6 (with experimental reiser4 support
+  via USE=reiser4) reiser4 seems to work with realtime-patch.
+  But I don't know if latentencies are suitable for audio-work
+- add sys-kernel/rt-sources-2.6.15-rt21
+- add media-sound/bpmdj-2.9
+2006-03-10: pro_music_apps-2006-03-10.tar.bz2
+- add media-libs/dssi_convolve-0.0.4. (suggested by phadsge)
+- add media-libs/jack_convolve-0.0.13 (suggested by phadsge)
+- add media-libs/libconvolve-0.0.8 (suggested by phadsge)
+- add media-sound/simsam/simsam-0.1.7 (suggested by phadsge)
+- add media-libs/libdsp-5.0.2
+- add  media-sound/amsynth-1.1.0
+2006-03-07: pro_music_apps-2006-03-07.tar.bz2
+- add media-sound/seq24-0.8.3 (suggested by lukaz)
+2006-03-06: pro_music_apps-2006-03-06.tar.bz2
+- update media-plugins/dssi-vst-0.4-r1 (linker fix)
+- add media-sound/meterbridge-0.9.2-r1 (gcc4 fix, add manpage)
+2006-03-01: pro_music_apps-2006-03-01.tar.bz2
+- add media-plugins/dssi-vst-0.4
+- add media-sound/bristol-0.9.1
+- add media-libs/libjackasyn-0.11
+- bump sys-apps/das_watchdog-0.2.1
+2006-02-25: pro_music_apps-2006-02-25.tar.bz2
+- bump media-sound/hydrogen-0.9.3
+- bump media-sound/ardour-0.99.2
+2006-02-21: pro_music_apps-2006-02-21.tar.bz2
+- media-sound/fluidsynth-1.0.7a
+- sys-apps/das_watchdog-0.2.0
+2006-02-20: pro_music_apps-2006-02-20.tar.bz2
+- updated zynaddsubfx-cvs-2.2.2-r2.ebuild to match new 
+  banks/unsorted snapshots (thx reporting Dominique_71)
+2006-02-19: pro_music_apps-2006-02-19.tar.bz2
+- version bump lmms-0.1.4
+- version bump fluidsynth-1.0.7
+2006-02-16
+- add sys-process/rtirq
+2006-02-14
+- media-sound/rosegarden-4.1.2.3
+2006-02-10
+- mainly due ardour failures
+- ardour-0.99.1
+- some small updates
+added:  media-libs/portaudio
+added but most will not work!!! (need some time to test those)
+- media-sound/freebirth
+- media-sound/horgand
+- media-sound/jackbeat
+- media-sound/ldrum
+- media-sound/rtsynth
+- media-sound/swami
+- media-sound/tapiir
+- media-sound/wired-cvs
+- media-sound/yatm
+2006-02-01
+copied: media-sound/freebirth
+- media-sound/horgand
+
+2006-01-31 updates first release:
+added:  media-sound/rosegarden-cvs
+- media-sound/hydrogen

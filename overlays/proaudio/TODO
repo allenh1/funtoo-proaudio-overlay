@@ -1,0 +1,39 @@
+# ebuilds:
+-Buzztard ? http://www.buzztard.org # is this software ready?
+-kmiditracker # done
+-CLAM Music Annotator  http://clam.iua.upf.edu/
+-silentjack http://www.ecs.soton.ac.uk/~njh/silentjack/
+-qmadjack http://www.ecs.soton.ac.uk/~njh/madjack/
+
+-rt-exec ftp://ftp.compro.net/public/rt-exec/README # done
+> It can be downloaded from
+> ftp://ftp.compro.net/public/rt-exec/rt-exec-1.0.0.tar.bz2
+> # This software is intended to test the deterministic/real-time
+> # capabilities of your computer.
+
+-kluge ?! whats that
+
+-set_rlimits http://www.physics.adelaide.edu.au/~jwoithe/ # done
+
+-Sonic Visualiser http://sourceforge.net/projects/sv1/ # done
+ + plugins 						# maybe more plugins?
+
+-tapestrea-0.1 (tap tap)  http://taps.cs.princeton.edu/
+#####
+#
+I find that a SuperCollider 3 'svn' ebuild would be a great idea, not? Details can be found here:
+
+http://swiki.hfbk-hamburg.de:8888/MusicTechnology/6
+
+Also, it would be great to include some of its plugins in the overlay (freeverb, munger, rossler..), the two GUI servers SCUM and SwingOSC plus the some of the class library extensions, which are also on swiki. I can't write the ebuild, but I could give advice on how I would do it if I could :D
+Anyone interested? 
+#
+#####
+#
+
+http://hypermammut.sourceforge.net/
+
+ jack_oscrolloscope-0.1.tar.gz
+
+KCorreMeter
+http://sourceforge.net/projects/iannix
