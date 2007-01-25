@@ -35,8 +35,11 @@ pkg_setup() {
 		else
 			ewarn "Note: LLVM is a bleeding edge bleeding edge compiler"
 			ewarn "suite that offers very optimized code."
-			ewarn "It takes a while to compile! You can also choose"
-			ewarn "libzzub's GCC wrapper with USE=\"-llvm\"."
+			ewarn "It takes a while to compile!"
+			ewarn "llvm-base and llvm-gcc can be found in the proaudio-dev"
+			ewarn "overlay."
+			ewarn "You can also choose libzzub's GCC wrapper"
+			ewarn "with USE=\"-llvm\"."
 		fi
 	fi
 }
