@@ -29,7 +29,9 @@ Index:
   3.8 # change the rules/scripts/ebuilds/readme's/...
   3.9 # hope this are not to much rules
 
-4.0 # THOUGHTS about the overlay hierarchy:
+4.0 # overlay hierarchy:
+  4.1 # example proaudio / proaudio-dev overlays setup
+5.0 # feel free to ask
 
 
 1. # get a account at tuxfamily.org
@@ -40,7 +42,8 @@ Index:
   You've to know how to checkout/commit the overlay repository:
   So here some basics:
 
-2.1 # checkout the overlay 
+2.1 # checkout the overlay
+  # also read 4.0 and 4.1 before doing this step
   svn co svn+ssh://<your_tuxfamily_login>@svn.tuxfamily.org/svnroot/proaudio/proaudio
   # or
   svn co --username <your_tuxfamily_login> svn+ssh://svn.tuxfamily.org/svnroot/proaudio/proaudio
@@ -191,11 +194,28 @@ Index:
 3.9 # hope this are not to much rules
 
 
-4.0 # THOUGHTS about the overlay hierarchy:
-  # for absolute experimental ebuild we should add a dev branch?
-  # Maybe we should move the overlay from 
-  svn.tuxfamily.org/svnroot/proaudio/proaudio
-  # to 
-  svn.tuxfamily.org/svnroot/proaudio/trunk/overlays/proaudio
-  # so we could add a dev-tree eg.
+4.0 # overlay hierarchy:
+  # for absolute experimental ebuild we have a dev branch
+  # in this branch ebuilds could really be broken.
+  # This is also a place where we can collaborate in developing new
+  # ebuilds (add this overlay also to your other overlays see 4.1)
+  # If you put a new ebuild here and the category is missing create it.
   svn.tuxfamily.org/svnroot/proaudio/trunk/overlays/proaudio-dev
+  
+  # this is our main overlay in which only "working" ebuilds should
+  # be placed
+  svn.tuxfamily.org/svnroot/proaudio/trunk/overlays/proaudio
+
+
+4.1 # example proaudio / proaudio-dev overlays setup
+  # this is how I've organized the proaudio overlay on my box
+  # I've placed the svn checkout in  ~/svn-checkouts/
+  cd  ~/svn-checkouts/
+  # fetch the tree as developer 
+  svn co svn+ssh://<your_tuxfamily_login>@svn.tuxfamily.org/svnroot/proaudio/proaudio
+  # edit /etc/make.conf and add both overlays proaudio and proaudio-dev
+  PORTDIR_OVERLAY="/home/evermind/svn-checkouts/proaudio/trunk/overlays/proaudio /home/evermind/svn-checkouts/proaudio/trunk/overlays/proaudio-dev <other overlays>"
+
+
+5.0 # feel free to ask
+  # if you've questions problems you could always ask on the ml

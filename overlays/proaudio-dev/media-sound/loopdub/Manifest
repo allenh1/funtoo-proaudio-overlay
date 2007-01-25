@@ -1,0 +1,7 @@
+EBUILD loopdub-0.2.ebuild 669 RMD160 1451e63fd9f94700c072c3cc2fec29f8e3647a25 SHA1 5dfd78d2e4643c128ba981021fb7da0de6f33f6c SHA256 7ee12d1208ae15c9ecd32af83825cb4d9de985823acad85adaef50be10af62ec
+MD5 d9188ab93ab30441caad555dd6cb19ea loopdub-0.2.ebuild 669
+RMD160 1451e63fd9f94700c072c3cc2fec29f8e3647a25 loopdub-0.2.ebuild 669
+SHA256 7ee12d1208ae15c9ecd32af83825cb4d9de985823acad85adaef50be10af62ec loopdub-0.2.ebuild 669
+MD5 d41d8cd98f00b204e9800998ecf8427e files/digest-loopdub-0.2 0
+RMD160 9c1185a5c5e9fc54612808977ee8f548b2258d31 files/digest-loopdub-0.2 0
+SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 files/digest-loopdub-0.2 0

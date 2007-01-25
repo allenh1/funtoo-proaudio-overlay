@@ -826,9 +826,8 @@
 
 
 #------- media-sound/jackdmp --------
-	jackdmp-0.58	arch: ~amd64 ~ppc ~sparc x86
+	jackdmp-0.61	arch: -*
 	jackdmp-9999	arch: -*
-	jackdmp-9999-r1	arch: -*
 	Description: Jackdmp jack implemention for multi-processor
 		 machine
 	Homepage:    http://www.grame.fr/~letz/jackdmp.html
