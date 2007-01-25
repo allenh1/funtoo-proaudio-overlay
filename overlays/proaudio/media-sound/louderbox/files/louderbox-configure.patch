@@ -1,0 +1,11 @@
+--- configure.in.orig	2006-04-12 13:56:58.785305762 +0200
++++ configure.in	2006-04-12 13:57:13.930003420 +0200
+@@ -41,7 +41,7 @@
+ else
+   AC_SUBST(RPMBUILD,rpmbuild)
+ fi
+-sed -e s/%PKG_VERSION%/$VERSION/g -e s/%RPM_RELEASE%/$RPM_RELEASE/g louderbox.spec.in > louderbox.spec
++# sed -e s/%PKG_VERSION%/$VERSION/g -e s/%RPM_RELEASE%/$RPM_RELEASE/g louderbox.spec.in > louderbox.spec
+ if test -d /usr/src/redhat ; then
+   AC_SUBST(RPM_ROOT,/usr/src/redhat)
+   AC_SUBST(VENDOR,redhat)

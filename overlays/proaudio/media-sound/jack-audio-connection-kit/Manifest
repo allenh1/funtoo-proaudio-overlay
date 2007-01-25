@@ -1,0 +1,52 @@
+AUX jack-audio-connection-kit-mmap_complex.patch 7078 RMD160 fcad1fe24412d58326a12bd26a3c123f17150178 SHA1 a0cb7b8616f03c5cc26eb325d6f243d4b4228a8b SHA256 69327de22eead1768609cc130449685bc9d519e8da4578d8227482ed3bcc66e5
+MD5 f15a39318cf10e8de5832da103e7fd80 files/jack-audio-connection-kit-mmap_complex.patch 7078
+RMD160 fcad1fe24412d58326a12bd26a3c123f17150178 files/jack-audio-connection-kit-mmap_complex.patch 7078
+SHA256 69327de22eead1768609cc130449685bc9d519e8da4578d8227482ed3bcc66e5 files/jack-audio-connection-kit-mmap_complex.patch 7078
+AUX jack-audio-connection-kit-transport.patch 309 RMD160 7b7130dd922ed14988eb591059d643ece39f6757 SHA1 ed8f9d90ec62476643f41ff60735d4aaaee84886 SHA256 74f1d155f365deb1461d070b37ccd7836c32c521d31960a3f4e6c3f2e528bada
+MD5 8e9c72734364a9d7e4a6d781e13beec8 files/jack-audio-connection-kit-transport.patch 309
+RMD160 7b7130dd922ed14988eb591059d643ece39f6757 files/jack-audio-connection-kit-transport.patch 309
+SHA256 74f1d155f365deb1461d070b37ccd7836c32c521d31960a3f4e6c3f2e528bada files/jack-audio-connection-kit-transport.patch 309
+AUX jackmidi_01dec05.patch 34782 RMD160 151415df3439c7d7b6f4109559ed3b212316e6bb SHA1 60d8a3064f349fa0897c78ded0e7d14a64f0f533 SHA256 3c0d5097f7b2fda5c35c963224dd7a59b097181415956317cf6f161d5e48048a
+MD5 7647467867c81df137fb20b7d18ede84 files/jackmidi_01dec05.patch 34782
+RMD160 151415df3439c7d7b6f4109559ed3b212316e6bb files/jackmidi_01dec05.patch 34782
+SHA256 3c0d5097f7b2fda5c35c963224dd7a59b097181415956317cf6f161d5e48048a files/jackmidi_01dec05.patch 34782
+DIST jack-audio-connection-kit-0.100.7.tar.gz 2119224 RMD160 f445d8c40fa88e21500082ad2b5c60aafb925bd6 SHA1 55b7444058de0be3c647782f359b02a8f618b39b SHA256 fd8e5ce630002a08200fdb0e7ca098c4a25b9052b4ed8219845b22091db50fa8
+DIST jack-audio-connection-kit-0.101.1.tar.gz 724598 RMD160 54bcb565419f032715a90ff79b056003e2fe7fef SHA1 0cd4c82402c944df83bad7110128020dad4772bc SHA256 4f0e89a83aaaf5b125389135ee4f321b22ffef19003749c138eb54974e2f5533
+DIST jack-audio-connection-kit-0.102.20.tar.gz 761792 RMD160 5a343fa8c54f629418f3e21165870d7e8a75a4a6 SHA1 97255192331f1189a9879d78b1aecbb42468dcf2 SHA256 e4506a9f46cd6fa4896e76482f17b7bddeeda3eb35add176d6db479e5c4f8530
+DIST netjack-0.11rc5.tar.bz2 23698 RMD160 528dc7d88452b920da55da5fa5caf675a17603c4 SHA1 5f73fab160e9e5e4bfa67152bdaaae3223e0777f SHA256 0cb2dd50b300bb6d5ba8c64901801f8a9ebf0b4430b8c58ef5d5e3f350c79dc7
+DIST netjack-0.12.tar.bz2 28044 RMD160 13d13f2a66c891da243f9a286833554f680937ff SHA1 f850ed654d0f115065d96bee34d9f7c05e8c5725 SHA256 c443bcb6ec2b477c52cab2fca75aef80fe2c2c91499e45ffdbb1c28ffaa7ee60
+EBUILD jack-audio-connection-kit-0.100.7-r2.ebuild 3838 RMD160 b82d4f9ad124d1267950c48ccecba95e49a940fe SHA1 305ddf2c7b334a255dac2d7e0d2809f679fb71ac SHA256 904c2ee08771e45b75e9bfd39ed68bcab8eb9211e5797d95dc8af50be05fb765
+MD5 49e7e7ecf313fcaefc359ae99fdb203b jack-audio-connection-kit-0.100.7-r2.ebuild 3838
+RMD160 b82d4f9ad124d1267950c48ccecba95e49a940fe jack-audio-connection-kit-0.100.7-r2.ebuild 3838
+SHA256 904c2ee08771e45b75e9bfd39ed68bcab8eb9211e5797d95dc8af50be05fb765 jack-audio-connection-kit-0.100.7-r2.ebuild 3838
+EBUILD jack-audio-connection-kit-0.100.7-r3.ebuild 3923 RMD160 6cebf0ba722cfac3adb8dd3bc203140a5962728e SHA1 98280f95513607c0da676ca439718e1f2969cb73 SHA256 90fb023d1ca4efbf5c3da134cf2e520cca75dd38783b0894f93ffd4c1f166fc0
+MD5 40c13d3a784deca15404f4cc7abc5f7e jack-audio-connection-kit-0.100.7-r3.ebuild 3923
+RMD160 6cebf0ba722cfac3adb8dd3bc203140a5962728e jack-audio-connection-kit-0.100.7-r3.ebuild 3923
+SHA256 90fb023d1ca4efbf5c3da134cf2e520cca75dd38783b0894f93ffd4c1f166fc0 jack-audio-connection-kit-0.100.7-r3.ebuild 3923
+EBUILD jack-audio-connection-kit-0.101.1.ebuild 3944 RMD160 b2214d44f9c6fa5b93ba545d9b13903ca3e83c3b SHA1 75c5861488b5539d28d3259034e8fbe240a057eb SHA256 266b366bf5650410796ad6ffd67039fcf9fb4d10bc63e1c85f8f475d3905ad4b
+MD5 9c54cb7b71d72dec66fd538b23f798a0 jack-audio-connection-kit-0.101.1.ebuild 3944
+RMD160 b2214d44f9c6fa5b93ba545d9b13903ca3e83c3b jack-audio-connection-kit-0.101.1.ebuild 3944
+SHA256 266b366bf5650410796ad6ffd67039fcf9fb4d10bc63e1c85f8f475d3905ad4b jack-audio-connection-kit-0.101.1.ebuild 3944
+EBUILD jack-audio-connection-kit-0.102.20.ebuild 3948 RMD160 c3ca87c9d928a32ddce46a0afcda15a5eb76675d SHA1 6d1fbe8a1c557a22eeb55989f4baccbf0209d90a SHA256 2e29a9a9adbe06fddfc2f0d3d6b10d89f5e08218c988e846028a56ccd78f20ca
+MD5 a4b7120168543889ee7859e8017fb339 jack-audio-connection-kit-0.102.20.ebuild 3948
+RMD160 c3ca87c9d928a32ddce46a0afcda15a5eb76675d jack-audio-connection-kit-0.102.20.ebuild 3948
+SHA256 2e29a9a9adbe06fddfc2f0d3d6b10d89f5e08218c988e846028a56ccd78f20ca jack-audio-connection-kit-0.102.20.ebuild 3948
+EBUILD jack-audio-connection-kit-9999.ebuild 3930 RMD160 a28aebe95ed82fadab79053b33a445948518407e SHA1 c007d496d757ceef691fafc5a93f469db1d27981 SHA256 1e42f2db0d74826a622f8e5580890e4b7216dd3d5c9dfdd2aeb030ec731668f3
+MD5 0c1eb1f7fe132376b7711e80515b8781 jack-audio-connection-kit-9999.ebuild 3930
+RMD160 a28aebe95ed82fadab79053b33a445948518407e jack-audio-connection-kit-9999.ebuild 3930
+SHA256 1e42f2db0d74826a622f8e5580890e4b7216dd3d5c9dfdd2aeb030ec731668f3 jack-audio-connection-kit-9999.ebuild 3930
+MD5 df2adc4b2299bdce5818a7cb6e76835a files/digest-jack-audio-connection-kit-0.100.7-r2 551
+RMD160 18c6046126c81aa039ea118aa6129a600e215837 files/digest-jack-audio-connection-kit-0.100.7-r2 551
+SHA256 bc7f285778b0a81e16e9de873c5246f1b52c477282c7b239286a198091fc11b4 files/digest-jack-audio-connection-kit-0.100.7-r2 551
+MD5 ffcfd26cac4f6513e7db451064ef885b files/digest-jack-audio-connection-kit-0.100.7-r3 542
+RMD160 dee17cba369c2691f4d1fc15cd09b812936ff9a2 files/digest-jack-audio-connection-kit-0.100.7-r3 542
+SHA256 31b041bb3cb78e1c662e77ccd496711093a6f1df8ddaf1b6579e5839a716ad3c files/digest-jack-audio-connection-kit-0.100.7-r3 542
+MD5 d85af13d1748c3d39351eff80ad64833 files/digest-jack-audio-connection-kit-0.101.1 539
+RMD160 a17099e2e563b2b62f1bbb0235e6fdc2b30993a1 files/digest-jack-audio-connection-kit-0.101.1 539
+SHA256 dc45a5dc5703cbe9f16e5c460c7386aec86fe92a8b599f91c172930036fa2d02 files/digest-jack-audio-connection-kit-0.101.1 539
+MD5 d4cd7d3422088e73cfc4e04d9a6e4f03 files/digest-jack-audio-connection-kit-0.102.20 542
+RMD160 288111a271e06c3e793559c8ca6a3d969075a840 files/digest-jack-audio-connection-kit-0.102.20 542
+SHA256 e14bf6568186b6ee43117d12f54d961ca4b89a5c93a93070b73b1d90f9c81675 files/digest-jack-audio-connection-kit-0.102.20 542
+MD5 62938eb71e7f04fd0551666306d30893 files/digest-jack-audio-connection-kit-9999 238
+RMD160 fd8aa7e25901860ee2267a100376b48fb13d621a files/digest-jack-audio-connection-kit-9999 238
+SHA256 b5d48e4874c7884c99a4536c84d8ba32a419f73e616a47d50e424eab7f2c69b8 files/digest-jack-audio-connection-kit-9999 238

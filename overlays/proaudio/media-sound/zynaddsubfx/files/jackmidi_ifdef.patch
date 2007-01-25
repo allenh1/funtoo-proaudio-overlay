@@ -1,0 +1,97 @@
+--- a/src/Output/JACKaudiooutput.C	2007-01-02 13:53:28.000000000 +0100
++++ b/src/Output/JACKaudiooutput.C	2007-01-02 13:53:28.000000000 +0100
+@@ -21,13 +21,19 @@
+ */
+ 
+ #include <stdlib.h>
++#ifdef USE_JACKMIDI
+ #include <jack/midiport.h>
++#endif 
+ #include "JACKaudiooutput.h"
+ 
+ Master *jackmaster;
+ jack_client_t *jackclient;
+ char jackname[100];
++#ifdef USE_JACKMIDI
+ jack_port_t *outport_left,*outport_right,*midi_inport;
++#else
++jack_port_t *outport_left,*outport_right;
++#endif 
+ 
+ int jackprocess(jack_nframes_t nframes,void *arg);
+ int jacksrate(jack_nframes_t nframes,void *arg);
+@@ -61,8 +67,10 @@
+ 	JACK_DEFAULT_AUDIO_TYPE,JackPortIsOutput|JackPortIsTerminal,0);    
+     outport_right=jack_port_register(jackclient,"out_2",
+ 	JACK_DEFAULT_AUDIO_TYPE,JackPortIsOutput|JackPortIsTerminal,0);    
++#ifdef USE_JACKMIDI
+     midi_inport=jack_port_register(jackclient,"midi_input",
+ 	JACK_DEFAULT_MIDI_TYPE,JackPortIsInput|JackPortIsTerminal,0);    
++#endif 
+ 
+     if (jack_activate(jackclient)){
+ 	fprintf(stderr,"Cannot activate jack client\n");
+@@ -81,7 +89,9 @@
+     jack_default_audio_sample_t *outr=(jack_default_audio_sample_t *) jack_port_get_buffer (outport_right, nframes);
+ 
+     if (!pthread_mutex_trylock(&jackmaster->mutex)) {
++#ifdef USE_JACKMIDI
+       JACKhandlemidi(nframes);
++#endif 
+       jackmaster->GetAudioOutSamples(nframes,jack_get_sample_rate(jackclient),outl,outr);
+       pthread_mutex_unlock(&jackmaster->mutex);
+     }
+@@ -106,6 +116,7 @@
+ };
+ 
+ 
++#ifdef USE_JACKMIDI
+ void JACKhandlemidi(unsigned long frames) {
+   
+   // We must have the master mutex before we run this function
+@@ -154,6 +165,7 @@
+   }
+   
+ }
++#endif 
+ 
+ 
+ const char* JACKgetname() {
+--- a/src/Output/JACKaudiooutput.h	2007-01-02 13:53:28.000000000 +0100
++++ b/src/Output/JACKaudiooutput.h	2007-01-02 13:53:28.000000000 +0100
+@@ -40,7 +40,9 @@
+ 
+ bool JACKaudiooutputinit(Master *master_);
+ void JACKfinish();
++#ifdef USE_JACKMIDI
+ void JACKhandlemidi(unsigned long frames);
++#endif
+ const char* JACKgetname();
+ 
+ #endif
+--- a/src/Makefile.inc.org	2007-01-02 14:50:46.000000000 +0100
++++ b/src/Makefile.inc	2007-01-02 15:11:52.000000000 +0100
+@@ -46,6 +46,10 @@
+ LINUX_USE_LASH=YES
+ #LINUX_USE_LASH=NO
+ 
++#Next line sets if Jackmidi support will be enabled
++LINUX_USE_JACKMIDI=NO
++#LINUX_USE_JACKMIDI=YES
++
+ # W I N D O W S   C O N F I G U R A T I O N
+ 
+ #Next line sets the midi input
+--- a/src/Makefile	2007-01-02 13:54:47.000000000 +0100
++++ b/src/Makefile	2007-01-02 15:28:36.000000000 +0100
+@@ -75,6 +75,10 @@
+ LIBS+= `pkg-config --libs lash-1.0`
+ endif
+ 
++ifeq ($(LINUX_USE_JACKMIDI),YES)
++CXXFLAGS += -DUSE_JACKMIDI
++endif
++
+ 
+ objects=main.o
+ SUBDIRS=DSP Effects Input Misc Output Params Synth Seq

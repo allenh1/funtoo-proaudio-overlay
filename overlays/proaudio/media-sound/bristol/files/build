@@ -1,0 +1,169 @@
+#!/bin/bash
+#
+# Sad little script, huh?
+#
+# The main compatability issue is going to be the sounddriver version. We need
+# to look for some version of ALSA, and create an include file that has a
+# suitable define statement for the version. Then we get rid of the rather
+# unhelpful ADLIB definition in the make calls.
+#
+
+JACKPKG=no
+ADLIB=-1
+
+versions() {
+	MAJOR=`awk '/MAJOR/ {print $3}' bristol/include/bristolvers.h`
+	if [ $? != 0 ]; then
+		echo 'Cannot get Major verion number'
+		exit -1
+	fi
+	MINOR=`awk '/MINOR/ {print $3}' bristol/include/bristolvers.h`
+	if [ $? != 0 ]; then
+		echo 'Cannot get Minor verion number'
+		exit -1
+	fi
+	PATCH=`awk '/PATCH/ {print $3}' bristol/include/bristolvers.h`
+	if [ $? != 0 ]; then
+		echo 'Cannot get Kit number'
+		exit -1
+	fi
+	BUILD=`awk '/BUILD/ {print $3}' bristol/include/bristolvers.h`
+	if [ $? != 0 ]; then
+		echo 'Cannot build Kit number'
+		BUILD=0
+	fi
+}
+
+distheaders() {
+	PATCH=$(($PATCH + 1))
+	BUILD=1
+
+	echo > bristol/include/bristolvers.h
+	echo "#define BRISTOL_MAJOR $MAJOR" >> bristol/include/bristolvers.h
+	echo "#define BRISTOL_MINOR $MINOR" >> bristol/include/bristolvers.h
+	echo "#define BRISTOL_PATCH $PATCH" >> bristol/include/bristolvers.h
+	echo "#define BRISTOL_BUILD $BUILD" >> bristol/include/bristolvers.h
+	echo >> bristol/include/bristolvers.h
+}
+
+buildheaders() {
+	BUILD=$(($BUILD + 1))
+
+	echo > bristol/include/bristolvers.h
+	echo "#define BRISTOL_MAJOR $MAJOR" >> bristol/include/bristolvers.h
+	echo "#define BRISTOL_MINOR $MINOR" >> bristol/include/bristolvers.h
+	echo "#define BRISTOL_PATCH $PATCH" >> bristol/include/bristolvers.h
+	echo "#define BRISTOL_BUILD $BUILD" >> bristol/include/bristolvers.h
+	echo >> bristol/include/bristolvers.h
+
+	echo "#ifndef ADLIB" > slab/include/slabaudio.h
+	echo "#define ADLIB $ADLIB" >> slab/include/slabaudio.h
+	echo "#endif" >> slab/include/slabaudio.h
+
+	echo "#ifndef ADLIB" > bristol/include/bristolaudio.h
+	echo "#define ADLIB $ADLIB" >> bristol/include/bristolaudio.h
+	echo "#endif" >> bristol/include/bristolaudio.h
+
+	if [ $ADLIB == -1 ]; then
+		cp /dev/null slab/Makefile.autodefs
+		cp /dev/null bristol/Makefile.autodefs
+	else
+		echo "LIBASOUND=-lasound" > slab/Makefile.autodefs
+		echo "LIBASOUND=-lasound" > bristol/Makefile.autodefs
+	fi
+
+	#
+	# Go look for jack. Yeah, ok, I should use pkg- config, but when that
+	# does not work.....
+	#
+	if [ $JACKPKG = no ]; then
+		if [ -f /usr/lib/pkgconfig/jack.pc ]; then
+			JACKPKG=yes
+			JACKINC=`awk -F= '/^prefix/ {printf $2}' /usr/lib/pkgconfig/jack.pc`
+		elif [ -d /usr/local/include/jack ]; then
+			JACKPKG=yes
+			JACKINC=/usr/local
+		elif [ -d /usr/include/jack ]; then
+			JACKPKG=yes
+			JACKINC=/usr
+		fi
+	fi
+
+	if [ $JACKPKG = yes ]; then
+		echo JACKINC=-I${JACKINC}/include/jack >> bristol/Makefile.autodefs
+		echo JACK=-D_BRISTOL_JACK >> bristol/Makefile.autodefs
+		echo JACKLIB=-ljack >> bristol/Makefile.autodefs
+		echo JACKLD=-L${JACKINC}/lib/jack >> bristol/Makefile.autodefs
+	fi
+}
+
+makeclean() {
+	if [ -f ../bin/bristol ]; then
+		rm -f ../bin/*
+		rm -f ../lib/*
+		find . -name \*.org -print -o -name core.\* -print -o -name \*.o -print -o -name lib\*.\* -print | xargs rm
+		rm -f bristol/bristol/bristol
+		rm -f bristol/brightongui/brighton
+	fi
+}
+
+versions
+
+cp /dev/null slab/Makefile.autodefs
+cp /dev/null bristol/Makefile.autodefs
+
+if [ $1 ]; then
+	if [ $1 = "clean" ]; then
+		makeclean
+		exit 0
+	fi
+	if [ $1 = "tarfile" ]; then
+		buildheaders 2
+		makeclean
+		cd ../..
+		tar cfpzv bristol-${MAJOR}.${MINOR}.${PATCH}-${BUILD}.src.`date +%m%d%y`.tgz bristol
+		exit 0
+	fi
+	if [ $1 = "dist" ]; then
+		distheaders
+		cp readme.synths ..
+		../bin/startBristol -h -v >> ../readme.synths
+		makeclean
+		cd ../..
+		#tar cfvpz bristol-src-`date +%m%d%y`.tgz bristol
+		tar cfpzv bristol-${MAJOR}.${MINOR}.${PATCH}-${BUILD}.src.`date +%m%d%y`.tgz bristol
+		exit 0
+	fi
+	if [ $1 = "-jack" ]; then
+		JACKPKG=yes
+		JACKINC=$2
+	fi
+elif [ -f /usr/include/alsa/asoundlib.h ]; then
+	ADLIB=2
+elif [ -f /usr/include/sys/asoundlib.h ]; then
+	ADLIB=1
+elif [ -f /usr/include/alsa/asoundlib.h ]; then
+	ADLIB=0
+elif [ -f /usr/lib/libasound.so ]; then
+	ADLIB=1
+fi
+
+buildheaders
+
+( cd brighton ; make )
+echo Entering slab/libslabaudio
+( cd slab/libslabaudio ; make)
+( cd bristol ; make )
+
+cp bristol/bristol/bristol ../bin
+cp bristol/brightongui/brighton ../bin
+cp bristol/libbristol/lib* ../lib
+cp bristol/libbristolmidi/lib* ../lib
+cp brighton/brighton/lib* ../lib
+cp brighton/libbrightonX11/lib* ../lib
+cp slab/libslabaudio/lib* ../lib
+cp startBristol ../bin
+
+echo
+echo "Bristol can be started with the startBristol script in the bin directory"
+echo

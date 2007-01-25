@@ -1,0 +1,11 @@
+--- a/src/Output/JACKaudiooutput.C.orig	2007-01-02 15:03:00.000000000 +0100
++++ b/src/Output/JACKaudiooutput.C	2007-01-02 15:03:28.000000000 +0100
+@@ -128,7 +128,7 @@
+   jack_midi_event_t jack_midi_event;
+   jack_nframes_t event_index = 0;
+   jack_nframes_t event_count = 
+-    jack_midi_port_get_info(midi_buf, frames)->event_count;
++    jack_midi_get_event_count(midi_buf, frames);
+   unsigned char* midi_data;
+   unsigned char type, chan;
+   

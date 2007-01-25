@@ -1,0 +1,27 @@
+fst-demo-synths 0.1
+
+ABOUT:
+
+This package contains a collection well tested and well working free VST
+synths to use with standalone fst or some sequencer with a VST host like
+museseq, lmms or ardour.
+
+The synth included are:
+* Big Tick "Cheeze Machine" - String Ensemble Synth - http://bigtick.pastnotecut.org
+* Synapse Audio "Junglist" -  Synth (Analogue / Subtractive) - http://www.synapse-audio.com
+* SoundFonts.it  "ORGANized trio" - Organ - http://www.soundfonts.it/vst
+* FalkeLab "Stringer" - String Synth - http://www.falkes.org/music
+* SoundFonts.it "MrRay SeventyThree" - Electric Piano - http://www.soundfonts.it/vst
+* Rumpelrausch Täips "ZR-3" - Triple Drawbar Organ - http://rumpelrausch.de.vu
+* AudioNerdz "DelayLama" - Singing Monk - http://www.audionerdz.com
+* BatSounds "MelloSound"  -  Mellotron Module - http://batsound.users.btopenworld.com
+
+USAGE:
+
+To use a plugin with standalone fst:
+  
+  $ fst /usr/lib/vst/some.dll
+
+Then use qjackctl to connect the VST to for example some sequencer
+
+Enjoy! 

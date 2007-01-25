@@ -1,0 +1,5 @@
+Please fix the following and reopen:
+
+* http://dev.gentoo.org/~ciaranm/docs/mw-faq/spacing.txt (inherit line)
+* No need to DEPEND upon virtual/libc
+* You should use sed to modify the Makefile, and do it in src_unpack

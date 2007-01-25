@@ -1,0 +1,66 @@
+--- tapiir-0.7.1/src/alsaio.cxx~	2003-02-25 05:24:24.000000000 -0800
++++ tapiir-0.7.1/src/alsaio.cxx	2003-11-08 17:11:09.000000000 -0800
+@@ -402,22 +402,21 @@
+ {
+ 	int k;
+ //-c,--channels  channels                                      default %d
+-	printf("\
+-Usage: %s [OPTION]...
+--h,--help      help
+--P,--pdevice   playback device                               default %s
+--C,--cdevice   capture device                                default %s
+--m,--min       minimum latency in frames                     default %d
+--M,--max       maximum latency in frames                     default %d
+--r,--rate      rate                                          default %d
+--b,--block     block mode                                    default: %s
+--t,--time      maximal tick time in us
+--p,--poll      use poll (wait for event - reduces CPU usage) default: %s
+-",
+-program,
+-pdevice,cdevice,
+-latency_min,latency_max,channels,rate,block?"on":"off",use_poll?"on":"off"
+-);
++	printf(
++"Usage: %s [OPTION]...\n"
++"-h,--help      help\n"
++"-P,--pdevice   playback device                               default %s\n"
++"-C,--cdevice   capture device                                default %s\n"
++"-m,--min       minimum latency in frames                     default %d\n"
++"-M,--max       maximum latency in frames                     default %d\n"
++"-r,--rate      rate                                          default %d\n"
++"-b,--block     block mode                                    default: %s\n"
++"-t,--time      maximal tick time in us\n"
++"-p,--poll      use poll (wait for event - reduces CPU usage) default: %s\n",
++	       program,
++	       pdevice,cdevice,
++	       latency_min,latency_max,channels,rate,block?"on":"off",use_poll?"on":"off"
++	       );
+ }
+ 
+ #ifdef DEMO
+--- tapiir-0.7.1/src/jackio.cxx~	2003-11-08 17:01:57.000000000 -0800
++++ tapiir-0.7.1/src/jackio.cxx	2003-11-08 17:11:44.000000000 -0800
+@@ -60,15 +60,14 @@
+ static void help(char* program)
+ {
+ 	int k;
+-	printf("\
+-Usage: %s [OPTION]...
+--h,--help                   help
+--C,--cconnect <LEFT,RIGHT>  jack-connect to capture client   default none
+--P,--pconnect <LEFT,RIGHT>  jack-connect to playback client  default none
+--a,--alsaconnect            jack-connect to alsa_pcm
+-",
+-program
+-);
++	printf(
++"Usage: %s [OPTION]...\n"
++"-h,--help                   help\n"
++"-C,--cconnect <LEFT,RIGHT>  jack-connect to capture client   default none\n"
++"-P,--pconnect <LEFT,RIGHT>  jack-connect to playback client  default none\n"
++ "-a,--alsaconnect            jack-connect to alsa_pcm\n",
++ program
++ );
+ }
+ 
+ int run_jack(int argc, char *argv[])

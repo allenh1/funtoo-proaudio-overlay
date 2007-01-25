@@ -1,0 +1,16 @@
+#!/bin/sh
+
+CONFIGDIR=~/.mx44
+DFLPATCHNAME=mx41patch
+DFLPATCHDIR=/usr/share/mx44
+
+# Create ~/.mx44 with default patch if it doesn't exist already
+if [ ! -e "$CONFIGDIR/$DFLPATCHNAME" ]; then
+	mkdir -p "$CONFIGDIR"
+	cp "$DFLPATCHDIR/$DFLPATCHNAME" "$CONFIGDIR"
+fi
+
+# Start real synth
+cd "$CONFIGDIR"
+`dirname $0`/mx44.bin $@
+

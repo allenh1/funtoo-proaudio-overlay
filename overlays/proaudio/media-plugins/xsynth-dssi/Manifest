@@ -1,0 +1,8 @@
+DIST xsynth-dssi-0.9.0.tar.gz 366658 RMD160 bf86ecc38faefd2ed484fc0b3f51bac7606ff6bc SHA1 a12ed2b3a9dcbacd081f3cebb6fcb89b8833a11f SHA256 5bfc246f19a044f196660650bcfbab12556c3e9bf2c5cb7de6c0e59ba83af6bf
+EBUILD xsynth-dssi-0.9.0.ebuild 611 RMD160 1cc0ab04359fc33784ce809d6275ab0bee755b74 SHA1 325028efc7f50eab82485d4391ab1892e29daa66 SHA256 271393a3f153ee2e31c5a1956e0b99d30ea7a5defb43056fd5cb802db7a792b3
+MD5 8e6757ba4fd0434871f506a2c3c31808 xsynth-dssi-0.9.0.ebuild 611
+RMD160 1cc0ab04359fc33784ce809d6275ab0bee755b74 xsynth-dssi-0.9.0.ebuild 611
+SHA256 271393a3f153ee2e31c5a1956e0b99d30ea7a5defb43056fd5cb802db7a792b3 xsynth-dssi-0.9.0.ebuild 611
+MD5 1a64385621fbc780c11a74611cc03d7a files/digest-xsynth-dssi-0.9.0 253
+RMD160 caf2e0e83f49fb5a1673966b27b9c1652b0d6ceb files/digest-xsynth-dssi-0.9.0 253
+SHA256 91724df9dca1c60310989edfacec7daeb23a86f246ef8e8f25f125d8768e1b23 files/digest-xsynth-dssi-0.9.0 253

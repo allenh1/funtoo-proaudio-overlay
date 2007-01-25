@@ -1,0 +1,664 @@
+diff -Naur whysynth-20060122/src/dssp_event.h whysynth-20060122-envhack/src/dssp_event.h
+--- whysynth-20060122/src/dssp_event.h	2006-01-16 09:54:23.000000000 -0700
++++ whysynth-20060122-envhack/src/dssp_event.h	2006-12-21 16:56:35.000000000 -0700
+@@ -90,17 +90,9 @@
+ struct _y_seg_t
+ {
+     LADSPA_Data    *mode;
+-    LADSPA_Data    *shape1;
+-    LADSPA_Data    *time1;
+-    LADSPA_Data    *level1;
+-    LADSPA_Data    *shape2;
+-    LADSPA_Data    *time2;
+-    LADSPA_Data    *level2;
+-    LADSPA_Data    *shape3;
+-    LADSPA_Data    *time3;
+-    LADSPA_Data    *level3;
+-    LADSPA_Data    *shape4;
+-    LADSPA_Data    *time4;
++    LADSPA_Data    *shape[4];
++    LADSPA_Data    *time[4];
++    LADSPA_Data    *level[4];  /* level[3] always points to a 0.0f */
+     LADSPA_Data    *vel_level_sens;
+     LADSPA_Data    *vel_time_scale;
+     LADSPA_Data    *kbd_time_scale;
+diff -Naur whysynth-20060122/src/dssp_synth.c whysynth-20060122-envhack/src/dssp_synth.c
+--- whysynth-20060122/src/dssp_synth.c	2006-01-16 09:55:26.000000000 -0700
++++ whysynth-20060122-envhack/src/dssp_synth.c	2006-12-21 16:56:35.000000000 -0700
+@@ -103,7 +103,7 @@
+ {
+     y_synth_t *synth = (y_synth_t *)calloc(1, sizeof(y_synth_t));
+     int i;
+-    static float glfo_delay_0 = 0.0f;
++    static float static_zero = 0.0f;
+ 
+     if (!synth) return NULL;
+ 
+@@ -190,7 +190,12 @@
+     synth->osc2.sampleset = NULL;
+     synth->osc3.sampleset = NULL;
+     synth->osc4.sampleset = NULL;
+-    synth->glfo.delay = &glfo_delay_0;
++    synth->glfo.delay = &static_zero;
++    synth->ego.level[3] = &static_zero;
++    synth->eg1.level[3] = &static_zero;
++    synth->eg2.level[3] = &static_zero;
++    synth->eg3.level[3] = &static_zero;
++    synth->eg4.level[3] = &static_zero;
+     synth->mod[Y_MOD_ONE].value = 1.0f;
+     synth->mod[Y_MOD_ONE].next_value = 1.0f;
+     synth->mod[Y_MOD_ONE].delta = 0.0f;
+@@ -335,17 +340,18 @@
+       case Y_PORT_MLFO_RANDOM_FREQ:   synth->mlfo_random_freq   = data;  break;
+ 
+       case Y_PORT_EGO_MODE:           synth->ego.mode           = data;  break;
+-      case Y_PORT_EGO_SHAPE1:         synth->ego.shape1         = data;  break;
+-      case Y_PORT_EGO_TIME1:          synth->ego.time1          = data;  break;
+-      case Y_PORT_EGO_LEVEL1:         synth->ego.level1         = data;  break;
+-      case Y_PORT_EGO_SHAPE2:         synth->ego.shape2         = data;  break;
+-      case Y_PORT_EGO_TIME2:          synth->ego.time2          = data;  break;
+-      case Y_PORT_EGO_LEVEL2:         synth->ego.level2         = data;  break;
+-      case Y_PORT_EGO_SHAPE3:         synth->ego.shape3         = data;  break;
+-      case Y_PORT_EGO_TIME3:          synth->ego.time3          = data;  break;
+-      case Y_PORT_EGO_LEVEL3:         synth->ego.level3         = data;  break;
+-      case Y_PORT_EGO_SHAPE4:         synth->ego.shape4         = data;  break;
+-      case Y_PORT_EGO_TIME4:          synth->ego.time4          = data;  break;
++      case Y_PORT_EGO_SHAPE1:         synth->ego.shape[0]       = data;  break;
++      case Y_PORT_EGO_TIME1:          synth->ego.time[0]        = data;  break;
++      case Y_PORT_EGO_LEVEL1:         synth->ego.level[0]       = data;  break;
++      case Y_PORT_EGO_SHAPE2:         synth->ego.shape[1]       = data;  break;
++      case Y_PORT_EGO_TIME2:          synth->ego.time[1]        = data;  break;
++      case Y_PORT_EGO_LEVEL2:         synth->ego.level[1]       = data;  break;
++      case Y_PORT_EGO_SHAPE3:         synth->ego.shape[2]       = data;  break;
++      case Y_PORT_EGO_TIME3:          synth->ego.time[2]        = data;  break;
++      case Y_PORT_EGO_LEVEL3:         synth->ego.level[2]       = data;  break;
++      case Y_PORT_EGO_SHAPE4:         synth->ego.shape[3]       = data;  break;
++      case Y_PORT_EGO_TIME4:          synth->ego.time[3]        = data;  break;
++      /* synth->ego.level[3] always points to a 0.0f */
+       case Y_PORT_EGO_VEL_LEVEL_SENS: synth->ego.vel_level_sens = data;  break;
+       case Y_PORT_EGO_VEL_TIME_SCALE: synth->ego.vel_time_scale = data;  break;
+       case Y_PORT_EGO_KBD_TIME_SCALE: synth->ego.kbd_time_scale = data;  break;
+@@ -353,17 +359,18 @@
+       case Y_PORT_EGO_AMP_MOD_AMT:    synth->ego.amp_mod_amt    = data;  break;
+ 
+       case Y_PORT_EG1_MODE:           synth->eg1.mode           = data;  break;
+-      case Y_PORT_EG1_SHAPE1:         synth->eg1.shape1         = data;  break;
+-      case Y_PORT_EG1_TIME1:          synth->eg1.time1          = data;  break;
+-      case Y_PORT_EG1_LEVEL1:         synth->eg1.level1         = data;  break;
+-      case Y_PORT_EG1_SHAPE2:         synth->eg1.shape2         = data;  break;
+-      case Y_PORT_EG1_TIME2:          synth->eg1.time2          = data;  break;
+-      case Y_PORT_EG1_LEVEL2:         synth->eg1.level2         = data;  break;
+-      case Y_PORT_EG1_SHAPE3:         synth->eg1.shape3         = data;  break;
+-      case Y_PORT_EG1_TIME3:          synth->eg1.time3          = data;  break;
+-      case Y_PORT_EG1_LEVEL3:         synth->eg1.level3         = data;  break;
+-      case Y_PORT_EG1_SHAPE4:         synth->eg1.shape4         = data;  break;
+-      case Y_PORT_EG1_TIME4:          synth->eg1.time4          = data;  break;
++      case Y_PORT_EG1_SHAPE1:         synth->eg1.shape[0]       = data;  break;
++      case Y_PORT_EG1_TIME1:          synth->eg1.time[0]        = data;  break;
++      case Y_PORT_EG1_LEVEL1:         synth->eg1.level[0]       = data;  break;
++      case Y_PORT_EG1_SHAPE2:         synth->eg1.shape[1]       = data;  break;
++      case Y_PORT_EG1_TIME2:          synth->eg1.time[1]        = data;  break;
++      case Y_PORT_EG1_LEVEL2:         synth->eg1.level[1]       = data;  break;
++      case Y_PORT_EG1_SHAPE3:         synth->eg1.shape[2]       = data;  break;
++      case Y_PORT_EG1_TIME3:          synth->eg1.time[2]        = data;  break;
++      case Y_PORT_EG1_LEVEL3:         synth->eg1.level[2]       = data;  break;
++      case Y_PORT_EG1_SHAPE4:         synth->eg1.shape[3]       = data;  break;
++      case Y_PORT_EG1_TIME4:          synth->eg1.time[3]        = data;  break;
++      /* synth->eg1.level[3] always points to a 0.0f */
+       case Y_PORT_EG1_VEL_LEVEL_SENS: synth->eg1.vel_level_sens = data;  break;
+       case Y_PORT_EG1_VEL_TIME_SCALE: synth->eg1.vel_time_scale = data;  break;
+       case Y_PORT_EG1_KBD_TIME_SCALE: synth->eg1.kbd_time_scale = data;  break;
+@@ -371,17 +378,18 @@
+       case Y_PORT_EG1_AMP_MOD_AMT:    synth->eg1.amp_mod_amt    = data;  break;
+ 
+       case Y_PORT_EG2_MODE:           synth->eg2.mode           = data;  break;
+-      case Y_PORT_EG2_SHAPE1:         synth->eg2.shape1         = data;  break;
+-      case Y_PORT_EG2_TIME1:          synth->eg2.time1          = data;  break;
+-      case Y_PORT_EG2_LEVEL1:         synth->eg2.level1         = data;  break;
+-      case Y_PORT_EG2_SHAPE2:         synth->eg2.shape2         = data;  break;
+-      case Y_PORT_EG2_TIME2:          synth->eg2.time2          = data;  break;
+-      case Y_PORT_EG2_LEVEL2:         synth->eg2.level2         = data;  break;
+-      case Y_PORT_EG2_SHAPE3:         synth->eg2.shape3         = data;  break;
+-      case Y_PORT_EG2_TIME3:          synth->eg2.time3          = data;  break;
+-      case Y_PORT_EG2_LEVEL3:         synth->eg2.level3         = data;  break;
+-      case Y_PORT_EG2_SHAPE4:         synth->eg2.shape4         = data;  break;
+-      case Y_PORT_EG2_TIME4:          synth->eg2.time4          = data;  break;
++      case Y_PORT_EG2_SHAPE1:         synth->eg2.shape[0]       = data;  break;
++      case Y_PORT_EG2_TIME1:          synth->eg2.time[0]        = data;  break;
++      case Y_PORT_EG2_LEVEL1:         synth->eg2.level[0]       = data;  break;
++      case Y_PORT_EG2_SHAPE2:         synth->eg2.shape[1]       = data;  break;
++      case Y_PORT_EG2_TIME2:          synth->eg2.time[1]        = data;  break;
++      case Y_PORT_EG2_LEVEL2:         synth->eg2.level[1]       = data;  break;
++      case Y_PORT_EG2_SHAPE3:         synth->eg2.shape[2]       = data;  break;
++      case Y_PORT_EG2_TIME3:          synth->eg2.time[2]        = data;  break;
++      case Y_PORT_EG2_LEVEL3:         synth->eg2.level[2]       = data;  break;
++      case Y_PORT_EG2_SHAPE4:         synth->eg2.shape[3]       = data;  break;
++      case Y_PORT_EG2_TIME4:          synth->eg2.time[3]        = data;  break;
++      /* synth->eg2.level[3] always points to a 0.0f */
+       case Y_PORT_EG2_VEL_LEVEL_SENS: synth->eg2.vel_level_sens = data;  break;
+       case Y_PORT_EG2_VEL_TIME_SCALE: synth->eg2.vel_time_scale = data;  break;
+       case Y_PORT_EG2_KBD_TIME_SCALE: synth->eg2.kbd_time_scale = data;  break;
+@@ -389,17 +397,18 @@
+       case Y_PORT_EG2_AMP_MOD_AMT:    synth->eg2.amp_mod_amt    = data;  break;
+ 
+       case Y_PORT_EG3_MODE:           synth->eg3.mode           = data;  break;
+-      case Y_PORT_EG3_SHAPE1:         synth->eg3.shape1         = data;  break;
+-      case Y_PORT_EG3_TIME1:          synth->eg3.time1          = data;  break;
+-      case Y_PORT_EG3_LEVEL1:         synth->eg3.level1         = data;  break;
+-      case Y_PORT_EG3_SHAPE2:         synth->eg3.shape2         = data;  break;
+-      case Y_PORT_EG3_TIME2:          synth->eg3.time2          = data;  break;
+-      case Y_PORT_EG3_LEVEL2:         synth->eg3.level2         = data;  break;
+-      case Y_PORT_EG3_SHAPE3:         synth->eg3.shape3         = data;  break;
+-      case Y_PORT_EG3_TIME3:          synth->eg3.time3          = data;  break;
+-      case Y_PORT_EG3_LEVEL3:         synth->eg3.level3         = data;  break;
+-      case Y_PORT_EG3_SHAPE4:         synth->eg3.shape4         = data;  break;
+-      case Y_PORT_EG3_TIME4:          synth->eg3.time4          = data;  break;
++      case Y_PORT_EG3_SHAPE1:         synth->eg3.shape[0]       = data;  break;
++      case Y_PORT_EG3_TIME1:          synth->eg3.time[0]        = data;  break;
++      case Y_PORT_EG3_LEVEL1:         synth->eg3.level[0]       = data;  break;
++      case Y_PORT_EG3_SHAPE2:         synth->eg3.shape[1]       = data;  break;
++      case Y_PORT_EG3_TIME2:          synth->eg3.time[1]        = data;  break;
++      case Y_PORT_EG3_LEVEL2:         synth->eg3.level[1]       = data;  break;
++      case Y_PORT_EG3_SHAPE3:         synth->eg3.shape[2]       = data;  break;
++      case Y_PORT_EG3_TIME3:          synth->eg3.time[2]        = data;  break;
++      case Y_PORT_EG3_LEVEL3:         synth->eg3.level[2]       = data;  break;
++      case Y_PORT_EG3_SHAPE4:         synth->eg3.shape[3]       = data;  break;
++      case Y_PORT_EG3_TIME4:          synth->eg3.time[3]        = data;  break;
++      /* synth->eg3.level[3] always points to a 0.0f */
+       case Y_PORT_EG3_VEL_LEVEL_SENS: synth->eg3.vel_level_sens = data;  break;
+       case Y_PORT_EG3_VEL_TIME_SCALE: synth->eg3.vel_time_scale = data;  break;
+       case Y_PORT_EG3_KBD_TIME_SCALE: synth->eg3.kbd_time_scale = data;  break;
+@@ -407,17 +416,18 @@
+       case Y_PORT_EG3_AMP_MOD_AMT:    synth->eg3.amp_mod_amt    = data;  break;
+ 
+       case Y_PORT_EG4_MODE:           synth->eg4.mode           = data;  break;
+-      case Y_PORT_EG4_SHAPE1:         synth->eg4.shape1         = data;  break;
+-      case Y_PORT_EG4_TIME1:          synth->eg4.time1          = data;  break;
+-      case Y_PORT_EG4_LEVEL1:         synth->eg4.level1         = data;  break;
+-      case Y_PORT_EG4_SHAPE2:         synth->eg4.shape2         = data;  break;
+-      case Y_PORT_EG4_TIME2:          synth->eg4.time2          = data;  break;
+-      case Y_PORT_EG4_LEVEL2:         synth->eg4.level2         = data;  break;
+-      case Y_PORT_EG4_SHAPE3:         synth->eg4.shape3         = data;  break;
+-      case Y_PORT_EG4_TIME3:          synth->eg4.time3          = data;  break;
+-      case Y_PORT_EG4_LEVEL3:         synth->eg4.level3         = data;  break;
+-      case Y_PORT_EG4_SHAPE4:         synth->eg4.shape4         = data;  break;
+-      case Y_PORT_EG4_TIME4:          synth->eg4.time4          = data;  break;
++      case Y_PORT_EG4_SHAPE1:         synth->eg4.shape[0]       = data;  break;
++      case Y_PORT_EG4_TIME1:          synth->eg4.time[0]        = data;  break;
++      case Y_PORT_EG4_LEVEL1:         synth->eg4.level[0]       = data;  break;
++      case Y_PORT_EG4_SHAPE2:         synth->eg4.shape[1]       = data;  break;
++      case Y_PORT_EG4_TIME2:          synth->eg4.time[1]        = data;  break;
++      case Y_PORT_EG4_LEVEL2:         synth->eg4.level[1]       = data;  break;
++      case Y_PORT_EG4_SHAPE3:         synth->eg4.shape[2]       = data;  break;
++      case Y_PORT_EG4_TIME3:          synth->eg4.time[2]        = data;  break;
++      case Y_PORT_EG4_LEVEL3:         synth->eg4.level[2]       = data;  break;
++      case Y_PORT_EG4_SHAPE4:         synth->eg4.shape[3]       = data;  break;
++      case Y_PORT_EG4_TIME4:          synth->eg4.time[3]        = data;  break;
++      /* synth->eg4.level[3] always points to a 0.0f */
+       case Y_PORT_EG4_VEL_LEVEL_SENS: synth->eg4.vel_level_sens = data;  break;
+       case Y_PORT_EG4_VEL_TIME_SCALE: synth->eg4.vel_time_scale = data;  break;
+       case Y_PORT_EG4_KBD_TIME_SCALE: synth->eg4.kbd_time_scale = data;  break;
+diff -Naur whysynth-20060122/src/output.wav whysynth-20060122-envhack/src/output.wav
+--- whysynth-20060122/src/output.wav	1969-12-31 17:00:00.000000000 -0700
++++ whysynth-20060122-envhack/src/output.wav	2006-12-25 22:28:59.000000000 -0700
+@@ -0,0 +1 @@
++RIFF   WAVEfmt      D¬  ˆX   data    
+\ No newline at end of file
+diff -Naur whysynth-20060122/src/whysynth_voice.c whysynth-20060122-envhack/src/whysynth_voice.c
+--- whysynth-20060122/src/whysynth_voice.c	2006-01-22 10:53:07.000000000 -0700
++++ whysynth-20060122-envhack/src/whysynth_voice.c	2007-01-11 13:58:42.000000000 -0700
+@@ -78,8 +78,8 @@
+            float start, struct vmod *destmod)
+ {
+     int mode = lrintf(*(seg->mode)),
+-        i;
+-    float f, inv_duration, mult0, mult1;
++        time, i;
++    float f, inv_duration, level, mult0, mult1;
+ 
+     if (mode == 0) {  /* Off */
+         veg->state = DSSP_EG_FINISHED;
+@@ -89,10 +89,10 @@
+         return;
+     }
+ 
+-    veg->shape[0] = lrintf(*(seg->shape1));
+-    veg->shape[1] = lrintf(*(seg->shape2));
+-    veg->shape[2] = lrintf(*(seg->shape3));
+-    veg->shape[3] = lrintf(*(seg->shape4));
++    veg->shape[0] = lrintf(*(seg->shape[0]));
++    veg->shape[1] = lrintf(*(seg->shape[1]));
++    veg->shape[2] = lrintf(*(seg->shape[2]));
++    veg->shape[3] = lrintf(*(seg->shape[3]));
+     if (veg->shape[0] < 0 || veg->shape[0] > 11) veg->shape[0] = 0;
+     if (veg->shape[1] < 0 || veg->shape[1] > 11) veg->shape[1] = 0;
+     if (veg->shape[2] < 0 || veg->shape[2] > 11) veg->shape[2] = 0;
+@@ -109,14 +109,9 @@
+         else if (f > 105.0f) f = 105.0f;  /* ... 8 oughta be enough range */
+         f = pitch_to_frequency(f);
+     }
+-    veg->time[0] = lrintf(*(seg->time1) * f * synth->control_rate);
+-    veg->time[1] = lrintf(*(seg->time2) * f * synth->control_rate);
+-    veg->time[2] = lrintf(*(seg->time3) * f * synth->control_rate);
+-    veg->time[3] = lrintf(*(seg->time4) * f * synth->control_rate);
+-    if (veg->time[0] < 1) veg->time[0] = 1;
+-    if (veg->time[1] < 1) veg->time[1] = 1;
+-    if (veg->time[2] < 1) veg->time[2] = 1;
+-    if (veg->time[3] < 1) veg->time[3] = 1;
++    veg->time_scale = f * synth->control_rate;
++    time = lrintf(*(seg->time[0]) * veg->time_scale);
++    if (time < 1) time = 1;
+ 
+     /* calculate segment endpoint levels, adjusted for velocity
+      * curve at vel_level_sens=0.5 modeled after my TX-7 (gnuplot makes me wet) */
+@@ -133,17 +128,13 @@
+         else
+             f = f0 * (2.0f - s) + f * f * (s - 1.0f);
+     }
++    veg->level_scale = f;
+ 
+-    veg->level[0] = *(seg->level1) * f;
+-    veg->level[1] = *(seg->level2) * f;
+-    veg->level[2] = *(seg->level3) * f;
+-    veg->level[3] = 0.0f;
++    level = *(seg->level[0]) * f;
+ 
+     if (mode == 1) { /* simple ADSR */
+-        veg->level[0] = f;
++        level = f;
+         veg->shape[1] = 3;  /* linear */
+-        veg->time[1] = 1;
+-        veg->level[1] = f;
+         veg->sustain_segment = 2;
+     } else
+         veg->sustain_segment = 4 - mode;
+@@ -152,19 +143,21 @@
+     veg->segment = 0;
+ 
+     if (synth->control_remains != Y_CONTROL_PERIOD) {
+-        veg->count = veg->time[0];
+-        inv_duration = 1.0f / ((float)veg->time[0] + 
++        veg->count = time;
++        inv_duration = 1.0f / ((float)time + 
+                                    (float)(Y_CONTROL_PERIOD - synth->control_remains) /
+                                        (float)Y_CONTROL_PERIOD);
+     } else {
+-        veg->count = veg->time[0] - 1;
+-        inv_duration = 1.0f / (float)veg->time[0];
++        veg->count = time - 1;
++        inv_duration = 1.0f / (float)time;
+     }
++    veg->time = time;
+ 
+     i = veg->shape[0];
+-    f = start - veg->level[0];  /* segment delta * -1 */
++    f = start - level;  /* segment delta * -1 */
+ 
+-    veg->d = eg_shape_coeffs[i][3] * f + veg->level[0];
++    veg->target = level;
++    veg->d = eg_shape_coeffs[i][3] * f + level;
+     f *= inv_duration;
+     veg->c = eg_shape_coeffs[i][2] * f;
+     f *= inv_duration;
+@@ -186,6 +179,9 @@
+     f = (float)veg->count;
+     destmod->next_value = (((veg->a * f + veg->b) * f + veg->c) * f + veg->d) * mult1;
+     destmod->delta = (destmod->next_value - destmod->value) / (float)synth->control_remains;
++
++    veg->current_segment_time = (float)*(seg->time[veg->segment]);
++    veg->current_segment_level = (float)*(seg->level[veg->segment]);
+ }
+ 
+ /*
+@@ -236,8 +232,9 @@
+ y_eg_release(y_synth_t *synth, y_seg_t *seg, y_voice_t *voice, struct veg *veg,
+              struct vmod *destmod)
+ {
+-    float f, inv_duration, mult;
+-    int i;
++    int mode = lrintf(*(seg->mode)),
++        time, i;
++    float f, inv_duration, level, mult;
+ 
+     if (veg->state == DSSP_EG_FINISHED || veg->sustain_segment < 0) /* finished, 'Off', or 'One-Shot' */
+         return;
+@@ -245,22 +242,32 @@
+     veg->state = DSSP_EG_RUNNING;
+     veg->segment = veg->sustain_segment + 1;
+ 
++    if (veg->segment == 1 && mode == 1) {  /* second segment of simple ADSR */
++        time = 1;
++        level = veg->level_scale;
++    } else {
++        time = lrintf(*(seg->time[veg->segment]) * veg->time_scale);
++        if (time < 1) time = 1;
++        level = *(seg->level[veg->segment]) * veg->level_scale;
++    }
++
+     if (synth->control_remains != Y_CONTROL_PERIOD) {
+         f = (float)(Y_CONTROL_PERIOD - synth->control_remains) / (float)Y_CONTROL_PERIOD;
+-        inv_duration = 1.0f / ((float)veg->time[veg->segment] + f);
++        inv_duration = 1.0f / ((float)time + f);
+         f += (float)veg->count;
+-        veg->count = veg->time[veg->segment];
++        veg->count = time;
+     } else {
+         f = (float)veg->count;
+-        inv_duration = 1.0f / (float)veg->time[veg->segment];
+-        veg->count = veg->time[veg->segment] - 1;
++        inv_duration = 1.0f / (float)time;
++        veg->count = time - 1;
+     }
+ 
+     f = ((veg->a * f + veg->b) * f + veg->c) * f + veg->d; /* current envelope value before modulation */
+-    f = f - veg->level[veg->segment];                      /* segment delta * -1 */
++    f = f - level;                                         /* segment delta * -1 */
+     i = veg->shape[veg->segment];
+ 
+-    veg->d = eg_shape_coeffs[i][3] * f + veg->level[veg->segment];
++    veg->target = level;
++    veg->d = eg_shape_coeffs[i][3] * f + level;
+     f *= inv_duration;
+     veg->c = eg_shape_coeffs[i][2] * f;
+     f *= inv_duration;
+@@ -666,17 +673,17 @@
+     *(synth->mlfo_random_freq)  = patch->mlfo_random_freq;
+ 
+     *(synth->ego.mode)           = (float)patch->ego.mode;
+-    *(synth->ego.shape1)         = (float)patch->ego.shape1;
+-    *(synth->ego.time1)          = patch->ego.time1;
+-    *(synth->ego.level1)         = patch->ego.level1;
+-    *(synth->ego.shape2)         = (float)patch->ego.shape2;
+-    *(synth->ego.time2)          = patch->ego.time2;
+-    *(synth->ego.level2)         = patch->ego.level2;
+-    *(synth->ego.shape3)         = (float)patch->ego.shape3;
+-    *(synth->ego.time3)          = patch->ego.time3;
+-    *(synth->ego.level3)         = patch->ego.level3;
+-    *(synth->ego.shape4)         = (float)patch->ego.shape4;
+-    *(synth->ego.time4)          = patch->ego.time4;
++    *(synth->ego.shape[0])       = (float)patch->ego.shape1;
++    *(synth->ego.time[0])        = patch->ego.time1;
++    *(synth->ego.level[0])       = patch->ego.level1;
++    *(synth->ego.shape[1])       = (float)patch->ego.shape2;
++    *(synth->ego.time[1])        = patch->ego.time2;
++    *(synth->ego.level[1])       = patch->ego.level2;
++    *(synth->ego.shape[2])       = (float)patch->ego.shape3;
++    *(synth->ego.time[2])        = patch->ego.time3;
++    *(synth->ego.level[2])       = patch->ego.level3;
++    *(synth->ego.shape[3])       = (float)patch->ego.shape4;
++    *(synth->ego.time[3])        = patch->ego.time4;
+     *(synth->ego.vel_level_sens) = patch->ego.vel_level_sens;
+     *(synth->ego.vel_time_scale) = patch->ego.vel_time_scale;
+     *(synth->ego.kbd_time_scale) = patch->ego.kbd_time_scale;
+@@ -684,17 +691,17 @@
+     *(synth->ego.amp_mod_amt)    = patch->ego.amp_mod_amt;
+ 
+     *(synth->eg1.mode)           = (float)patch->eg1.mode;
+-    *(synth->eg1.shape1)         = (float)patch->eg1.shape1;
+-    *(synth->eg1.time1)          = patch->eg1.time1;
+-    *(synth->eg1.level1)         = patch->eg1.level1;
+-    *(synth->eg1.shape2)         = (float)patch->eg1.shape2;
+-    *(synth->eg1.time2)          = patch->eg1.time2;
+-    *(synth->eg1.level2)         = patch->eg1.level2;
+-    *(synth->eg1.shape3)         = (float)patch->eg1.shape3;
+-    *(synth->eg1.time3)          = patch->eg1.time3;
+-    *(synth->eg1.level3)         = patch->eg1.level3;
+-    *(synth->eg1.shape4)         = (float)patch->eg1.shape4;
+-    *(synth->eg1.time4)          = patch->eg1.time4;
++    *(synth->eg1.shape[0])       = (float)patch->eg1.shape1;
++    *(synth->eg1.time[0])        = patch->eg1.time1;
++    *(synth->eg1.level[0])       = patch->eg1.level1;
++    *(synth->eg1.shape[1])       = (float)patch->eg1.shape2;
++    *(synth->eg1.time[1])        = patch->eg1.time2;
++    *(synth->eg1.level[1])       = patch->eg1.level2;
++    *(synth->eg1.shape[2])       = (float)patch->eg1.shape3;
++    *(synth->eg1.time[2])        = patch->eg1.time3;
++    *(synth->eg1.level[2])       = patch->eg1.level3;
++    *(synth->eg1.shape[3])       = (float)patch->eg1.shape4;
++    *(synth->eg1.time[3])        = patch->eg1.time4;
+     *(synth->eg1.vel_level_sens) = patch->eg1.vel_level_sens;
+     *(synth->eg1.vel_time_scale) = patch->eg1.vel_time_scale;
+     *(synth->eg1.kbd_time_scale) = patch->eg1.kbd_time_scale;
+@@ -702,17 +709,17 @@
+     *(synth->eg1.amp_mod_amt)    = patch->eg1.amp_mod_amt;
+ 
+     *(synth->eg2.mode)           = (float)patch->eg2.mode;
+-    *(synth->eg2.shape1)         = (float)patch->eg2.shape1;
+-    *(synth->eg2.time1)          = patch->eg2.time1;
+-    *(synth->eg2.level1)         = patch->eg2.level1;
+-    *(synth->eg2.shape2)         = (float)patch->eg2.shape2;
+-    *(synth->eg2.time2)          = patch->eg2.time2;
+-    *(synth->eg2.level2)         = patch->eg2.level2;
+-    *(synth->eg2.shape3)         = (float)patch->eg2.shape3;
+-    *(synth->eg2.time3)          = patch->eg2.time3;
+-    *(synth->eg2.level3)         = patch->eg2.level3;
+-    *(synth->eg2.shape4)         = (float)patch->eg2.shape4;
+-    *(synth->eg2.time4)          = patch->eg2.time4;
++    *(synth->eg2.shape[0])       = (float)patch->eg2.shape1;
++    *(synth->eg2.time[0])        = patch->eg2.time1;
++    *(synth->eg2.level[0])       = patch->eg2.level1;
++    *(synth->eg2.shape[1])       = (float)patch->eg2.shape2;
++    *(synth->eg2.time[1])        = patch->eg2.time2;
++    *(synth->eg2.level[1])       = patch->eg2.level2;
++    *(synth->eg2.shape[2])       = (float)patch->eg2.shape3;
++    *(synth->eg2.time[2])        = patch->eg2.time3;
++    *(synth->eg2.level[2])       = patch->eg2.level3;
++    *(synth->eg2.shape[3])       = (float)patch->eg2.shape4;
++    *(synth->eg2.time[3])        = patch->eg2.time4;
+     *(synth->eg2.vel_level_sens) = patch->eg2.vel_level_sens;
+     *(synth->eg2.vel_time_scale) = patch->eg2.vel_time_scale;
+     *(synth->eg2.kbd_time_scale) = patch->eg2.kbd_time_scale;
+@@ -720,17 +727,17 @@
+     *(synth->eg2.amp_mod_amt)    = patch->eg2.amp_mod_amt;
+ 
+     *(synth->eg3.mode)           = (float)patch->eg3.mode;
+-    *(synth->eg3.shape1)         = (float)patch->eg3.shape1;
+-    *(synth->eg3.time1)          = patch->eg3.time1;
+-    *(synth->eg3.level1)         = patch->eg3.level1;
+-    *(synth->eg3.shape2)         = (float)patch->eg3.shape2;
+-    *(synth->eg3.time2)          = patch->eg3.time2;
+-    *(synth->eg3.level2)         = patch->eg3.level2;
+-    *(synth->eg3.shape3)         = (float)patch->eg3.shape3;
+-    *(synth->eg3.time3)          = patch->eg3.time3;
+-    *(synth->eg3.level3)         = patch->eg3.level3;
+-    *(synth->eg3.shape4)         = (float)patch->eg3.shape4;
+-    *(synth->eg3.time4)          = patch->eg3.time4;
++    *(synth->eg3.shape[0])       = (float)patch->eg3.shape1;
++    *(synth->eg3.time[0])        = patch->eg3.time1;
++    *(synth->eg3.level[0])       = patch->eg3.level1;
++    *(synth->eg3.shape[1])       = (float)patch->eg3.shape2;
++    *(synth->eg3.time[1])        = patch->eg3.time2;
++    *(synth->eg3.level[1])       = patch->eg3.level2;
++    *(synth->eg3.shape[2])       = (float)patch->eg3.shape3;
++    *(synth->eg3.time[2])        = patch->eg3.time3;
++    *(synth->eg3.level[2])       = patch->eg3.level3;
++    *(synth->eg3.shape[3])       = (float)patch->eg3.shape4;
++    *(synth->eg3.time[3])        = patch->eg3.time4;
+     *(synth->eg3.vel_level_sens) = patch->eg3.vel_level_sens;
+     *(synth->eg3.vel_time_scale) = patch->eg3.vel_time_scale;
+     *(synth->eg3.kbd_time_scale) = patch->eg3.kbd_time_scale;
+@@ -738,17 +745,17 @@
+     *(synth->eg3.amp_mod_amt)    = patch->eg3.amp_mod_amt;
+ 
+     *(synth->eg4.mode)           = (float)patch->eg4.mode;
+-    *(synth->eg4.shape1)         = (float)patch->eg4.shape1;
+-    *(synth->eg4.time1)          = patch->eg4.time1;
+-    *(synth->eg4.level1)         = patch->eg4.level1;
+-    *(synth->eg4.shape2)         = (float)patch->eg4.shape2;
+-    *(synth->eg4.time2)          = patch->eg4.time2;
+-    *(synth->eg4.level2)         = patch->eg4.level2;
+-    *(synth->eg4.shape3)         = (float)patch->eg4.shape3;
+-    *(synth->eg4.time3)          = patch->eg4.time3;
+-    *(synth->eg4.level3)         = patch->eg4.level3;
+-    *(synth->eg4.shape4)         = (float)patch->eg4.shape4;
+-    *(synth->eg4.time4)          = patch->eg4.time4;
++    *(synth->eg4.shape[0])       = (float)patch->eg4.shape1;
++    *(synth->eg4.time[0])        = patch->eg4.time1;
++    *(synth->eg4.level[0])       = patch->eg4.level1;
++    *(synth->eg4.shape[1])       = (float)patch->eg4.shape2;
++    *(synth->eg4.time[1])        = patch->eg4.time2;
++    *(synth->eg4.level[1])       = patch->eg4.level2;
++    *(synth->eg4.shape[2])       = (float)patch->eg4.shape3;
++    *(synth->eg4.time[2])        = patch->eg4.time3;
++    *(synth->eg4.level[2])       = patch->eg4.level3;
++    *(synth->eg4.shape[3])       = (float)patch->eg4.shape4;
++    *(synth->eg4.time[3])        = patch->eg4.time4;
+     *(synth->eg4.vel_level_sens) = patch->eg4.vel_level_sens;
+     *(synth->eg4.vel_time_scale) = patch->eg4.vel_time_scale;
+     *(synth->eg4.kbd_time_scale) = patch->eg4.kbd_time_scale;
+diff -Naur whysynth-20060122/src/whysynth_voice.h whysynth-20060122-envhack/src/whysynth_voice.h
+--- whysynth-20060122/src/whysynth_voice.h	2006-01-22 10:49:29.000000000 -0700
++++ whysynth-20060122-envhack/src/whysynth_voice.h	2006-12-25 20:41:02.000000000 -0700
+@@ -249,13 +249,17 @@
+ struct veg
+ {
+     int   shape[4];
+-    int   time[4];          /* in control ticks, index 0 = T1 adjusted for velocity and keyboard */
+-    float level[4];         /* 0.0 to 1.0, adjusted for velocity */
+     int   sustain_segment;  /* 2 for ADSR or AAASR, 1 for AASRR, 0 for ASRRR, -1 for One-Shot */
+ 
+     int   state;            /* enum dssp_eg_state (finished, running, sustaining) */
+     int   segment;          /* 0 to 3 */
+     int   count;            /* control ticks until end of this phase */
++    int   time;
++    float current_segment_time;
++    float current_segment_level;
++    float time_scale;       /* amount to scale envelope times due to velocity time scaling and keyboard time scaling, multiplied by control rate */
++    float level_scale;      /* amount to scale envelope levels due to velocity level sensitivity */
++    float target;           /* segment target level */
+     float a, b, c, d;       /* segment shape function coefficients */
+ };
+ 
+diff -Naur whysynth-20060122/src/whysynth_voice_render.c whysynth-20060122-envhack/src/whysynth_voice_render.c
+--- whysynth-20060122/src/whysynth_voice_render.c	2006-01-22 01:20:23.000000000 -0700
++++ whysynth-20060122-envhack/src/whysynth_voice_render.c	2007-01-12 09:24:03.000000000 -0700
+@@ -319,6 +319,7 @@
+ y_voice_eg_set_next_segment(y_seg_t *seg, y_voice_t *voice, struct veg *veg,
+                             struct vmod *destmod)
+ {
++	
+     if (veg->segment >= 3) {
+ 
+         veg->state = DSSP_EG_FINISHED;
+@@ -347,18 +348,29 @@
+ 
+     } else {
+ 
+-        float f, inv_duration, mult;
+-        int i;
++        int mode = lrintf(*(seg->mode)),
++            time, i;
++        float f, inv_duration, level, mult;
+ 
+         veg->segment++;
+-        veg->count = veg->time[veg->segment] - 1;
+         destmod->value = destmod->next_value;
+ 
+-        f = veg->level[veg->segment - 1] - veg->level[veg->segment];  /* segment delta * -1 */
++        if (veg->segment == 1 && mode == 1) {  /* second segment of simple ADSR */
++            time = 1;
++            level = veg->level_scale;
++        } else {
++            time = lrintf(*(seg->time[veg->segment]) * veg->time_scale);
++            if (time < 1) time = 1;
++            level = *(seg->level[veg->segment]) * veg->level_scale;
++        }
++        veg->count = time - 1;
++
++        f = veg->target - level;  /* segment delta * -1 */
+         i = veg->shape[veg->segment];
+-        inv_duration = 1.0f / (float)veg->time[veg->segment];
++        inv_duration = 1.0f / (float)time;
+ 
+-        veg->d = eg_shape_coeffs[i][3] * f + veg->level[veg->segment];
++        veg->target = level;
++        veg->d = eg_shape_coeffs[i][3] * f + level;
+         f *= inv_duration;
+         veg->c = eg_shape_coeffs[i][2] * f;
+         f *= inv_duration;
+@@ -382,6 +394,61 @@
+     }
+ }
+ 
++static inline void
++y_voice_eg_update_segment(y_seg_t *seg, y_voice_t *voice, struct veg *veg,
++                            struct vmod *destmod)
++{
++        int mode = lrintf(*(seg->mode)),
++            time, i;
++        float f, inv_duration, level, mult;
++	
++        destmod->value = destmod->next_value;
++
++	veg->current_segment_time = (float)*(seg->time[veg->segment]);
++	veg->current_segment_level = (float)*(seg->level[veg->segment]);
++
++        if (veg->segment == 1 && mode == 1) {  /* second segment of simple ADSR */
++            time = 1;
++            level = veg->level_scale;
++        } else {
++            time = lrintf(*(seg->time[veg->segment]) * veg->time_scale);
++            if (time < 1) time = 1;
++            level = *(seg->level[veg->segment]) * veg->level_scale;
++        }
++	
++	//veg->count = (time - 1) - ((veg->time - 1)- veg->count);
++	//if (veg->count < 1) veg->count = 1;
++        veg->count = time - 1;
++	veg->time = time;
++	
++        f = destmod->value - level;  /* segment delta * -1 */
++        i = veg->shape[veg->segment];
++        inv_duration = 1.0f / (float)veg->count;
++        veg->target = level;
++
++        veg->d = eg_shape_coeffs[i][3] * f + level;
++        f *= inv_duration;
++        veg->c = eg_shape_coeffs[i][2] * f;
++        f *= inv_duration;
++        veg->b = eg_shape_coeffs[i][1] * f;
++        f *= inv_duration;
++        veg->a = eg_shape_coeffs[i][0] * f;
++
++        i = y_voice_mod_index(seg->amp_mod_src);
++        mult = *(seg->amp_mod_amt);
++        if (mult > 0.0f) {
++            mult = 1.0f - mult + mult * voice->mod[i].next_value;
++        } else {
++            mult = 1.0f + mult * voice->mod[i].next_value;
++        }
++        f = (float)veg->count;
++        destmod->next_value = (((veg->a * f + veg->b) * f + veg->c) * f + veg->d) * mult;
++        destmod->delta = (destmod->next_value - destmod->value) / (float)Y_CONTROL_PERIOD;
++        
++        // YDB_MESSAGE(YDB_NOTE, " next_segment: eg %p to segment %d\n", veg, veg->segment);
++}
++
++
+ /*
+  * y_voice_update_eg
+  *
+@@ -404,6 +471,7 @@
+         mult = *(seg->amp_mod_amt);
+         if (mult > 0.0f) {
+             mult = 1.0f - mult + mult * voice->mod[i].next_value;
++
+         } else {
+             mult = 1.0f + mult * voice->mod[i].next_value;
+         }
+@@ -434,9 +502,14 @@
+         // YDB_MESSAGE(YDB_NOTE, " update_eg: %g -> %g by %g\n", destmod->value, destmod->next_value, destmod->delta);
+ 
+     } else {
+-
+         y_voice_eg_set_next_segment(seg, voice, veg, destmod);
+     }
++
++    if (veg->current_segment_level != (float)*(seg->level[veg->segment]) || veg->current_segment_time != (float)*(seg->time[veg->segment])){
++    //if (veg->current_segment_level != (float)*(seg->level[veg->segment])){
++    //if (veg->current_segment_time != (float)*(seg->time[veg->segment])){
++        y_voice_eg_update_segment(seg, voice, veg, destmod);
++    }
+ }
+ 
+ /*

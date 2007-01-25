@@ -1,0 +1,15 @@
+--- src/juce_appframework/audio/audio_file_formats/juce_OggVorbisAudioFormat.cpp.orig	2006-05-23 11:40:15.000000000 +0200
++++ src/juce_appframework/audio/audio_file_formats/juce_OggVorbisAudioFormat.cpp	2006-05-23 11:40:36.000000000 +0200
+@@ -37,9 +37,9 @@
+   #define __MACOSX__ 1
+ #endif
+ 
+-#include "oggvorbis/vorbisenc.h"
+-#include "oggvorbis/codec.h"
+-#include "oggvorbis/vorbisfile.h"
++#include "vorbis/vorbisenc.h"
++#include "vorbis/codec.h"
++#include "vorbis/vorbisfile.h"
+ 
+ /*
+     The libraries that you'll need to link into your app for Ogg-Vorbis support are:

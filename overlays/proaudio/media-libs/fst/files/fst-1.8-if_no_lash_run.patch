@@ -1,0 +1,20 @@
+This bad hack is meant to just let fst start without the need
+of a running lash server.
+It's of course better to use fst in conjunction with lash,
+but for quick testing of a vst-plugin I don't like to be forced
+to enable lash.
+
+
+--- a/jfst.c	2006-05-25 22:53:54.000000000 +0200
++++ b/jfst.c	2006-05-27 13:09:46.213171018 +0200
+@@ -250,7 +249,9 @@
+ 
+ 	if (!lash_client) {
+ 		fprintf(stderr, "%s: could not initialise lash\n", __FUNCTION__);
+-		exit(1);
++		fprintf(stderr, "%s: running fst without lash session-support\n", __FUNCTION__);
++		fprintf(stderr, "%s: to enable lash session-support launch the lash server prior fst\n", __FUNCTION__);
++		//exit(1);
+ 	}
+ 
+ 	if (lash_enabled(lash_client)) {

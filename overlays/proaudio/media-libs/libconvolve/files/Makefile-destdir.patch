@@ -1,0 +1,46 @@
+--- libconvolve-0.0.8/Makefile.old	2006-03-10 21:14:14.607374986 +0100
++++ libconvolve-0.0.8/Makefile	2006-03-10 21:17:26.267123521 +0100
+@@ -1,15 +1,15 @@
+ PREFIX=/usr/local
++INSTALL = /usr/bin/install
+ 
+-COMPILE_FLAGS  = -fPIC `pkg-config fftw3f samplerate sndfile --cflags`
++CXXFLAGS = $(CFLAGS) -fPIC `pkg-config fftw3f samplerate sndfile --cflags`
+ #COMPILE_FLAGS += -g
+-COMPILE_FLAGS += -O3 -funroll-loops -funroll-all-loops 
+ 
+ LINK_FLAGS    = `pkg-config fftw3f samplerate sndfile --libs` 
+ 
+ # uncomment the following line if libDSP is not available for
+ # your platform (power pc etc.)...
+ 
+-# COMPILE_FLAGS += -DC_CMUL
++# CXXFLAGS += -DC_CMUL
+ 
+ # ...and comment this one out:
+ 
+@@ -34,7 +34,7 @@
+ 	ar rcs $(ST_TARGET) $(OBJECTS)
+ 
+ $(OBJECTS): %.o: %.c 
+-	$(CC) -c $< $(COMPILE_FLAGS)
++	$(CC) -c $< $(CXXFLAGS)
+ 
+ ringbuffer_test: ringbuffer.o ringbuffer_test.c convolve.c
+ 	$(CC) -o ringbuffer_test ringbuffer_test.c ringbuffer.o -O3
+@@ -50,8 +50,10 @@
+ 
+ .PHONY: install
+ install: $(TARGET)
+-	cp $(TARGET) $(PREFIX)/lib/
+-	cp $(ST_TARGET) $(PREFIX)/lib/
+-	cp convolve.h $(PREFIX)/include/
+-	ldconfig -n $(PREFIX)/lib
+-	ln -s $(PREFIX)/lib/$(SONAME) $(PREFIX)/lib/$(SMALLNAME) || true
++	$(INSTALL) -d $(DESTDIR)$(PREFIX)/lib/ $(DESTDIR)$(PREFIX)/include/
++	$(INSTALL) -m755 $(TARGET) $(DESTDIR)$(PREFIX)/lib/
++	$(INSTALL) -m644 $(ST_TARGET) $(DESTDIR)$(PREFIX)/lib
++	$(INSTALL) -m644 convolve.h  $(DESTDIR)$(PREFIX)/include/
++	ldconfig -n  $(DESTDIR)/$(PREFIX)/lib
++	ln -sf $(PREFIX)/lib/$(TARGET) $(DESTDIR)$(PREFIX)/lib/$(SONAME)
++	ln -sf $(PREFIX)/lib/$(TARGET) $(DESTDIR)$(PREFIX)/lib/$(SMALLNAME)

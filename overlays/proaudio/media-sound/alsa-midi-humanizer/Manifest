@@ -1,0 +1,8 @@
+DIST ALSA-MIDI-Humanizer-0.0.3.tar.gz 3790 RMD160 a081340d6a754f3727d1379a638eb5342618ad95 SHA1 0b1bd5ac60ecfce43053eb6d4a8c923339df7dfc SHA256 83a31b0de08fea2bcc038c06b3a24eeb71beeb3d17cd86acad951a2e12d0c187
+EBUILD alsa-midi-humanizer-0.0.3.ebuild 1132 RMD160 80ee92433ec7f743985d4fd7f51143d42653ccf0 SHA1 2e320f036adc0e22790548b7cb4e3c32ba6594a6 SHA256 7bb43c34376b7fd29bba4b122d5ed60fa83407fcdc8462ff95b0ff171b059a1b
+MD5 2989a52e915b5af57eba03b389906e34 alsa-midi-humanizer-0.0.3.ebuild 1132
+RMD160 80ee92433ec7f743985d4fd7f51143d42653ccf0 alsa-midi-humanizer-0.0.3.ebuild 1132
+SHA256 7bb43c34376b7fd29bba4b122d5ed60fa83407fcdc8462ff95b0ff171b059a1b alsa-midi-humanizer-0.0.3.ebuild 1132
+MD5 c97c5609d34452f99a70cef7fa02c52b files/digest-alsa-midi-humanizer-0.0.3 271
+RMD160 8c1e4bae5db0b73cc3e0dabca5ec7ff8a78176c8 files/digest-alsa-midi-humanizer-0.0.3 271
+SHA256 9fc2d0ddbeecae23dad03f3dff32c897739ead9dbc728f3155a0a625d2708ac9 files/digest-alsa-midi-humanizer-0.0.3 271

@@ -1,0 +1,316 @@
+diff -ru specimen-0.5.1/src/jackdriver.c specimen-0.5.1-jackmidi/src/jackdriver.c
+--- specimen-0.5.1/src/jackdriver.c	2005-01-12 07:50:21.000000000 +0100
++++ specimen-0.5.1-jackmidi/src/jackdriver.c	2005-10-01 05:38:51.931004633 +0200
+@@ -1,6 +1,7 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <jack/jack.h>
++#include <jack/midiport.h>
+ #include <jack/transport.h>
+ #include <gtk/gtk.h>
+ #include <pthread.h>
+@@ -20,6 +21,7 @@
+ static GtkWidget*      config_frame;
+ static jack_port_t*    lport;
+ static jack_port_t*    rport;
++static jack_port_t*    midiport;
+ static jack_client_t*  client;
+ static float*          buffer;
+ static int             rate = 44100;
+@@ -30,12 +32,48 @@
+ /* working together to stop CTS */
+ typedef jack_default_audio_sample_t jack_sample_t;
+ 
++
++static void map_control(unsigned char chan, int param, float value, Tick tick)
++{
++    static struct
++    {
++	int cc;
++	ControlParamType param;
++	float bias;
++	float scale;
++    }
++    map[] = {
++	{ 5, CONTROL_PARAM_PORTAMENTO_TIME, 0, 1},
++	{ 7, CONTROL_PARAM_VOLUME,          0, 1},
++	{10, CONTROL_PARAM_PANNING,        -1, 2},
++	{65, CONTROL_PARAM_PORTAMENTO,      0, 1},
++	{71, CONTROL_PARAM_RESONANCE,       0, 1},
++	{74, CONTROL_PARAM_CUTOFF,          0, 1}
++    };
++    
++    int i;
++     
++    for (i=0; i<sizeof(map)/sizeof(map[0]); ++i)
++	if (map[i].cc == param)
++	    mixer_direct_control(chan, map[i].param, 
++				 value * map[i].scale + map[i].bias, tick);
++}
++
++
+ static int process (jack_nframes_t frames, void* arg)
+ {
+      int i;
+      jack_sample_t* l = (jack_sample_t*) jack_port_get_buffer (lport, frames);
+      jack_sample_t* r = (jack_sample_t*) jack_port_get_buffer (rport, frames);
+      jack_position_t pos;
++     
++     /* MIDI data */
++     void* midi_buf = jack_port_get_buffer(midiport, frames);
++     jack_default_midi_event_t jack_midi_event;
++     jack_nframes_t event_index = 0;
++     jack_nframes_t event_count = 
++       jack_midi_port_get_info(midi_buf, frames)->event_count;
++     unsigned char* midi_data;
+ 
+      /* transport state info */
+      static jack_transport_state_t last_state = JackTransportStopped;
+@@ -67,6 +105,43 @@
+      }
+      last_state = new_state;
+      
++     /* send the JACK MIDI events to the mixer */
++     while (event_index < event_count) {
++       
++          jack_midi_get_event_n(&jack_midi_event, midi_buf,event_index, frames);
++	  midi_data = jack_midi_event.buffer;
++	  
++	  /* TODO: handle 14-bit controllers and RPNs and NRPNs */
++	  
++	  /* note-off */
++	  if (((midi_data[0] & 0xF0) == 0x80) || 
++	      ((midi_data[0] & 0x90) == 0x90 && midi_data[2] == 0)) {
++	       mixer_direct_note_off(midi_data[0] & 0x0F, midi_data[1], 
++				     jack_midi_event.time);
++	  }
++       
++	  /* note-on */
++	  else if ((midi_data[0] & 0xF0) == 0x90) {
++	       mixer_direct_note_on(midi_data[0] & 0x0F, midi_data[1], 
++				    midi_data[2] / 127.0, jack_midi_event.time);
++	  }
++       
++	  /* controller */
++	  else if ((midi_data[0] & 0xF0) == 0xB0) {
++	       map_control(midi_data[0] & 0x0F, midi_data[1], 
++			   midi_data[2] / 127.0, jack_midi_event.time);
++	  }
++       
++	  /* pitch bend */
++	  else if ((midi_data[0] & 0xF0) == 0xE0) {
++	       mixer_direct_control(midi_data[0] & 0x0F, CONTROL_PARAM_PITCH,
++				    ((midi_data[2] << 7) | midi_data[1]) / 
++				    8192.0, jack_midi_event.time);
++	  }
++	  
++          event_index++;
++     }
++     
+      mixer_mixdown (buffer, frames);
+      for (i = 0; i < frames; i++)
+      {
+@@ -195,7 +270,10 @@
+      rport =
+ 	  jack_port_register (client, "out_right", JACK_DEFAULT_AUDIO_TYPE,
+ 			      JackPortIsOutput, 0);
+-
++     midiport =
++	  jack_port_register (client, "midi_input", JACK_DEFAULT_MIDI_TYPE,
++			      JackPortIsInput, 0);
++     
+      rate = jack_get_sample_rate (client);
+      driver_set_samplerate (rate);
+      jack_set_sample_rate_callback (client, sample_rate_change, 0);
+diff -ru specimen-0.5.1/src/mixer.c specimen-0.5.1-jackmidi/src/mixer.c
+--- specimen-0.5.1/src/mixer.c	2005-06-04 18:06:21.000000000 +0200
++++ specimen-0.5.1-jackmidi/src/mixer.c	2005-10-01 05:31:36.469426290 +0200
+@@ -69,9 +69,11 @@
+ /* general variables */
+ static float volume = 0.0;	/* master volume */
+ static MixerPreview preview;	/* current preview sample */
+-static Event events[EVENTMAX];
++static Event events[EVENTMAX];  /* events coming from the MIDI thread */
+ static Event* volatile writer = events;
+ static Event* volatile reader = events;
++static Event direct_events[EVENTMAX]; /* events coming from the audio thread */
++static int direct_events_end;
+ static int samplerate = DRIVER_DEFAULT_SAMPLERATE;
+ 
+ /* advance reader event vector */
+@@ -149,55 +151,91 @@
+ void mixer_mixdown (float *buf, int frames)
+ {
+      Tick curticks = ticks_get_ticks ( ); /* - jack_frames_since_cycle_start() */
++     Event* event = NULL;
+      int wrote = 0;
+      int write;
+      int i;
++     int d = 0;
+      float logvol = 0.0;
+ 
+      /* clear the buffer */
+      for (i = 0; i < frames * 2; i++)
+-	  buf[i] = 0.0;
+-
+-     /* get events */
+-     while (reader != writer)
++	     buf[i] = 0.0;
++     
++     /* adjust the ticks in the direct events */
++     for (i = 0; i < direct_events_end; ++i)
++          direct_events[i].ticks += curticks - frames;
++     
++     /* get the first event */
++     if (reader != writer) {
++          if (d < direct_events_end && direct_events[d].ticks < reader->ticks) {
++               event = &direct_events[d++];
++          }
++          else {
++               event = reader;
++               advance_reader();
++          }
++     }
++     else if (d < direct_events_end)
++          event = &direct_events[d++];
++     
++     /* process events */
++     while (event)
+      {
+-	  if (reader->ticks > curticks)
++	  if (event->ticks > curticks)
+ 	       break;
+ 
+-	  write = reader->ticks - (curticks - frames + wrote);
++	  write = event->ticks - (curticks - frames + wrote);
+ 	  if (write > 0)
+           {
+                 patch_render(buf + wrote*2, write);
+                 wrote += write;
+           }
+ 
+-	  switch (reader->type)
++	  switch (event->type)
+ 	  {
+ 	  case MIXER_NOTEON:
+-	       patch_trigger (reader->note.chan, reader->note.note, reader->note.vel, reader->ticks);
++	       patch_trigger (event->note.chan, event->note.note, event->note.vel, event->ticks);
+ 	       break;
+ 	  case MIXER_NOTEON_WITH_ID:
+-	       patch_trigger_with_id (reader->id_note.id, reader->id_note.note,
+-				      reader->id_note.vel, reader->ticks);
++	       patch_trigger_with_id (event->id_note.id, event->id_note.note,
++				      event->id_note.vel, event->ticks);
+ 	       break;
+ 	  case MIXER_NOTEOFF:
+-	       patch_release (reader->note.chan, reader->note.note);
++	       patch_release (event->note.chan, event->note.note);
+ 	       break;
+ 	  case MIXER_NOTEOFF_WITH_ID:
+-	       patch_release_with_id (reader->id_note.id, reader->id_note.note);
++	       patch_release_with_id (event->id_note.id, event->id_note.note);
+ 	       break;
+ 	  case MIXER_CONTROL:
+-	       patch_control(reader->control.chan, reader->control.param, reader->control.value);
++	       patch_control(event->control.chan, event->control.param, event->control.value);
+ 	  }
+-
+-	  advance_reader ( );
++	  
++	  /* get next event */
++       if (reader != writer) {
++            if (d < direct_events_end && 
++                direct_events[d].ticks < reader->ticks) {
++                 event = &direct_events[d++];
++            }
++            else {
++                 event = reader;
++                 advance_reader();
++            }
++       }
++       else if (d < direct_events_end)
++            event = &direct_events[d++];
++       else
++            event = NULL;
+      }
++     
++     /* reset the direct event buffer */
++     direct_events_end = 0;
+ 
+      if (wrote < frames)
+          patch_render (buf + wrote*2, frames - wrote);
+ 
+      preview_render (buf, frames);
+-
++     
+      /* scale to master volume */
+      logvol = log_volume(volume);
+      for (i = 0; i < frames * 2; i++)
+@@ -257,6 +295,45 @@
+      advance_writer ( );
+ }
+ 
++/* queue a note-off event from the audio thread */
++void mixer_direct_note_off (int chan, int note, Tick tick)
++{
++     if (direct_events_end < EVENTMAX) {
++          direct_events[direct_events_end].type = MIXER_NOTEOFF;
++          direct_events[direct_events_end].ticks = tick;
++          direct_events[direct_events_end].note.chan = chan;
++          direct_events[direct_events_end].note.note = note;
++          ++direct_events_end;
++     }
++}
++
++/* queue a note-on event from the audio thread */
++void mixer_direct_note_on (int chan, int note, float vel, Tick tick)
++{
++     if (direct_events_end < EVENTMAX) {
++          direct_events[direct_events_end].type = MIXER_NOTEON;
++          direct_events[direct_events_end].ticks = tick;
++          direct_events[direct_events_end].note.chan = chan;
++          direct_events[direct_events_end].note.note = note;
++          direct_events[direct_events_end].note.vel = vel;
++          ++direct_events_end;
++     }
++}
++
++/* queue control change event from the audio thread */
++void mixer_direct_control(int chan, ControlParamType param, 
++			  float value, Tick tick)
++{
++     if (direct_events_end < EVENTMAX) {
++          direct_events[direct_events_end].type = MIXER_CONTROL;
++          direct_events[direct_events_end].ticks = tick;
++          direct_events[direct_events_end].control.chan = chan;
++          direct_events[direct_events_end].control.param = param;
++          direct_events[direct_events_end].control.value = value;
++          ++direct_events_end;
++     }
++}
++
+ /* preview a sample file */
+ void mixer_preview (char *name)
+ {
+diff -ru specimen-0.5.1/src/mixer.h specimen-0.5.1-jackmidi/src/mixer.h
+--- specimen-0.5.1/src/mixer.h	2004-10-06 02:53:32.000000000 +0200
++++ specimen-0.5.1-jackmidi/src/mixer.h	2005-10-01 04:17:39.000000000 +0200
+@@ -2,6 +2,7 @@
+ #define __MIXER_H__
+ 
+ #include "control.h"
++#include "ticks.h"
+ 
+ void  mixer_flush            (void);
+ void  mixer_init             (void);
+@@ -11,6 +12,10 @@
+ void  mixer_note_on          (int chan, int note, float vel);
+ void  mixer_note_on_with_id  (int id, int note, float vel);
+ void  mixer_control          (int chan, ControlParamType param, float value);
++void  mixer_direct_note_off  (int chan, int note, Tick tick);
++void  mixer_direct_note_on   (int chan, int note, float vel, Tick tick);
++void  mixer_direct_control   (int chan, ControlParamType param, 
++			      float value, Tick tick);
+ void  mixer_preview          (char* name);
+ int   mixer_set_volume       (float volume);
+ float mixer_get_volume       (void);

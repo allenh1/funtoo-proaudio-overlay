@@ -1,0 +1,10 @@
+mx44 for Gentoo
+---------------
+
+The shell-script for Debian was added that creates the directory ~/.mx44 if it doesn't exist,
+and copies the default patches to it. This way, a new user can use the standard
+patches and still save changes.
+
+Thanks to  -- Willem van Engen <wvengen+demudi@stack.nl>, he made the script.
+
+Dominique Michel Monday, 31 july 2006

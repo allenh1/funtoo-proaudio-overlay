@@ -1,0 +1,31 @@
+*** configure.orig	2006-09-20 17:31:33.000000000 +0200
+--- configure	2006-09-20 17:45:59.000000000 +0200
+***************
+*** 21626,21638 ****
+  # Check that QTDIR is defined or that --with-qtdir given
+  if test x"$QTDIR" = x ; then
+  	# some usual Qt-locations
+! 	QT_SEARCH="/usr /usr/lib/qt /usr/lib/qt3 /usr/lib/qt31 /usr/lib/qt32 /usr/lib/qt33 /usr/lib/qt-3.0 /usr/lib/qt-3.1 /usr/lib/qt-3.2 /usr/lib/qt-3.3 /usr/local/qt /usr/local/qt3 /usr/local/qt31 /usr/local/qt32 /usr/local/qt33 /usr/share/qt3 /usr/X11R6 /usr/share/qt4 /usr/local/Trolltech/Qt-4.0.0 /usr/local/Trolltech/Qt-4.0.1 /usr/local/Trolltech/Qt-4.1.0 /usr/local/Trolltech/Qt-4.1.0"
+  else
+  	QT_SEARCH=$QTDIR
+  	QTDIR=""
+  fi
+  for i in $QT_SEARCH ; do
+! 	QT_INCLUDE_SEARCH="include include/qt include/qt3 include/Qt"
+  	for j in $QT_INCLUDE_SEARCH ; do
+  	        if test -f $i/$j/qglobal.h -a x$QTDIR = x ; then
+  			QTDIR=$i
+--- 21626,21638 ----
+  # Check that QTDIR is defined or that --with-qtdir given
+  if test x"$QTDIR" = x ; then
+  	# some usual Qt-locations
+! 	QT_SEARCH="/usr /usr/lib/qt /usr/lib/qt3 /usr/lib/qt31 /usr/lib/qt32 /usr/lib/qt33 /usr/lib/qt-3.0 /usr/lib/qt-3.1 /usr/lib/qt-3.2 /usr/lib/qt-3.3 /usr/local/qt /usr/local/qt3 /usr/local/qt31 /usr/local/qt32 /usr/local/qt33 /usr/share/qt3 /usr/X11R6 /usr/share/qt4 /usr/local/Trolltech/Qt-4.0.0 /usr/local/Trolltech/Qt-4.0.1 /usr/local/Trolltech/Qt-4.1.0 /usr/local/Trolltech/Qt-4.1.0 /usr/lib/qt4"
+  else
+  	QT_SEARCH=$QTDIR
+  	QTDIR=""
+  fi
+  for i in $QT_SEARCH ; do
+! 	QT_INCLUDE_SEARCH="include include/qt include/qt3 include/Qt include/qt4 include/qt4/Qt"
+  	for j in $QT_INCLUDE_SEARCH ; do
+  	        if test -f $i/$j/qglobal.h -a x$QTDIR = x ; then
+  			QTDIR=$i

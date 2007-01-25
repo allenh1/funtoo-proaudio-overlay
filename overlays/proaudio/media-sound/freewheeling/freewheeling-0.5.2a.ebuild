@@ -1,0 +1,42 @@
+# Copyright 1999-2006 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: /var/cvsroot/gentoo-x86/media-sound/freewheeling/freewheeling-0.5_pre4.ebuild,v 1.5 2006/03/07 14:48:17 flameeyes Exp $
+
+RESTRICT="nomirror"
+inherit eutils
+
+IUSE="fluidsynth"
+MY_P="fweelin-${PV/_/}"
+MY_S="${MY_P/a/}"
+DESCRIPTION="A live looping instrument using SDL and jack."
+HOMEPAGE="http://freewheeling.sourceforge.net"
+SRC_URI="mirror://sourceforge/${PN}/${MY_P}-src.tar.bz2"
+RESTRICT=""
+
+LICENSE="GPL-2"
+SLOT="0"
+
+# don't keyword it stable on amd64 before talking to fvdpol@gentoo.org
+KEYWORDS="~amd64 ~ppc ~x86"
+
+DEPEND="media-sound/jack-audio-connection-kit
+	>=media-libs/libsdl-1.2.4
+	dev-libs/libxml2
+	media-libs/libvorbis
+	fluidsynth? ( media-sound/fluidsynth )
+	media-libs/sdl-gfx
+	>=media-libs/sdl-ttf-2.0.0
+	net-libs/gnutls"
+
+S="${WORKDIR}/${MY_S}"
+
+src_compile() {
+	epatch ${FILESDIR}/${PN}-gcc41.patch
+	econf || die "configure failed"
+	emake || die "make failed"
+}
+
+src_install() {
+	einstall || die
+	dodoc README TODO EVOLUTION THANKS TUNING NEWS AUTHORS
+}

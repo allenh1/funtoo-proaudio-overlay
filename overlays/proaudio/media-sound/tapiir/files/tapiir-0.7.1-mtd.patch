@@ -1,0 +1,18 @@
+--- tapiir-0.7.1/src/MTD.hxx~	2003-02-21 09:06:16.000000000 -0800
++++ tapiir-0.7.1/src/MTD.hxx	2003-11-19 10:52:14.000000000 -0800
+@@ -193,6 +193,7 @@
+ 
+ /****************************** specializations ******************************/
+ 
++/*
+ float MTD<int,short>::FromGain(const int& g) const { return float(g)/256.; }
+ float MTD<int,float>::FromGain(const int& g) const { return float(g)/256.; }
+ 
+@@ -209,6 +210,7 @@
+ 
+ void  MTD<int,float>::MulAdj( int& i) const { i>>=8; }
+ void  MTD<int,short>::MulAdj( int& i) const { i>>=8; }
++*/
+ 
+ /*****************************************************************************/
+ 

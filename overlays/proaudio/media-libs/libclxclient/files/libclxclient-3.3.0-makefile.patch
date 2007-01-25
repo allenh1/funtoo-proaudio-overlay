@@ -1,0 +1,18 @@
+--- Makefile.orig	2006-05-16 17:50:34.047981210 +0200
++++ Makefile	2006-05-16 17:51:19.498071746 +0200
+@@ -47,10 +47,11 @@
+ 
+ 
+ install:	$(CLXCLIENT_MIN)
+-	/usr/bin/install -m 644 $(CLXCLIENT_H) $(PREFIX)/include
+-	/usr/bin/install -m 755 $(CLXCLIENT_MIN) $(PREFIX)/$(LIBDIR)
+-	/sbin/ldconfig -n $(PREFIX)/$(LIBDIR)
+-	ln -sf $(CLXCLIENT_MIN) $(PREFIX)/$(LIBDIR)/$(CLXCLIENT_SO)
++	install -d $(DESTDIR)$(PREFIX)/include $(DESTDIR)$(PREFIX)/lib
++	install -m 644 $(CLXCLIENT_H) $(DESTDIR)$(PREFIX)/include
++	install -m 755 $(CLXCLIENT_MIN) $(DESTDIR)$(PREFIX)/lib
++	/sbin/ldconfig -n $(DESTDIR)$(PREFIX)/lib
++	ln -sf $(CLXCLIENT_MIN) $(DESTDIR)$(PREFIX)/lib/$(CLXCLIENT_SO)
+ 
+ 
+ clean:

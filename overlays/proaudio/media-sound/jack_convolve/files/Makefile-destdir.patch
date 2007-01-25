@@ -1,0 +1,38 @@
+--- Makefile.old	2006-03-10 20:48:26.582011697 +0100
++++ Makefile	2006-03-10 20:57:32.318293912 +0100
+@@ -1,12 +1,15 @@
+ PREFIX=/usr/local
++INSTALL = /usr/bin/install
++LIBDIR = /usr/lib
++INCLUDE = /usr/include 
++CXXFLAGS = $(CFLAGS) -I$(INCLUDE)
+ 
+-COMPILE_FLAGS = -O3 -funroll-loops -funroll-all-loops -I/usr/local/include
+ #COMPILE_FLAGS = -g
+ 
+-LINK_FLAGS    = `pkg-config jack --libs` `pkg-config sndfile --libs`  -L/usr/local/lib -ldsp -lconvolve
++LINK_FLAGS    = `pkg-config jack --libs` `pkg-config sndfile --libs`  -L$(LIBDIR) -ldsp -lconvolve
+ 
+ #if you don't have LASH support, disable these two.
+-COMPILE_FLAGS += -DHAVE_LASH `pkg-config lash-1.0 --cflags`
++CXXFLAGS += -DHAVE_LASH `pkg-config lash-1.0 --cflags`
+ LINK_FLAGS += `pkg-config lash-1.0 --libs`
+ 
+ all: jack_convolve Makefile
+@@ -15,7 +18,7 @@
+ 	$(CXX) -o jack_convolve jack_convolve.o  $(LINK_FLAGS)
+ 
+ jack_convolve.o: jack_convolve.cc Makefile
+-	$(CXX) -c jack_convolve.cc $(COMPILE_FLAGS)
++	$(CXX) -c jack_convolve.cc $(CXXFLAGS)
+ 
+ .PHONY: clean
+ clean:
+@@ -23,5 +26,5 @@
+ 
+ .PHONY: install
+ install: jack_convolve
+-	cp jack_convolve $(PREFIX)/bin/
+-
++	$(INSTALL) -d $(DESTDIR)$(PREFIX)/bin/
++	$(INSTALL) -m755 jack_convolve $(DESTDIR)$(PREFIX)/bin/

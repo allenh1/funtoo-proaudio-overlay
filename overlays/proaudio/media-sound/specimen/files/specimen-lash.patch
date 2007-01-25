@@ -1,0 +1,450 @@
+diff -urN specimen-0.5.1/configure.ac specimen-0.5.1.g/configure.ac
+--- specimen-0.5.1/configure.ac	2005-07-23 04:46:19.000000000 +0200
++++ specimen-0.5.1.g/configure.ac	2006-03-15 10:50:19.404843272 +0100
+@@ -18,6 +18,18 @@
+     AC_DEFINE(DEBUG, 1, [[whether to display debugging output or not]])
+ fi
+ 
++# LASH
++have_lash="no"
++PKG_CHECK_MODULES(LASH, lash-1.0 >= 0.5.0, have_lash="yes", have_lash="no")
++if test "$have_lash" = "yes"; then
++	AC_DEFINE(HAVE_LASH, 1, [Has lash.h])
++     AC_SUBST(LASH_CFLAGS)
++     AC_SUBST(LASH_LIBS)
++else
++	AC_MSG_WARN([LASH not found, session support will not be built.])
++fi
++#AM_CONDITIONAL(WITH_LASH, [test "$have_lash" = "yes"])
++
+ # standard autoconf checks
+ AC_PROG_CC
+ AC_PROG_CPP
+@@ -41,8 +53,8 @@
+ PIXDIR_UNQUOTED="\$(pkgdatadir)/pixmaps/" # for pixmap/Makefile.am
+ AC_SUBST(PIXDIR)
+ AC_SUBST(PIXDIR_UNQUOTED)
+-CFLAGS="$CFLAGS $PKG_CFLAGS $PTHREAD_CFLAGS -DPIXMAPSDIR=@PIXDIR@ -Wall -Werror"
+-LIBS="$LIBS $PKG_LIBS $PTHREAD_LIBS"
++CFLAGS="$CFLAGS $PKG_CFLAGS $PTHREAD_CFLAGS $LASH_CFLAGS -DPIXMAPSDIR=@PIXDIR@ -Wall -Werror"
++LIBS="$LIBS $PKG_LIBS $PTHREAD_LIBS $LASH_LIBS"
+ CC="$PTHREAD_CC"
+ 
+ # print build summary
+diff -urN specimen-0.5.1/configure.ac.orig specimen-0.5.1.g/configure.ac.orig
+--- specimen-0.5.1/configure.ac.orig	1970-01-01 01:00:00.000000000 +0100
++++ specimen-0.5.1.g/configure.ac.orig	2005-07-23 04:46:19.000000000 +0200
+@@ -0,0 +1,67 @@
++# -*- autoconf -*-
++# Process this file with autoconf to produce a configure script.
++
++AC_INIT([specimen], [0.5.1])
++AC_CONFIG_SRCDIR([src/specimen.c])
++AM_INIT_AUTOMAKE
++
++# compilation
++with_debug="no"
++AC_ARG_ENABLE([debug], 
++    [AC_HELP_STRING([--enable-debug],
++        [enable debugging information, accepting a performance penalty (default is NO)])],
++    [if test x$enable_debug = xyes; then with_debug=yes ; fi])
++
++if test x$with_debug = xno; then
++    CFLAGS="-O3"
++else
++    AC_DEFINE(DEBUG, 1, [[whether to display debugging output or not]])
++fi
++
++# standard autoconf checks
++AC_PROG_CC
++AC_PROG_CPP
++AC_PROG_RANLIB
++AC_HEADER_STDC
++AC_CHECK_HEADERS([stdlib.h string.h sys/time.h unistd.h])
++AC_C_CONST
++AC_C_INLINE
++AC_HEADER_TIME
++AC_FUNC_MALLOC
++AC_CHECK_FUNCS([floor gettimeofday pow strchr strdup])
++
++# pthreads
++ACX_PTHREAD
++
++# pkg-config everything else
++PKG_CHECK_MODULES(PKG, [gtk+-2.0 libxml-2.0 libgnomecanvas-2.0 jack alsa samplerate sndfile phat])
++
++# set compilation flags
++PIXDIR="\\\"\$(pkgdatadir)/pixmaps/\\\""
++PIXDIR_UNQUOTED="\$(pkgdatadir)/pixmaps/" # for pixmap/Makefile.am
++AC_SUBST(PIXDIR)
++AC_SUBST(PIXDIR_UNQUOTED)
++CFLAGS="$CFLAGS $PKG_CFLAGS $PTHREAD_CFLAGS -DPIXMAPSDIR=@PIXDIR@ -Wall -Werror"
++LIBS="$LIBS $PKG_LIBS $PTHREAD_LIBS"
++CC="$PTHREAD_CC"
++
++# print build summary
++AC_CONFIG_COMMANDS_POST([
++echo
++echo
++echo    "                   BUILD SUMMARY"
++echo    "                   ============="
++echo
++echo -n "             Build type:     "
++if test x$with_debug = xyes; then
++    echo "debugging"
++else
++    echo "optimized"
++fi
++echo
++echo
++])
++
++AC_CONFIG_FILES([Makefile pixmaps/Makefile src/Makefile src/gui/Makefile])
++AM_CONFIG_HEADER([src/config.h])
++AC_OUTPUT
+diff -urN specimen-0.5.1/src/driver.h specimen-0.5.1.g/src/driver.h
+--- specimen-0.5.1/src/driver.h	2004-06-18 20:55:05.000000000 +0200
++++ specimen-0.5.1.g/src/driver.h	2006-03-15 10:50:19.405843094 +0100
+@@ -7,13 +7,13 @@
+ enum
+ {
+      DRIVER_ERR_ID = -1,
+-     DRIVER_ERR_OTHER = -2,
++     DRIVER_ERR_OTHER = -2
+ };
+ 
+ /* magic numbers */
+ enum
+ {
+-     DRIVER_DEFAULT_SAMPLERATE = 44100,
++     DRIVER_DEFAULT_SAMPLERATE = 44100
+ };
+      
+ /* public class definition for drivers */
+diff -urN specimen-0.5.1/src/gui/gui.h specimen-0.5.1.g/src/gui/gui.h
+--- specimen-0.5.1/src/gui/gui.h	2005-07-09 18:25:36.000000000 +0200
++++ specimen-0.5.1.g/src/gui/gui.h	2006-03-15 10:50:19.405843094 +0100
+@@ -14,7 +14,7 @@
+     GUI_TEXTSPACE = 12,		/* space between a label and its control */
+     GUI_BORDERSPACE = 12,	/* space between a border and its guts */
+     GUI_THRESHOLD = 20,		/* threshold used for sliderbuttons */
+-    GUI_REFRESH_TIMEOUT = 100,	/* time in milliseconds between controller refreshes */
++    GUI_REFRESH_TIMEOUT = 100	/* time in milliseconds between controller refreshes */
+ };
+ 
+ /* returns a titlefied label */
+diff -urN specimen-0.5.1/src/gui/Makefile.am specimen-0.5.1.g/src/gui/Makefile.am
+--- specimen-0.5.1/src/gui/Makefile.am	2005-07-09 19:49:24.000000000 +0200
++++ specimen-0.5.1.g/src/gui/Makefile.am	2006-03-15 10:50:19.414841489 +0100
+@@ -9,4 +9,4 @@
+ paramselector.c paramselector.h patchlist.c patchlist.h midisection.c	\
+ midisection.h channelsection.c channelsection.h
+ 
+-INCLUDES = -I..
++AM_CPPFLAGS = -I..
+diff -urN specimen-0.5.1/src/gui/patchlist.h specimen-0.5.1.g/src/gui/patchlist.h
+--- specimen-0.5.1/src/gui/patchlist.h	2005-07-09 19:15:19.000000000 +0200
++++ specimen-0.5.1.g/src/gui/patchlist.h	2006-03-15 10:50:19.415841311 +0100
+@@ -17,7 +17,7 @@
+ enum
+ {
+     PATCH_LIST_INDEX,		/* target is a display index */
+-    PATCH_LIST_PATCH,		/* target is a patch id */
++    PATCH_LIST_PATCH 		/* target is a patch id */
+ };
+ 
+ struct _PatchList
+diff -urN specimen-0.5.1/src/lashdriver.c specimen-0.5.1.g/src/lashdriver.c
+--- specimen-0.5.1/src/lashdriver.c	1970-01-01 01:00:00.000000000 +0100
++++ specimen-0.5.1.g/src/lashdriver.c	2006-03-15 10:50:19.424839707 +0100
+@@ -0,0 +1,82 @@
++#include "lashdriver.h"
++#include <gtk/gtk.h>            /* for idle callback */
++#include <string.h>
++#include "beef.h"
++#include "gui/gui.h"
++
++lash_client_t* lash_client;
++
++
++void lashdriver_init (int* argc, char*** argv)
++{
++    lash_args_t* lash_args = lash_extract_args(argc, argv);
++
++    lash_client = lash_init(lash_args, "Specimen", LASH_Config_File, LASH_PROTOCOL(2, 0));
++
++    if (!lash_client)
++        fprintf(stderr, "Could not initialise LASH\n");
++
++    lash_event_t* event = lash_event_new_with_type(LASH_Client_Name);
++    lash_event_set_string(event, "Specimen");
++    lash_send_event(lash_client, event);
++}
++
++
++gboolean lashdriver_process (void* absolutely_nothing)
++{
++    lash_event_t*  event  = NULL;
++    lash_config_t* config = NULL;
++    const char*    str    = NULL;
++    char*          path   = NULL;
++    
++    while ((event = lash_get_event(lash_client)))
++    {
++        if (lash_event_get_type(event) == LASH_Quit)
++        {
++            gtk_main_quit();
++            return FALSE;
++        }
++        else if (lash_event_get_type(event) == LASH_Save_File)
++        {
++            str = lash_event_get_string(event); /* our restore directory */
++            path = (char*)calloc(strlen(str)+11, sizeof(char));
++            strcpy(path, str);         /* path = dir */
++            strcat(path, "/");         /* path += "/" */
++            strcat(path, "bank.beef"); /* path += "bank.beef" */
++            fprintf(stderr, "Saving to file %s\n", path);
++            beef_write(path);
++        }
++        else if (lash_event_get_type(event) == LASH_Restore_File)
++        {
++            str = lash_event_get_string(event); /* our restore directory */
++            path = (char*)calloc(strlen(str)+11, sizeof(char));
++            strcpy(path, str);         /* path = dir */
++            strcat(path, "/");         /* path += "/" */
++            strcat(path, "bank.beef"); /* path += "bank.beef" */
++            fprintf(stderr, "Restoring from file %s\n", path);
++            beef_read(path);
++            gui_refresh();
++        }
++        else 
++        {
++            fprintf(stderr, "Unhandled LASH event: type %d, '%s''\n",
++                    lash_event_get_type(event),
++                    lash_event_get_string(event));
++        }
++    }
++
++    while ((config = lash_get_config(lash_client)))
++    {
++        fprintf(stderr, "Unexpected LASH config: %s\n",
++                lash_config_get_key(config));
++    }
++
++    return TRUE;
++}
++
++
++void lashdriver_start ( )
++{
++    gtk_timeout_add(250, lashdriver_process, NULL);
++}
++
+diff -urN specimen-0.5.1/src/lashdriver.h specimen-0.5.1.g/src/lashdriver.h
+--- specimen-0.5.1/src/lashdriver.h	1970-01-01 01:00:00.000000000 +0100
++++ specimen-0.5.1.g/src/lashdriver.h	2006-03-15 10:50:19.424839707 +0100
+@@ -0,0 +1,16 @@
++#ifndef __LASHDRIVER_H__
++#define __LASHDRIVER_H__
++
++#include "config.h"
++
++#ifdef HAVE_LASH
++
++#include <lash/lash.h>
++
++void lashdriver_init  (int* argc, char*** argv);
++void lashdriver_start ( );
++void lashdriver_stop  ( );
++
++#endif /* HAVE_LASH */
++
++#endif /* __LASHDRIVER_H__ */
+diff -urN specimen-0.5.1/src/lfo.h specimen-0.5.1.g/src/lfo.h
+--- specimen-0.5.1/src/lfo.h	2004-10-02 19:50:22.000000000 +0200
++++ specimen-0.5.1.g/src/lfo.h	2006-03-15 10:50:19.425839529 +0100
+@@ -23,7 +23,7 @@
+      LFO_SHAPE_SINE,
+      LFO_SHAPE_TRIANGLE,
+      LFO_SHAPE_SAW,
+-     LFO_SHAPE_SQUARE,
++     LFO_SHAPE_SQUARE
+ }
+ LFOShape;
+ 
+diff -urN specimen-0.5.1/src/Makefile.am specimen-0.5.1.g/src/Makefile.am
+--- specimen-0.5.1/src/Makefile.am	2004-09-30 22:38:41.000000000 +0200
++++ specimen-0.5.1.g/src/Makefile.am	2006-03-15 10:50:19.425839529 +0100
+@@ -5,7 +5,7 @@
+ specimen_SOURCES = alsadriver.c jackdriver.c mixer.c mixer.h sample.c	\
+ sample.h driver.c driver.h midi.c midi.h patch.c patch.h specimen.c	\
+ specimen.h beef.c beef.h maths.c maths.h ticks.c ticks.h adsr.c adsr.h	\
+-lfo.c lfo.h sync.c sync.h control.h
++lfo.c lfo.h sync.c sync.h control.h lashdriver.h lashdriver.c
+ 
+ specimen_LDADD = gui/libgui.a
+ 
+diff -urN specimen-0.5.1/src/patch.h specimen-0.5.1.g/src/patch.h
+--- specimen-0.5.1/src/patch.h	2004-10-06 02:53:32.000000000 +0200
++++ specimen-0.5.1.g/src/patch.h	2006-03-15 10:50:19.435837747 +0100
+@@ -12,7 +12,7 @@
+      PATCH_COUNT = 64,		/* maximum number of patches */
+      PATCH_MAX_NAME = 32,	/* maximum length of a patch name */
+      PATCH_VOICE_COUNT = 8,	/* maximum number of active voices per patch */
+-     PATCH_MAX_PITCH_STEPS = 48, /* maximum val allowable for pitch_steps */
++     PATCH_MAX_PITCH_STEPS = 48 /* maximum val allowable for pitch_steps */
+ };
+ 
+ /* error codes */
+@@ -27,7 +27,7 @@
+      PATCH_VOL_INVALID = -7,
+      PATCH_PLAY_MODE_INVALID = -9,
+      PATCH_LIMIT = -10,
+-     PATCH_SAMPLE_INDEX_INVALID = -11,
++     PATCH_SAMPLE_INDEX_INVALID = -11
+ };
+ 
+ /* These are the bitfield constants for the different ways a patch can
+@@ -48,7 +48,7 @@
+ 
+      /* ping pong mode can be set independently of all the other
+       * params, but it should only be tested for if PATCH_PLAY_LOOP is set */
+-     PATCH_PLAY_PINGPONG = 1 << 5,
++     PATCH_PLAY_PINGPONG = 1 << 5
+ };
+ 
+ /* type for playmode bitfield */
+@@ -61,7 +61,7 @@
+      PATCH_PARAM_PANNING,
+      PATCH_PARAM_CUTOFF,
+      PATCH_PARAM_RESONANCE,
+-     PATCH_PARAM_PITCH,
++     PATCH_PARAM_PITCH
+ }
+ PatchParamType;
+ 
+diff -urN specimen-0.5.1/src/specimen.c specimen-0.5.1.g/src/specimen.c
+--- specimen-0.5.1/src/specimen.c	2005-07-03 18:55:52.000000000 +0200
++++ specimen-0.5.1.g/src/specimen.c	2006-03-15 10:51:43.275879338 +0100
+@@ -8,9 +8,12 @@
+ #include "patch.h"
+ #include "mixer.h"
+ #include "beef.h"
++#include "lashdriver.h"
+ 
+ int main(int argc, char *argv[])
+ {
++     lashdriver_init(&argc, &argv);
++	
+      gtk_init(&argc, &argv);
+ 
+      /* constructors */
+@@ -30,6 +33,7 @@
+      /* start */
+      midi_start();
+      driver_start(0);
++     lashdriver_start();
+      gtk_main();
+ 
+      /* stop */
+diff -urN specimen-0.5.1/src/specimen.c.orig specimen-0.5.1.g/src/specimen.c.orig
+--- specimen-0.5.1/src/specimen.c.orig	1970-01-01 01:00:00.000000000 +0100
++++ specimen-0.5.1.g/src/specimen.c.orig	2005-07-03 18:55:52.000000000 +0200
+@@ -0,0 +1,45 @@
++#include <pthread.h>
++#include <gtk/gtk.h>
++#include "specimen.h"
++#include "gui/gui.h"
++#include "midi.h"
++#include "driver.h"
++#include "lfo.h"
++#include "patch.h"
++#include "mixer.h"
++#include "beef.h"
++
++int main(int argc, char *argv[])
++{
++     gtk_init(&argc, &argv);
++
++     /* constructors */
++     driver_init();
++     lfo_init();
++     mixer_init();
++     patch_init();
++     gui_init();
++
++     /* load a bank if specified on cmdline */
++     if (argc >= 2)
++     {
++	 beef_read(argv[1]);
++	 gui_refresh();
++     }
++
++     /* start */
++     midi_start();
++     driver_start(0);
++     gtk_main();
++
++     /* stop */
++     midi_stop();
++     driver_stop();
++
++     /* destructors */
++     patch_shutdown();
++     mixer_shutdown();
++
++     debug("Goodbye.\n");
++     return 0;
++}
+diff -urN specimen-0.5.1/src/specimen.c.rej specimen-0.5.1.g/src/specimen.c.rej
+--- specimen-0.5.1/src/specimen.c.rej	1970-01-01 01:00:00.000000000 +0100
++++ specimen-0.5.1.g/src/specimen.c.rej	2006-03-15 10:50:19.436837568 +0100
+@@ -0,0 +1,36 @@
++***************
++*** 20,35 ****
++       patch_init();
++       gui_init();
++  
++- 	 /* load a bank if specified on cmdline */
++       if (argc >= 2)
++       {
++  	 beef_read(argv[1]);
++  	 gui_refresh();
++       }
++- 
++       /* start */
++       midi_start();
++       driver_start(0);
++       gtk_main();
++  
++       /* stop */
++--- 23,39 ----
++       patch_init();
++       gui_init();
++  
+++      /* load a bank if specified on cmdline */
++       if (argc >= 2)
++       {
++  	 beef_read(argv[1]);
++  	 gui_refresh();
++       }
+++      
++       /* start */
++       midi_start();
++       driver_start(0);
+++      lashdriver_start();
++       gtk_main();
++  
++       /* stop */
+diff -urN specimen-0.5.1/src/specimen.h specimen-0.5.1.g/src/specimen.h
+--- specimen-0.5.1/src/specimen.h	2005-06-04 17:09:59.000000000 +0200
++++ specimen-0.5.1.g/src/specimen.h	2006-03-15 10:50:19.446835786 +0100
+@@ -11,7 +11,7 @@
+ 
+ enum
+ {
+-    FUBAR = -69,
++    FUBAR = -69
+ };
+ 
+ #define DEFAULT_VOLUME 0.7 /* default volume stuff is set to, from 0 to 1 */

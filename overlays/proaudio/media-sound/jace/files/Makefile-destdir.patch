@@ -1,0 +1,51 @@
+--- Makefile.orig	2006-03-16 16:29:52.219139511 +0100
++++ Makefile	2006-03-16 16:30:33.138034348 +0100
+@@ -16,10 +16,12 @@
+ 
+ 
+ PREFIX = /usr
++DESTDIR =
++INSTALL = /usr/bin/install
++RM = rm
+ VERSION = 0.0.2
+ DISTDIR = jace-$(VERSION)
+-CPPFLAGS += -O3 -Wall  -DVERSION=\"$(VERSION)\" -DPREFIX=\"$(PREFIX)\"
+-#CPPFLAGS += -mcpu=pentium4
++CXXFLAGS += -O3 -Wall  -DVERSION=\"$(VERSION)\" -DPREFIX=\"$(PREFIX)\"
+ 
+ 
+ all:	jace
+@@ -28,7 +30,7 @@
+ JACE_O =	main.o audio.o config.o convolve.o mac_sse.o mac_3dn.o fp_opt.o
+ jace : LDLIBS += -lfftw3f -lsndfile -lclalsadrv -lclthreads -lpthread -ljack -lasound -lpthread -lrt
+ jace:	$(JACE_O)
+-	g++ $(LDFLAGS) -o $@ $(JACE_O) $(LDLIBS)
++	$(CXX) $(LDFLAGS) -o $@ $(JACE_O) $(LDLIBS)
+ 
+ main.o:		audio.h convolve.h
+ audio.o:	audio.h convolve.h
+@@ -38,19 +40,20 @@
+ 
+ 
+ install:	jace
+-	/usr/bin/install -m 755 jace $(PREFIX)/bin
++	$(INSTALL) -d $(DESTDIR)$(PREFIX)/bin
++	$(INSTALL) -m 755 jace $(DESTDIR)$(PREFIX)/bin
+ 
+ 
+ clean:
+-	/bin/rm -f *~ *.o *.a *.so
++	rm -f *~ *.o *.a *.so
+ 
+ 
+ tarball:
+ 	cd ..; \
+-	/bin/rm -f -r $(DISTDIR)*; \
++	$(RM) -f -r $(DISTDIR)*; \
+ 	svn export jace $(DISTDIR); \
+ 	tar cvf $(DISTDIR).tar $(DISTDIR); \
+ 	bzip2 $(DISTDIR).tar; \
+-	/bin/rm -f -r $(DISTDIR);
++	$(RM) -f -r $(DISTDIR);
+ 
+ 
