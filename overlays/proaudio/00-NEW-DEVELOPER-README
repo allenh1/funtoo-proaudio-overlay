@@ -24,7 +24,7 @@ Index:
   3.3 # check your ebuilds if they are acutally working
   3.4 # redigest your ebuild
   3.5 # update the package list
-  3.6 # add missing apps to TODO
+  3.6 # add missing apps to 00-TODO
   3.7 # 00-README 00-OVERLAY-INFO
   3.8 # change the rules/scripts/ebuilds/readme's/...
   3.9 # hope this are not to much rules
@@ -175,11 +175,20 @@ Index:
   ./generate-detailed-packages-list # generate 00-DETAILED-PACKAGES-LIST
 
 
-3.6 # add missing apps to TODO
+3.6 # add missing apps to 00-TODO
   # if you've found an nice to have app which is not already in the overlay
-  # and have no time to do your own ebuild put a note into this file in the
-  # root of the overlay (This file is absolutely not ordered)
+  # and you think there should be a ebuild but hav no time and before
+  # you forget about it add a entry about there.
+  # For every missing app with have a  "block" which needs some details
+  
+  # NAME: 
+  EBUID_STATE: none/working/
+  DEVELOPER: <maybe your name>
+  DESCR: <info about the app>
+  HOMEPAGE: http://foo.bar
 
+  # If you've added a ebuild that's listing in the todo file
+  # please remove its entry
 
 3.7 # 00-README 00-OVERLAY-INFO
   # this both files gives a bit of introduction to the overlay

@@ -176,6 +176,7 @@
 
 #------- media-libs/libzzub --------
 	libzzub-0.1	arch: ~x86 ~amd64
+	libzzub-0.2.1	arch: ~x86 ~amd64
 	libzzub-0.2	arch: ~x86 ~amd64
 	Description: buzz compatibility lib for aldrin
 	Homepage:    http://trac.zeitherrschaft.org/aldrin
@@ -402,6 +403,7 @@
 #------- media-sound/aldrin --------
 	aldrin-0.8	arch: ~x86 ~amd64
 	aldrin-0.9	arch: ~x86 ~amd64
+	aldrin-0.9-r1	arch: ~x86 ~amd64
 	Description: Aldrin is an open source modular sequencer/tracker,
 		 compatible to Buzz
 	Homepage:    http://trac.zeitherrschaft.org/aldrin/
@@ -1401,17 +1403,6 @@
 	Homepage:    http://www.alsa-project.org/~iwai/alsa.html
 
 
-#------- media-sound/wired --------
-	wired-0.2.2	arch: ~x86 ~amd64
-	wired-0.3.1	arch: ~x86 ~amd64
-	wired-0.4_alpha	arch: ~x86 ~amd64
-	wired-9999	arch: -*
-	Description: Wired aims to be a professional music production
-		 and creation software running on the Linux operating
-		 system.
-	Homepage:    http://wired.epitech.net
-
-
 #------- media-sound/yatm --------
 	yatm-0.4	arch: amd64 ~ppc sparc x86
 	Description: adjust the playback speed without changing
@@ -1454,19 +1445,6 @@
 	Description: watchdog to ensure a realtime process won't
 		 hang the machine
 	Homepage:    http://www.notam02.no/arkiv/src/
-
-
-#------- sys-devel/llvm-base --------
-	llvm-base-1.9	arch: ~x86 ~amd64
-	Description: Low Level Virtual Machine
-	Homepage:    http://llvm.org/
-
-
-#------- sys-devel/llvm-gcc --------
-	llvm-gcc-1.9	arch: ~x86 ~amd64
-	Description: C, C++ Frontend for Low Level Virtual Machine
-		
-	Homepage:    http://llvm.org/
 
 
 #------- sys-kernel/rt-sources --------
