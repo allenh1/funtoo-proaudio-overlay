@@ -80,6 +80,11 @@ DEVELOPER: none
 DESCR:
 HOMEPAGE:
 
+# NAME: canorus
+EBUID_STATE: none
+DEVELOPER: none
+DESCR: frontend to lilypond
+HOMEPAGE: https://canorus.berlios.de
 
 --template--
 # NAME: 

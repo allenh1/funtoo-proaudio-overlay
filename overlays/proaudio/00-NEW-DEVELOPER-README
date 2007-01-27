@@ -3,6 +3,7 @@
 Index:
 
 1. # get a account at tuxfamily.org
+  1.1 # request  svn write access
 
 2.0 # basic subversion commands
   2.1 # checkout the overlay
@@ -37,6 +38,11 @@ Index:
 1. # get a account at tuxfamily.org
   You need to get a account at http://tuxfamily.org 
   (they provide the svn-repo and Webspace)
+
+1.1 # request  svn write access
+  Just write to Thomas or me (Frieder) gain
+  write accesss
+
 
 2.0 # basic subversion commands
   You've to know how to checkout/commit the overlay repository:
@@ -94,6 +100,8 @@ Index:
   svn cp foo/foobar-123.ebuild foo/foobar-124.ebuild
   # or of course with just 'cp' and adding new files afterwards with
   svn add foo/foobar-124.ebuild
+  
+  make sure to adjust dependencies (DEPEND RDEPEND) if needed
 
 
 2.6 # reverse your local changes to an ebuild/folder

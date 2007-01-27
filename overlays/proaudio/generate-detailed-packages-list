@@ -1,5 +1,6 @@
 #!/bin/bash
 # (c) 2006 - 2007 Frieder Bürzele
+# licence gnu gpl v2
 # this script includes some smaller scripts which cleans the repository a bit
 # and remove unneeded files
 
