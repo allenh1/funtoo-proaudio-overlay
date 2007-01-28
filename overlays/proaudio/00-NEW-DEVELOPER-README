@@ -3,7 +3,7 @@
 Index:
 
 1. # get a account at tuxfamily.org
-  1.1 # request  svn write access
+  1.1 # request svn write access
 
 2.0 # basic subversion commands
   2.1 # checkout the overlay
@@ -33,6 +33,7 @@ Index:
 4.0 # overlay hierarchy:
   4.1 # example proaudio / proaudio-dev overlays setup
 5.0 # feel free to ask
+6.0 # testing ebuilds on different archs
 
 
 1. # get a account at tuxfamily.org
@@ -236,3 +237,15 @@ Index:
 
 5.0 # feel free to ask
   # if you've questions problems you could always ask on the ml
+  # Communication is everything 
+
+
+6.0 # testing ebuilds on different archs
+  # ebuild which are not already tested on a specific arch 
+  # could be found with the below script which is
+  # inside the proaudio overlay root
+  ./check_ebuild_unstable-untested arch # eg ./check_ebuild_unstable-untested amd64
+  # above script reveals all ebuilds without 'arch'
+  # --> this ebuilds needs testing 
+  # so rekeyword if it builds AND works and check it into the svn repository
+  # (some ebuilds might only work on the given arch)

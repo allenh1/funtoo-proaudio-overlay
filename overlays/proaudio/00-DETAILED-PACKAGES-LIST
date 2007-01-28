@@ -626,6 +626,7 @@
 
 #------- media-sound/freewheeling --------
 	freewheeling-0.5.2a	arch: ~amd64 ~ppc ~x86
+	freewheeling-0.5.5	arch: ~amd64 ~ppc x86
 	Description: A live looping instrument using SDL and jack.
 		
 	Homepage:    http://freewheeling.sourceforge.net
