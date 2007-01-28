@@ -102,7 +102,20 @@ Index:
   # or of course with just 'cp' and adding new files afterwards with
   svn add foo/foobar-124.ebuild
   
-  make sure to adjust dependencies (DEPEND RDEPEND) if needed
+  # make sure to adjust dependencies (DEPEND RDEPEND) if needed
+  # If you've trouble with the right syntax look at point 3.1
+  # Make sure that if you're bumping to redigest and also add 
+  # the digest of the ebuild to the overlay
+  # for above example:
+  svn st # gives you this
+  ?	files/digest-foobar-124
+  <snip>
+  # so the following step is also needed before a commit
+  svn add files/digest-foobar-124
+  # know svn st shows
+  A	files/digest-foobar-124
+  <snip>
+  # ready for commiting
 
 
 2.6 # reverse your local changes to an ebuild/folder
