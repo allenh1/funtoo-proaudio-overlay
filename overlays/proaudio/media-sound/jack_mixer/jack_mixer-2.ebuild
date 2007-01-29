@@ -13,7 +13,7 @@ SRC_URI="http://download.gna.org/jackmixer/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~x86 ~amd64"
 
 # Not sure about the required swig version, report if 1.3.25 doesn't work
 DEPEND="media-sound/jack-audio-connection-kit
