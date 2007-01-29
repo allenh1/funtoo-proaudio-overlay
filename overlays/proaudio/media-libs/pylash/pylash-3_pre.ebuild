@@ -14,7 +14,7 @@ SRC_URI="http://nedko.arnaudov.name/soft/pylash/${MY_P}.tar.bz2"
 RESTRICT="nomirror"
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~x86 ~amd64"
 S="${WORKDIR}/${MY_P}"
 
 # Not sure about the required swig version, report if 1.3.25 doesn't work
@@ -29,6 +29,11 @@ pkg_setup() {
 	fi
 }
 
+src_unpack() {
+	unpack "${A}"
+	cd "${S}"
+	use amd64 && epatch "${FILESDIR}/${P}-fPIC.patch"
+}
 src_compile() {
 	emake || die
 }
