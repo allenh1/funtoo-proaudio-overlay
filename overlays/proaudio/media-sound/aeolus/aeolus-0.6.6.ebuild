@@ -9,12 +9,12 @@ RESTRICT="nomirror"
 MY_P="${P}-1"
 
 DESCRIPTION="A synthesised pipe organ emulator by Fons Adriaensen <fons.adriaensen@skynet.be>"
-HOMEPAGE="http://www.kokkinizita.net/linuxaudio/aeolus.html"
+HOMEPAGE="http://www.kokkinizita.net/linuxaudio/aeolus"
 SRC_URI="http://www.kokkinizita.net/linuxaudio/downloads/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="x86"
+KEYWORDS="x86 ~amd64"
 	
 DEPEND="|| ( x11-libs/libX11 virtual/x11 )
 	>=media-libs/libclxclient-3.3.0
