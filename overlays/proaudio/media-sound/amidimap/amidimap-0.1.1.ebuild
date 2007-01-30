@@ -10,7 +10,7 @@ HOMEPAGE="http://www.cowlark.com/amidimap.html"
 SRC_URI="http://www.cowlark.com/amidimap.dat/${P}.tar.bz2"
 
 LICENSE="GPL-2"
-KEYWORDS="~x86"
+KEYWORDS="~x86 ~amd64"
 SLOT="0"
 
 DEPEND=">=media-libs/alsa-lib-0.9"
