@@ -11,7 +11,7 @@ HOMEPAGE="http://www.cesaremarilungo.com/sw/alsamidihumanizer.php"
 
 LICENSE="GPL"
 SLOT="0"
-KEYWORDS="x86"
+KEYWORDS="x86 ~amd64"
 
 IUSE=""
 
