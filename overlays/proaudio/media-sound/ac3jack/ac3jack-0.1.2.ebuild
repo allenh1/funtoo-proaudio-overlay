@@ -8,7 +8,7 @@ SRC_URI="http://essej.net/ac3jack/${P}.tar.gz"
 
 LICENSE="GPL"
 SLOT="0"
-KEYWORDS="x86"
+KEYWORDS="x86 ~amd64"
 IUSE=""
 
 DEPEND=">=media-video/ffmpeg-0.4.6
