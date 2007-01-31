@@ -10,7 +10,7 @@ SRC_URI="http://www.student.nada.kth.se/~d00-llu/plugins/ll-scope/${MY_P}.tar.bz
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="x86"
+KEYWORDS="x86 ~amd64"
 IUSE=""
 RESTRICT="nomirror"
 
@@ -21,9 +21,10 @@ RDEPEND=">=media-libs/dssi-0.9
 
 S="${WORKDIR}/${MY_P}"
 src_unpack() {
-	unpack ${A}
+	unpack "${A}"
 	cd "${S}"
 	epatch "${FILESDIR}/makefile-destdir.patch"
+	epatch "${FILESDIR}/${P}-fPIC.patch"
 }
 
 src_compile() {

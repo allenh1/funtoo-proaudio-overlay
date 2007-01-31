@@ -1,0 +1,20 @@
+--- Makefile.old	2007-01-31 19:08:28.000000000 +0100
++++ Makefile	2007-01-31 19:09:13.000000000 +0100
+@@ -6,14 +6,14 @@
+ all:	ll-scope.so ll-scope_gtk
+ 
+ %.so:	%.c dssi_shm.o ringbuffer.o
+-	$(CC) -D_SVID_SOURCE -D_XOPEN_SOURCE $(CFLAGS) `pkg-config dssi --cflags` -g -o $*.o -c $*.c
++	$(CC) -fPIC -D_SVID_SOURCE -D_XOPEN_SOURCE $(CFLAGS) `pkg-config dssi --cflags` -g -o $*.o -c $*.c
+ 	$(LD) `pkg-config dssi --libs` -o $*.so $*.o dssi_shm.o ringbuffer.o -shared
+ 
+ ll-scope_gtk:	main.cpp scopewidget.hpp scopewidget.cpp dssiuiclient.hpp dssiuiclient.cpp dssi_shm.o ringbuffer.o ll-scope.h Makefile
+-	$(CXX) $(CXXFLAGS) $(CFLAGS) -D_SVID_SOURCE -D_XOPEN_SOURCE -DINSTALL_DIR=\"$(INSTALL_DIR)\" `pkg-config libglademm-2.4 gthread-2.0 liblo dssi --cflags --libs` main.cpp scopewidget.cpp dssiuiclient.cpp dssi_shm.o ringbuffer.o -o ll-scope_gtk -g
++	$(CXX) $(CXXFLAGS) $(CFLAGS) -fPIC -D_SVID_SOURCE -D_XOPEN_SOURCE -DINSTALL_DIR=\"$(INSTALL_DIR)\" `pkg-config libglademm-2.4 gthread-2.0 liblo dssi --cflags --libs` main.cpp scopewidget.cpp dssiuiclient.cpp dssi_shm.o ringbuffer.o -o ll-scope_gtk -g
+ 
+ %.o: %.h %.c
+-	$(CC) $(CFLAGS) -D_SVID_SOURCE -D_XOPEN_SOURCE -DINSTALL_DIR=\"$(INSTALL_DIR)\" `pkg-config dssi --cflags` -c $*.c -g 
++	$(CC) $(CFLAGS) -fPIC -D_SVID_SOURCE -D_XOPEN_SOURCE -DINSTALL_DIR=\"$(INSTALL_DIR)\" `pkg-config dssi --cflags` -c $*.c -g 
+ 
+ clean:
+ 	rm -f ll-scope.so ll-scope_gtk *.o
