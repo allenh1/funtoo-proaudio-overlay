@@ -1,0 +1,42 @@
+--- Makefile.orig	2007-01-31 22:50:38.198438811 +0100
++++ Makefile	2007-01-31 23:22:28.044217815 +0100
+@@ -1,7 +1,7 @@
+ 
+ PROGRAM=gneutronica
+-BINDIR=/usr/local/bin
+-SHAREDIR=/usr/local/share/${PROGRAM}
++BINDIR=$(DESTDIR)/usr/bin
++SHAREDIR=$(DESTDIR)/usr/share/${PROGRAM}
+ DEBUG=-g
+ 
+ GNEUTRONICA_LANGUAGE=
+@@ -50,22 +50,14 @@
+ 		gcc ${CFLAGS} -c `pkg-config --cflags gtk+-2.0` old_fileformats.c
+ 
+ install:	gneutronica
+-	echo "Installing ${BINDIR}/${PROGRAM} and ${SHAREDIR}/drumkits"
+-	cp gneutronica ${BINDIR}/${PROGRAM} 
+-	chmod +x ${BINDIR}/${PROGRAM}
++	install -D -m 755  gneutronica ${BINDIR}/${PROGRAM} 
+ 	mkdir -p ${SHAREDIR}/drumkits
+-	cp drumkits/*.dk ${SHAREDIR}/drumkits 
+-	mkdir -p ${SHAREDIR}/documentation
+-	cp documentation/gneutronica.html ${SHAREDIR}/documentation 
+-	cp documentation/*.png ${SHAREDIR}/documentation
+-	@if [ -d /usr/share/man/man1 ] ; then \
+-		echo "Installing gneutronica man page." ; \
+-		gzip < documentation/gneutronica.1 > /usr/share/man/man1/gneutronica.1.gz ; \
+-	fi
+-	@if [ -d /usr/share/pixmaps ] ; then \
+-		echo "Installing gneutronica icon in /usr/share/pixmaps" ; \
+-		cp -f icons/gneutronica_icon.png /usr/share/pixmaps/gneutronica_icon.png ; \
+-	fi
++	install -m 644 drumkits/*.dk  ${SHAREDIR}/drumkits
++	install -D -m 644 documentation/gneutronica.html ${SHAREDIR}/documentation/gneutronica.html
++	install -m 644 documentation/*.png ${SHAREDIR}/documentation
++	mkdir -p $(DESTDIR)/usr/share/man/man1/
++	gzip < documentation/gneutronica.1 > $(DESTDIR)/usr/share/man/man1/gneutronica.1.gz
++	install -D -m 644 icons/gneutronica_icon.png $(DESTDIR)/usr/share/pixmaps/gneutronica_icon.png
+ 	
+ 
+ uninstall:
