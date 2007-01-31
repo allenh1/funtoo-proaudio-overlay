@@ -12,7 +12,7 @@ SRC_URI="http://at.or.at/hans/pd/${MY_P}.tar.bz2"
 
 LICENSE="|| ( BSD as-is )"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~x86 ~amd64"
 IUSE="debug examples"
 
 S="${WORKDIR}/${MY_P}"
