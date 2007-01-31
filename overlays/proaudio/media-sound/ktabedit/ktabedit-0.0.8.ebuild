@@ -12,7 +12,7 @@ DESCRIPTION_FR="Editeur de tablature."
 HOMEPAGE="http://ktabedit.sourceforge.net/"
 SRC_URI="mirror://sourceforge/ktabedit/${PN}-${MY_PV}.tar.bz2"
 LICENSE="GPL-2"
-KEYWORDS="x86"
+KEYWORDS="x86 ~amd64"
 
 IUSE="arts debug xinerama"
 SLOT="0"

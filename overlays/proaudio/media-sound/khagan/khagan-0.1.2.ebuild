@@ -13,7 +13,7 @@ SRC_URI="http://download.berlios.de/khagan/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~x86 ~amd64"
 
 DEPEND="dev-python/pyxml
 	>=dev-python/pygtk-2.4

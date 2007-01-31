@@ -11,7 +11,7 @@ DESCRIPTION="An efficient and easy-to-use environment for a guitarist"
 HOMEPAGE="http://kguitar.sourceforge.net/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 LICENSE="GPL-2"
-KEYWORDS="x86"
+KEYWORDS="x86 ~amd64"
 
 IUSE="midi tetex"
 

@@ -10,7 +10,7 @@ SRC_URI="http://download.savannah.nongnu.org/releases/dino/${P}.tar.bz2"
 
 LICENSE="GPL"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~x86 ~amd64"
 IUSE=""
 
 DEPEND=">=media-sound/lash-0.5.1
