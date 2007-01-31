@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="x86"
 
 DEPEND=">=media-libs/libclalsadrv-1.1.0
-	>=media-libs/libclthreads-2.2.0
+	>=media-libs/libclthreads-2.2.1
 	=sci-libs/fftw-3*"
 
 src_unpack(){
