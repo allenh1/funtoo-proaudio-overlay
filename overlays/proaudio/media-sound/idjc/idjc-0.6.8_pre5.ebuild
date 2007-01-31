@@ -11,7 +11,7 @@ SRC_URI="http://www.onlymeok.nildram.co.uk/download/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~x86 ~amd64"
 
 IUSE="flac mp3 vorbis"
 DEPEND=">=media-sound/jack-audio-connection-kit-0.100.7
