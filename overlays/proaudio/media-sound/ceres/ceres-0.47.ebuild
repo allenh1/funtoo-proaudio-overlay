@@ -8,7 +8,7 @@ DESCRIPTION="A program for displaying sonograms and doing sound effects in the f
 HOMEPAGE="http://www.notam02.no/arkiv/src/"
 SRC_URI="http://www.notam02.no/arkiv/src/${P}.tar.gz"
 
-KEYWORDS="x86"
+KEYWORDS="x86 ~amd64"
 SLOT="0"
 IUSE=""
 
@@ -51,6 +51,7 @@ src_unpack(){
 	# (--fast-math should be safe to add.)
 	sed -i -e 's@\(^ADDITIONALCFLAGS=\).*\(-I\$\)@\1$(CFLAGS) --fast-math \2@' \
 		-e 's@\(^INSTALLPATH=\).*@\1/usr@g' \
+		-e 's@\(^GCC=.*\)@\1 -fPIC@g' \
 		-e 's@$(X11PATH)/lib/X11/@$(X11PATH)/share/X11/@g' Makefile
 }
 
