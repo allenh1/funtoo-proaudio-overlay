@@ -8,7 +8,7 @@ HOMEPAGE="http://ld10k1.sourceforge.net/"
 SRC_URI="mirror://sourceforge/ld10k1/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="x86"
+KEYWORDS="x86 ~amd64"
 
 IUSE=""
 DEPEND=">=media-libs/alsa-lib-1.0.8"
