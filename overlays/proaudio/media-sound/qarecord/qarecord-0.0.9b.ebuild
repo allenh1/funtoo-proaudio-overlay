@@ -10,7 +10,7 @@ HOMEPAGE="http://alsamodular.sourceforge.net/"
 SRC_URI="mirror://sourceforge/alsamodular/${P}.tar.bz2"
 
 LICENSE="GPL-2"
-KEYWORDS="~x86"
+KEYWORDS="~x86 ~amd64"
 SLOT="0"
 
 DEPEND="media-libs/alsa-lib
