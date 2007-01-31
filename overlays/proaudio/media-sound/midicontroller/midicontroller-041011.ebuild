@@ -10,7 +10,7 @@ HOMEPAGE="http://sourceforge.net/projects/midicontrol/"
 SRC_URI="mirror://sourceforge/midicontrol/${P}.tar.bz2"
 
 LICENSE="GPL-2"
-KEYWORDS="~x86"
+KEYWORDS="~x86 ~amd64"
 SLOT="0"
 
 RDEPEND="media-libs/alsa-lib

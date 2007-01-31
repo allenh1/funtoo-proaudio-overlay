@@ -10,7 +10,7 @@ SRC_URI="ftp://www.iua.upf.es/pub/mdeboer/projects/tapiir/${P}.tar.gz"
 RESTRICT="nomirror"
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="x86"
+KEYWORDS="x86 ~amd64"
 IUSE="X"
 
 DEPEND="media-sound/jack-audio-connection-kit

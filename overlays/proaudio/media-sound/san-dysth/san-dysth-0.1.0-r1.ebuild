@@ -8,7 +8,7 @@ water-like sounds, plus various kinds of noise"
 HOMEPAGE="http://www.notam02.no/~kjetism/sandysth/"
 SRC_URI="http://www.notam02.no/arkiv/src/${P}.tar.gz"
 
-KEYWORDS="~x86"
+KEYWORDS="~x86 ~amd64"
 SLOT="0"
 IUSE=""
 
