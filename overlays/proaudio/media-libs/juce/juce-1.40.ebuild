@@ -18,7 +18,7 @@ S="${WORKDIR}/${PN}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~x86 ~amd64"
 IUSE="debug xinerama flac vorbis opengl"
 
 DEPEND="=media-libs/freetype-2*
@@ -39,6 +39,9 @@ src_unpack() {
 	unpack "${A}"
 	cd "${S}"
 	#	epatch "${FILESDIR}"/"${P}"-gcc-4.1.patch
+	# fix typo (see here:
+	# http://www.rawmaterialsoftware.com/juceforum/viewtopic.php?t=1274)
+	sed -i -s 's@juce_OWnedArray.h@juce_OwnedArray.h@' src/juce_appframework/audio/audio_sources/juce_IIRFilterAudioSource.h
 	epatch "${FILESDIR}"/"${PN}"-1.31-vorbis_header.patch
 }
 

@@ -18,7 +18,7 @@ S="${WORKDIR}/${PN}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~x86 ~amd64"
 IUSE="debug flac opengl vorbis"
 
 DEPEND="=media-libs/freetype-2*
