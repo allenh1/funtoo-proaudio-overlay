@@ -13,7 +13,7 @@ SRC_URI="http://affenbande.org/~tapas/${PN}.tgz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="x86"
+KEYWORDS="x86 ~amd64"
 
 DEPEND="
 	media-libs/alsa-lib

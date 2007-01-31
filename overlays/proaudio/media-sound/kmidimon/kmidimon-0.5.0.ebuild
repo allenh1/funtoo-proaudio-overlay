@@ -11,7 +11,7 @@ HOMEPAGE="http://kmetronome.sourceforge.net/kmidimon/"
 SRC_URI="mirror://sourceforge/kmetronome/${P}.tar.bz2"
 
 LICENSE="GPL-2"
-KEYWORDS="~x86"
+KEYWORDS="~x86 ~amd64"
 SLOT="0"
 RESTRICT="nomirror"
 
