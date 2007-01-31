@@ -12,7 +12,7 @@ SRC_URI="http://www.kokkinizita.net/linuxaudio/downloads/${P}-2.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="x86"
+KEYWORDS="x86 ~amd64"
 
 DEPEND=">=media-libs/libclalsadrv-1.1.0
 	>=media-libs/libclthreads-2.2.0
