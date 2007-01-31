@@ -1,8 +1,8 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2007 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/alsaplayer/alsaplayer-0.99.76-r3.ebuild,v 1.6 2006/07/12 22:05:09 agriffis Exp $
+# $Header: $
 
-inherit eutils cvs # autotools
+inherit unipatch-001 eutils cvs # autotools
 
 DESCRIPTION="Media player primarily utilising ALSA"
 HOMEPAGE="http://www.alsaplayer.org/"
@@ -42,9 +42,8 @@ DEPEND="${RDEPEND}
 	nls? ( sys-devel/gettext )"
 
 src_unpack() {
-	tar -xjpf ${FILESDIR}/${PN}-patches-2-9999.tar.bz2
-	tar -xzpf ${FILESDIR}/${PN}-patches-3.tar.gz
-	
+	#tar -xjpf ${FILESDIR}/${PN}-patches-2-9999.tar.bz2
+	#tar -xzpf ${FILESDIR}/${PN}-patches-3.tar.gz
 	cvs_src_unpack
 
 #	work, but do at debian patches don't work
@@ -52,23 +51,15 @@ src_unpack() {
 #	if use ppc; then
 #		epatch ${FILESDIR}/alsaplayer-endian.patch
 #	fi
-	
+
 	cd ${WORKDIR}
 #	epatch "${FILESDIR}/${P}-join-null-thread.patch"
 	epatch "${FILESDIR}/${P}-cxxflags.patch"
 	
 	cd ${S}
 
-	# apply debian maintainer patches from
-	# http://marc.theaimsgroup.com/?l=alsaplayer-devel&m=114878812719626&w=2
-	for x in `ls --color=none ../patches`;do
-		epatch "../patches/${x}" || die "debian patches failed"
-	done
-	# some splitted patches from
-	# http://security.debian.org/pool/updates/main/a/alsaplayer/alsaplayer_0.99.76-0.3sarge1.diff.gz
-	for x in `ls --color=none ../patches-3`;do
-		epatch "../patches-3/${x}" || die "debian patches #3 failed"
-	done
+	UNIPATCH_LIST="${FILESDIR}/${PN}-patches-2-9999.tar.bz2 ${FILESDIR}/${PN}-patches-3.tar.gz"
+	unipatch
 	
 	#eautoreconf
 
