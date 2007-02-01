@@ -50,13 +50,11 @@ src_unpack() {
 #		epatch ${FILESDIR}/alsaplayer-endian.patch
 #	fi
 
-	cd ${WORKDIR}
-
+	cd ${S}
+	
 	UNIPATCH_LIST="${FILESDIR}/${P}-cxxflags.patch"
 	unipatch
 	
-	cd ${S}
-
 	#eautoreconf
 
 	./bootstrap || die "bootstrap failed"
