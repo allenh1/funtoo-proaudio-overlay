@@ -1,8 +1,8 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2007 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/alsaplayer/alsaplayer-0.99.76-r3.ebuild,v 1.6 2006/07/12 22:05:09 agriffis Exp $
+# $Header: $
 
-inherit eutils cvs # autotools
+inherit unipatch-001 eutils cvs # autotools
 
 DESCRIPTION="Media player primarily utilising ALSA"
 HOMEPAGE="http://www.alsaplayer.org/"
@@ -11,11 +11,13 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="-*"
-IUSE="alsa audiofile doc esd flac gtk jack mikmod nas nls ogg opengl oss vorbis
+IUSE="alsa audiofile doc esd flac gtk gtk2 jack mikmod nas nls ogg opengl oss vorbis
 xosd"
 
 ECVS_SERVER="alsaplayer.cvs.sourceforge.net:/cvsroot/alsaplayer"
 ECVS_MODULE="alsaplayer"
+ECVS_UP_OPTS="-A"
+ECVS_CO_OPTS="-A"
 
 S=${WORKDIR}/${ECVS_MODULE}
 
@@ -40,24 +42,27 @@ DEPEND="${RDEPEND}
 	nls? ( sys-devel/gettext )"
 
 src_unpack() {
-	#unpack ${A}
-	#tar -xjpf ${FILESDIR}/${PN}-patches-2.tar.bz2
+	#tar -xjpf ${FILESDIR}/${PN}-patches-2-9999.tar.bz2
+	#tar -xzpf ${FILESDIR}/${PN}-patches-3.tar.gz
 	cvs_src_unpack
-	cd ${S}
-	if use ppc; then
-		epatch ${FILESDIR}/alsaplayer-endian.patch
-	fi
 
-	epatch "${FILESDIR}/${P}-cxxflags.patch"
+#	work, but do at debian patches don't work
+#	cd ${S}
+#	if use ppc; then
+#		epatch ${FILESDIR}/alsaplayer-endian.patch
+#	fi
+
+	cd ${WORKDIR}
+
+	UNIPATCH_LIST="${FILESDIR}/${P}-cxxflags.patch"
+	unipatch
 	
-	# apply debian maintainer patches from
-	# http://marc.theaimsgroup.com/?l=alsaplayer-devel&m=114878812719626&w=2
-	#for x in `ls --color=none ../patches`;do
-	#	epatch "../patches/${x}"
-	#done
-	
+	cd ${S}
+
 	#eautoreconf
+
 	./bootstrap || die "bootstrap failed"
+
 }
 
 src_compile() {
@@ -86,6 +91,7 @@ src_compile() {
 		$(use_enable sparc) \
 		$(use_enable vorbis oggvorbis) \
 		$(use_enable gtk) \
+		$(use_enable gtk2) \
 		${myconf} \
 		--disable-sgi --disable-dependency-tracking \
 		|| die "econf failed"
