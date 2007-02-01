@@ -27,7 +27,8 @@
 #------- media-libs/aubio --------
 	aubio-0.2.0	arch: x86
 	aubio-0.2.0-r1	arch: x86
-	aubio-0.3.1	arch: x86
+	aubio-0.3.1	arch: x86 ~amd64
+	aubio-0.3.2	arch: x86 ~amd64
 	Description: library for audio labelling
 	Homepage:    http://aubio.piem.org
 
@@ -78,15 +79,15 @@
 
 
 #------- media-libs/joss --------
-	joss-0.3	arch: x86
+	joss-0.3	arch: x86 ~amd64
 	Description: JACK sound wrapper for OSS applications
 	Homepage:    http://www.craknet.net/joss
 
 
 #------- media-libs/juce --------
-	juce-1.31	arch: ~x86
+	juce-1.31	arch: ~x86 ~amd64
 	juce-1.35	arch: ~x86
-	juce-1.40	arch: ~x86
+	juce-1.40	arch: ~x86 ~amd64
 	Description: JUCE (Jules' Utility Class Extensions) is
 		 an all-encompassing C++ class library for
 		 developing cross-platform applications, especially
@@ -95,7 +96,7 @@
 
 
 #------- media-libs/ld10k1 --------
-	ld10k1-0.1.8	arch: x86
+	ld10k1-0.1.8	arch: x86 ~amd64
 	Description: EMU10K1 (EMU10K2) effect loader for ALSA
 	Homepage:    http://ld10k1.sourceforge.net/
 
@@ -202,7 +203,7 @@
 
 
 #------- media-libs/pylash --------
-	pylash-3_pre	arch: ~x86
+	pylash-3_pre	arch: ~x86 ~amd64
 	Description: Python bindings for LASH.
 	Homepage:    http://nedko.arnaudov.name/soft/pylash/
 
@@ -311,19 +312,25 @@
 
 
 #------- media-plugins/oscilloscope --------
-	oscilloscope-0.2.1	arch: x86
+	oscilloscope-0.2.1	arch: x86 ~amd64
 	Description: An oscilloscope (DSSI-Plugin)
 	Homepage:    http://www.student.nada.kth.se/~d00-llu/music_dssi.php?lang=en
 
 
+#------- media-plugins/pd-hid --------
+	pd-hid-0.6	arch: ~x86 ~amd64
+	Description: The hid external for pure data.
+	Homepage:    http://at.or.at/hans/pd/hid.html
+
+
 #------- media-plugins/preamp --------
-	preamp-2.0	arch: x86
+	preamp-2.0	arch: x86 ~amd64
 	Description: preamp LADSPA plugins
 	Homepage:    http://quitte.de/dsp/preamp.html
 
 
 #------- media-plugins/sineshaper --------
-	sineshaper-0.4.2	arch: x86
+	sineshaper-0.4.2	arch: x86 ~amd64
 	sineshaper-0.5.23	arch: ~x86
 	Description: A monophonic synth plugin that sends the
 		 sound from two sine oscillators through
@@ -377,7 +384,7 @@
 
 
 #------- media-sound/ac3jack --------
-	ac3jack-0.1.2	arch: x86
+	ac3jack-0.1.2	arch: x86 ~amd64
 	Description: Tool for creating an AC-3 (Dolby Digital)
 		 multichannel stream from its JACK input ports
 		
@@ -385,11 +392,11 @@
 
 
 #------- media-sound/aeolus --------
-	aeolus-0.6.6	arch: x86
-	aeolus-0.6.6-r1	arch: x86
+	aeolus-0.6.6	arch: x86 ~amd64
+	aeolus-0.6.6-r1	arch: x86 ~amd64
 	Description: A synthesised pipe organ emulator by Fons
 		 Adriaensen <fons.adriaensen@skynet.be>
-	Homepage:    http://www.kokkinizita.net/linuxaudio/aeolus.html
+	Homepage:    http://www.kokkinizita.net/linuxaudio/aeolus
 
 
 #------- media-sound/afsp --------
@@ -410,7 +417,7 @@
 
 
 #------- media-sound/alsa-midi-humanizer --------
-	alsa-midi-humanizer-0.0.3	arch: x86
+	alsa-midi-humanizer-0.0.3	arch: x86 ~amd64
 	Description: ALSA MIDI Humanizer is a tiny utility application
 		 that routes MIDI events between two applications
 		 adding random timing and velocity offsets to NOTEON
@@ -441,7 +448,7 @@
 
 
 #------- media-sound/amidimap --------
-	amidimap-0.1.1	arch: ~x86
+	amidimap-0.1.1	arch: ~x86 ~amd64
 	Description: Read in, process and output MIDI events.
 	Homepage:    http://www.cowlark.com/amidimap.html
 
@@ -480,7 +487,7 @@
 
 
 #------- media-sound/aseqjoy --------
-	aseqjoy-0.0.1	arch: ~x86
+	aseqjoy-0.0.1	arch: ~x86 ~amd64
 	Description: Joystick to ALSA MIDI sequencer converter.
 		
 	Homepage:    http://terminatorx.org/aseqjoy.html
@@ -518,9 +525,15 @@
 	Homepage:    http://sourceforge.net/projects/bristol
 
 
+#------- media-sound/canorus --------
+	canorus-9999	arch: -*
+	Description: Graphical Score-editor using Qt4
+	Homepage:    http://canorus.berlios.de
+
+
 #------- media-sound/ceres --------
 	ceres-0.45	arch: x86
-	ceres-0.47	arch: x86
+	ceres-0.47	arch: x86 ~amd64
 	Description: A program for displaying sonograms and doing
 		 sound effects in the frequency domain
 	Homepage:    http://www.notam02.no/arkiv/src/
@@ -567,7 +580,7 @@
 
 
 #------- media-sound/drc --------
-	drc-2.6.2	arch: ~x86
+	drc-2.6.2	arch: ~x86 ~amd64
 	Description: DRC generates digital room correction FIR
 		 filters to be used within HiFi systems in
 		 conjunction with real time convolution engines
@@ -680,8 +693,8 @@
 
 
 #------- media-sound/glashctl --------
-	glashctl-0.2.0	arch: x86
-	glashctl-0.4.0	arch: ~x86
+	glashctl-0.2.0	arch: x86 ~amd64
+	glashctl-0.4.0	arch: ~x86 ~amd64
 	Description: GLASHCtl is a simple applet for controlling
 		 the LASH Audio Session Handler
 	Homepage:    http://dino.nongnu.org/glashctl
@@ -697,6 +710,7 @@
 #------- media-sound/gneutronica --------
 	gneutronica-0.28	arch: ~x86
 	gneutronica-0.29	arch: ~x86
+	gneutronica-0.33	arch: ~x86 ~amd64
 	Description: a simple MIDI drum machine program modeled
 		 to a large extent on the Hydrogen sample-based
 		 drum machine software
@@ -717,7 +731,8 @@
 
 
 #------- media-sound/gwc --------
-	gwc-0.21.05-r1	arch: amd64 c86 ~ppc x86
+	gwc-0.21.05-r1	arch: amd64 ~ppc x86
+	gwc-0.21.07	arch: amd64 ~ppc x86
 	Description: Gnome Wave Cleaner
 	Homepage:    http://gwc.sourceforge.net/
 
@@ -754,8 +769,8 @@
 
 
 #------- media-sound/idjc --------
-	idjc-0.6.3	arch: ~x86
-	idjc-0.6.8_pre5	arch: ~x86
+	idjc-0.6.8_pre5	arch: ~x86 ~amd64
+	idjc-0.6.9	arch: ~x86 ~amd64
 	Description: Internet DJ Console
 	Homepage:    http://www.onlymeok.nildram.co.uk
 
@@ -817,7 +832,7 @@
 
 
 #------- media-sound/jack_mixer --------
-	jack_mixer-2	arch: ~x86
+	jack_mixer-2	arch: ~x86 ~amd64
 	Description: JACK audio mixer using GTK2 interface.
 	Homepage:    http://home.gna.org/jackmixer/
 
@@ -864,7 +879,7 @@
 
 
 #------- media-sound/japa --------
-	japa-0.1.8	arch: x86
+	japa-0.1.8	arch: x86 ~amd64
 	Description: JAPA is a perceptual analyzer for JACK and
 		 ALSA
 	Homepage:    http://www.kokkinizita.net/linuxaudio/
@@ -885,14 +900,14 @@
 
 
 #------- media-sound/kguitar --------
-	kguitar-0.5	arch: x86
+	kguitar-0.5	arch: x86 ~amd64
 	Description: An efficient and easy-to-use environment
 		 for a guitarist
 	Homepage:    http://kguitar.sourceforge.net/
 
 
 #------- media-sound/khagan --------
-	khagan-0.1.2	arch: ~x86
+	khagan-0.1.2	arch: ~x86 ~amd64
 	Description: Live user interface builder for controlling
 		 parameters via OSC.
 	Homepage:    http://khagan.berlios.de/
@@ -907,28 +922,28 @@
 
 
 #------- media-sound/kmidimon --------
-	kmidimon-0.5.0	arch: ~x86
+	kmidimon-0.5.0	arch: ~x86 ~amd64
 	Description: MIDI monitor using ALSA sequencer and KDE
 		 user interface.
 	Homepage:    http://kmetronome.sourceforge.net/kmidimon/
 
 
 #------- media-sound/kmiditracker --------
-	kmiditracker-0.5.13	arch: x86
-	kmiditracker-0.5.13-r1	arch: x86
+	kmiditracker-0.5.13	arch: x86 ~amd64
+	kmiditracker-0.5.13-r1	arch: x86 ~amd64
 	Description: MIDI Step Sequencer
 	Homepage:    http://www.monasteriomono.org/programs/kmiditracker
 
 
 #------- media-sound/kontroll --------
-	kontroll-20060925	arch: x86
+	kontroll-20060925	arch: x86 ~amd64
 	Description: A small utility that generates midi cc messages
 		 from the mouse position
 	Homepage:    http://tapas.affenbande.org/?page_id=42
 
 
 #------- media-sound/ktabedit --------
-	ktabedit-0.0.8	arch: x86
+	ktabedit-0.0.8	arch: x86 ~amd64
 	Description: KTabEdit is basically a guitar tabulature
 		 editor for K Desktop Environment.
 	Homepage:    http://ktabedit.sourceforge.net/
@@ -943,7 +958,7 @@
 
 
 #------- media-sound/ldrum --------
-	ldrum-0.6.0-r1	arch: x86
+	ldrum-0.6.0-r1	arch: x86 ~amd64
 	Description: The LDrum is an open-source drummachine that
 		 offers ten sample channels, realtime control,
 		 a simple pattern sequencer, MIDI support and a
@@ -959,8 +974,8 @@
 
 
 #------- media-sound/lingot --------
-	lingot-0.6.1	arch: ~x86
-	lingot-0.6.2	arch: ~x86
+	lingot-0.6.1	arch: ~x86 ~amd64
+	lingot-0.6.2	arch: ~x86 ~amd64
 	Description: LINGOT is a musical instrument tuner. It's
 		 accurate, easy to use, and highly configurable.
 		
@@ -995,7 +1010,7 @@
 
 
 #------- media-sound/madjack --------
-	madjack-0.4	arch: ~x86
+	madjack-0.4	arch: ~x86 ~amd64
 	Description: MadJACK is a MPEG Audio Deck for the Jack
 		 Audio Connection Kit with an OSC based control
 		 interface
@@ -1018,14 +1033,14 @@
 
 
 #------- media-sound/midicontroller --------
-	midicontroller-041011	arch: ~x86
+	midicontroller-041011	arch: ~x86 ~amd64
 	Description: Set MIDI controller values using sliders
 		 and buttons.
 	Homepage:    http://sourceforge.net/projects/midicontrol/
 
 
 #------- media-sound/miniaudicle --------
-	miniaudicle-0.1.3.4	arch: ~x86
+	miniaudicle-0.1.3.4	arch: ~x86 ~amd64
 	Description: integrated development + performance environment
 		 for chuck
 	Homepage:    http://audicle.cs.princeton.edu/mini/
@@ -1057,7 +1072,7 @@
 
 
 #------- media-sound/mx44 --------
-	mx44-1	arch: x86
+	mx44-1	arch: x86 ~amd64
 	Description: Mx44 is a polyphonic midi realtime software
 		 synthesizer
 	Homepage:    http://hem.passagen.se/ja_linux/
@@ -1102,14 +1117,14 @@
 
 
 #------- media-sound/paulstretch --------
-	paulstretch-1.000	arch: x86
-	paulstretch-1.024	arch: x86
+	paulstretch-1.000	arch: x86 ~amd64
+	paulstretch-1.024	arch: x86 ~amd64
 	Description: extreme sound stretching of the audio
 	Homepage:    http://hypermammut.sourceforge.net/paulstretch
 
 
 #------- media-sound/pitchtune --------
-	pitchtune-0.0.4	arch: ~x86
+	pitchtune-0.0.4	arch: ~x86 ~amd64
 	Description: A GPL'ed GTK oscilloscope-style musical instrument
 		 tuning program. It can also be used to find the frequency
 		 of sounds
@@ -1117,14 +1132,14 @@
 
 
 #------- media-sound/qamix --------
-	qamix-0.0.7e	arch: ~x86
+	qamix-0.0.7e	arch: ~x86 ~amd64
 	Description: Configurable mixer for ALSA, with MIDI connectivity.
 		
 	Homepage:    http://alsamodular.sourceforge.net/
 
 
 #------- media-sound/qarecord --------
-	qarecord-0.0.9b	arch: ~x86
+	qarecord-0.0.9b	arch: ~x86 ~amd64
 	Description: Multithreaded stereo recording tool.
 	Homepage:    http://alsamodular.sourceforge.net/
 
@@ -1140,7 +1155,7 @@
 
 
 #------- media-sound/qlo10k1 --------
-	qlo10k1-0.1.2	arch: x86
+	qlo10k1-0.1.2	arch: x86 ~amd64
 	Description: Gui for ld10k1 (EMU10K1 (EMU10K2) effect
 		 loader for ALSA)
 	Homepage:    http://ld10k1.sourceforge.net/
@@ -1167,7 +1182,7 @@
 
 
 #------- media-sound/qoscc --------
-	qoscc-0.3.1	arch: ~x86
+	qoscc-0.3.1	arch: ~x86 ~amd64
 	Description: Highly flexible and configurable software
 		 oscilloscope.
 	Homepage:    http://flup.homelinux.org/qoscc.html
@@ -1188,7 +1203,7 @@
 
 
 #------- media-sound/raton --------
-	raton-0.22	arch: ~x86
+	raton-0.22	arch: ~x86 ~amd64
 	Description: Mouse driven MIDI controller.
 	Homepage:    http://home.earthlink.net/~gmoonlit/raton/raton.html
 
@@ -1220,7 +1235,7 @@
 
 
 #------- media-sound/san-dysth --------
-	san-dysth-0.1.0-r1	arch: ~x86
+	san-dysth-0.1.0-r1	arch: ~x86 ~amd64
 	Description: A softsynth to generate organ-like, organic-like,
 		 alien-like and water-like sounds, plus various kinds
 		 of noise
@@ -1228,7 +1243,7 @@
 
 
 #------- media-sound/schism-tracker --------
-	schism-tracker-9999	arch: ~x86
+	schism-tracker-9999	arch: ~x86 ~amd64
 	Description: Schism Tracker cvs
 	Homepage:    http://rigelseven.org/schism
 
@@ -1243,7 +1258,7 @@
 
 
 #------- media-sound/simplesysexxer --------
-	simplesysexxer-0.1.1	arch: ~x86
+	simplesysexxer-0.1.1	arch: ~x86 ~amd64
 	Description: a small tool to load, send, receive, save
 		 and request sysex data on MIDI devices
 	Homepage:    http://www.christeck.de/pages/simplesysexxer.html
@@ -1275,6 +1290,7 @@
 	snd-ls-0.9.6.2	arch: ~amd64 ~ppc ~sparc ~x86
 	snd-ls-0.9.7.0-r1	arch: ~amd64 ~ppc ~sparc ~x86
 	snd-ls-0.9.7.11	arch: ~amd64 ~ppc ~sparc ~x86
+	snd-ls-0.9.7.12	arch: ~amd64 ~ppc ~sparc ~x86
 	snd-ls-0.9.7.4	arch: ~amd64 ~ppc ~sparc ~x86
 	Description: Snd is a sound editor
 	Homepage:    http://www.notam02.no/arkiv/src/snd/
@@ -1345,7 +1361,7 @@
 
 
 #------- media-sound/tapiir --------
-	tapiir-0.7.1-r1	arch: x86
+	tapiir-0.7.1-r1	arch: x86 ~amd64
 	Description: Tapiir is a simple and flexible audio effects
 		 processor
 	Homepage:    http://www.iua.upf.es/~mdeboer/projects/tapiir/

@@ -41,6 +41,7 @@ media-plugins/nekobee
 media-plugins/njl-plugins
 media-plugins/omins
 media-plugins/oscilloscope
+media-plugins/pd-hid
 media-plugins/preamp
 media-plugins/sineshaper
 media-plugins/swh-plugins
@@ -68,6 +69,7 @@ media-sound/beast
 media-sound/bpmdj
 media-sound/breakage
 media-sound/bristol
+media-sound/canorus
 media-sound/ceres
 media-sound/chionic
 media-sound/chuck
