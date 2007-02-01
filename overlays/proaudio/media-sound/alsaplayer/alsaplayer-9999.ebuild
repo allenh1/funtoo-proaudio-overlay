@@ -42,8 +42,6 @@ DEPEND="${RDEPEND}
 	nls? ( sys-devel/gettext )"
 
 src_unpack() {
-	#tar -xjpf ${FILESDIR}/${PN}-patches-2-9999.tar.bz2
-	#tar -xzpf ${FILESDIR}/${PN}-patches-3.tar.gz
 	cvs_src_unpack
 
 #	work, but do at debian patches don't work
