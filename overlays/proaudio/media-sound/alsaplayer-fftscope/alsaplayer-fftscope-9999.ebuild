@@ -24,7 +24,6 @@ src_unpack() {
 	cvs_src_unpack
 
 	cd ${S}
-	epatch ${FILESDIR}/fftscope.c.patch
 	./bootstrap || die "bootstrap failed"
 }
 
