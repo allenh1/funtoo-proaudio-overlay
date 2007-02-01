@@ -12,7 +12,7 @@ SRC_URI="http://audicle.cs.princeton.edu/mini/release/files/${MY_P}.tgz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~x86 ~amd64"
 IUSE="oss jack alsa"
 
 RDEPEND="jack? ( media-sound/jack-audio-connection-kit )
