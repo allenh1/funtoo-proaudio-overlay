@@ -53,14 +53,12 @@ src_unpack() {
 #	fi
 
 	cd ${WORKDIR}
-#	epatch "${FILESDIR}/${P}-join-null-thread.patch"
-	epatch "${FILESDIR}/${P}-cxxflags.patch"
+
+	UNIPATCH_LIST="${FILESDIR}/${P}-cxxflags.patch"
+	unipatch
 	
 	cd ${S}
 
-	UNIPATCH_LIST="${FILESDIR}/${PN}-patches-3.tar.gz"
-	unipatch
-	
 	#eautoreconf
 
 	./bootstrap || die "bootstrap failed"
