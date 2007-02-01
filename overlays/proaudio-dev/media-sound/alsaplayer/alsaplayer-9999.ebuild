@@ -16,8 +16,6 @@ xosd"
 
 ECVS_SERVER="alsaplayer.cvs.sourceforge.net:/cvsroot/alsaplayer"
 ECVS_MODULE="alsaplayer"
-#ECVS_UP_OPTS="-D 20050129"
-#ECVS_CO_OPTS="-D 20050129"
 ECVS_UP_OPTS="-A"
 ECVS_CO_OPTS="-A"
 
@@ -60,7 +58,7 @@ src_unpack() {
 	
 	cd ${S}
 
-	UNIPATCH_LIST="${FILESDIR}/${PN}-patches-2-9999.tar.bz2 ${FILESDIR}/${PN}-patches-3.tar.gz"
+	UNIPATCH_LIST="${FILESDIR}/${PN}-patches-3.tar.gz"
 	unipatch
 	
 	#eautoreconf
