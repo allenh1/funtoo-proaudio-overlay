@@ -12,7 +12,7 @@ SRC_URI="http://home.earthlink.net/~gmoonlit/raton/data/${MY_P}.tar.gz"
 S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2"
-KEYWORDS="~x86"
+KEYWORDS="~x86 ~amd64"
 SLOT="0"
 
 DEPEND=">=media-libs/alsa-lib-0.9
