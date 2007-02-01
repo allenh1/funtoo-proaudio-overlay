@@ -16,8 +16,10 @@ xosd"
 
 ECVS_SERVER="alsaplayer.cvs.sourceforge.net:/cvsroot/alsaplayer"
 ECVS_MODULE="alsaplayer"
-ECVS_UP_OPTS="-D 20050129"
-ECVS_CO_OPTS="-D 20050129"
+#ECVS_UP_OPTS="-D 20050129"
+#ECVS_CO_OPTS="-D 20050129"
+ECVS_UP_OPTS="-A"
+ECVS_CO_OPTS="-A"
 
 S=${WORKDIR}/${ECVS_MODULE}
 
