@@ -7,17 +7,17 @@ RESTRICT="nomirror"
 inherit kde eutils flag-o-matic
 
 MY_PV="${PV/_rc*/}"
-MY_PV="${MY_PV/4./}"
-MY_P="${PN}-${MY_PV/_/}"
+#MY_PV="${MY_PV/4./}"
+MY_P="${PN}-4-${MY_PV}"
 S="${WORKDIR}/${MY_P}"
 
 DESCRIPTION="MIDI and audio sequencer and notation editor."
 HOMEPAGE="http://www.rosegardenmusic.com/"
-SRC_URI="http://rosegarden.sourceforge.net/${MY_P}.tar.bz2"
+SRC_URI="mirror://sourceforge/rosegarden/${MY_P}.tar.bz2"
 
 SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~ppc ~sparc ~x86"
+KEYWORDS="~amd64 ~ppc ~sparc x86"
 IUSE="alsa jack dssi lirc debug osc"
 
 RDEPEND="alsa? ( >=media-libs/alsa-lib-1.0 )

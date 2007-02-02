@@ -7,8 +7,8 @@ inherit kde eutils flag-o-matic
 IUSE="arts jack dssi"
 
 MY_PV="${PV/_rc*/}"
-MY_PV="${MY_PV/./-}"
-MY_P="${PN}-${MY_PV}"
+#MY_PV="${MY_PV/./-}"
+MY_P="${PN}-4-${MY_PV}"
 S="${WORKDIR}/${MY_P}"
 
 DESCRIPTION="MIDI and audio sequencer and notation editor."
@@ -44,7 +44,7 @@ pkg_setup() {
 
 src_unpack() {
 	kde_src_unpack
-	epatch ${FILESDIR}/${PV}-dssi.patch
+	epatch ${FILESDIR}/4.${PV}-dssi.patch
 	epatch ${FILESDIR}/rosegarden-colour.patch
 }
 

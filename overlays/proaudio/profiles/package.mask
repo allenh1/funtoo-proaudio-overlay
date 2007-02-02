@@ -1,0 +1,3 @@
+# as the portage version scheme is wrong
+# rosegarden-4 was the name of the project
+=media-sound/rosegarden-4*

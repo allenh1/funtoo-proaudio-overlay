@@ -7,7 +7,7 @@ RESTRICT="nomirror"
 inherit kde eutils flag-o-matic
 
 MY_PV="${PV/_rc*/}"
-MY_PV="${MY_PV/4./}"
+#MY_PV="${MY_PV/4./}"
 MY_P="${PN}-${MY_PV}"
 S="${WORKDIR}/${MY_P}"
 

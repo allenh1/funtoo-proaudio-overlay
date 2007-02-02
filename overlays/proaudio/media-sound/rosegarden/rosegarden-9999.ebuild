@@ -4,16 +4,11 @@
 
 inherit kde eutils subversion qt3 fetch-tools
 
-MY_PV="${PV/_rc*/}"
-MY_PV="${MY_PV/./-}"
-MY_P="${PN}-${MY_PV}"
-
 DESCRIPTION="MIDI and audio sequencer and notation editor."
 HOMEPAGE="http://www.rosegardenmusic.com/"
-SRC_URI="" # mirror://sourceforge/rosegarden/${MY_P}.tar.bz2"
+SRC_URI=""
 
 ESVN_REPO_URI="https://svn.sourceforge.net/svnroot/rosegarden/trunk/rosegarden"
-#ESVN_PROJECT="rosegarden"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -42,7 +37,7 @@ need-qt 3
 
 LANGS="ca cs cy de en_GB en es et fr it ja nl ru sv zh_CN"
 
-S=${WORKDIR}/rosegarden
+S="${WORKDIR}/${PN}"
 #S="${WORKDIR}/${MY_P}"
 pkg_setup(){
 	 if [ `usesflag "alsa"` == "0" ] && [ `usesflag "jack"` == "1" ];then
