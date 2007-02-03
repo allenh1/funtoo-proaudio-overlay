@@ -16,6 +16,7 @@ SLOT="0"
 KEYWORDS="amd64 ~ppc sparc x86"
 
 DEPEND="media-libs/libsndfile
+	media-libs/libsoundtouch
 	media-libs/alsa-lib
 	media-libs/speex"
 
