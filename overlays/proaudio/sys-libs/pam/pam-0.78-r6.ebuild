@@ -29,7 +29,7 @@ SRC_URI="http://www.kernel.org/pub/linux/libs/pam/pre/library/Linux-PAM-${PV}.ta
 
 LICENSE="PAM"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc x86"
+KEYWORDS="~alpha amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc x86"
 IUSE="berkdb pwdb selinux pam_chroot pam_console pam_timestamp nis"
 
 RDEPEND=">=sys-libs/cracklib-2.8.3
