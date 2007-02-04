@@ -22,7 +22,7 @@ S="${WORKDIR}/${MY_P}"
 src_unpack() {
 	unpack ${MY_P}.tar.bz2 || die
 	zyn_patches
-	patcher ""${FILESDIR}/fix_jackmidi.patch" apply"
+	patcher ""${FILESDIR}/03-fix_jackmidi.patch" apply"
 	#exa_presets_instr_install
 	unpack_examples_presets
 }

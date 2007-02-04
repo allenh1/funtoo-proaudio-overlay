@@ -25,8 +25,8 @@ MY_PN="${PN/-cvs/}"
 src_unpack() {
 	cvs_src_unpack
 	cd "${S}"
-	patcher ""${FILESDIR}/mutex-split.patch" apply"
-	patcher ""${FILESDIR}/ifdef-jackmidi.patch" apply"
-	patcher ""${FILESDIR}/fix_jackmidi.patch" apply"
+	patcher ""${FILESDIR}/01-mutex-split.patch" apply"
+	patcher ""${FILESDIR}/02-ifdef-jackmidi.patch" apply"
+	patcher ""${FILESDIR}/03-fix_jackmidi.patch" apply"
 	unpack_examples_presets
 }

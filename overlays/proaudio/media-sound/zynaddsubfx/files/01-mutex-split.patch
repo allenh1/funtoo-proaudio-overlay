@@ -1,6 +1,6 @@
-diff -urN zynaddsubfx.orig/src/main.C zynaddsubfx.mutex/src/main.C
---- zynaddsubfx.orig/src/main.C	2006-11-01 20:05:59.000000000 +0100
-+++ zynaddsubfx.mutex/src/main.C	2007-02-04 18:17:24.000000000 +0100
+diff -urN zynaddsubfx/src/main.C zynaddsubfx/src/main.C
+--- zynaddsubfx/src/main.C	2006-11-01 20:05:59.000000000 +0100
++++ zynaddsubfx/src/main.C	2007-02-04 18:17:24.000000000 +0100
 @@ -121,13 +121,13 @@
          note=cmdparams[0];
  	vel=cmdparams[1];
@@ -41,9 +41,9 @@ diff -urN zynaddsubfx.orig/src/main.C zynaddsubfx.mutex/src/main.C
  #ifdef OSSAUDIOOUT
      delete(audioout);
  #endif
-diff -urN zynaddsubfx.orig/src/Misc/Master.C zynaddsubfx.mutex/src/Misc/Master.C
---- zynaddsubfx.orig/src/Misc/Master.C	2006-11-01 00:03:00.000000000 +0100
-+++ zynaddsubfx.mutex/src/Misc/Master.C	2007-02-04 18:17:24.000000000 +0100
+diff -urN zynaddsubfx/src/Misc/Master.C zynaddsubfx/src/Misc/Master.C
+--- zynaddsubfx/src/Misc/Master.C	2006-11-01 00:03:00.000000000 +0100
++++ zynaddsubfx/src/Misc/Master.C	2007-02-04 18:17:24.000000000 +0100
 @@ -32,7 +32,8 @@
  Master::Master(){
      swaplr=0;
@@ -109,9 +109,9 @@ diff -urN zynaddsubfx.orig/src/Misc/Master.C zynaddsubfx.mutex/src/Misc/Master.C
  
      xml->exitbranch();
      
-diff -urN zynaddsubfx.orig/src/Misc/Master.h zynaddsubfx.mutex/src/Misc/Master.h
---- zynaddsubfx.orig/src/Misc/Master.h	2005-03-14 19:13:43.000000000 +0100
-+++ zynaddsubfx.mutex/src/Misc/Master.h	2007-02-04 18:17:24.000000000 +0100
+diff -urN zynaddsubfx/src/Misc/Master.h zynaddsubfx/src/Misc/Master.h
+--- zynaddsubfx/src/Misc/Master.h	2005-03-14 19:13:43.000000000 +0100
++++ zynaddsubfx/src/Misc/Master.h	2007-02-04 18:17:24.000000000 +0100
 @@ -130,7 +130,8 @@
  	Bank bank;
  	
@@ -122,9 +122,9 @@ diff -urN zynaddsubfx.orig/src/Misc/Master.h zynaddsubfx.mutex/src/Misc/Master.h
  
      private:
  	REALTYPE volume;	
-diff -urN zynaddsubfx.orig/src/Misc/Part.C zynaddsubfx.mutex/src/Misc/Part.C
---- zynaddsubfx.orig/src/Misc/Part.C	2007-01-07 23:33:56.000000000 +0100
-+++ zynaddsubfx.mutex/src/Misc/Part.C	2007-02-04 18:17:24.000000000 +0100
+diff -urN zynaddsubfx/src/Misc/Part.C zynaddsubfx/src/Misc/Part.C
+--- zynaddsubfx/src/Misc/Part.C	2007-01-07 23:33:56.000000000 +0100
++++ zynaddsubfx/src/Misc/Part.C	2007-02-04 18:17:24.000000000 +0100
 @@ -962,7 +962,7 @@
  
  void Part::applyparameters(){
@@ -134,9 +134,9 @@ diff -urN zynaddsubfx.orig/src/Misc/Part.C zynaddsubfx.mutex/src/Misc/Part.C
      };
  };
  
-diff -urN zynaddsubfx.orig/src/Output/JACKaudiooutput.C zynaddsubfx.mutex/src/Output/JACKaudiooutput.C
---- zynaddsubfx.orig/src/Output/JACKaudiooutput.C	2006-11-01 20:06:00.000000000 +0100
-+++ zynaddsubfx.mutex/src/Output/JACKaudiooutput.C	2007-02-04 18:17:24.000000000 +0100
+diff -urN zynaddsubfx/src/Output/JACKaudiooutput.C zynaddsubfx/src/Output/JACKaudiooutput.C
+--- zynaddsubfx/src/Output/JACKaudiooutput.C	2006-11-01 20:06:00.000000000 +0100
++++ zynaddsubfx/src/Output/JACKaudiooutput.C	2007-02-04 18:17:24.000000000 +0100
 @@ -79,18 +79,19 @@
  int jackprocess(jack_nframes_t nframes,void *arg){
      jack_default_audio_sample_t *outl=(jack_default_audio_sample_t *) jack_port_get_buffer (outport_left, nframes);
@@ -165,9 +165,9 @@ diff -urN zynaddsubfx.orig/src/Output/JACKaudiooutput.C zynaddsubfx.mutex/src/Ou
  };
  
  void JACKfinish(){
-diff -urN zynaddsubfx.orig/src/Params/PADnoteParameters.C zynaddsubfx.mutex/src/Params/PADnoteParameters.C
---- zynaddsubfx.orig/src/Params/PADnoteParameters.C	2005-09-27 19:42:44.000000000 +0200
-+++ zynaddsubfx.mutex/src/Params/PADnoteParameters.C	2007-02-04 18:17:24.000000000 +0100
+diff -urN zynaddsubfx/src/Params/PADnoteParameters.C zynaddsubfx/src/Params/PADnoteParameters.C
+--- zynaddsubfx/src/Params/PADnoteParameters.C	2005-09-27 19:42:44.000000000 +0200
++++ zynaddsubfx/src/Params/PADnoteParameters.C	2007-02-04 18:17:24.000000000 +0100
 @@ -447,12 +447,13 @@
  /*
   * Applies the parameters (i.e. computes all the samples, based on parameters);
@@ -228,9 +228,9 @@ diff -urN zynaddsubfx.orig/src/Params/PADnoteParameters.C zynaddsubfx.mutex/src/
  
  
  void PADnoteParameters::add2XML(XMLwrapper *xml){
-diff -urN zynaddsubfx.orig/src/Params/PADnoteParameters.h zynaddsubfx.mutex/src/Params/PADnoteParameters.h
---- zynaddsubfx.orig/src/Params/PADnoteParameters.h	2005-03-14 19:13:45.000000000 +0100
-+++ zynaddsubfx.mutex/src/Params/PADnoteParameters.h	2007-02-04 18:17:24.000000000 +0100
+diff -urN zynaddsubfx/src/Params/PADnoteParameters.h zynaddsubfx/src/Params/PADnoteParameters.h
+--- zynaddsubfx/src/Params/PADnoteParameters.h	2005-03-14 19:13:45.000000000 +0100
++++ zynaddsubfx/src/Params/PADnoteParameters.h	2007-02-04 18:17:24.000000000 +0100
 @@ -142,7 +142,7 @@
  	REALTYPE setPbandwidth(int Pbandwidth);//returns the BandWidth in cents
  	REALTYPE getNhr(int n);//gets the n-th overtone position relatively to N harmonic
@@ -240,9 +240,9 @@ diff -urN zynaddsubfx.orig/src/Params/PADnoteParameters.h zynaddsubfx.mutex/src/
  
  	OscilGen *oscilgen;
  	Resonance *resonance;
-diff -urN zynaddsubfx.orig/src/UI/BankUI.fl zynaddsubfx.mutex/src/UI/BankUI.fl
---- zynaddsubfx.orig/src/UI/BankUI.fl	2006-11-01 00:03:01.000000000 +0100
-+++ zynaddsubfx.mutex/src/UI/BankUI.fl	2007-02-04 18:17:24.000000000 +0100
+diff -urN zynaddsubfx/src/UI/BankUI.fl zynaddsubfx/src/UI/BankUI.fl
+--- zynaddsubfx/src/UI/BankUI.fl	2006-11-01 00:03:01.000000000 +0100
++++ zynaddsubfx/src/UI/BankUI.fl	2007-02-04 18:17:24.000000000 +0100
 @@ -254,9 +254,9 @@
  };
  
@@ -267,9 +267,9 @@ diff -urN zynaddsubfx.orig/src/UI/BankUI.fl zynaddsubfx.mutex/src/UI/BankUI.fl
  
         bs[slot]->refresh();
         mode=1;readbutton->value(1);writebutton->value(0);
-diff -urN zynaddsubfx.orig/src/UI/MasterUI.fl zynaddsubfx.mutex/src/UI/MasterUI.fl
---- zynaddsubfx.orig/src/UI/MasterUI.fl	2006-11-01 20:06:02.000000000 +0100
-+++ zynaddsubfx.mutex/src/UI/MasterUI.fl	2007-02-04 18:17:24.000000000 +0100
+diff -urN zynaddsubfx/src/UI/MasterUI.fl zynaddsubfx/src/UI/MasterUI.fl
+--- zynaddsubfx/src/UI/MasterUI.fl	2006-11-01 20:06:02.000000000 +0100
++++ zynaddsubfx/src/UI/MasterUI.fl	2007-02-04 18:17:24.000000000 +0100
 @@ -60,6 +60,7 @@
  decl {\#include "../globals.h"} {public
  } 
@@ -606,9 +606,9 @@ diff -urN zynaddsubfx.orig/src/UI/MasterUI.fl zynaddsubfx.mutex/src/UI/MasterUI.
  
  if (result<0) fl_alert("Error: Could not save the file.");
  	else setfilelabel(filename);
-diff -urN zynaddsubfx.orig/src/UI/OscilGenUI.fl zynaddsubfx.mutex/src/UI/OscilGenUI.fl
---- zynaddsubfx.orig/src/UI/OscilGenUI.fl	2006-11-01 00:03:01.000000000 +0100
-+++ zynaddsubfx.mutex/src/UI/OscilGenUI.fl	2007-02-04 18:17:24.000000000 +0100
+diff -urN zynaddsubfx/src/UI/OscilGenUI.fl zynaddsubfx/src/UI/OscilGenUI.fl
+--- zynaddsubfx/src/UI/OscilGenUI.fl	2006-11-01 00:03:01.000000000 +0100
++++ zynaddsubfx/src/UI/OscilGenUI.fl	2007-02-04 18:17:24.000000000 +0100
 @@ -71,10 +71,10 @@
  REALTYPE spc[n];
  for (i=0;i<n;i++) spc[i]=0.0;
@@ -717,9 +717,9 @@ diff -urN zynaddsubfx.orig/src/UI/OscilGenUI.fl zynaddsubfx.mutex/src/UI/OscilGe
  
  basefuncdisplaygroup->redraw();
  redrawoscil();} {}
-diff -urN zynaddsubfx.orig/src/UI/PADnoteUI.fl zynaddsubfx.mutex/src/UI/PADnoteUI.fl
---- zynaddsubfx.orig/src/UI/PADnoteUI.fl	2006-10-31 12:13:01.000000000 +0100
-+++ zynaddsubfx.mutex/src/UI/PADnoteUI.fl	2007-02-04 18:17:24.000000000 +0100
+diff -urN zynaddsubfx/src/UI/PADnoteUI.fl zynaddsubfx/src/UI/PADnoteUI.fl
+--- zynaddsubfx/src/UI/PADnoteUI.fl	2006-10-31 12:13:01.000000000 +0100
++++ zynaddsubfx/src/UI/PADnoteUI.fl	2007-02-04 18:17:24.000000000 +0100
 @@ -147,9 +147,9 @@
  REALTYPE spc[n];
  for (int i=0;i<n;i++) spc[i]=0.0;
@@ -750,9 +750,9 @@ diff -urN zynaddsubfx.orig/src/UI/PADnoteUI.fl zynaddsubfx.mutex/src/UI/PADnoteU
  applybutton->color(FL_GRAY);
  applybutton->parent()->redraw();} {}
    }
-diff -urN zynaddsubfx.orig/src/UI/PartUI.fl zynaddsubfx.mutex/src/UI/PartUI.fl
---- zynaddsubfx.orig/src/UI/PartUI.fl	2006-11-01 00:03:01.000000000 +0100
-+++ zynaddsubfx.mutex/src/UI/PartUI.fl	2007-02-04 18:17:24.000000000 +0100
+diff -urN zynaddsubfx/src/UI/PartUI.fl zynaddsubfx/src/UI/PartUI.fl
+--- zynaddsubfx/src/UI/PartUI.fl	2006-11-01 00:03:01.000000000 +0100
++++ zynaddsubfx/src/UI/PartUI.fl	2007-02-04 18:17:24.000000000 +0100
 @@ -202,9 +202,9 @@
          callback {int answer=1;
  if (o->value()==0) answer=fl_choice("Delete the item?","No","Yes",NULL);
@@ -801,9 +801,9 @@ diff -urN zynaddsubfx.orig/src/UI/PartUI.fl zynaddsubfx.mutex/src/UI/PartUI.fl
          xywh {120 127 25 15} box THIN_UP_BOX color 179 labelfont 1 labelsize 11 labelcolor 7
        }
      }
-diff -urN zynaddsubfx.orig/src/UI/VirKeyboard.fl zynaddsubfx.mutex/src/UI/VirKeyboard.fl
---- zynaddsubfx.orig/src/UI/VirKeyboard.fl	2006-10-31 12:13:01.000000000 +0100
-+++ zynaddsubfx.mutex/src/UI/VirKeyboard.fl	2007-02-04 18:17:24.000000000 +0100
+diff -urN zynaddsubfx/src/UI/VirKeyboard.fl zynaddsubfx/src/UI/VirKeyboard.fl
+--- zynaddsubfx/src/UI/VirKeyboard.fl	2006-10-31 12:13:01.000000000 +0100
++++ zynaddsubfx/src/UI/VirKeyboard.fl	2007-02-04 18:17:24.000000000 +0100
 @@ -183,9 +183,9 @@
    vel=midivel*(127.0-rndvelocity)/127.0+RND*rndvelocity;
  };
