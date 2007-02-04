@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils zyn2 cvs patcher
+inherit eutils zyn2 cvs patcher unipatch-001
 
 KEYWORDS="-*"
 RESTRICT="nomirror"
@@ -25,7 +25,9 @@ MY_PN="${PN/-cvs/}"
 src_unpack() {
 	cvs_src_unpack
 	cd "${S}"
-	patcher ""${FILESDIR}/jackmidi_ifdef.patch" apply"
-	patcher ""${FILESDIR}/fix_jackmidi.patch" apply"
+	#patcher ""${FILESDIR}/jackmidi_ifdef.patch" apply"
+	#patcher ""${FILESDIR}/fix_jackmidi.patch" apply"
+	UNIPATCH_LIST="${FILESDIR}/mutex-split.patch ${FILESDIR}/ifdef-jackmidi.patch ${FILESDIR}/fix_jackmidi.patch"
+	unipatch
 	unpack_examples_presets
 }
