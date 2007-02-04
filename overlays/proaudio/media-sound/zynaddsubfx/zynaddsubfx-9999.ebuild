@@ -1,8 +1,8 @@
-# Copyright 1999-2005 Gentoo Foundation
+# Copyright 1999-2007 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils zyn2 cvs patcher unipatch-001
+inherit eutils zyn2 cvs patcher
 
 KEYWORDS="-*"
 RESTRICT="nomirror"
@@ -25,9 +25,8 @@ MY_PN="${PN/-cvs/}"
 src_unpack() {
 	cvs_src_unpack
 	cd "${S}"
-	#patcher ""${FILESDIR}/jackmidi_ifdef.patch" apply"
-	#patcher ""${FILESDIR}/fix_jackmidi.patch" apply"
-	UNIPATCH_LIST="${FILESDIR}/mutex-split.patch ${FILESDIR}/ifdef-jackmidi.patch ${FILESDIR}/fix_jackmidi.patch"
-	unipatch
+	patcher ""${FILESDIR}/mutex-split.patch" apply"
+	patcher ""${FILESDIR}/ifdef-jackmidi.patch" apply"
+	patcher ""${FILESDIR}/fix_jackmidi.patch" apply"
 	unpack_examples_presets
 }
