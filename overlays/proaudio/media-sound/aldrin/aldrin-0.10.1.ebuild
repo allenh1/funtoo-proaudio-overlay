@@ -15,8 +15,7 @@ IUSE=""
 
 RDEPEND="dev-python/wxpython
 	dev-python/ctypes
-	>=media-libs/libzzub-0.2"
-
+	>=media-libs/libzzub-0.2.2"
 DEPEND="${RDEPEND}
 	dev-util/scons"
 

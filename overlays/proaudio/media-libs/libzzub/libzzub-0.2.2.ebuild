@@ -12,7 +12,7 @@ RESTRICT="nomirror"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-IUSE="alsa jack"
+IUSE="alsa jack llvm"
 
 DEPEND="${RDEPEND}
 		dev-util/scons"
@@ -24,42 +24,38 @@ RDEPEND=">=dev-lang/python-2.4
 		alsa? ( media-libs/alsa-lib )
 		sys-libs/zlib
 		media-libs/flac
-		>=sys-devel/llvm-base-1.9"
+		llvm? ( >=sys-devel/llvm-base-1.9 )"
 
 pkg_setup() {
-	if ! built_with_use sys-devel/llvm-base jit;then
-		eerror "You need to compile sys-devel/llvm-base with the \"jit\""
-		eerror "enabled."
-		die
+	if use llvm; then
+		ewarn "Note: LLVM is a bleeding edge bleeding edge compiler suite that"
+		ewarn "offers very optimized code. It takes a while to compile!"
+		ewarn "llvm-base and llvm-gcc can be found in the proaudio-dev overlay."
+		ewarn ""
+		ewarn "You can also choose libzzub's GCC wrapper with USE=\"-llvm\"."
+
+		if ! built_with_use sys-devel/llvm-base jit;then
+			eerror "You need to compile sys-devel/llvm-base with the \"jit\""
+			eerror "enabled."
+			die
+		fi
 	fi
 }
 
 src_compile() {
 	local myconf=""
-	# those actually don't do anything at the moment, scons guesses
-	use alsa \
-		&& myconf="${myconf} ALSA=True" \
-		|| myconf="${myconf} ALSA=False"
-	use jack \
-		&& myconf="${myconf} JACK=True" \
-		|| myconf="${myconf} JACK=False"
-		
-	# broken currently, but lets keep IF it comes back
-	# use dssi \
-	# 	&& myconf="${myconf} DSSI=True" \
-	#	|| myconf="${myconf} DSSI=False"
-	#use ladspa \
-	#	&& myconf="${myconf} LADSPA=True" \
-	#	|| myconf="${myconf} LADSPA=False"
+	
+	use llvm \
+		&& myconf="${myconf} LUNARTARGET=llvm LLVMGCCPATH=/usr/bin" \
+		|| myconf="${myconf} LUNARTARGET=gcc"
 	
 	scons \
 		PREFIX=/usr \
 		DESTDIR="${D}" \
-		LLVMGCCPATH=/usr/bin \
 		${myconf} \
 		configure || die "configure failed"
 	
-	scons || die "Compilation failed"
+	scons || die "compilation failed"
 }
 
 src_install() {
