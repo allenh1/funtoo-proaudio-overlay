@@ -24,7 +24,7 @@ RDEPEND="media-sound/jack-audio-connection-kit
 
 src_compile() {
 	QTDIR=/usr \
-	QLIBS=/usr/lib/qt4 \
+	QTLIBS=/usr/lib/qt4 \
 	scons configure || die "configure failed"
 
 	scons || die "make failed"
