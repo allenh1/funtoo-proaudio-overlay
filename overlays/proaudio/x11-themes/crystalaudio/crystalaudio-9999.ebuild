@@ -13,7 +13,7 @@ ESVN_REPO_URI="svn://svn.tuxfamily.org/svnroot/crystalaudio/crystalaudio/trunk/c
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="-*"
 IUSE="alsaplayer"
 RDEPEND="|| ( =x11-wm/fvwm-20070204 =x11-wm/fvwm-crystal-9999 )
 	x11-themes/fvwm-crystal
