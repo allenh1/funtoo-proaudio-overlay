@@ -176,9 +176,8 @@
 
 
 #------- media-libs/libzzub --------
-	libzzub-0.1	arch: ~x86 ~amd64
 	libzzub-0.2.1	arch: ~x86 ~amd64
-	libzzub-0.2	arch: ~x86 ~amd64
+	libzzub-0.2.2	arch: ~x86 ~amd64
 	Description: buzz compatibility lib for aldrin
 	Homepage:    http://trac.zeitherrschaft.org/aldrin
 
@@ -237,7 +236,7 @@
 	zynaddsubfx-banks-20060419	arch: amd64 ppc x86
 	zynaddsubfx-banks-20061031	arch: amd64 ppc x86
 	zynaddsubfx-banks-2.2.1	arch: amd64 ppc x86
-	zynaddsubfx-banks-99999999	arch: ~amd64 ~ppc ~x86
+	zynaddsubfx-banks-99999999	arch: -*
 	Description: ZynAddSubFX banks/instruments
 	Homepage:    
 
@@ -408,8 +407,7 @@
 
 
 #------- media-sound/aldrin --------
-	aldrin-0.8	arch: ~x86 ~amd64
-	aldrin-0.9	arch: ~x86 ~amd64
+	aldrin-0.10.1	arch: ~x86 ~amd64
 	aldrin-0.9-r1	arch: ~x86 ~amd64
 	Description: Aldrin is an open source modular sequencer/tracker,
 		 compatible to Buzz
@@ -694,7 +692,7 @@
 
 #------- media-sound/glashctl --------
 	glashctl-0.2.0	arch: x86 ~amd64
-	glashctl-0.4.0	arch: ~x86 ~amd64
+	glashctl-0.4.2	arch: ~x86 ~amd64
 	Description: GLASHCtl is a simple applet for controlling
 		 the LASH Audio Session Handler
 	Homepage:    http://dino.nongnu.org/glashctl
@@ -867,8 +865,9 @@
 
 #------- media-sound/jackmix --------
 	jackmix-0.1	arch: ~amd64 ~x86
-	Description: a mixer app for jack
-	Homepage:    http://dillenburg.dyndns.org/~arnold/node/71
+	jackmix-0.2	arch: ~amd64 ~x86
+	Description: A mixer app for jack
+	Homepage:    http://www.arnoldarts.de/drupal/?q=JackMix%3Aintro
 
 
 #------- media-sound/jamin --------
@@ -992,8 +991,7 @@
 
 #------- media-sound/lmms --------
 	lmms-0.1.4	arch: ~x86 ~amd64
-	lmms-0.2.1	arch: ~x86 ~amd64
-	lmms-9999	arch: -*
+	lmms-0.2.1-r1	arch: ~x86
 	lmms-9999-r1	arch: -*
 	Description: free alternative to popular programs such
 		 as FruityLoops, Cubase and Logic
@@ -1216,11 +1214,10 @@
 
 
 #------- media-sound/rosegarden --------
-	rosegarden-4.1.0-r2	arch: amd64 ppc ~sparc x86
-	rosegarden-4.1.2.3-r2	arch: ~amd64 ~ppc ~sparc x86
-	rosegarden-4.1.2.4	arch: ~amd64 ~ppc ~sparc x86
-	rosegarden-4.1.3_pre1	arch: ~amd64 ~ppc ~sparc ~x86
-	rosegarden-4.1.4.0	arch: ~amd64 ~ppc ~sparc x86
+	rosegarden-1.0-r2	arch: amd64 ppc ~sparc x86
+	rosegarden-1.2.3-r2	arch: ~amd64 ~ppc ~sparc x86
+	rosegarden-1.2.4	arch: ~amd64 ~ppc ~sparc x86
+	rosegarden-1.4.0	arch: ~amd64 ~ppc ~sparc x86
 	rosegarden-9999	arch: -*
 	Description: MIDI and audio sequencer and notation editor.
 		
@@ -1455,6 +1452,13 @@
 	Homepage:    http://www.jackaudio.org
 
 
+#------- media-video/xjadeo --------
+	xjadeo-0.4.0_rc3	arch: x86 ~amd64
+	Description: xjadeo is a simple video player that is synchronized
+		 to jack transport.
+	Homepage:    http://xjadeo.sourceforge.net/
+
+
 #------- sys-apps/das_watchdog --------
 	das_watchdog-0.2.4	arch: x86
 	das_watchdog-0.2.5	arch: x86
@@ -1477,6 +1481,8 @@
 	rt-sources-2.6.19-r14	arch: ~amd64 ~ppc ~ppc64 ~x86
 	rt-sources-2.6.19-r15	arch: ~amd64 ~ppc ~ppc64 ~x86
 	rt-sources-2.6.19-r6	arch: ~amd64 ~ppc ~ppc64 ~x86
+	rt-sources-2.6.20-r2	arch: ~amd64 ~ppc ~ppc64 ~x86
+	rt-sources-2.6.20_rc7-r3	arch: -*
 	Description: Ingo Molnars realtime patch applied on vanilla
 		
 	Homepage:    unknown
@@ -1490,7 +1496,7 @@
 
 
 #------- sys-libs/pam --------
-	pam-0.78-r6	arch: ~alpha ~amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc x86
+	pam-0.78-r6	arch: ~alpha amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc x86
 	pam-0.99.6.3-r3	arch: ~amd64 ~arm ~ia64 ~m68k ~ppc ~ppc64 ~s390 ~sh ~x86
 	Description: Linux-PAM (Pluggable Authentication Modules)
 		

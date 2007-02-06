@@ -193,6 +193,7 @@ media-sound/yatm
 media-sound/zynaddsubfx
 media-sound/zynaddsubfx-converter
 media-sound/jack-audio-connection-kit
+media-video/xjadeo
 sys-apps/das_watchdog
 sys-kernel/rt-sources
 sys-libs/libfreebob

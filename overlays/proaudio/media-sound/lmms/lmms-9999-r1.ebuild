@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2007 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -15,8 +15,7 @@ KEYWORDS="-*"
 
 S="${WORKDIR}/${PN}"
 
-IUSE="alsa debug flac jack ladspa oss pic samplerate sdl surround stk vorbis
-vst qt3 qt4"
+IUSE="alsa debug flac jack ladspa oss pic samplerate sdl surround stk vorbis vst qt3 qt4"
 DEPEND="qt4? ( >=x11-libs/qt-4.1 ) 
 	qt3? ( =x11-libs/qt-3.3* )
 	vorbis? ( media-libs/libvorbis )
@@ -36,16 +35,18 @@ pkg_setup() {
 		fi
 	fi
 }
+src_unpack() {
+	subversion_src_unpack
+	cd ${S}
+	# copy VST headers
+	if use vst ; then
+		cp /usr/include/vst/{AEffect.h,aeffectx.h} include/
+	fi
+}
 
 src_compile() {
 	# autofoo
 	eautoreconf || die
-	
-	# copy VST headers
-	if use vst; then
-		cp /usr/include/vst/aeffectx.h include/
-		cp /usr/include/vst/AEffect.h include/
-	fi
 	
 	# configure options
 	local myconf
