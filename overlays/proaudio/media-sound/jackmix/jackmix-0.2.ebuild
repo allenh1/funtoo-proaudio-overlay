@@ -24,13 +24,12 @@ RDEPEND="media-sound/jack-audio-connection-kit
 
 src_compile() {
 	QTDIR=/usr \
-	QTLIBS=/usr/lib/qt4 \
-	scons configure || die "configure failed"
+	scons configure qtlibs=/usr/lib/qt4 prefix=${D}/usr || die "configure failed"
 
 	scons || die "make failed"
 }
 
 src_install() {
-	make DESTDIR="${D}" install || die
+	scons install || die
 	dodoc AUTHORS ChangeLog
 }
