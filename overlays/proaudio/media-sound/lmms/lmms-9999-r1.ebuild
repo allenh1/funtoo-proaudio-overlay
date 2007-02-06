@@ -87,6 +87,7 @@ src_compile() {
 
 src_install() {
 	make DESTDIR="${D}" install || die "Install failed"
-	make_desktop_entry lmms "Linux Multimedia Studio" "/usr/share/lmms/icon.png"
 	dodoc README AUTHORS ChangeLog TODO || die "dodoc failed"
+	newicon "${D}/usr/share/lmms/themes/default/icon.png" "${PN}.png"
+	make_desktop_entry ${PN} "Linux Multimedia Studio" ${PN} "Qt;AudioVideo"
 }
