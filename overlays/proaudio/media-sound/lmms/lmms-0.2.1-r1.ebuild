@@ -58,6 +58,7 @@ src_compile() {
 src_install() {
 	emake DESTDIR="${D}" install || die "emake install failed"
 	newicon "${D}/usr/share/lmms/themes/default/icon.png" "${PN}.png"
-	make_desktop_entry ${PN} "Linux Multimedia Studio" ${PN} "Qt;AudioVideo"
+	make_desktop_entry ${PN} "Linux Multimedia Studio" ${PN} \
+		"AudioVideo;Audio;Sequencer"
 	dodoc README AUTHORS ChangeLog TODO
 }
