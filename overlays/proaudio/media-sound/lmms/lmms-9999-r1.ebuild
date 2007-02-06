@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils subversion autotools
+inherit eutils subversion autotools flag-o-matic
 
 DESCRIPTION="free alternative to popular programs such as FruityLoops, Cubase and Logic"
 HOMEPAGE="http://lmms.sourceforge.net"
@@ -48,6 +48,9 @@ src_compile() {
 	# autofoo
 	eautoreconf || die
 	
+	# VST won't compile with -fomit-frame-pointer
+	use vst && filter-flags "-fomit-frame-pointer"
+
 	# configure options
 	local myconf
 	myconf="`use_with alsa asound` \
