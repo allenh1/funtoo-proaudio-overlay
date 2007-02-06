@@ -11,7 +11,7 @@ SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.gz"
 LICENSE="gpl"
 SLOT="0"
 KEYWORDS="x86 ~amd64"
-IUSE="xv sdl osd qt3 tools lash tiff"
+IUSE="xv sdl osd qt3 qt4 tools lash tiff"
 
 RDEPEND=">=media-sound/jack-audio-connection-kit-0.100
 	>=media-video/ffmpeg-0.4.9
@@ -22,19 +22,26 @@ RDEPEND=">=media-sound/jack-audio-connection-kit-0.100
 
 DEPEND="${RDPEND}
 	>=sys-libs/zlib-1.2.2
-	qt3? ( >=x11-libs/qt-3 )"
+	qt3? ( >=x11-libs/qt-3 )
+	qt4? ( >=x11-libs/qt-4.1 )"
 
 S="${WORKDIR}/${MY_P}"
 
 src_compile() {
-	econf $(use_enable xv) \
+	if use qt4 ;then
+		export QTDIR=/usr
+		export QLIBS=/usr/lib/qt4
+		myconf="--enable-qtgui"
+	fi
+		
+		econf $(use_enable xv) \
 		$(use_enable sdl) \
 		$(use_enable osd ft) \
 		$(use_enable qt3 qtgui) \
 		$(use_enable tools contrib) \
 		$(use_enable lash) \
 		$(use_enable tiff) \
-		--disable-imlib --enable-imlib2 || die "econf failed"
+		$myconf --disable-imlib --enable-imlib2 || die "econf failed"
 	emake || die
 }
 
