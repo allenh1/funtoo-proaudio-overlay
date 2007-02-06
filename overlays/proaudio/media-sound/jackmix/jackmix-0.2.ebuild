@@ -32,4 +32,5 @@ src_compile() {
 src_install() {
 	scons install || die
 	dodoc AUTHORS ChangeLog
+	make_desktop_entry "${PN}" "JackMix" Audio "AudioVideo;Audio;Mixer"
 }
