@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2007 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -8,7 +8,7 @@ IUSE="debug"
 DESCRIPTION="Dino is a pattern-based MIDI sequencer."
 HOMEPAGE="http://dino.nongnu.org"
 
-SRC_URI="mirror://sourceforge/dinoseq/${P}.tar.gz"
+SRC_URI="http://download.savannah.nongnu.org/releases/${PN}/${P}.tar.gz"
 
 LICENSE="GPL"
 SLOT="0"

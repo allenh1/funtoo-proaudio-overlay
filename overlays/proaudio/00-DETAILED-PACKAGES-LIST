@@ -566,7 +566,7 @@
 
 
 #------- media-sound/dino --------
-	dino-0.2.1	arch: ~amd64 ~ppc x86
+	dino-0.2.2	arch: ~amd64 ~ppc x86
 	Description: Dino is a pattern-based MIDI sequencer.
 	Homepage:    http://dino.nongnu.org
 
@@ -1218,6 +1218,7 @@
 	rosegarden-1.2.3-r2	arch: ~amd64 ~ppc ~sparc x86
 	rosegarden-1.2.4	arch: ~amd64 ~ppc ~sparc x86
 	rosegarden-1.4.0	arch: ~amd64 ~ppc ~sparc x86
+	rosegarden-1.5.0	arch: ~amd64 ~ppc ~sparc x86
 	rosegarden-9999	arch: -*
 	Description: MIDI and audio sequencer and notation editor.
 		
@@ -1539,5 +1540,19 @@
 	qwt-9999	arch: -*
 	Description: 2D plotting library for Qt4
 	Homepage:    http://qwt.sourceforge.net/
+
+
+#------- x11-themes/crystalaudio --------
+	crystalaudio-0.9.0	arch: ~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86
+	Description: Configurable and full featured theme for
+		 FVWM-Crystal, tuned for audio work.
+	Homepage:    http://crystalaudio.tuxfamily.org/
+
+
+#------- x11-wm/fvwm --------
+	fvwm-20070204	arch: ~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86
+	Description: An extremely powerful ICCCM-compliant multiple
+		 virtual desktop window manager - CVS version
+	Homepage:    http://www.fvwm.org/
 
 
