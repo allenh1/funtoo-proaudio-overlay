@@ -1,26 +1,27 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2007 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 RESTRICT="nomirror"
-IUSE=""
-DESCRIPTION="Omins is a collection of LADSPA plugins geared at modular
-synthesizers"
+DESCRIPTION="Collection of LADSPA plugins for modular synthesizers."
 HOMEPAGE="http://www.nongnu.org/om-synth/omins.html"
 SRC_URI="http://savannah.nongnu.org/download/om-synth/${P}.tar.gz"
 
+IUSE="debug"
 LICENSE="GPL-2"
-KEYWORDS="amd64 x86"
+KEYWORDS="~x86"
+SLOT="0"
 
-DEPEND="media-libs/ladspa-sdk
-	sci-libs/fftw"
+DEPEND="media-libs/ladspa-sdk"
+RDEPEND="${DEPEND}"
 
 src_compile() {
-	econf --prefix=${D}/usr|| die
-	emake || die
+	econf $(use_enable debug) || die "econf failed"
+	emake || die "emake failed"
 }
 
 src_install() {
-	make DESTDIR="${D}" install || die
-	dodoc NEWS AUTHORS README ChangeLog
+	# "emake install" does sandbox violations, so we use einstall
+	einstall || die "einstall failed"
+	dodoc AUTHORS ChangeLog NEWS README
 }

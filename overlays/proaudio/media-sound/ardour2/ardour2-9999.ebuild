@@ -26,8 +26,7 @@ IUSE="nls debug sse altivec vst"
 # only suggested, RDEPEND needs to be updated as media-sound/jack-audio-connection-kit-0.100.0 gets
 # into ~arch. (2005 Sep 14 eldad)
 
-RDEPEND=">=dev-util/pkgconfig-0.8.0
-	>=media-libs/liblrdf-0.4.0
+RDEPEND=">=media-libs/liblrdf-0.4.0
 	>=media-libs/raptor-1.2.0
 	>=media-libs/libart_lgpl-2.3.16
 	>=media-libs/ladspa-sdk-1.12
@@ -37,23 +36,24 @@ RDEPEND=">=dev-util/pkgconfig-0.8.0
 	>=dev-libs/libxml2-2.5.7
 	dev-libs/libxslt
 	>=dev-libs/glib-2.10
-	>=dev-libs/boost-1.33.1
 	>=x11-libs/gtk+-2.6
-	sys-libs/gdbm
 	>=gnome-base/libgnomecanvas-2.12.0
 	>=media-sound/jack-audio-connection-kit-0.100.0
 	!media-sound/ardour2-cvs
 	!media-sound/ardour2-svn"
 
+	# sys-libs/gdbm # no longer needed?!
+
 DEPEND="${RDEPEND}
+	>=dev-libs/boost-1.33.1
 	sys-devel/bison
 	sys-devel/autoconf
 	sys-devel/automake
 	>=dev-util/pkgconfig-0.8.0
 	>=dev-util/scons-0.96.1
 	nls? ( >=sys-devel/gettext-0.12.1 )
-	vst? ( app-arch/zip )
-	vst? ( =media-libs/vst-sdk-2.3* )"
+	vst? ( app-arch/zip 
+		=media-libs/vst-sdk-2.3* )"
 
 S="${WORKDIR}/ardour2"
 

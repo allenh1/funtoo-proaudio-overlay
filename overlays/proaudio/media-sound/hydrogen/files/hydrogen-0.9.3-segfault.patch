@@ -1,0 +1,11 @@
+--- ./src/gui/PatternEditor/PatternEditor.cpp.org	2007-01-09 17:03:16.000000000 +0100
++++ ./src/gui/PatternEditor/PatternEditor.cpp	2007-01-09 17:03:46.000000000 +0100
+@@ -874,6 +874,8 @@
+ 
+ 						notePoint = m_notePoint[i];
+ 						notePoint += QPoint(tempRegion.left(), tempRegion.top() );
++						if (notePoint.isNull())
++							continue;
+ 						int x = notePoint.x();
+ 						int y = notePoint.y();
+ 
