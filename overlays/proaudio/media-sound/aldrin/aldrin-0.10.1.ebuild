@@ -22,4 +22,7 @@ DEPEND="${RDEPEND}
 src_install() {
 	scons PREFIX=/usr DESTDIR="${D}" install || die "install failed"
 	dodoc CREDITS ChangeLog
+	# fix FDO entry
+	sed -i -e "s:AudioVideo;:AudioVideo;Audio;Sequencer;:" \
+		"${D}/usr/share/applications/${PN}.desktop"
 }
