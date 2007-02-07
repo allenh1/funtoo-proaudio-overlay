@@ -21,7 +21,6 @@ RDEPEND="alsa? ( >=media-libs/alsa-lib-1.0 )
 	>=media-libs/ladspa-cmt-1.14
 	dssi? ( >=media-libs/dssi-0.4 )
 	lirc? ( >=app-misc/lirc-0.7 )
-	>=dev-util/pkgconfig-0.15
 	|| ( x11-libs/libX11 virtual/x11 )
 	!media-sound/rosegarden-cvs
 	!media-sound/rosegarden-svn
@@ -30,6 +29,7 @@ RDEPEND="alsa? ( >=media-libs/alsa-lib-1.0 )
 	>=media-libs/liblo-0.7
 	x11-libs/libXtst"
 DEPEND="${RDEPEND}
+	>=dev-util/pkgconfig-0.15
 	>=dev-util/cmake-2.4.2"
 
 need-kde 3.1

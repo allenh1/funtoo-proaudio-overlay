@@ -15,9 +15,11 @@ KEYWORDS="x86 ~amd64"
 
 IUSE=""
 
-DEPEND=">=x11-libs/gtk+-2.0
-		dev-util/pkgconfig
+RDEPEND=">=x11-libs/gtk+-2.0
 		>=media-libs/alsa-lib-1.0.3"
+
+DEPEND="${RDEPEND}
+    dev-util/pkgconfig"
 
 
 S="${WORKDIR}/${MY_P}"

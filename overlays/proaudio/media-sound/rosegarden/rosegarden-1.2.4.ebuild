@@ -26,13 +26,13 @@ RDEPEND="alsa? ( >=media-libs/alsa-lib-1.0 )
 	>=media-libs/ladspa-cmt-1.14
 	dssi? ( >=media-libs/dssi-0.4 )
 	lirc? ( >=app-misc/lirc-0.7 )
-	>=dev-util/pkgconfig-0.15
 	|| ( x11-libs/libX11 virtual/x11 )
 	!media-sound/rosegarden-cvs
 	!media-sound/rosegarden-svn
 	media-libs/liblrdf
 	osc? ( >=media-libs/liblo-0.7 )"
 DEPEND="${RDEPEND}
+	>=dev-util/pkgconfig-0.15
 	dev-util/scons"
 need-kde 3.4
 

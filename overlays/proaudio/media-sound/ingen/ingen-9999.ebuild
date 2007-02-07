@@ -15,8 +15,7 @@ ESVN_REPO_URI="http://svn.codeson.net/${PN}"
 LICENSE="GPL-2"
 KEYWORDS="-*"
 
-
-DEPEND=">=media-libs/liblo-0.22
+RDEPEND=">=media-libs/liblo-0.22
 	>=sys-libs/raul-9999
 	lash? ( >=media-sound/lash-0.5.0 )
 	>=media-sound/jack-audio-connection-kit-0.102.20
@@ -37,8 +36,11 @@ DEPEND=">=media-libs/liblo-0.22
 	dssi? ( media-libs/dssi )
 	!media-sound/om-cvs
 	jack? ( media-sound/jack-audio-connection-kit )
-	jackmidi? ( >=media-sound/jack-audio-connection-kit-0.100.7-r2 )
-	>=dev-libs/boost-1.33.1"
+	jackmidi? ( >=media-sound/jack-audio-connection-kit-0.100.7-r2 )"
+
+DEPEND="${RDEPEND}
+	>=dev-libs/boost-1.33.1
+	dev-util/pkgconfig"
 
 pkg_setup() {
 	ewarn "if the compilation fails you can try to re-emerge"

@@ -15,8 +15,9 @@ RESTRICT="nomirror"
 
 RDEPEND=">=media-libs/dssi-0.9
 	>=x11-libs/gtk+-2.0
-	dev-util/pkgconfig
 	>=media-libs/ladspa-sdk-1.0"
+DEPEND="${RDEPEND}
+	dev-util/pkgconfig"
 
 src_unpack() {
 	unpack ${P}.tar.gz

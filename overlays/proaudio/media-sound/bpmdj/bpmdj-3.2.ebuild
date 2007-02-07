@@ -16,10 +16,11 @@ SLOT="0"
 #-amd64: 2.6-2.7 - kbpm-play: common.cpp:42: void common_init(): Assertion `sizeof(signed4)==4' failed. - eradicator
 KEYWORDS="-amd64 x86 ~ppc"
 
-DEPEND="=x11-libs/qt-3*"
+DEPEND="${RDEPEND}
+	=x11-libs/qt-3*
+	dev-util/pkgconfig"
 
-RDEPEND="${DEPEND}
-	 mp3? ( dev-perl/MP3-Tag )
+RDEPEND="mp3? ( dev-perl/MP3-Tag )
 	 media-libs/alsa-lib
 	 vorbis? ( media-sound/vorbis-tools )
 	  || ( media-sound/lame media-sound/bladeenc )

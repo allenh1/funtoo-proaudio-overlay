@@ -14,14 +14,15 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="x86"
 
-DEPEND=">=media-libs/libdsp-5.0.1
+DEPEND="${RDEPEND}
+	dev-util/pkgconfig"
+RDEPEND=">=media-libs/libdsp-5.0.1
 	>=media-sound/jack-audio-connection-kit-0.99
 	>=media-libs/libconvolve-0.0.8
 	media-libs/libsndfile 
 	media-libs/libsamplerate
 	=sci-libs/fftw-3*
-	lash? ( >=media-sound/lash-0.5.0 )
-	dev-util/pkgconfig"
+	lash? ( >=media-sound/lash-0.5.0 )"
 
 src_unpack(){
 	unpack "${A}"
