@@ -108,4 +108,8 @@ src_install() {
 	dodir /usr/share/icons/hicolor/scalable/apps
 	dosym /usr/share/hydrogen/data/img/gray/icon.svg \
 		/usr/share/icons/hicolor/scalable/apps/hydrogen.svg
+
+	# fix fdo category
+	sed -i -e "s/AudioVideo;Sound;Audio;Qt;/Qt;AudioVideo;Audio;Sequencer;/" \
+		"${D}/usr/share/applications/${PN}.desktop"
 }
