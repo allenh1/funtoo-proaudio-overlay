@@ -82,7 +82,7 @@ src_install() {
 	# install header-files
 	insinto /usr/include
 	doins fst.h
-	#insinto /usr/lib/pkgconfig
-	#doins "${FILESDIR}"/libfst.pc
-	#sed -i -e "s:^\(Version\:\)\(.*\):\1 ${PV}:"  "${D}"/usr/lib/pkgconfig/libfst.pc
+	insinto /usr/lib/pkgconfig
+	doins "${FILESDIR}"/libfst.pc
+	sed -i -e "s:^\(Version\:\)\(.*\):\1 ${PV}:"  "${D}"/usr/lib/pkgconfig/libfst.pc
 }

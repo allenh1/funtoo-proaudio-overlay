@@ -25,6 +25,7 @@ MY_P="${P//-/}"
 
 pkg_nofetch() {
 	einfo "Please go to ${HOMEPAGE}"
+	einfo " or http://www.steinberg.de/532+M52087573ab0.html"
 	einfo "- Look for a link called: VST Plug-Ins SDK.."
 	einfo "- Download the VST-SDK for version ${PV}" 
 	einfo "- Extract the archive and put the inner archive ${A}"
@@ -43,6 +44,7 @@ src_unpack() {
 	sed -e :a -e 's/<[^>]*>//g;/</N;//ba' ${S}/VST\ Licensing\ Agreement.html > ${S}/VST_Licensing_Agreement.txt
 	check_license "${S}/VST_Licensing_Agreement.txt"
 	rm -f "${S}/VST_Licensing_Agreement.txt"
+	find -type d -name 'CVS' -exec rm -rf {} \;
 	find -type f -exec chmod 0644 {} \;
 	find -type d -exec chmod 0755 {} \;
 }
