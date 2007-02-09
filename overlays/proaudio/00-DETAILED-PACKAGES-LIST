@@ -1496,6 +1496,7 @@
 #------- sys-libs/pam --------
 	pam-0.78-r6	arch: ~alpha amd64 ~arm ~hppa ~ia64 ~m68k ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc x86
 	pam-0.99.6.3-r3	arch: ~amd64 ~arm ~ia64 ~m68k ~ppc ~ppc64 ~s390 ~sh ~x86
+	pam-0.99.7.1-r1	arch: ~amd64 ~arm ~hppa ~ia64 ~m68k ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86
 	Description: Linux-PAM (Pluggable Authentication Modules)
 		
 	Homepage:    http://www.kernel.org/pub/linux/libs/pam/

@@ -148,9 +148,9 @@ set_portage_actual_distdir() {
 # gives back 1 if useflag set, 0 if not
 # syntax: usesflag "flag"
 usesflag() {
-	local retval=0
-	! use $1 
-	echo $?
+	local retval="0"
+	use "$1" && retval="1"
+	echo "${retval}"
 }
 
 # returns true/false if pkg is installed or not

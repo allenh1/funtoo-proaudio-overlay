@@ -40,7 +40,7 @@ LANGS="ca cs cy de en_GB en es et fr it ja nl ru sv zh_CN"
 S="${WORKDIR}/${PN}"
 #S="${WORKDIR}/${MY_P}"
 pkg_setup(){
-	 if [ `usesflag "alsa"` == "0" ] && [ `usesflag "jack"` == "1" ];then
+	 if [ "`usesflag "alsa"`" == "0" ] && [ "`usesflag "jack"`" == "1" ];then
 		eerror "if you disable alsa jack-support will also be disabled."
 		eerror "This is not what you want --> enable alsa useflag" && die
 	fi
@@ -55,12 +55,12 @@ src_unpack() {
 src_compile() {
 	local myconf=""
 	cmake . -DCMAKE_INSTALL_PREFIX=/usr \
-		-DWANT_DEBUG=$(usesflag "debug") \
-		-DWANT_FULLDBG=$(usesflag "debug") \
-		-DWANT_SOUND=$(usesflag "alsa") \
-		-DWANT_JACK=$(usesflag "jack") \
-		-DWANT_DSSI=$(usesflag "dssi") \
-		-DWANT_LIRC=$(usesflag "lirc") \
+		-DWANT_DEBUG="$(usesflag "debug")" \
+		-DWANT_FULLDBG="$(usesflag "debug")" \
+		-DWANT_SOUND="$(usesflag "alsa")" \
+		-DWANT_JACK="$(usesflag "jack")" \
+		-DWANT_DSSI="$(usesflag "dssi")" \
+		-DWANT_LIRC="$(usesflag "lirc")" \
 		|| die "cmake failed"
 	use debug && CFLAGS="${CFLAGS} -ggdb3"
 	
