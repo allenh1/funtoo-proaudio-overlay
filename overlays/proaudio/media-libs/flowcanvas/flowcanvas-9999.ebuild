@@ -5,11 +5,11 @@
 inherit subversion
 
 DESCRIPTION="FlowCanvas is a canvas widget for dataflow systems"
-HOMEPAGE="http://om-synth.nongnu.org/flowcanvas.html"
+HOMEPAGE="http://drobilla.net/software/flowcanvas"
 
 #ECVS_SERVER="cvs.savannah.nongnu.org:/sources/om-synth"
 #ECVS_MODULE="flowcanvas"
-ESVN_REPO_URI="http://svn.codeson.net/${PN}"
+ESVN_REPO_URI="http://svn.drobilla.net/lad/${PN}"
 
 LICENSE="GPL-2"
 SLOT="0"

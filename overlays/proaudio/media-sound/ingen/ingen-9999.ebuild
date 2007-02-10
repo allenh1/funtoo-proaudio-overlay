@@ -8,9 +8,9 @@ RESTRICT="nomirror"
 # lash currently not supported upstream
 IUSE="dssi pic jackmidi midi ladspa jack osc gtk2"
 DESCRIPTION="Ingen (successor of om) is a modular synthesizer for GNU/Linux audio systems using the Jack audio server and LADSPA or DSSI plugins."
-HOMEPAGE="http://codeson.net/software/ingen"
+HOMEPAGE="http://drobilla.net/software/ingen"
 
-ESVN_REPO_URI="http://svn.codeson.net/${PN}"
+ESVN_REPO_URI="http://svn.drobilla.net/lad/${PN}"
 
 LICENSE="GPL-2"
 KEYWORDS="-*"

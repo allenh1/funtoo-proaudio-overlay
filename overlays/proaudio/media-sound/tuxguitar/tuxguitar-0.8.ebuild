@@ -11,8 +11,8 @@ MY_P="${MY_PN}-${PV}-linux-gtk"
 
 DESCRIPTION="Multitrack guitar tablature editor and player with multitrack display, autoscroll while playing, various effects, import and export gp3 and gp4 files, and more."
 HOMEPAGE="http://www.herac.com.ar/tuxguitar.html"
-SRC_URI="( x86? mirror://sourceforge/tuxguitar/${MY_P}-x86.tar.gz )
-	( amd64? mirror://sourceforge/tuxguitar/${MY_P}-x86_64.tar.gz )"
+SRC_URI="x86? ( mirror://sourceforge/tuxguitar/${MY_P}-x86.tar.gz )
+	amd64? ( mirror://sourceforge/tuxguitar/${MY_P}-x86_64.tar.gz )"
 LICENSE="LGPL"
 SLOT="0"
 

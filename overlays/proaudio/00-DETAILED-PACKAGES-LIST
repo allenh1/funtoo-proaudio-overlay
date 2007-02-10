@@ -50,7 +50,7 @@
 	flowcanvas-9999	arch: -*
 	Description: FlowCanvas is a canvas widget for dataflow
 		 systems
-	Homepage:    http://om-synth.nongnu.org/flowcanvas.html
+	Homepage:    http://drobilla.net/software/flowcanvas
 
 
 #------- media-libs/fluidsynth-dssi --------
@@ -776,7 +776,7 @@
 	Description: Ingen (successor of om) is a modular synthesizer
 		 for GNU/Linux audio systems using the Jack audio
 		 server and LADSPA or DSSI plugins.
-	Homepage:    http://codeson.net/software/ingen
+	Homepage:    http://drobilla.net/software/ingen
 
 
 #------- media-sound/jaaa --------
@@ -1109,7 +1109,7 @@
 	patchage-9999	arch: -*
 	Description: Patchage is a modular patchbay for Jack audio
 		 and Alsa sequencer.
-	Homepage:    http://om-synth.nongnu.org/patchage.html
+	Homepage:    http://drobilla.net/software/patchage
 
 
 #------- media-sound/paulstretch --------
@@ -1506,7 +1506,7 @@
 	raul-9999	arch: -*
 	Description: Realtime Audio Utility Library: lightweight
 		 header-only C++
-	Homepage:    missing
+	Homepage:    http://drobilla.net/software
 
 
 #------- sys-process/rt-exec --------

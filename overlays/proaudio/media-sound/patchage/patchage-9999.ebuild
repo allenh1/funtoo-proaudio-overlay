@@ -7,11 +7,11 @@ inherit subversion jackmidi
 RESTRICT="nomirror"
 IUSE="jackmidi lash"
 DESCRIPTION="Patchage is a modular patchbay for Jack audio and Alsa sequencer."
-HOMEPAGE="http://om-synth.nongnu.org/patchage.html"
+HOMEPAGE="http://drobilla.net/software/patchage"
 
 #ECVS_SERVER="cvs.savannah.nongnu.org:/sources/om-synth"
 #ECVS_MODULE="patchage"
-ESVN_REPO_URI="http://svn.codeson.net/${PN}"
+ESVN_REPO_URI="http://svn.drobilla.net/lad/${PN}"
 
 
 LICENSE="GPL-2"

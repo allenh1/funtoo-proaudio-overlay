@@ -7,9 +7,9 @@ inherit subversion
 RESTRICT="nomirror"
 IUSE="boost osc"
 DESCRIPTION="Realtime Audio Utility Library: lightweight header-only C++"
-HOMEPAGE="missing"
+HOMEPAGE="http://drobilla.net/software"
 
-ESVN_REPO_URI="http://svn.codeson.net/${PN}"
+ESVN_REPO_URI="http://svn.drobilla.net/lad/${PN}"
 
 
 LICENSE="GPL-2"
