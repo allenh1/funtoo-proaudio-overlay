@@ -43,6 +43,8 @@ src_compile() {
 
 src_install() {
 	make DESTDIR=${D} install || die "make install failed"
+	sed -i -e "s/AudioVideo;/AudioVideo;AudioVideoEditing;/" \
+		"${D}/usr/share/applications/${PN}.desktop"
 }
 
 pkg_postinst() {
