@@ -28,5 +28,5 @@ src_install() {
 	doins "${PN}".jar
 	dobin "${FILESDIR}"/frinika
 	newicon "src/icons/frinika-icon1.png" "${PN}.png"
-	make_desktop_entry "Frinika" frinika "AudioVideo;Audio;Sequencer;"
+	make_desktop_entry "Frinika" ${PN} ${PN} "AudioVideo;Audio;Sequencer;"
 }
