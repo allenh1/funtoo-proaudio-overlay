@@ -55,8 +55,9 @@ src_install() {
 	doins -r images Instruments Jokosher
 	fperms 755 /usr/share/${PN}/Jokosher/JokosherApp.py
 	dosym /usr/share/${PN}/Jokosher/JokosherApp.py /usr/bin/jokosher
-
-	make_desktop_entry "jokosher" "Jokosher" "images/${PN}-logo.png"
+	
+	newicon "images/${PN}-logo.png" "${PN}.png"
+	make_desktop_entry "${PN}" "Jokosher" "${PN}" "AudioVideo;AudioVideoEditing;"
 }
 
 pkg_postinst() {
