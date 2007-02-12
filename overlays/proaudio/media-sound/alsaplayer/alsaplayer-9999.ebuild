@@ -96,7 +96,7 @@ src_compile() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" docdir="${D}/usr/share/doc/${PF}" install \
+	emake DESTDIR="${D}" docdir="${D}/usr/share/doc/${PN}" install \
 		|| die "make install failed"
 
 	dodoc AUTHORS ChangeLog README TODO

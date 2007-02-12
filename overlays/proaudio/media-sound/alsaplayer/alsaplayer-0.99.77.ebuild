@@ -2,16 +2,16 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/media-sound/alsaplayer/alsaplayer-0.99.76-r3.ebuild,v 1.6 2006/07/12 22:05:09 agriffis Exp $
 
-inherit eutils autotools
+inherit unipatch-001 eutils autotools
 
 DESCRIPTION="Media player primarily utilising ALSA"
 HOMEPAGE="http://www.alsaplayer.org/"
-SRC_URI="http://www.alsaplayer.org/${P}.tar.bz2"
+SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="alpha amd64 ia64 ~mips ppc ~sparc x86"
-IUSE="alsa audiofile doc esd flac gtk jack mikmod nas nls ogg opengl oss vorbis xosd"
+IUSE="alsa audiofile doc esd flac gtk gtk2 jack mikmod nas nls ogg opengl oss vorbis xosd"
 
 RDEPEND=">=dev-libs/glib-1.2.10
 	>=media-libs/libsndfile-1.0.4
@@ -26,7 +26,8 @@ RDEPEND=">=dev-libs/glib-1.2.10
 	opengl? ( virtual/opengl )
 	vorbis? ( media-libs/libvorbis )
 	xosd? ( x11-libs/xosd )
-	gtk? ( >=x11-libs/gtk+-1.2.6 )"
+	gtk? ( >=x11-libs/gtk+-1.2.6 )
+	gtk2? ( >=x11-libs/gtk+-2.10.6 )"
 
 DEPEND="${RDEPEND}
 	sys-apps/sed
@@ -34,27 +35,15 @@ DEPEND="${RDEPEND}
 	nls? ( sys-devel/gettext )"
 
 src_unpack() {
-	tar -xjpf ${FILESDIR}/${PN}-patches-2.tar.bz2
-	tar -xzpf ${FILESDIR}/${PN}-patches-3.tar.gz
 	unpack ${A}
 	cd ${S}
+	
 	if use ppc; then
 		epatch ${FILESDIR}/alsaplayer-endian.patch
 	fi
 
-	epatch "${FILESDIR}/${P}-join-null-thread.patch"
-	epatch "${FILESDIR}/${P}-cxxflags.patch"
-	
-	# apply debian maintainer patches from
-	# http://marc.theaimsgroup.com/?l=alsaplayer-devel&m=114878812719626&w=2
-	for x in `ls --color=none ../patches`;do
-		epatch "../patches/${x}"
-	done
-	# some splitted patches from
-	# http://security.debian.org/pool/updates/main/a/alsaplayer/alsaplayer_0.99.76-0.3sarge1.diff.gz
-	for x in `ls --color=none ../patches-3`;do
-		epatch "../patches-3/${x}"
-	done
+	UNIPATCH_LIST="${FILESDIR}/${P}-cxxflags.patch"
+	unipatch
 	
 	eautoreconf
 }
@@ -85,6 +74,7 @@ src_compile() {
 		$(use_enable sparc) \
 		$(use_enable vorbis oggvorbis) \
 		$(use_enable gtk) \
+		$(use_enable gtk2) \
 		${myconf} \
 		--disable-sgi --disable-dependency-tracking \
 		|| die "econf failed"
