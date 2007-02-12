@@ -16,13 +16,13 @@ SLOT="0"
 #IUSE="oss alsa jack mmx"
 IUSE="oss alsa jack jackmidi lash"
 
+RDEPEND="media-libs/zynaddsubfx-banks"
 DEPEND=">=x11-libs/fltk-1.1.2
 	=sci-libs/fftw-3*
     jackmidi?  ( >=media-sound/jack-audio-connection-kit-0.100.0-r3 )
 	!jackmidi? ( media-sound/jack-audio-connection-kit )
 	>=dev-libs/mini-xml-2.2.1
-	lash? ( >=media-sound/lash-0.5 )
-	media-libs/zynaddsubfx-banks"
+	lash? ( >=media-sound/lash-0.5 )"
 #	portaudio? ( media-libs/portaudio )"
 
 zyn_patches() {
@@ -45,7 +45,8 @@ unpack_examples_presets() {
 	einfo "examples"
 	[ ! -e "${S}/examples" ] && mv "${WORKDIR}/remove_tmp/ZynAddSubFX-2.2.1/examples" "${S}" #|| die "error moving examples"
 	rm -rf "${S}/examples/banks" || die "error rm banks"
-
+	# add our CXXFLAGS
+	sed -i "s@\(CXXFLAGS.\+=.*OS_PORT.*\)@\1 ${CXXFLAGS}@g" src/Makefile
 }
 
 install_examples_presets() {
@@ -101,6 +102,10 @@ src_install() {
 	dobin ${S}/ExternalPrograms/Controller/controller
 	dodoc ChangeLog FAQ.txt HISTORY.txt README.txt ZynAddSubFX.lsm bugs.txt
 	install_examples_presets
+	newicon "${S}/zynaddsubfx_icon.ico" "zynaddsubfx_icon.ico" 
+	make_desktop_entry "${PN}" "ZynAddSubFx-Synth" \
+		"zynaddsubfx_icon.ico" "AudioVideo;Audio"
+
 }
 
 pkg_postinst() {

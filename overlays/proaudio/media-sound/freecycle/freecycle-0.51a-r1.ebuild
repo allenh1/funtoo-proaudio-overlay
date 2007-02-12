@@ -9,7 +9,7 @@ MY_P=${P/a/alpha}
 DESCRIPTION="Freecycle is a beat slicer"
 HOMEPAGE="http://www.redsteamrecords.com/freecycle/"
 SRC_URI="http://download.savannah.gnu.org/releases/freecycle/${MY_P}.tar.bz2
-		doc? http://download.savannah.gnu.org/releases/freecycle/freecycle-manual-1.0.0.tar.gz"
+		doc? ( http://download.savannah.gnu.org/releases/freecycle/freecycle-manual-1.0.0.tar.gz )"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="x86"

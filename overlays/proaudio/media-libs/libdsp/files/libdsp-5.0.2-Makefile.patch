@@ -1,26 +1,22 @@
 diff -Naur libdsp-src-5.0.2-orig/DynThreads/Makefile libdsp-src-5.0.2/DynThreads/Makefile
---- libdsp-src-5.0.2-orig/DynThreads/Makefile	2005-11-05 19:51:40.000000000 -0600
-+++ libdsp-src-5.0.2/DynThreads/Makefile	2005-11-05 19:52:36.000000000 -0600
-@@ -20,8 +20,8 @@
+--- libdsp-src-5.0.2-orig/DynThreads/Makefile	2007-01-13 12:51:51.000000000 -0600
++++ libdsp-src-5.0.2/DynThreads/Makefile	2007-01-13 12:53:18.000000000 -0600
+@@ -18,10 +18,10 @@
+ #
+ 
  CXX = g++
- CXXFLAGS = -march=pentium2 -mtune=pentium4 -O2 -Wall -Werror #-ggdb
+-CXXFLAGS = -march=pentium2 -mtune=pentium4 -O2 -Wall -Werror #-ggdb
++#CXXFLAGS = -march=pentium2 -mtune=pentium4 -O2 -Wall -Werror #-ggdb
  DEFS = -D_REENTRANT -D_THREAD_SAFE
--DEFS += -DUSE_NPTL
+ DEFS += -DUSE_NPTL
 -INCS = $(PKGINC) #-I/usr/local/include
-+#DEFS += -DUSE_NPTL
 +INCS = $(PKGINC) -I. -I../Inlines -I/usr/include
  LIBS = -lpthread
  
  PREFIX = /usr/local
-@@ -58,5 +58,3 @@
- DynThreads.dep: $(SRCS)
- 	$(CXX) -MM $(DEFS) $(INCS) $(SRCS) >DynThreads.dep
- 
--include DynThreads.dep
--
 diff -Naur libdsp-src-5.0.2-orig/libDSP/Makefile libdsp-src-5.0.2/libDSP/Makefile
---- libdsp-src-5.0.2-orig/libDSP/Makefile	2005-11-05 19:51:40.000000000 -0600
-+++ libdsp-src-5.0.2/libDSP/Makefile	2005-11-05 19:52:00.000000000 -0600
+--- libdsp-src-5.0.2-orig/libDSP/Makefile	2007-01-13 12:51:51.000000000 -0600
++++ libdsp-src-5.0.2/libDSP/Makefile	2007-01-13 12:55:11.000000000 -0600
 @@ -25,7 +25,7 @@
  #OPTCFLAGS = -march=athlon -O3 -ffast-math -funroll-loops -malign-loops=5 -malign-jumps=5 -malign-functions=5 -mpreferred-stack-boundary=5 -mfancy-math-387 -Wall -Werror #-g
  # gcc >= 3.1.x
@@ -66,7 +62,15 @@ diff -Naur libdsp-src-5.0.2-orig/libDSP/Makefile libdsp-src-5.0.2/libDSP/Makefil
  
  # thread safety
  DEFS = -D_REENTRANT -D_THREAD_SAFE
-@@ -75,7 +75,7 @@
+@@ -69,13 +69,13 @@
+ # define if you are using GNU C++-compiler and GNU C-library
+ DEFS += -D_GNU_SOURCE
+ # use memmove() for copying data instead of built-in routine, for gcc inlining
+-#DEFS += -DUSE_MEMMOVE
++DEFS += -DUSE_MEMMOVE
+ # define for x86 platform specific optimizations
+-DEFS += -DDSP_X86
++#DEFS += -DDSP_X86
  # define for Intel Integrated Performance Primitives support
  #DEFS += -DDSP_IPP
  
@@ -75,12 +79,3 @@ diff -Naur libdsp-src-5.0.2-orig/libDSP/Makefile libdsp-src-5.0.2/libDSP/Makefil
  #INCS += `pkg-config --cflags fftw3f fftw3`
  #INCS += -I/opt/intel/ipp/include
  
-@@ -143,7 +143,7 @@
- 	$(CXX) $(CXXFLAGS) $(DEFS) $(INCS) -c $<
- 
- X86.$(OBJ): X86.$(CSRC)
--	$(CC) $(OPTCFLAGS) $(DEFS) $(INCS) -c $<
-+	$(CC) $(CFLAGS) $(DEFS) $(INCS) -c $<
- 
- libdsp.a: $(OBJS)
- 	ar rc libdsp.a $(OBJS)

@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2007 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc x86"
 
 DEPEND=">=media-libs/alsa-lib-0.9.0
-	 || ( =dev-cpp/gtkmm-2.8* =dev-cpp/gtkmm-2.6* =dev-cpp/gtkmm-2.4* )
+	>=dev-cpp/gtkmm-2.4
 	jack? ( >=media-sound/jack-audio-connection-kit-0.90.0 )
 	lash? ( >=media-sound/lash-0.5.0 )"
 	#cairo? ( x11-libs/cairo )"

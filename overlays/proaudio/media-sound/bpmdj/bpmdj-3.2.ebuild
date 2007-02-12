@@ -26,7 +26,7 @@ RDEPEND="mp3? ( dev-perl/MP3-Tag )
 	  || ( media-sound/lame media-sound/bladeenc )
 	 media-sound/alsamixergui
 	 virtual/mpg123
-	 >=sci-libs/fftw-3"
+	 =sci-libs/fftw-3*"
 
 src_unpack() {
 	unpack ${A}

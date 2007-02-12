@@ -9,14 +9,14 @@ MY_P="${P/60a/6alpha}"
 DESCRIPTION="Freecycle is a beat slicer"
 HOMEPAGE="http://www.redsteamrecords.com/freecycle/"
 SRC_URI="http://download.savannah.gnu.org/releases/freecycle/${MY_P}.tar.bz2
-		doc? http://download.savannah.gnu.org/releases/freecycle/freecycle-manual-1.0.0.tar.gz"
+		doc? ( http://download.savannah.gnu.org/releases/freecycle/freecycle-manual-1.0.0.tar.gz )"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="x86"
 
 IUSE="doc oss jack portaudio"
 
-DEPEND="=sci-libs/fftw-3.0.1-r2
+DEPEND="=sci-libs/fftw-3*
 	media-libs/libsndfile
 	media-libs/libsoundtouch
 	media-sound/jack-audio-connection-kit

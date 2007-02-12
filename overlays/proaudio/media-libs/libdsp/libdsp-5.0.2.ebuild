@@ -1,10 +1,9 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2007 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils need-gcc-version
+inherit eutils
 
-RESTRICT="nomirror"
 DESCRIPTION="C++ class library of common digital signal processing functions."
 HOMEPAGE="http://libdsp.sf.net"
 SRC_URI="mirror://sourceforge/${PN}/${PN}-src-${PV}.tar.gz
@@ -13,7 +12,6 @@ SRC_URI="mirror://sourceforge/${PN}/${PN}-src-${PV}.tar.gz
 LICENSE="GPL-2"
 SLOT="0"
 
-# -amd64, -sparc: 4.9.2-r1 - uses x86 assembly
 KEYWORDS="x86 -amd64 -sparc"
 IUSE="doc"
 DEPEND=""
@@ -21,12 +19,11 @@ DEPEND=""
 S=${WORKDIR}/${PN}-src-${PV}
 
 src_unpack() {
-	need_gcc "3.4"
-
 	unpack ${A}
-	cd ${S}
+	cd "${S}"
+
 	# fixes some Makefile weirdness
-	epatch ${FILESDIR}/Makefile.patch
+	epatch "${FILESDIR}"/${P}-Makefile.patch
 
 	# use our CFLAGS/CXXFLAGS instead
 	sed -e "s:^CFLAGS.*:CFLAGS = ${CFLAGS}:" -i libDSP/Makefile
@@ -36,6 +33,11 @@ src_unpack() {
 	sed -e "s:^PREFIX.*:PREFIX = ${D}/usr:" -i Inlines/Makefile
 	sed -e "s:^PREFIX.*:PREFIX = ${D}/usr:" -i libDSP/Makefile
 	sed -e "s:^PREFIX.*:PREFIX = ${D}/usr:" -i DynThreads/Makefile
+
+	# fix NPTL includes
+	for filename in $(grep -rl nptl/pthread *); do
+		sed -e "s:nptl/pthread.h:pthread.h:g" -i $filename
+	done
 
 	# libtool only supports the --tag option from v1.5 onwards
 	if ! has_version ">=sys-devel/libtool-1.5.0"; then
