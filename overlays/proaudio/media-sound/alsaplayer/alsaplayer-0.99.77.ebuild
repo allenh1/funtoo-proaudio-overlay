@@ -38,9 +38,10 @@ src_unpack() {
 	unpack ${A}
 	cd ${S}
 	
-	if use ppc; then
-		epatch ${FILESDIR}/alsaplayer-endian.patch
-	fi
+# patch don't apply
+#	if use ppc; then
+#		epatch ${FILESDIR}/alsaplayer-endian.patch
+#	fi
 
 	UNIPATCH_LIST="${FILESDIR}/${P}-cxxflags.patch"
 	unipatch
