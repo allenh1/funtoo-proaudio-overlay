@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit unipatch-001 eutils cvs # autotools
+inherit unipatch-001 eutils subversion # autotools
 
 DESCRIPTION="Media player primarily utilising ALSA"
 HOMEPAGE="http://www.alsaplayer.org/"
@@ -14,17 +14,13 @@ KEYWORDS="-*"
 IUSE="alsa audiofile doc esd flac gtk gtk2 jack mikmod nas nls ogg opengl oss vorbis
 xosd"
 
-ECVS_SERVER="alsaplayer.cvs.sourceforge.net:/cvsroot/alsaplayer"
-ECVS_MODULE="alsaplayer"
-ECVS_UP_OPTS="-A"
-ECVS_CO_OPTS="-A"
+ESVN_REPO_URI="https://svn.sourceforge.net/svnroot/alsaplayer/trunk/alsaplayer"
 
-S=${WORKDIR}/${ECVS_MODULE}
+S=${WORKDIR}/${PN}
 
-RDEPEND=">=dev-libs/glib-1.2.10
-	>=media-libs/libsndfile-1.0.4
+RDEPEND="media-libs/libsndfile
 	alsa? ( media-libs/alsa-lib )
-	audiofile? ( >=media-libs/audiofile-0.1.7 )
+	audiofile? ( media-libs/audiofile )
 	esd? ( media-sound/esound )
 	flac? ( media-libs/flac )
 	jack? ( >=media-sound/jack-audio-connection-kit-0.80.0 )
@@ -34,7 +30,8 @@ RDEPEND=">=dev-libs/glib-1.2.10
 	opengl? ( virtual/opengl )
 	vorbis? ( media-libs/libvorbis )
 	xosd? ( x11-libs/xosd )
-	gtk? ( >=x11-libs/gtk+-1.2.6 )"
+	gtk? ( >=x11-libs/gtk+-1.2 )
+	gtk2? ( >=x11-libs/gtk+-2.6 )"
 
 DEPEND="${RDEPEND}
 	sys-apps/sed
@@ -42,21 +39,13 @@ DEPEND="${RDEPEND}
 	nls? ( sys-devel/gettext )"
 
 src_unpack() {
-	cvs_src_unpack
-
-#	work, but do at debian patches don't work
-#	cd ${S}
-#	if use ppc; then
-#		epatch ${FILESDIR}/alsaplayer-endian.patch
-#	fi
+	subversion_src_unpack
 
 	cd ${S}
 	
 	UNIPATCH_LIST="${FILESDIR}/${P}-cxxflags.patch"
 	unipatch
 	
-	#eautoreconf
-
 	./bootstrap || die "bootstrap failed"
 
 }
@@ -98,7 +87,9 @@ src_compile() {
 src_install() {
 	emake DESTDIR="${D}" docdir="${D}/usr/share/doc/${PN}" install \
 		|| die "make install failed"
-
+		
+	make_desktop_entry ${PN} "Alsaplayer" ${PN} \
+	    "AudioVideo;Audio;Player"
 	dodoc AUTHORS ChangeLog README TODO
 	dodoc docs/wishlist.txt
 }

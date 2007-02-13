@@ -38,19 +38,15 @@ src_unpack() {
 	unpack ${A}
 	cd ${S}
 	
-# patch don't apply
-#	if use ppc; then
-#		epatch ${FILESDIR}/alsaplayer-endian.patch
-#	fi
-
-	UNIPATCH_LIST="${FILESDIR}/${P}-cxxflags.patch"
+	UNIPATCH_LIST="${FILESDIR}/${P}-ppc-endian-fix.patch \
+	${FILESDIR}/${P}-join-null-thread.patch ${FILESDIR}/${P}-cxxflags.patch"
 	unipatch
 	
 	eautoreconf
 }
 
 src_compile() {
-	export CPPFLAGS="${CPPFLAGS} -I/usr/X11R6/include"
+#	export CPPFLAGS="${CPPFLAGS} -I/usr/X11R6/include"
 
 	use xosd ||
 		export ac_cv_lib_xosd_xosd_create="no"
@@ -86,7 +82,9 @@ src_compile() {
 src_install() {
 	emake DESTDIR="${D}" docdir="${D}/usr/share/doc/${PF}" install \
 		|| die "make install failed"
-
+		
+	make_desktop_entry ${PN} "Alsaplayer" ${PN} \
+	    "AudioVideo;Audio;Player"
 	dodoc AUTHORS ChangeLog README TODO
 	dodoc docs/wishlist.txt
 }
