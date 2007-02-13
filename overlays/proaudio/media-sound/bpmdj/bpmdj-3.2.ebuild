@@ -59,6 +59,18 @@ src_unpack() {
 		einfo "qstring.h include dir changed in $i"
 		sed -i -e "s@<qstring.h>@\"${QTDIR}/include/qstring.h\"@g" $i
 	done
+
+	# fix some wrong includes #
+	for i in `find -name '*.ui'`;do
+		if grep include $i ;then
+			sed -ie 's@capacitywidget.h@capacity-widget.h@g' $i
+			sed -ie 's@beatgraphanalyzer.h@beatgraph-analyzer.logic.h@g' $i
+			sed -ie 's@metricwidget.h@metric-widget.h@g' $i	
+		fi
+	done
+
+
+
 }
 
 src_compile() {
@@ -70,10 +82,17 @@ src_compile() {
 }
 
 src_install () {
-	make PREFIX="/usr" DESTDIR="${D}" install || die "make install failed"
+	# makefile is absolutly a mess so we use portage features 
+	#make PREFIX="/usr" DESTDIR="${D}" install || die "make install failed"
+	dobin `find -maxdepth 1 -type f -perm -+x -a ! -iname 'configure' -printf "%f "`
+	insinto /usr/share/${PN}
+	doins -r sequences/
 	exeinto /usr/bin
 	use mp3 && doexe bpmdj-import-mp3.pl
 	use vorbis && doexe bpmdj-import-ogg.pl
-	dodoc authors changelog copyright readme todo
-}
+	dodoc authors changelog copyright readme todo support.txt
+	mogrify -format png logo.png
+	newicon "${S}/logo.png" "bpmdjlogo.png" 
+	make_desktop_entry "${PN}" "BpmDj" "bpmdjlogo.png" "AudioVideo;Audio"
 
+}

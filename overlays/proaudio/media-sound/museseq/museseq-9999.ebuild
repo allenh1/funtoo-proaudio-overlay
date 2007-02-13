@@ -16,9 +16,9 @@ DESCRIPTION="The Linux (midi) MUSic Editor (a sequencer)"
 HOMEPAGE="http://www.muse-sequencer.org/"
 
 LICENSE="GPL-2"
-SLOT="0"
+SLOT="1"
 KEYWORDS="-*"
-IUSE="doc dssi fluidsynth"
+IUSE="vst dssi fluidsynth zynaddsubfx"
 
 DEPEND="$(qt4_min_version 4.2)
 	>=dev-util/cmake-2.4.1
@@ -37,19 +37,19 @@ DEPEND="$(qt4_min_version 4.2)
 	!media-sound/museseq-cvs
 	!media-sound/museseq-svn"
 
-pkg_setup() {
-	if ! built_with_use sys-libs/glibc nptl; then
-		eerror "JUCE needs POSIX threads in order to work."
-		eerror "You will have to compile glibc with USE=\"nptl\"."
-		die
-	fi
+#pkg_setup() {
+#	if ! built_with_use sys-libs/glibc nptl; then
+#		eerror "JUCE needs POSIX threads in order to work."
+#		eerror "You will have to compile glibc with USE=\"nptl\"."
+#		die
+#	fi
 	# check if libfst is valid
-	if [ -e "/usr/lib/pkgconfig/libfst.pc"	];then
-		egrep -q '1.8|1.7' /usr/lib/pkgconfig/libfst.pc &>/dev/null && \
-		eerror "try to update fst: at least to fst-1.8-r3 or uninstall fst
- or just remove /usr/lib/pkgconfig/libfst.pc" && die
-	fi
-}
+#	if [ -e "/usr/lib/pkgconfig/libfst.pc"	];then
+#		egrep -q '1.8|1.7' /usr/lib/pkgconfig/libfst.pc &>/dev/null && \
+#		eerror "try to update fst: at least to fst-1.8-r3 or uninstall fst
+# or just remove /usr/lib/pkgconfig/libfst.pc" && die
+#	fi
+#}
 
 src_compile() {
 #	cd "${S}"
@@ -62,20 +62,27 @@ src_compile() {
 	#mkdir muse                    # create build directory
 	#cd muse                       # enter build directory
 	#cmake ../muse             # create make system
-	cmake CMakeLists.txt 
-	cd doc; make CMakeLists.txt;cd -
+	cmake . -DCMAKE_INSTALL_PREFIX=/usr \
+		-DENABLE_DSSI="$(! use dssi; echo "$?")" \
+		-DENABLE_VST="$(! use vst; echo "$?")" \
+		-DENABLE_FLUID="$(! use fluidsynth; echo "$?")" \
+		-DENABLE_ZYNADDSUBFX="0"
+	#	-DENABLE_ZYNADDSUBFX="$(! use zynaddsubfx; echo "$?")" 
+
+	cmake doc/CMakeLists.txt
+
+	# correct some wrong generated files for zynaddsubfx
+
 	emake || die "build failed"
-
-
 }
 
 src_install() {
-	cd "${S}"/build
-	sed -i -e "s:/usr/local:/usr:" CMakeCache.txt
+#	cd "${S}"/build
+	#sed -i -e "s:/usr/local:/usr:" CMakeCache.txt
 	make DESTDIR=${D} install || die "install failed"
 	cd "${S}"
 	dodoc AUTHORS ChangeLog NEWS README SECURITY Reference
-	mv ${D}/usr/bin/muse ${D}/usr/bin/museseq
+	mv "${D}/usr/bin/muse" "${D}/usr/bin/museseq-1.0"
 }
 
 pkg_postinst() {

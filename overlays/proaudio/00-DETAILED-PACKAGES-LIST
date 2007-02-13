@@ -424,8 +424,7 @@
 
 
 #------- media-sound/alsaplayer --------
-	alsaplayer-0.99.76-r5	arch: alpha amd64 ia64 ~mips ppc ~sparc x86
-	alsaplayer-0.99.76-r6	arch: alpha amd64 ia64 ~mips ppc ~sparc x86
+	alsaplayer-0.99.77	arch: alpha amd64 ia64 ~mips ppc ~sparc x86
 	alsaplayer-9999	arch: -*
 	Description: Media player primarily utilising ALSA
 	Homepage:    http://www.alsaplayer.org/
@@ -1362,6 +1361,7 @@
 
 #------- media-sound/tapiir --------
 	tapiir-0.7.1-r1	arch: x86 ~amd64
+	tapiir-0.7.2	arch: x86 ~amd64
 	Description: Tapiir is a simple and flexible audio effects
 		 processor
 	Homepage:    http://www.iua.upf.es/~mdeboer/projects/tapiir/

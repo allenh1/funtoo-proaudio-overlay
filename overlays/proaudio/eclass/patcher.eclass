@@ -243,7 +243,9 @@ function fnc_launching_apply_patch(){
 # additional: restrict em with apply|reverse
 function patcher(){
 gCMDLINE=$1
+oldIFS="$IFS"
 fnc_check_cmdline "$gCMDLINE"
+IFS="$oldIFS"
 gORIG_PATCHFILE=`fnc_generate_absolute_path "${gORIG_PATCHFILE}"`
 
 [ "$gLIST_GIVEN" == "1" ] && fnc_launching_apply_patch "$gREVERSE" "${gORIG_PATCHFILE}"

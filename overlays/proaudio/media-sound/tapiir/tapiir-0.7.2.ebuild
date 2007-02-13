@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2007 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -26,11 +26,10 @@ src_unpack() {
 	unpack ${A}
 	cd ${S}
 	#planetcrrma fixes
-	epatch "${FILESDIR}/tapiir-0.7.1-alsa.patch"
-	epatch "${FILESDIR}/tapiir-0.7.1-mtd.patch"
-	epatch "${FILESDIR}/tapiir-0.7.1-multiline.patch"
-	epatch "${FILESDIR}/tapiir-buffersizecallback.patch"
-	epatch "${FILESDIR}/tapiir-gcc4.patch"
+	#patcher "${FILESDIR}/tapiir-0.7.1-mtd.patch apply"
+	#patcher "${FILESDIR}/tapiir-0.7.1-multiline.patch apply"
+	#patcher "${FILESDIR}/tapiir-buffersizecallback.patch apply"
+	#patcher "${FILESDIR}/tapiir-gcc4.patch apply"
 
 	# workaround for buggy Makefile
 	sed -i 's/fltk_found=no/fltk_found=yes/g' configure

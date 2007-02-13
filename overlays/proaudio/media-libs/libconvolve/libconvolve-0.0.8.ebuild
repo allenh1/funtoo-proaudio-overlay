@@ -8,7 +8,7 @@ RESTRICT="nomirror"
 IUSE=""
 DESCRIPTION="A simple C library for partitioned convolution"
 HOMEPAGE="http://tapas.affenbande.org/?page_id=9"
-SRC_URI="http://affenbande.org/~tapas/jack_convolve/${P}.tgz"
+SRC_URI="http://tapas.affenbande.org/jack_convolve/${P}.tgz"
 
 LICENSE="GPL-2"
 SLOT="0"

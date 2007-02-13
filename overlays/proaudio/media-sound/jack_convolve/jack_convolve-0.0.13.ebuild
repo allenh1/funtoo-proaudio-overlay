@@ -8,7 +8,7 @@ RESTRICT="nomirror"
 IUSE="lash"
 DESCRIPTION="jack_convolve - a simple commandline convolution engine for jackd"
 HOMEPAGE="http://tapas.affenbande.org/?page_id=5"
-SRC_URI="http://affenbande.org/~tapas/jack_convolve/${P}.tgz"
+SRC_URI="http://tapas.affenbande.org/jack_convolve/${P}.tgz"
 
 LICENSE="GPL-2"
 SLOT="0"

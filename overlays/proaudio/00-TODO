@@ -98,10 +98,17 @@ DEVELOPER: none
 DESCR:
 HOMEPAGE: http://gjacktransport.sourceforge.net/
 
+# NAME: kguitar needs fdo updates (installin in obsolete path)
+EBUID_STATE: none
+DEVELOPER: none
+DESCR:
+HOMEPAGE:
+
 --template--
 # NAME: 
 EBUID_STATE: none
 DEVELOPER: none
 DESCR:
 HOMEPAGE:
+
 

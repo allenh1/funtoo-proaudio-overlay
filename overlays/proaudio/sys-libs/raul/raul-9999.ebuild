@@ -17,6 +17,7 @@ KEYWORDS="-*"
 
 DEPEND=">=dev-util/pkgconfig-0.9.0
 	osc? ( >=media-libs/liblo-0.22 )
+	>=dev-libs/rasqal-0.9.11
 	>=media-libs/raptor-1.4.0
 	boost? ( dev-libs/boost )"
 

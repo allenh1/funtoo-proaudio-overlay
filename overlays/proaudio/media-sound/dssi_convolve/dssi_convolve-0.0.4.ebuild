@@ -8,7 +8,7 @@ RESTRICT="nomirror"
 IUSE="lash"
 DESCRIPTION="A convolution plugin for linux/DSSI"
 HOMEPAGE="http://tapas.affenbande.org/?page_id=36"
-SRC_URI="http://affenbande.org/~tapas/jack_convolve/${P}.tgz"
+SRC_URI="http://tapas.affenbande.org/jack_convolve/${P}.tgz"
 
 LICENSE="GPL-2"
 SLOT="0"

@@ -9,7 +9,7 @@ IUSE=""
 DESCRIPTION="A small utility that generates midi cc messages from the mouse
 position"
 HOMEPAGE="http://tapas.affenbande.org/?page_id=42"
-SRC_URI="http://affenbande.org/~tapas/${PN}.tgz"
+SRC_URI="http://tapas.affenbande.org/${PN}.tgz"
 
 LICENSE="GPL-2"
 SLOT="0"
