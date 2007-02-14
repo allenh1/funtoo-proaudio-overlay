@@ -15,10 +15,6 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE="nls pic static debug dssi plugins codecs oss alsa jack"
 
-## Portaudio v19 is now built-in and blocks any other portaudio
-## as it installs a /usr/lib/portaudio.so
-RDEPEND="!media-libs/portaudio"
-
 ## Gui related
 RDEPEND="${RDEPEND}
 	virtual/libc
@@ -34,7 +30,7 @@ RDEPEND="${RDEPEND}
 	dssi? ( >=media-libs/dssi-0.9 )
         codecs? ( media-libs/libvorbis 
 	         media-libs/flac )
-	!media-libs/portaudio"
+	>=media-libs/portaudio-19"
 
 DEPEND="${RDEPEND}
 	dev-util/pkgconfig
@@ -61,6 +57,7 @@ src_compile() {
 		$(use_enable nls) \
 		$(use_with pic) \
 		$(use_with static) \
+		--disable-portaudio \
 		|| die "Configuration failed"
 	emake || die "Make failed"
 }
