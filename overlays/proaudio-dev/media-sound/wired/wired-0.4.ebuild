@@ -13,7 +13,7 @@ LICENSE="GPL-2"
 SLOT="0"
 
 KEYWORDS="~x86 ~amd64"
-IUSE="nls pic static debug dssi plugins codecs oss alsa jack"
+IUSE="nls pic static debug dssi plugins codecs oss alsa jack portaudio-internal"
 
 ## Gui related
 RDEPEND="${RDEPEND}
@@ -28,9 +28,10 @@ RDEPEND="${RDEPEND}
 	media-libs/libsamplerate
 	plugins? ( >=media-libs/libsoundtouch-1.2.1 )
 	dssi? ( >=media-libs/dssi-0.9 )
-        codecs? ( media-libs/libvorbis 
-	         media-libs/flac )
-	>=media-libs/portaudio-19"
+	codecs? ( media-libs/libvorbis 
+			media-libs/flac )
+	portaudio-internal? ( !media-libs/portaudio )
+	!portaudio-internal? ( >=media-libs/portaudio-19 )"
 
 DEPEND="${RDEPEND}
 	dev-util/pkgconfig
@@ -45,7 +46,9 @@ pkg_setup() {
 
 src_compile() {
 	libtoolize --copy --force
-
+	local myconf
+	myconf=""
+	use portaudio-internal || myconf="--disable-portaudio"
 	econf \
 		$(use_with alsa) \
 		$(use_with jack) \
@@ -57,7 +60,7 @@ src_compile() {
 		$(use_enable nls) \
 		$(use_with pic) \
 		$(use_with static) \
-		--disable-portaudio \
+		${myconf} \
 		|| die "Configuration failed"
 	emake || die "Make failed"
 }

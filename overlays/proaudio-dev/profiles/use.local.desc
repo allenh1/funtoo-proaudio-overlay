@@ -1,0 +1,1 @@
+media-sound/wired:portaudio-internal - use wired's internal portaudio instead of media-libs/portaudio. Wired will install it to /usr/lib, so you can't have both.
