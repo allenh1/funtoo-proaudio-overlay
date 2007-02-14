@@ -56,7 +56,7 @@ src_install() {
 	fperms 755 /usr/share/${PN}/Jokosher/JokosherApp.py
 	dosym /usr/share/${PN}/Jokosher/JokosherApp.py /usr/bin/jokosher
 	
-	newicon "images/${PN}-logo.png" "${PN}.png"
+	newicon "images/${PN}-icon.png" "${PN}.png"
 	make_desktop_entry "${PN}" "Jokosher" "${PN}" "AudioVideo;AudioVideoEditing;"
 }
 
