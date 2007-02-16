@@ -76,7 +76,9 @@ src_install() {
 	mv docs/images "${D}"/usr/share/doc/"${P}"
 	insinto /usr/include/"${PN}"
 	doins *.h
-	insinto /usr/include/"${PN}"/src
-	doins src/*.h
+	cp -R src "${D}"/usr/include/"${PN}"
+	for i in `find ${D}/usr/include/${PN}/src -name *.cpp`; do
+		rm -f $i
+	done
 }
 
