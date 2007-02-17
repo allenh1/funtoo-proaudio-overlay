@@ -17,7 +17,8 @@ RDEPEND=">=media-sound/jack-audio-connection-kit-0.100
 	media-libs/juce
 	>=media-libs/libsamplerate-0.1.1
 	media-libs/libvorbis
-	media-libs/mesa"
+	media-libs/mesa
+	virtual/X11"
 DEPEND="${RDEPEND}"
 
 src_unpack() {
