@@ -10,16 +10,16 @@ HOMEPAGE="http://ccrma.stanford.edu/~kjetil/src"
 SRC_URI="http://ccrma.stanford.edu/~kjetil/src/${P}.tar.bz2"
 
 KEYWORDS="x86"
-SLOT="0"
 IUSE=""
 
-DEPEND=">=media-sound/jack-audio-connection-kit-0.100
+RDEPEND=">=media-sound/jack-audio-connection-kit-0.100
 	>=dev-lang/python-1.5
 	media-libs/libsndfile
 	=x11-libs/gtk+-1.2*
 	>=dev-libs/libxml-1.8.17
 	>=media-libs/libsamplerate-0.1.1
 	>=media-sound/ceres-0.45"
+DEPEND="${RDEPEND}"
 
 src_unpack(){
 	unpack "${A}"

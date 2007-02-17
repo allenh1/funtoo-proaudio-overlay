@@ -2,12 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-RESTRICT="nomirror"
-
 inherit eutils
+
 DESCRIPTION="FreeST audio plugin VST container library"
 HOMEPAGE="http://joebutton.co.uk/fst/"
 LICENSE="GPL-2"
+RESTRICT="nomirror"
+
 IUSE=""
 
 SRC_URI="http://galan.sf.net/${P}.tar.gz"
