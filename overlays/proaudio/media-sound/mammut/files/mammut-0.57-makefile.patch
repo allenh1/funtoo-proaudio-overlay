@@ -1,6 +1,6 @@
 diff -Naur mammut-0.57.orig/src/Makefile mammut-0.57/src/Makefile
 --- mammut-0.57.orig/src/Makefile	1970-01-01 01:00:00.000000000 +0100
-+++ mammut-0.57/src/Makefile	2007-02-17 10:02:44.735819962 +0100
++++ mammut-0.57/src/Makefile	2007-02-17 14:22:49.076192463 +0100
 @@ -0,0 +1,161 @@
 +# Makefile for Mammut
 +#
@@ -92,7 +92,7 @@ diff -Naur mammut-0.57.orig/src/Makefile mammut-0.57/src/Makefile
 +#ADDITIONALCFLAGS will be added to the CFLAGS line.
 +#ADDITIONALLDFLAGS will be added to the LDFLAGS line.
 +
-+ADDITIONALCFLAGS= -O2 -I/site/include -I/usr/local/include -DHAVE_JACK --fast-math  -D "NDEBUG=1"
++ADDITIONALCFLAGS= -I/site/include -I/usr/local/include -DHAVE_JACK --fast-math  -D "NDEBUG=1"
 +# -g -ggdb
 +ADDITIONALLDFLAGS=-L/site/lib -L/usr/local/include -lsndfile -lm -lpthread -ldl -L. -ljack -lsamplerate
 +# -L$(SOUNDLIBNAME)
@@ -106,10 +106,10 @@ diff -Naur mammut-0.57.orig/src/Makefile mammut-0.57/src/Makefile
 +
 +SHAREPATH=$(INSTALLPATH)/share/mammut
 +
-+CFLAGS= -DTEMPDIR=\"$(TEMPDIR)\"  $(ADDITIONALCFLAGS) $(USEJACK)  -I/usr/include/vorbis
++CFLAGS+= -DTEMPDIR=\"$(TEMPDIR)\"  $(ADDITIONALCFLAGS) $(USEJACK)  -I/usr/include/vorbis
 +# -DNOBACKGROUNDSOUND
 +
-+LDFLAGS= $(ADDITIONALLDFLAGS)  -lvorbisfile 
++LDFLAGS+= $(ADDITIONALLDFLAGS)  -lvorbisfile 
 +
 +CPPFLAGS := -MD -D "LINUX=1" -I "/usr/include" -I$(JUCE)  -DTEMPDIR=\"$(TEMPDIR)\" $(CFLAGS)
 +CFLAGS	 += $(CPPFLAGS)
