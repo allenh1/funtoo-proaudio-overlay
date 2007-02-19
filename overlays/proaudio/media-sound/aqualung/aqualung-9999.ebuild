@@ -4,7 +4,7 @@
 
 inherit subversion eutils autotools
 
-IUSE="sndfile mod mad vorbis speex flac musepack ffmpeg taglib ladspa cddb cdda jack alsa oss systray debug"
+IUSE="sndfile mod mad vorbis speex flac musepack ffmpeg taglib ladspa cddb cdda jack alsa oss systray debug loop-playback wavpack"
 
 MY_P="aqualung"
 
@@ -29,6 +29,7 @@ RDEPEND="oggvorbis? ( >=media-libs/libvorbis-1.0 )
 	musepack? ( media-libs/libmpcdec )
 	ffmpeg? ( media-video/ffmpeg )
 	speex? ( media-libs/speex media-libs/liboggz )
+	wavpack? ( >=media-sound/wavpack-4.40.0 )
 	cddb? ( !amd64? ( >=media-libs/libcddb-1.2.1 ) )
 	cddb? ( amd64? ( >=media-libs/libcddb-1.3.0 ) )
 	jack? ( media-sound/jack-audio-connection-kit )
@@ -37,6 +38,7 @@ RDEPEND="oggvorbis? ( >=media-libs/libvorbis-1.0 )
 	media-libs/libsamplerate"
 
 DEPEND="systray? ( >=x11-libs/gtk+-2.10 )
+	loop-playback? ( >=x11-libs/gtk+-2.8 )
 	ladspa? ( >=media-libs/liblrdf-0.4.0 )
 	>=dev-util/pkgconfig-0.9.0
 	virtual/libc
@@ -67,11 +69,13 @@ src_compile() {
 		`use_with musepack mpc` \
 		`use_with ffmpeg lavc` \
 		`use_with speex` \
+		`use_with wavpack` \
 		`use_with cddb` \
 		`use_with systray` \
 		`use_with ladspa` \
 		`use_with taglib metadata` \
 		`use_with cdda` \
+		`use_with loop-playback loop` \
 		`use_enable debug` \
 		|| die "econf failed"
 	
