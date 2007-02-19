@@ -102,9 +102,10 @@ src_install() {
 	dobin ${S}/ExternalPrograms/Controller/controller
 	dodoc ChangeLog FAQ.txt HISTORY.txt README.txt ZynAddSubFX.lsm bugs.txt
 	install_examples_presets
-	newicon "${S}/zynaddsubfx_icon.ico" "zynaddsubfx_icon.ico" 
+	mogrify -format png zynaddsubfx_icon.ico 
+	newicon "${S}/zynaddsubfx_icon.png" "zynaddsubfx_icon.png" 
 	make_desktop_entry "${PN}" "ZynAddSubFx-Synth" \
-		"zynaddsubfx_icon.ico" "AudioVideo;Audio"
+		"zynaddsubfx_icon.png" "AudioVideo;Audio"
 
 }
 

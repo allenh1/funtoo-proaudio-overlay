@@ -93,6 +93,6 @@ src_install () {
 	dodoc authors changelog copyright readme todo support.txt
 	mogrify -format png logo.png
 	newicon "${S}/logo.png" "bpmdjlogo.png" 
-	make_desktop_entry "${PN}" "BpmDj" "bpmdjlogo.png" "AudioVideo;Audio"
+	make_desktop_entry "kbpm-dj" "BpmDj" "bpmdjlogo.png" "AudioVideo;Audio"
 
 }

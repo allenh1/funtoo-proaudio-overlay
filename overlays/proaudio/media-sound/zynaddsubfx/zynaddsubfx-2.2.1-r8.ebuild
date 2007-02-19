@@ -22,7 +22,9 @@ S="${WORKDIR}/${MY_P}"
 src_unpack() {
 	unpack ${MY_P}.tar.bz2 || die
 	zyn_patches
-	patcher ""${FILESDIR}/03-fix_jackmidi.patch" apply"
+	# this patch is only needed with  >jack-...-kit-0.102.20
+	# as this ebuild is set stable we don't need it yet
+	#patcher ""${FILESDIR}/03-fix_jackmidi.patch" apply"
 	#exa_presets_instr_install
 	unpack_examples_presets
 }

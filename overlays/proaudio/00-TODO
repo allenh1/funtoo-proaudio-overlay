@@ -104,6 +104,8 @@ DEVELOPER: none
 DESCR:
 HOMEPAGE:
 
+# ebuild don't compile sonic-visualizer
+
 --template--
 # NAME: 
 EBUID_STATE: none

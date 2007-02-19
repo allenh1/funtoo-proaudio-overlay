@@ -48,13 +48,14 @@ src_unpack() {
 	cvs_src_unpack
 	unpacker "${FILESDIR}/rezound-0.12.2_beta-patches.tar.bz2"
 	cd "${S}"
-	EPATCH_EXCLUDE="40_rezound-0.12.2_beta-float.patch 50_rezound-0.12.2_beta-64bits.patch" \
+	EPATCH_EXCLUDE="40_rezound-0.12.2_beta-float.patch 50_rezound-0.12.2_beta-64bits.patch 20_rezound-0.12.2_beta-gcc4.patch 30_rezound-0.12.2_beta-fox-1.6.patch rezound-0.12.2_beta-foxinclude.patch" \
 	EPATCH_SOURCE="${WORKDIR}" EPATCH_SUFFIX="patch"\
 	EPATCH_FORCE="yes" epatch
 	
-	epatch "${FILESDIR}/rezound-0.12.2_beta-foxinclude.patch"
+	#epatch "${FILESDIR}/rezound-0.12.2_beta-foxinclude.patch"
 	#AT_M4DIR="config/m4" eautoreconf
-	elibtoolize
+	#elibtoolize
+	./bootstrap
 
 #	cd ${S}
 #	epatch "${FILESDIR}"/rezound-0.12.2_beta-fox.1.6.patch
