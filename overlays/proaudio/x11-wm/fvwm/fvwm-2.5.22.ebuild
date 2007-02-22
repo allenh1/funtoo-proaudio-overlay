@@ -5,30 +5,17 @@
 # Ebuild stolen from http://forums.gentoo.org/viewtopic-t-465973-highlight-.html
 # Modified to use a fixed date.
 
-inherit autotools cvs eutils flag-o-matic
+inherit autotools eutils flag-o-matic
 RESTRICT="nomirror"
 
-ECVS_SERVER="cvs.fvwm.org:/home/cvs/fvwm"
-ECVS_USER="anonymous"
-ECVS_PASS="guest"
-ECVS_MODULE="fvwm"
-ECVS_UP_OPTS="-D 20070204"
-ECVS_CO_OPTS="-D 20070204"
-
-PATCHSET="fvwm-patchset-20070101.tar.gz"
-
-DESCRIPTION="An extremely powerful ICCCM-compliant multiple virtual desktop window manager - CVS version"
+DESCRIPTION="An extremely powerful ICCCM-compliant multiple virtual desktop window manager - non official patched version"
 HOMEPAGE="http://www.fvwm.org/"
-SRC_URI="!vanilla? (
-	http://crystalaudio.tuxfamily.org/files/${PATCHSET}
-	)"
+SRC_URI="http://download.tuxfamily.org/crystalaudio/divers/divers/${P}.tar.gz"
 
 LICENSE="GPL-2 FVWM"
 SLOT="0"
 KEYWORDS="~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86"
-IUSE="bidi debug default-charset-fix extras first-item-under-pointer flux-corner gtk iconv nls perl png readline rplay stroke tk thin-geometry-proxy truetype vanilla xinerama"
-
-S="${WORKDIR}/${ECVS_MODULE}"
+IUSE="bidi debug gtk iconv nls perl png readline rplay stroke tk truetype xinerama"
 
 RDEPEND="readline? ( sys-libs/readline sys-libs/ncurses )
 		gtk? ( =x11-libs/gtk+-1.2* )
@@ -63,47 +50,13 @@ DEPEND="${RDEPEND}
 
 src_unpack() {
 
+	unpack ${A}
 	export EPATCH_OPTS="-F3 -l"
-
-	cvs_src_unpack
-
-	# this patch enables fast translucent menus in fvwm. this is a
-	# minor tweak of a patch posted to fvwm-user mailing list by Olivier
-	# Chapuis in <20030827135125.GA6370@snoopy.folie>.
-	cd ${S}; epatch ${FILESDIR}/fvwm-translucent-menus.diff.gz
 
 	# fixing #51287, the fvwm-menu-xlock script is not compatible
 	# with the xlockmore implementation in portage.
 	cd ${S}; epatch ${FILESDIR}/fvwm-menu-xlock-xlockmore-compat.diff
 
-	# with use vanilla, fvwm will be built without extras patches
-	if ! use vanilla; then
-		cd ${WORKDIR}; unpack ${A}
-
-		# Those patches have not effects until they're not used in the
-		# configuration
-		EPATCH_SUFFIX="patch"
-		EPATCH_FORCE="yes"
-		EPATCH_SOURCE="${WORKDIR}/patchset"
-		cd "${S}"; epatch
-		
-		# Those patches have immediate and irreversible effets
-		EXTRAS="${WORKDIR}/patchset/extras"
-		if use first-item-under-pointer; then
-			cd "${S}"; epatch ${EXTRAS}/FirstItemUnderPointer.patch
-		fi
-		if use thin-geometry-proxy; then
-			cd "${S}"; epatch ${EXTRAS}/ThinGeometryProxy.patch
-		fi
-		if use flux-corner; then
-			cd "${S}"; epatch ${EXTRAS}/FluxCorner.patch
-		fi
-		if use default-charset-fix; then
-			cd "${S}"; epatch ${EXTRAS}/DefaultCharset.patch
-		fi
-	fi
-
-	cd "${S}"; eautoreconf
 }
 
 src_compile() {
