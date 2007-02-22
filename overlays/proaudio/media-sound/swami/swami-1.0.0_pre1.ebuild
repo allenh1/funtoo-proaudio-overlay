@@ -12,7 +12,7 @@ SRC_URI="mirror://sourceforge/swami/${P/_/}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 x86"
-IUSE="audiofile debug nls pic"
+IUSE="audiofile debug nls"
 
 DEPEND="media-libs/alsa-lib
 	=x11-libs/gtk+-1.2*
@@ -25,7 +25,6 @@ DEPEND="media-libs/alsa-lib
 S="${WORKDIR}/${P/_pre1/}"
 src_compile() {
 	econf \
-		$(use_with pic) \
 		$(use_enable nls) \
 		$(use_enable debug) \
 		$(use_enable audiofile) || die
