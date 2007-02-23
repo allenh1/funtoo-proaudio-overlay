@@ -24,7 +24,8 @@ DEPEND="media-libs/alsa-lib
 
 S="${WORKDIR}/${P/_pre1/}"
 src_compile() {
-	econf \
+	use amd64 && myconf='--with-pic'
+	econf ${myconf} \
 		$(use_enable nls) \
 		$(use_enable debug) \
 		$(use_enable audiofile) || die
