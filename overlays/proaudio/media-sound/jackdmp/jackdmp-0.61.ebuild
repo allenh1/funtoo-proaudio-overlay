@@ -98,7 +98,7 @@ pkg_postrm() {
 	# remove old symlinks and restore jackd
 	local jackd="jackd"
 
-	is_pkg_installed "media-sound/jack-audio-connection-kit" \
+	has_version "media-sound/jack-audio-connection-kit" \
 	&& [ -f "tmp_${jackd}" ] && [ -L "${jackd}" ] \
 	&& mv -f "tmp_${jackd}" "${jackd}" \
 	&& einfo "jackd restored" || einfo "jackd not restored"

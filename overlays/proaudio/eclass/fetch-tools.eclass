@@ -144,30 +144,3 @@ set_portage_actual_distdir() {
 		PORTAGE_ACTUAL_DISTDIR="${DISTDIR}"
 	fi
 }
-
-# gives back 1 if useflag set, 0 if not
-# syntax: usesflag "flag"
-usesflag() {
-	local retval="0"
-	use "$1" && retval="1"
-	echo "${retval}"
-}
-
-# returns true/false if pkg is installed or not
-# syntax: is_pkg_installed <category/pkgname>
-is_pkg_installed() {
-	
-	local missing_action="die"
-	if [[ $1 == "--missing" ]] ; then
-		missing_action=$2
-		shift ; shift
-		case ${missing_action} in
-			true|false|die) ;;
-			*) die "unknown action '${missing_action}'";;
-		esac
-	fi
-
-	# check if package is installed
-	local PKG=$(best_version $1)
-	[[ -z ${PKG} ]] && return 1 || return 0
-}

@@ -18,6 +18,7 @@ usesflag() {
 
 # returns true/false if pkg is installed or not
 # syntax: is_pkg_installed <category/pkgname>
+# DEPRICATED: use has_version instead
 is_pkg_installed() {
 	local missing_action="die"
 	if [[ $1 == "--missing" ]] ; then
@@ -35,11 +36,11 @@ is_pkg_installed() {
 }
 
 # returns true if all pkg are installed or false if not
-# syntax: all_pkg_installed "<category/pkgname_0> <category/pkgname_n>"
-all_pkg_installed() {
+# syntax: has_all-pkg "<category/pkgname_0> <category/pkgname_n>"
+has_all-pkg() {
 	local retval="0"
 	for p in ${@};do
-		if ! ( is_pkg_installed "$p" && [ "$retval" == "0" ] );then
+		if ! ( has_version "$p" && [ "$retval" == "0" ] );then
 			return "1"
 		fi
 	done
@@ -47,10 +48,10 @@ all_pkg_installed() {
 }
 
 # returns true if one of the given pkg is installed or false if none
-# syntax: all_pkg_installed "<category/pkgname_0> <category/pkgname_n>"
-any_pkg_installed() {
+# syntax: has_any-pkg "<category/pkgname_0> <category/pkgname_n>"
+has_any-pkg() {
 	for p in ${@};do
-		is_pkg_installed "$p" && return 0
+		has_version "$p" && return 0
 	done
 	return "1"
 }

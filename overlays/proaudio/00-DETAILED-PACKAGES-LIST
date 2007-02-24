@@ -88,7 +88,7 @@
 	juce-1.31	arch: ~x86 ~amd64
 	juce-1.35	arch: ~x86
 	juce-1.40	arch: ~x86 ~amd64
-	juce-1.41	arch: ~x86 ~amd64
+	juce-1.41	arch: ~x86 -amd64
 	Description: JUCE (Jules' Utility Class Extensions) is
 		 an all-encompassing C++ class library for
 		 developing cross-platform applications, especially
@@ -425,7 +425,6 @@
 
 
 #------- media-sound/alsaplayer --------
-	alsaplayer-0.99.77	arch: alpha amd64 ia64 ~mips ppc ~sparc x86
 	alsaplayer-9999	arch: -*
 	Description: Media player primarily utilising ALSA
 	Homepage:    http://www.alsaplayer.org/
@@ -766,6 +765,8 @@
 
 
 #------- media-sound/idjc --------
+	idjc-0.6.10	arch: ~x86 ~amd64
+	idjc-0.6.11_pre1	arch: ~x86 ~amd64
 	idjc-0.6.8_pre5	arch: ~x86 ~amd64
 	idjc-0.6.9	arch: ~x86 ~amd64
 	Description: Internet DJ Console
@@ -1546,17 +1547,18 @@
 	Homepage:    http://qwt.sourceforge.net/
 
 
-#------- x11-themes/crystalaudio --------
-	crystalaudio-9999	arch: -*
+#------- x11-themes/crystal-audio --------
+	crystal-audio-1.0	arch: ~x86
 	Description: Configurable and full featured theme for
 		 FVWM-Crystal, tuned for audio work.
 	Homepage:    http://crystalaudio.tuxfamily.org/
 
 
 #------- x11-wm/fvwm --------
-	fvwm-20070204	arch: ~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86
+	fvwm-2.5.22	arch: ~alpha ~amd64 ~ia64 ~ppc ~ppc64 ~sparc ~x86
 	Description: An extremely powerful ICCCM-compliant multiple
-		 virtual desktop window manager - CVS version
+		 virtual desktop window manager - non official
+		 patched version
 	Homepage:    http://www.fvwm.org/
 
 

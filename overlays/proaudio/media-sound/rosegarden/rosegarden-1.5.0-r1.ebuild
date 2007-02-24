@@ -51,12 +51,12 @@ pkg_setup(){
 		eerror "if you disable alsa jack-support will also be disabled."
 		eerror "This is not what you want --> enable alsa useflag" && die
 	fi
-	if ! use export && ! all_pkg_installed "kde-base/kdialog media-libs/libsndfile dev-perl/XML-Twig"  ;then
+	if ! use export && ! has_all-pkg "kde-base/kdialog media-libs/libsndfile dev-perl/XML-Twig"  ;then
 		ewarn "you won't be able to use the rosegarden-project-package-manager"
 		ewarn "please remerge with USE=\"export\"" && sleep 3
 	fi
 
-	if ! use lilypond && ! ( is_pkg_installed "media-sound/lilypond" && any_pkg_installed "app-text/ggv kde-base/kghostview app-text/evince" ) ;then
+	if ! use lilypond && ! ( has_version "media-sound/lilypond" && has_any-pkg "app-text/ggv kde-base/kghostview app-text/evince" ) ;then
 		ewarn "lilypond preview won't work."
 		ewarn "If you want this feature please remerge USE=\"lilypond\""
 	fi
