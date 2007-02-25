@@ -203,5 +203,5 @@ sys-process/rt-exec
 sys-process/rtirq
 sys-process/set_rlimits
 x11-libs/qwt
-x11-themes/crystalaudio
+x11-themes/crystal-audio
 x11-wm/fvwm

@@ -209,9 +209,10 @@
 
 
 #------- media-libs/pyphat --------
+	pyphat-0.1	arch: x86
 	pyphat-9999	arch: -*
 	Description: python binding for phat
-	Homepage:    https://developper.berlios.de/projects/phat/
+	Homepage:    http://phat.berlios.de/
 
 
 #------- media-libs/stops --------
@@ -1459,6 +1460,7 @@
 
 
 #------- media-video/xjadeo --------
+	xjadeo-0.4.0	arch: x86 ~amd64
 	xjadeo-0.4.0_rc3	arch: x86 ~amd64
 	Description: xjadeo is a simple video player that is synchronized
 		 to jack transport.
@@ -1548,7 +1550,7 @@
 
 
 #------- x11-themes/crystal-audio --------
-	crystal-audio-1.0	arch: ~x86
+	crystal-audio-1.2	arch: ~x86
 	Description: Configurable and full featured theme for
 		 FVWM-Crystal, tuned for audio work.
 	Homepage:    http://crystalaudio.tuxfamily.org/

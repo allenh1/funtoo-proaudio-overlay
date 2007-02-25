@@ -2,27 +2,29 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils subversion autotools
+inherit eutils autotools
 
 DESCRIPTION="python binding for phat"
 HOMEPAGE="http://phat.berlios.de/"
 
-ESVN_REPO_URI="svn://svn.berlios.de/phat/trunk/pyphat"
+#ESVN_REPO_URI="svn://svn.berlios.de/phat/trunk/pyphat"
+SRC_URI="http://download.berlios.de/phat/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="-*"
+KEYWORDS="x86"
 
-S="${WORKDIR}/${PN}"
+#S="${WORKDIR}/${PN}"
 
 IUSE=""
-DEPEND="=media-libs/phat-9999"
+DEPEND=">=media-libs/phat-0.4"
 
 src_unpack() {
-	subversion_src_unpack ${A}
-	cd ${S}
-	chmod +x autogen.sh
-	./autogen.sh
+#subversion_src_unpack ${A}
+	unpack "${A}"
+	cd "${S}"
+	#chmod +x autogen.sh
+	#./autogen.sh
 }
 
 src_compile() {

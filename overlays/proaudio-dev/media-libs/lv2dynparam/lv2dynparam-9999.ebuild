@@ -1,13 +1,14 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2007 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 inherit eutils subversion autotools
 
-DESCRIPTION="python binding for phat"
-HOMEPAGE="http://phat.berlios.de/"
+DESCRIPTION="LV2 dynparam extension"
+HOMEPAGE="http://home.gna.org/lv2dynparam/"
 
-ESVN_REPO_URI="svn://svn.berlios.de/phat/trunk/pyphat"
+ESVN_REPO_URI="http://svn.gna.org/svn/lv2dynparam/code"
+ESVN_PROJECT="lv2dynparam"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -16,13 +17,13 @@ KEYWORDS="-*"
 S="${WORKDIR}/${PN}"
 
 IUSE=""
-DEPEND="=media-libs/phat-9999"
+DEPEND=""
 
 src_unpack() {
 	subversion_src_unpack ${A}
 	cd ${S}
-	chmod +x autogen.sh
-	./autogen.sh
+	export WANT_AUTOMAKE="1.10"
+	./bootstrap
 }
 
 src_compile() {
@@ -31,5 +32,5 @@ src_compile() {
 
 src_install() {
 	make DESTDIR="${D}" install || die "Install failed"
-	dodoc README AUTHORS NEWS || die "dodoc failed"
+	dodoc README AUTHORS NEWS
 }
