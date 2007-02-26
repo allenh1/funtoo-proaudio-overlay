@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+inherit subversion
+
 DESCRIPTION="Aldrin is an open source modular sequencer/tracker, compatible to
 Buzz"
 HOMEPAGE="http://trac.zeitherrschaft.org/aldrin/"
