@@ -11,7 +11,9 @@ MY_P=ZynAddSubFX-${PV}
 DESCRIPTION="ZynAddSubFX-converter: use ONLY to convert old *.ins_zyn instruments to *.xiz"
 HOMEPAGE="http://zynaddsubfx.sourceforge.net/"
 SRC_URI="mirror://sourceforge/zynaddsubfx/${MY_P}.tar.bz2"
-	
+
+LICENSE="GPL-2"
+
 DEPEND=">=x11-libs/fltk-1.1.2
 	=sci-libs/fftw-3*
 	jack? ( media-sound/jack-audio-connection-kit )

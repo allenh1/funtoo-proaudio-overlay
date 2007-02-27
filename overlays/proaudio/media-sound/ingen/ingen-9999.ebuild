@@ -25,7 +25,7 @@ RDEPEND=">=media-libs/liblo-0.22
 		>=media-libs/raptor-0.21
 		>=dev-libs/rasqal-0.9.11
 		>=dev-libs/libsigc++-2.0 )
-	gtk2?( >=dev-cpp/gtkmm-2.4 
+	gtk2? ( >=dev-cpp/gtkmm-2.4 
 		>=dev-cpp/libgnomecanvasmm-2.6 
 		>=dev-cpp/libglademm-2.4
 		>=media-libs/flowcanvas-9999 )

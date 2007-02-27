@@ -13,13 +13,17 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~sparc ~x86"
 
-DEPEND="alsa? ( >=media-libs/alsa-lib-0.5.0 )
+RDEPEND="alsa? ( >=media-libs/alsa-lib-0.5.0 )
 	>=dev-lang/tk-8.3
-	>=dev-lang/tcl-8.3
-	virtual/x11
-	lash? ( >=media-sound/lash-0.3.1 )"
+	lash? ( >=media-sound/lash-0.3.1 )
+	|| ( x11-libs/libX11 virtual/x11 )"
 
-S=${WORKDIR}/${PN}
+DEPEND="${RDEPEND}
+	|| ( ( x11-proto/xf86bigfontproto
+			x11-proto/bigreqsproto
+			x11-proto/xextproto
+			x11-proto/xcmiscproto )
+		virtual/x11 )"
 
 src_unpack() {
 	unpack ${P}.tar.gz
