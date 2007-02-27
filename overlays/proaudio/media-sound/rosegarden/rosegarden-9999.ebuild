@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header:$
 
-inherit kde eutils subversion qt3
+inherit kde eutils subversion qt3 exteutils
 
 DESCRIPTION="MIDI and audio sequencer and notation editor."
 HOMEPAGE="http://www.rosegardenmusic.com/"
@@ -13,9 +13,14 @@ ESVN_REPO_URI="https://svn.sourceforge.net/svnroot/rosegarden/trunk/rosegarden"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="-*"
-IUSE="alsa jack dssi lirc debug"
+IUSE="alsa jack dssi lirc debug lilypond export kde gnome"
 
 RDEPEND="alsa? ( >=media-libs/alsa-lib-1.0 )
+	lilypond? ( media-sound/lilypond
+		|| ( kde? ( kde-base/kghostview ) gnome? ( app-text/evince ) app-text/ggv ) )
+	export? ( kde-base/kdialog
+			dev-perl/XML-Twig
+			media-libs/libsndfile )
 	jack? ( >=media-sound/jack-audio-connection-kit-0.77 )
 	>=media-libs/ladspa-sdk-1.0
 	>=media-libs/ladspa-cmt-1.14
@@ -40,9 +45,18 @@ LANGS="ca cs cy de en_GB en es et fr it ja nl ru sv zh_CN"
 S="${WORKDIR}/${PN}"
 #S="${WORKDIR}/${MY_P}"
 pkg_setup(){
-	 if ! use alsa  && use jack ;then
+	if ! use alsa  && use jack ;then
 		eerror "if you disable alsa jack-support will also be disabled."
 		eerror "This is not what you want --> enable alsa useflag" && die
+	fi
+	if ! use export && ! has_all-pkg "kde-base/kdialog media-libs/libsndfile dev-perl/XML-Twig"  ;then
+		ewarn "you won't be able to use the rosegarden-project-package-manager"
+		ewarn "please remerge with USE=\"export\"" && sleep 3
+	fi
+
+	if ! use lilypond && ! ( has_version "media-sound/lilypond" && has_any-pkg "app-text/ggv kde-base/kghostview app-text/evince" ) ;then
+		ewarn "lilypond preview won't work."
+		ewarn "If you want this feature please remerge USE=\"lilypond\""
 	fi
 }
 
@@ -63,7 +77,7 @@ src_compile() {
 		-DWANT_LIRC="$(! use lirc; echo "$?")" \
 		|| die "cmake failed"
 	use debug && CFLAGS="${CFLAGS} -ggdb3"
-	
+
 	emake || die "emake failed"
 }
 
