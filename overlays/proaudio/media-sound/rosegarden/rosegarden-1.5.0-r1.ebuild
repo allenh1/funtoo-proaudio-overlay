@@ -17,11 +17,11 @@ SRC_URI="mirror://sourceforge/rosegarden/${MY_P}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="-*"
-IUSE="alsa jack dssi lirc debug lilypond export"
+IUSE="alsa jack dssi lirc debug lilypond export kde gnome"
 
 RDEPEND="alsa? ( >=media-libs/alsa-lib-1.0 )
 	lilypond? ( media-sound/lilypond
-		|| ( app-text/ggv kde-base/kghostview app-text/evince ) )
+		|| ( kde? ( kde-base/kghostview ) gnome? ( app-text/evince ) app-text/ggv ) )
 	export? ( kde-base/kdialog
 			dev-perl/XML-Twig
 			media-libs/libsndfile )
