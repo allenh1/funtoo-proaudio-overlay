@@ -23,10 +23,12 @@ media-libs/libjackasyn
 media-libs/liblscp
 media-libs/libsoundtouch
 media-libs/libzzub
+media-libs/lv2dynparam
 media-libs/phat
 media-libs/portaudio
 media-libs/pylash
 media-libs/pyphat
+media-libs/slv2
 media-libs/stops
 media-libs/tse3
 media-libs/vst-sdk
@@ -37,6 +39,7 @@ media-plugins/amb-plugins
 media-plugins/dssi-vst
 media-plugins/fil-plugins
 media-plugins/hexter
+media-plugins/ll-plugins
 media-plugins/nekobee
 media-plugins/njl-plugins
 media-plugins/omins
@@ -50,6 +53,7 @@ media-plugins/wasp
 media-plugins/whysynth
 media-plugins/wsynth-dssi
 media-plugins/xsynth-dssi
+media-plugins/zynadd
 media-sound/ac3jack
 media-sound/aeolus
 media-sound/afsp
@@ -192,6 +196,7 @@ media-sound/vkeybd
 media-sound/yatm
 media-sound/zynaddsubfx
 media-sound/zynaddsubfx-converter
+media-sound/zynjacku
 media-sound/jack-audio-connection-kit
 media-video/xjadeo
 sys-apps/das_watchdog

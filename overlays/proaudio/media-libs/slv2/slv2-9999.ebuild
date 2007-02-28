@@ -11,8 +11,8 @@ HOMEPAGE="http://drobilla.net/software"
 
 ESVN_REPO_URI="http://svn.drobilla.net/lad/${PN}"
 
-
 LICENSE="GPL-2"
+SLOT="0"
 KEYWORDS="-*"
 
 DEPEND=">=dev-util/pkgconfig-0.9.0
@@ -32,4 +32,5 @@ src_compile() {
 src_install() {
 	make DESTDIR="${D}" install || die "install failed"
 	dodoc AUTHORS NEWS THANKS ChangeLog
-} 
+}
+

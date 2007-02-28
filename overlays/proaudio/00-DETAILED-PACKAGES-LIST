@@ -184,6 +184,12 @@
 	Homepage:    http://trac.zeitherrschaft.org/aldrin
 
 
+#------- media-libs/lv2dynparam --------
+	lv2dynparam-9999	arch: -*
+	Description: LV2 dynparam extension
+	Homepage:    http://home.gna.org/lv2dynparam/
+
+
 #------- media-libs/phat --------
 	phat-0.3.1	arch: amd64 ppc sparc x86
 	phat-0.4.0	arch: amd64 ppc sparc x86
@@ -214,6 +220,12 @@
 	pyphat-9999	arch: -*
 	Description: python binding for phat
 	Homepage:    http://phat.berlios.de/
+
+
+#------- media-libs/slv2 --------
+	slv2-9999	arch: -*
+	Description: SLV2 is a library for LV2 hosts
+	Homepage:    http://drobilla.net/software
 
 
 #------- media-libs/stops --------
@@ -290,6 +302,13 @@
 	hexter-0.5.9	arch: amd64 x86
 	Description: Yamaha DX7 modeling DSSI plugin
 	Homepage:    http://dssi.sourceforge.net/hexter.html
+
+
+#------- media-plugins/ll-plugins --------
+	ll-plugins-9999	arch: -*
+	Description: collection of LV2 plugins, LV2 extension
+		 definitions, and LV2 related tools
+	Homepage:    http://ll-plugins.nongnu.org
 
 
 #------- media-plugins/nekobee --------
@@ -383,6 +402,13 @@
 	Description: Wsynth-DSSI, a wavetable synthesizer plugin
 		
 	Homepage:    http://dssi.sourceforge.net/download.html#Xsynth-DSSI
+
+
+#------- media-plugins/zynadd --------
+	zynadd-9999	arch: -*
+	Description: synth engines from ZynAddSubFX and pack them
+		 in LV2 plugin format
+	Homepage:    http://home.gna.org/zyn
 
 
 #------- media-sound/ac3jack --------
@@ -1447,6 +1473,13 @@
 	Description: ZynAddSubFX-converter: use ONLY to convert
 		 old *.ins_zyn instruments to *.xiz
 	Homepage:    http://zynaddsubfx.sourceforge.net/
+
+
+#------- media-sound/zynjacku --------
+	zynjacku-9999	arch: -*
+	Description: JACK based, GTK (2.x) host for LV2 synths
+		
+	Homepage:    http://home.gna.org/zynjacku/
 
 
 #------- media-sound/jack-audio-connection-kit --------

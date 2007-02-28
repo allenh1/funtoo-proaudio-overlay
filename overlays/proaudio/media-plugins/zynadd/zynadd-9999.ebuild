@@ -17,17 +17,11 @@ KEYWORDS="-*"
 S="${WORKDIR}/${PN}"
 
 IUSE=""
-DEPEND="media-libs/slv2
-	>=dev-libs/atk-1.0
-	>=media-libs/freetype-2.0
-	>=x11-libs/cairo-1.0
-	>=x11-libs/pango-1.0
-	>=dev-libs/glib-2.0
-	>=dev-python/pygtk-2.0
-	>=x11-libs/gtk+-2
-	>=dev-lang/python-2.4"
+RDEPEND="=sci-libs/fftw-3*
+	=media-libs/lv2dynparam-9999"
 
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	media-libs/slv2"
 
 src_unpack() {
 	subversion_src_unpack ${A}
