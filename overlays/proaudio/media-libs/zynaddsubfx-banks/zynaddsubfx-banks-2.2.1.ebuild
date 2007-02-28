@@ -6,7 +6,7 @@ inherit zyn3
 RESTRICT="nomirror"
 MY_P="ZynAddSubFX-${PV}"
 DESCRIPTION="ZynAddSubFX banks/instruments"
-HOMEPAGE=""
+HOMEPAGE="http://zynaddsubfx.sourceforge.net/doc/instruments/"
 SRC_URI="mirror://sourceforge/zynaddsubfx/ZynAddSubFX-${PV}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"

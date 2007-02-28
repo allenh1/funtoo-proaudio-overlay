@@ -45,4 +45,5 @@ src_install() {
 	if use doc; then
 		mv ${S}/doc/html ${D}/usr/share/doc/${PF}/
 	fi
-} 
+}
+

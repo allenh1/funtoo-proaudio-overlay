@@ -8,6 +8,7 @@ inherit eutils
 DESCRIPTION="FreeST audio plugin VST container library"
 HOMEPAGE="http://joebutton.co.uk/fst/"
 LICENSE="GPL-2"
+SLOT="0"
 IUSE=""
 
 SRC_URI="http://galan.sf.net/${P}.tar.gz"

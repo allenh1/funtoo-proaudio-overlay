@@ -7,7 +7,7 @@ RESTRICT="nomirror"
 MY_P="${P/zynaddsubfx-/}"
 MY_P="${MY_P/-/}"
 DESCRIPTION="ZynAddSubFX banks/instruments"
-HOMEPAGE=""
+HOMEPAGE="http://zynaddsubfx.sourceforge.net/doc/instruments/"
 # tell the user to use the "smart" version of this ebuild
 # which tries to fetch the latest source
 SRC_URI=""

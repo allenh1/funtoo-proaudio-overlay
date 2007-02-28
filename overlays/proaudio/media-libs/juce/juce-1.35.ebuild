@@ -21,13 +21,18 @@ SLOT="0"
 KEYWORDS="~x86"
 IUSE="debug flac opengl vorbis"
 
-DEPEND="=media-libs/freetype-2*
-		virtual/x11
-		>=media-libs/alsa-lib-0.9
-		flac? ( media-libs/flac )
-		opengl? ( virtual/opengl 
-					media-libs/glut )
-		vorbis? ( media-libs/libvorbis )"
+RDEPEND="=media-libs/freetype-2*
+	>=media-libs/alsa-lib-0.9
+	flac? ( media-libs/flac )
+	opengl? ( virtual/opengl
+		media-libs/glut )
+	vorbis? ( media-libs/libvorbis )
+	|| ( >=x11-libs/libX11-1.0.1-r1 virtual/x11 )"
+DEPEND="${RDEPEND}
+	|| ( ( 	x11-proto/xineramaproto
+			x11-proto/xextproto
+			x11-proto/xproto )
+		virtual/x11 )"
 
 pkg_setup() {
 	if ! built_with_use sys-libs/glibc nptl; then

@@ -7,7 +7,7 @@ RESTRICT="nomirror"
 MY_P="${P/zynaddsubfx-/}"
 MY_P="${MY_P/-/}"
 DESCRIPTION="ZynAddSubFX banks/instruments"
-HOMEPAGE=""
+HOMEPAGE="http://zynaddsubfx.sourceforge.net/doc/instruments/"
 
 SRC_URI="http://zynaddsubfx.sourceforge.net/doc/instruments/${MY_P}.zip"
 LICENSE="GPL-2"

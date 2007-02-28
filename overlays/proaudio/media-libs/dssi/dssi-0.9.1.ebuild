@@ -4,7 +4,7 @@
 
 inherit eutils multilib
 
-IUSE="qt"
+IUSE="qt3"
 RESTRICT="nomirror"
 DESCRIPTION="DSSI Soft Synth Interface"
 HOMEPAGE="http://dssi.sourceforge.net/"
@@ -22,7 +22,7 @@ DEPEND=">=media-libs/alsa-lib-1.0
 	>=media-libs/libsamplerate-0.1.1-r1
 	sys-apps/sed
 	dev-util/pkgconfig
-	qt? ( >=x11-libs/qt-3 )"
+	qt3? ( ~x11-libs/qt-3 )"
 
 src_unpack() {
 	unpack ${A}

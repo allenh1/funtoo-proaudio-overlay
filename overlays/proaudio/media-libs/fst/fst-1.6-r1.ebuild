@@ -8,7 +8,7 @@ RESTRICT="nomirror"
 DESCRIPTION="FreeST audio plugin VST container library"
 HOMEPAGE="http://www.linuxaudiosystems.com/fst/"
 LICENSE="GPL-2"
-
+SLOT="0"
 SRC_URI="http://www.linuxaudiosystems.com/fst/${P}.tar.gz"
 
 KEYWORDS="-*"

@@ -241,7 +241,7 @@
 	zynaddsubfx-banks-2.2.1	arch: amd64 ppc x86
 	zynaddsubfx-banks-99999999	arch: -*
 	Description: ZynAddSubFX banks/instruments
-	Homepage:    
+	Homepage:    http://zynaddsubfx.sourceforge.net/doc/instruments/
 
 
 #------- media-libs/zynaddsubfx-collection --------

@@ -14,8 +14,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 
 IUSE=""
-DEPEND="|| ( >=media-sound/zynaddsubfx-2.2.1-r4 >=media-sound/zynaddsubfx-cvs-2.2.2-r4 )
+DEPEND="${RDEPEND}
 	app-arch/unzip"
+RDEPEND=">=media-sound/zynaddsubfx-2.2.1-r4"
 
 S="${WORKDIR}/zynaddsubfx"*
 src_unpack(){
