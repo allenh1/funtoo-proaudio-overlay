@@ -80,5 +80,11 @@ src_install() {
 	insinto /usr/share/doc/"${P}"
 	doins docs/*.html docs/*.css docs/*.txt
 	mv docs/images "${D}"/usr/share/doc/"${P}"
+	insinto /usr/include/"${PN}"
+	doins *.h
+	cp -R src "${D}"/usr/include/"${PN}"
+	for i in `find ${D}/usr/include/${PN}/src -name *.cpp`; do
+		rm -f $i
+	done
 }
 
