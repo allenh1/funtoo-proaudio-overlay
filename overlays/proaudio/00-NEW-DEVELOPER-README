@@ -22,7 +22,8 @@ Index:
   3.1 # read the ebuild documentation at
   3.1.1 # run svn up
   3.2 # ebuild license
-  3.3 # check your ebuilds if they are acutally working
+  3.3 # check your ebuilds if they are acutally working (repoman) 
+  3.3.1 # ebuild archs (KEYWORDS)
   3.4 # redigest your ebuild
   3.5 # update the package list
   3.6 # add missing apps to 00-TODO
@@ -173,11 +174,22 @@ Index:
   # $Header: $
 
 
-3.3 # check your ebuilds if they are acutally working
-  # put the correct archs into KEYWORDS (I prefer mostly stable keywords but if
-  # the new version of a ebuild couldn't break things do ~arch or -*)
-  # ALL snapshot ebuilds Have -* as useflag and use the scheme:
+3.3 # check your ebuilds if they are acutally working (repoman) 
+  # to ensure correct ebuilds you could run repoman which checks
+  # for invalid syntax, missing vars, ...
+ 
+
+3.3.1 # ebuild archs (KEYWORDS)
+  # put the correct archs into KEYWORDS. I prefer mostly stable keywords
+  # but if a new version of a pkg could break things do ~arch
+  # or if known to not work do KEYWORDS="-*" 
+  # ALL snapshot/live (cvs/svn/...) ebuilds should have KEYWORDS="" 
+  # --> this meaans not known if it will work as it could change quickly
+  # Use -9999 for the ebuild filename:
   foobar-9999.ebuild
+  # more infos about KEYWORDS available at:
+  # http://dev.gentoo.org/~genone/docs/KEYWORDS.stupid and
+  # http://bugs.gentoo.org/show_bug.cgi?id=160519
 
 
 3.4 # redigest your ebuild
