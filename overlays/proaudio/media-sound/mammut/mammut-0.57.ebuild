@@ -14,7 +14,7 @@ IUSE="doc"
 
 RDEPEND=">=media-sound/jack-audio-connection-kit-0.100
 	media-libs/libsndfile
-	>=media-libs/juce-1.41
+	>=media-libs/juce-1.40
 	>=media-libs/libsamplerate-0.1.1
 	media-libs/libvorbis
 	media-libs/mesa
