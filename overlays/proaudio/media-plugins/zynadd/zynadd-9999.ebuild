@@ -18,9 +18,11 @@ S="${WORKDIR}/${PN}"
 
 IUSE=""
 RDEPEND="=sci-libs/fftw-3*
-	=media-libs/lv2dynparam-9999"
+	=media-libs/lv2dynparam-9999
+	=media-sound/zynjacku-9999"
 
-DEPEND="${RDEPEND}
+DEPEND="=sci-libs/fftw-3*
+	=media-libs/lv2dynparam-9999
 	media-libs/slv2"
 
 src_unpack() {
@@ -40,3 +42,10 @@ src_install() {
 	LV2_PATH="${D}/usr/lib/lv2" make DESTDIR="${D}" install || die "Install failed"
 #	dodoc README AUTHORS NEWS
 }
+
+pkg_postinst() {
+	elog "to lauch eg. zynadd type:"
+	elog "zynjacku http://home.gna.org/zyn/zynadd/0"
+	elog "(zynjacku is provided by media-sound/zynjacku)"
+}
+

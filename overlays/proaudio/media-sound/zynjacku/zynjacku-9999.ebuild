@@ -26,7 +26,8 @@ DEPEND="media-sound/jack-audio-connection-kit
 	>=dev-libs/glib-2.0
 	>=dev-python/pygtk-2.0
 	>=x11-libs/gtk+-2
-	>=dev-lang/python-2.4"
+	>=dev-lang/python-2.4
+	=media-libs/lv2dynparam-9999"
 
 RDEPEND="${DEPEND}
 	>=media-libs/pyphat-9999"
@@ -51,4 +52,9 @@ src_install() {
 	fperms +x /usr/lib/zynjacku/zynjacku.py
 	make_wrapper "zynjacku" "/usr/lib/zynjacku/zynjacku.py" "/usr/lib/zynjacku"
 #	dodoc README AUTHORS NEWS
+}
+
+pkg_postinst() {
+	elog "to lauch eg. zynadd type:"
+	elog "zynjacku http://home.gna.org/zyn/zynadd/0"
 }
