@@ -23,6 +23,7 @@ src_unpack() {
 	subversion_src_unpack ${A}
 	cd ${S}
 	export WANT_AUTOMAKE="1.10"
+	export WANT_AUTOCONF="2.61"
 	./bootstrap
 }
 

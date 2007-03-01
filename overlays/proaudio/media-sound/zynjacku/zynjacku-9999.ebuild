@@ -17,7 +17,7 @@ KEYWORDS="-*"
 S="${WORKDIR}/${PN}"
 
 IUSE=""
-DEPEND="media-sound/jack-audio-connection-kit
+DEPEND="=media-sound/jack-audio-connection-kit-9999
 	media-libs/slv2
 	>=dev-libs/atk-1.0
 	>=media-libs/freetype-2.0
