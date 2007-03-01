@@ -1,37 +1,40 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2007 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/dssi/dssi-0.9.ebuild,v 1.2 2006/01/04 17:38:07 wormo Exp $
+# $Header: $
 
 inherit eutils multilib
 
 IUSE="qt3"
 RESTRICT="nomirror"
-DESCRIPTION="DSSI Soft Synth Interface"
+DESCRIPTION="Plugin API for software instruments with user interfaces"
 HOMEPAGE="http://dssi.sourceforge.net/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-2.1 BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc x86"
+KEYWORDS="amd64 ppc ppc64 x86"
 
-DEPEND=">=media-libs/alsa-lib-1.0
+RDEPEND=">=media-libs/alsa-lib-1.0
 	>=media-libs/liblo-0.12
 	>=media-sound/jack-audio-connection-kit-0.99.0-r1
 	>=media-libs/ladspa-sdk-1.12-r2
 	>=media-libs/libsndfile-1.0.11
 	>=media-libs/libsamplerate-0.1.1-r1
+	qt3? ( >=x11-libs/qt-3 )"
+DEPEND="${RDEPEND}
 	sys-apps/sed
-	dev-util/pkgconfig
-	qt3? ( ~x11-libs/qt-3 )"
+	dev-util/pkgconfig"
 
 src_unpack() {
 	unpack ${A}
+	sed -i -e "s:/lib:/$(get_libdir):" ${S}/dssi.pc.in || die
 #	cd ${S}
 }
 
 src_compile() {
-econf || die
-emake || die
+	use qt3 || QTDIR=/WONT_BE_FOUND
+	econf || die "configure failed"
+	emake || die "emake failed"
 }
 
 src_install() {
