@@ -55,3 +55,40 @@ has_any-pkg() {
 	done
 	return "1"
 }
+
+# use like normal sed but set environment to C
+esed() {
+	LC_ALL=C sed "$@"
+}
+
+# use like normal sed but set environment to C
+# also tries to verify if changes take place and
+# call die it fails
+# this function is not ready!!!! DO NOT USE
+esed_check() {
+	for i in $@;do
+		eerror supermach $i
+		find |grep "$i" &>/dev/null
+		
+		if [ $? == "0" ] && [ -e $i ];then
+	#		
+#if [ -z ${i##*/\var\/tmp\/portage*} ] || [ ! -z "`echo $i |grep -v ^\/`" ] \
+#				|| [ -z "`echo $i |grep  ^\.\.`" ];then
+			echo lol
+			cp -a $i ${i}_tmp
+			einfo "[Patching] $i"
+#			fi
+		fi
+	done
+	#set -x
+	args=($@)
+	LC_ALL=C sed ''${args[@]}''
+	
+	# cmp if changes occured
+	for i in $@;do
+		if [ -e $i ];then
+			diff --brief -u $i ${i}_tmp &>/dev/null && die "sed failed within $i"
+			rm -f ${i}_tmp
+		fi
+	done
+}
