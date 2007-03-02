@@ -31,8 +31,8 @@ I have no access to others architectures.
 # vst-support:
 ------------
 # you have to google for vstsdk2.3.zip and put it into your distdir first
-USE=headers-only emerge vst-sdk 
-# will do it.
+USE=-doc emerge vst-sdk 
+# this will install just the needed headerfiles
 
 # fst-1.6 won't build but fst-1.7 builds and will work as standalone 
 # (fst path/to/instrument.dll) 
@@ -99,7 +99,7 @@ USE=-jackmidi emerge ghostess
 # they are named foo-9999.ebuild. e.g. to compile the latest rosegarden svn
 # checkout you now have to do the following:
 
-echo "media-sound/rosegarden -*" >> /etc/portage/package.keywords
+echo "media-sound/rosegarden **" >> /etc/portage/package.keywords
 emerge rosegarden
 
 # If you get messages about *-cvs/svn "Blocked Packages" remove the

@@ -4,7 +4,7 @@
 
 inherit eutils zyn2 cvs patcher
 
-KEYWORDS="-*"
+KEYWORDS=""
 RESTRICT="nomirror"
 MY_P=ZynAddSubFX-${PV}
 # call function from zyn.eclass to get SRC_URI completed

@@ -12,7 +12,7 @@ ESVN_REPO_URI="http://svn.zeitherrschaft.org/aldrin/trunk/"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="-*"
+KEYWORDS=""
 IUSE=""
 
 RDEPEND="dev-python/wxpython

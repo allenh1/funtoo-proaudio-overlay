@@ -13,7 +13,7 @@ SRC_URI=""
 ESVN_REPO_URI="http://subversion.jackaudio.org/jackmp/trunk/jackmp"
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="-*"
+KEYWORDS=""
 
 RDEPEND="dev-util/pkgconfig
 	>=media-libs/alsa-lib-0.9.1"

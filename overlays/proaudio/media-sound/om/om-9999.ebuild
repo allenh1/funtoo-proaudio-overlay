@@ -13,7 +13,7 @@ ECVS_SERVER="cvs.savannah.nongnu.org:/sources/om-synth"
 ECVS_MODULE="om-synth"
 
 LICENSE="GPL-2"
-KEYWORDS="-*"
+KEYWORDS=""
 
 DEPEND=">=media-libs/liblo-0.22
 	>=media-sound/jack-audio-connection-kit-0.99

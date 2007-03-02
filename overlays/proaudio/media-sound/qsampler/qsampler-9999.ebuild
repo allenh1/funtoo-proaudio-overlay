@@ -13,7 +13,7 @@ ECVS_MODULE="qsampler"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE=""
 RDEPEND="=x11-libs/qt-3*
 	>=media-libs/liblscp-9999

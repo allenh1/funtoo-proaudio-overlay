@@ -12,7 +12,7 @@ ESVN_PROJECT="zynjacku"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="-*"
+KEYWORDS=""
 
 S="${WORKDIR}/${PN}"
 

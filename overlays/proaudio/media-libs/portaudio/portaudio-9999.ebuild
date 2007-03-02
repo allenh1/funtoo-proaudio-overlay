@@ -11,7 +11,7 @@ url="http://portaudio.com/archives/pa_snapshot_v19.tar.gz"
 
 SLOT="19"
 LICENSE="GPL-2"
-KEYWORDS="-*"
+KEYWORDS=""
 
 IUSE="jack alsa oss doc"
 

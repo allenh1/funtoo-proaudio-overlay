@@ -11,7 +11,7 @@ ESVN_REPO_URI="https://svn.sourceforge.net/svnroot/lmms/trunk/lmms"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="-*"
+KEYWORDS=""
 
 S="${WORKDIR}/${PN}"
 

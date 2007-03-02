@@ -13,7 +13,7 @@ ESVN_PROJECT="sweep"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="-*"
+KEYWORDS=""
 IUSE="alsa nls vorbis"
 S="${WORKDIR}/${ESVN_PROJECT}"
 

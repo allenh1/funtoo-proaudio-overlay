@@ -11,7 +11,7 @@ SRC_URI=""
 ESVN_REPO_URI="http://svn.berlios.de/svnroot/repos/smack/trunk"
 
 LICENSE="GPL-2"
-KEYWORDS="-*"
+KEYWORDS=""
 
 DEPEND="=media-sound/om-9999
 	media-plugins/omins

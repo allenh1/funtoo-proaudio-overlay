@@ -9,7 +9,7 @@ HOMEPAGE="http://gdam.ffem.org/"
 inherit cvs 
 LICENSE="LGPL"
 SLOT="0"
-KEYWORDS="x86"
+KEYWORDS=""
 
 ECVS_SERVER="gdam.cvs.sourceforge.net:/cvsroot/gdam"
 ECVS_MODULE="gdam"

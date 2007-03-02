@@ -17,7 +17,7 @@ HOMEPAGE="http://www.muse-sequencer.org/"
 
 LICENSE="GPL-2"
 SLOT="1"
-KEYWORDS="-*"
+KEYWORDS=""
 IUSE="vst dssi fluidsynth zynaddsubfx"
 
 DEPEND="$(qt4_min_version 4.2)

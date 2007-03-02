@@ -18,7 +18,7 @@ ESVN_PROJECT="aqualung"
 LICENSE="GPL-2"
 SLOT="0"
 
-KEYWORDS="-*"
+KEYWORDS=""
 
 RDEPEND="oggvorbis? ( >=media-libs/libvorbis-1.0 )
 	libsndfile? ( >=media-libs/libsndfile-1.0.12 )

@@ -13,7 +13,7 @@ ESVN_REPO_URI="http://svn.drobilla.net/lad/${PN}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="-*"
+KEYWORDS=""
 
 DEPEND=">=dev-util/pkgconfig-0.9.0
 	media-sound/jack-audio-connection-kit

@@ -11,7 +11,7 @@ ECVS_MODULE="jamin"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="-*"
+KEYWORDS=""
 IUSE="osc"
 
 DEPEND=">=media-sound/jack-audio-connection-kit-0.80.0

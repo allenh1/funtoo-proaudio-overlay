@@ -13,7 +13,7 @@ S=${WORKDIR}/${PN}
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="-*"
+KEYWORDS=""
 
 DEPEND="virtual/libc
 	media-libs/alsa-lib

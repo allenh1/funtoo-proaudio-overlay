@@ -11,7 +11,7 @@ ESVN_REPO_URI="http://svn.zeitherrschaft.org/zzub/trunk/"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="-*"
+KEYWORDS=""
 IUSE="alsa jack llvm"
 
 DEPEND="${RDEPEND}

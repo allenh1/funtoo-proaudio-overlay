@@ -12,7 +12,7 @@ ESVN_REPO_URI="http://svn.metadecks.org/sweep/trunk"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="-*"
+KEYWORDS=""
 IUSE="alsa mp3 nls speex vorbis"
 
 DEPEND="media-libs/libsamplerate

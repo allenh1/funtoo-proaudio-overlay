@@ -41,13 +41,14 @@
 
 
 #------- media-libs/dssi --------
-	dssi-0.9.1	arch: ~amd64 ~ppc x86
-	Description: DSSI Soft Synth Interface
+	dssi-0.9.1	arch: amd64 ppc ppc64 x86
+	Description: Plugin API for software instruments with
+		 user interfaces
 	Homepage:    http://dssi.sourceforge.net/
 
 
 #------- media-libs/flowcanvas --------
-	flowcanvas-9999	arch: -*
+	flowcanvas-9999	arch: 
 	Description: FlowCanvas is a canvas widget for dataflow
 		 systems
 	Homepage:    http://drobilla.net/software/flowcanvas
@@ -147,7 +148,7 @@
 
 
 #------- media-libs/libgig --------
-	libgig-9999	arch: -*
+	libgig-9999	arch: 
 	Description: libgig is a C++ library for loading Gigasampler
 		 files and DLS (Downloadable Sounds) Level 1/2 files.
 		
@@ -163,7 +164,7 @@
 
 
 #------- media-libs/liblscp --------
-	liblscp-9999	arch: -*
+	liblscp-9999	arch: 
 	Description: liblscp is a C++ library for the Linux Sampler
 		 control protocol.
 	Homepage:    http://www.linuxsampler.org/
@@ -179,13 +180,13 @@
 #------- media-libs/libzzub --------
 	libzzub-0.2.1	arch: ~x86 ~amd64
 	libzzub-0.2.2	arch: ~x86 ~amd64
-	libzzub-9999	arch: -*
+	libzzub-9999	arch: 
 	Description: buzz compatibility lib for aldrin
 	Homepage:    http://trac.zeitherrschaft.org/aldrin
 
 
 #------- media-libs/lv2dynparam --------
-	lv2dynparam-9999	arch: -*
+	lv2dynparam-9999	arch: 
 	Description: LV2 dynparam extension
 	Homepage:    http://home.gna.org/lv2dynparam/
 
@@ -193,7 +194,7 @@
 #------- media-libs/phat --------
 	phat-0.3.1	arch: amd64 ppc sparc x86
 	phat-0.4.0	arch: amd64 ppc sparc x86
-	phat-9999	arch: -*
+	phat-9999	arch: 
 	Description: Collection of GTK+ widgets geared toward
 		 pro-audio apps.
 	Homepage:    https://developper.berlios.de/projects/phat/
@@ -204,7 +205,7 @@
 	portaudio-19-r1	arch: x86 sparc amd64 ~ppc ~ppc-macos ~mips
 	portaudio-19-r2	arch: x86 sparc amd64 ~ppc ~ppc-macos ~mips
 	portaudio-19-r3	arch: x86 sparc amd64 ~ppc ~ppc-macos ~mips
-	portaudio-9999	arch: -*
+	portaudio-9999	arch: 
 	Description: An open-source cross platform audio API.
 	Homepage:    http://www.portaudio.com
 
@@ -217,13 +218,13 @@
 
 #------- media-libs/pyphat --------
 	pyphat-0.1	arch: x86
-	pyphat-9999	arch: -*
+	pyphat-9999	arch: 
 	Description: python binding for phat
 	Homepage:    http://phat.berlios.de/
 
 
 #------- media-libs/slv2 --------
-	slv2-9999	arch: -*
+	slv2-9999	arch: 
 	Description: SLV2 is a library for LV2 hosts
 	Homepage:    http://drobilla.net/software
 
@@ -251,7 +252,7 @@
 	zynaddsubfx-banks-20060419	arch: amd64 ppc x86
 	zynaddsubfx-banks-20061031	arch: amd64 ppc x86
 	zynaddsubfx-banks-2.2.1	arch: amd64 ppc x86
-	zynaddsubfx-banks-99999999	arch: -*
+	zynaddsubfx-banks-99999999	arch: 
 	Description: ZynAddSubFX banks/instruments
 	Homepage:    http://zynaddsubfx.sourceforge.net/doc/instruments/
 
@@ -270,7 +271,7 @@
 
 #------- media-libs/zynaddsubfx-extras --------
 	zynaddsubfx-extras-20060419	arch: amd64 ppc x86
-	zynaddsubfx-extras-99999999	arch: ~amd64 ~ppc ~x86
+	zynaddsubfx-extras-99999999	arch: 
 	Description: unsorted bank/instruments and parameters
 		 for zynaddsubfx
 	Homepage:    http://zynaddsubfx.sourceforge.net
@@ -305,7 +306,7 @@
 
 
 #------- media-plugins/ll-plugins --------
-	ll-plugins-9999	arch: -*
+	ll-plugins-9999	arch: 
 	Description: collection of LV2 plugins, LV2 extension
 		 definitions, and LV2 related tools
 	Homepage:    http://ll-plugins.nongnu.org
@@ -405,7 +406,7 @@
 
 
 #------- media-plugins/zynadd --------
-	zynadd-9999	arch: -*
+	zynadd-9999	arch: 
 	Description: synth engines from ZynAddSubFX and pack them
 		 in LV2 plugin format
 	Homepage:    http://home.gna.org/zyn
@@ -438,7 +439,7 @@
 #------- media-sound/aldrin --------
 	aldrin-0.10.1	arch: ~x86 ~amd64
 	aldrin-0.9-r1	arch: ~x86 ~amd64
-	aldrin-9999	arch: -*
+	aldrin-9999	arch: 
 	Description: Aldrin is an open source modular sequencer/tracker,
 		 compatible to Buzz
 	Homepage:    http://trac.zeitherrschaft.org/aldrin/
@@ -454,20 +455,20 @@
 
 
 #------- media-sound/alsaplayer --------
-	alsaplayer-9999	arch: -*
+	alsaplayer-9999	arch: 
 	Description: Media player primarily utilising ALSA
 	Homepage:    http://www.alsaplayer.org/
 
 
 #------- media-sound/alsaplayer-fftscope --------
-	alsaplayer-fftscope-9999	arch: -*
+	alsaplayer-fftscope-9999	arch: 
 	Description: Midi input plugin for the alsaplayer. It
 		 use timidity++ for the output
 	Homepage:    http://www.alsaplayer.org/
 
 
 #------- media-sound/alsaplayer-midi --------
-	alsaplayer-midi-9999	arch: -*
+	alsaplayer-midi-9999	arch: 
 	Description: Midi input plugin for the alsaplayer. It
 		 use timidity++ for the output
 	Homepage:    http://www.alsaplayer.org/
@@ -493,7 +494,7 @@
 
 
 #------- media-sound/aqualung --------
-	aqualung-9999	arch: -*
+	aqualung-9999	arch: 
 	Description: Aqualung
 	Homepage:    http://aqualung.sourceforge.net
 
@@ -501,13 +502,13 @@
 #------- media-sound/ardour --------
 	ardour-0.99.2	arch: x86 ~amd64 ~ppc
 	ardour-0.99.3	arch: x86 ~amd64 ~ppc
-	ardour-9999	arch: -*
+	ardour-9999	arch: 
 	Description: multi-track hard disk recording software
 	Homepage:    http://ardour.org/
 
 
 #------- media-sound/ardour2 --------
-	ardour2-9999	arch: -*
+	ardour2-9999	arch: 
 	Description: multi-track hard disk recording software
 	Homepage:    http://ardour.org/
 
@@ -552,7 +553,7 @@
 
 
 #------- media-sound/canorus --------
-	canorus-9999	arch: -*
+	canorus-9999	arch: 
 	Description: Graphical Score-editor using Qt4
 	Homepage:    http://canorus.berlios.de
 
@@ -696,7 +697,7 @@
 
 #------- media-sound/gdam --------
 	gdam-0.942	arch: x86
-	gdam-9999	arch: x86
+	gdam-9999	arch: 
 	Description: This is a digital dj mixing software package,
 		 aimed towards live music remixing and production.
 		
@@ -803,7 +804,7 @@
 
 
 #------- media-sound/ingen --------
-	ingen-9999	arch: -*
+	ingen-9999	arch: 
 	Description: Ingen (successor of om) is a modular synthesizer
 		 for GNU/Linux audio systems using the Jack audio
 		 server and LADSPA or DSSI plugins.
@@ -872,7 +873,7 @@
 
 #------- media-sound/jackdmp --------
 	jackdmp-0.61	arch: -*
-	jackdmp-9999	arch: -*
+	jackdmp-9999	arch: 
 	Description: Jackdmp jack implemention for multi-processor
 		 machine
 	Homepage:    http://www.grame.fr/~letz/jackdmp.html
@@ -900,7 +901,7 @@
 
 
 #------- media-sound/jamin --------
-	jamin-9999	arch: -*
+	jamin-9999	arch: 
 	Description: JAMin is the JACK Audio Connection Kit (JACK)
 		 Audio Mastering interface
 	Homepage:    http://jamin.sourceforge.net
@@ -915,7 +916,7 @@
 
 #------- media-sound/jokosher --------
 	jokosher-0.1-r2	arch: ~x86 ~amd64
-	jokosher-9999	arch: -*
+	jokosher-9999	arch: 
 	Description: A simple yet powerful multi-track studio
 	Homepage:    http://www.jokosher.org/
 
@@ -1011,7 +1012,7 @@
 
 
 #------- media-sound/linuxsampler --------
-	linuxsampler-9999	arch: -*
+	linuxsampler-9999	arch: 
 	Description: LinuxSampler is a software audio sampler
 		 engine with professional grade features.
 		
@@ -1021,14 +1022,14 @@
 #------- media-sound/lmms --------
 	lmms-0.1.4	arch: ~x86 ~amd64
 	lmms-0.2.1-r1	arch: ~x86
-	lmms-9999-r1	arch: -*
+	lmms-9999-r1	arch: 
 	Description: free alternative to popular programs such
 		 as FruityLoops, Cubase and Logic
 	Homepage:    http://lmms.sourceforge.net
 
 
 #------- media-sound/louderbox --------
-	louderbox-9999	arch: -*
+	louderbox-9999	arch: 
 	Description: Louderbox is a complete 8 band audio processor
 		 intended to be used with software stereo and R[B]DS
 		 generators (but perfectly usable for other things (such
@@ -1081,7 +1082,7 @@
 
 
 #------- media-sound/mjoo --------
-	mjoo-9999	arch: ~x86
+	mjoo-9999	arch: 
 	Description: mjoo is a live sequencer with ZUI interface
 		 using jack
 	Homepage:    http://mjoo.org
@@ -1093,7 +1094,7 @@
 	museseq-0.8.1-r2	arch: ~amd64 ~sparc x86
 	museseq-0.9_pre1	arch: ~amd64 ~sparc x86
 	museseq-0.9_pre2	arch: ~amd64 ~sparc x86
-	museseq-9999	arch: -*
+	museseq-9999	arch: 
 	Description: The Linux (midi) MUSic Editor (a sequencer)
 		
 	Homepage:    http://www.muse-sequencer.org/
@@ -1122,7 +1123,7 @@
 
 #------- media-sound/om --------
 	om-0.2.0	arch: amd64 x86
-	om-9999	arch: -*
+	om-9999	arch: 
 	Description: Om is a modular synthesizer for GNU/Linux
 		 audio systems using the Jack audio server
 		 and LADSPA or DSSI plugins.
@@ -1138,7 +1139,7 @@
 
 #------- media-sound/patchage --------
 	patchage-0.2.3	arch: amd64 x86
-	patchage-9999	arch: -*
+	patchage-9999	arch: 
 	Description: Patchage is a modular patchbay for Jack audio
 		 and Alsa sequencer.
 	Homepage:    http://drobilla.net/software/patchage
@@ -1175,7 +1176,7 @@
 #------- media-sound/qjackctl --------
 	qjackctl-0.2.20	arch: ~amd64 ~ppc ~sparc x86
 	qjackctl-0.2.21	arch: ~amd64 ~ppc ~sparc x86
-	qjackctl-9999	arch: -*
+	qjackctl-9999	arch: 
 	Description: A Qt application to control the JACK Audio
 		 Connection Kit and ALSA sequencer connections.
 		
@@ -1217,14 +1218,14 @@
 
 
 #------- media-sound/qsampler --------
-	qsampler-9999	arch: ~amd64 ~x86
+	qsampler-9999	arch: 
 	Description: QSampler is a graphical frontend to the LinuxSampler
 		 engine.
 	Homepage:    http://www.linuxsampler.org/
 
 
 #------- media-sound/qtractor --------
-	qtractor-9999	arch: -*
+	qtractor-9999	arch: 
 	Description: a MIDI/Audio multi-track sequencer application
 		
 	Homepage:    http://qtractor.sourceforge.net
@@ -1238,7 +1239,7 @@
 
 #------- media-sound/rezound --------
 	rezound-0.12.2_beta-r2	arch: ~amd64 ~ppc ~x86
-	rezound-9999	arch: -*
+	rezound-9999	arch: 
 	Description: Sound editor and recorder
 	Homepage:    http://rezound.sourceforge.net
 
@@ -1250,7 +1251,7 @@
 	rosegarden-1.4.0	arch: ~amd64 ~ppc ~sparc x86
 	rosegarden-1.5.0	arch: ~amd64 ~ppc ~sparc x86
 	rosegarden-1.5.0-r1	arch: ~amd64 ~ppc ~sparc x86
-	rosegarden-9999	arch: -*
+	rosegarden-9999	arch: 
 	Description: MIDI and audio sequencer and notation editor.
 		
 	Homepage:    http://www.rosegardenmusic.com/
@@ -1272,7 +1273,7 @@
 
 
 #------- media-sound/schism-tracker --------
-	schism-tracker-9999	arch: ~x86 ~amd64
+	schism-tracker-9999	arch: 
 	Description: Schism Tracker cvs
 	Homepage:    http://rigelseven.org/schism
 
@@ -1304,7 +1305,7 @@
 #------- media-sound/smack --------
 	smack-0.2.1	arch: amd64 x86
 	smack-0.3	arch: amd64 x86
-	smack-9999	arch: -*
+	smack-9999	arch: 
 	Description: Smack is a drum synth, 100% sample free
 	Homepage:    http://smack.berlios.de/
 
@@ -1385,8 +1386,8 @@
 	sweep-0.9.1	arch: alpha amd64 ppc sparc x86
 	sweep-0.9.1-r1	arch: alpha amd64 ppc sparc x86
 	sweep-0.9.2	arch: ~alpha ~amd64 ~ppc ~sparc x86
-	sweep-9999	arch: -*
-	sweep-9999-r1	arch: -*
+	sweep-9999	arch: 
+	sweep-9999-r1	arch: 
 	Description: audio editor and live playback tool
 	Homepage:    http://www.metadecks.org/software/sweep/
 
@@ -1462,7 +1463,7 @@
 #------- media-sound/zynaddsubfx --------
 	zynaddsubfx-2.2.1-r5	arch: amd64 ~ppc x86
 	zynaddsubfx-2.2.1-r8	arch: amd64 ~ppc x86
-	zynaddsubfx-9999	arch: -*
+	zynaddsubfx-9999	arch: 
 	Description: ZynAddSubFX is an opensource software synthesizer.
 		
 	Homepage:    http://zynaddsubfx.sourceforge.net/
@@ -1476,7 +1477,7 @@
 
 
 #------- media-sound/zynjacku --------
-	zynjacku-9999	arch: -*
+	zynjacku-9999	arch: 
 	Description: JACK based, GTK (2.x) host for LV2 synths
 		
 	Homepage:    http://home.gna.org/zynjacku/
@@ -1489,7 +1490,7 @@
 ~x86
 	jack-audio-connection-kit-0.102.20	arch: -alpha ~amd64 ~arm -hppa -ia64 -mips ~ppc ~ppc-macos -ppc64 ~sh -sparc
 ~x86
-	jack-audio-connection-kit-9999	arch: -*
+	jack-audio-connection-kit-9999	arch: 
 	Description: A low-latency audio server
 	Homepage:    http://www.jackaudio.org
 
@@ -1547,7 +1548,7 @@
 
 
 #------- sys-libs/raul --------
-	raul-9999	arch: -*
+	raul-9999	arch: 
 	Description: Realtime Audio Utility Library: lightweight
 		 header-only C++
 	Homepage:    http://drobilla.net/software
@@ -1579,7 +1580,7 @@
 
 
 #------- x11-libs/qwt --------
-	qwt-9999	arch: -*
+	qwt-9999	arch: 
 	Description: 2D plotting library for Qt4
 	Homepage:    http://qwt.sourceforge.net/
 

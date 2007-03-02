@@ -12,7 +12,7 @@ ESVN_REPO_URI="https://svn.sourceforge.net/svnroot/rosegarden/trunk/rosegarden"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="-*"
+KEYWORDS=""
 IUSE="alsa jack dssi lirc debug lilypond export kde gnome"
 
 RDEPEND="alsa? ( >=media-libs/alsa-lib-1.0 )

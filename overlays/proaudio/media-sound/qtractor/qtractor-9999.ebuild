@@ -15,7 +15,7 @@ S="${WORKDIR}/${PN}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="-*"
+KEYWORDS=""
 IUSE="vorbis mp3"
 
 DEPEND="$(qt4_min_version 4.1)

@@ -9,7 +9,7 @@ HOMEPAGE="http://www.jokosher.org/"
 SRC_URI=""
 ESVN_REPO_URI="http://svn.jokosher.python-hosting.com/JonoEdit/trunk"
 
-KEYWORDS="-*"
+KEYWORDS=""
 SLOT="0"
 LICENSE="GPL-2"
 IUSE="doc"

@@ -9,7 +9,7 @@ SRC_URI=""
 URL="http://nimh.org/schism/cvs-snapshot.tgz"
 LICENSE="GPL"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS=""
 IUSE=""
 
 DEPEND=">=media-libs/libsdl-1.2.8-r1"

@@ -13,7 +13,7 @@ ESVN_REPO_URI="http://svn.drobilla.net/lad/${PN}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="-*"
+KEYWORDS=""
 IUSE=""
 
 DEPEND=">=dev-cpp/gtkmm-2.4

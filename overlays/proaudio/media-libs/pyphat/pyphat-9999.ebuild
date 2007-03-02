@@ -11,7 +11,7 @@ ESVN_REPO_URI="svn://svn.berlios.de/phat/trunk/pyphat"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="-*"
+KEYWORDS=""
 
 S="${WORKDIR}/${PN}"
 

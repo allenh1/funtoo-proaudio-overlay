@@ -10,7 +10,7 @@ SRC_URI=""
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="-*"
+KEYWORDS=""
 IUSE="alsa audiofile doc esd flac gtk gtk2 jack mikmod nas nls ogg opengl oss vorbis
 xosd"
 

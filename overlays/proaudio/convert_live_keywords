@@ -45,7 +45,7 @@ convert_it(){
 				echo "convert package.keywords: $x/$i"
 				# search for matching content and
 				# convert -* to **
-				grep -q "$x\/$i" $pkg_key && sed -i "s@\($x\/$i\).*-\*@\1 \*\*@g" $pkg_key
+				grep -q "$x\/$i" $pkg_key && sed -i "s@\(${x}\/${i}.*\).*-\*@\1\*\*@g" $pkg_key
 			fi
 		done
 		# read ebuild infos
@@ -113,7 +113,7 @@ conv_ebuilds(){
 }
 
 helpme(){
-	echo -e "-ce | --conv-ebuild"
+	echo -e "-ce | --conv-ebuilds"
 	echo -e "\t\t --> will convert all live-ebuilds matching filename with pattern 9999"
 	echo -e "\t\t --> only interesting for devs"
 	echo -e "-cp | --conv-pkz"

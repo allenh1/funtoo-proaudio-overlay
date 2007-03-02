@@ -13,7 +13,7 @@ ECVS_MODULE="linuxsampler"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="-*"
+KEYWORDS=""
 IUSE="jack"
 
 S=${WORKDIR}/${ECVS_MODULE}

@@ -15,7 +15,7 @@ ESVN_REPO_URI="http://svn.drobilla.net/lad/${PN}"
 
 
 LICENSE="GPL-2"
-KEYWORDS="-*"
+KEYWORDS=""
 
 DEPEND=">=media-libs/liblo-0.22
 	>=media-sound/jack-audio-connection-kit-0.99

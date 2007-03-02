@@ -15,7 +15,7 @@ ESVN_REPO_URI="http://subversion.jackaudio.org/jack/trunk/jack"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
-KEYWORDS="-*"
+KEYWORDS=""
 IUSE="altivec alsa caps coreaudio doc debug jack-tmpfs mmx oss sndfile netjack
 sse " # jackmidi"
 

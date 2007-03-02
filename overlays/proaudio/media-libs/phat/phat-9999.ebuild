@@ -11,7 +11,7 @@ ESVN_REPO_URI="http://svn.berlios.de/svnroot/repos/phat/trunk/phat"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="-*"
+KEYWORDS=""
 
 S="${WORKDIR}/${PN}"
 

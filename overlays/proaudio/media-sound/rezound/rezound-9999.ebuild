@@ -17,7 +17,7 @@ S=${WORKDIR}/${ECVS_MODULE}
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="-*"
+KEYWORDS=""
 IUSE="16bittmp alsa flac jack nls oss portaudio soundtouch vorbis"
 
 RDEPEND="=sci-libs/fftw-2*

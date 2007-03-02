@@ -13,7 +13,7 @@ HOMEPAGE="http://drobilla.net/software/ingen"
 ESVN_REPO_URI="http://svn.drobilla.net/lad/${PN}"
 
 LICENSE="GPL-2"
-KEYWORDS="-*"
+KEYWORDS=""
 
 RDEPEND=">=media-libs/liblo-0.22
 	>=sys-libs/raul-9999

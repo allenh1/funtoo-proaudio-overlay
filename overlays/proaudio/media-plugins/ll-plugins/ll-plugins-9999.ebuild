@@ -13,7 +13,7 @@ ECVS_MODULE="ll-plugins"
 
 LICENSE="gpl2"
 SLOT="0"
-KEYWORDS="-*"
+KEYWORDS=""
 IUSE=""
 
 DEPEND=">=media-sound/jack-audio-connection-kit-0.102.27
