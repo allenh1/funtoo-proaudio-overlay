@@ -31,7 +31,7 @@ RESTRICT="nomirror"
 DESCRIPTION="Ingo Molnars realtime patch applied on vanilla"
 SRC_URI="${KERNEL_URI}
 vesafb-tng? ( http://dev.gentoo.org/~spock/projects/vesafb-tng/archive/vesafb-tng-1.0-rc1-r3-2.6.16.patch ) 
-$(get_valid_url "${FIRST_URL}" "${SEC_URL}")
+http://proaudio.tuxfamily.org/files/patch-2.6.16-rt29-tglx4.bz2
 fbsplash? ( http://proaudio.tuxfamily.org/patches/fbsplash-0.9.2-r5-2.6.16-rt.patch )"
 #reiser4? ( http://kernel.org/pub/linux/kernel/people/akpm/patches/2.6/${MY_MM_BASE}/${MY_MM_BASE}-${MM_MIN_VER}/${MY_MM_BASE}-${MM_MIN_VER}-broken-out.tar.bz2 )"
 #env|less
@@ -51,7 +51,7 @@ src_unpack(){
 	kernel-2_src_unpack
 	
 	# applying realtime patch (won't work with unipatch cause missing extension)
-	epatch "${DISTDIR}/patch-${KV}"
+	epatch "${DISTDIR}/patch-${KV}-tglx4.bz2"
 	
 	# apply reiser4-patch
 	#use reiser4 && add_reiser4 "${MY_MM_BASE}-${MM_MIN_VER}-broken-out.tar.bz2" \

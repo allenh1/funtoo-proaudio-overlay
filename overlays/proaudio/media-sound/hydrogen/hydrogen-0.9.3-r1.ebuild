@@ -10,7 +10,7 @@ SRC_URI="mirror://sourceforge/hydrogen/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="-*"
+KEYWORDS="~amd64 ~ppc ~ppc64 ~sparc ~x86"
 IUSE="alsa debug jack ladspa oss portaudio"
 
 RDEPEND="dev-libs/libxml2
@@ -62,7 +62,7 @@ src_unpack() {
 	# fixes a segfault while changing pattern change
 	# see bug: http://proaudio.tuxfamily.org/bugs/view.php?id=2
 	patcher "${FILESDIR}/hydrogen-0.9.3-segfault.patch apply"
-	
+	epatch "${FILESDIR}/${P}-flac113.patch"
 	make -f Makefile.cvs
 }
 

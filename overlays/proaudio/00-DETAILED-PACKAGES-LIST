@@ -301,6 +301,7 @@
 
 #------- media-plugins/hexter --------
 	hexter-0.5.9	arch: amd64 x86
+	hexter-0.6.0	arch: amd64 x86
 	Description: Yamaha DX7 modeling DSSI plugin
 	Homepage:    http://dssi.sourceforge.net/hexter.html
 
@@ -773,7 +774,7 @@
 
 
 #------- media-sound/hydrogen --------
-	hydrogen-0.9.3-r1	arch: -*
+	hydrogen-0.9.3-r1	arch: ~amd64 ~ppc ~ppc64 ~sparc ~x86
 	Description: Linux Drum Machine
 	Homepage:    http://hydrogen.sourceforge.net/
 
