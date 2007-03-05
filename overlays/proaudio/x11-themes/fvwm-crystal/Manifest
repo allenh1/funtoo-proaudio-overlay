@@ -1,0 +1,12 @@
+AUX fvwm-crystal 25 RMD160 d0c78fa2b6c0f80bd452bc381fbdc91cb5986ec8 SHA1 24deaa87267d7c6f0beb09eee790c0ef90055bbe SHA256 27345a70a0f0a1aadefcb8fe23ca1761fbe44a088f66d0c5e9db154db3c36962
+MD5 282c809ddaa59071830b6c8dd9b0a3a1 files/fvwm-crystal 25
+RMD160 d0c78fa2b6c0f80bd452bc381fbdc91cb5986ec8 files/fvwm-crystal 25
+SHA256 27345a70a0f0a1aadefcb8fe23ca1761fbe44a088f66d0c5e9db154db3c36962 files/fvwm-crystal 25
+DIST fvwm-crystal-3.9.4.tar.bz2 3552837 RMD160 90aeac14ab745a4eeb100aee23e2ae6a0090c8e8 SHA1 0ee8c1ba18d2e92bd761710c61813de433bdd04a SHA256 b627a5aec4cea8a772cfeef129edb5ba74f6720d2ffbb121592db9c6332c19c7
+EBUILD fvwm-crystal-3.9.4.ebuild 1369 RMD160 a8c937417de36c2355c93c66ba29d8f59a237a5d SHA1 22c6e2c6e49c501ffe725f7eeba4c56805e59019 SHA256 0571aa2c1a53d8cce08d9c2fa6ed7ae5575fdcea7681b8adfecb9e4d88bbfe5e
+MD5 719fddbcdaaed87c59aece1a473107b0 fvwm-crystal-3.9.4.ebuild 1369
+RMD160 a8c937417de36c2355c93c66ba29d8f59a237a5d fvwm-crystal-3.9.4.ebuild 1369
+SHA256 0571aa2c1a53d8cce08d9c2fa6ed7ae5575fdcea7681b8adfecb9e4d88bbfe5e fvwm-crystal-3.9.4.ebuild 1369
+MD5 c2cbc60de41342315ed5b842830b432a files/digest-fvwm-crystal-3.9.4 262
+RMD160 1c79ccd4ec155a04cafb3f49b46c52de2c3577df files/digest-fvwm-crystal-3.9.4 262
+SHA256 dc800f31e25ad7bc046a879d827de5143bedd816904bc03e60ba5d5fee2e7be5 files/digest-fvwm-crystal-3.9.4 262
