@@ -105,6 +105,7 @@
 
 #------- media-libs/libclalsadrv --------
 	libclalsadrv-1.1.0	arch: amd64 sparc x86 ~ppc
+	libclalsadrv-1.2.1	arch: amd64 sparc x86 ~ppc
 	Description: An audio library by Fons Adriaensen <fons.adriaensen@skynet.be>
 		
 	Homepage:    http://www.kokkinizita.net/linuxaudio
@@ -120,6 +121,7 @@
 #------- media-libs/libclxclient --------
 	libclxclient-3.3.0	arch: amd64 ~ppc sparc x86
 	libclxclient-3.3.1	arch: amd64 ~ppc sparc x86
+	libclxclient-3.3.2	arch: amd64 ~ppc sparc x86
 	Description: An audio library by Fons Adriaensen <fons.adriaensen@skynet.be>
 		
 	Homepage:    http://www.kokkinizita.net/linuxaudio
@@ -814,6 +816,7 @@
 
 #------- media-sound/jaaa --------
 	jaaa-0.4.0	arch: x86 amd64
+	jaaa-0.4.1	arch: x86 amd64
 	Description: JAAA is a signal generator and spectrum analyzer
 		
 	Homepage:    http://www.kokkinizita.net/linuxaudio/
@@ -910,6 +913,7 @@
 
 #------- media-sound/japa --------
 	japa-0.1.8	arch: x86 ~amd64
+	japa-0.2.0	arch: x86 ~amd64
 	Description: JAPA is a perceptual analyzer for JACK and
 		 ALSA
 	Homepage:    http://www.kokkinizita.net/linuxaudio/
@@ -1588,9 +1592,18 @@
 
 #------- x11-themes/crystal-audio --------
 	crystal-audio-1.2	arch: ~x86
+	crystal-audio-1.9	arch: ~x86
 	Description: Configurable and full featured theme for
 		 FVWM-Crystal, tuned for audio work.
-	Homepage:    http://crystalaudio.tuxfamily.org/
+	Homepage:    http://crystal-audio.sourceforge.net/
+
+
+#------- x11-themes/fvwm-crystal --------
+	fvwm-crystal-3.9.4	arch: amd64 ppc ppc64 sparc x86
+	Description: Configurable and full featured theme for
+		 FVWM, with lots of transparency. This version
+		 add a freedesktop compatible menu
+	Homepage:    http://fvwm-crystal.sourceforge.net/
 
 
 #------- x11-wm/fvwm --------
