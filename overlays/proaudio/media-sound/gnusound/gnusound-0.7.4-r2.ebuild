@@ -27,6 +27,11 @@ src_unpack() {
 	unpack ${A} || die "unpack failure"
 	epatch "${FILESDIR}/gnusound_0.7.4-4.diff.bz2"
 	cd ${S} || die "workdir not found"
+	
+	# remove this patch as it cause ffmpeg linkage problems
+	rm -f "${S}/debian/patches/03_ffmpeg_config.patch"
+	#rm -f "${S}/debian/patches/99_reautogenization.patch"
+	
 	for i in `ls  ${S}/debian/patches`;do
 		epatch "${S}/debian/patches/$i"
 	done
@@ -54,4 +59,10 @@ src_install() {
 	make DESTDIR="${D}" install || die "make install failed"
 	doman doc/gnusound.1
 	dodoc README NOTES TODO CHANGES
+	
+	# mv desktop entry to right location
+	dodir /usr/share/applications/
+	mv ${D}/usr/share/gnome/apps/Multimedia/gnusound.desktop \
+		${D}/usr/share/applications/
+	rm -rf ${D}/usr/share/gnome/apps/
 }
