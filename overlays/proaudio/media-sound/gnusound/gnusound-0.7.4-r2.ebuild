@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-IUSE="libsamplerate"
+IUSE="libsamplerate mmx sse"
 RESTRICT="nomirror"
 
 inherit gnuconfig eutils
@@ -25,9 +25,14 @@ DEPEND=">=gnome-base/libglade-2.0.1
 
 src_unpack() {
 	unpack ${A} || die "unpack failure"
+	epatch "${FILESDIR}/gnusound_0.7.4-4.diff.bz2"
 	cd ${S} || die "workdir not found"
-	rm -f doc/Makefile || die "could not remove doc Makefile"
-	rm -f modules/Makefile || die "could not remove modules Makefile"
+	for i in `ls  ${S}/debian/patches`;do
+		epatch "${S}/debian/patches/$i"
+	done
+	epatch  ${FILESDIR}/gnusound-ffmpeg-struct.patch
+	#rm -f doc/Makefile || die "could not remove doc Makefile"
+	#rm -f modules/Makefile || die "could not remove modules Makefile"
 	sed -i "s:docrootdir:datadir:" doc/Makefile.in
 
 	epatch ${FILESDIR}/${P}-destdir.patch
@@ -38,6 +43,8 @@ src_unpack() {
 src_compile() {
 	econf \
 		$(use_with libsamplerate) \
+		$(use_enable mmx fastminmax) \
+		$(use_enable sse fastmemcpy) \
 		--enable-optimization \
 		|| die "Configure failure"
 	emake || die "Make failure"
@@ -45,5 +52,6 @@ src_compile() {
 
 src_install() {
 	make DESTDIR="${D}" install || die "make install failed"
+	doman doc/gnusound.1
 	dodoc README NOTES TODO CHANGES
 }

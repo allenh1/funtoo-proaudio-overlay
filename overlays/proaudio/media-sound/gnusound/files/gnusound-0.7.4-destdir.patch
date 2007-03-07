@@ -41,16 +41,18 @@
  
  uninstall:
  	$(MAKE) -C modules uninstall
---- modules/Makefile.in.orig	2006-07-17 10:21:43.241920361 +0200
-+++ modules/Makefile.in	2006-07-17 10:22:50.833631679 +0200
-@@ -60,8 +60,8 @@
+--- modules/Makefile.in.orig	2007-03-07 15:11:44.000000000 +0100
++++ modules/Makefile.in	2007-03-07 15:09:52.000000000 +0100
+@@ -61,9 +61,9 @@
  	$(CC) `cat $(gnusounddir)/.cflags` -I$(gnusounddir)/src -I$(gnusounddir)/src/$(gtk) -fPIC -shared  $< -o $@  `cat .$(basename $@).cflags`
  
  install:
--	mkdir -p $(moduledir)
--	install -m 644 -o $(owner_user) -g $(owner_group) $(module_files) $(moduledir)
-+	mkdir -p $(DESTDIR)$(moduledir)
-+	install -m 644 -o $(owner_user) -g $(owner_group) $(module_files) $(DESTDIR)$(moduledir)
+-	mkdir -p $(moduledir) $(moduledatadir)
+-	install -m 644 -o $(owner_user) -g $(owner_group) $(obj) $(moduledir)
+-	install -m 644 -o $(owner_user) -g $(owner_group) $(module_files) $(moduledatadir)
++	mkdir -p $(DESTDIR)$(moduledir) $(DESTDIR)$(moduledatadir)
++	install -m 644 -o $(owner_user) -g $(owner_group) $(obj) $(DESTDIR)$(moduledir)
++	install -m 644 -o $(owner_user) -g $(owner_group) $(module_files) $(DESTDIR)$(moduledatadir)
  
  uninstall:
- 	(cd $(moduledir) && rm -f $(module_files))
+ 	(cd $(moduledir) && rm -f $(obj))

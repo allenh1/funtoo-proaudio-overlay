@@ -1,0 +1,48 @@
+--- modules/file_ffmpeg.c.ffmpeg-struct	2005-06-19 17:44:25.000000000 +0200
++++ modules/file_ffmpeg.c	2007-01-07 23:26:25.000000000 +0100
+@@ -99,7 +99,7 @@
+     int err, i, audio_index = -1;
+ 
+     memset(&format_params, 0, sizeof(format_params));
+-    format_params.image_format = NULL;
++    format_params.pix_fmt = PIX_FMT_RGB24;
+     format_params.initial_pause = 1; /* we force a pause when starting an RTSP
+                                         stream */
+ 
+@@ -146,7 +146,7 @@
+         return cmd_new_error_val("Could not open audio stream");
+     }        
+ 
+-    codec = avcodec_find_decoder(fc->streams[audio_index]->codec.codec_id);
++    codec = avcodec_find_decoder(fc->streams[audio_index]->codec->codec_id);
+     snprintf(ffmpeg_data->format_name, sizeof(ffmpeg_data->format_name),
+              "%s/%s", fc->iformat->name, codec->name);
+ 
+@@ -155,8 +155,8 @@
+     ffmpeg_data->audio_stream = fc->streams[audio_index];
+ 
+     params->sample_type = SAMPLE_TYPE_INT_16;
+-    params->sample_rate = ffmpeg_data->audio_stream->codec.sample_rate;
+-    params->channels = ffmpeg_data->audio_stream->codec.channels;
++    params->sample_rate = ffmpeg_data->audio_stream->codec->sample_rate;
++    params->channels = ffmpeg_data->audio_stream->codec->channels;
+     params->frame_count = -1;
+ 
+     av_read_play(fc);
+@@ -274,14 +274,14 @@
+      * could save a memcpy() here, but this is cleaner.
+      */
+ 
+-    copied = MIN(count * ffmpeg_data->audio_stream->codec.channels * 2, 
++    copied = MIN(count * ffmpeg_data->audio_stream->codec->channels * 2, 
+                  ffmpeg_data->decode_buf_avail);
+     memcpy(buf, ffmpeg_data->decode_buf + ffmpeg_data->decode_buf_offset,
+            copied);
+     ffmpeg_data->decode_buf_offset += copied;
+     ffmpeg_data->decode_buf_avail -= copied;
+ 
+-    return copied / (ffmpeg_data->audio_stream->codec.channels * 2);
++    return copied / (ffmpeg_data->audio_stream->codec->channels * 2);
+ }
+ 
+ static long
