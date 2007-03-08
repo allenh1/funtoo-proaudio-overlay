@@ -27,8 +27,8 @@ S="${WORKDIR}/${MY_P}"
 src_unpack() {
 	unpack ${A}
 	cd ${S}
-	esed -i -e 's@\(\$(PREFIX)\)@\$(DESTDIR\)\1@g' Makefile
-	esed -i -e 's@\(/usr/bin/install -d\)@\1 $(DESTDIR)$(PREFIX)/include@g' Makefile
+	esed_check -i -e 's@\(\$(PREFIX)\)@\$(DESTDIR\)\1@g' Makefile
+	esed_check -i -e 's@\(/usr/bin/install -d\)@\1 $(DESTDIR)$(PREFIX)/include@g' Makefile
 }
 
 src_compile() {

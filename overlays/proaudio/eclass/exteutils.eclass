@@ -60,3 +60,30 @@ has_any-pkg() {
 esed() {
 	LC_ALL=C sed "$@"
 }
+
+# using sed and test if sed changed the file
+# WARNING: it's only tested to work if it's called inside the
+# dir which contains the file to patch
+# syntax same as sed
+esed_check() {
+#	set -x
+	local cnt=0
+	local args=("$@")
+	for i in ${args[@]};do
+		if [ "$i" == "-i" ];then
+			args[$cnt]="-iesed_bac"
+		fi
+		let "cnt+=1"
+	done
+	LC_ALL=C sed "${args[@]}"
+	
+	local backup=`find -name '*esed_bac' -printf '%f\n'`
+	einfo "patching: ${backup/esed_bac/}  (using sed)"
+	if diff --brief ${backup/esed_bac/} $backup &>/dev/null;then
+		eerror "failed to patch: ${backup/esed_bac/}"
+		eerror "Sed argument:"
+		eerror "sed ${args[@]}"
+		die "patching failed"
+	fi
+	rm -f $backup
+}

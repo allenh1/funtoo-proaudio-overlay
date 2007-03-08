@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils
+inherit exteutils
 
 RESTRICT="nomirror"
 IUSE=""
@@ -24,11 +24,11 @@ S="${WORKDIR}/${PN}"
 src_unpack(){
 	unpack "${A}"
 	cd ${S}
-	sed -i -e 's@g++@$(CXX)@g' \
+	esed_check -i -e 's@g++@$(CXX)@g' \
 		-e 's@.*march=pentium4.*@@g' \
 		-e '/install\:/'a'XYZ/usr/bin/install -d \$\(DESTDIR\)\$\(PREFIX\)\/bin' \
 		-e 's@\(/usr/bin/install -m 755 japa\ \)@\1$(DESTDIR)@g' Makefile
-	sed -i -e 's@^XYZ@\t@g' Makefile
+	esed_check -i -e 's@^XYZ@\t@g' Makefile
 }
 
 src_compile() {

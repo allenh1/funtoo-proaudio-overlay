@@ -25,12 +25,12 @@ DEPEND=">=gnome-base/libglade-2.0.1
 
 src_unpack() {
 	unpack ${A} || die "unpack failure"
-	epatch "${FILESDIR}/gnusound_0.7.4-4.diff.bz2"
+	epatch "${FILESDIR}/gnusound_0.7.4-5.diff.bz2"
 	cd ${S} || die "workdir not found"
 	
 	# remove this patch as it cause ffmpeg linkage problems
 	rm -f "${S}/debian/patches/03_ffmpeg_config.patch"
-	#rm -f "${S}/debian/patches/99_reautogenization.patch"
+	rm -f "${S}/debian/patches/11_ffmpeg_api_changes.patch"
 	
 	for i in `ls  ${S}/debian/patches`;do
 		epatch "${S}/debian/patches/$i"
@@ -43,6 +43,7 @@ src_unpack() {
 	epatch ${FILESDIR}/${P}-destdir.patch
 
 	gnuconfig_update
+	./autogen.sh
 }
 
 src_compile() {
