@@ -26,6 +26,7 @@ src_unpack() {
 	unpack ${A}
 	cd ${S}
 	sed -i 's@\ \(\$(PREFIX)\)@\ \$(DESTDIR\)\1@g' Makefile
+	sed -i -e 's@\(/usr/bin/install -d\)@\1 $(DESTDIR)$(PREFIX)/include@g' Makefile
 }
 
 src_compile() {

@@ -756,7 +756,7 @@
 
 
 #------- media-sound/gnusound --------
-	gnusound-0.7.4-r1	arch: ~amd64 ~x86 -sparc
+	gnusound-0.7.4-r2	arch: ~amd64 ~x86 -sparc
 	Description: GNUsound is a sound editor for Linux/x86
 	Homepage:    http://gnusound.sourceforge.net/
 
@@ -1001,6 +1001,7 @@
 
 
 #------- media-sound/lilypond --------
+	lilypond-2.10.20	arch: ~amd64 ~sparc ~x86
 	lilypond-2.10.4	arch: x86 amd64 ~sparc
 	lilypond-2.8.8	arch: amd64 ~sparc x86
 	Description: GNU Music Typesetter

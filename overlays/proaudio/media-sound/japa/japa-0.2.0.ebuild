@@ -20,10 +20,14 @@ DEPEND=">=media-libs/libclalsadrv-1.1.0
 	=sci-libs/fftw-3*
 	=media-libs/freetype-2*"
 
+S="${WORKDIR}/${PN}"
 src_unpack(){
 	unpack "${A}"
 	cd ${S}
-	epatch "${FILESDIR}"/"${P}"-makefile.patch
+	sed -i -e 's@g++@$(CXX)@g' \
+		-e '/install\:/'a'XYZ/usr/bin/install -d \$\(DESTDIR\)\$\(PREFIX\)\/bin' \
+		-e 's@\(/usr/bin/install -m 755 japa\ \)@\1$(DESTDIR)@g' Makefile
+	sed -i -e 's@^XYZ@\t@g' Makefile
 }
 
 src_compile() {
