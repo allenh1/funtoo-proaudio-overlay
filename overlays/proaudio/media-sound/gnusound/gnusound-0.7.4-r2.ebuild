@@ -18,7 +18,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86 -sparc"
 
 DEPEND=">=gnome-base/libglade-2.0.1
-	gnome-base/gnome-libs
 	>=gnome-base/libgnomeui-2.2.0.1
 	>=media-libs/audiofile-0.2.3
 	libsamplerate? ( media-libs/libsamplerate )"

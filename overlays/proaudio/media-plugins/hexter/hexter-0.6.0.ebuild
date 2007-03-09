@@ -8,7 +8,7 @@ HOMEPAGE="http://dssi.sourceforge.net/hexter.html"
 SRC_URI="mirror://sourceforge/dssi/${P}.tar.gz"
 
 LICENSE="GPL-2"
-SLOT="0"
+SLOT="1"
 KEYWORDS="amd64 x86"
 IUSE=""
 RESTRICT="nomirror"
