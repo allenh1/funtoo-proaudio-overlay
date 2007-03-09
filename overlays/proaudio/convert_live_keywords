@@ -1,11 +1,8 @@
 #!/bin/bash
 # (c) 2007 Frieder Bürzele
 # licence gnu gpl v2
-# this script includes some smaller scripts which cleans the repository a bit
-# and remove unneeded files
 
-
-# exit script it not executed in overlay root
+# exit script if not executed in overlay root
 if [ ! -e  .svn/text-base/generate-detailed-packages-list.svn-base ] ;then
 	echo "please execute this script just inside the overlay root"
 	exit 1

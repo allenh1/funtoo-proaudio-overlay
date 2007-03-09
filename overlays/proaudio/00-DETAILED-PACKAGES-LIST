@@ -193,6 +193,13 @@
 	Homepage:    http://home.gna.org/lv2dynparam/
 
 
+#------- media-libs/oscpack --------
+	oscpack-1.0.2	arch: amd64 ppc sparcs x86
+	Description: Set of C++ classes for packing and unpacking
+		 OSC packets
+	Homepage:    http://www.audiomulch.com/~rossb/code/oscpack
+
+
 #------- media-libs/phat --------
 	phat-0.3.1	arch: amd64 ppc sparc x86
 	phat-0.4.0	arch: amd64 ppc sparc x86
