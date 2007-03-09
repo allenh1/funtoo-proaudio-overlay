@@ -13,7 +13,7 @@ SRC_URI="http://www.audiomulch.com/~rossb/code/oscpack/${PN}_${MY_PV}.zip"
 
 LICENSE="AS-IT"
 SLOT="0"
-KEYWORDS="x86"
+KEYWORDS="amd64 ppc sparcs x86"
 IUSE="ppc"
 
 S=${WORKDIR}/${PN}
