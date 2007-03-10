@@ -16,7 +16,7 @@ SRC_URI="http://clam.iua.upf.edu/download/src/${MY_P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 ppc sparcs x86"
-IUSE="doc double jack ladspa osc fftw fft alsa qt sndfile oggvorbis mad id3 portaudio"
+IUSE="doc double jack ladspa osc fftw fft alsa qt3 sndfile oggvorbis mad id3 portaudio"
 RESTRICT="nomirror"
 
 DEPEND="dev-util/scons
@@ -38,7 +38,7 @@ DEPEND="dev-util/scons
 	x11-libs/libXext
 	x11-libs/libXft
 	x11-libs/libXi
-	qt? ( =x11-libs/qt-3* )
+	qt3? ( =x11-libs/qt-3* )
 	app-doc/doxygen
 	dev-util/cppunit
 	osc? ( media-libs/oscpack )"
