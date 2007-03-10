@@ -12,7 +12,7 @@ SRC_URI="http://clam.iua.upf.edu/download/src/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="x86"
-IUSE="doc"
+IUSE=""
 RESTRICT="nomirror"
 
 DEPEND="dev-util/scons
