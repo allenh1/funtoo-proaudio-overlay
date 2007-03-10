@@ -16,7 +16,7 @@ SRC_URI="http://clam.iua.upf.edu/download/src/${MY_P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 ppc sparcs x86"
-IUSE="doc double jack ladspa osc fftw fft alsa qt3 sndfile oggvorbis mad id3 portaudio"
+IUSE="doc double jack ladspa osc fftw fft alsa qt3 sndfile vorbis mad id3 portaudio"
 RESTRICT="nomirror"
 
 DEPEND="dev-util/scons
@@ -26,7 +26,7 @@ DEPEND="dev-util/scons
 	virtual/opengl
 	x11-libs/fltk
 	jack? ( media-sound/jack-audio-connection-kit )
-	oggvorbis? ( media-libs/libvorbis
+	vorbis? ( media-libs/libvorbis
 	    media-libs/libogg )
 	mad? ( media-libs/libmad )
 	sndfile? ( media-libs/libsndfile )
