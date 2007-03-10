@@ -15,7 +15,7 @@ SRC_URI="http://clam.iua.upf.edu/download/src/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ppc sparcs x86"
+KEYWORDS="~amd64 x86"
 IUSE="doc double jack ladspa osc fftw fft alsa qt3 sndfile vorbis mad id3 portaudio"
 RESTRICT="nomirror"
 
