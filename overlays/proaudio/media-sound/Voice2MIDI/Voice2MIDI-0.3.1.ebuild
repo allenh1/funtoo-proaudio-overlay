@@ -4,7 +4,7 @@
 
 inherit eutils
 
-DESCRIPTION="CLAM Music Annotator can visualize, check and modify music information extracted from audio"
+DESCRIPTION="CLAM Voice2MIDI extracts the melody as a MIDI or XML file from monophonic audio files"
 HOMEPAGE="http://clam.iua.upf.edu/index.html"
 
 SRC_URI="http://clam.iua.upf.edu/download/src/${P}.tar.gz"
