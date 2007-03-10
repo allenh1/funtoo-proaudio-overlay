@@ -16,7 +16,7 @@ SRC_URI="http://clam.iua.upf.edu/download/src/${MY_P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 ppc sparcs x86"
-IUSE="double jack ladspa osc fftw fft alsa qt sndfile oggvorbis mad id3 portaudio"
+IUSE="doc double jack ladspa osc fftw fft alsa qt sndfile oggvorbis mad id3 portaudio"
 RESTRICT="nomirror"
 
 DEPEND="dev-util/scons
@@ -109,4 +109,39 @@ src_install() {
 	dodir /usr
 	
 	scons install || die "scons install failed"
+	cd ${S}
+	dodoc CHANGES
+	
+	if use doc; then
+		docinto examples/CLAMRemoteController
+		dodoc ${S}/examples/CLAMRemoteController/*
+		docinto examples/CLT
+		dodoc ${S}/examples/CLT/*
+		docinto examples/ControlArrayExamples
+		dodoc ${S}/examples/ControlArrayExamples/*
+		docinto examples/MIDI_Synthesizer_example
+		dodoc ${S}/examples/MIDI_Synthesizer_example/*
+		docinto examples/NetworkLADSPAPlugin
+		dodoc ${S}/examples/NetworkLADSPAPlugin/*
+		docinto examples/PortsAndControlsUsageExample
+		dodoc ${S}/examples/PortsAndControlsUsageExample/*
+		docinto examples/PortsExamples
+		dodoc ${S}/examples/PortsExamples/*
+		docinto examples/QtDesignerPlugins
+		dodoc ${S}/examples/QtDesignerPlugins/*
+		docinto examples/QtPlots/BPFEditorExample
+		dodoc ${S}/examples/QtPlots/BPFEditorExample/*
+		docinto examples/QtPlots/DirectPlotsExamples
+		dodoc ${S}/examples/QtPlots/DirectPlotsExamples/*
+		docinto examples/QtPlots/ListPlotExample
+		dodoc ${S}/examples/QtPlots/ListPlotExample/*
+		docinto examples/QtPlots/QtPlotsExamples
+		dodoc ${S}/examples/QtPlots/QtPlotsExamples/*
+		docinto examples/QtPlots/SegmentEditorExample
+		dodoc ${S}/examples/QtPlots/SegmentEditorExample/*
+		docinto examples/QtPlots/utils
+		dodoc ${S}/examples/QtPlots/utils/*
+		docinto examples/Tutorial
+		dodoc ${S}/examples/Tutorial/*
+	fi
 }
