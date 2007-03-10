@@ -84,7 +84,7 @@ src_compile() {
 	if ! use sndfile; then
 	    myconf="${myconf} with_sndfile=no"
 	fi
-	if ! use oggvorbis; then
+	if ! use vorbis; then
 	    myconf="${myconf} with_oggvorbis=no"
 	fi
 	if ! use mad; then
