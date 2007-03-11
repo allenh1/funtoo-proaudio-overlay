@@ -8,7 +8,7 @@
 #	(the magic here is just to change the time of the pkg's WORKDIR)
 # Usage:
 #	same as just the ebuild command
-# it's to best place a symlink into /usr/local/bin/ to run this script
+# it's best to place a symlink into /usr/local/bin/ to run this script
 # eg ln -s `pwd`/ebuild_debug  /usr/local/bin/
 
 
@@ -57,5 +57,5 @@ gTOUCH_WORKDIR="${PORTAGE_TMPDIR}/portage${CATEGORY}/${EBUILD_NAME}/work"
 if [ -e "$gTOUCH_WORKDIR" ] ;then
 	touch $gTOUCH_WORKDIR
 else
-	echo -e "could not change mtime as \"$gTOUCH_WORKDIR\" does not exist"
+	echo -e "${0##*/}: could not change mtime as \"$gTOUCH_WORKDIR\" does not exist"
 fi

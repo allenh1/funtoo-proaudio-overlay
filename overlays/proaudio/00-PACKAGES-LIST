@@ -13,6 +13,7 @@ media-libs/joss
 media-libs/juce
 media-libs/ld10k1
 media-libs/libclalsadrv
+media-libs/libclam
 media-libs/libclthreads
 media-libs/libclxclient
 media-libs/libconvolve
@@ -24,6 +25,7 @@ media-libs/liblscp
 media-libs/libsoundtouch
 media-libs/libzzub
 media-libs/lv2dynparam
+media-libs/oscpack
 media-libs/phat
 media-libs/portaudio
 media-libs/pylash
@@ -54,6 +56,10 @@ media-plugins/whysynth
 media-plugins/wsynth-dssi
 media-plugins/xsynth-dssi
 media-plugins/zynadd
+media-sound/Annotator
+media-sound/NetworkEditor
+media-sound/SMSTools
+media-sound/Voice2MIDI
 media-sound/ac3jack
 media-sound/aeolus
 media-sound/afsp

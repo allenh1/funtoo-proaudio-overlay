@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils
+inherit exteutils
 RESTRICT="nomirror"
 DESCRIPTION="GLASHCtl is a simple applet for controlling the LASH Audio Session Handler"
 HOMEPAGE="http://dino.nongnu.org/glashctl"
@@ -18,10 +18,12 @@ DEPEND=">=media-sound/lash-0.5.1
 	>=dev-cpp/gtkmm-2.10.1"
 RDEPEND=""
 
-#src_unpack() {
-#	unpack "${A}"
-#	cd "${S}"
-#}
+src_unpack() {
+	unpack "${A}"
+	cd "${S}"
+	esed_check -i -e 's:ar rcs $$@ $$^ $(LDFLAGS) $$($(2)_LDFLAGS):ar rcs $$@ $$^ $($(2)_LDFLAGS):g' \
+		Makefile.template 
+}
 
 src_compile(){
 	econf --prefix="${D}"/usr || die "econf failed"

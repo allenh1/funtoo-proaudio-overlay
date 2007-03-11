@@ -39,14 +39,12 @@
 # SYNTAX: get_valid_url $URL_1 $URL_2 $URL_3 $URL_4 $URL_5 ...
 get_valid_url() {
 	[ "$run" == "xyes" ] && return 0
-	local cnt=1
-	RET_VALID_URL="$1"
-	while [ "$cnt" -le  "$#" ];do
-		local arg=\$"$cnt"
-		let  cnt+=1
-		local CHECK_URL="`eval "expr \"$arg\" "`"
-		#echo $CHECK_URL	
-		wget --spider ${CHECK_URL} &>/dev/null 
+	local RET_VALID_URL="$1"
+	while [ "${#}" -gt "0" ];do
+		local CHECK_URL="${1}"
+		shift
+		#echo $CHECK_URL    
+		wget --spider ${CHECK_URL} &>/dev/null
 		local err_val=$?
 		#einfo "err_val: $err_val"
 		if [ "$err_val" == "0" ];then
@@ -144,3 +142,4 @@ set_portage_actual_distdir() {
 		PORTAGE_ACTUAL_DISTDIR="${DISTDIR}"
 	fi
 }
+

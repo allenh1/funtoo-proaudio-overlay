@@ -111,6 +111,13 @@
 	Homepage:    http://www.kokkinizita.net/linuxaudio
 
 
+#------- media-libs/libclam --------
+	libclam-0.98.0	arch: ~amd64 x86
+	Description: Framework for research and application development
+		 in the Audio and Music domain
+	Homepage:    http://clam.iua.upf.edu/index.html
+
+
 #------- media-libs/libclthreads --------
 	libclthreads-2.2.1	arch: amd64 ~ppc sparc x86
 	Description: An audio library by Fons Adriaensen <fons@kokkinizita.net>
@@ -194,7 +201,7 @@
 
 
 #------- media-libs/oscpack --------
-	oscpack-1.0.2	arch: amd64 ppc sparcs x86
+	oscpack-1.0.2	arch: ~amd64 ~ppc x86
 	Description: Set of C++ classes for packing and unpacking
 		 OSC packets
 	Homepage:    http://www.audiomulch.com/~rossb/code/oscpack
@@ -420,6 +427,35 @@
 	Description: synth engines from ZynAddSubFX and pack them
 		 in LV2 plugin format
 	Homepage:    http://home.gna.org/zyn
+
+
+#------- media-sound/Annotator --------
+	Annotator-0.3.6	arch: ~amd64 x86
+	Description: CLAM Music Annotator can visualize, check
+		 and modify music information extracted from
+		 audio
+	Homepage:    http://clam.iua.upf.edu/index.html
+
+
+#------- media-sound/NetworkEditor --------
+	NetworkEditor-0.4.3	arch: ~amd64 x86
+	Description: CLAM's visual builder
+	Homepage:    http://clam.iua.upf.edu/index.html
+
+
+#------- media-sound/SMSTools --------
+	SMSTools-0.4.5	arch: ~amd64 x86
+	Description: Analyzes, transforms and synthesizes back
+		 a given sound using the SMS model.
+	Homepage:    http://clam.iua.upf.edu/index.html
+
+
+#------- media-sound/Voice2MIDI --------
+	Voice2MIDI-0.3.1	arch: ~amd64 x86
+	Description: CLAM Voice2MIDI extracts the melody as a
+		 MIDI or XML file from monophonic audio files
+		
+	Homepage:    http://clam.iua.upf.edu/index.html
 
 
 #------- media-sound/ac3jack --------
@@ -1539,6 +1575,7 @@
 	rt-sources-2.6.20-r5	arch: ~amd64 ~ppc ~ppc64 ~x86
 	rt-sources-2.6.20-r8	arch: ~amd64 ~ppc ~ppc64 ~x86
 	rt-sources-2.6.20_rc7-r3	arch: -*
+	rt-sources-2.6.21_rc3	arch: ~amd64 ~ppc ~ppc64 ~x86
 	Description: Ingo Molnars realtime patch applied on vanilla
 		
 	Homepage:    unknown
