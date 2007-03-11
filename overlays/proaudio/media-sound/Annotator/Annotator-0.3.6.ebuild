@@ -21,12 +21,10 @@ DEPEND="dev-util/scons
 	
 RDEPEND="${DEPEND}"
 
-#S="${WORKDIR}/${MY_P}"
-QTDIR="/usr/share/qt4"
+QTDIR="/usr"
 
 src_compile() {
 	# required for scons to "see" intermediate install location
-#	mkdir -p ${D}/usr/share/clam/sconstools
 	mkdir -p ${D}/usr/vmqt
 	addpredict /usr/share/clam/sconstools
 		    
