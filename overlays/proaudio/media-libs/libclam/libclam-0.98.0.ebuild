@@ -50,8 +50,8 @@ S="${WORKDIR}/${MY_P}"
 src_unpack() {
 	unpack ${A}
 	cd ${S}
-	epatch ${FILESDIR}/oscthread-fix.patch
-	
+	epatch ${FILESDIR}/oscthread-fix.patch || die "epatch failed"
+		
 #	cd ${S}/scons/libs
 #	add_ccache_to_scons_v2 || die "add cache to scons failed"
 }
@@ -101,7 +101,7 @@ src_compile() {
 	fi
 	scons configure ${myconf} KSI=0 || die "configuration failed"
 	scons --help configure
-	scons -j2 || die "compilation failed"
+	scons || die "compilation failed"
 }
 
 src_install() {
