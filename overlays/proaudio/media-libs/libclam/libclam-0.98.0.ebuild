@@ -99,7 +99,7 @@ src_compile() {
 	if ! use alsa; then
 	    myconf="${myconf} with_alsa=no"
 	fi
-	scons configure ${myconf} KSI=0 || die "configuration failed"
+	scons configure ${myconf} || die "configuration failed"
 	scons --help configure
 	scons || die "compilation failed"
 }
