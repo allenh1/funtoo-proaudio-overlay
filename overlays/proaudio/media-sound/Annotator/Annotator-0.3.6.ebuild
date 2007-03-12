@@ -29,9 +29,9 @@ src_compile() {
 	addpredict /usr/share/clam/sconstools
 		    
 	cd ${S}/vmqt
-	scons clam_prefix=/usr DESTDIR="${D}/usr" -j2
+	scons clam_prefix=/usr DESTDIR="${D}/usr" || die "Building vmqt failed"
 	cd ${S}
-	scons clam_prefix=/usr DESTDIR="${D}/usr" install_prefix="${D}/usr" -j2
+	scons clam_prefix=/usr DESTDIR="${D}/usr" install_prefix="${D}/usr" || die "Building Annotator failed"
 }
 
 src_install() {
@@ -39,7 +39,7 @@ src_install() {
 	dodir /usr
 	addpredict /usr/share/clam/sconstools
 	
-	scons install || die "scons install failed"
+	scons install || die "Install failed"
 	
 	dodoc CHANGES COPYING README todos 
 

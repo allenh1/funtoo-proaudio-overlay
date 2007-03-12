@@ -27,7 +27,7 @@ src_compile() {
 	addpredict /usr/share/clam/sconstools
 		    
 	cd ${S}
-	scons clam_prefix=/usr DESTDIR="${D}/usr" install_prefix="${D}/usr" -j2
+	scons clam_prefix=/usr DESTDIR="${D}/usr" install_prefix="${D}/usr" || die "Build failed"
 }
 
 src_install() {

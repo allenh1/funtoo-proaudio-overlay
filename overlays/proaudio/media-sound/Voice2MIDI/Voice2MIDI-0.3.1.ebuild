@@ -25,7 +25,7 @@ src_compile() {
 	# required for scons to "see" intermediate install location
 	mkdir -p ${D}/usr
 	cd ${S}
-	scons clam_prefix=/usr DESTDIR="${D}/usr" install_prefix="${D}/usr" -j2
+	scons clam_prefix=/usr DESTDIR="${D}/usr" install_prefix="${D}/usr" || die "Build failed"
 }
 
 src_install() {

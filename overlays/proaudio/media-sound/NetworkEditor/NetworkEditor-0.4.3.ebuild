@@ -30,7 +30,7 @@ src_compile() {
 		    
 	cd ${S}
 	scons clam_prefix=/usr DESTDIR="${D}/usr" install_prefix="${D}/usr" \
-		qt_plugins_install_path="/lib/qt4/plugins/designer" -j2
+		qt_plugins_install_path="/lib/qt4/plugins/designer" || die "Building failed"
 }
 
 src_install() {
