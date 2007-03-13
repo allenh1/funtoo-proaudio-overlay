@@ -24,16 +24,20 @@ RDEPEND="${DEPEND}"
 src_compile() {
 	# required for scons to "see" intermediate install location
 	mkdir -p ${D}/usr
+	addpredict /usr/share/clam/sconstools
+	
 	cd ${S}
-	scons clam_prefix=/usr DESTDIR="${D}/usr" install_prefix="${D}/usr" || die "Build failed"
+	scons clam_prefix=/usr DESTDIR="${D}/usr" install_prefix="${D}/usr" || die "Build failed."
 }
 
 src_install() {
 	cd ${S}
 	dodir /usr
+	addpredict /usr/share/clam/sconstools
+	
 	scons install || die "scons install failed"
 	
-	dodoc CHANGES COPYING README
+	dodoc CHANGES COPYING README || die "dodoc failed"
 	
 	make_desktop_entry ${PN} Voice2MIDI ${PN} \
 		"AudioVideo;Audio;Midi;"

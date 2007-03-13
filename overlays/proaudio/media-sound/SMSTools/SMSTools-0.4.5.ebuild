@@ -15,11 +15,12 @@ KEYWORDS="~amd64 x86"
 IUSE=""
 RESTRICT="nomirror"
 
-DEPEND="dev-util/scons
+RDEPEND="dev-util/scons
 	media-libs/libclam
     	=x11-libs/qt-3*"
 	
-RDEPEND="${DEPEND}"
+RDEPEND="${DEPEND}
+	media-gfx/imagemagick"
 
 src_compile() {
 	# required for scons to "see" intermediate install location
@@ -28,6 +29,7 @@ src_compile() {
 		    
 	cd ${S}
 	scons clam_prefix=/usr DESTDIR="${D}/usr" install_prefix="${D}/usr" || die "Build failed"
+	convert -resize 48x48 -colors 24 resources/SMSTools-icon.png clam-smstools.xpm || die "Icon convert failed"
 }
 
 src_install() {
@@ -37,5 +39,7 @@ src_install() {
 	
 	scons install || die "scons install failed"
 	
-	dodoc CHANGES COPYING README
+	dodoc CHANGES COPYING README || die "doc install failed"
+	insinto /usr/share/pixmaps
+	doins clam-smstools.xpm || die "icon install failed"
 }

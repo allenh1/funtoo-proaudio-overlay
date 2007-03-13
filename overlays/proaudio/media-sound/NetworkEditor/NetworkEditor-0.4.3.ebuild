@@ -15,13 +15,14 @@ KEYWORDS="~amd64 x86"
 IUSE=""
 RESTRICT="nomirror"
 
-DEPEND="dev-util/scons
+RDEPEND="dev-util/scons
 	media-libs/libclam
     	=x11-libs/qt-4*"
 	
-RDEPEND="${DEPEND}"
+DEPEND="${DEPEND}
+	media-gfx/imagemagick"
 
-QTDIR="/usr"
+QTDIR=""
 
 src_compile() {
 	# required for scons to "see" intermediate install location
@@ -30,7 +31,9 @@ src_compile() {
 		    
 	cd ${S}
 	scons clam_prefix=/usr DESTDIR="${D}/usr" install_prefix="${D}/usr" \
-		qt_plugins_install_path="/lib/qt4/plugins/designer" || die "Building failed"
+		qt_plugins_install_path="/lib/qt4/plugins/designer" || die "Build failed"
+	convert -resize 48x48 -colors 24 src/images/NetworkEditor-icon.png clam-networkeditor.xpm || die "convert NE icon failed"
+	convert -resize 48x48 -colors 24 src/images/Prototyper-icon.png clam-prototyper.xpm || die "convert P icon failed"
 }
 
 src_install() {
@@ -40,5 +43,7 @@ src_install() {
 	
 	scons install || die "scons install failed"
 	
-	dodoc CHANGES COPYING README
+	dodoc CHANGES COPYING README || die "dodoc failed"
+	insinto /usr/share/pixmaps
+	doins *.xpm || die "install icons failed"
 }
