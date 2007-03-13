@@ -15,13 +15,14 @@ KEYWORDS="~amd64 x86"
 IUSE="doc"
 RESTRICT="nomirror"
 
-DEPEND="dev-util/scons
+RDEPEND="dev-util/scons
 	media-libs/libclam
     	>=x11-libs/qt-4.1"
 	
-RDEPEND="${DEPEND}"
+DEPEND="${DEPEND}
+	media-gfx/imagemagick"
 
-QTDIR="/usr"
+QTDIR=""
 
 src_compile() {
 	# required for scons to "see" intermediate install location
@@ -32,6 +33,7 @@ src_compile() {
 	scons clam_prefix=/usr DESTDIR="${D}/usr" || die "Building vmqt failed"
 	cd ${S}
 	scons clam_prefix=/usr DESTDIR="${D}/usr" install_prefix="${D}/usr" || die "Building Annotator failed"
+	convert -resize 48x48 -colors 24 src/images/annotator-icon1.png src/images/clam-annotator.xpm || die "convert icon failed"
 }
 
 src_install() {
@@ -39,9 +41,9 @@ src_install() {
 	dodir /usr
 	addpredict /usr/share/clam/sconstools
 	
-	scons install || die "Install failed"
+	scons install || die "scons install failed"
 	
-	dodoc CHANGES COPYING README todos 
+	dodoc CHANGES COPYING README todos  || die "dodoc failed"
 
 	if use doc; then
 		docinto examples/data
@@ -53,4 +55,7 @@ src_install() {
 		docinto examples
 		dodoc ${S}/vmqt/examples/README
 	fi
+	insinto /usr/share/pixmaps
+	doins ${S}/src/images/clam-annotator.xpm || die "install icon failed"
 }
+
