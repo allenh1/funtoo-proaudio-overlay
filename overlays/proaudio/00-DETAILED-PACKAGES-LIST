@@ -113,6 +113,7 @@
 
 #------- media-libs/libclam --------
 	libclam-0.98.0	arch: ~amd64 x86
+	libclam-9999	arch: 
 	Description: Framework for research and application development
 		 in the Audio and Music domain
 	Homepage:    http://clam.iua.upf.edu/index.html
@@ -431,6 +432,7 @@
 
 #------- media-sound/Annotator --------
 	Annotator-0.3.6	arch: ~amd64 x86
+	Annotator-9999	arch: 
 	Description: CLAM Music Annotator can visualize, check
 		 and modify music information extracted from
 		 audio
@@ -439,12 +441,14 @@
 
 #------- media-sound/NetworkEditor --------
 	NetworkEditor-0.4.3	arch: ~amd64 x86
+	NetworkEditor-9999	arch: 
 	Description: CLAM's visual builder
 	Homepage:    http://clam.iua.upf.edu/index.html
 
 
 #------- media-sound/SMSTools --------
 	SMSTools-0.4.5	arch: ~amd64 x86
+	SMSTools-9999	arch: 
 	Description: Analyzes, transforms and synthesizes back
 		 a given sound using the SMS model.
 	Homepage:    http://clam.iua.upf.edu/index.html
@@ -452,6 +456,7 @@
 
 #------- media-sound/Voice2MIDI --------
 	Voice2MIDI-0.3.1	arch: ~amd64 x86
+	Voice2MIDI-9999	arch: 
 	Description: CLAM Voice2MIDI extracts the melody as a
 		 MIDI or XML file from monophonic audio files
 		
@@ -1300,6 +1305,7 @@
 	rosegarden-1.4.0	arch: ~amd64 ~ppc ~sparc x86
 	rosegarden-1.5.0	arch: ~amd64 ~ppc ~sparc x86
 	rosegarden-1.5.0-r1	arch: ~amd64 ~ppc ~sparc x86
+	rosegarden-1.5.1	arch: ~amd64 ~ppc ~sparc x86
 	rosegarden-9999	arch: 
 	Description: MIDI and audio sequencer and notation editor.
 		

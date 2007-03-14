@@ -32,6 +32,12 @@ DEPEND="=media-sound/jack-audio-connection-kit-9999
 RDEPEND="${DEPEND}
 	>=media-libs/pyphat-9999"
 
+pkg_setup() {
+	ewarn "if building fails try the following:"
+	ewarn "emerge -O media-libs/slv2 =media-libs/lv2dynparam-9999"
+}
+
+
 src_unpack() {
 	subversion_src_unpack ${A}
 	cd ${S}
