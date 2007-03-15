@@ -75,7 +75,7 @@ src_compile() {
 	if ! use sndfile; then
 	    myconf="${myconf} with_sndfile=no"
 	fi
-	if ! use oggvorbis; then
+	if ! use vorbis; then
 	    myconf="${myconf} with_oggvorbis=no"
 	fi
 	if ! use mad; then
@@ -84,8 +84,8 @@ src_compile() {
 	if ! use id3; then
 	    myconf="${myconf} with_id3=no"
 	fi
-	if use portaudio; then
-	    myconf="${myconf} with_portaudio=yes"
+	if ! use portaudio; then
+	    myconf="${myconf} with_portaudio=no"
 	fi
 	if ! use alsa; then
 	    myconf="${myconf} with_alsa=no"
