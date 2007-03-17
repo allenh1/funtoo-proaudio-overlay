@@ -10,11 +10,11 @@ SRC_URI="http://zhevny.com/specimen/files/${P}.tar.gz"
 RESTRICT="nomirror"
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="-amd64 ~ppc sparc x86"
+KEYWORDS="~amd64 ~ppc sparc x86"
 
 IUSE="lash debug" # jackmidi"
 
-DEPEND="media-sound/jack-audio-connection-kit
+RDEPEND="media-sound/jack-audio-connection-kit
 	virtual/alsa
 	media-libs/libsamplerate
 	media-libs/libsndfile
@@ -23,6 +23,9 @@ DEPEND="media-sound/jack-audio-connection-kit
 	>=x11-libs/gtk+-2
 	>=gnome-base/libgnomecanvas-2.0
 	lash? ( media-sound/lash )"
+
+DEPEND="${RDEPEND}
+	>=gnome-base/libgnomeui-2.0"
 
 src_unpack() {
 	unpack ${P}.tar.gz
