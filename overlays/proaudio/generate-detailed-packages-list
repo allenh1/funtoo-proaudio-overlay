@@ -33,6 +33,7 @@ generate_list(){
 			source $k &>/dev/null
 			k="${k##*/}"
 			k=${k/\.ebuild/}
+			[ "${#KEYWORDS}" -le "0" ] && KEYWORDS="-> live ebuild: [svn|cvs|...]<-"
 			echo -e "\t${k/.\//}\tarch: ${KEYWORDS}"
 			nr_of_ebuilds=$(($nr_of_ebuilds + 1))
 		done

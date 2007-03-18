@@ -214,6 +214,8 @@ sys-process/rt-exec
 sys-process/rtirq
 sys-process/set_rlimits
 x11-libs/qwt
+x11-misc/stalonetray
+x11-misc/xanalyser
 x11-themes/crystal-audio
 x11-themes/fvwm-crystal
 x11-wm/fvwm
