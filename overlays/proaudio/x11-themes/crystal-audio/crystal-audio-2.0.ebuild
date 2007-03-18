@@ -4,20 +4,16 @@
 
 inherit eutils
 
-#MY_PN="fvwm-crystal/fvwm"
-
-RESTRICT="nomirror"
-
 DESCRIPTION="Configurable and full featured theme for FVWM-Crystal, tuned for audio work."
-HOMEPAGE="http://crystalaudio.tuxfamily.org/"
-SRC_URI="http://download.tuxfamily.org/crystalaudio/${P}.tar.gz"
+HOMEPAGE="http://crystal-audio.sourceforge.net/"
+SRC_URI="mirror://sourceforge/crystal-audio/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86"
-IUSE=""
+KEYWORDS="~x86 ~amd64"
+IUSE="laptop"
 RDEPEND=">=x11-wm/fvwm-2.5.13
-	>=x11-themes/fvwm-crystal-3.0.4
+	>=x11-themes/fvwm-crystal-4.1.4
 	media-sound/aumix
 	media-sound/alsaplayer
 	sys-devel/bc
@@ -31,6 +27,13 @@ src_compile() {
 
 src_install() {
 	cd ${S}
+	
+	# The *.ACPI recipes hang my realtime kernel with very limited ACPI support.
+	# Use them at your own risk.
+	if ! use laptop; then
+	    rm -f crystal/recipes/*ACPI
+	fi
+	
 	einstall || die "Installation failed."
 	dodoc AUTHORS COPYING ChangeLog INSTALL NEWS README
 }

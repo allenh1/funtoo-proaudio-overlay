@@ -1,0 +1,24 @@
+Index: src/main.c
+===================================================================
+--- src/main.c	(revision 110)
++++ src/main.c	(working copy)
+@@ -411,7 +411,9 @@
+ {
+ 	if (!tray_data.active && ev.window == tray_data.old_sel_owner) {
+ 		tray_acquire_selection();
++#ifndef NO_NATIVE_KDE
+ 		if (tray_data.active) kde_icons_update();
++#endif
+ 	} else if (ev.window != tray_data.tray) {
+ 		remove_icon(ev.window);
+ #ifndef NO_NATIVE_KDE
+@@ -504,7 +506,9 @@
+ 		} else if (!tray_data.active) {
+ 			tray_acquire_selection();
+ 			DBG(0, ("reacquiring tray selection: %s\n", (tray_data.active ? "success" : "failed")));
++#ifndef NO_NATIVE_KDE
+ 			if (tray_data.active) kde_icons_update();
++#endif
+ 		} else {
+ 			DBG(0, ("WEIRD: tray is active and someone else has lost tray selection :s\n"));
+ 		}

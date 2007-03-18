@@ -8,10 +8,10 @@ SRC_URI="mirror://sourceforge/crystal-audio/${P}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE=""
+IUSE="laptop"
 RDEPEND=">=x11-wm/fvwm-2.5.13
 	media-gfx/imagemagick
-	x11-misc/trayer
+	>=x11-misc/stalonetray-0.6.2-r2
 	|| ( >=x11-misc/habak-0.2.4.1 x11-misc/hsetroot )"
 
 src_compile() {
@@ -19,6 +19,10 @@ src_compile() {
 }
 
 src_install() {
+	if ! use laptop; then
+	    rm -f fvwm/recipes/*ACPI
+	fi
+	
 	einstall || die "einstall failed"
 
 	dodoc AUTHORS COPYING README INSTALL NEWS ChangeLog doc/*
