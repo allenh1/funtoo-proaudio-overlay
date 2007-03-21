@@ -1,6 +1,8 @@
 media-libs/libclam:double - CLAM TData type will be double (and not float)
 media-libs/libclam:fft - Selects whether to use Numerical Recipes fft algorithm implementation or not
 media-libs/libclam:id3 - Support accessing ID3 tags on mpeg audio streams
+media-sound/alsaplayer:gtk2 - Add experimental support for GTK2
 media-sound/rosegarden:export - enables project export functionality
 media-sound/rosegarden:lilypond - enables lilypond preview functionality
 media-sound/jack-audio-connection-kit:freebob - enables support for 'BeBoB' 
+x11-themes/crystal-audio:laptop - Add recipes for laptop
