@@ -1,2 +1,3 @@
 media-sound/rosegarden:export - enables project export functionality
 media-sound/rosegarden:lilypond - enables lilypond preview functionality
+media-sound/jack-audio-connection-kit:freebob - enables support for 'BeBoB' 

@@ -112,7 +112,7 @@
 
 
 #------- media-libs/libclam --------
-	libclam-0.98.0	arch: ~amd64 x86
+	libclam-1.0.0	arch: ~amd64 x86
 	libclam-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: Framework for research and application development
 		 in the Audio and Music domain
@@ -431,7 +431,7 @@
 
 
 #------- media-sound/Annotator --------
-	Annotator-0.3.6	arch: ~amd64 x86
+	Annotator-0.3.8	arch: ~amd64 x86
 	Annotator-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: CLAM Music Annotator can visualize, check
 		 and modify music information extracted from
@@ -440,14 +440,14 @@
 
 
 #------- media-sound/NetworkEditor --------
-	NetworkEditor-0.4.3	arch: ~amd64 x86
+	NetworkEditor-1.0.0	arch: ~amd64 x86
 	NetworkEditor-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: CLAM's visual builder
 	Homepage:    http://clam.iua.upf.edu/index.html
 
 
 #------- media-sound/SMSTools --------
-	SMSTools-0.4.5	arch: ~amd64 x86
+	SMSTools-0.4.7	arch: ~amd64 x86
 	SMSTools-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: Analyzes, transforms and synthesizes back
 		 a given sound using the SMS model.
@@ -455,7 +455,7 @@
 
 
 #------- media-sound/Voice2MIDI --------
-	Voice2MIDI-0.3.1	arch: ~amd64 x86
+	Voice2MIDI-0.3.6	arch: ~amd64 x86
 	Voice2MIDI-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: CLAM Voice2MIDI extracts the melody as a
 		 MIDI or XML file from monophonic audio files
@@ -876,6 +876,12 @@
 	Description: JACE is a Convolution Engine for JACK and
 		 ALSA
 	Homepage:    http://www.kokkinizita.net/linuxaudio/
+
+
+#------- media-sound/jack-keyboard --------
+	jack-keyboard-1.5	arch: x86
+	Description: virtual keyboard using JACK MIDI events
+	Homepage:    http://pin.if.uz.zgora.pl/~trasz/jack-keyboard/
 
 
 #------- media-sound/jack-rack --------
@@ -1546,6 +1552,8 @@
 ~x86
 	jack-audio-connection-kit-0.102.20	arch: -alpha ~amd64 ~arm -hppa -ia64 -mips ~ppc ~ppc-macos -ppc64 ~sh -sparc
 ~x86
+	jack-audio-connection-kit-0.103.0	arch: -alpha ~amd64 ~arm -hppa -ia64 -mips ~ppc ~ppc-macos -ppc64 ~sh -sparc
+~x86
 	jack-audio-connection-kit-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: A low-latency audio server
 	Homepage:    http://www.jackaudio.org
@@ -1590,6 +1598,7 @@
 
 #------- sys-libs/libfreebob --------
 	libfreebob-1.0.0	arch: x86 sparc amd64 ~ppc ~ppc-macos ~mips
+	libfreebob-1.0.3	arch: x86 sparc amd64 ~ppc ~ppc-macos ~mips
 	Description: Library for accessing BeBoB IEEE1394 devices
 		
 	Homepage:    http://freebob.sf.net

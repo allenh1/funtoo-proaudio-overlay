@@ -116,6 +116,7 @@ media-sound/idjc
 media-sound/ingen
 media-sound/jaaa
 media-sound/jace
+media-sound/jack-keyboard
 media-sound/jack-rack
 media-sound/jackEQ
 media-sound/jack_capture
