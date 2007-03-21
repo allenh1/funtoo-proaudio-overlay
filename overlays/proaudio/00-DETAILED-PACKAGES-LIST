@@ -1,3 +1,9 @@
+#------- app-portage/euses --------
+	euses-2.5.4-r1	arch: ~amd64 ~hppa ~ppc ~x86 ~x86-fbsd
+	Description: look up USE flag descriptions fast
+	Homepage:    http://www.xs4all.nl/~rooversj/gentoo
+
+
 #------- dev-libs/libinstpatch --------
 	libinstpatch-1.0.0_pre1	arch: ~amd64 x86
 	Description: sound font editor library ?
