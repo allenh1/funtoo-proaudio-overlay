@@ -16,8 +16,9 @@ IUSE=""
 RESTRICT="nomirror"
 
 DEPEND="dev-util/scons
-	media-libs/libclam
-    	=x11-libs/qt-3*"
+	>=media-libs/libclam-1.0.0
+	<media-libs/libclam-9999
+	=x11-libs/qt-3*"
 	
 RDEPEND="${DEPEND}"
 

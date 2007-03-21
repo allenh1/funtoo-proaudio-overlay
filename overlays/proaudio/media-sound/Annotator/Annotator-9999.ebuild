@@ -18,7 +18,7 @@ RESTRICT="nomirror"
 
 RDEPEND="dev-util/scons
 	dev-util/subversion
-	=media-libs/libclam-9999
+	>=media-libs/libclam-9999
     	>=x11-libs/qt-4.1"
 	
 DEPEND="${DEPEND}

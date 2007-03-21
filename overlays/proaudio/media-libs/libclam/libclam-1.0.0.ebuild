@@ -47,15 +47,6 @@ RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${MY_P}"
 
-src_unpack() {
-	unpack ${A}
-	cd ${S}
-	epatch ${FILESDIR}/oscthread-fix.patch || die "epatch failed"
-		
-#	cd ${S}/scons/libs
-#	add_ccache_to_scons_v2 || die "add cache to scons failed"
-}
-
 src_compile() {
 	# required for scons to "see" intermediate install location
 	mkdir -p ${D}/usr
@@ -127,8 +118,8 @@ src_install() {
 		dodoc ${S}/examples/PortsAndControlsUsageExample/*
 		docinto examples/PortsExamples
 		dodoc ${S}/examples/PortsExamples/*
-		docinto examples/QtDesignerPlugins
-		dodoc ${S}/examples/QtDesignerPlugins/*
+#		docinto examples/QtDesignerPlugins
+#		dodoc ${S}/examples/QtDesignerPlugins/*
 		docinto examples/QtPlots/BPFEditorExample
 		dodoc ${S}/examples/QtPlots/BPFEditorExample/*
 		docinto examples/QtPlots/DirectPlotsExamples
@@ -143,5 +134,7 @@ src_install() {
 		dodoc ${S}/examples/QtPlots/utils/*
 		docinto examples/Tutorial
 		dodoc ${S}/examples/Tutorial/*
+		docinto examples
+		dodoc ${S}/examples/*
 	fi
 }

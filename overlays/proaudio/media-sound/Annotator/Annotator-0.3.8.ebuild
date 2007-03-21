@@ -16,8 +16,9 @@ IUSE="doc"
 RESTRICT="nomirror"
 
 RDEPEND="dev-util/scons
-	media-libs/libclam
-    	>=x11-libs/qt-4.1"
+	>=media-libs/libclam-1.0.0
+	<media-libs/libclam-9999
+	>=x11-libs/qt-4.1"
 	
 DEPEND="${DEPEND}
 	media-gfx/imagemagick"
