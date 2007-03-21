@@ -2,29 +2,27 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit subversion
+inherit eutils
 
 DESCRIPTION="CLAM Music Annotator can visualize, check and modify music information extracted from audio"
 HOMEPAGE="http://clam.iua.upf.edu/index.html"
 
-SRC_URI=""
-ESVN_REPO_URI="http://iua-share.upf.edu/svn/clam/trunk/${PN}"
+SRC_URI="http://clam.iua.upf.edu/download/src/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 x86"
 IUSE="doc"
 RESTRICT="nomirror"
 
 RDEPEND="dev-util/scons
-	dev-util/subversion
-	>=media-libs/libclam-9999
-    	>=x11-libs/qt-4.1"
+	>=media-libs/libclam-1.0.0
+	<media-libs/libclam-9999
+	>=x11-libs/qt-4.1"
 	
 DEPEND="${DEPEND}
 	media-gfx/imagemagick"
 
-S="${WORKDIR}/${PN}"
 QTDIR=""
 
 src_compile() {
@@ -46,7 +44,7 @@ src_install() {
 	
 	scons install || die "scons install failed"
 	
-	dodoc CHANGES COPYING README todos || die "dodoc failed"
+	dodoc CHANGES COPYING README todos  || die "dodoc failed"
 
 	if use doc; then
 		docinto examples/data
@@ -61,3 +59,4 @@ src_install() {
 	insinto /usr/share/pixmaps
 	doins ${S}/src/images/clam-annotator.xpm || die "install icon failed"
 }
+
