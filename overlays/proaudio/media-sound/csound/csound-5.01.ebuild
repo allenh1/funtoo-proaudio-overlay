@@ -29,7 +29,7 @@ DEPEND="${RDEPEND}
 	=dev-lang/python-2.4*
 	dev-lang/swig
 	portaudio? ( =media-libs/portaudio-19* )
-	jack? ( media-sound/jack )
+	jack? ( media-sound/jack-audio-connection-kit )
 	tcltk? ( dev-lang/tcl )
 	tcltk? ( dev-lang/tk )
 	java? ( virtual/jdk )
