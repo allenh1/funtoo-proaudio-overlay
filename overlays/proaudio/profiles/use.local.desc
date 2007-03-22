@@ -4,5 +4,6 @@ media-libs/libclam:id3 - Support accessing ID3 tags on mpeg audio streams
 media-sound/alsaplayer:gtk2 - Add experimental support for GTK2
 media-sound/rosegarden:export - enables project export functionality
 media-sound/rosegarden:lilypond - enables lilypond preview functionality
-media-sound/jack-audio-connection-kit:freebob - enables support for 'BeBoB' 
+media-sound/jack-audio-connection-kit:freebob - enables support for 'BeBoB'
+media-sound/museseq:zynaddsubfx - integrate ZynAddSubFX into museseq
 x11-themes/crystal-audio:laptop - Add recipes for laptop

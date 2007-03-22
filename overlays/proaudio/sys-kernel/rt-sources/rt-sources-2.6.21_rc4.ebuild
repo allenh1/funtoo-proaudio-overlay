@@ -67,8 +67,8 @@ src_unpack(){
 	patcher "${FILESDIR}/dont_put_temp_files_in_source.patch apply"
 	# realtime-lsm and vesafb-tng fbsplash
 	#use realtime-lsm && epatch "${FILESDIR}/realtime-lsm-0.8.6_2.6.19.gz"
-	use vesafb-tng && epatch "${DISTDIR}/${VESAFB}"
-	use fbsplash && epatch "${DISTDIR}/${FBSPLASH}"
+	use vesafb-tng && patcher "${DISTDIR}/${VESAFB} apply"
+	use fbsplash && patcher "${DISTDIR}/${FBSPLASH} apply"
 	# workaround to build some external modules as they urge for this file
 cat << EOT > include/linux/config.h
 #ifndef _LINUX_CONFIG_H
