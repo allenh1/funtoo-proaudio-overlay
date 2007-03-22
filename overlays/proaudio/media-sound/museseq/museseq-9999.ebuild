@@ -31,8 +31,8 @@ DEPEND="$(qt4_min_version 4.2.3)
 	dev-lang/perl
 	>=media-libs/libsndfile-1.0.1
 	>=media-libs/libsamplerate-0.1.0
-	>=media-sound/jack-audio-connection-kit-0.98.0
-	dssi? ( media-libs/dssi )
+	>=media-sound/jack-audio-connection-kit-0.102.1
+	dssi? ( >=media-libs/dssi-0.9.0 )
 	lash? ( >=media-sound/lash-0.4.0 )
 	!media-sound/museseq-cvs
 	!media-sound/museseq-svn
