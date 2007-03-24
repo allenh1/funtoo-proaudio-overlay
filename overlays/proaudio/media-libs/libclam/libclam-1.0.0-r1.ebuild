@@ -53,7 +53,10 @@ src_compile() {
 	    
 	cd ${S}/scons/libs
 	
-	local myconf="DESTDIR=${D}/usr prefix=/usr install_prefix=${D}/usr"
+	local myconf
+
+	myconf="DESTDIR=${D}/usr prefix=/usr install_prefix=${D}/usr"
+	
 	if use double; then
 	    myconf="${myconf} double=yes"
 	fi
@@ -86,14 +89,13 @@ src_compile() {
 	if ! use id3; then
 	    myconf="${myconf} with_id3=no"
 	fi
-	if use portaudio; then
-	    myconf="${myconf} with_portaudio=yes"
+	if ! use portaudio; then
+	    myconf="${myconf} with_portaudio=no"
 	fi
 	if ! use alsa; then
 	    myconf="${myconf} with_alsa=no"
 	fi
 	scons configure ${myconf} || die "configuration failed"
-	scons --help configure
 	scons || die "compilation failed"
 }
 
