@@ -20,7 +20,7 @@ S="${WORKDIR}"
 src_unpack() {
 	cd "${S}"
 	unpack "${A}"
-	UNIPATCH_LIST="${FILESDIR}/euses-overlay-patches.tar.gz	${FILESDIR}/08-remove-redundant-code.patch" 
+	UNIPATCH_LIST="${FILESDIR}/euses-overlay-patches.tar.gz	${FILESDIR}/euses-overlay-patches-2.tar.gz" 
 	unipatch
 	eautoreconf
 }
