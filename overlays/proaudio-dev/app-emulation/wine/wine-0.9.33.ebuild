@@ -52,7 +52,8 @@ DEPEND="${RDEPEND}
 		x11-proto/xf86vidmodeproto
 	)
 	sys-devel/bison
-	sys-devel/flex"
+	sys-devel/flex
+	asio? ( app-arch/unzip )"
 
 src_unpack() {
 	unpack wine-${PV}.tar.bz2
@@ -65,6 +66,8 @@ src_unpack() {
 	if use asio; then
 		epatch "${FILESDIR}/${P}-wineasio.patch"
 		eautoreconf
+		cd "${WORKDIR}"
+		unzip "${DISTDIR}/asiosdk2.2.zip"
 	fi
 }
 
@@ -105,7 +108,7 @@ src_compile() {
 
 	# ASIO stuff
 	local myconf
-	use asio && myconf="--with-asio-sdk=/usr/local/share/asiosdk2.2" || myconf=""
+	use asio && myconf="--with-asio-sdk=${WORKDIR}/ASIOSDK2" || myconf=""
 	
 	econf \
 		--sysconfdir=/etc/wine \
@@ -129,6 +132,7 @@ pkg_postinst() {
 	elog "winecfg or regedit HKCU\\Software\\Wine"
 	
 	if use asio; then
+		elog ""
 		elog "You need to register the asio.dll by running:"
 		elog "regsvr32 /usr/lib/wine/wineasio.dll.so"
 	fi
