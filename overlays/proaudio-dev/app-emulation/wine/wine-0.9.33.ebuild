@@ -127,4 +127,9 @@ src_install() {
 pkg_postinst() {
 	elog "~/.wine/config is now deprecated.  For configuration either use"
 	elog "winecfg or regedit HKCU\\Software\\Wine"
+	
+	if use asio; then
+		elog "You need to register the asio.dll by running:"
+		elog "regsvr32 /usr/lib/wine/wineasio.dll.so"
+	fi
 }
