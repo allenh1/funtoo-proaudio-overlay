@@ -338,7 +338,7 @@ diff -r -c -N wine-0.9.33.orig/dlls/wineasio/asio.c wine-0.9.33/dlls/wineasio/as
 +     TRACE("(%p, %p)\n", iface, sysHandle);
 + 
 +     This->sample_rate = 48000.0;
-+     This->block_frames = 1024;
++     This->block_frames = 2048;
 +     This->input_latency = This->block_frames;
 +     This->output_latency = This->block_frames * 2;
 +     This->miliseconds = (long)((double)(This->block_frames * 1000) / This->sample_rate);
