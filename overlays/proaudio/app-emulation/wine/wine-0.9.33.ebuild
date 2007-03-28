@@ -6,8 +6,7 @@ inherit eutils flag-o-matic multilib autotools
 
 DESCRIPTION="free implementation of Windows(tm) on Unix"
 HOMEPAGE="http://www.winehq.com/"
-SRC_URI="mirror://sourceforge/${PN}/wine-${PV}.tar.bz2
-	asio? ( asiosdk2.2.zip )"
+SRC_URI="mirror://sourceforge/${PN}/wine-${PV}.tar.bz2"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
@@ -30,6 +29,7 @@ RDEPEND=">=media-libs/freetype-2.0.0
 	)
 	arts? ( kde-base/arts )
 	alsa? ( media-libs/alsa-lib )
+	asio? ( media-libs/asio-sdk )
 	esd? ( media-sound/esound )
 	nas? ( media-libs/nas )
 	cups? ( net-print/cups )
@@ -52,8 +52,7 @@ DEPEND="${RDEPEND}
 		x11-proto/xf86vidmodeproto
 	)
 	sys-devel/bison
-	sys-devel/flex
-	asio? ( app-arch/unzip )"
+	sys-devel/flex"
 
 src_unpack() {
 	unpack wine-${PV}.tar.bz2
@@ -66,8 +65,6 @@ src_unpack() {
 	if use asio; then
 		epatch "${FILESDIR}/${P}-wineasio.patch"
 		eautoreconf
-		cd "${WORKDIR}"
-		unzip "${DISTDIR}/asiosdk2.2.zip"
 	fi
 }
 
@@ -108,7 +105,7 @@ src_compile() {
 
 	# ASIO stuff
 	local myconf
-	use asio && myconf="--with-asio-sdk=${WORKDIR}/ASIOSDK2" || myconf=""
+	use asio && myconf="--with-asio-sdk=/opt/asiosdk2.2" || myconf=""
 	
 	econf \
 		--sysconfdir=/etc/wine \
@@ -132,8 +129,12 @@ pkg_postinst() {
 	elog "winecfg or regedit HKCU\\Software\\Wine"
 	
 	if use asio; then
-		elog ""
+		echo
 		elog "You need to register the asio.dll by running:"
 		elog "regsvr32 /usr/lib/wine/wineasio.dll.so"
+		elog
+		elog "There is a very nice open source (LGPL) VST host"
+		elog "available at http://www.hermannseib.com/vsthost.htm"
+		echo
 	fi
 }
