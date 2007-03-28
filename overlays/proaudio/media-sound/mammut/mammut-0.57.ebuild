@@ -18,7 +18,10 @@ RDEPEND=">=media-sound/jack-audio-connection-kit-0.100
 	>=media-libs/libsamplerate-0.1.1
 	media-libs/libvorbis
 	media-libs/mesa
-	virtual/x11"
+	|| ( (  x11-proto/xineramaproto
+			x11-proto/xextproto
+			x11-proto/xproto )
+		virtual/x11 )"
 DEPEND="${RDEPEND}"
 
 src_unpack() {
