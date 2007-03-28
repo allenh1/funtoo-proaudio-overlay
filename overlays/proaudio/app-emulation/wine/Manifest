@@ -1,7 +1,7 @@
-AUX wine-0.9.33-wineasio.patch 66740 RMD160 d0bc5dd0866e6f04f7346f31da70baf0a2ac28c5 SHA1 ff9115de62fa00736fa51ae78d5b436fb5bd1cec SHA256 d9d6dd4e1b7622d3f9a6ce1c2c9eea089c76d371006d37065a84566dfda12e47
-MD5 dad7b0869f6833a8efda8b0286a5d42f files/wine-0.9.33-wineasio.patch 66740
-RMD160 d0bc5dd0866e6f04f7346f31da70baf0a2ac28c5 files/wine-0.9.33-wineasio.patch 66740
-SHA256 d9d6dd4e1b7622d3f9a6ce1c2c9eea089c76d371006d37065a84566dfda12e47 files/wine-0.9.33-wineasio.patch 66740
+AUX wine-0.9.33-wineasio.patch 66911 RMD160 6a73617bd9f88cb6dc27b98314a8f26fcca3948a SHA1 327a81d4638020cbe292ab690de59176411984a4 SHA256 88f3b383a8fa0fd01f82eb8a7d7e1ad6276a1b1392939fa72921f34befa508cc
+MD5 7949fdd9521d5487820c9a2c4246d0c7 files/wine-0.9.33-wineasio.patch 66911
+RMD160 6a73617bd9f88cb6dc27b98314a8f26fcca3948a files/wine-0.9.33-wineasio.patch 66911
+SHA256 88f3b383a8fa0fd01f82eb8a7d7e1ad6276a1b1392939fa72921f34befa508cc files/wine-0.9.33-wineasio.patch 66911
 AUX wine-gentoo-no-ssp.patch 351 RMD160 0d8b16c8712deb2bb6b41ac3eeee24d33017052f SHA1 d2eed24e0a3737931430bfe33625c81cc9106065 SHA256 dbbf03a0cf6d9815ad4c8030ec75714ac01e20d9da52547449f0ae1a770bd2fd
 MD5 59b0bc7c4a873a0d4aa7312e8cd5c79b files/wine-gentoo-no-ssp.patch 351
 RMD160 0d8b16c8712deb2bb6b41ac3eeee24d33017052f files/wine-gentoo-no-ssp.patch 351
