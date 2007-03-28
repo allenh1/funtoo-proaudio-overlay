@@ -1,0 +1,22 @@
+diff -Naur wine-0.9.33.asio_orig/dlls/wineasio/asio.c wine-0.9.33.asio/dlls/wineasio/asio.c
+--- wine-0.9.33.asio_orig/dlls/wineasio/asio.c	2007-03-28 18:39:28.674377782 +0200
++++ wine-0.9.33.asio/dlls/wineasio/asio.c	2007-03-28 18:42:18.177338123 +0200
+@@ -269,7 +269,7 @@
+     TRACE("(%p, %p)\n", iface, sysHandle);
+ 
+     This->sample_rate = 48000.0;
+-    This->block_frames = 1024;
++    This->block_frames = 2048;
+     This->input_latency = This->block_frames;
+     This->output_latency = This->block_frames * 2;
+     This->miliseconds = (long)((double)(This->block_frames * 1000) / This->sample_rate);
+@@ -329,6 +329,9 @@
+ 
+     fp_jack_set_process_callback(This->client, jack_process, This);
+ 
++    This->block_frames = fp_jack_get_buffer_size (This->client);
++    This->input_latency = This->block_frames;
++    This->output_latency = This->block_frames * 2;
+     This->sample_rate = fp_jack_get_sample_rate(This->client);
+     This->miliseconds = (long)((double)(This->block_frames * 1000) / This->sample_rate);
+ 

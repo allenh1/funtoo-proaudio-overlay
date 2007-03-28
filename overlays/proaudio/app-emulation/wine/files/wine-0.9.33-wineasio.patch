@@ -338,7 +338,7 @@ diff -r -c -N wine-0.9.33.orig/dlls/wineasio/asio.c wine-0.9.33/dlls/wineasio/as
 +     TRACE("(%p, %p)\n", iface, sysHandle);
 + 
 +     This->sample_rate = 48000.0;
-+     This->block_frames = 2048;
++     This->block_frames = 1024;
 +     This->input_latency = This->block_frames;
 +     This->output_latency = This->block_frames * 2;
 +     This->miliseconds = (long)((double)(This->block_frames * 1000) / This->sample_rate);
@@ -398,9 +398,6 @@ diff -r -c -N wine-0.9.33.orig/dlls/wineasio/asio.c wine-0.9.33/dlls/wineasio/as
 + 
 +     fp_jack_set_process_callback(This->client, jack_process, This);
 + 
-+     This->block_frames = fp_jack_get_buffer_size (This->client);
-+     This->input_latency = This->block_frames;
-+     This->output_latency = This->block_frames * 2;
 +     This->sample_rate = fp_jack_get_sample_rate(This->client);
 +     This->miliseconds = (long)((double)(This->block_frames * 1000) / This->sample_rate);
 + 
