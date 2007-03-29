@@ -64,7 +64,7 @@ src_unpack() {
 	
 	if use asio; then
 		epatch "${FILESDIR}/${P}-wineasio.patch"
-		epatch "${FILESDIR}/${P}-wineasio_recalc_buffersize.patch"
+		epatch "${FILESDIR}/${P}-wineasio2.patch"
 		eautoreconf
 	fi
 }
