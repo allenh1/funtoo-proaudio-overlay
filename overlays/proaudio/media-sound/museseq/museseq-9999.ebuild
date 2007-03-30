@@ -82,6 +82,9 @@ src_install() {
 	cd "${S}"
 	dodoc AUTHORS ChangeLog NEWS README SECURITY Reference
 	mv "${D}/usr/bin/muse" "${D}/usr/bin/museseq-1.0"
+	newicon "${S}/packaging/muse_icon.png" "museseq.png"
+	make_desktop_entry "museseq-1.0" "MusE Sequencer 1.0" museseq \
+		"AudioVideo;Audio;Sequencer" 
 }
 
 pkg_postinst() {
