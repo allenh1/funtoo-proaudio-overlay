@@ -34,6 +34,7 @@ RDEPEND="${DEPEND}
 	lash? ( >=media-sound/lash-0.4.0 )
 	!media-sound/museseq-cvs
 	!media-sound/museseq-svn
+	!>=media-sound/museseq-9999
 	zynaddsubfx? ( =x11-libs/fltk-1.1* 
 				>=dev-libs/mini-xml-2 )"
 
