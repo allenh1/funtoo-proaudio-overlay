@@ -29,7 +29,7 @@ RDEPEND="${DEPEND}
 	dev-lang/perl
 	>=media-libs/libsndfile-1.0.1
 	>=media-libs/libsamplerate-0.1.0
-	>=media-sound/jack-audio-connection-kit-0.102.1
+	=media-sound/jack-audio-connection-kit-0.102.2*
 	dssi? ( >=media-libs/dssi-0.9.0 )
 	lash? ( >=media-sound/lash-0.4.0 )
 	!media-sound/museseq-cvs
