@@ -61,7 +61,7 @@ src_compile() {
 		-DENABLE_ZYNADDSUBFX="0" \
 		-DENABLE_ZYNADDSUBFX="$(! use zynaddsubfx; echo "$?")" 
 
-	cmake doc/CMakeLists.txt
+	cmake ../doc/CMakeLists.txt
 
 	emake || die "build failed"
 }

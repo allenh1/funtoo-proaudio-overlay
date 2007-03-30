@@ -1,13 +1,10 @@
-# Copyright 1999-2005 Gentoo Foundation
+# Copyright 1999-2007 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/museseq/museseq-0.7.1.ebuild,v 1.4 2005/05/15 14:43:25 flameeyes Exp $
+# $Header: $
 
-#inherit kde-functions 
 inherit subversion virtualx eutils toolchain-funcs qt4 patcher
-#need-qt 4
 
 ESVN_REPO_URI="https://svn.sourceforge.net/svnroot/lmuse/trunk/muse"
-#ESVN_PROJECT="muse"
 
 MY_PN=${PN/museseq/muse}
 S=${WORKDIR}/${MY_PN}
@@ -36,7 +33,8 @@ DEPEND="$(qt4_min_version 4.2.3)
 	lash? ( >=media-sound/lash-0.4.0 )
 	!media-sound/museseq-cvs
 	!media-sound/museseq-svn
-	zynaddsubfx? ( =x11-libs/fltk-1.1* )"
+	zynaddsubfx? ( =x11-libs/fltk-1.1* 
+			>=dev-libs/mini-xml-2 )"
 
 pkg_setup() {
 	if ! built_with_use ">=x11-libs/qt-4" qt3support; then
@@ -57,27 +55,19 @@ src_unpack() {
 	subversion_src_unpack
 	cd ${S}
 	patcher "${FILESDIR}/fix_zyn.patch apply"
+	mkdir build
 }
 
 src_compile() {
-#	cd "${S}"
-#	QTDIR=/usr
-#	#not sure yet if these work:
-#	use dssi || ENABLE_DSSI=OFF
-#	#use vst && ENABLE_VST=ON
-#	use fluidsynth && ENABLE_FLUID=ON
-#	./gen || die "make failed"
-	#mkdir muse                    # create build directory
-	#cd muse                       # enter build directory
-	#cmake ../muse             # create make system
-	cmake . -DCMAKE_INSTALL_PREFIX=/usr \
+	cd "${S}/build"
+	cmake .. -DCMAKE_INSTALL_PREFIX=/usr \
 		-DENABLE_DSSI="$(! use dssi; echo "$?")" \
 		-DENABLE_VST="$(! use vst; echo "$?")" \
 		-DENABLE_FLUID="$(! use fluidsynth; echo "$?")" \
 		-DENABLE_ZYNADDSUBFX="0" \
 		-DENABLE_ZYNADDSUBFX="$(! use zynaddsubfx; echo "$?")" 
 
-	cmake doc/CMakeLists.txt
+	cmake ../doc/CMakeLists.txt
 
 	# correct some wrong generated files for zynaddsubfx
 
@@ -87,6 +77,7 @@ src_compile() {
 src_install() {
 #	cd "${S}"/build
 	#sed -i -e "s:/usr/local:/usr:" CMakeCache.txt
+	cd "${S}/build"
 	make DESTDIR=${D} install || die "install failed"
 	cd "${S}"
 	dodoc AUTHORS ChangeLog NEWS README SECURITY Reference
