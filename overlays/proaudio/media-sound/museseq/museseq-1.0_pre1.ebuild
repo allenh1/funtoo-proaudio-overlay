@@ -34,7 +34,8 @@ RDEPEND="${DEPEND}
 	lash? ( >=media-sound/lash-0.4.0 )
 	!media-sound/museseq-cvs
 	!media-sound/museseq-svn
-	zynaddsubfx? ( =x11-libs/fltk-1.1* )"
+	zynaddsubfx? ( =x11-libs/fltk-1.1* 
+				>=dev-libs/mini-xml-2 )"
 
 pkg_setup() {
 	if ! built_with_use ">=x11-libs/qt-4" qt3support; then
