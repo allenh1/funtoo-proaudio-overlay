@@ -69,6 +69,10 @@ src_unpack(){
 	#use realtime-lsm && epatch "${FILESDIR}/realtime-lsm-0.8.6_2.6.19.gz"
 	use vesafb-tng && patcher "${DISTDIR}/${VESAFB} apply"
 	use fbsplash && patcher "${DISTDIR}/${FBSPLASH} apply"
+	
+	# expose 1gig lowmem options
+	patcher "${FILESDIR}kconfig-expose_vmsplit_option.patch.gz apply"
+	
 	# workaround to build some external modules as they urge for this file
 cat << EOT > include/linux/config.h
 #ifndef _LINUX_CONFIG_H
