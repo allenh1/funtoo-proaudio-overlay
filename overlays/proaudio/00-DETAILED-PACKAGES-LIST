@@ -591,6 +591,7 @@
 
 
 #------- media-sound/ardour2 --------
+	ardour2-2.0_rc1	arch: ~x86
 	ardour2-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: multi-track hard disk recording software
 	Homepage:    http://ardour.org/
