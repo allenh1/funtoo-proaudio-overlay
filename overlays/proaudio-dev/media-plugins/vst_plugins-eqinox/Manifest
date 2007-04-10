@@ -1,0 +1,8 @@
+DIST eqinox-v0.1.3.tar.bz2 1002813 RMD160 fede7542e5110a968bc85baeea9da36e76ef566b SHA1 87c0b0ebf3a09e5d02a4ebc486a4d413e08ee8aa SHA256 11ecc975e91fe7e593762ad1f538379bae441f2c91768b03d7655bf047fbaa67
+EBUILD vst_plugins-eqinox-0.1.3.ebuild 531 RMD160 f8d37f98fcc7dcb840eec18c2dd2424e847e1ec7 SHA1 05cc10b261a78229cbbd05ecdb585e25aec8f8ec SHA256 886f1f906a93d22f0175108e5fc2afb3f09ec4d1fbd1ba1faa5c6b5b9b5160da
+MD5 3d5d19ffc207aea9f107df3e1c3f9edc vst_plugins-eqinox-0.1.3.ebuild 531
+RMD160 f8d37f98fcc7dcb840eec18c2dd2424e847e1ec7 vst_plugins-eqinox-0.1.3.ebuild 531
+SHA256 886f1f906a93d22f0175108e5fc2afb3f09ec4d1fbd1ba1faa5c6b5b9b5160da vst_plugins-eqinox-0.1.3.ebuild 531
+MD5 68e1eb19dca473726096d55359ac445e files/digest-vst_plugins-eqinox-0.1.3 247
+RMD160 9e2b9706084578fa58a2905e240d1f5f6940b55c files/digest-vst_plugins-eqinox-0.1.3 247
+SHA256 9cecff16dc276260e8abe127d04bcd913f73d0dce1b8425c4ceae9fe600f2071 files/digest-vst_plugins-eqinox-0.1.3 247
