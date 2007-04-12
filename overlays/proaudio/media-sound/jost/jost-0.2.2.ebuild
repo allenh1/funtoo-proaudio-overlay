@@ -37,5 +37,5 @@ src_compile() {
 src_install() {
 	exeinto /usr/bin
 	doexe plugins/Jost/build/linux/jost
+	dodoc plugins/Jost/readme.txt
 }
-
