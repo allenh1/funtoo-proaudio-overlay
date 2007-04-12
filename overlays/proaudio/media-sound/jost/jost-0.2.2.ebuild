@@ -39,3 +39,10 @@ src_install() {
 	doexe plugins/Jost/build/linux/jost
 	dodoc plugins/Jost/readme.txt
 }
+
+pkg_postinst() {
+	elog "For some sample native linux VST's emerge some of"
+	elog "media-plugins/vst_plugins-*"
+	elog "Then start JOST with:"
+	elog "jost /usr/lib/vst/<name>.so"
+}
