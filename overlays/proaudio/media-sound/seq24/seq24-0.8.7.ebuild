@@ -40,4 +40,6 @@ src_compile() {
 src_install() {
 	make DESTDIR="${D}" install || die
 	dodoc AUTHORS ChangeLog README RTC SEQ24
+	doicon ${FILESDIR}/${PN}.png
+	make_desktop_entry "${PN}" "SEQ24" "${PN}" "AudioVideo;Audio;Sequencer"
 }
