@@ -10,7 +10,7 @@ ESVN_REPO_URI="svn://jacklab.net/eXT2/ladspa2vst"
 
 LICENSE="LGPL"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS=""
 IUSE=""
 
 DEPEND="media-libs/vst-sdk"
