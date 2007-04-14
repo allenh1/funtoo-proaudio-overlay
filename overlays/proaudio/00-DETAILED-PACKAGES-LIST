@@ -1214,6 +1214,7 @@
 
 #------- media-sound/mixxx --------
 	mixxx-1.5.0_beta1	arch: ~x86 ~amd64 ~ppc
+	mixxx-1.5.0	arch: ~x86 ~amd64 ~ppc
 	Description: Digital DJ tool using QT 3.x
 	Homepage:    http://mixxx.sourceforge.net
 
