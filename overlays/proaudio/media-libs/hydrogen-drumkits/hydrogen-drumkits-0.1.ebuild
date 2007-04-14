@@ -7,16 +7,17 @@ inherit unpacker
 RESTRICT="nomirror"
 DESCRIPTION="free drumkits for hydrogen"
 HOMEPAGE="http://www.hydrogen-music.org"
+PRO_MIRROR="http://download.tuxfamily.org/proaudio/distfiles"
 SRC_URI="mirror://sourceforge/hydrogen/MilloDrums-3.zip
-	http://rolandclan.info/media/samples/dr-110/Boss_DR-110.h2drumkit
-	http://rolandclan.info/media/samples/v-synth/V-Synth_VariBreaks.h2drumkit
-	http://rolandclan.info/media/samples/tr-626/Roland_TR-626.h2drumkit
-	http://rolandclan.info/media/samples/tr-909/Roland_TR-909.h2drumkit
-	http://rolandclan.info/media/samples/tr-808/Roland_TR-808.h2drumkit
-	http://rolandclan.info/media/samples/tr-707/Roland_TR-707.h2drumkit
-	http://rolandclan.info/media/samples/tr-606/Roland_TR-606.h2drumkit
-	http://artemiolabs.com/downloads/audio/hydrogen/EE.tar.bz2
-	http://artemiolabs.com/downloads/audio/hydrogen/TR808EK.tar.bz2
+	${PRO_MIRROR}/Boss_DR-110.h2drumkit
+	${PRO_MIRROR}/V-Synth_VariBreaks.h2drumkit
+	${PRO_MIRROR}/Roland_TR-626.h2drumkit
+	${PRO_MIRROR}/Roland_TR-909.h2drumkit
+	${PRO_MIRROR}/Roland_TR-808.h2drumkit
+	${PRO_MIRROR}/Roland_TR-707.h2drumkit
+	${PRO_MIRROR}/Roland_TR-606.h2drumkit
+	${PRO_MIRROR}/EE.tar.bz2
+	${PRO_MIRROR}/TR808EK.tar.bz2
 	mirror://sourceforge/hydrogen/ErnysPercussion.h2drumkit
 	mirror://sourceforge/hydrogen/Millo_MultiLayered2.h2drumkit
 	mirror://sourceforge/hydrogen/HardElectro1.tar.gz

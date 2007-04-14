@@ -43,11 +43,11 @@ src_unpack() {
 	cd ${S}
 	chmod +x gen_py_constants.py
 #	export WANT_AUTOMAKE="1.10"
-#	./bootstrap
+	./bootstrap
 }
 
 src_compile() {
-	#econf || die "Configure failed"
+	econf || die "Configure failed"
 	emake || die "make failed"
 }
 
@@ -56,6 +56,8 @@ src_install() {
 	insinto /usr/lib/zynjacku
 	doins zynjacku.so zynjacku.py zynjacku.glade
 	fperms +x /usr/lib/zynjacku/zynjacku.py
+	dosym /usr/share/zynjacku/gpl.txt /usr/lib/zynjacku/gpl.txt
+	dosym /usr/bin/midi_led.py /usr/lib/zynjacku/midi_led.py
 	make_wrapper "zynjacku" "/usr/lib/zynjacku/zynjacku.py" "/usr/lib/zynjacku"
 #	dodoc README AUTHORS NEWS
 }

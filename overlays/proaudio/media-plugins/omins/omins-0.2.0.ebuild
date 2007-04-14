@@ -15,6 +15,13 @@ SLOT="0"
 DEPEND="media-libs/ladspa-sdk"
 RDEPEND="${DEPEND}"
 
+src_unpack() {
+	unpack ${A}
+	cd ${S}
+	sed -ie 's#$libdir/ladspa#\\$\\(DESTDIR\\)$libdir/ladspa#' \
+		configure.ac
+}
+
 src_compile() {
 	econf $(use_enable debug) || die "econf failed"
 	emake || die "emake failed"
