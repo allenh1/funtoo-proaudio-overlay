@@ -24,7 +24,7 @@ DEPEND="$(qt_min_version 3.1)
 	media-libs/audiofile
 	media-libs/libsndfile
 	media-libs/libsamplerate
-	media-libs/portaudio
+	>=media-libs/portaudio-19
 	alsa? ( media-libs/alsa-lib )
 	jack? ( media-sound/jack-audio-connection-kit )"
 
