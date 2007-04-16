@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-IUSE="alsa jack"
+IUSE="alsa jack lua"
 
 inherit eutils qt3
 
@@ -26,7 +26,8 @@ DEPEND="$(qt_min_version 3.1)
 	media-libs/libsamplerate
 	>=media-libs/portaudio-19
 	alsa? ( media-libs/alsa-lib )
-	jack? ( media-sound/jack-audio-connection-kit )"
+	jack? ( media-sound/jack-audio-connection-kit )
+	lua? ( dev-lang/lua )"
 
 RDEPEND="${DEPEND}
 	 dev-lang/perl"
