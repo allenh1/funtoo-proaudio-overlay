@@ -61,7 +61,4 @@ src_install() {
 	     INSTALL_ROOT="${D}" install || die "make install failed"
 
 	dodoc ../README ../README.ALSA ../Mixxx-Manual.pdf
-	
-	newicon "${S}/src/mixxx-icon.png" "${PN}.png"
-	make_desktop_entry "${PN}" "Mixxx" "${PN}" "AudioVideo;Audio"
 }
