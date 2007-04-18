@@ -26,6 +26,7 @@ src_compile() {
 src_install() {
 	exeinto /usr/lib/wine
 	doexe *.so
+	dodoc README.TXT
 }
 
 pkg_postinst() {
