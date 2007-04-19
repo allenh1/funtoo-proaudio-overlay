@@ -952,6 +952,7 @@
 #------- media-sound/jace --------
 	jace-0.0.2	arch: x86
 	jace-0.0.3	arch: x86
+	jace-0.1.0	arch: x86 ~amd64
 	Description: JACE is a Convolution Engine for JACK and
 		 ALSA
 	Homepage:    http://www.kokkinizita.net/linuxaudio/
@@ -1047,7 +1048,7 @@
 
 #------- media-sound/japa --------
 	japa-0.1.8	arch: x86 ~amd64
-	japa-0.2.0	arch: x86 ~amd64
+	japa-0.2.1	arch: x86 ~amd64
 	Description: JAPA is a perceptual analyzer for JACK and
 		 ALSA
 	Homepage:    http://www.kokkinizita.net/linuxaudio/
