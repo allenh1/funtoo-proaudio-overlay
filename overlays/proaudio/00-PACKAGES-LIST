@@ -54,6 +54,7 @@ media-plugins/oscilloscope
 media-plugins/pd-hid
 media-plugins/preamp
 media-plugins/sineshaper
+media-plugins/swh-lv2
 media-plugins/swh-plugins
 media-plugins/vocoder-ladspa
 media-plugins/vst_plugins-ZR3

@@ -417,10 +417,17 @@
 	Homepage:    http://www.student.nada.kth.se/~d00-llu/music_dssi.php?lang=en
 
 
+#------- media-plugins/swh-lv2 --------
+	swh-lv2-1.0.10	arch: x86
+	Description: Large collection of lv2 audio plugins/effects
+		 (swh-plugins)
+	Homepage:    http://plugin.org.uk/lv2/
+
+
 #------- media-plugins/swh-plugins --------
 	swh-plugins-0.4.15	arch: ~amd64 ~ppc x86 ~ppc-macos
 	Description: Large collection of LADSPA audio plugins/effects
-		
+		 (swh-plugins)
 	Homepage:    http://plugin.org.uk
 
 

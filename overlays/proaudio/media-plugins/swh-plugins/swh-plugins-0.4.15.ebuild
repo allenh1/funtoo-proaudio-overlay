@@ -6,7 +6,7 @@ inherit flag-o-matic eutils
 
 RESTRICT="nomirror"
 IUSE=""
-DESCRIPTION="Large collection of LADSPA audio plugins/effects"
+DESCRIPTION="Large collection of LADSPA audio plugins/effects (swh-plugins)"
 HOMEPAGE="http://plugin.org.uk"
 SRC_URI="http://plugin.org.uk/releases/${PV}/${P}.tar.gz"
 
