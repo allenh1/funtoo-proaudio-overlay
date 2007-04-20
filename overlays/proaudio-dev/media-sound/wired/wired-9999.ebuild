@@ -13,17 +13,24 @@ ESVN_PROJECT="wired"
 
 LICENSE="GPL2"
 SLOT="0"
-KEYWORDS="-*"
-IUSE="nls pic static debug dssi plugins codecs oss alsa jack"
+KEYWORDS=""
+IUSE="nls pic static debug dssi plugins codecs oss alsa jack portaudio-internal"
 S="${WORKDIR}/${ESVN_PROJECT}"
 
-DEPEND="media-libs/alsa-lib
-	media-libs/libsndfile
-	>=x11-libs/gtk+-2.0.0
-	>=x11-libs/wxGTK-2.6.2
-	>=media-libs/portaudio-19
-	>=media-libs/libsoundtouch-1.2.1
-	dssi? ( media-libs/dssi )
+RDEPEND=">=media-libs/libsndfile-1.0
+	media-libs/alsa-lib
+	media-libs/libsamplerate
+	plugins? ( >=media-libs/libsoundtouch-1.2.1 )
+	dssi? ( >=media-libs/dssi-0.9 )
+	codecs? ( media-libs/libvorbis 
+			media-libs/flac )
+	portaudio-internal? ( !media-libs/portaudio )
+	!portaudio-internal? ( >=media-libs/portaudio-19 )"
+
+DEPEND="${RDEPEND}
+	dev-util/pkgconfig
+	sys-devel/libtool
+	sys-devel/make
 	!wired-svn/wired-svn"
 
 src_compile() {
@@ -34,6 +41,10 @@ src_compile() {
 	set-wxconfig gtk2-ansi
 
 	./autogen.sh
+
+	local myconf
+	myconf=""
+	use portaudio-internal || myconf="--disable-portaudio"
 	econf \
 		--with-wx-config=/usr/lib/wx/config/gtk2-ansi-release-2.6 \
 		$(use_with alsa) \
@@ -46,6 +57,7 @@ src_compile() {
 		$(use_enable nls) \
 		$(use_with pic) \
 		$(use_with static) \
+		${myconf} \
 	    || die "Configuration failed"
 	emake || die "Make failed"
 }
@@ -54,4 +66,6 @@ src_install() {
 	cd "${S}"/wired
 	make DESTDIR="${D}" install || die "install failed"
 	dodoc AUTHORS ChangeLog README
+	doicon "${FILESDIR}/${PN}.png"
+	make_desktop_entry ${PN} "Wired" ${PN} "AudioVideo;Audio;Sequencer;"
 }

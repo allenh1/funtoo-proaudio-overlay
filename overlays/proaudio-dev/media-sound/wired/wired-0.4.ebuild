@@ -22,8 +22,7 @@ RDEPEND="${RDEPEND}
 	>=x11-libs/wxGTK-2.6.0"
 
 ## Sound related
-RDEPEND="${RDEPEND}
-	>=media-libs/libsndfile-1.0
+RDEPEND=">=media-libs/libsndfile-1.0
 	media-libs/alsa-lib
 	media-libs/libsamplerate
 	plugins? ( >=media-libs/libsoundtouch-1.2.1 )
