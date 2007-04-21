@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64"
 
 IUSE="aac flac mp3 vorbis"
-DEPEND="${REDEPEND}"
+
 RDEPEND=">=media-sound/jack-audio-connection-kit-0.100.7
 		dev-python/eyeD3
 		dev-python/pygtk
@@ -26,6 +26,7 @@ RDEPEND=">=media-sound/jack-audio-connection-kit-0.100.7
 		mp3? ( media-sound/lame )
 		vorbis? ( media-sound/vorbis-tools )
 		aac? ( media-libs/faad2 )"
+DEPEND="${RDEPEND}"
 
 src_compile() {
 	cd "${S}"
