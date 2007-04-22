@@ -14,9 +14,11 @@ media-plugins/vst_plugins-zynaddsubfx
 media-plugins/vst_plugins-ladspa2vst
 media-plugins/hexter
 media-plugins/ll-plugins
+media-plugins/vst_plugins-soulforce
 media-plugins/swh-plugins
 media-plugins/zynadd
 media-plugins/vst_plugins-destroyfx
+media-plugins/vst_plugins-cern
 media-plugins/dssi-vst
 media-plugins/vocoder-ladspa
 media-plugins/swh-lv2

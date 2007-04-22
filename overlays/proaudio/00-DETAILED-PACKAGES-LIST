@@ -126,6 +126,13 @@
 	Homepage:    http://ll-plugins.nongnu.org
 
 
+#------- media-plugins/vst_plugins-soulforce --------
+	vst_plugins-soulforce-0.1	arch: ~x86
+	Description: VST port of Niall Moody's SoulForce pedal
+		 distortion
+	Homepage:    http://www.anticore.org/jucetice/?page_id=8
+
+
 #------- media-plugins/swh-plugins --------
 	swh-plugins-0.4.15	arch: ~amd64 ~ppc x86 ~ppc-macos
 	Description: Large collection of LADSPA audio plugins/effects
@@ -145,6 +152,13 @@
 	Description: Collection of various DestroyFX plugins -
 		 native linux VST port
 	Homepage:    http://www.anticore.org/jucetice/?page_id=7
+
+
+#------- media-plugins/vst_plugins-cern --------
+	vst_plugins-cern-0.1	arch: ~x86
+	Description: Collection of ported VST plugins from cern
+		
+	Homepage:    http://cern.linux.vst.googlepages.com
 
 
 #------- media-plugins/dssi-vst --------
@@ -1355,9 +1369,8 @@
 
 #------- media-sound/idjc --------
 	idjc-0.6.10	arch: ~x86 ~amd64
+	idjc-0.6.11	arch: ~x86 ~amd64
 	idjc-0.6.11_pre1	arch: ~x86 ~amd64
-	idjc-0.6.8_pre5	arch: ~x86 ~amd64
-	idjc-0.6.9	arch: ~x86 ~amd64
 	Description: Internet DJ Console
 	Homepage:    http://www.onlymeok.nildram.co.uk
 

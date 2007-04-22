@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+inherit vstplugin
 
 MY_P="${PN/vst_plugins-/}"
 

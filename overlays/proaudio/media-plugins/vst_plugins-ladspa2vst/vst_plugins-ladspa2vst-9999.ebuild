@@ -2,13 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit subversion
+inherit subversion vstplugin
 
 DESCRIPTION="LADSPA to VST bridge"
 HOMEPAGE="http://www.anticore.org/jucetice/?page_id=8"
 ESVN_REPO_URI="svn://jacklab.net/eXT2/ladspa2vst"
 
-LICENSE="LGPL"
+LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
 IUSE=""

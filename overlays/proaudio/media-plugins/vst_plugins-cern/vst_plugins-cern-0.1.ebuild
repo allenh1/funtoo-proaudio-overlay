@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+inherit vstplugin
+
 DESCRIPTION="Collection of ported VST plugins from cern"
 HOMEPAGE="http://cern.linux.vst.googlepages.com"
 SRC_URI="http://cern.linux.vst.googlepages.com/abfpan.tar.bz2

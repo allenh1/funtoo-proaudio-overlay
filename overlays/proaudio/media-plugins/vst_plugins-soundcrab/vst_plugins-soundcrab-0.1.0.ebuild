@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+inherit vstplugin
 
 MY_P="${PN/vst_plugins-/}-v${PV}"
 
@@ -10,7 +11,7 @@ HOMEPAGE="http://www.anticore.org/jucetice/?page_id=29"
 SRC_URI="http://www.anticore.org/jucetice/wp-content/uploads/${MY_P}.tar.bz2"
 RESTRICT="nomirror"
 
-LICENSE="LGPL"
+LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~x86"
 IUSE=""

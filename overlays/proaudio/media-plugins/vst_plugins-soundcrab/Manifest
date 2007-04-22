@@ -1,8 +1,8 @@
 DIST soundcrab-v0.1.0.tar.bz2 1001780 RMD160 b9203d4825967d5973ef2ab039325b9550c72e9a SHA1 2134268a39c262286977103200f1ef8e94df4c47 SHA256 0e07831dbea94696bbf2f02d28a27e7522c3e62652cda9cd5db9aed53aed8f0a
-EBUILD vst_plugins-soundcrab-0.1.0.ebuild 545 RMD160 f55d6561125b841fb1ca3dfae7841ce64291809d SHA1 ed0b59ea3699478b5562eae39e8d669462edc6cd SHA256 4e46d11311a356bb6cbc0ec452c46b1cb211b939f400caf741306a361a964f92
-MD5 c784f6037d39fa4d7d2d85bab6419371 vst_plugins-soundcrab-0.1.0.ebuild 545
-RMD160 f55d6561125b841fb1ca3dfae7841ce64291809d vst_plugins-soundcrab-0.1.0.ebuild 545
-SHA256 4e46d11311a356bb6cbc0ec452c46b1cb211b939f400caf741306a361a964f92 vst_plugins-soundcrab-0.1.0.ebuild 545
+EBUILD vst_plugins-soundcrab-0.1.0.ebuild 567 RMD160 49f94b2797ac9713fa227dc5b945f773b93ec015 SHA1 534b891ef1cf2baf843fd7f460239b9d1f2a48ac SHA256 5c82039fb9836d6c18ee69bb80646c031f2329645035fdfac5d32f6095f26adc
+MD5 587067e47f4e83b52fa7011e6340aeb0 vst_plugins-soundcrab-0.1.0.ebuild 567
+RMD160 49f94b2797ac9713fa227dc5b945f773b93ec015 vst_plugins-soundcrab-0.1.0.ebuild 567
+SHA256 5c82039fb9836d6c18ee69bb80646c031f2329645035fdfac5d32f6095f26adc vst_plugins-soundcrab-0.1.0.ebuild 567
 MD5 a2bac7483f554fee247c20ea170e7408 files/digest-vst_plugins-soundcrab-0.1.0 256
 RMD160 1f9548b88fc426adb7c060e63c68e54fe1d6307f files/digest-vst_plugins-soundcrab-0.1.0 256
 SHA256 24da7d6f240ccdeb75b75079a39e39379dd85eed130e9501a6078ac6de326f9f files/digest-vst_plugins-soundcrab-0.1.0 256

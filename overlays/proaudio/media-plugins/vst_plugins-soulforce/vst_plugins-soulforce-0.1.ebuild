@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+inherit vstplugin
 
 DESCRIPTION="VST port of Niall Moody's SoulForce pedal distortion"
 HOMEPAGE="http://www.anticore.org/jucetice/?page_id=8"
