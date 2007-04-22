@@ -63,6 +63,13 @@
 	Homepage:    http://www.student.nada.kth.se/~d00-llu/music_dssi.php?lang=en
 
 
+#------- media-plugins/vst_plugins-mda --------
+	vst_plugins-mda-0.1	arch: ~x86
+	Description: Linux port of Paul Kellet's mda plugin collection
+		
+	Homepage:    http://www.linux-vst.com/
+
+
 #------- media-plugins/wasp --------
 	wasp-0.1.3-r2	arch: amd64 x86
 	wasp-0.1.4	arch: amd64 x86
@@ -161,6 +168,12 @@
 	Homepage:    http://cern.linux.vst.googlepages.com
 
 
+#------- media-plugins/vst_plugins-freeverb --------
+	vst_plugins-freeverb-0.1	arch: ~x86
+	Description: Linux version of Jezar's reverb plugin
+	Homepage:    http://www.linux-vst.com/
+
+
 #------- media-plugins/dssi-vst --------
 	dssi-vst-0.3.1	arch: ~amd64 x86
 	dssi-vst-0.4	arch: ~amd64 x86
@@ -181,6 +194,13 @@
 	Description: Large collection of lv2 audio plugins/effects
 		 (swh-plugins)
 	Homepage:    http://plugin.org.uk/lv2/
+
+
+#------- media-plugins/vst_plugins-synth4 --------
+	vst_plugins-synth4-0.1	arch: ~x86
+	Description: 8 voice synth with filter, envelopes, LFO
+		 and GUI
+	Homepage:    http://www.linux-vst.com/
 
 
 #------- media-plugins/omins --------

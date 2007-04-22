@@ -5,6 +5,7 @@ media-plugins/vst_plugins-ZR3
 media-plugins/sineshaper
 media-plugins/fil-plugins
 media-plugins/oscilloscope
+media-plugins/vst_plugins-mda
 media-plugins/wasp
 media-plugins/foo-plugins
 media-plugins/vst_plugins-eqinox
@@ -19,9 +20,11 @@ media-plugins/swh-plugins
 media-plugins/zynadd
 media-plugins/vst_plugins-destroyfx
 media-plugins/vst_plugins-cern
+media-plugins/vst_plugins-freeverb
 media-plugins/dssi-vst
 media-plugins/vocoder-ladspa
 media-plugins/swh-lv2
+media-plugins/vst_plugins-synth4
 media-plugins/omins
 media-plugins/pd-hid
 media-plugins/preamp
