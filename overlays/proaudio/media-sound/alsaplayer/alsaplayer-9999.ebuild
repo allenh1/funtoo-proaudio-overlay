@@ -87,9 +87,6 @@ src_compile() {
 src_install() {
 	emake DESTDIR="${D}" docdir="${D}/usr/share/doc/${PN}" install \
 		|| die "make install failed"
-		
-	make_desktop_entry ${PN} "Alsaplayer" ${PN} \
-	    "AudioVideo;Audio;Player"
 	dodoc AUTHORS ChangeLog README TODO
 	dodoc docs/wishlist.txt
 }
