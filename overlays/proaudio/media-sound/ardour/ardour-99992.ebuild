@@ -2,19 +2,18 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils fetch-tools scons-ccache
+inherit eutils fetch-tools scons-ccache subversion
 
 ESVN_REPO_URI="http://subversion.ardour.org/svn/ardour2/trunk"
 DESCRIPTION="multi-track hard disk recording software"
 HOMEPAGE="http://ardour.org/"
-MY_PN="${PN/2/}"
-MY_PV="${PV/_rc/rc}"
-SRC_URI="http://ardour.org/files/releases/${MY_PN}-${MY_PV}.tar.bz2"
+SRC_URI=""
+URL="http://ardour.org/files/releases/${PN}.tar.bz2"
 RESTRICT="nomirror"
 
 LICENSE="GPL-2"
-SLOT="0"
-KEYWORDS="~x86"
+SLOT="1"
+KEYWORDS=""
 IUSE="nls debug sse altivec vst"
 
 # From beta30 release notes:
@@ -40,8 +39,7 @@ RDEPEND=">=media-libs/liblrdf-0.4.0
 	>=x11-libs/gtk+-2.6
 	>=gnome-base/libgnomecanvas-2.12.0
 	>=media-sound/jack-audio-connection-kit-0.100.0
-	!media-sound/ardour2-cvs
-	!media-sound/ardour2-svn"
+	!=media-sound/ardour2-9*"
 
 	# sys-libs/gdbm # no longer needed?!
 
@@ -56,14 +54,10 @@ DEPEND="${RDEPEND}
 	vst? ( app-arch/zip 
 		=media-libs/vst-sdk-2.3* )"
 
-S="${WORKDIR}/${MY_PN}-${MY_PV}"
+S="${WORKDIR}/ardour2"
 
 pkg_setup(){
-	eerror "This ebuild is obsolete."
-	eerror "Instead try emerge =ardour-2.0_rc2"
-	eerror "Of course you need to unmask ardour first"
-	die
-# issue with ACLOCAL_FLAGS if set to a wrong value
+	# issue with ACLOCAL_FLAGS if set to a wrong value
 	if [ "${#ACLOCAL_FLAGS}" -gt "0" ];then
 		ewarn "check your profile settings:"
 		ewarn "There is no need to set the ACLOCAL_FLAGS"
@@ -75,9 +69,9 @@ pkg_setup(){
 src_unpack(){
 	# abort if user answers no to distribution of vst enabled binaries
 	if use vst;then agree_vst || die "you can not distribute ardour with vst support" ;fi
-	#subversion_src_unpack
+	subversion_src_unpack
 	#fetch_tarball_cmp "${URL}"
-	unpack "${MY_PN}-${MY_PV}.tar.bz2"
+	#unpack "${URL##*/}"
 	cd ${S}
 	# change template dir to not overwrite ardour1 stuff
 	sed -i -e 's:\(share\)/ardour/\(templates\):\1/ardour2/\2:g' templates/SConscript || die "changing template names failed"
@@ -104,7 +98,7 @@ src_unpack(){
 src_compile() {
 	# bug 99664
 	cd ${S}/libs/glibmm2
-	#chmod a+x autogen.sh && ./autogen.sh || die "autogen failed"
+	chmod a+x autogen.sh && ./autogen.sh || die "autogen failed"
 	#cd ${S}/libs/sigc++2/
 	#chmod a+x autogen.sh && ./autogen.sh || die "autogen failed"
 	econf || die "configure failed"

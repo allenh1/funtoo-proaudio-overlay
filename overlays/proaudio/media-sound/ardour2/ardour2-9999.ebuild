@@ -58,6 +58,11 @@ DEPEND="${RDEPEND}
 S="${WORKDIR}/ardour2"
 
 pkg_setup(){
+	eerror "This ebuild is obsolete."
+	eerror "Instead try emerge =ardour-99992 please"
+	eerror "Of course you need to unmask ardour first"
+	eerror "echo \"media-sound/ardour **\" >> /etc/portage/package.keywords"
+	die
 	# issue with ACLOCAL_FLAGS if set to a wrong value
 	if [ "${#ACLOCAL_FLAGS}" -gt "0" ];then
 		ewarn "check your profile settings:"

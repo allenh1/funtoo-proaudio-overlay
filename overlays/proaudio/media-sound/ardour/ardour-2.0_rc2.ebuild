@@ -13,7 +13,7 @@ SRC_URI="http://ardour.org/files/releases/${MY_PN}-${MY_PV}.tar.bz2"
 RESTRICT="nomirror"
 
 LICENSE="GPL-2"
-SLOT="0"
+SLOT="1"
 KEYWORDS="~x86"
 IUSE="nls debug sse altivec vst"
 
@@ -40,8 +40,7 @@ RDEPEND=">=media-libs/liblrdf-0.4.0
 	>=x11-libs/gtk+-2.6
 	>=gnome-base/libgnomecanvas-2.12.0
 	>=media-sound/jack-audio-connection-kit-0.100.0
-	!media-sound/ardour2-cvs
-	!media-sound/ardour2-svn"
+	!=media-sound/ardour2-2*"
 
 	# sys-libs/gdbm # no longer needed?!
 
@@ -59,11 +58,7 @@ DEPEND="${RDEPEND}
 S="${WORKDIR}/${MY_PN}-${MY_PV}"
 
 pkg_setup(){
-	eerror "This ebuild is obsolete."
-	eerror "Instead try emerge =ardour-2.0_rc2"
-	eerror "Of course you need to unmask ardour first"
-	die
-# issue with ACLOCAL_FLAGS if set to a wrong value
+	# issue with ACLOCAL_FLAGS if set to a wrong value
 	if [ "${#ACLOCAL_FLAGS}" -gt "0" ];then
 		ewarn "check your profile settings:"
 		ewarn "There is no need to set the ACLOCAL_FLAGS"
