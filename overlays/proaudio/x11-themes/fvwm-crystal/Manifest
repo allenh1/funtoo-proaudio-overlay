@@ -12,9 +12,16 @@ EBUILD fvwm-crystal-4.1.4.ebuild 1434 RMD160 2f464db55c3ddcc5a0d5a860f9e57b5e9a2
 MD5 8c134b2c76d234469fbace2ce2676793 fvwm-crystal-4.1.4.ebuild 1434
 RMD160 2f464db55c3ddcc5a0d5a860f9e57b5e9a2be41b fvwm-crystal-4.1.4.ebuild 1434
 SHA256 9a914653e08226ef4fe5f265a1e69afefdc8ef65288146011473979a23f91ef9 fvwm-crystal-4.1.4.ebuild 1434
+EBUILD fvwm-crystal-9999.ebuild 2234 RMD160 f95920a0075ab620e1d4ec6cf331e009efedca9d SHA1 16f04d0f117f405e1a72183c72fab758f6000bb2 SHA256 e8e01bef8755e0afa150fdda57079183868c6cc1453d39ad7d310857b749bb64
+MD5 c3778adabd603b29e56b93168e4e0230 fvwm-crystal-9999.ebuild 2234
+RMD160 f95920a0075ab620e1d4ec6cf331e009efedca9d fvwm-crystal-9999.ebuild 2234
+SHA256 e8e01bef8755e0afa150fdda57079183868c6cc1453d39ad7d310857b749bb64 fvwm-crystal-9999.ebuild 2234
 MD5 c2cbc60de41342315ed5b842830b432a files/digest-fvwm-crystal-3.9.4 262
 RMD160 1c79ccd4ec155a04cafb3f49b46c52de2c3577df files/digest-fvwm-crystal-3.9.4 262
 SHA256 dc800f31e25ad7bc046a879d827de5143bedd816904bc03e60ba5d5fee2e7be5 files/digest-fvwm-crystal-3.9.4 262
 MD5 578f91f72aa8495d9e60674dbd08b119 files/digest-fvwm-crystal-4.1.4 262
 RMD160 7a0626a142ca6ea40bd0e042e25b0152b22726d9 files/digest-fvwm-crystal-4.1.4 262
 SHA256 cb712bddc2a8bf4c4c2514785be501a4899849c287a9f201a0e3395535a1a2c6 files/digest-fvwm-crystal-4.1.4 262
+MD5 d41d8cd98f00b204e9800998ecf8427e files/digest-fvwm-crystal-9999 0
+RMD160 9c1185a5c5e9fc54612808977ee8f548b2258d31 files/digest-fvwm-crystal-9999 0
+SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 files/digest-fvwm-crystal-9999 0
