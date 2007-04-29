@@ -11,7 +11,7 @@ SRC_URI="mirror://sourceforge/${PN}/wine-${PV}.tar.bz2"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="-* ~amd64 ~x86"
-IUSE="alsa arts asio cups dbus esd hal jack jpeg lcms ldap nas ncurses opengl oss scanner xml X"
+IUSE="alsa arts cups dbus esd hal jack jpeg lcms ldap nas ncurses opengl oss scanner xml X"
 RESTRICT="test" #72375
 
 RDEPEND=">=media-libs/freetype-2.0.0
@@ -29,7 +29,6 @@ RDEPEND=">=media-libs/freetype-2.0.0
 	)
 	arts? ( kde-base/arts )
 	alsa? ( media-libs/alsa-lib )
-	asio? ( media-libs/asio-sdk )
 	esd? ( media-sound/esound )
 	nas? ( media-libs/nas )
 	cups? ( net-print/cups )
@@ -60,12 +59,8 @@ src_unpack() {
 
 	sed -i '/^UPDATE_DESKTOP_DATABASE/s:=.*:=true:' tools/Makefile.in
 	epatch "${FILESDIR}"/wine-gentoo-no-ssp.patch #66002
+	epatch "${FILESDIR}"/${P}-alsamidi_lockup_fix.patch
 	sed -i '/^MimeType/d' tools/wine.desktop || die #117785
-	
-	if use asio; then
-		epatch "${FILESDIR}/${P}-wineasio.patch"
-		eautoreconf
-	fi
 }
 
 config_cache() {
@@ -103,13 +98,8 @@ src_compile() {
 
 	#	$(use_enable amd64 win64)
 
-	# ASIO stuff
-	local myconf
-	use asio && myconf="--with-asio-sdk=/opt/asiosdk2.2" || myconf=""
-	
 	econf \
 		--sysconfdir=/etc/wine \
-		${myconf} \
 		$(use_with ncurses curses) \
 		$(use_with opengl) \
 		$(use_with X x) \
@@ -127,14 +117,4 @@ src_install() {
 pkg_postinst() {
 	elog "~/.wine/config is now deprecated.  For configuration either use"
 	elog "winecfg or regedit HKCU\\Software\\Wine"
-	
-	if use asio; then
-		echo
-		elog "You need to register the asio.dll by running:"
-		elog "regsvr32 /usr/lib/wine/wineasio.dll.so"
-		elog
-		elog "There is a very nice open source (LGPL) VST host"
-		elog "available at http://www.hermannseib.com/vsthost.htm"
-		echo
-	fi
 }
