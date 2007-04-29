@@ -1,6 +1,6 @@
 diff -Naur wine-0.9.36.orig/dlls/winealsa.drv/midi.c wine-0.9.36/dlls/winealsa.drv/midi.c
 --- wine-0.9.36.orig/dlls/winealsa.drv/midi.c	2007-04-29 19:40:59.000000000 +0200
-+++ wine-0.9.36/dlls/winealsa.drv/midi.c	2007-04-29 19:44:26.000000000 +0200
++++ wine-0.9.36/dlls/winealsa.drv/midi.c	2007-04-29 22:13:28.000000000 +0200
 @@ -50,6 +50,7 @@
  #include "mmddk.h"
  #include "alsa.h"
@@ -38,7 +38,7 @@ diff -Naur wine-0.9.36.orig/dlls/winealsa.drv/midi.c wine-0.9.36/dlls/winealsa.d
 +		case SND_SEQ_EVENT_CLOCK:
 +		    buf[0] = 0xF8;
 +		    break;
-+	case SND_SEQ_EVENT_START:
++		case SND_SEQ_EVENT_START:
 +		    buf[0] = 0xFA;
 +		    break;
 +		case SND_SEQ_EVENT_CONTINUE:
@@ -62,24 +62,16 @@ diff -Naur wine-0.9.36.orig/dlls/winealsa.drv/midi.c wine-0.9.36/dlls/winealsa.d
  		case SND_SEQ_EVENT_SYSEX:
  		    {
  			int len = ev->data.ext.len;
-@@ -464,8 +493,14 @@
+@@ -464,7 +493,7 @@
  	    midiCloseSeq();
  	    return MMSYSERR_ERROR;
  	}
 -        SetThreadPriority(hThread, THREAD_PRIORITY_TIME_CRITICAL);
--	TRACE("Created thread for midi-in\n");
-+//        SetThreadPriority(hThread, THREAD_PRIORITY_TIME_CRITICAL);
-+//##############
-+          struct sched_param attr;
-+
-+          attr.sched_priority = 85;
-+          sched_setscheduler(0, SCHED_FIFO, &attr);
-+//##############
-+	 TRACE("Created thread for midi-in\n");
++      SetThreadPriority(hThread, THREAD_PRIORITY_TIME_CRITICAL);
+ 	TRACE("Created thread for midi-in\n");
      }
  
-     MidiInDev[wDevID].wFlags = HIWORD(dwFlags & CALLBACK_TYPEMASK);
-@@ -551,6 +586,7 @@
+@@ -551,6 +580,7 @@
      if (!(lpMidiHdr->dwFlags & MHDR_PREPARED)) return MIDIERR_UNPREPARED;
  
      EnterCriticalSection(&crit_sect);
@@ -87,7 +79,7 @@ diff -Naur wine-0.9.36.orig/dlls/winealsa.drv/midi.c wine-0.9.36/dlls/winealsa.d
      if (MidiInDev[wDevID].lpQueueHdr == 0) {
  	MidiInDev[wDevID].lpQueueHdr = lpMidiHdr;
      } else {
-@@ -843,58 +879,64 @@
+@@ -843,58 +873,64 @@
  	    case MIDI_CMD_CHANNEL_PRESSURE:
  		snd_seq_ev_set_chanpress(&event, evt&0x0F, d1);
  		break;
