@@ -59,7 +59,7 @@ src_unpack() {
 
 	sed -i '/^UPDATE_DESKTOP_DATABASE/s:=.*:=true:' tools/Makefile.in
 	epatch "${FILESDIR}"/wine-gentoo-no-ssp.patch #66002
-	epatch "${FILESDIR}"/${P}-alsamidi_lockup_fix.patch
+	epatch "${FILESDIR}"/${P}-alsamidi_fixes.patch
 	sed -i '/^MimeType/d' tools/wine.desktop || die #117785
 }
 

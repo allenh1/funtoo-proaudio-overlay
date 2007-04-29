@@ -2,10 +2,10 @@ AUX wine-0.9.35-alsamidi_lockup_fix.patch 530 RMD160 48eb4d17e36af16662e875b29bf
 MD5 803ca4910dfd8443c9dab396cfbbe313 files/wine-0.9.35-alsamidi_lockup_fix.patch 530
 RMD160 48eb4d17e36af16662e875b29bf596915e9cd403 files/wine-0.9.35-alsamidi_lockup_fix.patch 530
 SHA256 7ef1b1dd7e09becf55b8babb28e821bb4f0ab48b53ff8d068d427a9df5a8c988 files/wine-0.9.35-alsamidi_lockup_fix.patch 530
-AUX wine-0.9.36-alsamidi_lockup_fix.patch 530 RMD160 48eb4d17e36af16662e875b29bf596915e9cd403 SHA1 f7cf64495c5512187a81edd6eeb9deb949d234d0 SHA256 7ef1b1dd7e09becf55b8babb28e821bb4f0ab48b53ff8d068d427a9df5a8c988
-MD5 803ca4910dfd8443c9dab396cfbbe313 files/wine-0.9.36-alsamidi_lockup_fix.patch 530
-RMD160 48eb4d17e36af16662e875b29bf596915e9cd403 files/wine-0.9.36-alsamidi_lockup_fix.patch 530
-SHA256 7ef1b1dd7e09becf55b8babb28e821bb4f0ab48b53ff8d068d427a9df5a8c988 files/wine-0.9.36-alsamidi_lockup_fix.patch 530
+AUX wine-0.9.36-alsamidi_fixes.patch 7120 RMD160 13d56e2e79cf9e5661e1cfeb2d0297935f233365 SHA1 4d52a5ada0ab1b110d0105718151504222a1ae25 SHA256 41b7d6efeb142a0ce0033ad64654731cdcb74c7989912ae7c0348a73b3fc4c01
+MD5 b45fabc29533c5a172c445df5baadbd7 files/wine-0.9.36-alsamidi_fixes.patch 7120
+RMD160 13d56e2e79cf9e5661e1cfeb2d0297935f233365 files/wine-0.9.36-alsamidi_fixes.patch 7120
+SHA256 41b7d6efeb142a0ce0033ad64654731cdcb74c7989912ae7c0348a73b3fc4c01 files/wine-0.9.36-alsamidi_fixes.patch 7120
 AUX wine-gentoo-no-ssp.patch 351 RMD160 0d8b16c8712deb2bb6b41ac3eeee24d33017052f SHA1 d2eed24e0a3737931430bfe33625c81cc9106065 SHA256 dbbf03a0cf6d9815ad4c8030ec75714ac01e20d9da52547449f0ae1a770bd2fd
 MD5 59b0bc7c4a873a0d4aa7312e8cd5c79b files/wine-gentoo-no-ssp.patch 351
 RMD160 0d8b16c8712deb2bb6b41ac3eeee24d33017052f files/wine-gentoo-no-ssp.patch 351
@@ -16,10 +16,10 @@ EBUILD wine-0.9.35.ebuild 3104 RMD160 fb3bddd27c75bcd1b127800ef600b8d553b1aee0 S
 MD5 4af49361977cc8f8ac8e1ed4eecf598d wine-0.9.35.ebuild 3104
 RMD160 fb3bddd27c75bcd1b127800ef600b8d553b1aee0 wine-0.9.35.ebuild 3104
 SHA256 2866b03d4f0a074d973c03975dc1f6e7f526f11e02a25f5c1712eebb7f6c3d63 wine-0.9.35.ebuild 3104
-EBUILD wine-0.9.36.ebuild 3104 RMD160 fb3bddd27c75bcd1b127800ef600b8d553b1aee0 SHA1 961ef629ae92df03960dd2f12da3497362dcfaa0 SHA256 2866b03d4f0a074d973c03975dc1f6e7f526f11e02a25f5c1712eebb7f6c3d63
-MD5 4af49361977cc8f8ac8e1ed4eecf598d wine-0.9.36.ebuild 3104
-RMD160 fb3bddd27c75bcd1b127800ef600b8d553b1aee0 wine-0.9.36.ebuild 3104
-SHA256 2866b03d4f0a074d973c03975dc1f6e7f526f11e02a25f5c1712eebb7f6c3d63 wine-0.9.36.ebuild 3104
+EBUILD wine-0.9.36.ebuild 3099 RMD160 90b0b24a795f4516051447b4034e6b451bf6b46d SHA1 c10fc7a5e095158c27b36b770c31d0345718a2a1 SHA256 024e86ee8fb61a51c0a9242baab1084f76482ef3bd38b4460490f040577c2642
+MD5 1e1ed0b5e29315845f9992df789e58ed wine-0.9.36.ebuild 3099
+RMD160 90b0b24a795f4516051447b4034e6b451bf6b46d wine-0.9.36.ebuild 3099
+SHA256 024e86ee8fb61a51c0a9242baab1084f76482ef3bd38b4460490f040577c2642 wine-0.9.36.ebuild 3099
 MD5 1b8af55851838de325bb26c2e51f342c files/digest-wine-0.9.35 244
 RMD160 49159729c2d453b02b2f47f88ecf5ab0262af7b8 files/digest-wine-0.9.35 244
 SHA256 9e691d237cf81c0a8d93c0467cff260f051f78b06fd0cc825a0d733b79ed189c files/digest-wine-0.9.35 244
