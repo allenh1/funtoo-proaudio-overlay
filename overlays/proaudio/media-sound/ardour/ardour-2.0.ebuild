@@ -4,7 +4,6 @@
 
 inherit eutils fetch-tools scons-ccache
 
-ESVN_REPO_URI="http://subversion.ardour.org/svn/ardour2/trunk"
 DESCRIPTION="multi-track hard disk recording software"
 HOMEPAGE="http://ardour.org/"
 SRC_URI="http://ardour.org/files/releases/${P}.tar.bz2"
@@ -66,8 +65,7 @@ pkg_setup(){
 src_unpack(){
 	# abort if user answers no to distribution of vst enabled binaries
 	if use vst;then agree_vst || die "you can not distribute ardour with vst support" ;fi
-	#subversion_src_unpack
-	#fetch_tarball_cmp "${URL}"
+	
 	unpack "${P}.tar.bz2"
 	cd ${S}
 	# change template dir to not overwrite ardour1 stuff
