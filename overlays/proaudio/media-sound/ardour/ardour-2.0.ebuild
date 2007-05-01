@@ -113,7 +113,7 @@ src_compile() {
 	einfo "${myconf}"
 
 	cd ${S}
-	scons ${myconf}	-j2 || die "compilation failed"
+	scons ${myconf}	|| die "compilation failed"
 }
 
 src_install() {
