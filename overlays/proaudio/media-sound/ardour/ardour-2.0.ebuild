@@ -78,7 +78,7 @@ src_unpack(){
 	# adjust files for vst support
 	if use vst;then
 		# delete vst question
-		sed -i -e '/Make\ sure\ they/,/print\ \"OK,\ VST\ support\ will\ be\ enabled\"/d' "${S}"/SConstruct || die " failed to del vst question"
+		#sed -i -e '/Make\ sure\ they/,/print\ \"OK,\ VST\ support\ will\ be\ enabled\"/d' "${S}"/SConstruct || die " failed to del vst question"
 		# fix vst header
 		sed -ie 's@vstsdk2.3/source/common/aeffectx.h@/usr/include/vst/aeffectx.h@g' libs/fst/SConscript || die "change vst-header location"
 		#symlink the include vst include files
