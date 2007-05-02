@@ -50,7 +50,8 @@ DEPEND="${RDEPEND}
 	>=dev-util/scons-0.96.1
 	nls? ( >=sys-devel/gettext-0.12.1 )
 	vst? ( app-arch/zip 
-		=media-libs/vst-sdk-2.3* )"
+		=media-libs/vst-sdk-2.3* 
+		app-emulation/wine )"
 
 pkg_setup(){
 	# issue with ACLOCAL_FLAGS if set to a wrong value
