@@ -81,7 +81,7 @@ src_unpack(){
 	# adjust files for vst support
 	if use vst;then
 		# delete vst question
-		touch ${S}/.private_use_only
+		touch ${S}/.personal_use_only
 
 		# fix vst header
 		sed -ie 's@vstsdk2.3/source/common/aeffectx.h@/usr/include/vst/aeffectx.h@g' libs/fst/SConscript || die "change vst-header location"
