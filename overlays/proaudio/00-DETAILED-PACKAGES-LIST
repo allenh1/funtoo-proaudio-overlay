@@ -90,6 +90,7 @@
 	vst_plugins-eqinox-0.1.3	arch: ~x86
 	vst_plugins-eqinox-0.2.0	arch: ~x86
 	vst_plugins-eqinox-0.2.1	arch: ~x86
+	vst_plugins-eqinox-0.2.2	arch: ~x86
 	Description: 6-Band graphic VST Equalizer
 	Homepage:    http://www.anticore.org/jucetice/?page_id=7
 
@@ -905,6 +906,13 @@
 	Description: GLASHCtl is a simple applet for controlling
 		 the LASH Audio Session Handler
 	Homepage:    http://dino.nongnu.org/glashctl
+
+
+#------- media-sound/phasex --------
+	phasex-0.10.0	arch: ~x86
+	Description: PHASEX is an experimental software synthesizer
+		 for use with Linux/ALSA/JACK
+	Homepage:    http://www.sysex.net/phasex
 
 
 #------- media-sound/chuck --------
