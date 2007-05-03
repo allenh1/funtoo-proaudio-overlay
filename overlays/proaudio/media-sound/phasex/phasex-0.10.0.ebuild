@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="~x86"
 IUSE=""
 
-RDEPEND=">=x11-libs/gtk+-2
+RDEPEND=">=x11-libs/gtk+-2.8
 		>=media-sound/jack-audio-connection-kit-0.100.0
 		media-libs/alsa-lib"
 DEPEND="${RDEPEND}
