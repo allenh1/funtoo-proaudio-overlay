@@ -39,7 +39,8 @@ RDEPEND=">=media-libs/liblrdf-0.4.0
 	>=x11-libs/gtk+-2.6
 	>=gnome-base/libgnomecanvas-2.12.0
 	>=media-sound/jack-audio-connection-kit-0.100.0
-	!=media-sound/ardour2-9*"
+	!=media-sound/ardour2-9*
+	vst? ( >=app-emulation/wine-0.9.5 )"
 
 	# sys-libs/gdbm # no longer needed?!
 

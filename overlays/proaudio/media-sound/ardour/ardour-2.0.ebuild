@@ -37,7 +37,8 @@ RDEPEND=">=media-libs/liblrdf-0.4.0
 	>=x11-libs/gtk+-2.6
 	>=gnome-base/libgnomecanvas-2.12.0
 	>=media-sound/jack-audio-connection-kit-0.100.0
-	!=media-sound/ardour2-2*"
+	!=media-sound/ardour2-2*
+	vst? ( >=app-emulation/wine-0.9.5 )"
 
 	# sys-libs/gdbm # no longer needed?!
 
@@ -50,8 +51,7 @@ DEPEND="${RDEPEND}
 	>=dev-util/scons-0.96.1
 	nls? ( >=sys-devel/gettext-0.12.1 )
 	vst? ( app-arch/zip 
-		=media-libs/vst-sdk-2.3* 
-		app-emulation/wine )"
+		=media-libs/vst-sdk-2.3* )"
 
 pkg_setup(){
 	# issue with ACLOCAL_FLAGS if set to a wrong value
