@@ -2,10 +2,10 @@ AUX wine-0.9.35-alsamidi_lockup_fix.patch 530 RMD160 48eb4d17e36af16662e875b29bf
 MD5 803ca4910dfd8443c9dab396cfbbe313 files/wine-0.9.35-alsamidi_lockup_fix.patch 530
 RMD160 48eb4d17e36af16662e875b29bf596915e9cd403 files/wine-0.9.35-alsamidi_lockup_fix.patch 530
 SHA256 7ef1b1dd7e09becf55b8babb28e821bb4f0ab48b53ff8d068d427a9df5a8c988 files/wine-0.9.35-alsamidi_lockup_fix.patch 530
-AUX wine-0.9.36-alsamidi_fixes.patch 6841 RMD160 77c6db660e0ca68f55c9102596e3396b6d289b28 SHA1 6a4013f1855c624526a1a78a1f9ed05358533eb3 SHA256 6a7ca660b72f3e803cb0a43d57e06131cb39fef37ea523b26781e7d370073667
-MD5 d661ed05a0a59da40ae02f38b20ce51a files/wine-0.9.36-alsamidi_fixes.patch 6841
-RMD160 77c6db660e0ca68f55c9102596e3396b6d289b28 files/wine-0.9.36-alsamidi_fixes.patch 6841
-SHA256 6a7ca660b72f3e803cb0a43d57e06131cb39fef37ea523b26781e7d370073667 files/wine-0.9.36-alsamidi_fixes.patch 6841
+AUX wine-0.9.36-alsamidi_fixes.patch 6632 RMD160 f701c3b62200554b0dcad33db5b31986b3b9e764 SHA1 10f3d013dfb74055418173ba0531c4742a69c8b5 SHA256 aff81349d1c2f70cc608237cd284b66962784be5f7e0868fddc17d28f7c06654
+MD5 c4593cfecad9c2cfd12451e37be02ea1 files/wine-0.9.36-alsamidi_fixes.patch 6632
+RMD160 f701c3b62200554b0dcad33db5b31986b3b9e764 files/wine-0.9.36-alsamidi_fixes.patch 6632
+SHA256 aff81349d1c2f70cc608237cd284b66962784be5f7e0868fddc17d28f7c06654 files/wine-0.9.36-alsamidi_fixes.patch 6632
 AUX wine-gentoo-no-ssp.patch 351 RMD160 0d8b16c8712deb2bb6b41ac3eeee24d33017052f SHA1 d2eed24e0a3737931430bfe33625c81cc9106065 SHA256 dbbf03a0cf6d9815ad4c8030ec75714ac01e20d9da52547449f0ae1a770bd2fd
 MD5 59b0bc7c4a873a0d4aa7312e8cd5c79b files/wine-gentoo-no-ssp.patch 351
 RMD160 0d8b16c8712deb2bb6b41ac3eeee24d33017052f files/wine-gentoo-no-ssp.patch 351

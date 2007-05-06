@@ -1,6 +1,5 @@
-diff -Naur wine-0.9.36.orig/dlls/winealsa.drv/midi.c wine-0.9.36/dlls/winealsa.drv/midi.c
---- wine-0.9.36.orig/dlls/winealsa.drv/midi.c	2007-04-29 19:40:59.000000000 +0200
-+++ wine-0.9.36/dlls/winealsa.drv/midi.c	2007-04-29 22:13:28.000000000 +0200
+--- dlls/winealsa.drv/midi.c.orig	2007-05-06 16:32:00.000000000 +0200
++++ dlls/winealsa.drv/midi.c	2007-05-06 16:30:57.000000000 +0200
 @@ -50,6 +50,7 @@
  #include "mmddk.h"
  #include "alsa.h"
@@ -9,12 +8,10 @@ diff -Naur wine-0.9.36.orig/dlls/winealsa.drv/midi.c wine-0.9.36/dlls/winealsa.d
  
  WINE_DEFAULT_DEBUG_CHANNEL(midi);
  
-@@ -318,7 +319,8 @@
- 	    if ((wDevID == MIDM_NumDevs) || (MidiInDev[wDevID].state != 1))
+@@ -319,6 +320,7 @@
  		FIXME("Unexpected event received, type = %x from %d:%d\n", ev->type, ev->source.client, ev->source.port);
  	    else {
--		DWORD dwTime, toSend = 0;
-+		DWORD dwTime, toSend;
+ 		DWORD dwTime, toSend = 0;
 +                char *buf = (char *)&toSend; // i like more using a char stream
  		/* FIXME: Should use ev->time instead for better accuracy */
  		dwTime = GetTickCount() - MidiInDev[wDevID].startTime;
