@@ -2,11 +2,5 @@
 # rosegarden-4 was the name of the project
 =media-sound/rosegarden-4*
 
-# totally broken autotools
-# wants install things like /usr/memory
-# fixing Makefile.in breaks the application:
-# Failed to open factory cache: /usr/memory/profiles/tonewheel e.g.
-# choosing prefix=/opt creates crap like /opt/lib
+# seems broken atm, does not start correctly
 =media-sound/bristol-0.10.1
-# also broken with linking error.. and not willing to fix atm
-=media-sound/bristol-0.9.6.212

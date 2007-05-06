@@ -23,25 +23,23 @@ DEPEND="|| ( (  x11-proto/xineramaproto
 		media-libs/alsa-lib
 		jack? ( >=media-sound/jack-audio-connection-kit-0.100 )"
 		
-src_unpack() {
-	unpack "${A}"
-	cd "${S}"
-	sed -i -e "s@bin/startBristol \$(prefix)/bin@bin/startBristol \$(DESTDIR)/\$(prefix)/bin@g" \
-		Makefile.in
-	sed -i -e "s@bristoldir = \${prefix}/bristol@bristoldir = \$(DESTDIR)/\${prefix}/share/bristol@g" \
-		Makefile.in
-}
-
 src_compile() {
 	econf \
 		`use_enable alsa` \
 		`use_enable jack` \
+		`use_enable static` \
 		|| die "configure failed"
 	
-	emake || die "make failed"
+	emake bristoldir=/usr/share/${PN} || die "make failed"
 }
 
 src_install() {
-	make DESTDIR="${D}" install || die "install failed"
+	make bristoldir="${D}/usr/share/${PN}" prefix="${D}/usr" install || die "install failed"
+	# fix paths in startup scripts
+	sed -i -e 's|BRISTOL_DIR=/usr/bristol|BRISTOL_DIR=/usr/share/bristol|g' \
+		${D}/usr/bin/startBristol
+	sed -i -e 's|${BRISTOL}/bin/brighton -V|brighton -V|g' \
+		${D}/usr/bin/brighton
+	
 	dodoc ChangeLog AUTHORS README NEWS 
 }
