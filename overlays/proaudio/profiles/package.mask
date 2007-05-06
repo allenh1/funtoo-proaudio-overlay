@@ -8,3 +8,5 @@
 # Failed to open factory cache: /usr/memory/profiles/tonewheel e.g.
 # choosing prefix=/opt creates crap like /opt/lib
 =media-sound/bristol-0.10.1
+# also broken with linking error.. and not willing to fix atm
+=media-sound/bristol-0.9.6.212
