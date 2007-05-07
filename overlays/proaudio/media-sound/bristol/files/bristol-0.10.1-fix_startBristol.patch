@@ -1,0 +1,12 @@
+--- bin/startBristol.in.orig	2007-05-06 15:15:53.000000000 +0200
++++ bin/startBristol.in	2007-05-06 15:37:43.000000000 +0200
+@@ -15,7 +15,8 @@
+ 
+ LOGO=no
+ 
+-BRISTOL_DIR=@BRISTOL_DIR@
++BRISTOL=/usr
++BRISTOL_DIR=/usr/share/bristol
+ 
+ showhelp()
+ {

@@ -14,7 +14,7 @@ LICENSE="GPL-2"
 SLOT="0"
 
 KEYWORDS="~amd64 ~ppc ~sparc ~x86"
-IUSE="alsa jack"
+IUSE="alsa jack static"
 
 DEPEND="|| ( (  x11-proto/xineramaproto
 					x11-proto/xextproto
@@ -24,6 +24,7 @@ DEPEND="|| ( (  x11-proto/xineramaproto
 		jack? ( >=media-sound/jack-audio-connection-kit-0.100 )"
 		
 src_compile() {
+	epatch "${FILESDIR}/${P}-fix_startBristol.patch"
 	econf \
 		`use_enable alsa` \
 		`use_enable jack` \
@@ -35,11 +36,5 @@ src_compile() {
 
 src_install() {
 	make bristoldir="${D}/usr/share/${PN}" prefix="${D}/usr" install || die "install failed"
-	# fix paths in startup scripts
-	sed -i -e 's|BRISTOL_DIR=/usr/bristol|BRISTOL_DIR=/usr/share/bristol|g' \
-		${D}/usr/bin/startBristol
-	sed -i -e 's|${BRISTOL}/bin/brighton -V|brighton -V|g' \
-		${D}/usr/bin/brighton
-	
 	dodoc ChangeLog AUTHORS README NEWS 
 }
