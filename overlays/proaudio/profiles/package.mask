@@ -4,3 +4,4 @@
 
 # seems broken atm, does not start correctly
 =media-sound/bristol-0.10.1
+=media-sound/bristol-0.10.1-r1
