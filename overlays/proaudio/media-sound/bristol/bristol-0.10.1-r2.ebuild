@@ -5,7 +5,7 @@
 RESTRICT="nomirror"
 IUSE=""
 
-inherit eutils toolchain-funcs
+inherit eutils toolchain-funcs autotools
 
 DESCRIPTION="synthesiser emulation package for Moog, Sequential Circuits, Hammond and several other keyboards."
 HOMEPAGE="http://sourceforge.net/projects/bristol"
@@ -22,24 +22,33 @@ DEPEND="|| ( (  x11-proto/xineramaproto
 				virtual/x11 )
 		media-libs/alsa-lib
 		jack? ( >=media-sound/jack-audio-connection-kit-0.100 )"
-		
+
+src_unpack() {
+	unpack ${A}
+	cd ${S}
+	sed -i -e 's:bristoldir=${prefix}/bristol:bristoldir=${prefix}/share/bristol:' Makefile.am || die "Patching Makefile.am failed"
+	sed -i -e 's:BRISTOL_DIR=${prefix}/bristol:BRISTOL_DIR=${prefix}/share/bristol:' configure.ac || die "Patching configure.ac failed"
+}
+	
 src_compile() {
-	./configure \
-		--prefix=/opt \
+	eautoreconf
+	
+	econf \
 		`use_enable alsa` \
 		`use_enable jack` \
 		`use_enable static` \
-		--mandir=/usr/share/man \
-		--infodir=/usr/share/infodir \
-		--datadir=/usr/share/dir \
-		--sysconfdir=/etc \
-		--localstatedir=/var/lib \
 		|| die "configure failed"
 	
 	emake || die "make failed"
 }
 
 src_install() {
-	make prefix="${D}/opt" install || die "install failed"
-	dodoc ChangeLog AUTHORS README NEWS 
+	make prefix="${D}/usr" install || die "install failed"
+	dodoc ChangeLog AUTHORS README NEWS
+
+	einfo ""
+	einfo "To use Bristol witj kack use something as:"
+	einfo ""
+	einfo "startBristol -audio jack"
+	einfo ""
 }
