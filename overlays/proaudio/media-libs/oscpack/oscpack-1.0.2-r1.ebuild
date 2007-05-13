@@ -35,7 +35,7 @@ src_compile() {
 	    sed -i -e "s:ENDIANESS=OSC_HOST_LITTLE_ENDIAN:ENDIANESS=OSC_HOST_BIG_ENDIAN:" ${S}/Makefile || die "sed ppc failed"
 	fi
 	if use amd64; then
-	    sed -i -e "s:-shared -Wl,:-shared -Wl -fPIC,:" ${S}/Makefile || die "sed ppc failed"
+	    sed -i -e "s:-Wall -O3:-Wall -O3 -fPIC:" ${S}/Makefile || die "sed amd64 failed"
 	fi
 	
 	
