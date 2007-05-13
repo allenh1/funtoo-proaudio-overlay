@@ -14,7 +14,7 @@ SRC_URI="http://www.audiomulch.com/~rossb/code/oscpack/${PN}_${MY_PV}.zip"
 LICENSE="AS-IT"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc x86"
-IUSE="ppc amd64"
+IUSE="ppc"
 
 S=${WORKDIR}/${PN}
 
@@ -34,10 +34,8 @@ src_compile() {
 	if use ppc; then
 	    sed -i -e "s:ENDIANESS=OSC_HOST_LITTLE_ENDIAN:ENDIANESS=OSC_HOST_BIG_ENDIAN:" ${S}/Makefile || die "sed ppc failed"
 	fi
-	if use amd64; then
-	    sed -i -e "s:-Wall -O3:-Wall -O3 -fPIC:" ${S}/Makefile || die "sed amd64 failed"
-	fi
-	
+	# fix a DT_TEXREL warning on x86 and made it to compile on amd64 and possibely on ppc:
+	sed -i -e "s:-Wall -O3:-Wall -O3 -fPIC:" ${S}/Makefile || die "sed clafgs failed"
 	
 	emake || die "make failed"
 	emake lib || "make lib failed"
