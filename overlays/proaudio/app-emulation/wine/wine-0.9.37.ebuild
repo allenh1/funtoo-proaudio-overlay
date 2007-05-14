@@ -1,8 +1,8 @@
 # Copyright 1999-2007 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/app-emulation/wine/wine-0.9.37.ebuild,v 1.1 2007/05/12 12:17:13 vapier Exp $
 
-inherit eutils flag-o-matic multilib autotools
+inherit eutils flag-o-matic multilib
 
 DESCRIPTION="free implementation of Windows(tm) on Unix"
 HOMEPAGE="http://www.winehq.com/"
@@ -11,7 +11,7 @@ SRC_URI="mirror://sourceforge/${PN}/wine-${PV}.tar.bz2"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="-* ~amd64 ~x86"
-IUSE="alsa arts cups dbus esd hal jack jpeg lcms ldap nas ncurses opengl oss scanner xml X"
+IUSE="alsa cups dbus esd hal jack jpeg lcms ldap nas ncurses opengl oss scanner xml X"
 RESTRICT="test" #72375
 
 RDEPEND=">=media-libs/freetype-2.0.0
@@ -21,13 +21,13 @@ RDEPEND=">=media-libs/freetype-2.0.0
 	dbus? ( sys-apps/dbus )
 	hal? ( sys-apps/hal )
 	X? (
+		x11-libs/libXcursor
 		x11-libs/libXrandr
 		x11-libs/libXi
 		x11-libs/libXmu
 		x11-libs/libXxf86vm
 		x11-apps/xmessage
 	)
-	arts? ( kde-base/arts )
 	alsa? ( media-libs/alsa-lib )
 	esd? ( media-sound/esound )
 	nas? ( media-libs/nas )
@@ -59,8 +59,10 @@ src_unpack() {
 
 	sed -i '/^UPDATE_DESKTOP_DATABASE/s:=.*:=true:' tools/Makefile.in
 	epatch "${FILESDIR}"/wine-gentoo-no-ssp.patch #66002
-	epatch "${FILESDIR}"/${P}-alsamidi_lockup_fix.patch
 	sed -i '/^MimeType/d' tools/wine.desktop || die #117785
+
+	# alsa midi fixes
+	epatch "${FILESDIR}/${P}-alsamidi_fixes.patch"
 }
 
 config_cache() {
@@ -77,7 +79,6 @@ config_cache() {
 
 src_compile() {
 	export LDCONFIG=/bin/true
-	use arts    || export ac_cv_path_ARTSCCONFIG=""
 	use esd     || export ac_cv_path_ESDCONFIG=""
 	use scanner || export ac_cv_path_sane_devel="no"
 	config_cache jack jack/jack.h
@@ -97,7 +98,6 @@ src_compile() {
 	use amd64 && multilib_toolchain_setup x86
 
 	#	$(use_enable amd64 win64)
-
 	econf \
 		--sysconfdir=/etc/wine \
 		$(use_with ncurses curses) \
@@ -111,7 +111,7 @@ src_compile() {
 
 src_install() {
 	make DESTDIR="${D}" install || die
-	dodoc ANNOUNCE AUTHORS ChangeLog DEVELOPERS-HINTS README
+	dodoc ANNOUNCE AUTHORS ChangeLog README
 }
 
 pkg_postinst() {
