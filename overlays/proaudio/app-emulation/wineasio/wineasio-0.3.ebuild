@@ -36,5 +36,6 @@ pkg_postinst() {
 	elog "regsvr32 wineasio.dll"
 	elog
 	elog "AS THE USER who uses wine!"
+	elog "Then open winecfg -> Audio -> and enable ONLY the ALSA driver!"
 }
 

@@ -9,10 +9,10 @@ EBUILD wineasio-0.2.ebuild 745 RMD160 dbf44baee2ad478f89d1324574c12934bfbdd2c3 S
 MD5 20b96b44460a929183388e7a03f45f59 wineasio-0.2.ebuild 745
 RMD160 dbf44baee2ad478f89d1324574c12934bfbdd2c3 wineasio-0.2.ebuild 745
 SHA256 a0bf81d3cb7f6219753b8176063fef7487fa132cd68f981fe1b39ec357d8e173 wineasio-0.2.ebuild 745
-EBUILD wineasio-0.3.ebuild 745 RMD160 dbf44baee2ad478f89d1324574c12934bfbdd2c3 SHA1 2c219513e052d9963b07c4a27b21b10c87e9cb52 SHA256 a0bf81d3cb7f6219753b8176063fef7487fa132cd68f981fe1b39ec357d8e173
-MD5 20b96b44460a929183388e7a03f45f59 wineasio-0.3.ebuild 745
-RMD160 dbf44baee2ad478f89d1324574c12934bfbdd2c3 wineasio-0.3.ebuild 745
-SHA256 a0bf81d3cb7f6219753b8176063fef7487fa132cd68f981fe1b39ec357d8e173 wineasio-0.3.ebuild 745
+EBUILD wineasio-0.3.ebuild 816 RMD160 de3cd877172c60c2ceb6b11c85d498dc29eb3f84 SHA1 3adc23feddccf8c0cfdaef8f42752d7fe06425c8 SHA256 eeea187d3df265b57bc8a8fd746c2b06d2c3d6cb9ddfdb7125844a0894d047ac
+MD5 624a4fead8bfae8e50faa0d0dd34913f wineasio-0.3.ebuild 816
+RMD160 de3cd877172c60c2ceb6b11c85d498dc29eb3f84 wineasio-0.3.ebuild 816
+SHA256 eeea187d3df265b57bc8a8fd746c2b06d2c3d6cb9ddfdb7125844a0894d047ac wineasio-0.3.ebuild 816
 MD5 168feb9b6713dfd2b1ceac59c8b82bf1 files/digest-wineasio-0.1 235
 RMD160 0cd69b5efc2bb5a693bdb5b28ecc488fd5be2073 files/digest-wineasio-0.1 235
 SHA256 0ee9c4e4a593fe51f7562bd5d020b359a5e6b2a06f5018ac3d5e3e450788c667 files/digest-wineasio-0.1 235
