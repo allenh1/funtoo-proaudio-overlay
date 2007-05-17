@@ -16,6 +16,8 @@ DEPEND=">=media-libs/libquicktime-0.9.7
 		media-libs/gavl
 		media-sound/jack-audio-connection-kit
 		media-libs/libsndfile"
+RDEPEND="${DEPEND}
+	media-plugins/frei0r-plugins" # no real run-dep, but otherwise no plugins
 
 src_install () {
 	make DESTDIR=${D} install || die
