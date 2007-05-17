@@ -12,6 +12,7 @@ media-libs/dssi
 media-libs/flowcanvas
 media-libs/fluidsynth-dssi
 media-libs/fst
+media-libs/gavl
 media-libs/hydrogen-drumkits
 media-libs/joss
 media-libs/juce
@@ -45,6 +46,7 @@ media-plugins/amb-plugins
 media-plugins/dssi-vst
 media-plugins/fil-plugins
 media-plugins/foo-plugins
+media-plugins/frei0r-plugins
 media-plugins/hexter
 media-plugins/ll-plugins
 media-plugins/nekobee
@@ -224,6 +226,7 @@ media-sound/zynaddsubfx
 media-sound/zynaddsubfx-converter
 media-sound/zynjacku
 media-sound/jack-audio-connection-kit
+media-video/openmovieeditor
 media-video/xjadeo
 sys-apps/das_watchdog
 sys-kernel/rt-sources
