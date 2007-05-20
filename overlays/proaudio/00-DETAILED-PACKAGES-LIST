@@ -511,6 +511,7 @@
 
 #------- media-plugins/vst_plugins-soundcrab --------
 	vst_plugins-soundcrab-0.1.0	arch: ~x86
+	vst_plugins-soundcrab-0.2.0	arch: ~x86
 	Description: Lightweight soundfont player - VST plugin
 		
 	Homepage:    http://www.anticore.org/jucetice/?page_id=29
@@ -1385,6 +1386,7 @@
 #------- media-sound/phasex --------
 	phasex-0.10.0	arch: ~x86
 	phasex-0.10.1	arch: ~x86
+	phasex-0.10.2	arch: ~x86
 	Description: PHASEX is an experimental software synthesizer
 		 for use with Linux/ALSA/JACK
 	Homepage:    http://www.sysex.net/phasex
