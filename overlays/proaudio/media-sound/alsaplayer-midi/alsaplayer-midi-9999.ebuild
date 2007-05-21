@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/media-sound/alsaplayer/alsaplayer-0.99.76-r3.ebuild,v 1.6 2006/07/12 22:05:09 agriffis Exp $
 
-inherit eutils cvs # autotools
+inherit eutils subversion # autotools
 
 DESCRIPTION="Midi input plugin for the alsaplayer. It use timidity++ for the output"
 HOMEPAGE="http://www.alsaplayer.org/"
@@ -13,10 +13,9 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-ECVS_SERVER="alsaplayer.cvs.sourceforge.net:/cvsroot/alsaplayer"
-ECVS_MODULE="midi"
+ESVN_REPO_URI="https://svn.sourceforge.net/svnroot/alsaplayer/trunk/midi"
 
-S=${WORKDIR}/${ECVS_MODULE}
+S=${WORKDIR}/${PN}
 
 DEPEND="media-sound/alsaplayer"
 
@@ -24,7 +23,7 @@ RDEPEND="${DEPEND}
 	media-sound/timidity++"
 
 src_unpack() {
-	cvs_src_unpack
+	subversion_src_unpack
 
 	cd ${S}
 	./bootstrap || die "bootstrap failed"
