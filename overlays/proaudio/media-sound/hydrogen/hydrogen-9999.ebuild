@@ -18,7 +18,8 @@ RDEPEND="dev-libs/libxml2
 	media-libs/libsndfile
 	media-libs/audiofile
 	media-libs/flac
-	$(qt4_min_version 4)
+	$(qt4_min_version 4.1.0)
+	dev-libs/libtar
 	portaudio? ( =media-libs/portaudio-18.1* )
 	alsa? ( media-libs/alsa-lib )
 	jack? ( media-sound/jack-audio-connection-kit )
