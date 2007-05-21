@@ -35,8 +35,9 @@ src_unpack() {
 }
 
 src_compile() {
+	# maybe let's remove that patch ^^ and use 'qmake all.pro prefix=/usr' in
+	# future
 	unset QTDIR
-
 	./configure	
 	make || die "Failed making hydrogen!"
 }
@@ -44,7 +45,10 @@ src_compile() {
 src_install() {
 	make INSTALL_ROOT="${D}" install || die "make install failed"
 	
-	# fix fdo category
-	sed -i -e "s/AudioVideo;Sound;Audio;Qt;/Qt;AudioVideo;Audio;Sequencer;/" \
-		"${D}/usr/share/applications/${PN}.desktop"
+	# install tools
+	dobin hydrogenSynth hydrogenPlayer
+	
+	# desktop entry
+	newicon "data/img/gray/icon32.png" "${PN}.png"
+	make_desktop_entry "${PN}" "Hydrogen" "${PN}" "AudioVideo;Audio;sequencer"
 }
