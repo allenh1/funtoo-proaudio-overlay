@@ -11,7 +11,7 @@ RESTRICT="nomirror"
 
 LICENSE="GPL-2"
 SLOT="1"
-KEYWORDS="~x86"
+KEYWORDS="~x86 ~amd64"
 IUSE="nls debug sse altivec vst"
 
 # From beta30 release notes:
