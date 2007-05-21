@@ -31,19 +31,19 @@ src_unpack() {
 	subversion_src_unpack
 	cd "${S}"
 	epatch "${FILESDIR}/${P}-configure.patch"
+	sed -i -e 's|QSvgRenderer|Qt/QSvgRenderer|g' gui/src/widgets/Button.cpp
 }
 
 src_compile() {
-
-	export PORTAUDIOPATH="${ROOT}usr"
 	unset QTDIR
 
-	./configure
-	emake || die "Failed making hydrogen!"
+	./configure	
+	make || die "Failed making hydrogen!"
 }
 
 src_install() {
-	make DESTDIR="${D}" install || die "make install failed"
+	make INSTALL_ROOT="${D}" install || die "make install failed"
+	
 	# fix fdo category
 	sed -i -e "s/AudioVideo;Sound;Audio;Qt;/Qt;AudioVideo;Audio;Sequencer;/" \
 		"${D}/usr/share/applications/${PN}.desktop"

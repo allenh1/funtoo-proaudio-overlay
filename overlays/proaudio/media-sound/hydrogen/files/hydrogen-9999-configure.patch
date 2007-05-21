@@ -1,0 +1,41 @@
+--- configure.orig	2007-05-21 23:01:59.000000000 +0200
++++ configure	2007-05-21 23:04:08.000000000 +0200
+@@ -30,10 +30,11 @@
+ 			/usr/local/Trolltech/Qt-4.1.2 \
+ 			/usr/local/Trolltech/Qt-4.1.1 \
+ 			/usr/local/Trolltech/Qt-4.1.0 \
+-			/usr \
++			/usr/lib \
++			/usr/lib/qt4 \
+ 			; do
+ 		if test "x$ac_qtlib" = "x"; then
+-			if test -f $X/lib/libQtCore.a -o -f $X/lib/libQtCore.so -o -d $X/lib/QtCore.framework -o -f $X/lib/libQtCore.dylib; then
++			if test -f $X/libQtCore.a -o -f $X/libQtCore.so -o -d $X/QtCore.framework -o -f $X/libQtCore.dylib; then
+ 				ac_qtlib=$X
+ 				QTDIR=$X
+ 				echo "   |-> searching in $X [ OK ]"
+@@ -47,7 +48,7 @@
+ 	echo ""
+ 	ac_qtlib=""
+ 	if test "x$ac_qtlib" = "x"; then
+-		if test -f $QTDIR/lib/libQtCore.so -o -f $QTDIR/lib/libQtCore.a -o -f $QTDIR/lib/libQtCore_debug.so -o -f $QTDIR/lib/libQtCore_debug.a -o -d $QTDIR/lib/QtCore.framework -o -f $QTDIR/lib/libQtCore.dylib; then
++		if test -f $QTDIR/libQtCore.so -o -f $QTDIR/libQtCore.a -o -f $QTDIR/libQtCore_debug.so -o -f $QTDIR/libQtCore_debug.a -o -d $QTDIR/QtCore.framework -o -f $QTDIR/libQtCore.dylib; then
+ 			ac_qtlib=$QTDIR
+ 			echo " * Searching for QT library in $QTDIR [ OK ]"
+ 		else
+@@ -63,13 +64,13 @@
+ fi
+ 
+ 
+-prefix=/usr/local
++prefix=/usr
+ 
+ echo ""
+ echo " * Creating all.mak..."
+ #$QTDIR/bin/qmake -o all.mak all.pro
+ 
+-$QTDIR/bin/qmake all.pro \
++/usr/bin/qmake all.pro \
+ "prefix=$prefix"
+ 
+ rm -f config.h
