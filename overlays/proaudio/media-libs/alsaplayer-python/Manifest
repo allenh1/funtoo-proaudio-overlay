@@ -1,0 +1,8 @@
+DIST python_alsaplayer-0.3.tar.gz 10520 RMD160 8e7c9d80b7bad9de40e8bc2891f51d0777672815 SHA1 a2fc597afc9f6dac3da78a062cc811057ad8d68f SHA256 2d4127e19fa8b54987d85c3153cd6fe6a142c5fbd453bbeee3e72bf2db89420b
+EBUILD alsaplayer-python-0.3.ebuild 644 RMD160 0b33eca497d9cac9c15e9c0e2bc54463178d885c SHA1 4f3b62152b22fa95d6aa71db6365f28fb901b4ec SHA256 6b554bda2a99fe6b3bcd56f03e0a7ad1f6a2280f00f822c017179edf0d6a05ce
+MD5 8d6fb16ff057893db88beeb019521742 alsaplayer-python-0.3.ebuild 644
+RMD160 0b33eca497d9cac9c15e9c0e2bc54463178d885c alsaplayer-python-0.3.ebuild 644
+SHA256 6b554bda2a99fe6b3bcd56f03e0a7ad1f6a2280f00f822c017179edf0d6a05ce alsaplayer-python-0.3.ebuild 644
+MD5 976fe4d89363aae1022a9f1e506c6012 files/digest-alsaplayer-python-0.3 262
+RMD160 325f04d64bc3f171af75f93e027bcca16b72f7e3 files/digest-alsaplayer-python-0.3 262
+SHA256 c31199b8efca46f73953b25fe0cae57995d879f013f1b1b34df7bde452a19309 files/digest-alsaplayer-python-0.3 262
