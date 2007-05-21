@@ -46,7 +46,9 @@ src_install() {
 	make INSTALL_ROOT="${D}" install || die "make install failed"
 	
 	# install tools
-	dobin hydrogenSynth hydrogenPlayer
+	for i in hydrogenSynth hydrogenPlayer; do
+		dobin extra/$i/$i
+	done
 	
 	# desktop entry
 	newicon "data/img/gray/icon32.png" "${PN}.png"
