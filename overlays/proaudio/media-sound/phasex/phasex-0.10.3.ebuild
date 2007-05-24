@@ -8,6 +8,7 @@ DESCRIPTION="PHASEX is an experimental software synthesizer for use with
 Linux/ALSA/JACK"
 HOMEPAGE="http://www.sysex.net/phasex"
 SRC_URI="http://www.sysex.net/phasex/${P}.tar.gz"
+RESTRICT="nomirror"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -19,6 +20,12 @@ RDEPEND=">=x11-libs/gtk+-2.8
 		media-libs/alsa-lib"
 DEPEND="${RDEPEND}
 		>=dev-util/pkgconfig-0.9"
+
+src_unpack() {
+	unpack "${A}"
+	cd "${S}"
+	epatch "${FILESDIR}/${P}-do_not_install_crappy_desktop.patch"
+}
 
 src_compile() {
 	econf --enable-arch=`get-flag march` || die "configure failed"
