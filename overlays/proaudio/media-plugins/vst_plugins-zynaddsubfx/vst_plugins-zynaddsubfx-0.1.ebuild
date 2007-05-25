@@ -17,7 +17,8 @@ KEYWORDS="~x86"
 IUSE=""
 
 DEPEND=""
-RDEPEND=""
+RDEPEND=">=dev-libs/mini-xml-2"
+
 S="${WORKDIR}/${MY_P}"
 
 src_install() {
