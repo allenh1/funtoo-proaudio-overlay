@@ -6,12 +6,13 @@ inherit java-pkg-2 eutils
 
 DESCRIPTION="Advanced surround sound file editor"
 HOMEPAGE="http://www.virtualworlds.de/AudioCutter/"
-SRC_URI="mirror://sourceforge/audiocutter/${PN}.src.tar.gz"
+SRC_URI="mirror://sourceforge/audiocutter/${PN}.src.tar.gz
+	doc? ( mirror://sourceforge/audiocutter/${PN}_${PV}_x86.tar.gz )"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-IUSE=""
+IUSE="doc"
 
 DEPEND=">=virtual/jre-1.5"
 RDEPEND=">=virtual/jdk-1.5"
@@ -19,10 +20,18 @@ RDEPEND=">=virtual/jdk-1.5"
 S="${WORKDIR}/${PN}"
 
 src_unpack() {
-	unpack "${A}"
+	unpack "${PN}.src.tar.gz"
 	cd "${S}"
 	sed -i -e 's|"../core/audiocutter/audiocutter"|"/usr/bin/audiocutter"|g' \
 		gui/src/Platform.java
+
+	# docs are only available in the binary package
+	if use doc; then
+		mkdir docs
+		cd docs
+		unpack "${PN}_${PV}_x86.tar.gz"
+		tar xf "${PN}.tar"
+	fi
 }
 
 src_compile() {
@@ -74,4 +83,15 @@ src_install() {
 
 	doicon "${FILESDIR}/${PN}.png"
 	make_desktop_entry "${PN}" "AudioCutter Cinema" "${PN}" "AudioVideo;Audio"
+
+	# install docs from binary package
+	if use doc; then
+		dodir /usr/share/doc/"${P}"
+		insinto /usr/share/doc/"${P}"
+		doins docs/usr/local/audiocutter/Documentation.html
+		dodir /usr/share/doc/"${P}"/doc
+		insinto /usr/share/doc/"${P}"/doc
+		doins docs/usr/local/audiocutter/doc/*
+	fi
 }
+
