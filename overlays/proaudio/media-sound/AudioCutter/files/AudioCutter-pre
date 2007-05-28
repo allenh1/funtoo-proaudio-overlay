@@ -1,0 +1,34 @@
+#!/bin/bash
+#
+# AudioCutter startup script
+#
+# first we create a working directory in ${HOME},
+# and link stuff from $SHAREDIR
+
+SHAREDIR=/usr/share/AudioCutter
+WORKINGDIR=~/.AudioCutter
+
+function make_workingdir () {
+
+if [ ! -d $WORKINGDIR ]; then
+	echo "creating working directory $WORKINGDIR ..."
+	mkdir -p $WORKINGDIR
+	mkdir -p $WORKINGDIR/SAMPLES
+	mkdir -p $WORKINGDIR/T
+
+	echo "linking project files to $WORKINGDIR ..."
+	ln -s $SHAREDIR/images $WORKINGDIR
+	ln -s $SHAREDIR/FSHAPE $WORKINGDIR
+	ln -s $SHAREDIR/EFFECTS $WORKINGDIR
+fi
+}
+
+echo ""
+echo "starting AudioCutter ..."
+
+make_workingdir
+
+cd $WORKINGDIR
+
+# start the app
+java -classpath /usr/share/AudioCutter/lib:/usr/share/AudioCutter/lib/AudioCutter.jar:$CLASSPATH AudioCutter
