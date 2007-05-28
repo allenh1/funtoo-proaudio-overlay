@@ -95,3 +95,9 @@ src_install() {
 	fi
 }
 
+pkg_postinst() {
+	elog ""
+	elog "The startup script has been installed to /usr/bin/AudioCutter !"
+	elog ""
+}
+
