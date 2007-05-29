@@ -24,6 +24,7 @@ RDEPEND="$(qt4_min_version 4.2)
 	media-libs/ladspa-sdk
 	media-libs/liblo
 	media-libs/libfishsound
+	media-libs/speex
 	jack? ( media-sound/jack-audio-connection-kit )
 	portaudio? ( =media-libs/portaudio-19* )
 	mad? ( media-libs/libmad )
