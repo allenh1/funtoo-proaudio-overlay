@@ -13,7 +13,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 
-IUSE="aac flac mad vorbis"
+IUSE="aac flac mad vorbis wma"
 
 RDEPEND=">=media-sound/jack-audio-connection-kit-0.100.7
 		dev-python/eyeD3
@@ -21,7 +21,7 @@ RDEPEND=">=media-sound/jack-audio-connection-kit-0.100.7
 		media-libs/libsamplerate
 		media-libs/libsndfile
 		>=media-libs/libshout-2.1
-		media-libs/xine-lib
+		wma? ( media-video/ffmpeg )
 		flac? ( media-libs/flac )
 		mad? ( media-sound/lame )
 		vorbis? ( media-sound/vorbis-tools )
