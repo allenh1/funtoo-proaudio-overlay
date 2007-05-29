@@ -304,6 +304,12 @@
 	Homepage:    http://swami.sourceforge.net/
 
 
+#------- dev-libs/vamp-plugin-sdk --------
+	vamp-plugin-sdk-1.0	arch: ~x86
+	Description: Vamp cross-platform SDK for Vamp plugins
+	Homepage:    http://www.vamp-plugins.org/develop.html
+
+
 #------- dev-util/cmake --------
 	cmake-2.4.2	arch: ~alpha ~amd64 ~ia64 ~mips ~ppc ~sparc ~x86
 	Description: Cross platform Make
@@ -831,6 +837,7 @@
 
 #------- media-sound/sonic-visualiser --------
 	sonic-visualiser-0.9	arch: x86
+	sonic-visualiser-1.0	arch: ~x86
 	Description: Music audio files viewer and analiser
 	Homepage:    http://www.sonicvisualiser.org/
 
@@ -1495,6 +1502,12 @@
 	Homepage:    http://trac.zeitherrschaft.org/aldrin/
 
 
+#------- media-sound/AudioCutter --------
+	AudioCutter-1.2	arch: ~x86 ~amd64
+	Description: Advanced surround sound file editor
+	Homepage:    http://www.virtualworlds.de/AudioCutter/
+
+
 #------- media-sound/jackmixdesk --------
 	jackmixdesk-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: JackMixDesk is an audio mixer for JACK with
@@ -1616,6 +1629,7 @@
 #------- media-sound/jost --------
 	jost-0.2.2	arch: ~x86
 	jost-0.2.3	arch: ~x86
+	jost-0.3.0	arch: ~x86
 	Description: host for native linux vst plugins
 	Homepage:    http://www.anticore.org/jucetice/?page_id=4
 
