@@ -32,7 +32,7 @@ src_install() {
 	exeinto /usr/lib/vamp
 	doexe *.so
 	insinto /usr/lib/vamp
-	doins "*.cat"
+	doins *.cat
 	dodoc README STATUS
 }
 
