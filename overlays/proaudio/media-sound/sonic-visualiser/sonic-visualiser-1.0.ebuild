@@ -57,6 +57,9 @@ src_install() {
 	#install samples
 	insinto /usr/share/${PN}/samples
 	doins sv/samples/*
+	# desktop entry
+	newicon "sv/icons/sv-48x48.png" "${PN}.png"
+	make_desktop_entry "${PN}" "Sonic Visualiser" "${PN}" "AudioVideo;Audio;"
 }
 
 pkg_postinst() {
