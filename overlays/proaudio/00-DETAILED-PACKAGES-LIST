@@ -228,6 +228,13 @@
 	Homepage:    http://www.alsaplayer.org/
 
 
+#------- media-plugins/vamp-aubio-plugins --------
+	vamp-aubio-plugins-0.3.2	arch: ~x86
+	Description: Onset detection, pitch tracking, note tracking
+		 and tempo tracking plugins for Vamp
+	Homepage:    http://www.vamp-plugins.org
+
+
 #------- media-plugins/swh-lv2 --------
 	swh-lv2-1.0.10	arch: x86
 	Description: Large collection of lv2 audio plugins/effects
@@ -248,6 +255,13 @@
 	Description: Collection of LADSPA plugins for modular
 		 synthesizers.
 	Homepage:    http://drobilla.net/software
+
+
+#------- media-plugins/vamp-libxtract-plugins --------
+	vamp-libxtract-plugins-0.4.2	arch: ~x86
+	Description: Low-level feature extraction plugins for
+		 Vamp
+	Homepage:    http://www.vamp-plugins.org
 
 
 #------- media-plugins/pd-hid --------
@@ -440,6 +454,14 @@
 	libzzub-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: buzz compatibility lib for aldrin
 	Homepage:    http://trac.zeitherrschaft.org/aldrin
+
+
+#------- media-libs/libxtract --------
+	libxtract-0.4.5	arch: ~x86
+	Description: LibXtract is a simple, portable, lightweight
+		 library of audio feature extraction functions
+		
+	Homepage:    http://libxtract.sourceforge.net
 
 
 #------- media-libs/zynaddsubfx-extras --------

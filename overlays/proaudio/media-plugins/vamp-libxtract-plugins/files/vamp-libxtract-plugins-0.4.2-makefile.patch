@@ -1,0 +1,22 @@
+--- Makefile.orig	2007-05-29 15:15:58.000000000 +0200
++++ Makefile	2007-05-29 15:17:09.000000000 +0200
+@@ -1,8 +1,8 @@
+ 
+ # Location of Vamp SDK
+ #
+-VAMPDIR		= ../vamp-plugin-sdk
+-VAMPLIBDIR	= $(VAMPDIR)/vamp-sdk
++VAMPDIR		= `pkg-config --cflags vamp-sdk`
++VAMPLIBDIR	= `pkg-config --libs vamp-sdk`
+ 
+ # Location of our plugins
+ #
+@@ -10,7 +10,7 @@
+ 
+ # Compile flags
+ #
+-CXXFLAGS	:= $(CXXFLAGS) -DNDEBUG -O2 -march=pentium3 -mfpmath=sse -ffast-math -Wall -I$(VAMPDIR) -I.
++CXXFLAGS	:= $(CXXFLAGS) -DNDEBUG -ffast-math -fPIC -DPIC -Wall -I$(VAMPDIR) -I.
+ 
+ # Libraries required for the plugins.  Note that we can (and actively
+ # want to) statically link libstdc++, because our plugin exposes only

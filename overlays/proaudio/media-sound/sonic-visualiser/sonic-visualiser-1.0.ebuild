@@ -43,6 +43,9 @@ src_compile() {
 	cd ${S}
 	# don't use ffast-math
 	filter-flags "-ffast-math"
+	# just to be save
+	unset QTDIR
+
 	/usr/bin/qmake || die "Configuration failed"
 	make || die "Compilation failed"
 }

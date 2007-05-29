@@ -28,9 +28,11 @@ media-plugins/dssi-vst
 media-plugins/alsaplayer-ape
 media-plugins/vocoder-ladspa
 media-plugins/alsaplayer-tta
+media-plugins/vamp-aubio-plugins
 media-plugins/swh-lv2
 media-plugins/vst_plugins-synth4
 media-plugins/omins
+media-plugins/vamp-libxtract-plugins
 media-plugins/pd-hid
 media-plugins/preamp
 media-plugins/xsynth-dssi
@@ -58,6 +60,7 @@ media-libs/fluidsynth-dssi
 media-libs/joss
 media-libs/oscpack
 media-libs/libzzub
+media-libs/libxtract
 media-libs/zynaddsubfx-extras
 media-libs/alsaplayer-python
 media-libs/asio-sdk
