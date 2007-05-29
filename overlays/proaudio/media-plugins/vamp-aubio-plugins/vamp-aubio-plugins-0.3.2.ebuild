@@ -33,7 +33,7 @@ src_install() {
 	exeinto /usr/lib/vamp
 	doexe vamp-aubio.so
 	insinto /usr/lib/vamp
-	doinst *.cat
+	doins *.cat
 	dodoc README
 }
 
