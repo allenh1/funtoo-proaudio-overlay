@@ -3,10 +3,10 @@ MD5 25a2a34f3f311fcf86fe76d62dfe0843 files/vamp-plugin-sdk-1.0-makefile.patch 46
 RMD160 9aa60998120df67167bfffd413bc73e3e1872713 files/vamp-plugin-sdk-1.0-makefile.patch 4696
 SHA256 b3a7072446a3b31b4ae80752d17fcb4c8970ff93a5767ab8ae8d49fa13f60e9c files/vamp-plugin-sdk-1.0-makefile.patch 4696
 DIST vamp-plugin-sdk-1.0.tar.gz 32438 RMD160 37d010152909ce84cf7e5e2df99a74f889a97951 SHA1 b90acb7826b0a101669e444015cd97a775e8d288 SHA256 08e903570e88dafc01cbfc09c782c9093a1967e83a2895c64980f33610349386
-EBUILD vamp-plugin-sdk-1.0.ebuild 616 RMD160 fc9dfce771656b1a212b4a6f7c7925b0bf26ce5f SHA1 3d1a98d782eb01ef29ba7015170bb0e0e73d7770 SHA256 e8b0fc587aea47c83319c8f390c68d0a117d9b8a2eb1296bd30a10ef98c2b45c
-MD5 26674b9627c6aae2958cfed64111ed3d vamp-plugin-sdk-1.0.ebuild 616
-RMD160 fc9dfce771656b1a212b4a6f7c7925b0bf26ce5f vamp-plugin-sdk-1.0.ebuild 616
-SHA256 e8b0fc587aea47c83319c8f390c68d0a117d9b8a2eb1296bd30a10ef98c2b45c vamp-plugin-sdk-1.0.ebuild 616
+EBUILD vamp-plugin-sdk-1.0.ebuild 786 RMD160 d4d50c7964c7746a38cb290b0a89051e3693f9b1 SHA1 6c9a2d6cd978f0c0c0a9c25f98b2db9f8ff4fe20 SHA256 73ee81078351f210120d82ae6a5dcba73f046da5475edcc7ad2247a25b778a88
+MD5 035870710b5eac61eeb01f9d9b1ece08 vamp-plugin-sdk-1.0.ebuild 786
+RMD160 d4d50c7964c7746a38cb290b0a89051e3693f9b1 vamp-plugin-sdk-1.0.ebuild 786
+SHA256 73ee81078351f210120d82ae6a5dcba73f046da5475edcc7ad2247a25b778a88 vamp-plugin-sdk-1.0.ebuild 786
 MD5 28594c0e60ff62547174b95b7e4eb53f files/digest-vamp-plugin-sdk-1.0 256
 RMD160 61a60b727d1d73131e898951d9404158a495a170 files/digest-vamp-plugin-sdk-1.0 256
 SHA256 82420cd721ccbd953dc9650a8d0974cfea514db8453b60bad4a579abb95b534c files/digest-vamp-plugin-sdk-1.0 256

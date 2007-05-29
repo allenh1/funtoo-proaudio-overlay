@@ -28,6 +28,13 @@ src_compile() {
 
 src_install() {
 	make DESTDIR="${D}" install || die "make install failed"
+	# install examples
+	dodir /usr/lib/vamp
+	exeinto /usr/lib/vamp
+	doexe examples/vamp-example-plugins.so
+	insinto /usr/lib/vamp
+	doins examples/vamp-example-plugins.cat
+	
 	dodoc README
 }
 
