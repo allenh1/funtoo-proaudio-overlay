@@ -23,7 +23,7 @@
  # Flags required to tell the compiler to link to a dynamically loadable object
  #
 -PLUGIN_LDFLAGS	= -shared -Wl,-Bsymbolic -static-libgcc
-+PLUGIN_LDFLAGS	= -shared -Wl,-Bsymbolic -Wl,-soname -static-libgcc $(LDFLAGS)
++PLUGIN_LDFLAGS	= -shared -Wl,-Bsymbolic -static-libgcc
  
  # File extension for a dynamically loadable object
  #
