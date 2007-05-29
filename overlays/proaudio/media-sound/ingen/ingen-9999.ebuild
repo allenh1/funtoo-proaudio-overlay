@@ -6,7 +6,7 @@ inherit subversion eutils autotools
 
 RESTRICT="nomirror"
 # lash currently not supported upstream
-IUSE="dssi pic jackmidi midi ladspa jack osc gtk2"
+IUSE="dssi pic jackmidi midi ladspa lv2 jack osc gtk2"
 DESCRIPTION="Ingen (successor of om) is a modular synthesizer for GNU/Linux audio systems using the Jack audio server and LADSPA or DSSI plugins."
 HOMEPAGE="http://drobilla.net/software/ingen"
 
@@ -36,7 +36,8 @@ RDEPEND=">=media-libs/liblo-0.22
 	dssi? ( media-libs/dssi )
 	!media-sound/om-cvs
 	jack? ( media-sound/jack-audio-connection-kit )
-	jackmidi? ( >=media-sound/jack-audio-connection-kit-0.100.7-r2 )"
+	jackmidi? ( >=media-sound/jack-audio-connection-kit-0.100.7-r2 )
+	lv2? ( media-libs/slv2 )"
 
 DEPEND="${RDEPEND}
 	>=dev-libs/boost-1.33.1
@@ -85,7 +86,7 @@ src_compile() {
 		`use_enable osc server` \
 		`use_enable gtk2 gtk-client` \
 		`use_enable jack in-process-engine` \
-		 --disable-lv2 || die "configure failed"
+		`use_enable lv2` || die "configure failed"
 	emake || die "make failed"
 }
 
