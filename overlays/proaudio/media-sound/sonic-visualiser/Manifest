@@ -6,10 +6,10 @@ EBUILD sonic-visualiser-0.9.ebuild 2096 RMD160 afa87aa1e1b6b4bc56a34603bed80cff4
 MD5 da6b0ed96d10c6f58ab3a58bf3d39542 sonic-visualiser-0.9.ebuild 2096
 RMD160 afa87aa1e1b6b4bc56a34603bed80cff4ab3b738 sonic-visualiser-0.9.ebuild 2096
 SHA256 cb6170049f7a426a682e97e3d2b6e63473fae5220af51610ebc5840e640e50f0 sonic-visualiser-0.9.ebuild 2096
-EBUILD sonic-visualiser-1.0.ebuild 1647 RMD160 c21c53532b585411c5d82946f17c602b0101bfa7 SHA1 6b4f01c28ac8a137486c80d87e4653bd17a7a45b SHA256 0ee05c8c05788ba933ebfa2a5bdd604f0aef688407e4869786373d73e0d674cf
-MD5 241970113c9da9ebc885886e578a1e23 sonic-visualiser-1.0.ebuild 1647
-RMD160 c21c53532b585411c5d82946f17c602b0101bfa7 sonic-visualiser-1.0.ebuild 1647
-SHA256 0ee05c8c05788ba933ebfa2a5bdd604f0aef688407e4869786373d73e0d674cf sonic-visualiser-1.0.ebuild 1647
+EBUILD sonic-visualiser-1.0.ebuild 1777 RMD160 73fad18e50f4717690472dff88c4655c8587ab4d SHA1 b844808ff8afc5794cc8ac35c6888a4fd6ca6e91 SHA256 c14bd7f512b57aa7249d195102f33f100e49422d839f60007d9b537bd3800ddc
+MD5 fe17ae315a9e671811028a54b387f036 sonic-visualiser-1.0.ebuild 1777
+RMD160 73fad18e50f4717690472dff88c4655c8587ab4d sonic-visualiser-1.0.ebuild 1777
+SHA256 c14bd7f512b57aa7249d195102f33f100e49422d839f60007d9b537bd3800ddc sonic-visualiser-1.0.ebuild 1777
 MD5 ef3d4a8e6ba5021e790a5ea340dfbf2e files/digest-sonic-visualiser-0.9 846
 RMD160 5368946b331caeeeadb019cc23bad1e4ef1e12e1 files/digest-sonic-visualiser-0.9 846
 SHA256 8e73bcd3b31b42f45751a3b0d5803a7b5220c789e298e4decaa11b2ab86f025e files/digest-sonic-visualiser-0.9 846

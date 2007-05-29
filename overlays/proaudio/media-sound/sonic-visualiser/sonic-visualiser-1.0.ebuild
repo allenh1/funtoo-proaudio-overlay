@@ -18,6 +18,12 @@ RDEPEND="$(qt4_min_version 4.2)
 	media-libs/libsamplerate
 	>=sci-libs/fftw-3.0
 	app-arch/bzip2
+	>=media-libs/dssi-0.9.1
+	media-libs/raptor
+	media-libs/liblrdf
+	media-libs/ladspa-sdk
+	media-libs/liblo
+	media-libs/libfishsound
 	jack? ( media-sound/jack-audio-connection-kit )
 	portaudio? ( =media-libs/portaudio-19* )
 	mad? ( media-libs/libmad )
