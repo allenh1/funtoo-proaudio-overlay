@@ -2,3 +2,4 @@ freebob - Adds support for the 'BridgeCo enhanced breakout box' aka 'BeBoB'
 vst - Adds support for win32 vst's (Steinbergs virtual studio technology)
 dssi - Enable the DSSI midi synthesizer provider
 jackmidi - Enable for the JACK-MIDI API from jack-audio-connection-kit
+postgresql - Adds support for the PostgreSQL database server
