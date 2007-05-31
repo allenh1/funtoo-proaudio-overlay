@@ -1,6 +1,6 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2007 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/sys-kernel/mm-sources/mm-sources-2.6.16_rc5-r3.ebuild,v 1.1 2006/03/08 08:22:55 voxus Exp $
+# $Header: $
 
 K_PREPATCHED="yes"
 UNIPATCH_STRICTORDER="yes"
@@ -19,20 +19,12 @@ MM_MIN_VER=mm1
 # base for mm-patch
 MY_MM_BASE="2.6.17-rc4"
 
-# URL's with possible location of the realtime-patch
-# these URL's need to be passed to get_valid_url in
-# SRC_URI
-# eg. SRC_URI=`get_valid_url $FIRST_URL $SEC_URL`
-P_URL="http://people.redhat.com/mingo/realtime-preempt"
-FIRST_URL="${P_URL}/patch-${KV}"
-SEC_URL="${P_URL}/older/patch-${KV}"
-
 VESAFB="vesafb-tng-1.0-rc2-2.6.20-rc2.patch.bz2"
 FBSPLASH="fbsplash-0.9.2-r5-2.6.19-rt.patch.bz2"
 RESTRICT="nomirror"
 DESCRIPTION="Ingo Molnars realtime patch applied on vanilla"
 SRC_URI="${KERNEL_URI}
-$(get_valid_url "${FIRST_URL}" "${SEC_URL}")
+http://download.tuxfamily.org/proaudio/realtime-patches/patch-${KV}
 vesafb-tng? ( http://proaudio.tuxfamily.org/patches/${VESAFB} ) 
 fbsplash? ( http://proaudio.tuxfamily.org/patches/${FBSPLASH} )"
 #reiser4? ( http://kernel.org/pub/linux/kernel/people/akpm/patches/2.6/${MY_MM_BASE}/${MY_MM_BASE}-${MM_MIN_VER}/${MY_MM_BASE}-${MM_MIN_VER}-broken-out.tar.bz2 )"

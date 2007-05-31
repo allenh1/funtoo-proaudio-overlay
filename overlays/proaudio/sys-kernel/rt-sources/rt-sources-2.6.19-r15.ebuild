@@ -23,16 +23,17 @@ MY_MM_BASE="2.6.17-rc4"
 # these URL's need to be passed to get_valid_url in
 # SRC_URI
 # eg. SRC_URI=`get_valid_url $FIRST_URL $SEC_URL`
-P_URL="http://people.redhat.com/mingo/realtime-preempt"
-FIRST_URL="${P_URL}/patch-${KV}"
-SEC_URL="${P_URL}/older/patch-${KV}"
+# NO LONGER USED: using own mirror for that files now
+#P_URL="http://people.redhat.com/mingo/realtime-preempt"
+#FIRST_URL="${P_URL}/patch-${KV}"
+#SEC_URL="${P_URL}/older/patch-${KV}"
 
 VESAFB="vesafb-tng-1.0-rc2-2.6.19-rc2.patch.bz2"
 FBSPLASH="fbsplash-0.9.2-r5-2.6.19-rt.patch.bz2"
 RESTRICT="nomirror"
 DESCRIPTION="Ingo Molnars realtime patch applied on vanilla"
 SRC_URI="${KERNEL_URI}
-$(get_valid_url "${FIRST_URL}" "${SEC_URL}")
+http://download.tuxfamily.org/proaudio/realtime-patches/patch-${KV}
 vesafb-tng? ( http://proaudio.tuxfamily.org/patches/${VESAFB} ) 
 fbsplash? ( http://proaudio.tuxfamily.org/patches/${FBSPLASH} )"
 #reiser4? ( http://kernel.org/pub/linux/kernel/people/akpm/patches/2.6/${MY_MM_BASE}/${MY_MM_BASE}-${MM_MIN_VER}/${MY_MM_BASE}-${MM_MIN_VER}-broken-out.tar.bz2 )"
