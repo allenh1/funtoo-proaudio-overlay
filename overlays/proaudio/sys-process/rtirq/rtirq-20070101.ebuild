@@ -3,15 +3,12 @@
 # $Header: $
 
 RESTRICT="nomirror"
-inherit eutils fetch-tools
+inherit eutils 
 DESCRIPTION="Change the realtime scheduling policy and priority of relevant system driver IRQ handlers"
 HOMEPAGE="http://www.rncbc.org/jack/"
 
 P_URL="http://www.rncbc.org/jack"
-FIRST_URL="${P_URL}/${P}.tar.gz"
-SEC_URL="${P_URL}/old/${P}.tar.gz"
-SRC_URI="$(get_valid_url "${FIRST_URL}" "${SEC_URL}")"
-
+SRC_URI="http://download.tuxfamily.org/proaudio/distfiles/${P}.tar.gz"
 LICENSE="GPL"
 SLOT="0"
 KEYWORDS="x86 amd64 ppc"

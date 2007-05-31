@@ -27,7 +27,9 @@ DEPEND="=media-sound/jack-audio-connection-kit-9999
 	>=dev-python/pygtk-2.0
 	>=x11-libs/gtk+-2
 	>=dev-lang/python-2.4
-	=media-libs/lv2dynparam-9999"
+	=media-libs/lv2dynparam-9999
+	>=media-libs/phat-0.4.1
+	>=media-libs/librdf-1.0.6"
 
 RDEPEND="${DEPEND}
 	>=media-libs/pyphat-9999"
