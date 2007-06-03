@@ -4,7 +4,7 @@
 
 MY_P="${PN}_src-v${PV}"
 
-DESCRIPTION="host for native linux vst plugins"
+DESCRIPTION="JACK host for native linux VST and LADSPA plugins"
 HOMEPAGE="http://www.anticore.org/jucetice/?page_id=4"
 SRC_URI="http://www.anticore.org/jucetice/wp-content/uploads/${MY_P}.tar.bz2"
 RESTRICT="nomirror"
@@ -20,7 +20,8 @@ RDEPEND="|| ( (  x11-proto/xineramaproto
 			virtual/x11 )
 		media-sound/jack-audio-connection-kit"
 DEPEND="${RDEPEND}
-		media-libs/vst-sdk"
+		media-libs/vst-sdk
+		media-libs/ladspa-sdk"
 
 S="${WORKDIR}"
 
@@ -43,4 +44,7 @@ src_install() {
 pkg_postinst() {
 	elog "For some sample native linux VST's emerge some of"
 	elog "media-plugins/vst_plugins-*"
+	elog ""
+	elog "You can also drag&drop LADSPA and VST plugins from your plugin"
+	elog "folders."
 }
