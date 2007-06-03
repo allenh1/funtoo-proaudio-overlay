@@ -22,7 +22,7 @@ RDEPEND="|| ( (  x11-proto/xineramaproto
 DEPEND="${RDEPEND}
 		media-libs/vst-sdk"
 
-S="${WORKDIR}/${PN}"
+S="${WORKDIR}"
 
 src_compile() {
 	# build modified juce
@@ -36,13 +36,11 @@ src_compile() {
 
 src_install() {
 	exeinto /usr/bin
-	doexe plugins/Jost/build/linux/jost
+	doexe bin/jost
 	dodoc plugins/Jost/readme.txt
 }
 
 pkg_postinst() {
 	elog "For some sample native linux VST's emerge some of"
 	elog "media-plugins/vst_plugins-*"
-	elog "Then start JOST with:"
-	elog "jost /usr/lib/vst/<name>.so"
 }
