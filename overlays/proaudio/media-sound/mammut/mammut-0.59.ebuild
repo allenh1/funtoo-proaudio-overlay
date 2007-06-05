@@ -35,6 +35,9 @@ src_unpack() {
 		|| die
 	sed -i -e "s:GCC=gcc -Wall:GCC=gcc -Wall -march=$(get-flag march):" Makefile \
 		|| die
+
+	# fix for juce-1.42
+	has_version ">media-libs/juce-1.41" && "epatch ${FILESDIR}/${P}-prefs.patch"
 }
 
 src_compile() {
