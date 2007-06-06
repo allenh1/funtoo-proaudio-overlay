@@ -4,7 +4,6 @@ app-portage/euses
 dev-libs/libinstpatch
 dev-libs/vamp-plugin-sdk
 dev-python/pyalsaaudio
-dev-util/cmake
 media-libs/alsa-lib
 media-libs/alsaplayer-python
 media-libs/asio-sdk
@@ -249,6 +248,6 @@ sys-process/set_rlimits
 x11-libs/qwt
 x11-misc/stalonetray
 x11-misc/xanalyser
-x11-themes/crystal-audio
+x11-themes/crystal-artwork
 x11-themes/fvwm-crystal
 x11-wm/fvwm

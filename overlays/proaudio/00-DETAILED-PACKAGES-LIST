@@ -1,6 +1,7 @@
 #------- app-emulation/wine --------
 	wine-0.9.36	arch: -* ~amd64 ~x86
 	wine-0.9.37	arch: -* ~amd64 ~x86
+	wine-0.9.38	arch: -* ~amd64 ~x86
 	Description: free implementation of Windows(tm) on Unix
 		
 	Homepage:    http://www.winehq.com/
@@ -36,11 +37,6 @@
 	pyalsaaudio-0.2-r1	arch: ~x86 ~amd64
 	Description: A Python wrapper for the ALSA API
 	Homepage:    http://www.sourceforge.net/projects/pyalsaaudio
-
-
-#------- dev-util/cmake --------
-	Description: unknown
-	Homepage:    unknown
 
 
 #------- media-libs/alsa-lib --------
@@ -391,6 +387,7 @@
 	dssi-vst-0.3.1	arch: ~amd64 x86
 	dssi-vst-0.4	arch: ~amd64 x86
 	dssi-vst-0.4-r1	arch: ~amd64 x86
+	dssi-vst-0.4-r2	arch: ~amd64 x86
 	Description: DSSI wrapper plugin for Windows VSTs
 	Homepage:    http://dssi.sourceforge.net/
 
@@ -571,8 +568,7 @@
 
 
 #------- media-plugins/vst_plugins-soundcrab --------
-	vst_plugins-soundcrab-0.1.0	arch: ~x86
-	vst_plugins-soundcrab-0.2.0	arch: ~x86
+	vst_plugins-soundcrab-0.2.1	arch: ~x86
 	Description: Lightweight soundfont player - VST plugin
 		
 	Homepage:    http://www.anticore.org/jucetice/?page_id=29
@@ -1125,8 +1121,8 @@
 	jack_capture-0.3.7	arch: ~x86 ~amd64
 	jack_capture-0.3.9	arch: x86 ~amd64
 	jack_capture-0.9.3	arch: x86 ~amd64
-	jack_capture-0.9.4	arch: x86 ~amd64
 	jack_capture-0.9.5	arch: x86 ~amd64
+	jack_capture-0.9.6	arch: x86 ~amd64
 	Description: Recording tool which default operation is
 		 to capture what goes out to the soundcard
 		 from JACK
@@ -1213,10 +1209,12 @@
 
 
 #------- media-sound/jost --------
-	jost-0.2.2	arch: ~x86
 	jost-0.2.3	arch: ~x86
 	jost-0.3.0	arch: ~x86
-	Description: host for native linux vst plugins
+	jost-0.3.1	arch: ~x86
+	jost-0.3.2	arch: ~x86
+	Description: JACK host for native linux VST and LADSPA
+		 plugins
 	Homepage:    http://www.anticore.org/jucetice/?page_id=4
 
 
@@ -1912,16 +1910,14 @@
 	Homepage:    http://arvin.schnell-web.net/xanalyser/
 
 
-#------- x11-themes/crystal-audio --------
-	crystal-audio-1.9	arch: ~x86 ~amd64
-	crystal-audio-2.0	arch: ~x86 ~amd64
-	Description: Configurable and full featured theme for
-		 FVWM-Crystal, tuned for audio work.
-	Homepage:    http://crystal-audio.sourceforge.net/
+#------- x11-themes/crystal-artwork --------
+	crystal-artwork-0.5	arch: amd64 x86
+	Description: Crystal-Audio artwork compilation for FVWM-Crystal
+		
+	Homepage:    http://fvwm-crystal.sourceforge.net/
 
 
 #------- x11-themes/fvwm-crystal --------
-	fvwm-crystal-3.9.4	arch: amd64 x86
 	fvwm-crystal-4.1.4	arch: amd64 x86
 	fvwm-crystal-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: Configurable and full featured theme for
