@@ -65,6 +65,8 @@ esed() {
 # WARNING: it's only tested to work if it's called inside the
 # dir which contains the file to patch
 # syntax same as sed
+# ESED_CHECK=1 emerge pkg # will show the differences produced whith esed_check
+CNT="0"
 esed_check() {
 #	set -x
 	local cnt=0
@@ -77,6 +79,9 @@ esed_check() {
 	done
 	LC_ALL=C sed "${args[@]}"
 	
+	if [ "${?}" -ne "0" ] ;then
+		die "esed_check error with this commandline: \"esed_check ${args[@]}\""
+	fi
 	local backup=`find -name '*esed_bac' -printf '%f\n'`
 	einfo "patching: ${backup/esed_bac/}  (using sed)"
 	if diff --brief ${backup/esed_bac/} $backup &>/dev/null;then
@@ -84,6 +89,18 @@ esed_check() {
 		eerror "Sed argument:"
 		eerror "sed ${args[@]}"
 		die "patching failed"
+	fi
+
+	# check the differences produces with esed_check
+	if [ "${CHECK_ESED}" == "1" ];then
+		[ ! -e esed_patches ] && mkdir esed_patches &>/dev/null
+		einfo "In file ${backup/esed_bac/} esed changed:"
+		diff -u $backup ${backup/esed_bac/}
+		echo "esed generated patch for ${backup/esed_bac/}" \
+			> esed_patches/${CNT}-${backup/esed_bac/}.patch
+		diff -u $backup ${backup/esed_bac/} \
+			>> esed_patches/${CNT}-${backup/esed_bac/}.patch
+		let CNT+=1
 	fi
 	rm -f $backup
 }
