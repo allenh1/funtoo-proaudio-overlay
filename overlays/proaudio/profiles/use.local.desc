@@ -8,3 +8,4 @@ media-sound/jack-audio-connection-kit:freebob - enables support for 'BeBoB'
 media-sound/museseq:zynaddsubfx - integrate ZynAddSubFX into museseq
 x11-themes/crystal-audio:laptop - Add recipes for laptop
 media-libs/librdf:postgresql - Enable use of the Redland PostgreSQL triple store backend
+media-sound/ardour:sys-libs - use system libs instead of provided. No upstream support!!!

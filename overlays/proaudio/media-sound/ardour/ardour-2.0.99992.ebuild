@@ -14,7 +14,7 @@ RESTRICT="nomirror"
 LICENSE="GPL-2"
 SLOT="1"
 KEYWORDS=""
-IUSE="nls debug sse altivec vst"
+IUSE="nls debug sse altivec vst sys-libs"
 
 RDEPEND=">=media-libs/liblrdf-0.4.0
 	>=media-libs/raptor-1.2.0
@@ -27,7 +27,10 @@ RDEPEND=">=media-libs/liblrdf-0.4.0
 	dev-libs/libxslt
 	>=dev-libs/glib-2.10
 	>=x11-libs/gtk+-2.6
-	>=gnome-base/libgnomecanvas-2.12.0
+	sys-libs? ( >=gnome-base/libgnomecanvas-2.12.0
+		>=dev-libs/libsigc-2.0
+		>=media-libs/libsndfile-1.0.16
+		>=dev-cpp/gtkmm-2.8 )
 	>=media-sound/jack-audio-connection-kit-0.100.0
 	!=media-sound/ardour2-9*
 	vst? ( >=app-emulation/wine-0.9.5 )"
@@ -57,6 +60,14 @@ pkg_setup(){
 		ewarn "environment variable so we unset it"
 		unset ACLOCAL_FLAGS
 	fi
+	if use sys-libs;then
+		ewarn "You are trying to use the system libraries"
+		ewarn "instead the ones provided by ardour"
+		ewarn "No upstream support for doing so. Use at your own risk!!!"
+		ewarn "To use the ardour provided libs remerge with:"
+		ewarn "USE=\"-sys-libs\" emerge =${P}"
+		epause 3s
+	fi
 }
 
 src_unpack(){
@@ -66,6 +77,10 @@ src_unpack(){
 	#fetch_tarball_cmp "${URL}"
 	#unpack "${URL##*/}"
 	cd ${S}
+	
+	# hack to use the sys-lib for sndlib also
+	use sys-libs && epatch "${FILESDIR}/ardour-syslib_mod2.patch"
+	
 	# change template dir to not overwrite ardour1 stuff
 	sed -i -e 's:\(share\)/ardour/\(templates\):\1/ardour2/\2:g' templates/SConscript || die "changing template names failed"
 	add_ccache_to_scons
@@ -91,12 +106,12 @@ src_unpack(){
 
 src_compile() {
 	# bug 99664
-	cd ${S}/libs/glibmm2
-	chmod a+x autogen.sh && ./autogen.sh || die "autogen failed"
+	#cd ${S}/libs/glibmm2
+	#chmod a+x autogen.sh && ./autogen.sh || die "autogen failed"
 	#cd ${S}/libs/sigc++2/
 	#chmod a+x autogen.sh && ./autogen.sh || die "autogen failed"
-	econf || die "configure failed"
-	
+	#econf || die "configure failed"
+	#
 	# Required for scons to "see" intermediate install location
 	mkdir -p ${D}
 	
@@ -105,6 +120,7 @@ src_compile() {
 	! use debug; myconf="${myconf} ARDOUR_DEBUG=$?"
 	! use nls; myconf="${myconf} NLS=$?" 
 	! use vst; myconf="${myconf} VST=$?" 
+	! use sys-libs; myconf="${myconf} SYSLIBS=$?"
 	! use sse; myconf="${myconf} USE_SSE_EVERYWHERE=$? BUILD_SSE_OPTIMIZATIONS=$?"
 	# static settings
 	myconf="${myconf} PREFIX=/usr KSI=0" # NLS=0"

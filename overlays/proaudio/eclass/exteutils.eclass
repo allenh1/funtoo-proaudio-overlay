@@ -69,6 +69,13 @@ esed() {
 CNT="0"
 esed_check() {
 #	set -x
+	die_msg() {
+		eerror "failed to patch: ${1}"
+		eerror "Sed argument:"
+		eerror "sed ${args[@]}"
+		die "sed patching failed"
+	}
+
 	local cnt=0
 	local args=("$@")
 	for i in ${args[@]};do
@@ -78,29 +85,31 @@ esed_check() {
 		let "cnt+=1"
 	done
 	LC_ALL=C sed "${args[@]}"
-	
 	if [ "${?}" -ne "0" ] ;then
-		die "esed_check error with this commandline: \"esed_check ${args[@]}\""
+		die_msg 
 	fi
-	local backup=`find -name '*esed_bac' -printf '%f\n'`
-	einfo "patching: ${backup/esed_bac/}  (using sed)"
-	if diff --brief ${backup/esed_bac/} $backup &>/dev/null;then
-		eerror "failed to patch: ${backup/esed_bac/}"
-		eerror "Sed argument:"
-		eerror "sed ${args[@]}"
-		die "patching failed"
+
+	local backup="`find -name '*esed_bac' -printf '%f\n'`"
+	local original="${backup/esed_bac/}"
+	einfo "patching: ${original}  (using sed)"
+	if diff --brief "${original}" "${backup}" &>/dev/null;then
+		die_msg "${original}"
 	fi
 
 	# check the differences produces with esed_check
+	local patch_dir="${S}/esed_patches"
 	if [ "${CHECK_ESED}" == "1" ];then
-		[ ! -e esed_patches ] && mkdir esed_patches &>/dev/null
-		einfo "In file ${backup/esed_bac/} esed changed:"
-		diff -u $backup ${backup/esed_bac/}
-		echo "esed generated patch for ${backup/esed_bac/}" \
-			> esed_patches/${CNT}-${backup/esed_bac/}.patch
-		diff -u $backup ${backup/esed_bac/} \
-			>> esed_patches/${CNT}-${backup/esed_bac/}.patch
+		# display diff 
+		einfo "In file ${original} esed changed:"
+		diff -u "${backup}" "${original}"
+
+		# save the sed geneated patches to $patch_dir
+		[ ! -e ${patch_dir} ] && mkdir ${patch_dir} &>/dev/null
+		echo "esed generated patch for ${original}" \
+			> "${patch_dir}/${CNT}-${original}.patch"
+		diff -u "${backup}" "${original}" \
+			>> "${patch_dir}/${CNT}-${original}.patch"
 		let CNT+=1
 	fi
-	rm -f $backup
+	rm -f "${backup}"
 }
