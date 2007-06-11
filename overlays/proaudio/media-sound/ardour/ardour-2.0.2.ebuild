@@ -30,7 +30,7 @@ RDEPEND=">=media-libs/liblrdf-0.4.0
 	sys-libs? ( >=dev-libs/libsigc++-2.0
 		>=dev-cpp/glibmm-2.4
 		>=dev-cpp/cairomm-1.0
-		>=dev-cpp/gtkmm-2.4
+		>=dev-cpp/gtkmm-2.8
 		>=dev-libs/atk-1.6
 		>=x11-libs/pango-1.4 
 		>=dev-cpp/libgnomecanvasmm-2.12.0
