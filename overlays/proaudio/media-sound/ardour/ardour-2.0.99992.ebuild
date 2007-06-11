@@ -22,7 +22,6 @@ RDEPEND=">=media-libs/liblrdf-0.4.0
 	>=media-libs/ladspa-sdk-1.12
 	>=media-libs/libsamplerate-0.0.14
 	media-libs/liblo
-	>=media-libs/libsndfile-1.0.4
 	>=dev-libs/libxml2-2.5.7
 	dev-libs/libxslt
 	>=dev-libs/glib-2.10
@@ -33,7 +32,16 @@ RDEPEND=">=media-libs/liblrdf-0.4.0
 		>=dev-cpp/gtkmm-2.8 )
 	>=media-sound/jack-audio-connection-kit-0.100.0
 	!=media-sound/ardour2-9*
-	vst? ( >=app-emulation/wine-0.9.5 )"
+	vst? ( >=app-emulation/wine-0.9.5 )
+	sys-libs? ( >=dev-libs/libsigc++-2.0
+		>=dev-cpp/glibmm-2.4
+		>=dev-cpp/cairomm-1.0
+		>=dev-cpp/gtkmm-2.4
+		>=dev-libs/atk-1.6
+		>=x11-libs/pango-1.4 
+		>=dev-cpp/libgnomecanvasmm-2.12.0
+		>=media-libs/libsndfile-1.0.16
+		>=media-libs/libsoundtouch-1.0 )"
 
 	# sys-libs/gdbm # no longer needed?!
 
@@ -105,13 +113,6 @@ src_unpack(){
 }
 
 src_compile() {
-	# bug 99664
-	#cd ${S}/libs/glibmm2
-	#chmod a+x autogen.sh && ./autogen.sh || die "autogen failed"
-	#cd ${S}/libs/sigc++2/
-	#chmod a+x autogen.sh && ./autogen.sh || die "autogen failed"
-	#econf || die "configure failed"
-	#
 	# Required for scons to "see" intermediate install location
 	mkdir -p ${D}
 	

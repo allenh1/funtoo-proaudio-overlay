@@ -14,34 +14,28 @@ SLOT="1"
 KEYWORDS="~x86 ~amd64"
 IUSE="nls debug sse altivec vst sys-libs"
 
-# From beta30 release notes:
-#  plugin latency compensation now working correctly (we believe)
-#  This really requires JACK 0.100.0 or above to work
-#  properly, but even without that, they result in notable improvements
-#  in the way Ardour aligns newly recorded material.
-#
-# As media-sound/jack-audio-connection-kit-0.100.0 is still -arch and it is not required for beta30
-# only suggested, RDEPEND needs to be updated as media-sound/jack-audio-connection-kit-0.100.0 gets
-# into ~arch. (2005 Sep 14 eldad)
-
 RDEPEND=">=media-libs/liblrdf-0.4.0
 	>=media-libs/raptor-1.2.0
 	>=media-libs/libart_lgpl-2.3.16
 	>=media-libs/ladspa-sdk-1.12
 	>=media-libs/libsamplerate-0.0.14
 	media-libs/liblo
-	>=media-libs/libsndfile-1.0.4
 	>=dev-libs/libxml2-2.5.7
 	dev-libs/libxslt
 	>=dev-libs/glib-2.10
 	>=x11-libs/gtk+-2.6
-	sys-libs? ( >=gnome-base/libgnomecanvas-2.12.0
-		>=dev-libs/libsigc-2.0
-		>=media-libs/libsndfile-1.0.16
-		>=dev-cpp/gtkmm-2.8 )
 	>=media-sound/jack-audio-connection-kit-0.100.0
 	!=media-sound/ardour2-2*
-	vst? ( >=app-emulation/wine-0.9.5 )"
+	vst? ( >=app-emulation/wine-0.9.5 )
+	sys-libs? ( >=dev-libs/libsigc++-2.0
+		>=dev-cpp/glibmm-2.4
+		>=dev-cpp/cairomm-1.0
+		>=dev-cpp/gtkmm-2.4
+		>=dev-libs/atk-1.6
+		>=x11-libs/pango-1.4 
+		>=dev-cpp/libgnomecanvasmm-2.12.0
+		>=media-libs/libsndfile-1.0.16
+		>=media-libs/libsoundtouch-1.0 )"
 
 	# sys-libs/gdbm # no longer needed?!
 
