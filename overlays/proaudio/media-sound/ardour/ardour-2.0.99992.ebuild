@@ -26,10 +26,6 @@ RDEPEND=">=media-libs/liblrdf-0.4.0
 	dev-libs/libxslt
 	>=dev-libs/glib-2.10
 	>=x11-libs/gtk+-2.6
-	sys-libs? ( >=gnome-base/libgnomecanvas-2.12.0
-		>=dev-libs/libsigc-2.0
-		>=media-libs/libsndfile-1.0.16
-		>=dev-cpp/gtkmm-2.8 )
 	>=media-sound/jack-audio-connection-kit-0.100.0
 	!=media-sound/ardour2-9*
 	vst? ( >=app-emulation/wine-0.9.5 )
@@ -74,6 +70,13 @@ pkg_setup(){
 		ewarn "No upstream support for doing so. Use at your own risk!!!"
 		ewarn "To use the ardour provided libs remerge with:"
 		ewarn "USE=\"-sys-libs\" emerge =${P}"
+
+		if ! built_with_use dev-cpp/gtkmm accessibility;then
+			eerror "To be able to use the USE flag 'sys-libs'"
+			eerror "you need to have dev-cpp/gtkmm"
+			eerror "emerged with the USE flag 'accessibility'"
+			die "dev-cpp/gtkmm is not built with the 'accessibility' USE flag"
+		fi
 		epause 3s
 	fi
 }

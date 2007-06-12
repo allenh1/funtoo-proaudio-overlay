@@ -64,6 +64,13 @@ pkg_setup(){
 		ewarn "No upstream support for doing so. Use at your own risk!!!"
 		ewarn "To use the ardour provided libs remerge with:"
 		ewarn "USE=\"-sys-libs\" emerge =${P}"
+		
+		if ! built_with_use dev-cpp/gtkmm accessibility;then
+			eerror "To be able to use the USE flag 'sys-libs'"
+			eerror "you need to have dev-cpp/gtkmm"
+			eerror "emerged with the USE flag 'accessibility'"
+			die "dev-cpp/gtkmm is not built with the 'accessibility' USE flag"
+		fi
 		epause 3s
 	fi
 }
