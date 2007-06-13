@@ -1768,6 +1768,12 @@
 	Homepage:    http://www.alsa-project.org/~iwai/alsa.html
 
 
+#------- media-sound/xwax --------
+	xwax-0.2	arch: x86 amd64
+	Description: open source vinyl emulation
+	Homepage:    http://www.pogo.org.uk/xwax/
+
+
 #------- media-sound/yatm --------
 	yatm-0.4	arch: amd64 ~ppc sparc x86
 	Description: adjust the playback speed without changing
