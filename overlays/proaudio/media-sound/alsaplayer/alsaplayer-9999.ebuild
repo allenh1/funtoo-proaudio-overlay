@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit unipatch-001 eutils subversion # autotools
+inherit unipatch-001 eutils subversion flag-o-matic autotools
 
 DESCRIPTION="Media player primarily utilising ALSA"
 HOMEPAGE="http://www.alsaplayer.org/"
@@ -11,7 +11,7 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="alsa audiofile doc esd flac gtk gtk2 jack mikmod nas nls ogg opengl oss vorbis
+IUSE="alsa audiofile custom-cflags doc esd flac gtk gtk2 jack mikmod nas nls ogg opengl oss vorbis
 xosd"
 
 ESVN_REPO_URI="https://svn.sourceforge.net/svnroot/alsaplayer/trunk/alsaplayer"
@@ -20,6 +20,7 @@ S=${WORKDIR}/${PN}
 
 RDEPEND="media-libs/libsndfile
 	alsa? ( media-libs/alsa-lib )
+	media-libs/libmad
 	audiofile? ( media-libs/audiofile )
 	esd? ( media-sound/esound )
 	flac? ( media-libs/flac )
@@ -29,29 +30,32 @@ RDEPEND="media-libs/libsndfile
 	ogg? ( media-libs/libogg )
 	opengl? ( virtual/opengl )
 	vorbis? ( media-libs/libvorbis )
-	xosd? ( x11-libs/xosd )
-	gtk? ( >=x11-libs/gtk+-1.2 )
-	gtk2? ( >=x11-libs/gtk+-2.6 )"
+	xosd? ( x11-libs/xosd )"
 
 DEPEND="${RDEPEND}
-	sys-apps/sed
+	>=dev-libs/glib-2.10.1
+	dev-util/pkgconfig
 	doc? ( app-doc/doxygen )
-	nls? ( sys-devel/gettext )"
-
+	nls? ( sys-devel/gettext )
+	gtk? ( >=x11-libs/gtk+-1.2 )
+	gtk2? ( >=x11-libs/gtk+-2.8 )"
+	
 src_unpack() {
 	subversion_src_unpack
 
 	cd ${S}
 	
-	UNIPATCH_LIST="${FILESDIR}/${P}-cxxflags.patch"
-	unipatch
-	
-	./bootstrap || die "bootstrap failed"
+	if ! use custom-cflags; then
+		UNIPATCH_LIST="${FILESDIR}/${P}-cxxflags.patch"
+		unipatch || die "patching failed"
+	fi
 
+	./bootstrap || die "bootstrap failed"
+	eautoreconf || die "eautoreconf failed"
 }
 
 src_compile() {
-	export CPPFLAGS="${CPPFLAGS} -I/usr/X11R6/include"
+#	export CPPFLAGS="${CPPFLAGS} -I/usr/X11R6/include"
 
 	use xosd ||
 		export ac_cv_lib_xosd_xosd_create="no"
@@ -63,6 +67,8 @@ src_compile() {
 		myconf="${myconf} --enable-oggflac"
 	fi
 
+#	myconf="${myconf} --prefix=/usr"
+#	./configure \
 	econf \
 		$(use_enable audiofile) \
 		$(use_enable esd) \
@@ -78,7 +84,8 @@ src_compile() {
 		$(use_enable gtk) \
 		$(use_enable gtk2) \
 		${myconf} \
-		--disable-sgi --disable-dependency-tracking \
+		--disable-sgi \
+		--disable-dependency-tracking \
 		|| die "econf failed"
 
 	emake || die "make failed"
