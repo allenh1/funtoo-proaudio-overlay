@@ -1,14 +1,14 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2007 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+RESTRICT="nomirror"
 inherit python eutils subversion
-
 DESCRIPTION="A simple yet powerful multi-track studio"
 HOMEPAGE="http://www.jokosher.org/"
-ESVN_REPO_URI="http://svn.jokosher.python-hosting.com/JonoEdit/trunk"
+SRC_URI="http://www.jokosher.org/downloads/source/${P}.tar.gz"
 
-KEYWORDS=""
+KEYWORDS="~x86 ~amd64"
 SLOT="0"
 LICENSE="GPL-2"
 IUSE="doc"
@@ -20,9 +20,9 @@ GSTDEPEND=">=media-libs/gstreamer-0.10.12
 	media-plugins/gst-plugins-vorbis
 	media-plugins/gst-plugins-ogg
 	media-plugins/gst-plugins-flac
-	>=media-plugins/gst-plugins-lame-0.10.3
+	>=media-plugins/gst-plugins-lame-0.10.4
 	media-plugins/gst-plugins-gnomevfs
-	=media-libs/gnonlin-0.10.5"
+	>=media-libs/gnonlin-0.10.8"
 
 # python deps
 PYDEPEND=">=dev-lang/python-2.4

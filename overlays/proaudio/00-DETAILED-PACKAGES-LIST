@@ -1053,7 +1053,7 @@
 
 
 #------- media-sound/jokosher --------
-	jokosher-0.1-r2	arch: ~x86 ~amd64
+	jokosher-0.9	arch: ~x86 ~amd64
 	jokosher-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: A simple yet powerful multi-track studio
 	Homepage:    http://www.jokosher.org/
