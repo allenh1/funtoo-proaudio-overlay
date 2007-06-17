@@ -11,7 +11,7 @@ ESVN_REPO_URI="http://svn.jokosher.python-hosting.com/JonoEdit/trunk"
 KEYWORDS=""
 SLOT="0"
 LICENSE="GPL-2"
-IUSE="doc"
+IUSE="doc mad ladspa"
 
 # gstreamer deps
 GSTDEPEND=">=media-libs/gstreamer-0.10.12
@@ -22,7 +22,9 @@ GSTDEPEND=">=media-libs/gstreamer-0.10.12
 	media-plugins/gst-plugins-flac
 	>=media-plugins/gst-plugins-lame-0.10.4
 	media-plugins/gst-plugins-gnomevfs
-	>=media-libs/gnonlin-0.10.8"
+	>=media-libs/gnonlin-0.10.8
+	mad? ( >=media-libs/gst-plugins-ugly-0.10.4 )
+	ladspa? ( >=media-libs/gst-plugins-bad-0.10.4)"
 
 # python deps
 PYDEPEND=">=dev-lang/python-2.4
