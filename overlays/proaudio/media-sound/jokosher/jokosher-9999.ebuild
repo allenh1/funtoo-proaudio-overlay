@@ -39,6 +39,7 @@ PYDEPEND=">=dev-lang/python-2.4
 # misc deps
 RDEPEND="${GSTDEPEND}
 	${PYDEPEND}
+	dev-util/glade
 	gnome-base/librsvg
 	x11-themes/hicolor-icon-theme"
 
