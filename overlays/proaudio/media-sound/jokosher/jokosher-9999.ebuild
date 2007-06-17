@@ -39,18 +39,8 @@ PYDEPEND=">=dev-lang/python-2.4
 # misc deps
 RDEPEND="${GSTDEPEND}
 	${PYDEPEND}
-	dev-util/glade
 	gnome-base/librsvg
 	x11-themes/hicolor-icon-theme"
-
-pkg_setup() {
-	if ! built_with_use dev-util/glade python; then
-		echo
-		eerror "You need to compile dev-util/glade with the python useflag"
-		eerror "enabled!"
-		die
-	fi
-}
 
 src_install() {
 
