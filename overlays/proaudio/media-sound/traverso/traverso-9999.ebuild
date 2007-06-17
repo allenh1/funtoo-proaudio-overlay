@@ -57,6 +57,6 @@ src_install() {
 	emake INSTALL_ROOT="${D}" install || die "emake install failed"
 	dodoc AUTHORS ChangeLog README
 
-	newicon "resources/images/traverso-logo.svg" "${PN}.svg"
+	doicon doicon resources/freedesktop/icons/128x128/apps/${PN}.png
 	make_desktop_entry ${PN} Traverso ${PN} "AudioVideo;Audio;"
 }
