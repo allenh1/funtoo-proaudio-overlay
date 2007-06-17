@@ -24,8 +24,6 @@ RDEPEND="$(qt4_min_version 4.2.3)
 DEPEND="${RDEPEND}
 	sys-apps/sed"
 
-S="${WORKDIR}/${PN}"
-
 src_unpack() {
 	unpack ${A}
 	cd "${S}"
