@@ -3,7 +3,7 @@
 # $Header: $
 
 RESTRICT="nomirror"
-inherit python eutils subversion
+inherit python eutils
 DESCRIPTION="A simple yet powerful multi-track studio"
 HOMEPAGE="http://www.jokosher.org/"
 SRC_URI="http://www.jokosher.org/downloads/source/${P}.tar.gz"
@@ -27,16 +27,27 @@ GSTDEPEND=">=media-libs/gstreamer-0.10.12
 # python deps
 PYDEPEND=">=dev-lang/python-2.4
 	dev-python/pygtk
-	dev-python/gst-python
-	dev-python/pyxml
-	dev-python/pycairo"
+	>=dev-python/gst-python-0.10.6
+	>=dev-python/pyxml-0.8.4
+	>=dev-python/pycairo-1.2.0
+	>=dev-python/dbus-python-0.71
+	>=dev-python/setuptools-0.6_rc6
+	dev-python/gnome-python"
 
 # misc deps
 RDEPEND="${GSTDEPEND}
 	${PYDEPEND}
-	>=dev-python/dbus-python-0.71
 	gnome-base/librsvg
 	x11-themes/hicolor-icon-theme"
+
+pkg_setup() {
+	if ! built_with_use dev-util/glade python; then
+		echo
+		eerror "You need to compile dev-util/glade with the python useflag"
+		eerror "enabled!"
+		die
+	fi
+}
 
 src_install() {
 
