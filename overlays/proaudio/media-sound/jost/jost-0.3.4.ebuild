@@ -12,7 +12,7 @@ RESTRICT="nomirror"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~x86 ~amd64"
 IUSE="vst ladspa dssi"
 
 RDEPEND="|| ( (  x11-proto/xineramaproto
