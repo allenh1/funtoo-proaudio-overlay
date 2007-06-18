@@ -65,7 +65,7 @@ esed() {
 # WARNING: it's only tested to work if it's called inside the
 # dir which contains the file to patch
 # syntax same as sed
-# ESED_CHECK=1 emerge pkg # will show the differences produced whith esed_check
+# ESED=1 emerge pkg # will show the differences produced whith esed_check
 CNT="0"
 esed_check() {
 #	set -x
@@ -98,7 +98,7 @@ esed_check() {
 
 	# check the differences produces with esed_check
 	local patch_dir="${S}/esed_patches"
-	if [ "${CHECK_ESED}" == "1" ];then
+	if [ "${ESED}" == "1" ];then
 		# display diff 
 		einfo "In file ${original} esed changed:"
 		diff -u "${backup}" "${original}"

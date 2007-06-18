@@ -26,7 +26,7 @@ src_unpack() {
 
 }
 src_install() {
-	make DESTDIR=${D} install || die
+	make DESTDIR=${D} install-system || die "make install failed"
 	dodoc AUTHORS ChangeLog README TODO
 }
 
