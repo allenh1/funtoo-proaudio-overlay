@@ -11,11 +11,11 @@ DESCRIPTION="Steinberg VST Plug-Ins SDK 2.3 - win32"
 HOMEPAGE="http://ygrabit.steinberg.de/~ygrabit/public_html"
 IUSE="doc"
 
-SRC_URI="x86? ( vstsdk${PV}.zip )"
+SRC_URI="vstsdk${PV}.zip"
 
 LICENSE="STEINBERG SOFT-UND HARDWARE GMBH"
 SLOT="0"
-KEYWORDS="x86"
+KEYWORDS="amd64 x86"
 
 DEPEND="${DEPEND}"
 

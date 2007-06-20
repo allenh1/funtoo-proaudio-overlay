@@ -23,7 +23,6 @@ src_unpack() {
 	cd ${S}
 	esed_check -i -e 's@\($(CC) $(CFLAGS) \)-I/usr/local/include \(-c $<\)@\1 -fPIC \2@g' \
 		-e '/^CFLAGS/d' Makefile
-	epatch "${FILESDIR}/${MY_P}_rdf_AmpVTS_model.diff.gz"
 }
 
 src_compile() {
