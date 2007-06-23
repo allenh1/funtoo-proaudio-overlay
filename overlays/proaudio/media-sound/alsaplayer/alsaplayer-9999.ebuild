@@ -11,7 +11,7 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="alsa audiofile custom-cflags doc esd flac gtk gtk2 jack mikmod nas nls ogg opengl oss vorbis
+IUSE="alsa audiofile custom-cflags doc esd flac gtk jack mikmod nas nls ogg opengl oss vorbis
 xosd"
 
 ESVN_REPO_URI="https://svn.sourceforge.net/svnroot/alsaplayer/trunk/alsaplayer"
@@ -37,8 +37,7 @@ DEPEND="${RDEPEND}
 	dev-util/pkgconfig
 	doc? ( app-doc/doxygen )
 	nls? ( sys-devel/gettext )
-	gtk? ( >=x11-libs/gtk+-1.2 )
-	gtk2? ( >=x11-libs/gtk+-2.8 )"
+	gtk? ( >=x11-libs/gtk+-2.8 )"
 	
 src_unpack() {
 	subversion_src_unpack
@@ -81,8 +80,7 @@ src_compile() {
 		$(use_enable nls) \
 		$(use_enable sparc) \
 		$(use_enable vorbis oggvorbis) \
-		$(use_enable gtk) \
-		$(use_enable gtk2) \
+		$(use_enable gtk gtk2) \
 		${myconf} \
 		--disable-sgi \
 		--disable-dependency-tracking \
