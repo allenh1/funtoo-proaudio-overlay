@@ -2,27 +2,28 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit subversion
-#scons-ccache
+inherit eutils
 
 DESCRIPTION="Framework for research and application development in the Audio and Music domain"
 HOMEPAGE="http://clam.iua.upf.edu/index.html"
 
 MY_PN="CLAM"
+MY_P="CLAM-${PV}"
 
-SRC_URI=""
-ESVN_REPO_URI="http://iua-share.upf.edu/svn/clam/trunk/CLAM"
+SRC_URI="http://clam.iua.upf.edu/download/src/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
-IUSE="doc double jack ladspa osc fftw fft alsa qt3 sndfile vorbis mad id3 portaudio"
+KEYWORDS="~amd64 x86"
+IUSE="doc double jack ladspa osc fftw fft alsa optimize qt3 sndfile vorbis mad id3 portaudio"
+# portmidi"
+
 RESTRICT="nomirror"
 
-DEPEND="dev-util/scons
+DEPEND=">=dev-util/scons-0.96.92
 	ladspa? ( media-libs/ladspa-sdk )
 	>=dev-libs/xerces-c-2.7
-	fftw? ( =sci-libs/fftw-2* )
+	fftw? ( =sci-libs/fftw-3* )
 	virtual/opengl
 	x11-libs/fltk
 	jack? ( media-sound/jack-audio-connection-kit )
@@ -45,29 +46,34 @@ DEPEND="dev-util/scons
 	
 RDEPEND="${DEPEND}"
 
-S="${WORKDIR}/${MY_PN}"
+S="${WORKDIR}/${MY_P}"
 
 src_compile() {
 	# required for scons to "see" intermediate install location
 	mkdir -p ${D}/usr
 	    
-	cd ${S}/scons/libs
+	cd ${S}
 	
-	local myconf="DESTDIR=${D}/usr prefix=/usr install_prefix=${D}/usr"
+	local myconf="DESTDIR=${D}/usr prefix=/usr prefix_for_packaging=${D}/usr"
 	if use double; then
 	    myconf="${myconf} double=yes"
 	fi
+	if use optimize; then
+	    myconf="${myconf} optimize_and_lose_precision=yes"
+	fi
 	if ! use ladspa; then
-	    myconf="${myconf} with_ladspa_support=no"
+	    myconf="${myconf} with_ladspa=no"
 	fi
 	if use osc; then
-	    myconf="${myconf} with_osc_support=yes"
+	    myconf="${myconf} with_osc=yes"
 	fi
 	if ! use jack; then
-	    myconf="${myconf} with_jack_support=no"
+	    myconf="${myconf} with_jack=no"
 	fi
 	if ! use fftw; then
 	    myconf="${myconf} with_fftw=no"
+	    else
+		myconf="${myconf} with_fftw=no with_fftw3=yes"
 	fi
 	if ! use fft; then
 	    myconf="${myconf} with_nr_fft=no"
@@ -90,49 +96,31 @@ src_compile() {
 	if ! use alsa; then
 	    myconf="${myconf} with_alsa=no"
 	fi
-	scons configure ${myconf} KSI=0 || die "configuration failed"
-	scons --help configure
+	scons configure ${myconf} || die "configuration failed"
+	scons --help
 	scons || die "compilation failed"
 }
 
 src_install() {
-	cd ${S}/scons/libs
 	dodir /usr
 	
 	scons install || die "scons install failed"
-	cd ${S}
 	dodoc CHANGES
 	
 	if use doc; then
-		docinto examples/CLAMRemoteController
-		dodoc ${S}/examples/CLAMRemoteController/*
-		docinto examples/CLT
-		dodoc ${S}/examples/CLT/*
 		docinto examples/ControlArrayExamples
 		dodoc ${S}/examples/ControlArrayExamples/*
-		docinto examples/MIDI_Synthesizer_example
-		dodoc ${S}/examples/MIDI_Synthesizer_example/*
+		docinto examples/LadspaOSCRemoteController
+		dodoc ${S}/examples/LadspaOSCRemoteController/*
 		docinto examples/NetworkLADSPAPlugin
 		dodoc ${S}/examples/NetworkLADSPAPlugin/*
 		docinto examples/PortsAndControlsUsageExample
 		dodoc ${S}/examples/PortsAndControlsUsageExample/*
-		docinto examples/PortsExamples
-		dodoc ${S}/examples/PortsExamples/*
-#		docinto examples/QtDesignerPlugins
-#		dodoc ${S}/examples/QtDesignerPlugins/*
-		docinto examples/QtPlots/BPFEditorExample
-		dodoc ${S}/examples/QtPlots/BPFEditorExample/*
-		docinto examples/QtPlots/DirectPlotsExamples
-		dodoc ${S}/examples/QtPlots/DirectPlotsExamples/*
-		docinto examples/QtPlots/ListPlotExample
-		dodoc ${S}/examples/QtPlots/ListPlotExample/*
-		docinto examples/QtPlots/QtPlotsExamples
-		dodoc ${S}/examples/QtPlots/QtPlotsExamples/*
-		docinto examples/QtPlots/SegmentEditorExample
-		dodoc ${S}/examples/QtPlots/SegmentEditorExample/*
-		docinto examples/QtPlots/utils
-		dodoc ${S}/examples/QtPlots/utils/*
+		docinto examples/ProcessingClass2Ladspa
+		dodoc ${S}/examples/ProcessingClass2Ladspa/*
 		docinto examples/Tutorial
 		dodoc ${S}/examples/Tutorial/*
+		docinto examples
+		dodoc ${S}/examples/*
 	fi
 }

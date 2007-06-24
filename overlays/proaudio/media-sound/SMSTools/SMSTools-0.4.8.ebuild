@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils
+inherit eutils 
+#qt4
 
 DESCRIPTION="Analyzes, transforms and synthesizes back a given sound using the SMS model."
 HOMEPAGE="http://clam.iua.upf.edu/index.html"
@@ -14,6 +15,8 @@ SLOT="0"
 KEYWORDS="~amd64 x86"
 IUSE=""
 RESTRICT="nomirror"
+
+#QTDIR=""
 
 RDEPEND="dev-util/scons
 	>=media-libs/libclam-1.0.0
@@ -29,7 +32,7 @@ src_compile() {
 	addpredict /usr/share/clam/sconstools
 		    
 	cd ${S}
-	scons clam_prefix=/usr DESTDIR="${D}/usr" install_prefix="${D}/usr" || die "Build failed"
+	scons clam_prefix=/usr DESTDIR="${D}/usr" prefix="${D}/usr" release=yes || die "Build failed"
 	convert -resize 48x48 -colors 24 resources/SMSTools-icon.png clam-smstools.xpm || die "Icon convert failed"
 }
 

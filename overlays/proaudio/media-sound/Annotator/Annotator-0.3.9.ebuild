@@ -16,7 +16,7 @@ IUSE="doc"
 RESTRICT="nomirror"
 
 RDEPEND="dev-util/scons
-	>=media-libs/libclam-1.0.0
+	>=media-libs/libclam-1.1.0
 	<media-libs/libclam-9999
 	>=x11-libs/qt-4.1"
 	
@@ -31,9 +31,9 @@ src_compile() {
 	addpredict /usr/share/clam/sconstools
 		    
 	cd ${S}/vmqt
-	scons clam_prefix=/usr DESTDIR="${D}/usr" || die "Building vmqt failed"
+	scons clam_prefix=/usr DESTDIR="${D}/usr" release=yes || die "Building vmqt failed"
 	cd ${S}
-	scons clam_prefix=/usr DESTDIR="${D}/usr" install_prefix="${D}/usr" || die "Building Annotator failed"
+	scons clam_prefix=/usr DESTDIR="${D}/usr" prefix="${D}/usr" release=yes || die "Building Annotator failed"
 	convert -resize 48x48 -colors 24 src/images/annotator-icon1.png src/images/clam-annotator.xpm || die "convert icon failed"
 }
 

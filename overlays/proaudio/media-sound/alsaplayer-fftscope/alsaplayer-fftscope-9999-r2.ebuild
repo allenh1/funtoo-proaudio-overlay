@@ -21,23 +21,22 @@ DEPEND="media-sound/alsaplayer"
 
 src_unpack() {
 	subversion_src_unpack
-
-	cd ${S}
-	./bootstrap || die "bootstrap failed"
+	
+		./bootstrap || die "bootstrap failed"
 }
 
 src_compile() {
-	econf \
-		${myconf} \
-		--disable-dependency-tracking \
-		|| die "econf failed"
+	    	econf \
+		    ${myconf} \
+		    --disable-dependency-tracking \
+		    || die "econf failed"
 
-	emake || die "make failed"
+		emake || die "make failed"
 }
 
 src_install() {
-	emake DESTDIR="${D}" docdir="${D}/usr/share/doc/${PF}" install \
-		|| die "make install failed"
+	    	emake DESTDIR="${D}" docdir="${D}/usr/share/doc/${PF}" install \
+		    || die "make install failed"
 
-	dodoc AUTHORS ChangeLog README
+		dodoc AUTHORS ChangeLog README
 }
