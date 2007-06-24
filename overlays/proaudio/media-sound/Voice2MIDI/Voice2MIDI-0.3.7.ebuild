@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils
+inherit eutils qt4
 
 DESCRIPTION="CLAM Voice2MIDI extracts the melody as a MIDI or XML file from monophonic audio files"
 HOMEPAGE="http://clam.iua.upf.edu/index.html"
@@ -18,9 +18,11 @@ RESTRICT="nomirror"
 DEPEND="dev-util/scons
 	>=media-libs/libclam-1.0.0
 	<media-libs/libclam-9999
-	=x11-libs/qt-3*"
+	=x11-libs/qt-4*"
 	
 RDEPEND="${DEPEND}"
+
+QTDIR=""
 
 src_compile() {
 	# required for scons to "see" intermediate install location
@@ -28,7 +30,7 @@ src_compile() {
 	addpredict /usr/share/clam/sconstools
 	
 	cd ${S}
-	scons clam_prefix=/usr DESTDIR="${D}/usr" install_prefix="${D}/usr" || die "Build failed."
+	scons clam_prefix=/usr DESTDIR="${D}/usr" prefix="${D}/usr" release=yes || die "Build failed."
 }
 
 src_install() {
