@@ -73,6 +73,8 @@ src_install() {
 	exeinto /usr/bin
 	doexe bin/jost
 	dodoc plugins/Jost/readme.txt
+	doicon "${FILESDIR}/jost.png"
+	make_desktop_entry "${PN}" "Jost" "${PN}" "AudioVideo;Audio;"
 }
 
 pkg_postinst() {
