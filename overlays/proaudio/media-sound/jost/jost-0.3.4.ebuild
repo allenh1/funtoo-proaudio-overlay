@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+inherit eutils
+
 MY_P="${PN}_src-v${PV}"
 
 DESCRIPTION="JACK host for native linux VST, DSSI and LADSPA plugins with
