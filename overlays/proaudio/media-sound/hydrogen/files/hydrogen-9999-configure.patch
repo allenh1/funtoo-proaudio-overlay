@@ -1,6 +1,6 @@
---- configure.orig	2007-05-21 23:01:59.000000000 +0200
-+++ configure	2007-05-21 23:04:08.000000000 +0200
-@@ -30,10 +30,11 @@
+--- configure.orig	2007-06-29 22:00:47.000000000 +0300
++++ configure	2007-06-29 22:05:35.000000000 +0300
+@@ -40,10 +40,11 @@
  			/usr/local/Trolltech/Qt-4.1.2 \
  			/usr/local/Trolltech/Qt-4.1.1 \
  			/usr/local/Trolltech/Qt-4.1.0 \
@@ -13,8 +13,8 @@
 +			if test -f $X/libQtCore.a -o -f $X/libQtCore.so -o -d $X/QtCore.framework -o -f $X/libQtCore.dylib; then
  				ac_qtlib=$X
  				QTDIR=$X
- 				echo "   |-> searching in $X [ OK ]"
-@@ -47,7 +48,7 @@
+ 				echo "   Found QT4 libraries in $X"
+@@ -55,7 +56,7 @@
  	echo ""
  	ac_qtlib=""
  	if test "x$ac_qtlib" = "x"; then
@@ -23,19 +23,17 @@
  			ac_qtlib=$QTDIR
  			echo " * Searching for QT library in $QTDIR [ OK ]"
  		else
-@@ -63,13 +64,13 @@
+@@ -71,11 +72,11 @@
  fi
  
  
--prefix=/usr/local
-+prefix=/usr
+-QMAKE_BIN=$QTDIR/bin/qmake
++QMAKE_BIN=/usr/bin/qmake
+ 
+ if [ -f $QTDIR/bin/qmake-qt4 ]
+ then
+-	QMAKE_BIN=$QTDIR/bin/qmake-qt4
++	QMAKE_BIN=/usr/bin/qmake-qt4
+ fi
  
  echo ""
- echo " * Creating all.mak..."
- #$QTDIR/bin/qmake -o all.mak all.pro
- 
--$QTDIR/bin/qmake all.pro \
-+/usr/bin/qmake all.pro \
- "prefix=$prefix"
- 
- rm -f config.h

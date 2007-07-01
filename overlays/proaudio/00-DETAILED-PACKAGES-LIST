@@ -145,9 +145,8 @@
 
 
 #------- media-libs/libclam --------
-	libclam-1.0.0	arch: ~amd64 x86
 	libclam-1.0.0-r1	arch: ~amd64 x86
-	libclam-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	libclam-1.1.0	arch: ~amd64 x86
 	libclam-9999-r1	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: Framework for research and application development
 		 in the Audio and Music domain
@@ -627,8 +626,8 @@
 
 
 #------- media-sound/Annotator --------
-	Annotator-0.3.8	arch: ~amd64 x86
 	Annotator-0.3.8-r1	arch: ~amd64 x86
+	Annotator-0.3.9	arch: ~amd64 x86
 	Annotator-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: CLAM Music Annotator can visualize, check
 		 and modify music information extracted from
@@ -644,14 +643,15 @@
 
 #------- media-sound/NetworkEditor --------
 	NetworkEditor-1.0.0	arch: ~amd64 x86
+	NetworkEditor-1.1.0	arch: ~amd64 x86
 	NetworkEditor-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: CLAM's visual builder
 	Homepage:    http://clam.iua.upf.edu/index.html
 
 
 #------- media-sound/SMSTools --------
-	SMSTools-0.4.7	arch: ~amd64 x86
 	SMSTools-0.4.7-r1	arch: ~amd64 x86
+	SMSTools-0.4.8	arch: ~amd64 x86
 	SMSTools-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: Analyzes, transforms and synthesizes back
 		 a given sound using the SMS model.
@@ -659,8 +659,8 @@
 
 
 #------- media-sound/Voice2MIDI --------
-	Voice2MIDI-0.3.6	arch: ~amd64 x86
 	Voice2MIDI-0.3.6-r1	arch: ~amd64 x86
+	Voice2MIDI-0.3.7	arch: ~amd64 x86
 	Voice2MIDI-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: CLAM Voice2MIDI extracts the melody as a
 		 MIDI or XML file from monophonic audio files
@@ -718,8 +718,7 @@
 
 
 #------- media-sound/alsaplayer-fftscope --------
-	alsaplayer-fftscope-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	alsaplayer-fftscope-9999-r1	arch: -> live ebuild: [svn|cvs|...]<-
+	alsaplayer-fftscope-9999-r2	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: Midi input plugin for the alsaplayer. It
 		 use timidity++ for the output
 	Homepage:    http://www.alsaplayer.org/
@@ -1829,6 +1828,7 @@
 
 #------- media-video/openmovieeditor --------
 	openmovieeditor-0.0.20061221	arch: ~x86
+	openmovieeditor-0.0.20070607	arch: ~x86
 	Description: Open Movie Editor is designed to be a simple
 		 tool, that provides basic movie making capabilites.
 		
@@ -1858,6 +1858,7 @@
 	rt-sources-2.6.20-r5	arch: ~amd64 ~ppc ~ppc64 ~x86
 	rt-sources-2.6.20-r8	arch: ~amd64 ~ppc ~ppc64 ~x86
 	rt-sources-2.6.21.4-r12	arch: ~amd64 ~ppc ~ppc64 ~x86
+	rt-sources-2.6.21.5-r18	arch: ~amd64 ~ppc ~ppc64 ~x86
 	rt-sources-2.6.21-r1	arch: ~amd64 ~ppc ~ppc64 ~x86
 	rt-sources-2.6.21-r9	arch: ~amd64 ~ppc ~ppc64 ~x86
 	Description: Ingo Molnars realtime patch applied on vanilla

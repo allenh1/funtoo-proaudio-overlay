@@ -2,12 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils qt4 subversion
+inherit exteutils qt4 subversion
 
 DESCRIPTION="Linux Drum Machine"
 HOMEPAGE="http://hydrogen.sourceforge.net/"
 
-ESVN_REPO_URI="http://devel.hydrogen-music.org/svn/hydrogen/trunk"
+ESVN_REPO_URI="http://hydrogen-music.org/svn/trunk"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -31,15 +31,17 @@ src_unpack() {
 	subversion_src_unpack
 	cd "${S}"
 	epatch "${FILESDIR}/${P}-configure.patch"
-	sed -i -e 's|QSvgRenderer|Qt/QSvgRenderer|g' gui/src/widgets/Button.cpp
+	cd gui/src/widgets/
+	esed_check -i -e 's|QSvgRenderer|Qt/QSvgRenderer|g' Button.cpp
+	cd -
 }
 
 src_compile() {
 	# maybe let's remove that patch ^^ and use 'qmake all.pro prefix=/usr' in
 	# future
 	unset QTDIR
-	./configure	
-	make || die "Failed making hydrogen!"
+	prefix=/usr ./configure	|| die "configure failed"
+	emake || die "emake failed"
 }
 
 src_install() {
