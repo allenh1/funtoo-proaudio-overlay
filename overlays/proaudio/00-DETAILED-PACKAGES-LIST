@@ -560,6 +560,12 @@
 	Homepage:    http://www.linux-vst.com/
 
 
+#------- media-plugins/vst_plugins-peggy2000 --------
+	vst_plugins-peggy2000-0.1	arch: ~x86
+	Description: ZynAddSubFX native linux VST version
+	Homepage:    http://www.anticore.org/jucetice/?page_id=8
+
+
 #------- media-plugins/vst_plugins-soulforce --------
 	vst_plugins-soulforce-0.1	arch: ~x86
 	Description: VST port of Niall Moody's SoulForce pedal
@@ -579,6 +585,12 @@
 	Description: 8 voice synth with filter, envelopes, LFO
 		 and GUI
 	Homepage:    http://www.linux-vst.com/
+
+
+#------- media-plugins/vst_plugins-vstgui --------
+	vst_plugins-vstgui-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: VST GUI wrapper
+	Homepage:    http://www.anticore.org/jucetice/?page_id=8
 
 
 #------- media-plugins/vst_plugins-zynaddsubfx --------
@@ -761,6 +773,7 @@
 	ardour-0.99.2	arch: x86 ~amd64 ~ppc
 	ardour-0.99.3	arch: x86 ~amd64 ~ppc
 	ardour-2.0.2	arch: ~x86 ~amd64
+	ardour-2.0.3	arch: ~x86 ~amd64
 	ardour-2.0.99992	arch: -> live ebuild: [svn|cvs|...]<-
 	ardour-2.0	arch: ~x86
 	ardour-99991	arch: -> live ebuild: [svn|cvs|...]<-

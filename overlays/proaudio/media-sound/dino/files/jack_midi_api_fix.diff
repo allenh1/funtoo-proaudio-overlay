@@ -1,0 +1,95 @@
+? Makefile
+? Makefile.in
+? aclocal.m4
+? autom4te.cache
+? config.log
+? config.status
+? configure
+? dino-0.2.2
+? dino-0.2.2.tar.gz
+? dino-0.2.2.tar.gz.sig
+? jack_midi_api_fix.diff
+? libtool
+? pixmaps/Makefile
+? pixmaps/Makefile.in
+? src/Makefile
+? src/Makefile.in
+? src/config.hpp
+? src/stamp-h1
+? src/gui/.deps
+? src/gui/.libs
+? src/gui/Makefile
+? src/gui/Makefile.in
+? src/gui/dino
+? src/libdinoseq/.deps
+? src/libdinoseq/.libs
+? src/libdinoseq/Makefile
+? src/libdinoseq/Makefile.in
+? src/libdinoseq/controller.lo
+? src/libdinoseq/debug.lo
+? src/libdinoseq/interpolatedevent.lo
+? src/libdinoseq/libdinoseq.la
+? src/libdinoseq/midibuffer.lo
+? src/libdinoseq/note.lo
+? src/libdinoseq/notecollection.lo
+? src/libdinoseq/noteevent.lo
+? src/libdinoseq/pattern.lo
+? src/libdinoseq/patternselection.lo
+? src/libdinoseq/sequencer.lo
+? src/libdinoseq/song.lo
+? src/libdinoseq/tempomap.lo
+? src/libdinoseq/track.lo
+Index: src/libdinoseq/midibuffer.cpp
+===================================================================
+RCS file: /sources/dino/dino/src/libdinoseq/midibuffer.cpp,v
+retrieving revision 1.4.2.1
+diff -u -r1.4.2.1 midibuffer.cpp
+--- src/libdinoseq/midibuffer.cpp	16 May 2006 23:08:10 -0000	1.4.2.1
++++ src/libdinoseq/midibuffer.cpp	4 Jul 2007 12:20:14 -0000
+@@ -55,7 +55,7 @@
+     // XXX optimise this
+     jack_nframes_t timestamp = jack_nframes_t((beat - m_start_beat) * 
+ 					      60 / (m_bpm * m_samplerate));
+-    return jack_midi_event_reserve(m_buffer, timestamp, data_size, m_nframes);
++    return jack_midi_event_reserve(m_buffer, timestamp, data_size);
+   }
+     
+   
+@@ -65,7 +65,7 @@
+     jack_nframes_t timestamp = jack_nframes_t((beat - m_start_beat) * 
+ 					      60 / (m_bpm * m_samplerate));
+     return jack_midi_event_write(m_buffer, timestamp, (jack_midi_data_t*)data, 
+-				 data_size, m_nframes);
++				 data_size);
+   }
+ 
+ 
+Index: src/libdinoseq/sequencer.cpp
+===================================================================
+RCS file: /sources/dino/dino/src/libdinoseq/sequencer.cpp,v
+retrieving revision 1.58.2.1
+diff -u -r1.58.2.1 sequencer.cpp
+--- src/libdinoseq/sequencer.cpp	16 May 2006 23:08:10 -0000	1.58.2.1
++++ src/libdinoseq/sequencer.cpp	4 Jul 2007 12:20:14 -0000
+@@ -334,10 +334,10 @@
+ 	jack_port_t* port = m_output_ports[iter->get_id()];
+ 	if (port) {
+ 	  void* port_buf = jack_port_get_buffer(port, nframes);
+-	  jack_midi_clear_buffer(port_buf, nframes);
++	  jack_midi_clear_buffer(port_buf);
+ 	  unsigned char all_notes_off[] = { 0xB0, 123, 0 };
+ 	  if (!m_sent_all_off)
+-	    jack_midi_event_write(port_buf, 0, all_notes_off, 3, nframes);
++	    jack_midi_event_write(port_buf, 0, all_notes_off, 3);
+ 	}
+ 	m_sent_all_off = true;
+       }
+@@ -361,7 +361,7 @@
+       jack_port_t* port = m_output_ports[iter->get_id()];
+       if (port) {
+ 	void* port_buf = jack_port_get_buffer(port, nframes);
+-	jack_midi_clear_buffer(port_buf, nframes);
++	jack_midi_clear_buffer(port_buf);
+ 	MIDIBuffer buffer(port_buf, start, pos.beats_per_minute,pos.frame_rate);
+ 	buffer.set_period_size(nframes);
+ 	buffer.set_cc_resolution(m_cc_resolution * pos.beats_per_minute / 60);

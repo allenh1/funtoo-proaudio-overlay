@@ -23,6 +23,7 @@ src_unpack() {
 	need_jackmidi
 	unpack ${A}
 	cd ${S}
+	epatch "${FILESDIR}/jack_midi_api_fix.diff"
 }
 
 src_compile() {

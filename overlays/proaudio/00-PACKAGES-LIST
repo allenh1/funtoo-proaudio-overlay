@@ -74,9 +74,11 @@ media-plugins/vst_plugins-eqinox
 media-plugins/vst_plugins-freeverb
 media-plugins/vst_plugins-ladspa2vst
 media-plugins/vst_plugins-mda
+media-plugins/vst_plugins-peggy2000
 media-plugins/vst_plugins-soulforce
 media-plugins/vst_plugins-soundcrab
 media-plugins/vst_plugins-synth4
+media-plugins/vst_plugins-vstgui
 media-plugins/vst_plugins-zynaddsubfx
 media-plugins/wasp
 media-plugins/whysynth
