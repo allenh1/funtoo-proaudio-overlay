@@ -1,51 +1,5 @@
-? Makefile
-? Makefile.in
-? aclocal.m4
-? autom4te.cache
-? config.log
-? config.status
-? configure
-? dino-0.2.2
-? dino-0.2.2.tar.gz
-? dino-0.2.2.tar.gz.sig
-? jack_midi_api_fix.diff
-? libtool
-? pixmaps/Makefile
-? pixmaps/Makefile.in
-? src/Makefile
-? src/Makefile.in
-? src/config.hpp
-? src/stamp-h1
-? src/gui/.deps
-? src/gui/.libs
-? src/gui/Makefile
-? src/gui/Makefile.in
-? src/gui/dino
-? src/libdinoseq/.deps
-? src/libdinoseq/.libs
-? src/libdinoseq/Makefile
-? src/libdinoseq/Makefile.in
-? src/libdinoseq/controller.lo
-? src/libdinoseq/debug.lo
-? src/libdinoseq/interpolatedevent.lo
-? src/libdinoseq/libdinoseq.la
-? src/libdinoseq/midibuffer.lo
-? src/libdinoseq/note.lo
-? src/libdinoseq/notecollection.lo
-? src/libdinoseq/noteevent.lo
-? src/libdinoseq/pattern.lo
-? src/libdinoseq/patternselection.lo
-? src/libdinoseq/sequencer.lo
-? src/libdinoseq/song.lo
-? src/libdinoseq/tempomap.lo
-? src/libdinoseq/track.lo
-Index: src/libdinoseq/midibuffer.cpp
-===================================================================
-RCS file: /sources/dino/dino/src/libdinoseq/midibuffer.cpp,v
-retrieving revision 1.4.2.1
-diff -u -r1.4.2.1 midibuffer.cpp
---- src/libdinoseq/midibuffer.cpp	16 May 2006 23:08:10 -0000	1.4.2.1
-+++ src/libdinoseq/midibuffer.cpp	4 Jul 2007 12:20:14 -0000
+--- dino-0.2.2/src/libdinoseq/midibuffer.cpp	16 May 2006 23:08:10 -0000	1.4.2.1
++++ dino-0.2.2/src/libdinoseq/midibuffer.cpp	4 Jul 2007 12:20:14 -0000
 @@ -55,7 +55,7 @@
      // XXX optimise this
      jack_nframes_t timestamp = jack_nframes_t((beat - m_start_beat) * 
@@ -64,13 +18,8 @@ diff -u -r1.4.2.1 midibuffer.cpp
    }
  
  
-Index: src/libdinoseq/sequencer.cpp
-===================================================================
-RCS file: /sources/dino/dino/src/libdinoseq/sequencer.cpp,v
-retrieving revision 1.58.2.1
-diff -u -r1.58.2.1 sequencer.cpp
---- src/libdinoseq/sequencer.cpp	16 May 2006 23:08:10 -0000	1.58.2.1
-+++ src/libdinoseq/sequencer.cpp	4 Jul 2007 12:20:14 -0000
+--- dino-0.2.2/src/libdinoseq/sequencer.cpp	16 May 2006 23:08:10 -0000	1.58.2.1
++++ dino-0.2.2/src/libdinoseq/sequencer.cpp	4 Jul 2007 12:20:14 -0000
 @@ -334,10 +334,10 @@
  	jack_port_t* port = m_output_ports[iter->get_id()];
  	if (port) {
