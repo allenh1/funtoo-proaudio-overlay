@@ -1,60 +1,45 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2007 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-#
-# Original Author: evermind
-# Purpose: share common ebuild code for zynaddsubfx & zynaddsubfx-cvs
-#
-
-inherit jackmidi
-EXPORT_FUNCTIONS src_compile src_install
+inherit eutils jackmidi
+RESTRICT="nomirror"
+MY_P=ZynAddSubFX-${PV}
+DESCRIPTION="ZynAddSubFX is an opensource software synthesizer."
+HOMEPAGE="http://zynaddsubfx.sourceforge.net/"
+SRC_URI="http://download.tuxfamily.org/proaudio/distfiles/${MY_P}.tar.bz2
+	http://download.tuxfamily.org/proaudio/distfiles/zynaddsubfx-presets-0.1.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-
+KEYWORDS="~amd64 ~ppc ~x86"
 #IUSE="oss alsa jack mmx"
 IUSE="oss alsa jack jackmidi lash"
 
-RDEPEND="media-libs/zynaddsubfx-banks"
 DEPEND=">=x11-libs/fltk-1.1.2
 	=sci-libs/fftw-3*
-    jackmidi?  ( >=media-sound/jack-audio-connection-kit-0.100.0-r3 )
+    jackmidi?  ( >=media-sound/jack-audio-connection-kit-9999 )
 	!jackmidi? ( media-sound/jack-audio-connection-kit )
 	>=dev-libs/mini-xml-2.2.1
 	lash? ( >=media-sound/lash-0.5 )"
 #	portaudio? ( media-libs/portaudio )"
 
-zyn_patches() {
-	cd ${S}
+RDEPEND="media-libs/zynaddsubfx-banks
+	!media-sound/zynaddsubfx-cvs"
+
+S="${WORKDIR}/${MY_P}"
+
+pkg_setup() {
+	# jackmidi.eclass
 	use jackmidi && need_jackmidi
-	use jackmidi && use lash && epatch \
-		"${FILESDIR}/zyn-lash-and-jackmidi-051205.diff" \
-		&& epatch "${FILESDIR}/unzombify.diff"
-	use jackmidi && use !lash && epatch	"${FILESDIR}/zyn-jackmidi-051205.diff" 
-	use lash && use !jackmidi && epatch "${FILESDIR}/zyn_lash-0.5.0pre0.diff"
 }
 
-unpack_examples_presets() {
-	cd "${S}"
-	mkdir "${WORKDIR}/remove_tmp"
-	cd "${WORKDIR}/remove_tmp"
-	unpack "ZynAddSubFX-2.2.1.tar.bz2" || die
-	cd - &>/dev/null
-	[ ! -e "${S}/presets" ] && mv "${WORKDIR}/remove_tmp/ZynAddSubFX-2.2.1/presets" "${S}" # || die "error extracting	presets"
-	einfo "examples"
-	[ ! -e "${S}/examples" ] && mv "${WORKDIR}/remove_tmp/ZynAddSubFX-2.2.1/examples" "${S}" #|| die "error moving examples"
-	rm -rf "${S}/examples/banks" || die "error rm banks"
-}
-
-install_examples_presets() {
-	[ "${#MY_PN}" == "0" ] && MY_PN="${PN}"
-
-	insinto /usr/share/${MY_PN}/presets
-	doins "${S}/presets/"*
-	insinto /usr/share/${MY_PN}/examples
-	doins "${S}/examples/"*
-
+src_unpack() {
+	unpack ${MY_P}.tar.bz2 || die
+	cd ${S}
+	unpack "zynaddsubfx-presets-0.1.tar.bz2"
+	# add our CXXFLAGS
+	sed -i "s@\(CXXFLAGS.\+=.*OS_PORT.*\)@\1 ${CXXFLAGS}@g" src/Makefile
 }
 
 src_compile() {
@@ -73,11 +58,10 @@ src_compile() {
 	fi
 	
 	use lash && LINUX_USE_LASH=YES
-
 	use jackmidi && LINUX_USE_JACKMIDI=YES
 	use alsa && LINUX_MIDIIN=ALSA
 #	use portaudio && LINUX_AUDIOOUT=PA
-#	use mmx && ASM_F2I=YES
+	use mmx && ASM_F2I=YES
 
 	local myconf="FFTW_VERSION=${FFTW_VERSION}"
 	myconf="${myconf} ASM_F2I=${ASM_F2I}"
@@ -89,7 +73,9 @@ src_compile() {
 	cd ${S}/src
 	echo "make ${myconf}" > gentoo_make_options # for easier debugging
 	chmod +x gentoo_make_options
-	make ${myconf} || die "make failed with this options: ${myconf}"
+	
+	emake ${myconf} || die "make failed with this options: ${myconf}"
+
 	cd ${S}/ExternalPrograms/Spliter
 	./compile.sh
 	cd ${S}/ExternalPrograms/Controller
@@ -101,7 +87,15 @@ src_install() {
 	dobin ${S}/ExternalPrograms/Spliter/spliter
 	dobin ${S}/ExternalPrograms/Controller/controller
 	dodoc ChangeLog FAQ.txt HISTORY.txt README.txt ZynAddSubFX.lsm bugs.txt
-	install_examples_presets
+
+	# -------- install examples presets
+	[ "${#MY_PN}" == "0" ] && MY_PN="${PN}"
+	insinto /usr/share/${MY_PN}/presets
+	doins "${S}/presets/"*
+	insinto /usr/share/${MY_PN}/examples
+	doins "${S}/examples/"*
+	# --------
+
 	mogrify -format png zynaddsubfx_icon.ico 
 	newicon "${S}/zynaddsubfx_icon.png" "zynaddsubfx_icon.png" 
 	make_desktop_entry "${PN}" "ZynAddSubFx-Synth" \

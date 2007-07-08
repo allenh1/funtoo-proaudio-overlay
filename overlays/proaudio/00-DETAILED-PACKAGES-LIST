@@ -1803,9 +1803,10 @@
 
 
 #------- media-sound/zynaddsubfx --------
+	zynaddsubfx-20070707	arch: ~amd64 ~ppc ~x86
 	zynaddsubfx-2.2.1-r5	arch: amd64 ~ppc x86
-	zynaddsubfx-2.2.1-r8	arch: amd64 ~ppc x86
-	zynaddsubfx-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	zynaddsubfx-2.2.1-r8	arch: ~amd64 ~ppc ~x86
+	zynaddsubfx-9999	arch: ~amd64 ~ppc ~x86
 	Description: ZynAddSubFX is an opensource software synthesizer.
 		
 	Homepage:    http://zynaddsubfx.sourceforge.net/
@@ -1871,7 +1872,7 @@
 	rt-sources-2.6.20-r5	arch: ~amd64 ~ppc ~ppc64 ~x86
 	rt-sources-2.6.20-r8	arch: ~amd64 ~ppc ~ppc64 ~x86
 	rt-sources-2.6.21.4-r12	arch: ~amd64 ~ppc ~ppc64 ~x86
-	rt-sources-2.6.21.5-r18	arch: ~amd64 ~ppc ~ppc64 ~x86
+	rt-sources-2.6.21.5-r20	arch: ~amd64 ~ppc ~ppc64 ~x86
 	rt-sources-2.6.21-r1	arch: ~amd64 ~ppc ~ppc64 ~x86
 	rt-sources-2.6.21-r9	arch: ~amd64 ~ppc ~ppc64 ~x86
 	Description: Ingo Molnars realtime patch applied on vanilla

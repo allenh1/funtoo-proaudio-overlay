@@ -24,4 +24,6 @@ src_unpack() {
 	zyn_patches
 	#exa_presets_instr_install
 	unpack_examples_presets
+	# add our CXXFLAGS
+	sed -i "s@\(CXXFLAGS.\+=.*OS_PORT.*\)@\1 ${CXXFLAGS}@g" src/Makefile
 }

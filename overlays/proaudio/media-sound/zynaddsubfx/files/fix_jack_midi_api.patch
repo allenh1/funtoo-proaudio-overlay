@@ -1,0 +1,18 @@
+--- a/src/Output/JACKaudiooutput.C.old	2007-07-08 11:36:31.000000000 +0200
++++ b/src/Output/JACKaudiooutput.C	2007-07-08 11:36:56.000000000 +0200
+@@ -129,13 +129,13 @@
+   jack_midi_event_t jack_midi_event;
+   jack_nframes_t event_index = 0;
+   jack_nframes_t event_count = 
+-    jack_midi_get_event_count(midi_buf, frames);
++    jack_midi_get_event_count(midi_buf);
+   unsigned char* midi_data;
+   unsigned char type, chan;
+   
+   while (event_index < event_count) {
+     
+-    jack_midi_event_get(&jack_midi_event, midi_buf, event_index, frames);
++    jack_midi_event_get(&jack_midi_event, midi_buf, event_index);
+     midi_data = jack_midi_event.buffer;
+     type = midi_data[0] & 0xF0;
+     chan = midi_data[0] & 0x0F;
