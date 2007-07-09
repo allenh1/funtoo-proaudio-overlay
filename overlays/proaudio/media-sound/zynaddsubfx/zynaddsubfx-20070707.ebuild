@@ -75,7 +75,6 @@ src_compile() {
 	echo "make ${myconf}" > gentoo_make_options # for easier debugging
 	chmod +x gentoo_make_options
 	
-	if use debug;then
 		emake ${myconf}# || die "make failed with this options: ${myconf}"
 		eerror "---begin debug---"
 		eerror "---begin debug---"
@@ -103,9 +102,6 @@ src_compile() {
 		eerror "---end debug---"
 		eerror "---end debug---"
 		die "paste debug to pastebin and reach me on the #gentoo-proaudio"
-	else
-		emake ${myconf} || die "make failed with this options: ${myconf}"
-	fi
 
 	cd ${S}/ExternalPrograms/Spliter
 	./compile.sh
