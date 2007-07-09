@@ -14,7 +14,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 #IUSE="oss alsa jack mmx"
-IUSE="oss alsa jack jackmidi lash"
+IUSE="oss alsa jack jackmidi lash debug mmx"
 
 DEPEND=">=x11-libs/fltk-1.1.2
 	=sci-libs/fftw-3*
@@ -71,10 +71,41 @@ src_compile() {
 	myconf="${myconf} LINUX_USE_JACKMIDI=${LINUX_USE_JACKMIDI}"
 	
 	cd ${S}/src
+	
 	echo "make ${myconf}" > gentoo_make_options # for easier debugging
 	chmod +x gentoo_make_options
 	
-	emake ${myconf} || die "make failed with this options: ${myconf}"
+	if use debug;then
+		emake ${myconf}# || die "make failed with this options: ${myconf}"
+		eerror "---begin debug---"
+		eerror "---begin debug---"
+		eerror "---begin debug---"
+		ls -lah UI/
+		cd UI
+		echo "######## md5sum *"
+		md5sum *
+		echo "######## number of files"
+		ls|wc -l
+		echo "######## src/UI/Makefile"
+		cat Makefile
+		echo "######## md5sum"
+		md5sum Makefile
+		cd ..
+		echo "######## src/Makefile"
+		cat Makefile
+		echo "######## md5sum"
+		md5sum Makefile
+		echo "######## src/Makefile.inc"
+		cat Makefile.inc
+		echo "######## md5sum"
+		md5sum Makefile.inc
+		eerror "---end debug---"
+		eerror "---end debug---"
+		eerror "---end debug---"
+		die "paste debug to pastebin and reach me on the #gentoo-proaudio"
+	else
+		emake ${myconf} || die "make failed with this options: ${myconf}"
+	fi
 
 	cd ${S}/ExternalPrograms/Spliter
 	./compile.sh
