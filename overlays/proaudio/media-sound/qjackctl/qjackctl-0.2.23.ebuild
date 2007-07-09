@@ -2,22 +2,15 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils qt3 cvs
+inherit eutils qt3
 
 DESCRIPTION="A Qt application to control the JACK Audio Connection Kit and ALSA sequencer connections."
 HOMEPAGE="http://qjackctl.sourceforge.net/"
-SRC_URI=""
-
-ECVS_SERVER="qjackctl.cvs.sourceforge.net:/cvsroot/qjackctl"
-ECVS_USER="anonymous"
-ECVS_PASS=""
-ECVS_AUTH="pserver"
-ECVS_MODULE="qjackctl"
-ECVS_TOP_DIR="${DISTDIR}/cvs-src/${ECVS_MODULE}"
+SRC_URI="mirror://sourceforge/qjackctl/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~ppc ~sparc ~x86"
 
 IUSE="alsa debug jackmidi"
 
@@ -34,10 +27,7 @@ pkg_setup() {
 	fi
 }
 
-S=${WORKDIR}/${PN}
-
 src_compile() {
-	emake -f Makefile.cvs
 	econf \
 		$(use jackmidi jack-midi) \
 		$(use_enable alsa alsa-seq) \
