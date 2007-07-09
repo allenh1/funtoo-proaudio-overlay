@@ -87,7 +87,7 @@ src_compile() {
 	echo "make ${myconf}" > gentoo_make_options # for easier debugging
 	chmod +x gentoo_make_options
 	
-	emake ${myconf} || die "make failed with this options: ${myconf}"
+	emake -j1 ${myconf} || die "make failed with this options: ${myconf}"
 
 	cd ${S}/ExternalPrograms/Spliter
 	./compile.sh

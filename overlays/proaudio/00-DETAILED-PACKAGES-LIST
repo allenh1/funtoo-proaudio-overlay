@@ -1509,11 +1509,12 @@
 	qjackctl-0.2.20	arch: ~amd64 ~ppc ~sparc x86
 	qjackctl-0.2.21	arch: ~amd64 ~ppc ~sparc x86
 	qjackctl-0.2.22	arch: ~amd64 ~ppc ~sparc x86
+	qjackctl-0.2.23	arch: ~amd64 ~ppc ~sparc ~x86
 	qjackctl-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: A Qt application to control the JACK Audio
 		 Connection Kit and ALSA sequencer connections.
 		
-	Homepage:    http://qjackctl.sf.net/
+	Homepage:    http://qjackctl.sourceforge.net/
 
 
 #------- media-sound/qlo10k1 --------

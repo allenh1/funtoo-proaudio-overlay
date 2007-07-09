@@ -57,6 +57,6 @@ src_install() {
 	emake INSTALL_ROOT="${D}" install || die "emake install failed"
 	dodoc AUTHORS ChangeLog README
 
-	doicon doicon resources/freedesktop/icons/128x128/apps/${PN}.png
+	doicon resources/freedesktop/icons/128x128/apps/${PN}.png
 	make_desktop_entry ${PN} Traverso ${PN} "AudioVideo;Audio;"
 }
