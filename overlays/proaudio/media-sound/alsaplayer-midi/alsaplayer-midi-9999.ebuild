@@ -8,7 +8,7 @@ DESCRIPTION="Midi input plugin for the alsaplayer. It use timidity++ for the out
 HOMEPAGE="http://www.alsaplayer.org/"
 SRC_URI=""
 
-LICENSE="GPL-2"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
 IUSE=""

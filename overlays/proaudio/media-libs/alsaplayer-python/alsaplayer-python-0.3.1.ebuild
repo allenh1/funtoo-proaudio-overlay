@@ -10,9 +10,9 @@ MY_PN="python_alsaplayer"
 
 DESCRIPTION="New Python bindings for Alsaplayer."
 HOMEPAGE="http://alsaplayer.sourceforge.net/"
-SRC_URI="mirror://sourceforge/alsaplayer/${MY_PN}-${PV}.tar.gz"
+SRC_URI="mirror://sourceforge/alsaplayer/${MY_PN}-${PV}.tar.bz2"
 
-LICENSE="GPL-2"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="x86"
 IUSE=""

@@ -8,7 +8,7 @@ DESCRIPTION="Media player primarily utilising ALSA"
 HOMEPAGE="http://www.alsaplayer.org/"
 SRC_URI=""
 
-LICENSE="GPL-2"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
 IUSE="alsa audiofile custom-cflags doc esd flac gtk jack mikmod nas nls ogg opengl oss vorbis
