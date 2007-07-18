@@ -29,7 +29,7 @@ pkg_setup() {
 
 src_compile() {
 	econf \
-		$(use jackmidi jack-midi) \
+		$(use_enable jackmidi jack-midi) \
 		$(use_enable alsa alsa-seq) \
 		$(use_enable debug) \
 		|| die "econf failed"
