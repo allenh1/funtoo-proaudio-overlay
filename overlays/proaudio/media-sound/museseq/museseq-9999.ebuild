@@ -4,7 +4,7 @@
 
 inherit subversion virtualx eutils toolchain-funcs qt4 patcher
 
-ESVN_REPO_URI="https://svn.sourceforge.net/svnroot/lmuse/trunk/muse"
+ESVN_REPO_URI="https://lmuse.svn.sourceforge.net/svnroot/lmuse/trunk/muse"
 
 MY_PN=${PN/museseq/muse}
 S=${WORKDIR}/${MY_PN}
