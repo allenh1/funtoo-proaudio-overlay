@@ -27,12 +27,6 @@ pkg_setup() {
 	fi
 }
 
-src_unpack() {
-	unpack ${A}
-	cd ${S}
-	epatch "${FILESDIR}/${P}.patch"
-}
-
 src_compile() {
 	unset QTDIR
 
