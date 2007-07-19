@@ -14,7 +14,7 @@ KEYWORDS=""
 IUSE="alsa audiofile custom-cflags doc esd flac gtk jack mikmod nas nls ogg opengl oss vorbis
 xosd"
 
-ESVN_REPO_URI="https://svn.sourceforge.net/svnroot/alsaplayer/trunk/alsaplayer"
+ESVN_REPO_URI="https://alsaplayer.svn.sourceforge.net/svnroot/alsaplayer/trunk/alsaplayer"
 
 S=${WORKDIR}/${PN}
 

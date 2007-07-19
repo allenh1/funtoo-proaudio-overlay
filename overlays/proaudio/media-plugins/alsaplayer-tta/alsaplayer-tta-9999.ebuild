@@ -13,7 +13,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-ESVN_REPO_URI="https://svn.sourceforge.net:/svnroot/alsaplayer/trunk/experimental/tta"
+ESVN_REPO_URI="https://alsaplayer.svn.sourceforge.net:/svnroot/alsaplayer/trunk/experimental/tta"
 
 S=${WORKDIR}/${PN}
 

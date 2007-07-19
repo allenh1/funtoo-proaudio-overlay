@@ -8,8 +8,7 @@ DESCRIPTION="MIDI and audio sequencer and notation editor."
 HOMEPAGE="http://www.rosegardenmusic.com/"
 SRC_URI=""
 
-ESVN_REPO_URI="https://svn.sourceforge.net/svnroot/rosegarden/trunk/rosegarden"
-
+ESVN_REPO_URI="https://rosegarden.svn.sourceforge.net/svnroot/rosegarden/trunk/rosegarden"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""

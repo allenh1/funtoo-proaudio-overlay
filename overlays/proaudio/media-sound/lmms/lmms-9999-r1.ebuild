@@ -7,7 +7,7 @@ inherit eutils subversion autotools flag-o-matic
 DESCRIPTION="free alternative to popular programs such as FruityLoops, Cubase and Logic"
 HOMEPAGE="http://lmms.sourceforge.net"
 
-ESVN_REPO_URI="https://svn.sourceforge.net/svnroot/lmms/trunk/lmms"
+ESVN_REPO_URI="https://lmms.svn.sourceforge.net/svnroot/lmms/trunk/lmms"
 
 LICENSE="GPL-2"
 SLOT="0"

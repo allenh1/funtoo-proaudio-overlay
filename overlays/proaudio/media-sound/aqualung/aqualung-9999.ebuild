@@ -12,7 +12,7 @@ DESCRIPTION="Aqualung"
 HOMEPAGE="http://aqualung.sourceforge.net"
 SRC_URI=""
 
-ESVN_REPO_URI="https://svn.sourceforge.net/svnroot/aqualung/trunk"
+ESVN_REPO_URI="https://aqualung.svn.sourceforge.net/svnroot/aqualung/trunk"
 ESVN_PROJECT="aqualung"
 
 LICENSE="GPL-2"

@@ -39,7 +39,7 @@
 
 
 #------- media-libs/alsaplayer-python --------
-	alsaplayer-python-0.3	arch: x86
+	alsaplayer-python-0.3.1	arch: x86
 	Description: New Python bindings for Alsaplayer.
 	Homepage:    http://alsaplayer.sourceforge.net/
 
@@ -1094,6 +1094,7 @@
 #------- media-sound/jaaa --------
 	jaaa-0.4.0	arch: x86 amd64
 	jaaa-0.4.1	arch: x86 amd64
+	jaaa-0.4.2	arch: x86 amd64
 	Description: JAAA is a signal generator and spectrum analyzer
 		
 	Homepage:    http://www.kokkinizita.net/linuxaudio/
@@ -1510,6 +1511,8 @@
 	qjackctl-0.2.21	arch: ~amd64 ~ppc ~sparc x86
 	qjackctl-0.2.22	arch: ~amd64 ~ppc ~sparc x86
 	qjackctl-0.2.23	arch: ~amd64 ~ppc ~sparc ~x86
+	qjackctl-0.3.0	arch: ~amd64 ~x86
+	qjackctl-0.3.1	arch: ~amd64 ~x86
 	qjackctl-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: A Qt application to control the JACK Audio
 		 Connection Kit and ALSA sequencer connections.
@@ -1569,6 +1572,13 @@
 	raton-0.22	arch: ~x86 ~amd64
 	Description: Mouse driven MIDI controller.
 	Homepage:    http://home.earthlink.net/~gmoonlit/raton/raton.html
+
+
+#------- media-sound/reshaked --------
+	reshaked-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: ReShaked is a next generation tracker/sequencer
+		
+	Homepage:    http://reshaked.berlios.de
 
 
 #------- media-sound/rezound --------
@@ -1807,7 +1817,7 @@
 	zynaddsubfx-20070707	arch: ~amd64 ~ppc ~x86
 	zynaddsubfx-2.2.1-r5	arch: amd64 ~ppc x86
 	zynaddsubfx-2.2.1-r8	arch: ~amd64 ~ppc ~x86
-	zynaddsubfx-9999	arch: ~amd64 ~ppc ~x86
+	zynaddsubfx-99999999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: ZynAddSubFX is an opensource software synthesizer.
 		
 	Homepage:    http://zynaddsubfx.sourceforge.net/
@@ -1876,6 +1886,7 @@
 	rt-sources-2.6.21.5-r20	arch: ~amd64 ~ppc ~ppc64 ~x86
 	rt-sources-2.6.21-r1	arch: ~amd64 ~ppc ~ppc64 ~x86
 	rt-sources-2.6.21-r9	arch: ~amd64 ~ppc ~ppc64 ~x86
+	rt-sources-2.6.22.1-r2	arch: ~amd64 ~ppc ~ppc64 ~x86
 	Description: Ingo Molnars realtime patch applied on vanilla
 		
 	Homepage:    unknown
