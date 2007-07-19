@@ -4,3 +4,6 @@
 
 # seems broken atm, does not start correctly
 =media-sound/bristol-0.10.1
+
+# unstable Qt4 testing
+>=media-sound/qjackctl-0.3.0
