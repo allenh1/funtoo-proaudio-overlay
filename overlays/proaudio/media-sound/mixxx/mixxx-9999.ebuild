@@ -13,7 +13,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 
-DEPEND="$(qt4_min_version 4.1)
+DEPEND="$(qt4_min_version 4.3)
 	media-sound/madplay
 	media-libs/libogg
 	media-libs/libvorbis
