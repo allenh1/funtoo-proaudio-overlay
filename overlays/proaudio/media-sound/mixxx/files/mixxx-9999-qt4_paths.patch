@@ -9,3 +9,14 @@
  
  if not platform == 'win32':
  	env.Append(CXXFLAGS = ' -pipe -O3 -pipe -Wall -W -g -D_REENTRANT') # omghax
+--- src/qt4.py.orig	2007-07-21 15:29:25.000000000 +0200
++++ src/qt4.py	2007-07-21 15:31:06.000000000 +0200
+@@ -246,7 +246,7 @@
+ 		QTDIR  = _detect(env),
+ 		QT4_BINPATH = os.path.join('$QTDIR', 'bin'),
+ 		QT4_CPPPATH = os.path.join('$QTDIR', 'include'),
+-		QT4_LIBPATH = os.path.join('$QTDIR', 'lib'),
++		QT4_LIBPATH = os.path.join('/usr/lib/qt4'),
+ 		# TODO: This is not reliable to QTDIR value changes but needed in order to support '-qt4' variants
+ 		QT4_MOC = locateQt4Command(env,'moc', env['QTDIR']),
+ 		QT4_UIC = locateQt4Command(env,'uic', env['QTDIR']),
