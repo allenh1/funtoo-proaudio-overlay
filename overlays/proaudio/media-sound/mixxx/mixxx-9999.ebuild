@@ -23,6 +23,7 @@ DEPEND="$(qt4_min_version 4.1)
 	>=media-libs/portaudio-19
 	virtual/glu
 	virtual/opengl
+	media-sound/gsm
 	alsa? ( media-libs/alsa-lib )
 	jack? ( media-sound/jack-audio-connection-kit )
 	djconsole? ( media-libs/libdjconsole )
