@@ -23,11 +23,17 @@ DEPEND="$(qt4_min_version 4.3)
 	>=media-libs/portaudio-19
 	virtual/glu
 	virtual/opengl
-	media-sound/gsm
 	alsa? ( media-libs/alsa-lib )
 	jack? ( media-sound/jack-audio-connection-kit )
 	djconsole? ( media-libs/libdjconsole )
-	ffmpeg? ( media-video/ffmpeg )
+	ffmpeg? ( media-video/ffmpeg 
+			media-sound/gsm 
+			media-libs/libdc1394 
+			sys-libs/libraw1394 
+			media-libs/libvorbis 
+			media-libs/lobogg 
+			media-libs/libdts 
+			media-libs/a52dec )
 	ladspa? ( media-libs/ladspa-sdk )"
 
 RDEPEND="${DEPEND}
