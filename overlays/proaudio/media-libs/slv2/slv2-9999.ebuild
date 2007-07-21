@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit subversion
+inherit subversion exteutils
 
 RESTRICT="nomirror"
 IUSE=""
@@ -21,9 +21,13 @@ DEPEND=">=dev-util/pkgconfig-0.9.0
 	>=media-libs/raptor-1.4.0
 	>=sys-libs/raul-9999"
 
-src_compile() {
+src_unpack() {
+	subversion_src_unpack
+	cd "${S}/src"
 	# quick fix
-	sed  -i 's@:usr/lib/lv2@:/usr/lib/lv2@g' src/pluginlist.c
+	esed_check -i 's@:usr/lib/lv2@:/usr/lib/lv2@g' plugins.c
+}
+src_compile() {
 	NOCONFIGURE=1 ./autogen.sh
 	econf || die "configure failed"
 	emake || die "make failed"
