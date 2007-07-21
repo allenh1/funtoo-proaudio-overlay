@@ -82,13 +82,15 @@ src_compile() {
 	use exrecord && myconf="${myconf} experimentalrecord=1"
 
 	unset QTDIR
+	mkdir -p "${D}/usr"
 	scons \
-		prefix=/usr \
+		prefix="${D}/usr" \
 		${myconf} \
 		|| die "scons failed"
 }
 
 src_install() {
+	mkdir -p "${D}/usr"
 	scons prefix="${D}/usr" install || die
 	dodoc README Mixxx-Manual.pdf
 }
