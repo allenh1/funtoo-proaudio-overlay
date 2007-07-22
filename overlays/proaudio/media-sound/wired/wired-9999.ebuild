@@ -40,7 +40,7 @@ src_compile() {
 	need-wxwidgets gtk2
 	set-wxconfig gtk2-ansi
 
-	./autogen.sh
+	NOCONFIGURE=1 ./autogen.sh
 
 	local myconf
 	myconf=""
