@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils cvs patcher jackmidi
+inherit exteutils cvs patcher jackmidi
 RESTRICT="nomirror"
 
 MY_P=ZynAddSubFX-${PV}
@@ -51,8 +51,10 @@ src_unpack() {
 	patcher ""${FILESDIR}/fix_jack_midi_api.patch" apply"
 	cd ${S}
 	unpack "zynaddsubfx-presets-0.1.tar.bz2"
+	cd src/
 	# add our CXXFLAGS
-	sed -i "s@\(CXXFLAGS.\+=.*OS_PORT.*\)@\1 ${CXXFLAGS}@g" src/Makefile
+	esed_check -i "s@\(CXXFLAGS.\+=.*OS_PORT.*\)@\1 ${CXXFLAGS}@g" Makefile
+	esed_check -i "s@&master->mutex@\&master->processMutex@g" main.C
 }
 
 src_compile() {
