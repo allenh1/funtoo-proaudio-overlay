@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit zyn3  fetch-tools
+inherit zyn3  fetch-tools unpacker
 RESTRICT="nomirror"
 MY_P="unsorted_${PN/-extras/}Parameters_${PV}"
 MY_PN="zynaddsubfx"
@@ -18,7 +18,7 @@ DEPEND="${RDEPEND}
 	app-arch/unzip"
 RDEPEND=">=media-sound/zynaddsubfx-2.2.1-r4"
 
-S="${WORKDIR}/zynaddsubfx"*
+S="${WORKDIR}/"*zynaddsubfx*
 src_unpack(){
 	url=$(smart_source "http://zynaddsubfx.sourceforge.net/doc/instruments/" "unsorted")
 	if [ "${#PORTAGE_ACTUAL_DISTDIR}" == "0" ];then
@@ -34,7 +34,7 @@ src_unpack(){
 			wget ${url} -P "${PORTAGE_ACTUAL_DISTDIR}" ||\
 		             die "cannot fetch  ${url##*/}"
 	fi
-	unzip "${PORTAGE_ACTUAL_DISTDIR}/${url##*/}" &>/dev/null
+	unpacker "${PORTAGE_ACTUAL_DISTDIR}/${url##*/}" &>/dev/null || die
 
 	cd ${S}
 	find -name 'CVS' -exec rm -rf {} \; &>/dev/null
@@ -49,14 +49,14 @@ src_install(){
 	unsorted="/usr/share/${MY_PN}/banks/unsorted"
 	examples="/usr/share/${MY_PN}/examples"
 	dodir   "${unsorted}" "${examples}"
-	for dir in `find -type d -maxdepth 1`;do
+	for dir in `find -maxdepth 1 -type d`;do
 		mv  ${dir}/*.xiz	"${D}${unsorted}" &>/dev/null
 	done
 	fowners -R root:root  "${unsorted}"
 	fperms -R 644 "${unsorted}"
 	
 	insinto "${examples}"
-	doins -r ../zynaddsubfx*
+	doins -r ../*zynaddsubfx*
 }
 
 pkg_postinst() {

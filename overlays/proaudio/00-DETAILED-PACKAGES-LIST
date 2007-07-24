@@ -273,6 +273,7 @@
 	portaudio-19-r1	arch: x86 sparc amd64 ~ppc ~ppc-macos ~mips
 	portaudio-19-r2	arch: x86 sparc amd64 ~ppc ~ppc-macos ~mips
 	portaudio-19-r3	arch: x86 sparc amd64 ~ppc ~ppc-macos ~mips
+	portaudio-19-r4	arch: x86 sparc amd64 ~ppc ~ppc-macos ~mips
 	portaudio-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: An open-source cross platform audio API.
 	Homepage:    http://www.portaudio.com
@@ -332,6 +333,7 @@
 	zynaddsubfx-collection-0.4	arch: amd64 ppc x86
 	zynaddsubfx-collection-0.5	arch: amd64 ppc x86
 	zynaddsubfx-collection-0.6	arch: amd64 ppc x86
+	zynaddsubfx-collection-0.7	arch: amd64 ppc x86
 	Description: user contributed instruments for zynaddsubfx
 		
 	Homepage:    http://proaudio.tuxfamily.org/files
@@ -339,6 +341,7 @@
 
 #------- media-libs/zynaddsubfx-extras --------
 	zynaddsubfx-extras-20060419	arch: amd64 ppc x86
+	zynaddsubfx-extras-20060615	arch: amd64 ppc x86
 	zynaddsubfx-extras-99999999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: unsorted bank/instruments and parameters
 		 for zynaddsubfx
@@ -861,6 +864,7 @@
 	csound-5.01	arch: -* ~amd64 ~ppc ~ppc64 x86
 	csound-5.02.1	arch: -* ~amd64 ~ppc ~ppc64 x86
 	csound-5.02	arch: -* ~amd64 ~ppc ~ppc64 x86
+	csound-5.06.0	arch: ~amd64 ~x86
 	Description: Csound is a sound and music synthesis system,
 		 providing facilities for composition and performance
 		 over a wide range of platforms.
@@ -1401,7 +1405,8 @@
 	mixxx-1.5.0.1	arch: ~x86 ~amd64 ~ppc
 	mixxx-1.5.0_beta1	arch: ~x86 ~amd64 ~ppc
 	mixxx-1.5.0	arch: ~x86 ~amd64 ~ppc
-	Description: Digital DJ tool using QT 3.x
+	mixxx-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Digital DJ tool using QT 4.x
 	Homepage:    http://mixxx.sourceforge.net
 
 
@@ -1512,6 +1517,7 @@
 	qjackctl-0.2.22	arch: ~amd64 ~ppc ~sparc x86
 	qjackctl-0.2.23	arch: ~amd64 ~ppc ~sparc ~x86
 	qjackctl-0.3.0	arch: ~amd64 ~x86
+	qjackctl-0.3.1a	arch: ~amd64 ~x86
 	qjackctl-0.3.1	arch: ~amd64 ~x86
 	qjackctl-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: A Qt application to control the JACK Audio
@@ -1798,6 +1804,15 @@
 	vkeybd-0.1.17-r1	arch: ~amd64 ~sparc ~x86
 	Description: A virtual MIDI keyboard for X
 	Homepage:    http://www.alsa-project.org/~iwai/alsa.html
+
+
+#------- media-sound/wired --------
+	wired-0.4	arch: ~x86 ~amd64
+	wired-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Wired aims to be a professional music production
+		 and creation software running on the Linux operating
+		 system.
+	Homepage:    http://wired.epitech.net
 
 
 #------- media-sound/xwax --------
