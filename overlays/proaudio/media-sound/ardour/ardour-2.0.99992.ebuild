@@ -29,6 +29,7 @@ RDEPEND=">=media-libs/liblrdf-0.4.0
 	>=media-sound/jack-audio-connection-kit-0.100.0
 	!=media-sound/ardour2-9*
 	vst? ( >=app-emulation/wine-0.9.5 )
+	>=gnome-base/libgnomecanvas-2.0
 	sys-libs? ( >=dev-libs/libsigc++-2.0
 		>=dev-cpp/glibmm-2.4
 		>=dev-cpp/cairomm-1.0

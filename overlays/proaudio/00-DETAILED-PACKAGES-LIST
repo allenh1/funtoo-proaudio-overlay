@@ -1901,7 +1901,7 @@
 	rt-sources-2.6.21.5-r20	arch: ~amd64 ~ppc ~ppc64 ~x86
 	rt-sources-2.6.21-r1	arch: ~amd64 ~ppc ~ppc64 ~x86
 	rt-sources-2.6.21-r9	arch: ~amd64 ~ppc ~ppc64 ~x86
-	rt-sources-2.6.22.1-r2	arch: ~amd64 ~ppc ~ppc64 ~x86
+	rt-sources-2.6.22.1-r9	arch: ~amd64 ~ppc ~ppc64 ~x86
 	Description: Ingo Molnars realtime patch applied on vanilla
 		
 	Homepage:    unknown
