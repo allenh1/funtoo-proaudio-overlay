@@ -1829,7 +1829,8 @@
 
 
 #------- media-sound/zynaddsubfx --------
-	zynaddsubfx-20070707	arch: ~amd64 ~ppc ~x86
+	zynaddsubfx-20070707	arch: ~amd64 ~ppc x86
+	zynaddsubfx-20070707-r1	arch: ~amd64 ~ppc ~x86
 	zynaddsubfx-2.2.1-r5	arch: amd64 ~ppc x86
 	zynaddsubfx-2.2.1-r8	arch: ~amd64 ~ppc ~x86
 	zynaddsubfx-99999999	arch: -> live ebuild: [svn|cvs|...]<-

@@ -2,17 +2,18 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit exteutils jackmidi
+inherit exteutils jackmidi unipatch-001
 RESTRICT="nomirror"
 MY_P=ZynAddSubFX-${PV}
 DESCRIPTION="ZynAddSubFX is an opensource software synthesizer."
 HOMEPAGE="http://zynaddsubfx.sourceforge.net/"
 SRC_URI="http://download.tuxfamily.org/proaudio/distfiles/${MY_P}.tar.bz2
-	http://download.tuxfamily.org/proaudio/distfiles/zynaddsubfx-presets-0.1.tar.bz2"
+	http://download.tuxfamily.org/proaudio/distfiles/zynaddsubfx-presets-0.1.tar.bz2
+	http://download.tuxfamily.org/proaudio/distfiles/zynaddsubfx-patches-1.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc x86"
+KEYWORDS="~amd64 ~ppc ~x86"
 #IUSE="oss alsa jack mmx"
 IUSE="oss alsa jack jackmidi lash mmx"
 
@@ -39,6 +40,8 @@ src_unpack() {
 	cd ${S}
 	unpack "zynaddsubfx-presets-0.1.tar.bz2"
 	# add our CXXFLAGS
+	UNIPATCH_LIST="${DISTDIR}/zynaddsubfx-patches-1.tar.gz"
+	unipatch
 	cd src/
 	esed_check -i "s@\(CXXFLAGS.\+=.*OS_PORT.*\)@\1 ${CXXFLAGS}@g" Makefile
 	esed_check -i "s@&master->mutex@\&master->processMutex@g" main.C
@@ -98,10 +101,10 @@ src_install() {
 	doins "${S}/examples/"*
 	# --------
 
-	mogrify -format png zynaddsubfx_icon.ico 
-	newicon "${S}/zynaddsubfx_icon.png" "zynaddsubfx_icon.png" 
+	doman zynaddsubfx.1
+	newicon "${S}/zynaddsubfx.xpm" "zynaddsubfx.xpm" 
 	make_desktop_entry "${PN}" "ZynAddSubFx-Synth" \
-		"zynaddsubfx_icon.png" "AudioVideo;Audio"
+		"zynaddsubfx.xpm" "AudioVideo;Audio"
 
 }
 
