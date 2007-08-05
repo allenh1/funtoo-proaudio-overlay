@@ -21,7 +21,7 @@ DEPEND="$(qt4_min_version 4.3)
 	media-libs/libsndfile
 	media-libs/libsamplerate
 	media-libs/libid3tag
-	>=media-libs/portaudio-19
+	=media-libs/portaudio-19*
 	virtual/glu
 	virtual/opengl
 	alsa? ( media-libs/alsa-lib )
