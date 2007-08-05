@@ -28,6 +28,7 @@ RDEPEND="=media-libs/freetype-2*
 	vorbis? ( media-libs/libvorbis )
 	|| ( >=x11-libs/libX11-1.0.1-r1 virtual/x11 )"
 DEPEND="${RDEPEND}
+	app-arch/unzip
 	|| ( ( x11-proto/xineramaproto
 			x11-proto/xextproto
 			x11-proto/xproto )

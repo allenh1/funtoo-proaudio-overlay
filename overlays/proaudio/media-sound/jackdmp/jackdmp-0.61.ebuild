@@ -18,6 +18,7 @@ RDEPEND="dev-util/pkgconfig
 	>=media-libs/alsa-lib-0.9.1"
 
 DEPEND="${RDEPEND}
+	app-arch/unzip
 	doc? ( app-doc/doxygen )"
 
 #S="${WORKDIR}/${PN}_${PV}/src/linux"

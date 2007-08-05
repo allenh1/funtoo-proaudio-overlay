@@ -32,7 +32,8 @@ SLOT="0"
 KEYWORDS="amd64 ppc x86"
 
 IUSE=""
-DEPEND="media-sound/hydrogen"
+RDEPEND="media-sound/hydrogen"
+DEPEND="app-arch/unzip"
 
 src_unpack(){
 	# unpack all files given in $A

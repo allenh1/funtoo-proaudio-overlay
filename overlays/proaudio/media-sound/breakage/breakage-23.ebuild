@@ -21,6 +21,7 @@ INSTALLDIR="/opt/${PN}"
 S="${WORKDIR}/${MY_PN}"
 
 DEPEND="media-sound/chuck
+	app-arch/unzip
 	media-sound/jack-audio-connection-kit
 	|| ( virtual/jre virtual/jdk )"
 

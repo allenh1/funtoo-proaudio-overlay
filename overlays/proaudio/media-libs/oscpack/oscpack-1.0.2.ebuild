@@ -20,7 +20,8 @@ S=${WORKDIR}/${PN}
 
 RDEPEND=""
 
-DEPEND="${RDEPEND}"
+DEPEND="app-arch/unzip
+	${RDEPEND}"
 
 #src_unpack() {
 #	unpack ${A}

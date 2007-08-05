@@ -5,17 +5,18 @@
 MY_P="${P}-0.jacklab.1.i586"
 
 DESCRIPTION="a collection of free VST synths"
+URL_PREFIX="http://www.music-open-source.com/source/plugins-VST---The-Classic-Series---Kjaerhus-Audio/fichier/"
 HOMEPAGE="http://jacklab.net"
 SRC_URI="http://ftp4.gwdg.de/pub/linux/suse/apt/SuSE/10.0-i386/RPMS.jacklab/${MY_P}.rpm
-		experimental? (	http://www.kjaerhusaudio.com/archives/classic_eq_v104.zip
-						http://www.kjaerhusaudio.com/archives/classic_chorus_v128.zip
-						http://www.kjaerhusaudio.com/archives/classic_compressor_v117.zip
-						http://www.kjaerhusaudio.com/archives/classic_delay_v103.zip
-						http://www.kjaerhusaudio.com/archives/classic_flanger_v109.zip
-						http://www.kjaerhusaudio.com/archives/classic_master-limiter_v106.zip
-						http://www.kjaerhusaudio.com/archives/classic_phaser_v103.zip
-						http://www.kjaerhusaudio.com/archives/classic_reverb_v106.zip
-						http://www.kjaerhusaudio.com/archives/classic_auto-filter_v101.zip
+		experimental? (	${URL_PREFIX}classic_eq_v104.zip
+						${URL_PREFIX}classic_chorus_v128.zip
+						${URL_PREFIX}classic_compressor_v117.zip
+						${URL_PREFIX}classic_delay_v103.zip
+						${URL_PREFIX}classic_flanger_v109.zip
+						${URL_PREFIX}classic_master-limiter_v106.zip
+						${URL_PREFIX}classic_phaser_v103.zip
+						${URL_PREFIX}classic_reverb_v106.zip
+						${URL_PREFIX}classic_auto-filter_v101.zip
 						http://mda.smartelectronix.com/vst/mdaJX10.zip
 						http://www.refx.net/downloads/Claw/Claw_1.0.zip 
 						http://bigblueamoeba.com/mirror/greenoak/files/Crystal.zip 
@@ -31,7 +32,8 @@ KEYWORDS="~x86"
 IUSE="experimental"
 
 DEPEND=">=media-libs/fst-1.7
-		app-arch/rpm2targz"
+		app-arch/rpm2targz
+		app-arch/unzip"
 
 S="${WORKDIR}"
 

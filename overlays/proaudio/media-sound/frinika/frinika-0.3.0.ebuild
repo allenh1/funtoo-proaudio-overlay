@@ -16,6 +16,7 @@ S="${WORKDIR}/${PN}"
 
 IUSE=""
 DEPEND="${RDEPEND}
+	app-arch/unzip
 	dev-java/ant-core"
 RDEPEND=">=virtual/jre-1.5"
 
