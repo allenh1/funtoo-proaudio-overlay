@@ -9,7 +9,7 @@ HOMEPAGE="http://www.studionumbersix.com/foo/"
 SRC_URI="http://www.studionumbersix.com/foo/${P}.tar.bz2"
 LICENSE="GPL"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="x86"
 
 DEPEND="media-libs/ladspa-sdk"
 
