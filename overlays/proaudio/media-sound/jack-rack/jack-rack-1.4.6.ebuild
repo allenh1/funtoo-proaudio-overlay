@@ -20,7 +20,7 @@ DEPEND="=x11-libs/gtk+-2*
 	alsa? ( media-libs/alsa-lib )
 	lash? ( >=media-sound/lash-0.5.0 )
 	gnome? ( =gnome-base/libgnomeui-2* )
-	nls? ( sys-devel/gettext )
+	nls? ( virtual/libintl )
 	xml? ( dev-libs/libxml2
 		media-libs/liblrdf )"
 
