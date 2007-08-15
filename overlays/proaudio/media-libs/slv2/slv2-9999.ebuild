@@ -9,7 +9,8 @@ IUSE=""
 DESCRIPTION="SLV2 is a library for LV2 hosts "
 HOMEPAGE="http://drobilla.net/software"
 
-ESVN_REPO_URI="http://svn.drobilla.net/lad/${PN}"
+ESVN_REPO_URI="http://svn.drobilla.net/lad/"
+ESVN_PROJECT="svn.drobilla.net"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -23,17 +24,22 @@ DEPEND=">=dev-util/pkgconfig-0.9.0
 
 src_unpack() {
 	subversion_src_unpack
-	cd "${S}/src"
+	cd "${S}/${PN}" || die "source for ${PN} not found"
+
 	# quick fix
+	cd "src"
 	esed_check -i 's@:usr/lib/lv2@:/usr/lib/lv2@g' plugins.c
 }
+
 src_compile() {
+	cd "${S}/${PN}" || die "source for ${PN} not found"
 	NOCONFIGURE=1 ./autogen.sh
 	econf || die "configure failed"
 	emake || die "make failed"
 }
 
 src_install() {
+	cd "${S}/${PN}" || die "source for ${PN} not found"
 	make DESTDIR="${D}" install || die "install failed"
 	dodoc AUTHORS NEWS THANKS ChangeLog
 }

@@ -9,10 +9,9 @@ IUSE="jackmidi lash"
 DESCRIPTION="Patchage is a modular patchbay for Jack audio and Alsa sequencer."
 HOMEPAGE="http://drobilla.net/software/patchage"
 
-#ECVS_SERVER="cvs.savannah.nongnu.org:/sources/om-synth"
-#ECVS_MODULE="patchage"
-ESVN_REPO_URI="http://svn.drobilla.net/lad/${PN}"
 
+ESVN_REPO_URI="http://svn.drobilla.net/lad/"
+ESVN_PROJECT="svn.drobilla.net"
 
 LICENSE="GPL-2"
 KEYWORDS=""
@@ -31,6 +30,7 @@ DEPEND=">=media-libs/liblo-0.22
 #S="${WORKDIR}/${ECVS_MODULE}"
 
 src_compile() {
+	cd "${S}/${PN}" || die "source for ${PN} not found"
 	use jackmidi && need_jackmidi
 	NOCONFIGURE=1 ./autogen.sh
 	econf \
@@ -41,6 +41,7 @@ src_compile() {
 }
 
 src_install() {
+	cd "${S}/${PN}" || die "source for ${PN} not found"
 	make DESTDIR="${D}" install || die "install failed"
 	dodoc AUTHORS NEWS THANKS ChangeLog
 } 

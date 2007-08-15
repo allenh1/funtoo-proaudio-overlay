@@ -8,17 +8,17 @@ ESVN_REPO_URI="http://svn.drobilla.net/lad/"
 ESVN_PROJECT="svn.drobilla.net"
 
 IUSE=""
-DESCRIPTION="Collection of LADSPA plugins for modular synthesizers."
+DESCRIPTION="Collection of lv2 plugins for modular synthesizers."
 HOMEPAGE="http://drobilla.net/software"
+
+ESVN_REPO_URI="http://svn.drobilla.net/lad/"
+ESVN_PROJECT="svn.drobilla.net"
 
 LICENSE="GPL-2"
 KEYWORDS=""
 
-DEPEND="media-libs/ladspa-sdk
-	sci-libs/fftw"
-
-#S="${WORKDIR}/${ESVN_PROJECT}"
-
+DEPEND=""
+	
 src_unpack() {
 	subversion_src_unpack || die
 	#cd "${S}"
@@ -28,7 +28,7 @@ src_compile() {
 	export WANT_AUTOCONF=2.5
 	export WANT_AUTOMAKE=1.9
 	./autogen.sh || die
-	
+
 	econf \
 		--disable-in-process-engine \
 		--without-pic \

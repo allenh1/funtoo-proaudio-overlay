@@ -7,9 +7,8 @@ inherit subversion
 DESCRIPTION="FlowCanvas is a canvas widget for dataflow systems"
 HOMEPAGE="http://drobilla.net/software/flowcanvas"
 
-#ECVS_SERVER="cvs.savannah.nongnu.org:/sources/om-synth"
-#ECVS_MODULE="flowcanvas"
-ESVN_REPO_URI="http://svn.drobilla.net/lad/${PN}"
+ESVN_REPO_URI="http://svn.drobilla.net/lad/"
+ESVN_PROJECT="svn.drobilla.net"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -22,12 +21,15 @@ DEPEND=">=dev-cpp/gtkmm-2.4
 #S="${WORKDIR}/${ECVS_MODULE}"
 
 src_compile() {
+	export WANT_AUTOMAKE="1.10"
+	cd "${S}/${PN}" || die "source for ${PN} not found"
 	NOCONFIGURE=1 ./autogen.sh
-	econf || die "configure failed"
+	econf --enable-anti-aliasing || die "configure failed"
 	emake || die "make failed"
 }
 
 src_install() {
+	cd "${S}/${PN}" || die "source for ${PN} not found"
 	make DESTDIR="${D}" install || die "install failed"
 	dodoc AUTHORS README ChangeLog NEWS
 }

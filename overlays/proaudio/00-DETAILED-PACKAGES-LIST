@@ -403,8 +403,8 @@
 
 
 #------- media-plugins/foo-plugins --------
-	foo-plugins-0.9	arch: -> live ebuild: [svn|cvs|...]<-
-	foo-plugins-1.0	arch: -> live ebuild: [svn|cvs|...]<-
+	foo-plugins-0.9	arch: x86
+	foo-plugins-1.0	arch: x86
 	Description: foo-plugins for ladspa
 	Homepage:    http://www.studionumbersix.com/foo/
 
@@ -427,6 +427,13 @@
 	Description: collection of LV2 plugins, LV2 extension
 		 definitions, and LV2 related tools
 	Homepage:    http://ll-plugins.nongnu.org
+
+
+#------- media-plugins/lv2 --------
+	lv2-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Collection of lv2 plugins for modular synthesizers.
+		
+	Homepage:    http://drobilla.net/software
 
 
 #------- media-plugins/nekobee --------
@@ -777,6 +784,7 @@
 	ardour-0.99.3	arch: x86 ~amd64 ~ppc
 	ardour-2.0.2	arch: ~x86 ~amd64
 	ardour-2.0.3	arch: ~x86 ~amd64
+	ardour-2.0.5	arch: ~x86 ~amd64
 	ardour-2.0.99992	arch: -> live ebuild: [svn|cvs|...]<-
 	ardour-2.0	arch: ~x86
 	ardour-99991	arch: -> live ebuild: [svn|cvs|...]<-
@@ -1121,9 +1129,7 @@
 
 
 #------- media-sound/jack-rack --------
-	jack-rack-1.4.3	arch: amd64 ~ppc sparc x86
-	jack-rack-1.4.4	arch: ~amd64 ~ppc ~sparc x86
-	jack-rack-1.4.5	arch: ~amd64 ~ppc ~sparc ~x86
+	jack-rack-1.4.6	arch: ~amd64 ~ppc ~sparc ~x86
 	Description: JACK Rack is an effects rack for the JACK
 		 low latency audio API.
 	Homepage:    http://jack-rack.sourceforge.net/
@@ -1232,6 +1238,7 @@
 	jost-0.3.2	arch: ~x86
 	jost-0.3.3	arch: ~x86
 	jost-0.3.4	arch: ~x86 ~amd64
+	jost-0.4.1	arch: ~x86 ~amd64
 	Description: JACK host for native linux VST, DSSI and
 		 LADSPA plugins with sequencer capabilities
 		
@@ -1362,6 +1369,13 @@
 	Homepage:    http://www.spamblock.demon.co.uk/louderbox.html
 
 
+#------- media-sound/machina --------
+	machina-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: A MIDI sequencer based on probabilistic finite-state
+		 automata
+	Homepage:    http://drobilla.net/software
+
+
 #------- media-sound/madjack --------
 	madjack-0.4	arch: ~x86 ~amd64
 	Description: MadJACK is a MPEG Audio Deck for the Jack
@@ -1485,6 +1499,7 @@
 #------- media-sound/phasex --------
 	phasex-0.10.2	arch: ~x86
 	phasex-0.10.3	arch: ~x86
+	phasex-0.11.1	arch: ~x86
 	Description: PHASEX is an experimental software synthesizer
 		 for use with Linux/ALSA/JACK
 	Homepage:    http://www.sysex.net/phasex

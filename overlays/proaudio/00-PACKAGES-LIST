@@ -55,6 +55,7 @@ media-plugins/foo-plugins
 media-plugins/frei0r-plugins
 media-plugins/hexter
 media-plugins/ll-plugins
+media-plugins/lv2
 media-plugins/nekobee
 media-plugins/njl-plugins
 media-plugins/omins
@@ -178,6 +179,7 @@ media-sound/lingot
 media-sound/linuxsampler
 media-sound/lmms
 media-sound/louderbox
+media-sound/machina
 media-sound/madjack
 media-sound/mammut
 media-sound/meterbridge
