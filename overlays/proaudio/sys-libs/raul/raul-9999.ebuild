@@ -20,10 +20,7 @@ DEPEND=">=dev-util/pkgconfig-0.9.0
 	>=dev-libs/rasqal-0.9.11
 	>=media-libs/raptor-1.4.14
 	boost? ( dev-libs/boost )
-	${NEW}"
-
-
-NEW="media-libs/librdf
+	media-libs/librdf
 	>=dev-cpp/glibmm-2.4
 	jack? ( >=media-sound/jack-audio-connection-kit-0.107.0 )
 	lash? ( >=media-sound/lash-0.5.2 
