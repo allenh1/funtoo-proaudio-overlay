@@ -5,7 +5,7 @@
 
 DESCRIPTION="nekobee, a DSSI TB303 plugin"
 HOMEPAGE="http://www.nekosynth.co.uk/wiki/nekobee"
-SRC_URI="http://www.gjcp.net/${P}.tar.gz"
+SRC_URI="http://static.nekosynth.co.uk/releases/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"

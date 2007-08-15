@@ -4,8 +4,8 @@
 
 
 DESCRIPTION="Wsynth-DSSI, a wavetable synthesizer plugin"
-HOMEPAGE="http://www.gjcp.net/wsynth.html"
-SRC_URI="http://www.gjcp.net/${P}.tar.gz"
+HOMEPAGE="http://www.nekosynth.co.uk/wiki/wsynth"
+SRC_URI="http://static.nekosynth.co.uk/releases/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
