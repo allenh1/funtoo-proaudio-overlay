@@ -2,11 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit subversion distutils
+inherit distutils subversion
 
 DESCRIPTION="buzz compatibility lib for aldrin"
 HOMEPAGE="http://trac.zeitherrschaft.org/aldrin"
 
+SRC_URI=""
 ESVN_REPO_URI="http://svn.zeitherrschaft.org/zzub/trunk/"
 
 LICENSE="GPL-2"
