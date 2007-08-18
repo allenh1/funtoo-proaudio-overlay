@@ -19,7 +19,7 @@ S="${WORKDIR}/${PN}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86 -amd64"
+KEYWORDS="~x86 ~amd64"
 IUSE="debug xinerama flac vorbis opengl"
 
 RDEPEND="=media-libs/freetype-2*
