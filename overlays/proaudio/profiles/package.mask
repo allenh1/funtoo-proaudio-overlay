@@ -10,3 +10,6 @@
 
 # horribly broken build
 >=media-sound/csound-5.06.0
+
+# horribly broken app
+media-sound/wired
