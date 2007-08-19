@@ -28,6 +28,7 @@ src_compile() {
 }
 
 src_install() {
-	scons prefix="${D}/usr" install || die "scons install failed"
+	#scons prefix="${D}/usr" install || die "scons install failed"
+	dobin program/${PN}
 }
 
