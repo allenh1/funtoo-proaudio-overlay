@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils subversion autotools flag-o-matic
+inherit eutils autotools flag-o-matic
 
 DESCRIPTION="free alternative to popular programs such as FruityLoops, Cubase and Logic"
 HOMEPAGE="http://lmms.sourceforge.net"
@@ -11,15 +11,11 @@ ESVN_REPO_URI="https://lmms.svn.sourceforge.net/svnroot/lmms/trunk/lmms"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~x86 ~amd64"
 
-S="${WORKDIR}/${PN}"
+IUSE="alsa debug flac jack ladspa oss pic samplerate sdl singerbot surround stk vorbis vst"
 
-IUSE="alsa debug flac jack ladspa oss pic samplerate sdl singerbot surround stk vorbis 
-vst qt3 qt4"
-
-DEPEND="qt4? ( >=x11-libs/qt-4.1 ) 
-	qt3? ( =x11-libs/qt-3.3* )
+DEPEND="=x11-libs/qt-3.3*
 	vorbis? ( media-libs/libvorbis )
 	alsa? ( media-libs/alsa-lib )
 	sdl? ( media-libs/libsdl 
@@ -32,16 +28,9 @@ DEPEND="qt4? ( >=x11-libs/qt-4.1 )
 	singerbot? ( app-accessibility/festival )
 	stk? ( media-sound/stk )"
 
-pkg_setup() {
-	if use qt4; then
-		if use qt3; then
-			die "Please choose qt3 OR qt4 in USE"
-		fi
-	fi
-}
 src_unpack() {
-	subversion_src_unpack
-	cd ${S}
+	unpack ${A}
+	cd "${S}"
 	# copy VST headers
 	if use vst ; then
 		cp /usr/include/vst/{AEffect.h,aeffectx.h} include/
@@ -55,9 +44,8 @@ src_compile() {
 	# VST won't compile with -fomit-frame-pointer
 	use vst && filter-flags "-fomit-frame-pointer"
 
-	# configure options
-	local myconf
-	myconf="`use_with alsa asound` \
+	econf \
+		`use_with alsa asound` \
 		`use_with oss` \
 		`use_with vorbis` \
 		`use_with samplerate libsrc` \
@@ -72,16 +60,9 @@ src_compile() {
 		`use_with vst` \
 		`use_with singerbot` \
 		`use_with stk` \
-		--enable-hqsinc"
+		--enable-hqsinc \
+		|| die "Configure failed"
 	
-	# qt4 fixups
-	if use qt4; then
-		myconf="${myconf} --with-qtdir=/usr"
-		#epatch ${FILESDIR}/lmms-qt4_configure_gentoo.patch
-	fi
-
-	econf ${myconf} || die "Configure failed"
-
 	# we need MAKEOPTS="-j1" for VST support
 	if use vst; then
 		emake -j1 || die "Make failed"
