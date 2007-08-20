@@ -38,7 +38,7 @@ src_compile() {
 	done
 
 	# reconfigure to correct paths, hell knows
-	cd ../../
+	cd ../../src
 	econf \
 		`use_with alsa` \
 		`use_with jack` \
@@ -61,5 +61,7 @@ src_install() {
 	insinto /usr/share/stk/rawwaves
 	doins rawwaves/*.raw
 	dolib src/libstk.a
+	# this one actually sucks, but.. 
+	mv projects "${D}"/usr/share/stk
 }
 
