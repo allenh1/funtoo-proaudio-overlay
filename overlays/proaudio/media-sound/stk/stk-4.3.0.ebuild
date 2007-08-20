@@ -38,7 +38,7 @@ src_compile() {
 	done
 
 	# reconfigure to correct paths, hell knows
-	cd ../../src
+	cd "${S}"
 	econf \
 		`use_with alsa` \
 		`use_with jack` \
