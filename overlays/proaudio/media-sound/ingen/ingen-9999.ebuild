@@ -6,7 +6,7 @@ inherit subversion exteutils autotools
 
 RESTRICT="nomirror"
 # lash currently not supported upstream
-IUSE="dssi pic jackmidi midi ladspa lv2 jack osc gtk2 alsa lash in-process"
+IUSE="dssi jackmidi midi ladspa lv2 jack osc gtk2 alsa lash in-process"
 
 DESCRIPTION="Ingen (successor of om) is a modular synthesizer for GNU/Linux audio systems using the Jack audio server and LADSPA or DSSI plugins."
 HOMEPAGE="http://drobilla.net/software/ingen"
@@ -84,13 +84,14 @@ src_compile() {
 	#eautoreconf
 	NOCONFIGURE=1 ./autogen.sh
 	
+	#	$(use_with pic) not needed?
+	
 	JACK_CFLAGS=`pkg-config --cflags jack` \
 	JACK_LIBS=`pkg-config --libs jack` \
 	ALSA_CFLAGS=`pkg-config --cflags alsa` \
 	ALSA_LIBS=`pkg-config --libs alsa` \
 	econf \
 		$(use_enable in-process in-process-engine) \
-		$(use_with pic) \
 		$(use_enable dssi) \
 		$(use_enable lash) \
 		$(use_enable ladspa) \

@@ -15,7 +15,8 @@ LICENSE="GPL-2"
 KEYWORDS=""
 
 DEPEND="media-libs/ladspa-sdk
-	sci-libs/fftw"
+	sci-libs/fftw
+	>=media-libs/librdf-1.0.6"
 
 #S="${WORKDIR}/${ESVN_PROJECT}"
 
@@ -31,7 +32,6 @@ src_compile() {
 	
 	econf \
 		--disable-in-process-engine \
-		--without-pic \
 		--disable-dssi \
 		--disable-lash \
 		--disable-ladspa \
