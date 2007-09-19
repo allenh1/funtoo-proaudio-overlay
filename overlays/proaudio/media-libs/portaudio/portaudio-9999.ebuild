@@ -31,7 +31,7 @@ src_unpack() {
 src_compile() {
 	scons_compile(){
 		mkdir -p ${D}/usr
-		local myconf="enableShared=1 prefix=${D}/usr enableStatic=0 enableAsserts=0"
+		local myconf="enableShared=1 prefix=${D}/usr enableStatic=0 enableAsserts=0 enableCxx=1"
 		! use jack;	myconf="${myconf} useJACK=$?"
 		! use alsa; myconf="${myconf} useALSA=$?"
 		! use oss; myconf="${myconf} useOSS=$?"
