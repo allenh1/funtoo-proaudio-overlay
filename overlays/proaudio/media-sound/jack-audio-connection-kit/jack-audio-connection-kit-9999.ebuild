@@ -17,7 +17,7 @@ LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
 IUSE="altivec alsa caps coreaudio doc debug jack-tmpfs mmx oss sndfile netjack
-sse " # jackmidi"
+sse jackmidi freebob"
 
 RDEPEND="dev-util/pkgconfig
 	netjack? ( !media-sound/netjack )
@@ -26,6 +26,8 @@ RDEPEND="dev-util/pkgconfig
 	caps? ( sys-libs/libcap )
 	alsa? ( >=media-libs/alsa-lib-0.9.1 )
 	netjack? ( dev-util/scons )
+	jackmidi? ( media-libs/alsa-lib )
+	freebob? ( sys-libs/libfreebob )
 	!media-sound/jack-audio-connection-kit-svn"
 DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )"
@@ -65,6 +67,9 @@ src_unpack() {
 	#if use jackmidi; then
 	#	epatch ${FILESDIR}/jackmidi_01dec05.patch || die
 	#fi
+
+	# jack transport patch from Torben Hohn
+	epatch "${FILESDIR}/jack-transport-start-at-zero-fix.diff"
 }
 
 src_compile() {
@@ -111,7 +116,7 @@ src_compile() {
 		$(use_enable oss) \
 		$(use_enable sse)  \
 		$(use_enable 3dnow dynsimd) \
-		--with-pic \
+		$(use_enable jackmidi) \
 		--disable-portaudio \
 		${myconf} || die "configure failed"
 	emake || die "compilation failed"
