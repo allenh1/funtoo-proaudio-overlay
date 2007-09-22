@@ -1,6 +1,6 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2007 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /cvsroot/jacklab/gentoo/sys-libs/pam/pam-0.78-r6.ebuild,v 1.1.1.1 2006/04/10 12:08:08 gimpel Exp $
+# $Header: $
 
 FORCE_SYSTEMAUTH_UPDATE="no"
 
@@ -11,7 +11,7 @@ FORCE_SYSTEMAUTH_UPDATE="no"
 # with Linux-PAM.  I'm not really certain how pervasive the Radius
 # and NIS services of PWDB are at this point.
 
-PATCH_LEVEL="1.5"
+PATCH_LEVEL="1.6"
 BDB_VER="4.3.27"
 BDB_VER2="4.1.25"
 GLIB_VER="2.6.5"
@@ -22,7 +22,7 @@ DESCRIPTION="Pluggable Authentication Modules"
 
 S="${WORKDIR}/Linux-PAM-${PV}"
 S2="${WORKDIR}/pam-${PV}-patches"
-SRC_URI="http://www.kernel.org/pub/linux/libs/pam/pre/library/Linux-PAM-${PV}.tar.gz
+SRC_URI="mirror://kernel/linux/libs/pam/pre/library/Linux-PAM-${PV}.tar.gz
 	mirror://gentoo/pam-${PV}-patches-${PATCH_LEVEL}.tar.bz2
 	berkdb? ( http://downloads.sleepycat.com/db-${BDB_VER}.tar.gz )
 	pam_console? ( ftp://ftp.gtk.org/pub/gtk/v2.6/glib-${GLIB_VER}.tar.bz2 )"
@@ -35,7 +35,10 @@ IUSE="berkdb pwdb selinux pam_chroot pam_console pam_timestamp nis"
 RDEPEND=">=sys-libs/cracklib-2.8.3
 	selinux? ( >=sys-libs/libselinux-1.28 )
 	berkdb? ( >=sys-libs/db-${BDB_VER2} )
-	pwdb? ( >=sys-libs/pwdb-0.62 )"
+	pwdb? ( >=sys-libs/pwdb-0.62 )
+	!sys-auth/pam_console
+	!sys-auth/pam_userdb
+	!sys-auth/pam_chroot"
 
 # Note that we link to static versions of glib (pam_console.so)
 # and pwdb (pam_pwdb.so), so we need glib-2.6.2-r1 or later ...
@@ -53,7 +56,7 @@ DEPEND="${RDEPEND}
 PROVIDE="virtual/pam"
 
 #inherit needs to be after DEPEND definition to protect RDEPEND
-inherit toolchain-funcs eutils flag-o-matic gnuconfig pam
+inherit eutils toolchain-funcs flag-o-matic gnuconfig pam
 
 apply_pam_patches() {
 	local x=
@@ -151,9 +154,6 @@ src_unpack() {
 	cp /usr/share/automake/install-sh ${S}/ 2>/dev/null || touch install-sh
 	export WANT_AUTOCONF=2.5
 	autoconf || die
-
-	epatch "${FILESDIR}/${P}-inttypes.patch"
-	epatch "${FILESDIR}/${P}-xauth-path.patch"
 }
 
 src_compile() {
@@ -197,7 +197,7 @@ src_compile() {
 			--libdir="${S}/lib" || die "Bad BDB ./configure"
 
 		# XXX: hack out O_DIRECT support in db4 for now.
-		#      (Done above now with --disable-o_direct now)
+		#	   (Done above now with --disable-o_direct now)
 
 		make CC="$(tc-getCC)" || die "BDB build failed"
 		make install || die
@@ -266,8 +266,8 @@ src_compile() {
 		# Also edit the configuration file else the wrong include files
 		# get used
 		sed -i -e "s:^#define HAVE_NDBM_H.*$:/* #undef HAVE_NDBM_H */:" \
-		       -e "s:^#define HAVE_DB_H.*$:/* #undef HAVE_DB_H */:" \
-		       _pam_aconf.h
+			   -e "s:^#define HAVE_DB_H.*$:/* #undef HAVE_DB_H */:" \
+			   _pam_aconf.h
 
 	else
 		# Do not link pam_userdb.so to db-1.85 ...
@@ -308,11 +308,11 @@ src_install() {
 				die "${mod_name} module did not build."
 			fi
 			if [[ -n $(ldd "${sec_dir}/${mod_name}"*.so 2>&1 | \
-			           grep "/usr/lib/" | \
-			           grep "/usr/$(get_libdir)/" | \
-			           grep -v "/usr/lib/gcc" | \
-			           grep -v "/usr/$(get_libdir)/gcc" | \
-			           grep -v "libsandbox") ]] ; then
+					   grep "/usr/lib/" | \
+					   grep "/usr/$(get_libdir)/" | \
+					   grep -v "/usr/lib/gcc" | \
+					   grep -v "/usr/$(get_libdir)/gcc" | \
+					   grep -v "libsandbox") ]] ; then
 				echo
 				eerror "ERROR: ${mod_name} have dependencies in /usr."
 				echo
@@ -337,24 +337,23 @@ src_install() {
 	# need this for pam_console
 	keepdir /var/run/console
 
-	for x in ${FILESDIR}/pam.d/*; do
-		[[ -f ${x} ]] && dopamd ${x}
-	done
+	newpamd "${FILESDIR}/system-auth.pamd.0.78" system-auth
+	newpamd "${FILESDIR}/other.pamd" other
 
 	# Only add this one if needed.
 	if [[ ${FORCE_SYSTEMAUTH_UPDATE} = "yes" ]] ; then
-		newpamd ${FILESDIR}/pam.d/system-auth system-auth.new || \
+		newpamd "${FILESDIR}/system-auth.pamd.0.78" system-auth.new || \
 			die "Failed to install system-auth.new!"
 	fi
 
 	insinto /etc/security
-	doins ${FILESDIR}/pam_env.conf
+	doins "${S2}/gentoo-extrafiles/pam_env.conf"
 	doman doc/man/*.[0-9]
 
 	dodoc CHANGELOG Copyright README
 	docinto modules ; dodoc modules/README ; dodoc doc/txts/README.*
 	# Install our own README.pam_console
-	docinto ; dodoc ${FILESDIR}/README.pam_console
+	docinto modules ; dodoc "${S2}/gentoo-extrafiles/README.pam_console"
 	docinto txt ; dodoc doc/specs/*.txt #doc/txts/*.txt
 #	docinto print ; dodoc doc/ps/*.ps
 
@@ -364,7 +363,7 @@ src_install() {
 
 pkg_postinst() {
 	echo
-	einfo "If you have sshd running, please restart it to avoid possible login issues."
+	elog "If you have sshd running, please restart it to avoid possible login issues."
 	echo
 	ebeep
 	sleep 3
@@ -378,10 +377,11 @@ pkg_postinst() {
 			ewarn "is being updated automatically. Your old "
 			ewarn "system-auth will be backed up as:"
 			ewarn
-			ewarn "  ${ROOT}etc/pam.d/system-auth.bak"
+			ewarn "	 ${ROOT}etc/pam.d/system-auth.bak"
 			echo
 
 			cp -pPR ${ROOT}/etc/pam.d/system-auth \
+				${ROOT}/etc/pam.d/system-auth.bak;
 				${ROOT}/etc/pam.d/system-auth.bak;
 			mv -f ${ROOT}/etc/pam.d/system-auth.new \
 				${ROOT}/etc/pam.d/system-auth
@@ -393,8 +393,9 @@ pkg_postinst() {
 
 	if use pam_console; then
 		echo
-		einfo "If you want to enable the pam_console module, please follow"
-		einfo "the instructions in /usr/share/doc/${PF}/README.pam_console."
+		elog "If you want to enable the pam_console module, please follow"
+		elog "the instructions in /usr/share/doc/${PF}/README.pam_console."
+		echo
 	fi
 
 	einfo
