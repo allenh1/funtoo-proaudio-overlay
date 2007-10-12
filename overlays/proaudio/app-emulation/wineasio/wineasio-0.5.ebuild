@@ -2,13 +2,15 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+inherit multilib
+
 DESCRIPTION="ASIO driver for WINE"
 HOMEPAGE="http://forum.jacklab.net/viewtopic.php?t=417"
 SRC_URI="http://people.jacklab.net/edogawa/files/${PN}/${P}.tar.gz"
 RESTRICT="nomirror"
 
 LICENSE="LGPL-2.1"
-KEYWORDS="~x86"
+KEYWORDS="~x86 ~amd64"
 IUSE=""
 
 DEPEND="media-libs/asio-sdk"
@@ -21,11 +23,16 @@ src_unpack() {
 }
 
 src_compile() {
+	use amd64 && multilib_toolchain_setup x86
 	emake || die "make failed"
 }
 
 src_install() {
-	exeinto /usr/lib/wine
+	if use amd64; then
+		exeinto /usr/lib32/wine
+	else
+		exeinto /usr/lib/wine
+	fi
 	doexe *.so
 	dodoc README.TXT
 }

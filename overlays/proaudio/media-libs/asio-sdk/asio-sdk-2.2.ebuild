@@ -8,13 +8,13 @@ At="${MY_P}.zip"
 
 DESCRIPTION="Steinberg ASIO SDK 2.2 - win32"
 HOMEPAGE="http://www.steinberg.net/329+M52087573ab0.html"
-SRC_URI="x86? ( ${At} )"
+SRC_URI="${At}"
 
 RESTRICT="nostrip fetch"
 
 LICENSE="STEINBERG SOFT-UND HARDWARE GMBH"
 SLOT="0"
-KEYWORDS="x86"
+KEYWORDS="x86 ~amd64"
 IUSE=""
 
 DEPEND="app-arch/unzip"
