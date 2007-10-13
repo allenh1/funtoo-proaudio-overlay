@@ -11,7 +11,7 @@ SRC_URI=""
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE="alsa audiofile custom-cflags doc esd flac gtk jack mikmod nas nls ogg opengl oss vorbis
+IUSE="alsa audiofile custom-cflags doc esd flac gtk jack mad mikmod nas nls ogg opengl oss vorbis
 xosd"
 
 ESVN_REPO_URI="https://alsaplayer.svn.sourceforge.net/svnroot/alsaplayer/trunk/alsaplayer"
@@ -20,7 +20,7 @@ S=${WORKDIR}/${PN}
 
 RDEPEND="media-libs/libsndfile
 	alsa? ( media-libs/alsa-lib )
-	media-libs/libmad
+	mad? ( media-libs/libmad )
 	audiofile? ( media-libs/audiofile )
 	esd? ( media-sound/esound )
 	flac? ( media-libs/flac )
@@ -73,6 +73,7 @@ src_compile() {
 		$(use_enable esd) \
 		$(use_enable flac) \
 		$(use_enable jack) \
+		$(use_enable mad) \
 		$(use_enable mikmod) \
 		$(use_enable nas) \
 		$(use_enable opengl) \
