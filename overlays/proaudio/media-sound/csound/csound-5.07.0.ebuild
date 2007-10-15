@@ -96,6 +96,6 @@ src_install() {
 	cd ${D}/usr
 	rm -f *.md5sums
 	# fix package collision with dev-libs/clearsilver
-	mv ${D}/usr/bin/cs ${D}/usr/bin/cs5
+	has_version "dev-libs/clearsilver" && mv ${D}/usr/bin/cs ${D}/usr/bin/cs5
 }
 
