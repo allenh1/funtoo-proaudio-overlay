@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils
+inherit eutils flag-o-matic
 
 RESTRICT="nomirror"
 DESCRIPTION="A program for doing sound effects using one gigantic fft analysis (no windows)."
@@ -27,7 +27,14 @@ DEPEND="${RDEPEND}"
 src_unpack() {
 	unpack "${A}"
 	cd "${S}"/src
-	epatch "${FILESDIR}/${P}-makefile.patch"
+	# fix Makefile
+	cp Makefile.linux Makefile
+	sed -i -e "s:INSTALLPATH=/usr/local:INSTALLPATH=\$(DESTDIR)/usr:" Makefile \
+		|| die
+	sed -i -e "s:JUCE=../../juce:JUCE=/usr/include/juce:" Makefile \
+		|| die
+	sed -i -e "s:GCC=gcc -Wall:GCC=gcc -Wall -march=$(get-flag march):" Makefile \
+		|| die
 }
 
 src_compile() {
@@ -36,11 +43,15 @@ src_compile() {
 }
 
 src_install() {
+	# install doc
 	if use doc; then
 		dodoc doc/mammuthelp.html
 	fi
+	
+	# install binary
+	dobin src/"${PN}"
+	
+	# create desktop entry
 	newicon "icons/icon.png" "${PN}.png"
-	cd src/
-	make DESTDIR="${D}" install || die "install failed" 
 	make_desktop_entry "${PN}" "Mammut" "${PN}" "AudioVideo;Audio;"
 }
