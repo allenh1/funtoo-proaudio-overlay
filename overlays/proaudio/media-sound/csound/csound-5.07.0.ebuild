@@ -38,7 +38,7 @@ DEPEND="${RDEPEND}
 	dssi? ( >=media-libs/dssi-0.9.1 )"
 	#broken
 	#csoundvst? ( >=dev-libs/boost-1.32.1 )
-S="${WORKDIR}/${MY_P}"
+S="${WORKDIR}/${PN}5"
 
 src_unpack() {
 	unpack ${A}
@@ -95,5 +95,7 @@ src_install() {
 	./install.py --prefix="/usr/" --instdir="${D}"
 	cd ${D}/usr
 	rm -f *.md5sums
+	# fix package collision with dev-libs/clearsilver
+	mv ${D}/usr/bin/cs ${D}/usr/bin/cs5
 }
 

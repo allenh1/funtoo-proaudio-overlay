@@ -584,9 +584,8 @@
 
 
 #------- media-sound/mammut --------
-	mammut-0.22	arch: x86
-	mammut-0.57	arch: ~x86 ~amd64
 	mammut-0.59	arch: ~x86 ~amd64
+	mammut-0.60	arch: ~x86 ~amd64
 	Description: A program for doing sound effects using one
 		 gigantic fft analysis (no windows).
 	Homepage:    http://www.notam02.no/arkiv/doc/mammut/
@@ -1331,7 +1330,7 @@
 	csound-5.01	arch: -* ~amd64 ~ppc ~ppc64 x86
 	csound-5.02.1	arch: -* ~amd64 ~ppc ~ppc64 x86
 	csound-5.02	arch: -* ~amd64 ~ppc ~ppc64 x86
-	csound-5.06.0	arch: ~amd64 ~x86
+	csound-5.07.0	arch: ~amd64 ~x86
 	Description: Csound is a sound and music synthesis system,
 		 providing facilities for composition and performance
 		 over a wide range of platforms.

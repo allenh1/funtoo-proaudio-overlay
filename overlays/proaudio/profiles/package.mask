@@ -8,8 +8,5 @@
 # unstable Qt4 testing
 >=media-sound/qjackctl-0.3.0
 
-# horribly broken build
->=media-sound/csound-5.06.0
-
 # horribly broken app
 media-sound/wired

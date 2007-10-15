@@ -18,3 +18,28 @@
          vstEnvironment.Append(SHLINKFLAGS = '--no-export-all-symbols')
          vstEnvironment.Append(LINKFLAGS = ['-Wl,-rpath-link,.'])
          guiProgramEnvironment.Prepend(LINKFLAGS = ['-Wl,-rpath-link,.'])
+--- SConstruct.orig	2007-10-15 23:12:31.000000000 +0200
++++ SConstruct	2007-10-15 23:13:48.000000000 +0200
+@@ -359,7 +359,6 @@
+ 
+ if getPlatform() == 'linux':
+     commonEnvironment.Append(CCFLAGS = "-DLINUX")
+-    commonEnvironment.Append(CPPFLAGS = '-DHAVE_SOCKETS')
+     commonEnvironment.Append(CPPPATH = '/usr/local/include')
+     commonEnvironment.Append(CPPPATH = '/usr/include')
+     commonEnvironment.Append(CPPPATH = '/usr/include')
+--- SConstruct.orig	2007-10-15 23:17:35.000000000 +0200
++++ SConstruct	2007-10-15 23:18:04.000000000 +0200
+@@ -539,12 +539,6 @@
+     if configure.CheckHeader(h[0], language = "C"):
+         commonEnvironment.Append(CPPFLAGS = [h[1]])
+ 
+-if getPlatform() == 'win32':
+-    if configure.CheckHeader("winsock.h", language = "C"):
+-        commonEnvironment.Append(CPPFLAGS = '-DHAVE_SOCKETS')
+-elif configure.CheckHeader("sys/socket.h", language = "C"):
+-    commonEnvironment.Append(CPPFLAGS = '-DHAVE_SOCKETS')
+-
+ if getPlatform() == 'darwin':
+     commonEnvironment.Append(CPPFLAGS = '-DHAVE_DIRENT_H')
+ elif configure.CheckHeader("dirent.h", language = "C"):
