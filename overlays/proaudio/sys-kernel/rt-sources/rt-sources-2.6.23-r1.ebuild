@@ -65,7 +65,7 @@ src_unpack(){
 	use fbsplash && patcher "${DISTDIR}/${FBSPLASH} apply"
 	
 	# expose 1gig lowmem options (x86 only)
-	patcher "${FILESDIR}/kconfig-expose_vmsplit_option.patch apply"
+	#patcher "${FILESDIR}/kconfig-expose_vmsplit_option.patch apply"
 }
 
 K_EXTRAEINFO="This kernel is not supported by Gentoo If you have any issues, try
@@ -73,9 +73,6 @@ a matching vanilla-sources ebuild -- if the problem persists there, please file
 a bug at http://bugme.osdl.org. If the problem only occurs with rt-sources then
 please contact Ingo Molnar on the kernel mailinglist to get your issue resolved.
 But first search the mailinglist-archiv if your problem is already 
-discussed/solved: http://lkml.org/
-Recommended other packages: sys-process/rtirq and sys-apps/das_watchdog
-
-/usr/src/linux-${KV_FULL}/include/linux/config.h was recently removed from
-vanilla. As a workaround for some external modules I've added it again.
-So if something fail remove this file and try again"
+discussed/solved: http://lkml.org/ and
+http://www.mail-archive.com/linux-rt-users@vger.kernel.org/ .
+Recommended other packages: sys-process/rtirq and sys-apps/das_watchdog"
