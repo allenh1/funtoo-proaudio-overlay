@@ -58,7 +58,7 @@ src_unpack(){
 	##use reiser4 && epatch ${FILESDIR}/reiser4-unix_file_write-get_exclusive_access-carefully.diff
 
 	# fix sandbox_problems
-	#patcher "${FILESDIR}/dont_put_temp_files_in_source.patch apply"
+	epatch "${FILESDIR}/build-id-sandbox-violation.patch" || die "Sandbox patch failed"
 	# realtime-lsm and vesafb-tng fbsplash
 	#use realtime-lsm && epatch "${FILESDIR}/realtime-lsm-0.8.6_2.6.19.gz"
 	use uvesafb && patcher "${DISTDIR}/${VESAFB} apply"
