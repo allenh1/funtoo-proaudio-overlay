@@ -1,12 +1,12 @@
-AUX vamp-aubio-plugins-0.3.2-makefile.patch 979 RMD160 5a48cbdd7e4574fd2d9207fb855751c8daf46618 SHA1 d8936644d71f3cc7956bc9e8e53e118dee346608 SHA256 8cd30ed3a994791e6e73675800d538e810efeb6e915e4eee076d7f5fb7a06551
-MD5 fde6af08b865eb38c593f7fd45436755 files/vamp-aubio-plugins-0.3.2-makefile.patch 979
-RMD160 5a48cbdd7e4574fd2d9207fb855751c8daf46618 files/vamp-aubio-plugins-0.3.2-makefile.patch 979
-SHA256 8cd30ed3a994791e6e73675800d538e810efeb6e915e4eee076d7f5fb7a06551 files/vamp-aubio-plugins-0.3.2-makefile.patch 979
+AUX vamp-aubio-plugins-0.3.2-makefile.patch 973 RMD160 5407bef5a22b78bcd7bdd8a9f928ec8a153181cd SHA1 f0a31541a21be2dc53f7a9484f20e30998b56c07 SHA256 54a869a8ede82d97874314e4cc1f5225856b074dbaf238d08a525d47e5c066df
+MD5 47545c0a6b1f73112d5e92145bbd9145 files/vamp-aubio-plugins-0.3.2-makefile.patch 973
+RMD160 5407bef5a22b78bcd7bdd8a9f928ec8a153181cd files/vamp-aubio-plugins-0.3.2-makefile.patch 973
+SHA256 54a869a8ede82d97874314e4cc1f5225856b074dbaf238d08a525d47e5c066df files/vamp-aubio-plugins-0.3.2-makefile.patch 973
 DIST vamp-aubio-plugins-0.3.2.tar.gz 13703 RMD160 cee332057b15175f9acc7ad4cc84e9ab71468566 SHA1 4d782704c521fa75c04907ef53febc55e89e7d39 SHA256 ea6105ee35ba81940e991646f04119f836ad4363353ba2d5c14812f4ecd9e0a7
-EBUILD vamp-aubio-plugins-0.3.2.ebuild 772 RMD160 a55a2441986bc2e9c7fc89de96cd5a8c9263f654 SHA1 cf74ea109aee32df9e55603dea9942e14a7de717 SHA256 139a082c8b982f4afcc95159d72cc7a04d269211d00026e1fa19dda82440cd9c
-MD5 740c48ec848ecfc5aff5cf54aa8f39fb vamp-aubio-plugins-0.3.2.ebuild 772
-RMD160 a55a2441986bc2e9c7fc89de96cd5a8c9263f654 vamp-aubio-plugins-0.3.2.ebuild 772
-SHA256 139a082c8b982f4afcc95159d72cc7a04d269211d00026e1fa19dda82440cd9c vamp-aubio-plugins-0.3.2.ebuild 772
+EBUILD vamp-aubio-plugins-0.3.2.ebuild 776 RMD160 18b8f6d6da7bdcc0135bd60a0d08c9a63159e04c SHA1 3518e9e413c32923dca0895395d045060a840938 SHA256 17da8f6131fa63f78e1ca8316759eab0e6fd53a1b18090ef6538aa23a10f3125
+MD5 4bb66c66f715ce92549b335f3004e472 vamp-aubio-plugins-0.3.2.ebuild 776
+RMD160 18b8f6d6da7bdcc0135bd60a0d08c9a63159e04c vamp-aubio-plugins-0.3.2.ebuild 776
+SHA256 17da8f6131fa63f78e1ca8316759eab0e6fd53a1b18090ef6538aa23a10f3125 vamp-aubio-plugins-0.3.2.ebuild 776
 MD5 be68959ad518a95bc87089e7f3e59d75 files/digest-vamp-aubio-plugins-0.3.2 271
 RMD160 026e3759481b0f598b426a37688f7d731314f1bb files/digest-vamp-aubio-plugins-0.3.2 271
 SHA256 04d9634ed29a01f81608b86e2a824d9d59f0b0714368976fdbfee7778026c47e files/digest-vamp-aubio-plugins-0.3.2 271

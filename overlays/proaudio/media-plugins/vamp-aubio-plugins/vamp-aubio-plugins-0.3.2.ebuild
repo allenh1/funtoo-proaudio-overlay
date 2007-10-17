@@ -11,7 +11,7 @@ SRC_URI="mirror://sourceforge/vamp/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~x86 ~amd64"
 IUSE=""
 
 RDEPEND=">=media-libs/aubio-0.3.0"
@@ -36,6 +36,3 @@ src_install() {
 	doins *.cat
 	dodoc README
 }
-
-
-

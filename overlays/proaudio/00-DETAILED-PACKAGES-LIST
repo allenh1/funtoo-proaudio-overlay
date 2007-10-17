@@ -81,6 +81,7 @@
 
 #------- dev-libs/vamp-plugin-sdk --------
 	vamp-plugin-sdk-1.0	arch: ~x86
+	vamp-plugin-sdk-1.1	arch: ~x86 ~amd64
 	Description: Vamp cross-platform SDK for Vamp plugins
 	Homepage:    http://www.vamp-plugins.org/develop.html
 
@@ -1180,6 +1181,12 @@
 	Homepage:    http://alsamodular.sourceforge.net/
 
 
+#------- media-sound/audacity --------
+	audacity-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Free crossplatform audio editor
+	Homepage:    http://audacity.sourceforge.net/
+
+
 #------- media-sound/amsynth --------
 	amsynth-1.1.0-r1	arch: ~amd64 ~ppc ~sparc x86
 	amsynth-1.2.0	arch: ~amd64 ~ppc ~sparc x86
@@ -1751,7 +1758,7 @@
 
 
 #------- media-plugins/vamp-aubio-plugins --------
-	vamp-aubio-plugins-0.3.2	arch: ~x86
+	vamp-aubio-plugins-0.3.2	arch: ~x86 ~amd64
 	Description: Onset detection, pitch tracking, note tracking
 		 and tempo tracking plugins for Vamp
 	Homepage:    http://www.vamp-plugins.org

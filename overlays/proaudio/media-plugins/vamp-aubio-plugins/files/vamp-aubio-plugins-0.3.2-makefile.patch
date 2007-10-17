@@ -25,7 +25,7 @@
  # Flags required to tell the compiler to make a dynamically loadable object
  #
 -PLUGIN_LDFLAGS	= -shared -Wl,-Bsymbolic -static-libgcc
-+PLUGIN_LDFLAGS	= -shared -Wl,-Bsymbolic -static-libgcc -fPIC -DPIC
++PLUGIN_LDFLAGS	= -shared -Wl,-Bsymbolic -static-libgcc -fPIC
  
  # File extension for a dynamically loadable object
  #
