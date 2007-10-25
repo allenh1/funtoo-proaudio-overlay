@@ -1,0 +1,31 @@
+diff -Naur audacity-src-1.3.2-beta/lib-src/portaudio-v19/src/hostapi/jack/pa_jack.c audacity-src-1.3.2-beta-jack_lock_patch/lib-src/portaudio-v19/src/hostapi/jack/pa_jack.c
+--- audacity-src-1.3.2-beta/lib-src/portaudio-v19/src/hostapi/jack/pa_jack.c	2006-10-29 00:05:49.000000000 +0100
++++ audacity-src-1.3.2-beta-jack_lock_patch/lib-src/portaudio-v19/src/hostapi/jack/pa_jack.c	2007-10-25 19:47:49.000000000 +0100
+@@ -1669,27 +1669,19 @@
+     {
+         for( i = 0; i < stream->num_incoming_connections; i++ )
+         {
+-            UNLESS( !jack_port_lock( stream->jack_client, stream->local_input_ports[i] ),
+-                    paUnanticipatedHostError );
+             if( jack_port_connected( stream->local_input_ports[i] ) )
+             {
+                 UNLESS( !jack_port_disconnect( stream->jack_client, stream->local_input_ports[i] ),
+                         paUnanticipatedHostError );
+             }
+-            UNLESS( !jack_port_unlock( stream->jack_client, stream->local_input_ports[i] ),
+-                    paUnanticipatedHostError );
+         }
+         for( i = 0; i < stream->num_outgoing_connections; i++ )
+         {
+-            UNLESS( !jack_port_lock( stream->jack_client, stream->local_output_ports[i] ),
+-                    paUnanticipatedHostError );
+             if( jack_port_connected( stream->local_output_ports[i] ) )
+             {
+                 UNLESS( !jack_port_disconnect( stream->jack_client, stream->local_output_ports[i] ),
+                         paUnanticipatedHostError );
+             }
+-            UNLESS( !jack_port_unlock( stream->jack_client, stream->local_output_ports[i] ),
+-                    paUnanticipatedHostError );
+         }
+     }
+ 

@@ -2,80 +2,70 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-WANT_AUTOCONF=latest
-WANT_AUTOMAKE=latest
+inherit eutils autotools wxwidgets
 
-inherit eutils autotools wxwidgets cvs subversion
-
-IUSE="flac ladspa libsamplerate mp3 unicode vamp vorbis pa-devel"
+IUSE="flac ladspa libsamplerate mp3 sse unicode vorbis"
 
 MY_P="${PN}-src-${PV}"
 DESCRIPTION="Free crossplatform audio editor"
 HOMEPAGE="http://audacity.sourceforge.net/"
-
-ECVS_SERVER="audacity.cvs.sourceforge.net:/cvsroot/audacity"
-ECVS_MODULE="${PN}"
-
-ESVN_REPO_URI="https://www.portaudio.com/repos/portaudio/branches/v19-devel"
+SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="amd64 ppc ppc64 sparc x86"
 RESTRICT="test"
 
-DEPEND=">=x11-libs/wxGTK-2.6
+DEPEND="=x11-libs/wxGTK-2.6*
 	>=app-arch/zip-2.3
 	dev-libs/expat
-	>=media-libs/libsndfile-1.0.0
-	>=media-libs/libsoundtouch-1.3.1
 	vorbis? ( >=media-libs/libvorbis-1.0 )
 	mp3? ( >=media-libs/libmad-0.14.2b
 		media-libs/libid3tag )
 	flac? ( media-libs/flac )
-	libsamplerate? ( >=media-libs/libsamplerate-0.1.2 )
-	vamp? ( dev-libs/vamp-plugin-sdk )"
+	>=media-libs/libsndfile-1.0.0
+	libsamplerate? ( >=media-libs/libsamplerate-0.1.2 )"
 RDEPEND="${DEPEND}
 	mp3? ( >=media-sound/lame-3.70 )"
 
-S="${WORKDIR}/${ECVS_MODULE}"
-
-pkg_setup() {
-	if use pa-devel; then
-		ewarn "You enabled the pa-devel useflag. This will fetch the portaudio"
-		ewarn "v19-devel from SVN and replace the one shipped with ${PN} SVN"
-		ewarn "Note: this might lead to horrible compile and/or runtime errors!"
-	fi
-}
+S="${WORKDIR}/${MY_P}-beta"
 
 src_unpack() {
-	cvs_src_unpack	
-	
+	unpack ${A}
+
 	cd "${S}"
-	#epatch "${FILESDIR}/${P}-gentoo.patch"
-	#epatch "${FILESDIR}/${P}+flac-1.1.3.patch"
-
-	#eautoreconf || die
-
-	if use pa-devel; then
-		subversion_src_unpack
-		cd lib-src
-		rm -r portaudio-v19
-		cp -R "${ESVN_STORE_DIR}/${PN}/v19-devel" portaudio-v19
+	epatch "${FILESDIR}"/${P}-gentoo.patch
+	
+	if has_version ">media-sound/jack-audio-connection-kit-0.103.0"; then
+		epatch "${FILESDIR}"/${P}-jack-lock.patch
 	fi
+	
+	if ! use sse ; then
+		epatch "${FILESDIR}"/${P}-no-msse.patch
+		epatch "${FILESDIR}"/${P}-disable-optimization.patch
+	fi
+	epatch "${FILESDIR}/${P}+flac-1.1.3.patch"
+	epatch "${FILESDIR}/${P}-libnyquistp.patch"
+	epatch "${FILESDIR}/${P}-desktopentry.patch"
+
+	eautoreconf || die
+	pushd "${S}"/lib-src/soundtouch
+	eautoreconf
+	popd
 }
 
 src_compile() {
 	local myconf
+	WX_GTK_VER="2.6"
 
-	if has_version "=x11-libs/wxGTK-2.8*"; then
-		myconf="--with-wx-version=2.8"
+	if use unicode; then
+		need-wxwidgets unicode
 	else
-		myconf="--with-wx-version=2.6"
+		need-wxwidgets gtk2
 	fi
 
 	myconf="${myconf} --with-libsndfile=system"
 	myconf="${myconf} --with-libexpat=system"
-	myconf="${myconf} --with-libsoundtouch=system"
 
 	if use libsamplerate ; then
 		myconf="${myconf} --with-libsamplerate=system --without-libresample"
@@ -85,8 +75,7 @@ src_compile() {
 
 	econf \
 		$(use_enable unicode) \
-		$(use_enable ladspa) \
-		$(use_enable vamp) \
+		$(use_with ladspa) \
 		$(use_with vorbis vorbis system) \
 		$(use_with mp3 libmad system) \
 		$(use_with mp3 id3tag system) \
