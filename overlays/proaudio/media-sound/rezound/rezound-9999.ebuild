@@ -1,6 +1,6 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2007 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/rezound/rezound-0.12.2_beta-r1.ebuild,v 1.2 2006/04/09 13:28:12 tcort Exp $
+# $Header: $
 
 inherit eutils autotools cvs unpacker
 
@@ -52,21 +52,11 @@ src_unpack() {
 	EPATCH_SOURCE="${WORKDIR}" EPATCH_SUFFIX="patch"\
 	EPATCH_FORCE="yes" epatch
 	
-	#epatch "${FILESDIR}/rezound-0.12.2_beta-foxinclude.patch"
-	#AT_M4DIR="config/m4" eautoreconf
-	#elibtoolize
+	# fix for >=flac-1.2
+	has_version ">media-libs/flac-1.1.4" && epatch ${FILESDIR}/${PN}-flac-1.2.patch
+
 	./bootstrap
 
-#	cd ${S}
-#	epatch "${FILESDIR}"/rezound-0.12.2_beta-fox.1.6.patch
-#	epatch "${FILESDIR}"/rezound-0.12.2_beta-gcc41.patch
-	#epatch "${FILESDIR}"/rezound-0.12.2_beta-defaults.patch
-	#eautoreconf
-#	libtoolize --copy --force
-#	aclocal -I config/m4
-#	autoheader
-#	automake -a --foreign
-#	autoconf
 	# add missing Makefile.in.in to po/
 	[ ! -e po/Makefile.in.in ] && gzip -cdf  "${FILESDIR}"/Makefile.in.in.gz > po/Makefile.in.in
 }
