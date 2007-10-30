@@ -8,7 +8,7 @@ SRC_URI="http://ccrma.stanford.edu/software/stk/release/${P}.tar.gz"
 
 LICENSE="as-is"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~x86 ~amd64"
 IUSE="alsa jack midi oss"
 
 RDEPEND="alsa? ( media-libs/alsa-lib )
