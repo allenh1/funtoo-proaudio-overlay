@@ -43,7 +43,7 @@ src_compile() {
 }
 
 src_install() {
-	make INSTALL_ROOT="${D}" install || die "make install failed"
+	make INSTALL_ROOT="${D}/usr" install || die "make install failed"
 	
 	# install tools
 	for i in hydrogenSynth hydrogenPlayer; do
