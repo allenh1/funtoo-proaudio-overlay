@@ -30,18 +30,16 @@ DEPEND="${RDEPEND}"
 src_unpack() {
 	subversion_src_unpack
 	cd "${S}"
-	epatch "${FILESDIR}/${P}-configure.patch"
-	cd gui/src/widgets/
-	esed_check -i -e 's|QSvgRenderer|Qt/QSvgRenderer|g' Button.cpp
-	cd -
+	esed_check -i -e 's|QSvgRenderer|Qt/QSvgRenderer|g' gui/src/widgets/Button.cpp
+	
+	# fake config.h
+	echo "#define CONFIG_PREFIX \"/usr\"" >> config.h
+	echo "#define DATA_PATH \"/usr/share/hydrogen/data\"" >> config.h
 }
 
 src_compile() {
-	# maybe let's remove that patch ^^ and use 'qmake all.pro prefix=/usr' in
-	# future
-	unset QTDIR
-	prefix=/usr ./configure	|| die "configure failed"
-	emake || die "emake failed"
+	eqmake4 all.pro	
+	emake -j1 || die "emake failed"
 }
 
 src_install() {

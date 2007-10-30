@@ -33,11 +33,6 @@ RDEPEND="=sci-libs/fftw-2*
 	soundtouch? ( >=media-libs/libsoundtouch-1.3.1 )
 	vorbis? ( media-libs/libvorbis media-libs/libogg )"
 
-# optional packages (don't need to be installed during emerge):
-#
-# >=media-sound/lame-3.92
-# app-cdr/cdrdao
-
 DEPEND="${RDEPEND}
 	sys-devel/autoconf
 	sys-devel/automake
