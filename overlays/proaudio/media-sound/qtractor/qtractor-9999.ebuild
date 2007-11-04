@@ -16,23 +16,15 @@ S="${WORKDIR}/${PN}"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="vorbis mp3"
+IUSE="vorbis mad"
 
 DEPEND="$(qt4_min_version 4.1)
 		>=media-sound/jack-audio-connection-kit-0.100.1
 		>=media-libs/alsa-lib-0.9
 		vorbis? ( >=media-libs/libvorbis-1.1.2 )
-		mp3? ( >=media-libs/libmad-0.15.1b )
+		mad? ( >=media-libs/libmad-0.15.1b )
 		>=media-libs/libsamplerate-0.1.1
 		>=media-libs/ladspa-sdk-1.12-r2"
-
-pkg_setup() {
-	if ! built_with_use sys-libs/glibc nptl; then
-		ewarn "You need Native POSIX Threading support in order to use Qtractor"
-		ewarn "Please re-emerge sys-libs/glibc with "nptl" useflag set."
-		die
-	fi
-}
 
 src_compile() {
 	emake -f Makefile.cvs
