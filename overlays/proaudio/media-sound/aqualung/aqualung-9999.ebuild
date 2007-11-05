@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2007 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -21,7 +21,7 @@ SLOT="0"
 KEYWORDS=""
 
 RDEPEND="oggvorbis? ( >=media-libs/libvorbis-1.0 )
-	libsndfile? ( >=media-libs/libsndfile-1.0.12 )
+	sndfile? ( >=media-libs/libsndfile-1.0.12 )
 	flac? ( media-libs/flac )
 	mod? ( media-libs/libmodplug )
 	alsa? ( virtual/alsa )
