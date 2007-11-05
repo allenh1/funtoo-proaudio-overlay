@@ -41,7 +41,6 @@ src_compile() {
 src_install() {
 	make DESTDIR="${D}" install || die "make install failed"
 	doicon icons/${PN}.png
-	make_desktop_entry ${PN} "Qtractor" ${PN} "Qt;AudioVideo;Audio;Sequencer"
 	dodoc README AUTHORS ChangeLog TODO
 }
 
