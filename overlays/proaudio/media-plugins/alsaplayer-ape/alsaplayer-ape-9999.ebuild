@@ -13,7 +13,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-ESVN_REPO_URI="https://alsaplayer.svn.sourceforge.net:/svnroot/alsaplayer/trunk/experimental/ape"
+ESVN_REPO_URI="https://alsaplayer.svn.sourceforge.net/svnroot/alsaplayer/trunk/experimental/ape"
 
 S=${WORKDIR}/${PN}
 
@@ -32,8 +32,6 @@ src_install() {
 	PREFIX="${D}/usr" emake DESTDIR="${D}" install \
 		|| die "make install failed"
 	einfo "This plugin is very experimental"
-	einfo "Please report upstream any problem you can get with them."
-	einfo "And remove them if Alsaplayer get in trouble with them."
 	
 #	dodoc AUTHORS ChangeLog README
 }

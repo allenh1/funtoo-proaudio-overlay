@@ -13,7 +13,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-ESVN_REPO_URI="https://alsaplayer.svn.sourceforge.net:/svnroot/alsaplayer/trunk/experimental/tta"
+ESVN_REPO_URI="https://alsaplayer.svn.sourceforge.net/svnroot/alsaplayer/trunk/experimental/tta"
 
 S=${WORKDIR}/${PN}
 
@@ -33,6 +33,4 @@ src_install() {
 
 	dodoc ChangeLog README
 	einfo "This plugin is very experimental"
-	einfo "Please report upstream any problem you can get with it."
-	einfo "Remove it if Alsaplayer get in trouble with it."
 }

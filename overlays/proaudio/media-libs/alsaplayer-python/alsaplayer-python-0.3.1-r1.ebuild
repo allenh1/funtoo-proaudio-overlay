@@ -6,7 +6,10 @@ NEED_PYTHON=2.4
 
 inherit eutils distutils # autotools
 
-MY_PN="python_alsaplayer"
+MY_P="python"
+MY_PN="${MY_P}_alsaplayer"
+
+RESTRICT="nomirror"
 
 DESCRIPTION="New Python bindings for Alsaplayer."
 HOMEPAGE="http://alsaplayer.sourceforge.net/"
@@ -17,10 +20,15 @@ SLOT="0"
 KEYWORDS="x86"
 IUSE=""
 
-S=${WORKDIR}/${MY_PN}-${PV}
+S=${WORKDIR}/${MY_P}
 
 RDEPEND="media-sound/alsaplayer
 	dev-lang/python
 	dev-libs/boost"
 
 DEPEND="${RDEPEND}"
+
+src_install() {
+#	python setup.py install
+	distutils_src_install
+}
