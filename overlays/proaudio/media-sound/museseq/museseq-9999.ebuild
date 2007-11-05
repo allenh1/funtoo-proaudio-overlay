@@ -5,6 +5,7 @@
 inherit subversion virtualx eutils toolchain-funcs qt4 patcher
 
 ESVN_REPO_URI="https://lmuse.svn.sourceforge.net/svnroot/lmuse/trunk/muse"
+RESTRICT="ccache"
 
 MY_PN=${PN/museseq/muse}
 S=${WORKDIR}/${MY_PN}
@@ -69,14 +70,10 @@ src_compile() {
 
 	cmake ../doc/CMakeLists.txt
 
-	# correct some wrong generated files for zynaddsubfx
-
-	emake || die "build failed"
+	emake -j1 || die "build failed"
 }
 
 src_install() {
-#	cd "${S}"/build
-	#sed -i -e "s:/usr/local:/usr:" CMakeCache.txt
 	cd "${S}/build"
 	make DESTDIR=${D} install || die "install failed"
 	cd "${S}"
