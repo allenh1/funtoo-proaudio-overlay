@@ -38,9 +38,8 @@ DEPEND="${RDEPEND}
 	dev-util/pkgconfig"
 
 src_compile() {
-	WX_GTK_VER=2.6
-	need-wxwidgets gtk2
-	set-wxconfig gtk2-ansi
+	WX_GTK_VER=2.8
+	need-wxwidgets unicode
 
 	local myconf
 	myconf=""

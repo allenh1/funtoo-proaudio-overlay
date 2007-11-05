@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2007 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -36,9 +36,8 @@ DEPEND="${RDEPEND}
 src_compile() {
 	cd "${S}"/wired
 	
-	WX_GTK_VER=2.6
-	need-wxwidgets gtk2
-	set-wxconfig gtk2-ansi
+	WX_GTK_VER=2.8
+	need-wxwidgets unicode
 
 	NOCONFIGURE=1 ./autogen.sh
 
