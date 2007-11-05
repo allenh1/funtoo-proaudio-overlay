@@ -38,11 +38,19 @@ src_install() {
 }
 
 pkg_postinst() {
+	echo
 	elog "You need to register the DLL by typing"
 	elog 
 	elog "regsvr32 wineasio.dll"
 	elog
 	elog "AS THE USER who uses wine!"
 	elog "Then open winecfg -> Audio -> and enable ONLY the ALSA driver!"
+	echo
+
+	if use amd64; then
+		elog "amd64 users please note that ${PN} will not work with 64bit JACK."
+		elog "One solution is to run JACK as different user in a 32bit chroot"
+		elog "and connect via netjack to your normal 64bit jack."
+	fi
 }
 
