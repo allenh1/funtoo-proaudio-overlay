@@ -1,0 +1,14 @@
+--- acinclude.m4.orig	2007-11-08 22:15:26.000000000 +0100
++++ acinclude.m4	2007-11-08 22:17:34.000000000 +0100
+@@ -143,9 +143,9 @@ case "${host}" in
+ 	fi
+         ;;
+     *)
+-       	QT_LIBS=`ls $QTDIR/lib64/libQt*.so 2> /dev/null` 
++       	QT_LIBS=`ls $QTDIR/lib64/qt4/libQt*.so 2> /dev/null` 
+         if test "x$QT_LIBS" = x;  then
+-        	QT_LIBS=`ls $QTDIR/lib/libQt*.so 2> /dev/null` 
++        	QT_LIBS=`ls $QTDIR/lib/qt4/libQt*.so 2> /dev/null` 
+             	if test "x$QT_LIBS" = x;  then
+ 			AC_MSG_ERROR([*** Couldn't find any Qt4 libraries])
+             	fi

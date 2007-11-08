@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils subversion autotools flag-o-matic
+inherit eutils subversion autotools flag-o-matic qt4
 
 DESCRIPTION="free alternative to popular programs such as FruityLoops, Cubase and Logic"
 HOMEPAGE="http://lmms.sourceforge.net"
@@ -15,11 +15,10 @@ KEYWORDS=""
 
 S="${WORKDIR}/${PN}"
 
-IUSE="alsa debug flac jack ladspa oss pic samplerate sdl singerbot surround stk vorbis 
-vst qt3 qt4"
+IUSE="alsa debug flac jack ladspa oss pic samplerate sdl singerbot surround 
+stk vorbis vst sndfile"
 
-DEPEND="qt4? ( >=x11-libs/qt-4.1 ) 
-	qt3? ( =x11-libs/qt-3.3* )
+DEPEND="$(qt4_min_version 4.3)
 	vorbis? ( media-libs/libvorbis )
 	alsa? ( media-libs/alsa-lib )
 	sdl? ( media-libs/libsdl 
@@ -30,15 +29,9 @@ DEPEND="qt4? ( >=x11-libs/qt-4.1 )
 			app-emulation/wine )
 	ladspa? ( media-libs/ladspa-sdk )
 	singerbot? ( app-accessibility/festival )
-	stk? ( media-sound/stk )"
+	stk? ( media-sound/stk )
+	sndfile? ( media-libs/libsndfile )"
 
-pkg_setup() {
-	if use qt4; then
-		if use qt3; then
-			die "Please choose qt3 OR qt4 in USE"
-		fi
-	fi
-}
 src_unpack() {
 	subversion_src_unpack
 	cd ${S}
@@ -46,9 +39,14 @@ src_unpack() {
 	if use vst ; then
 		cp /usr/include/vst/{AEffect.h,aeffectx.h} include/
 	fi
+	
+	# fix Qt4 autofoo
+	epatch "${FILESDIR}/${P}-acinclude.patch"
 }
 
 src_compile() {
+	unset QTDIR
+
 	# autofoo
 	eautoreconf || die
 	
@@ -72,14 +70,10 @@ src_compile() {
 		`use_with vst` \
 		`use_with singerbot` \
 		`use_with stk` \
+		`use_with sndfile libsf` \
+		--with-qtdir=/usr \
 		--enable-hqsinc"
 	
-	# qt4 fixups
-	if use qt4; then
-		myconf="${myconf} --with-qtdir=/usr"
-		#epatch ${FILESDIR}/lmms-qt4_configure_gentoo.patch
-	fi
-
 	econf ${myconf} || die "Configure failed"
 
 	# we need MAKEOPTS="-j1" for VST support
