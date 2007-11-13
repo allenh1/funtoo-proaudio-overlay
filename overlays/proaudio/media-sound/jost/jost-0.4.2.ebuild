@@ -43,8 +43,6 @@ pkg_setup() {
 		fi
 	fi
 
-	# fails with --as-needed
-	filter-flags --as-needed -Wl,--as-needed
 }
 
 src_unpack() {
@@ -65,6 +63,9 @@ src_unpack() {
 }
 	
 src_compile() {
+	# fails with --as-needed
+	filter-flags --as-needed -Wl,--as-needed
+	
 	# build modified juce
 	cd ${S}/juce/build/linux
 	emake CONFIG=Release || die "building JUCE failed"
