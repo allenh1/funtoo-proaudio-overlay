@@ -64,7 +64,7 @@ src_unpack() {
 	
 src_compile() {
 	# fails with --as-needed
-	filter-flags --as-needed -Wl,--as-needed
+	filter-ldflags --as-needed -Wl,--as-needed
 	
 	# build modified juce
 	cd ${S}/juce/build/linux
