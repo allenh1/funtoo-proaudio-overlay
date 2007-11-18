@@ -16,16 +16,6 @@ SLOT="1"
 KEYWORDS=""
 IUSE="nls debug sse altivec vst"
 
-# From beta30 release notes:
-#  plugin latency compensation now working correctly (we believe)
-#  This really requires JACK 0.100.0 or above to work
-#  properly, but even without that, they result in notable improvements
-#  in the way Ardour aligns newly recorded material.
-#
-# As media-sound/jack-audio-connection-kit-0.100.0 is still -arch and it is not required for beta30
-# only suggested, RDEPEND needs to be updated as media-sound/jack-audio-connection-kit-0.100.0 gets
-# into ~arch. (2005 Sep 14 eldad)
-
 RDEPEND=">=media-libs/liblrdf-0.4.0
 	>=media-libs/raptor-1.2.0
 	>=media-libs/libart_lgpl-2.3.16
@@ -41,8 +31,6 @@ RDEPEND=">=media-libs/liblrdf-0.4.0
 	>=media-sound/jack-audio-connection-kit-0.100.0
 	!=media-sound/ardour2-9*
 	vst? ( >=app-emulation/wine-0.9.5 )"
-
-	# sys-libs/gdbm # no longer needed?!
 
 DEPEND="${RDEPEND}
 	>=dev-libs/boost-1.33.1
@@ -98,13 +86,6 @@ src_unpack(){
 }
 
 src_compile() {
-	# bug 99664
-	cd ${S}/libs/glibmm2
-	chmod a+x autogen.sh && ./autogen.sh || die "autogen failed"
-	#cd ${S}/libs/sigc++2/
-	#chmod a+x autogen.sh && ./autogen.sh || die "autogen failed"
-	econf || die "configure failed"
-	
 	# Required for scons to "see" intermediate install location
 	mkdir -p ${D}
 	
