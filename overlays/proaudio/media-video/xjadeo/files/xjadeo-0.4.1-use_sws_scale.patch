@@ -1,0 +1,94 @@
+diff -urN xjadeo-0.4.1_old/configure.ac xjadeo-0.4.1/configure.ac
+--- xjadeo-0.4.1_old/configure.ac	2007-06-16 18:53:10.000000000 +0200
++++ xjadeo-0.4.1/configure.ac	2007-11-24 11:44:02.000000000 +0100
+@@ -126,6 +126,7 @@
+ AH_TEMPLATE([COLOREQ], [enable XV and imlib2 color equalizer])
+ AH_TEMPLATE([DRAW_CROSS], [paint a X on screen when unable to decode or display a frame.])
+ AH_TEMPLATE([HAVE_JACK_VIDEO], [experimental code to use jack_video, jack-svn >= r591])
++AH_TEMPLATE([HAVE_SWSCALE], [Define as 1 if you have ffmpeg with swscale support])
+ 
+ AC_DEFINE(CFG_WARN_ONLY)
+ AC_DEFINE(DND)
+@@ -289,6 +290,12 @@
+ 	])
+ fi
+ 
++
++ac_save_CFLAGS="$CFLAGS"
++CFLAGS="$CFLAGS $FFMPEG_CFLAGS"
++AC_CHECK_HEADERS(swscale.h , [HAVE_SWSCALE=1 AC_DEFINE(HAVE_SWSCALE) FFMPEG_LIBS="$FFMPEG_LIBS  `pkg-config --libs libswscale`"])
++CFLAGS="$ac_save_CFLAGS"
++
+ AC_SUBST(FFMPEG_CFLAGS)
+ AC_SUBST(FFMPEG_LIBS)
+ 
+diff -urN xjadeo-0.4.1_old/debian/changelog xjadeo-0.4.1/debian/changelog
+--- xjadeo-0.4.1_old/debian/changelog	2007-06-16 18:58:16.000000000 +0200
++++ xjadeo-0.4.1/debian/changelog	2007-11-24 11:44:02.000000000 +0100
+@@ -1,3 +1,8 @@
++xjadeo (0.4.2) unstable; urgency=low
++  * added ffmpeg swscale support
++
++ -- Robin Gareus <robin@gareus.org>  Wed, 12 Sep 2007 01:56:14 +0200
++
+ xjadeo (0.4.1) unstable; urgency=low
+   * default black-YUV frame
+   * minor updates in the manual.
+diff -urN xjadeo-0.4.1_old/src/xjadeo/xjadeo.c xjadeo-0.4.1/src/xjadeo/xjadeo.c
+--- xjadeo-0.4.1_old/src/xjadeo/xjadeo.c	2007-06-16 18:57:11.000000000 +0200
++++ xjadeo-0.4.1/src/xjadeo/xjadeo.c	2007-11-24 11:44:02.000000000 +0100
+@@ -33,8 +33,12 @@
+  */
+ #include "xjadeo.h"
+ 
+-#include <ffmpeg/avcodec.h>
+-#include <ffmpeg/avformat.h>
++#include <avcodec.h>
++#include <avformat.h>
++#ifdef HAVE_SWSCALE
++#include <avutil.h>
++#include <swscale.h>
++#endif
+ 
+ #include <time.h>
+ #include <getopt.h>
+@@ -55,6 +59,7 @@
+ extern AVFrame           *pFrame;
+ extern AVFrame           *pFrameFMT;
+ extern uint8_t           *buffer;
++struct SwsContext *pSWSCtx; 
+ 
+ // needs to be set before calling movie_open
+ extern int	render_fmt;
+@@ -213,6 +218,7 @@
+ // Assign appropriate parts of buffer to image planes in pFrameFMT
+ 	if (pFrameFMT)
+ 		avpicture_fill((AVPicture *)pFrameFMT, buffer, render_fmt, pCodecCtx->width, pCodecCtx->height);
++	pSWSCtx = sws_getContext(pCodecCtx->width, pCodecCtx->height, pCodecCtx->pix_fmt, pCodecCtx->width, pCodecCtx->height, render_fmt, SWS_BICUBIC, NULL, NULL, NULL);
+ 	render_empty_frame(0);
+ }
+ 
+@@ -657,10 +663,13 @@
+ 			/* Did we get a video frame? */
+ 			if(frameFinished) {
+ 				/* Convert the image from its native format to FMT */
++#ifdef HAVE_SWSCALE
++				sws_scale(pSWSCtx, pFrame->data, pFrame->linesize, 0, pCodecCtx->height, pFrameFMT->data, pFrameFMT->linesize);
++#else
+ 				img_convert((AVPicture *)pFrameFMT, render_fmt, 
+ 					(AVPicture*)pFrame, pCodecCtx->pix_fmt, pCodecCtx->width, 
+ 					pCodecCtx->height);
+-
++#endif
+ 				render_buffer(buffer); // in pFrameFMT
+ 				av_free_packet(&packet); /* XXX */
+ 				break;
+@@ -692,6 +701,8 @@
+ 	current_file=NULL;
+ 
+ 	if (!pFrameFMT) return(-1);
++	// Free the software scaler
++	sws_freeContext(pSWSCtx); 
+ 
+ 	// Free the formatted image 
+ 	if(buffer) free(buffer);
