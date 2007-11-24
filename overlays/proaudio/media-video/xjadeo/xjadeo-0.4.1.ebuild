@@ -34,7 +34,13 @@ pkg_setup() {
 		append-flags -DHAVE_SWSCALE
 		export enable_sws_scale=true
 	else
-		einfo "ffmpeg: no sws_scale support trying old img_convert"
+		img_support="$(strings /usr/lib/libavcodec.so|grep -c img_import)"
+		if [ "$img_support" == "1" ];then
+			ewarn "ffmpeg: no sws_scale support trying old img_convert"
+		else
+			eerror "ffmpeg: BUG please report this messages and to the proaudio team"
+			die
+		fi
 	fi
 }
 
