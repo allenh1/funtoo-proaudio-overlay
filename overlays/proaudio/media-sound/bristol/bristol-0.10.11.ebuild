@@ -22,20 +22,16 @@ DEPEND="|| ( (  x11-proto/xineramaproto
 		media-libs/alsa-lib
 		jack? ( >=media-sound/jack-audio-connection-kit-0.100 )"
 
-src_unpack() {
-	unpack ${A}
-	cd ${S}
-	sed -i -e 's:bristoldir=${prefix}/bristol:bristoldir=${prefix}/share/bristol:' Makefile.am || die "Patching Makefile.am failed"
-	sed -i -e 's:BRISTOL_DIR=${prefix}/bristol:BRISTOL_DIR=${prefix}/share/bristol:' configure.ac || die "Patching configure.ac failed"
-}
-	
 src_compile() {
-	eautoreconf
-	
+	# Work around the XCreateImage bug on amd64
+	local myconf=""
+	use amd64 && myconf="--disable-ximage"
+
 	econf \
 		`use_enable alsa` \
 		`use_enable jack` \
 		`use_enable static` \
+		${myconf} \
 		|| die "configure failed"
 	
 	emake || die "make failed"
@@ -48,7 +44,7 @@ src_install() {
 
 pkg_postinst() {
 	echo	
-	elog "To use Bristol with jack, use something as:"
+	elog "To use Bristol with jack, use something like:"
 	echo
 	elog "startBristol -audio jack"
 	echo
