@@ -25,7 +25,8 @@ RDEPEND="|| ( (  x11-proto/xineramaproto
 DEPEND="${RDEPEND}
 		vst? ( media-libs/vst-sdk )
 		ladspa? ( media-libs/ladspa-sdk )
-        dssi? ( media-libs/dssi )"
+        dssi? ( media-libs/dssi )
+		media-libs/lash"
 
 S="${WORKDIR}/${PN}-v${PV}"
 
