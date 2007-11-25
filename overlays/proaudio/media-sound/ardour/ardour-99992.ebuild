@@ -14,7 +14,7 @@ RESTRICT="nomirror"
 LICENSE="GPL-2"
 SLOT="1"
 KEYWORDS=""
-IUSE="nls debug sse altivec" #vst"
+IUSE="nls debug sse altivec sys-libs" #vst"
 
 RDEPEND=">=media-libs/liblrdf-0.4.0
 	>=media-libs/raptor-1.2.0
@@ -29,7 +29,16 @@ RDEPEND=">=media-libs/liblrdf-0.4.0
 	>=x11-libs/gtk+-2.6
 	>=gnome-base/libgnomecanvas-2.12.0
 	=media-sound/jack-audio-connection-kit-9999
-	!=media-sound/ardour2-9*"
+	!=media-sound/ardour2-9*
+	sys-libs? ( >=dev-libs/libsigc++-2.0
+		>=dev-cpp/glibmm-2.4
+		>=dev-cpp/cairomm-1.0
+		>=dev-cpp/gtkmm-2.8
+		>=dev-libs/atk-1.6
+		>=x11-libs/pango-1.4 
+		>=dev-cpp/libgnomecanvasmm-2.12.0
+		>=media-libs/libsndfile-1.0.16
+		>=media-libs/libsoundtouch-1.0 )"
 	#vst? ( >=app-emulation/wine-0.9.5 )"
 
 DEPEND="${RDEPEND}
@@ -53,6 +62,22 @@ pkg_setup(){
 		ewarn "environment variable so we unset it"
 		unset ACLOCAL_FLAGS
 	fi
+
+	if use sys-libs;then
+		ewarn "You are trying to use the system libraries"
+		ewarn "instead the ones provided by ardour"
+		ewarn "No upstream support for doing so. Use at your own risk!!!"
+		ewarn "To use the ardour provided libs remerge with:"
+		ewarn "USE=\"-sys-libs\" emerge =${P}"
+
+		if ! built_with_use dev-cpp/gtkmm accessibility;then
+			eerror "To be able to use the USE flag 'sys-libs'"
+			eerror "you need to have dev-cpp/gtkmm"
+			eerror "emerged with the USE flag 'accessibility'"
+			die "dev-cpp/gtkmm is not built with the 'accessibility' USE flag"
+		fi
+		epause 3s
+	fi
 }
 
 src_unpack(){
@@ -66,6 +91,12 @@ src_unpack(){
 	sed -i -e 's:\(share\)/ardour/\(templates\):\1/ardour2/\2:g' \
 		templates/SConscript || die "changing template names failed"
 	add_ccache_to_scons
+	
+	# Fix libsoundtouch-1.0.pc detection
+	if use sys-libs; then
+		sed -i -e 's:libSoundTouch:soundtouch-1.0:g' SConstruct \
+			|| die "Fixing soundtouch detection failed"
+	fi
 	
 	# ################
 	# adjust files for vst support
@@ -94,8 +125,9 @@ src_compile() {
 	! use altivec; myconf="${myconf} ALTIVEC=$?"
 	! use debug; myconf="${myconf} ARDOUR_DEBUG=$?"
 	! use nls; myconf="${myconf} NLS=$?" 
-	#! use vst; myconf="${myconf} VST=$?" 
 	! use sse; myconf="${myconf} USE_SSE_EVERYWHERE=$? BUILD_SSE_OPTIMIZATIONS=$?"
+	! use sys-libs; myconf="${myconf} SYSLIBS=$?"
+	#! use vst; myconf="${myconf} VST=$?" 
 	# static settings
 	myconf="${myconf} PREFIX=/usr KSI=0" # NLS=0"
 	einfo "${myconf}"
