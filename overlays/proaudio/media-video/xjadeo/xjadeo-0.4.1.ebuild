@@ -23,24 +23,18 @@ RDEPEND=">=media-sound/jack-audio-connection-kit-0.100
 DEPEND="${RDPEND}
 	>=sys-libs/zlib-1.2.2
 	qt3? ( >=x11-libs/qt-3 )
-	qt4? ( >=x11-libs/qt-4.1 )"
+	qt4? ( >=x11-libs/qt-4.1 )
+	dev-util/pkgconfig"
 
 S="${WORKDIR}/${MY_P}"
 
 pkg_setup() {
-	sws_support="$(strings /usr/lib/libavcodec.so|grep -c sws_scale)"
-	if [ "$sws_support" == "1" ];then
+	if  pkg-config --exists libswscale ;then
 		einfo "ffmpeg offers sws_scale support --> enabled"
 		append-flags -DHAVE_SWSCALE
 		export enable_sws_scale=true
 	else
-		img_support="$(strings /usr/lib/libavcodec.so|grep -c img_import)"
-		if [ "$img_support" == "1" ];then
-			ewarn "ffmpeg: no sws_scale support trying old img_convert"
-		else
-			eerror "ffmpeg: BUG please report this messages and to the proaudio team"
-			die
-		fi
+		ewarn "ffmpeg: no sws_scale support trying old img_convert"
 	fi
 }
 
