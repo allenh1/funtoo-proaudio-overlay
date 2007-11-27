@@ -25,8 +25,7 @@ RDEPEND="|| ( (  x11-proto/xineramaproto
 DEPEND="${RDEPEND}
 		vst? ( media-libs/vst-sdk )
 		ladspa? ( media-libs/ladspa-sdk )
-        dssi? ( media-libs/dssi )
-		media-sound/lash"
+        dssi? ( media-libs/dssi )"
 
 S="${WORKDIR}/${PN}-v${PV}"
 
@@ -61,6 +60,9 @@ src_unpack() {
 	use dssi || \
 		sed -i -e "s:#define JOST_USE_DSSI://#define JOST_USE_DSSI:" \
 		Config.h || die "bad sed"
+
+	# don't link against LASH, it's unneded
+	sed -i -e 's@, "lash"@@g' "${S}"/plugins/Jost/build/linux/premake.lua
 }
 	
 src_compile() {
