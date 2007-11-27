@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit subversion virtualx eutils toolchain-funcs qt4 patcher
+inherit subversion virtualx eutils toolchain-funcs qt4 patcher flag-o-matic
 
 ESVN_REPO_URI="https://lmuse.svn.sourceforge.net/svnroot/lmuse/trunk/muse"
 RESTRICT="ccache"
@@ -19,7 +19,7 @@ KEYWORDS=""
 IUSE="vst dssi fluidsynth zynaddsubfx"
 
 DEPEND="$(qt4_min_version 4.2.3)
-	>=dev-util/cmake-2.4.1
+	>=dev-util/cmake-2.4.7
 	=sys-devel/gcc-4*
 	>=media-libs/alsa-lib-1.0
 	>=media-sound/fluidsynth-1.0.3
@@ -55,18 +55,28 @@ pkg_setup() {
 src_unpack() {
 	subversion_src_unpack
 	cd ${S}
-	patcher "${FILESDIR}/fix_zyn.patch apply"
+	
+	# copy over correct header from ardour in case of amd64
+	use amd64 && cp ${FILESDIR}/sse_functions_64bit.s al/dspSSE.cpp
+	
+	#patcher "${FILESDIR}/fix_zyn.patch apply"
 	mkdir build
+
+	# disable doc build for now
+	sed -i -e '304s@muse share doc@muse share@' CMakeLists.txt
 }
 
 src_compile() {
+	# linking with --as-needed is broken :(
+	filter-ldflags -Wl,--as-needed --as-needed
+	
 	cd "${S}/build"
 	cmake .. -DCMAKE_INSTALL_PREFIX=/usr \
 		-DENABLE_DSSI="$(! use dssi; echo "$?")" \
 		-DENABLE_VST="$(! use vst; echo "$?")" \
 		-DENABLE_FLUID="$(! use fluidsynth; echo "$?")" \
 		-DENABLE_ZYNADDSUBFX="0" \
-		-DENABLE_ZYNADDSUBFX="$(! use zynaddsubfx; echo "$?")" 
+		-DENABLE_ZYNADDSUBFX="$(! use zynaddsubfx; echo "$?")" \
 
 	cmake ../doc/CMakeLists.txt
 
