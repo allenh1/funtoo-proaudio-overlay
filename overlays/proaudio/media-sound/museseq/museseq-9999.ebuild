@@ -76,7 +76,7 @@ src_compile() {
 		-DENABLE_VST="$(! use vst; echo "$?")" \
 		-DENABLE_FLUID="$(! use fluidsynth; echo "$?")" \
 		-DENABLE_ZYNADDSUBFX="0" \
-		-DENABLE_ZYNADDSUBFX="$(! use zynaddsubfx; echo "$?")" \
+		-DENABLE_ZYNADDSUBFX="$(! use zynaddsubfx; echo "$?")"
 
 	cmake ../doc/CMakeLists.txt
 
