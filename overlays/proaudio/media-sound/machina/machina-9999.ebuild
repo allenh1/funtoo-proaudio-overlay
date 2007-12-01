@@ -21,7 +21,7 @@ RDEPEND=">=media-libs/liblo-0.22
 	>=sys-libs/raul-9999
 	>=media-sound/lash-0.5.0 
 	>=media-sound/jack-audio-connection-kit-0.102.20
-	>=media-libs/librdf-1.0.6
+	>=dev-libs/redland-1.0.6
 	( >=dev-libs/libxml2-2.6
 		>=dev-cpp/glibmm-2.4
 		>=media-libs/raptor-0.21

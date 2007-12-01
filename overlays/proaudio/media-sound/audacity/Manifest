@@ -39,10 +39,6 @@ EBUILD audacity-9999.ebuild 2572 RMD160 9bebabf6d810729e0ec2abcd67eacd5edfe419eb
 MD5 2f3fe55bc3dd8f3794622a9320890a41 audacity-9999.ebuild 2572
 RMD160 9bebabf6d810729e0ec2abcd67eacd5edfe419eb audacity-9999.ebuild 2572
 SHA256 b95f8ec3e2e96dbfc30ae0c0c4df0cd1c60750cbf485458779fd19dbd510263d audacity-9999.ebuild 2572
-MISC .audacity-9999.ebuild.swp 12288 RMD160 9bd69b14705fe765c57c4fc908b9f67643d2ff17 SHA1 262e0e0e6756ec16b7e1ede3411b14bb9a892553 SHA256 e43d4f5cf5045f24a6b01aba067fb138e1acf51f532b649b42cf0258bfc7ede5
-MD5 30e19185d9ca10f1649fbd124c64005b .audacity-9999.ebuild.swp 12288
-RMD160 9bd69b14705fe765c57c4fc908b9f67643d2ff17 .audacity-9999.ebuild.swp 12288
-SHA256 e43d4f5cf5045f24a6b01aba067fb138e1acf51f532b649b42cf0258bfc7ede5 .audacity-9999.ebuild.swp 12288
 MD5 e4cb0c698f065ef88bab1eba174707aa files/digest-audacity-1.3.2-r1 259
 RMD160 8c96101c6f992bb514996875537ada9adde0edab files/digest-audacity-1.3.2-r1 259
 SHA256 707a1fdb467f1d843eb4978eac90c42d2a428918549578c186d6c568808aaaa5 files/digest-audacity-1.3.2-r1 259

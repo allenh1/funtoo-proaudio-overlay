@@ -16,7 +16,7 @@ KEYWORDS=""
 
 DEPEND="media-libs/ladspa-sdk
 	sci-libs/fftw
-	>=media-libs/librdf-1.0.6"
+	>=dev-libs/redland-1.0.6"
 
 #S="${WORKDIR}/${ESVN_PROJECT}"
 
