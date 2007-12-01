@@ -5,7 +5,7 @@
 inherit subversion exteutils
 
 RESTRICT="nomirror"
-IUSE=""
+IUSE="jack"
 DESCRIPTION="SLV2 is a library for LV2 hosts "
 HOMEPAGE="http://drobilla.net/software"
 
@@ -17,7 +17,7 @@ SLOT="0"
 KEYWORDS=""
 
 DEPEND=">=dev-util/pkgconfig-0.9.0
-	media-sound/jack-audio-connection-kit
+	jack? ( >=media-sound/jack-audio-connection-kit-0.102.29 )
 	>=dev-libs/rasqal-0.9.11
 	>=media-libs/raptor-1.4.0
 	>=sys-libs/raul-9999"
@@ -27,8 +27,8 @@ src_unpack() {
 	cd "${S}/${PN}" || die "source for ${PN} not found"
 
 	# quick fix
-	cd "src"
-	esed_check -i 's@:usr/lib/lv2@:/usr/lib/lv2@g' plugins.c
+	#cd "src"
+	#esed_check -i 's@:usr/lib/lv2@:/usr/lib/lv2@g' plugins.c
 }
 
 src_compile() {
@@ -40,7 +40,7 @@ src_compile() {
 
 src_install() {
 	cd "${S}/${PN}" || die "source for ${PN} not found"
-	make DESTDIR="${D}" install || die "install failed"
+	emake DESTDIR="${D}" install || die "install failed"
 	dodoc AUTHORS NEWS THANKS ChangeLog
 }
 
