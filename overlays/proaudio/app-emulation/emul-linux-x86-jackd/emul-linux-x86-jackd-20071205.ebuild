@@ -57,7 +57,7 @@ pkg_postinst() {
 	einfo "$ jacknet_client -p localhost &"
 	echo
 	einfo "In Terminal window B (32bit side):"
-	einfo "$ export export JACK_DEFAULT_SERVER=\"jackd32\""
+	einfo "$ export JACK_DEFAULT_SERVER=\"jackd32\""
 	einfo "$ jackd32 -d net &"
 	echo
 	einfo "You HAVE TO export JACK_DEFAULT_SERVER for every 32bit jack"
