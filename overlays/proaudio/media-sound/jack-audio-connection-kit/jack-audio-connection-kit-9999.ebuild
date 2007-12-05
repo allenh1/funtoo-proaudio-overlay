@@ -52,21 +52,7 @@ src_unpack() {
 	use netjack && cd ${WORKDIR} &&  unpack ${A}
 	cd ${S}
 	
-	# the docs option is in upstream, I'll leave the pentium2 foobage
-	# for the x86 folks...... kito@gentoo.org
-
-	# Add doc option and fix --march=pentium2 in caps test
-	#epatch ${FILESDIR}/${PN}-doc-option.patch
-
-	# compile and install jackstart, see #92895, #94887
-	#if use caps ; then
-	#	epatch ${FILESDIR}/${PN}-0.99.0-jackstart.patch
-	#fi
-
 	epatch ${FILESDIR}/${PN}-transport.patch
-	#if use jackmidi; then
-	#	epatch ${FILESDIR}/jackmidi_01dec05.patch || die
-	#fi
 
 	# jack transport patch from Torben Hohn
 	epatch "${FILESDIR}/jack-transport-start-at-zero-fix.diff"
@@ -74,7 +60,6 @@ src_unpack() {
 
 src_compile() {
 	sed -i -e "s:include/nptl/:include/:g" configure.ac || die
-	#NOCONFIGURE="1" ./autogen.sh
 	eautoreconf
 	
 	local myconf
@@ -94,12 +79,6 @@ src_compile() {
 		use altivec && append-flags -force_cpusubtype_ALL \
 			-maltivec -mabi=altivec -mhard-float -mpowerpc-gfxopt
 	fi
-
-	#if use jackmidi; then
-	#	aclocal
-	#	automake
-	#fi
-
 
 	use sndfile && \
 		export SNDFILE_CFLAGS="-I/usr/include" \
@@ -168,7 +147,7 @@ src_install() {
 		dobin alsa_in
 		dobin alsa_out
 		dobin jacknet_client
-		insinto /usr/lib/jack
+		insinto /usr/$(get_libdir)/jack
 		doins jack_net.so
 	fi
 }
