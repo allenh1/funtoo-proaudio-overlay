@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils multilib
+inherit eutils emul-linux-x86
 
 DESCRIPTION="emul package for jack audio connection kit"
 HOMEPAGE="http://gimpel.ath.cx/~tom/distfiles/"
@@ -15,8 +15,9 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-DEPEND=""
-RDEPEND="media-sound/jack-audio-connection-kit"
+RDEPEND=">=app-emulation/emul-linux-x86-baselibs-20071114
+	>=app-emulation/emul-linux-x86-medialibs-20071114
+	media-sound/jack-audio-connection-kit"
 
 
 pkg_setup() {
@@ -38,8 +39,11 @@ pkg_setup() {
 	fi
 }
 
-src_install() {
-	mv usr "${D}"/usr
+src_unpack() {
+	_ALLOWED="${S}/usr/bin/jackd32|${S}/usr/bin/jacknet_client32"
+	ALLOWED="(${_ALLOWED})"
+
+	emul-linux-x86_src_unpack
 }
 
 pkg_postinst() {
