@@ -1,3 +1,4 @@
+app-emulation/emul-linux-x86-jackd
 app-emulation/wineasio
 app-portage/euses
 dev-libs/libinstpatch

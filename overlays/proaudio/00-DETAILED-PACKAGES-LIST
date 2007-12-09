@@ -1,8 +1,13 @@
+#------- app-emulation/emul-linux-x86-jackd --------
+	emul-linux-x86-jackd-20071205	arch: ~amd64
+	Description: emul package for jack audio connection kit
+		
+	Homepage:    http://gimpel.ath.cx/~tom/distfiles/
+
+
 #------- app-emulation/wineasio --------
-	wineasio-0.1	arch: ~x86
-	wineasio-0.2	arch: ~x86
-	wineasio-0.3	arch: ~x86
 	wineasio-0.5	arch: ~x86 ~amd64
+	wineasio-0.7.2	arch: ~x86 ~amd64
 	Description: ASIO driver for WINE
 	Homepage:    http://forum.jacklab.net/viewtopic.php?t=417
 
@@ -303,6 +308,7 @@
 
 
 #------- media-libs/slv2 --------
+	slv2-0.3.2	arch: ~x86
 	slv2-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: SLV2 is a library for LV2 hosts
 	Homepage:    http://drobilla.net/software
@@ -835,7 +841,6 @@
 #------- media-sound/bpmdj --------
 	bpmdj-2.9	arch: -amd64 x86 ~ppc
 	bpmdj-3.2	arch: -amd64 x86 ~ppc
-	bpmdj-3.5	arch: -amd64 x86 ~ppc
 	bpmdj-3.6	arch: ~amd64 ~x86 ~ppc
 	Description: Bpmdj, software for measuring the BPM of
 		 music and mixing
@@ -951,6 +956,7 @@
 	fluidsynth-1.0.6-r1	arch: ~amd64 ~ppc ~sparc x86
 	fluidsynth-1.0.7a	arch: ~amd64 ~ppc ~sparc x86
 	fluidsynth-1.0.7	arch: ~amd64 ~ppc ~sparc x86
+	fluidsynth-1.0.8	arch: ~amd64 ~ppc ~sparc ~x86
 	Description: IIWU Synth is a software real-time synthesizer
 		 based on the Soundfont 2 specifications.
 	Homepage:    http://www.fluidsynth.org/
@@ -1146,6 +1152,7 @@
 
 #------- media-sound/jack-rack --------
 	jack-rack-1.4.6	arch: ~amd64 ~ppc ~sparc ~x86
+	jack-rack-1.4.7	arch: ~amd64 ~ppc ~sparc ~x86
 	Description: JACK Rack is an effects rack for the JACK
 		 low latency audio API.
 	Homepage:    http://jack-rack.sourceforge.net/
@@ -1257,6 +1264,7 @@
 	jost-0.4.1	arch: ~x86 ~amd64
 	jost-0.4.2	arch: ~x86 ~amd64
 	jost-0.4.3	arch: ~x86 ~amd64
+	jost-0.4.3-r1	arch: ~x86 ~amd64
 	Description: JACK host for native linux VST, DSSI and
 		 LADSPA plugins with sequencer capabilities
 		
@@ -1651,6 +1659,7 @@
 	rosegarden-1.5.0	arch: ~amd64 ~ppc ~sparc x86
 	rosegarden-1.5.0-r1	arch: ~amd64 ~ppc ~sparc x86
 	rosegarden-1.5.1	arch: amd64 ~ppc ~sparc x86
+	rosegarden-1.6.0	arch: amd64 ~ppc ~sparc x86
 	rosegarden-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: MIDI and audio sequencer and notation editor.
 		
@@ -1956,6 +1965,7 @@
 	rt-sources-2.6.21.5-r20	arch: ~amd64 ~ppc ~ppc64 ~x86
 	rt-sources-2.6.22.1-r9	arch: ~amd64 ~ppc ~ppc64 ~x86
 	rt-sources-2.6.23.1-r11	arch: ~amd64 ~ppc ~ppc64 ~x86
+	rt-sources-2.6.23.9-r12	arch: ~amd64 ~ppc ~ppc64 ~x86
 	Description: Ingo Molnars realtime patch applied on vanilla
 		
 	Homepage:    unknown
