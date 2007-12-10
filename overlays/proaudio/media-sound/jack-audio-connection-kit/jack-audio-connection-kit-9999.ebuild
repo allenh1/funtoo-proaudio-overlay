@@ -16,7 +16,7 @@ ESVN_REPO_URI="http://subversion.jackaudio.org/jack/trunk/jack"
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="altivec alsa caps coreaudio doc debug jack-tmpfs mmx oss sndfile netjack
+IUSE="altivec alsa caps coreaudio dbus doc debug jack-tmpfs mmx oss sndfile netjack
 sse jackmidi freebob"
 
 RDEPEND="dev-util/pkgconfig
@@ -28,6 +28,7 @@ RDEPEND="dev-util/pkgconfig
 	netjack? ( dev-util/scons )
 	jackmidi? ( media-libs/alsa-lib )
 	freebob? ( sys-libs/libfreebob )
+	dbus? ( sys-apps/dbus )
 	!media-sound/jack-audio-connection-kit-svn"
 DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )"
@@ -56,6 +57,13 @@ src_unpack() {
 
 	# jack transport patch from Torben Hohn
 	epatch "${FILESDIR}/jack-transport-start-at-zero-fix.diff"
+
+	# dbus patches from Nedko Arnaudov
+	if use dbus; then
+		epatch "${FILESDIR}/jackd-midi-alsa-munge-r1051.patch"
+		epatch "${FILESDIR}/jack-logs-20071209-r1070.patch"
+		epatch "${FILESDIR}/jack-dbus-20071209-r1070.patch"
+	fi
 }
 
 src_compile() {
@@ -72,6 +80,10 @@ src_compile() {
 		myconf="${myconf} --with-default-tmpdir=/dev/shm"
 	else
 		myconf="${myconf} --with-default-tmpdir=/var/run/jack"
+	fi
+
+	if use dbus; then
+		myconf="${myconf} --enable-dbus --enable-pkg-config-dbus-service-dir"
 	fi
 
 	if use userland_Darwin ; then
@@ -147,7 +159,13 @@ src_install() {
 		dobin alsa_in
 		dobin alsa_out
 		dobin jacknet_client
-		insinto /usr/$(get_libdir)/jack
+
+		# why on earth doesn't get_libdir work here
+		if use amd64; then
+			insinto /usr/lib64/jack
+		else
+			insinto /usr/lib/jack
+		fi
 		doins jack_net.so
 	fi
 }
