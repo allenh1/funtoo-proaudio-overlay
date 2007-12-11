@@ -4,7 +4,7 @@
 
 inherit eutils
 RESTRICT="nomirror"
-IUSE="jack lash" # cairo"
+IUSE="jack lash devel-patches" # cairo"
 DESCRIPTION="Seq24 is a loop based MIDI sequencer with focus on live performances."
 HOMEPAGE="http://www.filter24.org/seq24/"
 SRC_URI="http://www.filter24.org/seq24/${P}.tar.gz"
@@ -23,6 +23,14 @@ src_unpack() {
 	unpack ${A}
 	cd ${S}
 	#use cairo && use lash && epatch "${FILESDIR}/seq24-0.8.3-dr-lash-cairo.bz2"
+
+	if use devel-patches; then
+		epatch "${FILESDIR}/${P}.prio.diff"
+		epatch "${FILESDIR}/${P}-menu-changes.diff"
+		epatch "${FILESDIR}/${P}-label-fix.diff"
+		epatch "${FILESDIR}/${P}.olivier.patch"
+		#epatch "${FILESDIR}/${P}.olivier2.patch"
+	fi
 }
 
 src_compile() {
