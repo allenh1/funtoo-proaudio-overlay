@@ -3,8 +3,8 @@
 # $Header: $
 
 DESCRIPTION="Rumpelrausch Täips AZR3 standalone Linux port"
-HOMEPAGE="http://ll-plugins.nongnu.org/"
-SRC_URI="http://ll-plugins.sourceforge.net/tarballs/${P}.tar.bz2"
+HOMEPAGE="http://ll-plugins.nongnu.org/azr3"
+SRC_URI="http://download.savannah.nongnu.org/releases/ll-plugins/${P}.tar.bz2"
 RESTRICT="nomirror"
 
 LICENSE="GPL-2"
