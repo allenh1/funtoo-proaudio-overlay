@@ -28,11 +28,6 @@ RDEPEND="
 
 DEPEND="${RDEPEND}"
 
-src_unpack() {
-	cvs_src_unpack
-	cd ${S}
-}
-	
 src_compile() {
 	make -f Makefile.cvs
 	econf || die "./configure failed"
@@ -40,6 +35,6 @@ src_compile() {
 }
 
 src_install() {
-	einstall || die "einstall failed"
+	make DESTDIR="${D}" install || die
 	dodoc AUTHORS ChangeLog README
 }
