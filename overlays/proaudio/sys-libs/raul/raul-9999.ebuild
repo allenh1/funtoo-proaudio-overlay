@@ -24,7 +24,8 @@ DEPEND=">=dev-util/pkgconfig-0.9.0
 	>=dev-cpp/glibmm-2.4
 	jack? ( >=media-sound/jack-audio-connection-kit-0.107.0 )
 	lash? ( >=media-sound/lash-0.5.2 
-		>=dev-libs/libsigc++-2 )"
+		>=dev-libs/libsigc++-2 )
+	=dev-libs/redlandmm-9999"
 
 src_compile() {
 	export WANT_AUTOMAKE="1.10"
