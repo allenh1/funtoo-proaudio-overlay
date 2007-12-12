@@ -9,11 +9,12 @@ HOMEPAGE="http://traverso-daw.org/"
 
 ECVS_SERVER="cvs.savannah.nongnu.org:/sources/traverso"
 ECVS_MODULE="traverso"
+S="${WORKDIR}/${ECVS_MODULE}"
 
-IUSE="alsa debug jack lv2 mad"
+IUSE="alsa debug jack lv2 mad opengl"
 SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS=""
 
 RDEPEND="$(qt4_min_version 4.2.3)
 	alsa? ( media-libs/alsa-lib )

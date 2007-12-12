@@ -8,7 +8,7 @@ DESCRIPTION="Professional Audio Tools for GNU/Linux"
 HOMEPAGE="http://traverso-daw.org/"
 SRC_URI="http://traverso-daw.org/download/releases/current/${P}.tar.gz"
 
-IUSE="alsa debug jack lv2 mad"
+IUSE="alsa debug jack lv2 mad opengl"
 SLOT="0"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~ppc ~x86"
