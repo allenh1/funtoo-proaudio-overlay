@@ -10,7 +10,7 @@ SRC_URI="http://download.drobilla.net/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~x86 ~amd64"
 IUSE="jack"
 	
 DEPEND=">=dev-util/pkgconfig-0.9.0
