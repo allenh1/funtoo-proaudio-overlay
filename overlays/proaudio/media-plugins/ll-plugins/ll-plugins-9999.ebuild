@@ -22,7 +22,8 @@ DEPEND=">=media-sound/jack-audio-connection-kit-0.102.27
 	>=media-sound/lash-0.5.1
 	>=media-libs/liblo-0.22
 	>=sci-libs/gsl-1.8
-	>=media-libs/libsndfile-1.0.16"
+	>=media-libs/libsndfile-1.0.16
+	>=media-libs/slv2-0.3.2"
 
 RDEPEND="${DEPEND}"
 
@@ -31,21 +32,19 @@ S="${WORKDIR}/${PN}"
 src_unpack(){
 	cvs_src_unpack
 	cd ${S}
-	# already fixed ?!
-	for i in `grep -Rl 'clear_path' *`;do
-		einfo "remove $i clear_path"
-		sed -i 's@.*clear_path\(\).*@@g' $i
-	done
-	# needed to generate Makefile.config
-	./configure
+	# find slv2!
+	epatch "${FILESDIR}/${PN}-vs-slv2.patch"
 }
 
 src_compile(){
-	econf --CFLAGS="${CFLAGS}" \
-		--LDFLAGS="${LDFLAGS}" || die "configure failed"
+	./configure \
+		--prefix=/usr \
+		--CFLAGS="${CFLAGS} `pkg-config --cflags slv2`" \
+		--LDFLAGS="${LDFLAGS} `pkg-config --libs slv2`" \
+		|| die "configure failed"
 	emake || die "make failed"
 }
 
 src_install(){
-	make prefix="${D}/usr" install || die "install failed"
+	make DESTDIR="${D}" install || die "install failed"
 }

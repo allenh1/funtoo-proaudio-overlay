@@ -14,7 +14,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="jack"
 
 RDEPEND=">=media-libs/liblscp-0.5.5
-	>=media-libs/libgig-3.1.1
+	>=media-libs/libgig-3.2.1
 	media-libs/alsa-lib
 	jack? ( media-sound/jack-audio-connection-kit )"
 
