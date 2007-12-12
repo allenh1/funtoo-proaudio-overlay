@@ -1,0 +1,11 @@
+--- slv2.pc.in.orig	2007-12-12 21:54:22.000000000 +0100
++++ slv2.pc.in	2007-12-12 21:54:45.000000000 +0100
+@@ -1,7 +1,7 @@
+ prefix=@prefix@
+ exec_prefix=@exec_prefix@
+ libdir=@libdir@
+-includedir=@includedir@
++includedir=@includedir@/slv2
+ 
+ Name: libslv2
+ Version: @SLV2_VERSION@

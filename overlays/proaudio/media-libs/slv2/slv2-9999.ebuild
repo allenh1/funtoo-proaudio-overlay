@@ -26,9 +26,8 @@ src_unpack() {
 	subversion_src_unpack
 	cd "${S}/${PN}" || die "source for ${PN} not found"
 
-	# quick fix
-	#cd "src"
-	#esed_check -i 's@:usr/lib/lv2@:/usr/lib/lv2@g' plugins.c
+	# fix pkg-config .pc
+	epatch "${FILESDIR}/${PN}-pc.in.patch"
 }
 
 src_compile() {

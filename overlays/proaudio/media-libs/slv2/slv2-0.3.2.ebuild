@@ -17,6 +17,13 @@ DEPEND=">=dev-util/pkgconfig-0.9.0
 		jack? ( >=media-sound/jack-audio-connection-kit-0.102.29 )
 		dev-libs/redland"
 
+src_unpack() {
+	unpack ${A}
+	cd "${S}"
+	# fix pkg-config .pc
+	epatch "${FILESDIR}/${PN}-pc.in.patch"
+}
+
 src_compile() {
 	econf `use_enable jack` || die "could not configure"
 	emake || die "emake failed"
