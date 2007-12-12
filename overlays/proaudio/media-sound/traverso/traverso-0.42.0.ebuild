@@ -8,7 +8,7 @@ DESCRIPTION="Professional Audio Tools for GNU/Linux"
 HOMEPAGE="http://traverso-daw.org/"
 SRC_URI="http://traverso-daw.org/download/releases/current/${P}.tar.gz"
 
-IUSE="alsa debug jack lv2 mad opengl"
+IUSE="alsa debug jack lv2 mad opengl portaudio"
 SLOT="0"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~ppc ~x86"
@@ -39,7 +39,8 @@ src_compile() {
 		$(cmake-utils_use_want mad MP3_DECODE)
 		$(cmake-utils_use_want mad MP3_ENCODE)
 		$(cmake-utils_use_want opengl OPENGL)
-		$(cmake-utils_use_want debug DEBUG)"
+		$(cmake-utils_use_want debug DEBUG)
+		$(cmake-utils_use_want portaudio PORTAUDIO)"
 
 	use lv2 && mycmakeargs="${mycmakeargs} -DUSE_SYSTEM_SLV2_LIBRARY=ON"
 	

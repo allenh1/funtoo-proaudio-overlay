@@ -11,7 +11,7 @@ ECVS_SERVER="cvs.savannah.nongnu.org:/sources/traverso"
 ECVS_MODULE="traverso"
 S="${WORKDIR}/${ECVS_MODULE}"
 
-IUSE="alsa debug jack lv2 mad opengl"
+IUSE="alsa debug jack lv2 mad portaudio opengl"
 SLOT="0"
 LICENSE="GPL-2"
 KEYWORDS=""
@@ -42,7 +42,8 @@ src_compile() {
 		$(cmake-utils_use_want mad MP3_DECODE)
 		$(cmake-utils_use_want mad MP3_ENCODE)
 		$(cmake-utils_use_want opengl OPENGL)
-		$(cmake-utils_use_want debug DEBUG)"
+		$(cmake-utils_use_want debug DEBUG)
+		$(cmake-utils_use_want portaudio PORTAUDIO)"
 
 	use lv2 && mycmakeargs="${mycmakeargs} -DUSE_SYSTEM_SLV2_LIBRARY=ON"
 	
