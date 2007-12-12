@@ -2,18 +2,16 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils qt4 cmake-utils cvs
+inherit eutils qt4 cmake-utils
 
 DESCRIPTION="Professional Audio Tools for GNU/Linux"
 HOMEPAGE="http://traverso-daw.org/"
-
-ECVS_SERVER="cvs.savannah.nongnu.org:/sources/traverso"
-ECVS_MODULE="traverso"
+SRC_URI="http://traverso-daw.org/download/releases/current/${P}.tar.gz"
 
 IUSE="alsa jack lv2 mad sse"
 SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~ppc ~x86"
 
 RDEPEND="$(qt4_min_version 4.2.3)
 	alsa? ( media-libs/alsa-lib )
