@@ -26,11 +26,15 @@ src_unpack() {
 }
 
 src_compile(){
-	econf --prefix="${D}"/usr || die "econf failed"
+	econf \
+		--prefix=/usr \
+		--CFLAGS="${CFLAGS}" \
+		--LDFLAGS="${LDFLAGS}" \
+		|| die "econf failed"
 	emake || die "emake failed"
 }
 
 src_install(){
-	einstall || die "einstall failed"
+	make DESTDIR="${D}" install || die "einstall failed"
 	prepalldocs
 }
