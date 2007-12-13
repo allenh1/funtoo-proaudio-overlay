@@ -11,30 +11,39 @@ SRC_URI="http://download.savannah.nongnu.org/releases/dino/${P}.tar.bz2"
 LICENSE="GPL"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-IUSE=""
+IUSE="wmaker"
 
 DEPEND=">=media-sound/lash-0.5.1
-	>=x11-libs/vte-0.11.15
-	>=dev-cpp/gtkmm-2.10.1"
-RDEPEND=""
+	>=dev-cpp/gtkmm-2.10.1
+	media-sound/jack-audio-connection-kit"
+RDEPEND="${DEPEND}"
 
 src_unpack() {
-	unpack "${A}"
+	unpack ${A}
 	cd "${S}"
-	esed_check -i -e 's:ar rcs $$@ $$^ $(LDFLAGS) $$($(2)_LDFLAGS):ar rcs $$@ $$^ $($(2)_LDFLAGS):g' \
-		Makefile.template 
+	use wmaker || \
+	sed -i -e 's@PROGRAMS = glashctl wmglashctl@PROGRAMS = glashctl@' \
+		Makefile
 }
 
 src_compile(){
+	# those break ar, crappy build system
+	unset LDFLAGS
 	econf \
 		--prefix=/usr \
 		--CFLAGS="${CFLAGS}" \
-		--LDFLAGS="${LDFLAGS}" \
 		|| die "econf failed"
+	# those break ar ...
+	#	--LDFLAGS="${LDFLAGS}" \
 	emake || die "emake failed"
 }
 
 src_install(){
-	make DESTDIR="${D}" install || die "einstall failed"
-	prepalldocs
+	# damnit, really
+	#make DESTDIR="${D}" install || die "install failed"
+	dobin glashctl
+	use wmaker && dobin wmglashctl
+	insinto /usr/share/${PN}
+	doins *.xpm *.png
+	dodoc README AUTHORS ChangeLog	
 }
