@@ -5,18 +5,20 @@
 inherit flag-o-matic eutils multilib subversion autotools
 
 NETJACK="netjack-0.12"
+JACKDBUS="jackpatches-0.1"
 
 RESTRICT="nostrip nomirror"
 DESCRIPTION="A low-latency audio server"
 HOMEPAGE="http://www.jackaudio.org"
-SRC_URI="netjack? ( mirror://sourceforge/netjack/${NETJACK}.tar.bz2 )"
+SRC_URI="netjack? ( mirror://sourceforge/netjack/${NETJACK}.tar.bz2 )
+	dbus? ( http://dl.sharesource.org/jack/${JACKDBUS}.tar.bz2 )"
 
 ESVN_REPO_URI="http://subversion.jackaudio.org/jack/trunk/jack"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="altivec alsa caps coreaudio dbus doc debug jack-tmpfs mmx oss sndfile netjack
+IUSE="3dnow altivec alsa caps coreaudio dbus doc debug jack-tmpfs mmx oss sndfile netjack
 sse jackmidi freebob"
 
 RDEPEND="dev-util/pkgconfig
@@ -28,7 +30,8 @@ RDEPEND="dev-util/pkgconfig
 	netjack? ( dev-util/scons )
 	jackmidi? ( media-libs/alsa-lib )
 	freebob? ( sys-libs/libfreebob )
-	dbus? ( sys-apps/dbus )
+	dbus? ( sys-apps/dbus 
+			dev-python/dbus-python )
 	!media-sound/jack-audio-connection-kit-svn"
 DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )"
@@ -60,9 +63,9 @@ src_unpack() {
 
 	# dbus patches from Nedko Arnaudov
 	if use dbus; then
-		epatch "${FILESDIR}/jackd-midi-alsa-munge-r1051.patch"
-		epatch "${FILESDIR}/jack-logs-20071209-r1070.patch"
-		epatch "${FILESDIR}/jack-dbus-20071209-r1070.patch"
+		for i in `cat ../${JACKDBUS}/order`; do
+			epatch "../${JACKDBUS}/$i"
+		done
 	fi
 }
 
