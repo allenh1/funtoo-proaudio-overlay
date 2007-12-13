@@ -31,8 +31,9 @@ DEPEND="${RDEPEND}"
 
 pkg_setup() {
 	if [ $(gcc-major-version)$(gcc-minor-version) -eq 41 ]; then
-		ewarn "${PN} will maybe crash a lot with gcc-4.1."
-		ewarn "You better upgrade to 4.2!"
+		eerror "${PN} will maybe crash a lot with gcc-4.1."
+		eerror "You have to upgrade to 4.2 for linuxsampler!"
+		die
 	fi
 
 	if ! use sqlite; then
@@ -44,10 +45,6 @@ src_compile() {
 	make -f Makefile.cvs
 	local myconf=""
 	use arts && myconf="--with-arts-prefix=/usr/kde/3.5"
-	
-	# disable nptl bug check for gcc-4.1
-	[[ $(gcc-major-version)$(gcc-minor-version) -eq 41 ]] && \
-		myconf="--disable-nptl-bug-check"
 	
 	econf \
 		`use_enable alsa alsa-driver` \
