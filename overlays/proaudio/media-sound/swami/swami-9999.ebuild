@@ -47,4 +47,5 @@ src_compile() {
 src_install() {
 	make DESTDIR="${D}" install || die
 	dodoc AUTHORS ChangeLog NEWS README
+	doicon "${D}"/usr/share/icons/hicolor/48x48/apps/swami-2.png
 }
