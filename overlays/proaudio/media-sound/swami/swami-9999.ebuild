@@ -41,7 +41,7 @@ src_compile() {
 		$(use_enable debug) \
 		$(use_enable python) \
 		|| die
-	emake -j1 || die
+	emake || die
 }
 
 src_install() {
