@@ -1,0 +1,16 @@
+Index: gtk/Makefile.am
+===================================================================
+RCS file: /cvs/gnome/pygtk/gtk/Makefile.am,v
+retrieving revision 1.80
+diff -u -p -r1.80 Makefile.am
+--- gtk/Makefile.am	3 Oct 2006 17:49:16 -0000	1.80
++++ gtk/Makefile.am	28 Nov 2006 04:19:53 -0000
+@@ -130,7 +130,7 @@ nodist__gtk_la_SOURCES = gtk.c gdk.c
+ if BUILD_GTK
+ pygtkexec_LTLIBRARIES += _gtk.la
+ defs_DATA += $(GDK_DEFS) $(GDK_TYPES_DEFS) $(GTK_DEFS) $(GTK_TYPES_DEFS) \
+-	gdk.defs gtk.defs gdk-types.defs gtk-types.defs
++	gdk.defs gtk.defs gdk-types.defs gtk-types.defs gtk-extrafuncs.defs
+ endif
+ 
+ # libglade module
