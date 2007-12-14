@@ -12,7 +12,7 @@ URL="http://ardour.org/files/releases/${PN}.tar.bz2"
 RESTRICT="nomirror"
 
 LICENSE="GPL-2"
-SLOT="1"
+SLOT="0"
 KEYWORDS=""
 IUSE="nls debug sse altivec sys-libs" #vst"
 
