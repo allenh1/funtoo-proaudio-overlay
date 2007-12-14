@@ -10,7 +10,7 @@ SRC_URI="http://ardour.org/files/releases/${P}.tar.bz2"
 RESTRICT="nomirror"
 
 LICENSE="GPL-2"
-SLOT="1"
+SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE="nls debug sse altivec vst sys-libs"
 
