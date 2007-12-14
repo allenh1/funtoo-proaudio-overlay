@@ -1,0 +1,10 @@
+# ChangeLog for media-sound/xmms2tray
+# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  14 Dec 2007; Marc-Olivier Barre <mobarre@gmail.com> ChangeLog:
+  Created an initial ChangeLog
+
+  14 Dec 2007; Marc-Olivier Barre <mobarre@gmail.com> xmms2tray-0.4-r2.ebuild:
+  ebuild taken from the x4x-portage overlay
+
