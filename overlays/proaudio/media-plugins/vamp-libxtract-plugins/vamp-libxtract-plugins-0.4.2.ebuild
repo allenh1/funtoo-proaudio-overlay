@@ -15,7 +15,7 @@ IUSE=""
 
 RDEPEND="media-libs/libxtract"
 DEPEND="${RDEPEND}
-		>=dev-libs/vamp-plugin-sdk-1.0"
+		>=media-libs/vamp-plugin-sdk-1.0"
 
 
 src_unpack() {

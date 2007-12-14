@@ -16,7 +16,7 @@ IUSE=""
 
 RDEPEND=">=media-libs/aubio-0.3.0"
 DEPEND="${REDEPEND}
-		>=dev-libs/vamp-plugin-sdk-1.0"
+		>=media-libs/vamp-plugin-sdk-1.0"
 
 src_unpack() {
 	unpack ${A}

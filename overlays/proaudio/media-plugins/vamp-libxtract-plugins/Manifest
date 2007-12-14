@@ -3,10 +3,10 @@ MD5 0f43d879cb2c476399aca2be126983b2 files/vamp-libxtract-plugins-0.4.2-makefile
 RMD160 ce1ad3e716c235c4327bd10ee455edb60a41dd95 files/vamp-libxtract-plugins-0.4.2-makefile.patch 698
 SHA256 c0efd3532d3193fe0e540022280714fe3797c43d2f956f676c102024273df6ef files/vamp-libxtract-plugins-0.4.2-makefile.patch 698
 DIST vamp-libxtract-plugins-0.4.2.tar.gz 14878 RMD160 2bc72c14e34415297869bfa9a94f1bad8dc37d43 SHA1 d51259d65512ebf1927fa513c54996d60b67e123 SHA256 3f402333c3c992a09a922eadc692aa42310ba4e730f6251f590378788f980b80
-EBUILD vamp-libxtract-plugins-0.4.2.ebuild 661 RMD160 c5d174c4dfcdcb710c611f0cc0ace211cf142289 SHA1 117a2254d329a5f44b3d4842d54724e032b46cc9 SHA256 75dc5dc357f64ac5176e7039984db00b24049d430c1681daa29f867fef2916c9
-MD5 1b80598d98ac8b28f7a4c3a2ae2a7874 vamp-libxtract-plugins-0.4.2.ebuild 661
-RMD160 c5d174c4dfcdcb710c611f0cc0ace211cf142289 vamp-libxtract-plugins-0.4.2.ebuild 661
-SHA256 75dc5dc357f64ac5176e7039984db00b24049d430c1681daa29f867fef2916c9 vamp-libxtract-plugins-0.4.2.ebuild 661
+EBUILD vamp-libxtract-plugins-0.4.2.ebuild 663 RMD160 8b2df99866d13a6bd33ef0b4841f7802c0de48e9 SHA1 480b452cd4543ac4db6d6c82dc500cd266d725e3 SHA256 1ec38bb1f34003a81455e0b1e10d4f221e786dd3f5917dc12a7c0d407b2d9dd2
+MD5 cae68df9e321176e5b58b28b14976af4 vamp-libxtract-plugins-0.4.2.ebuild 663
+RMD160 8b2df99866d13a6bd33ef0b4841f7802c0de48e9 vamp-libxtract-plugins-0.4.2.ebuild 663
+SHA256 1ec38bb1f34003a81455e0b1e10d4f221e786dd3f5917dc12a7c0d407b2d9dd2 vamp-libxtract-plugins-0.4.2.ebuild 663
 MD5 49cea29cad11ff17624e3e96c0aa04e4 files/digest-vamp-libxtract-plugins-0.4.2 283
 RMD160 6524f8898dbd95ed9dec1fd62fe2bba062553554 files/digest-vamp-libxtract-plugins-0.4.2 283
 SHA256 ae4a4425a095490ab5952784a56b2a637552e15ccced7a9a5683fa6b70c8a7c7 files/digest-vamp-libxtract-plugins-0.4.2 283
