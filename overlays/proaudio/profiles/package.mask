@@ -11,3 +11,7 @@ media-sound/wired
 # World's most fucked up build system [tm]
 # If autofoo is too complicated, than what's this? lol!
 =media-sound/bpmdj-3.6
+
+# temporary until fixed
+=meda-sound/ardour-2.1-r0
+=meda-sound/ardour-2.0.5-r0
