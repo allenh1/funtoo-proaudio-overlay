@@ -1,0 +1,8 @@
+# ChangeLog for media-sound/kenvy24gui
+# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  15 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org>
+  +kenvy24gui-9999.ebuild:
+  intial commit of SVN ebuild
+
