@@ -10,6 +10,8 @@
 ECLASS="vstplugin"
 INHERITED="$INHERITED $ECLASS"
 
+inherit vst
+
 vstplugin_pkg_postinst() {
 	elog
 	einfo "In order to use native Linux VST plugins, you will need"

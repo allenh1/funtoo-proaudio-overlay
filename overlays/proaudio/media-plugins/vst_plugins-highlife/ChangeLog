@@ -1,0 +1,8 @@
+# ChangeLog for media-plugins/vst_plugins-highlife
+# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  15 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org>
+  +vst_plugins-highlife-9999.ebuild:
+  initial commit
+
