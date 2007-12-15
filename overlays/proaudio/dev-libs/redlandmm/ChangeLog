@@ -1,0 +1,8 @@
+# ChangeLog for dev-libs/redlandmm
+# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  15 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org>
+  redlandmm-9999.ebuild:
+  add missing SLOT, thanks Nathan
+
