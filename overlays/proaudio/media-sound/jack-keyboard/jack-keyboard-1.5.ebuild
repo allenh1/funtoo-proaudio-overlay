@@ -21,8 +21,8 @@ src_unpack() {
 	unpack "${A}"
 	cd "${S}"
 	epatch "${FILESDIR}/jack-keyboard-1.5-channel.patch"
-	if has_version >=media-sound/jack-audio-connection-kit-0.103; then
-		epatch "${FILEDIR}/jack-keyboard-jackmidi-no-nframes.patch"
+	if has_version '>=media-sound/jack-audio-connection-kit-0.103'; then
+		epatch "${FILESDIR}/jack-keyboard-jackmidi-no-nframes.patch"
 	fi
 	esed_check -i -e 's@\($(bindir)/jack\)@$(DESTDIR)\1@g' \
 		-e 's@\($(man1dir)/jack\)@$(DESTDIR)\1@g' Makefile
