@@ -53,9 +53,10 @@ pkg_setup() {
 
 src_unpack() {
 	subversion_src_unpack
-	use netjack && cd ${WORKDIR} &&  unpack ${A}
+	use netjack && cd ${WORKDIR} && unpack ${NETJACK}.tar.bz2
+	use dbus && cd cd ${WORKDIR} && unpack ${JACKDBUS}.tar.bz2
 	cd ${S}
-	
+
 	epatch ${FILESDIR}/${PN}-transport.patch
 
 	# jack transport patch from Torben Hohn
