@@ -11,6 +11,7 @@ ECLASS="vst"
 INHERITED="$INHERITED $ECLASS"
 
 DEPEND="vst? ( =media-libs/vst-sdk-2.3* )
+	>=app-emulation/wine-0.9.5
 	app-arch/zip"
 
 # returns 0 if answer is yes, 1 otherwhise
