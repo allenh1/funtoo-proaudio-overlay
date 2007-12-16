@@ -32,3 +32,19 @@ agree_vst() {
 		return 1
 	fi
 }
+
+ardour_vst_prepare() {
+	# adjust files for vst support
+	if use vst; then
+		# delete vst question
+		touch ${S}/.personal_use_only
+		# fix vst header
+		sed -ie	's@vstsdk2.3/source/common/aeffectx.h@/usr/include/vst/aeffectx.h@g' \
+			libs/fst/SConscript || die "change vst-header location"
+		#symlink the include vst include files
+		vst_tmp_dir="vstsdk2.3/source/common"
+		mkdir -p ${vst_tmp_dir}
+		cp -r  /usr/include/vst/./ ${vst_tmp_dir}
+		zip -0r  libs/fst/vstsdk2.3.zip vstsdk2.3 &>/dev/null
+	fi
+}

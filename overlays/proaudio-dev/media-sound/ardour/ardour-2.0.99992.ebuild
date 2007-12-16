@@ -2,16 +2,18 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils fetch-tools scons-ccache
+inherit eutils fetch-tools scons-ccache subversion
 
+ESVN_REPO_URI="http://subversion.ardour.org/svn/ardour2/branches/2.0-ongoing"
 DESCRIPTION="multi-track hard disk recording software"
 HOMEPAGE="http://ardour.org/"
-SRC_URI="http://ardour.org/files/releases/${P}.tar.bz2"
+SRC_URI=""
+URL="http://ardour.org/files/releases/${PN}.tar.bz2"
 RESTRICT="nomirror"
 
 LICENSE="GPL-2"
-SLOT="0"
-KEYWORDS="~x86 ~amd64"
+SLOT="1"
+KEYWORDS=""
 IUSE="nls debug sse altivec vst sys-libs"
 
 RDEPEND=">=media-libs/liblrdf-0.4.0
@@ -25,7 +27,7 @@ RDEPEND=">=media-libs/liblrdf-0.4.0
 	>=dev-libs/glib-2.10
 	>=x11-libs/gtk+-2.6
 	>=media-sound/jack-audio-connection-kit-0.100.0
-	!=media-sound/ardour2-2*
+	!=media-sound/ardour2-9*
 	vst? ( >=app-emulation/wine-0.9.5 )
 	>=gnome-base/libgnomecanvas-2.0
 	sys-libs? ( >=dev-libs/libsigc++-2.0
@@ -51,7 +53,11 @@ DEPEND="${RDEPEND}
 	vst? ( app-arch/zip 
 		=media-libs/vst-sdk-2.3* )"
 
+S="${WORKDIR}/ardour2"
+
 pkg_setup(){
+	einfo "this ebuild fetches from the svn maintaince"
+	einfo "ardour-2.0.XXX branch"
 	# issue with ACLOCAL_FLAGS if set to a wrong value
 	if [ "${#ACLOCAL_FLAGS}" -gt "0" ];then
 		ewarn "check your profile settings:"
@@ -65,7 +71,7 @@ pkg_setup(){
 		ewarn "No upstream support for doing so. Use at your own risk!!!"
 		ewarn "To use the ardour provided libs remerge with:"
 		ewarn "USE=\"-sys-libs\" emerge =${P}"
-		
+
 		if ! built_with_use dev-cpp/gtkmm accessibility;then
 			eerror "To be able to use the USE flag 'sys-libs'"
 			eerror "you need to have dev-cpp/gtkmm"
@@ -79,8 +85,9 @@ pkg_setup(){
 src_unpack(){
 	# abort if user answers no to distribution of vst enabled binaries
 	if use vst;then agree_vst || die "you can not distribute ardour with vst support" ;fi
-	
-	unpack "${P}.tar.bz2"
+	subversion_src_unpack
+	#fetch_tarball_cmp "${URL}"
+	#unpack "${URL##*/}"
 	cd ${S}
 	
 	# hack to use the sys-lib for sndlib also
@@ -110,13 +117,6 @@ src_unpack(){
 }
 
 src_compile() {
-	# bug 99664
-#	cd ${S}/libs/glibmm2
-	#chmod a+x autogen.sh && ./autogen.sh || die "autogen failed"
-	#cd ${S}/libs/sigc++2/
-	#chmod a+x autogen.sh && ./autogen.sh || die "autogen failed"
-#	econf || die "configure failed"
-	
 	# Required for scons to "see" intermediate install location
 	mkdir -p ${D}
 	
@@ -132,7 +132,7 @@ src_compile() {
 	einfo "${myconf}"
 
 	cd ${S}
-	scons ${myconf}	|| die "compilation failed"
+	scons ${myconf}	-j2 || die "compilation failed"
 }
 
 src_install() {

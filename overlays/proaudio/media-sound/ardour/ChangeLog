@@ -1,0 +1,14 @@
+# ChangeLog for media-sound/ardour
+# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  16 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org>
+  +files/ardour-2.0.3-cflags.patch, -files/ardour-vst-support_1_1.patch,
+  +files/ardour-2.0.3-sndfile-external.patch,
+  -files/ardour-vst-support_0_1.patch, +ardour-2.0.5.ebuild,
+  -ardour-2.0.5-r0.ebuild, +ardour-2.1.ebuild, -ardour-2.1-r0.ebuild:
+  ardour cleanups, part 3
+  * move vst header preparation to vst.eclass
+  * adopt in-portage ebuilds and add our changes
+  * die un USE="vst" for amd64 - it won't compile anyway
+
