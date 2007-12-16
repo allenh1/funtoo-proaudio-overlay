@@ -1,0 +1,11 @@
+# ChangeLog for media-sound/xmms2
+# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  16 Dec 2007; Marc-Olivier Barre <mobarre@gmail.com> ChangeLog:
+  Added xmms2-0.4_rc1.ebuild, thanks to dangertools
+  Release notes can be found here http://wiki.xmms2.xmms.se/index.php/Release:DrKosmos
+
+  16 Dec 2007; Marc-Olivier Barre <mobarre@gmail.com> ChangeLog:
+  Initial ChangeLog
+
