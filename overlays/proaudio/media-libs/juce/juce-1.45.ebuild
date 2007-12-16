@@ -19,7 +19,7 @@ S="${WORKDIR}/${PN}"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-IUSE="debug xinerama flac vorbis opengl"
+IUSE="debug xinerama flac vorbis opengl jucer demo"
 
 RDEPEND="=media-libs/freetype-2*
 	>=media-libs/alsa-lib-0.9
@@ -71,13 +71,17 @@ src_compile() {
 	einfo "Running CFLAGS=${CFLAGS} make ${myconf} ..."
 	make ${myconf} || die "compiling the juce library failed"
 
-	cd "${S}/extras/juce demo/build/linux"
-	make ${myconf} || die "compiling the juce demo failed"
+	if use demo; then
+		cd "${S}/extras/juce demo/build/linux"
+		make ${myconf} || die "compiling the juce demo failed"
+	fi
 
-	cd "${S}/extras/the jucer/build/linux"
-	make ${myconf} || die "compiling jucer failed"
+	if use jucer; then
+		cd "${S}/extras/the jucer/build/linux"
+		make ${myconf} || die "compiling jucer failed"
+	fi
 
-	# compile 32bit too
+	# compile 32bit too on amd64
 	if use amd64; then
 		einfo "Compiling 32bit lib too..."
 
@@ -104,14 +108,20 @@ src_install() {
 	else
 		dolib bin/*.a
 	fi
-	dobin "extras/juce demo/build/linux/build/jucedemo"
-	dobin "extras/the jucer/build/linux/build/jucer"
+	use demo && dobin "extras/juce demo/build/linux/build/jucedemo"
+	use jucer && dobin "extras/the jucer/build/linux/build/jucer"
 	insinto /usr/share/doc/"${P}"
 	doins docs/*.html docs/*.css docs/*.txt
 	mv docs/images "${D}"/usr/share/doc/"${P}"
 	insinto /usr/include/"${PN}"
 	doins *.h
+	# remove unneded sources
+	rm -rf src/juce_appframework/audio/audio_file_formats/flac
+	rm -rf src/juce_appframework/audio/audio_file_formats/oggvorbis
+	rm -rf src/juce_appframework/gui/graphics/imaging/image_file_formats/jpglib
+	rm -rf src/juce_appframework/gui/graphics/imaging/image_file_formats/pnglib
 	cp -R src "${D}"/usr/include/"${PN}"
+	# don't install .cpp files
 	for i in `find ${D}/usr/include/${PN}/src -name *.cpp`; do
 		rm -f $i
 	done

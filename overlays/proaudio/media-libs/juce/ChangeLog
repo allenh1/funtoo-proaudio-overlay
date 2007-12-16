@@ -2,6 +2,9 @@
 # Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  16 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> juce-1.45.ebuild:
+  make jucer and demo optional, remove unneeded headers
+
   15 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> +juce-1.45.ebuild:
   version bump. also link a 32bit libjuce for multilib
 
