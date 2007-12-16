@@ -1,17 +1,17 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2007 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 inherit flag-o-matic eutils multilib subversion autotools
 
 NETJACK="netjack-0.12"
-JACKDBUS="jackpatches-0.1"
+JACKDBUS="jackpatches-0.2"
 
 RESTRICT="nostrip nomirror"
 DESCRIPTION="A low-latency audio server"
 HOMEPAGE="http://www.jackaudio.org"
 SRC_URI="netjack? ( mirror://sourceforge/netjack/${NETJACK}.tar.bz2 )
-	dbus? ( http://dl.sharesource.org/jack/${JACKDBUS}.tar.bz2 )"
+dbus? ( http://dl.sharesource.org/jack/${JACKDBUS}.tar.bz2 )"
 
 ESVN_REPO_URI="http://subversion.jackaudio.org/jack/trunk/jack"
 
