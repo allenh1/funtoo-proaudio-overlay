@@ -82,7 +82,7 @@ src_compile() {
 	# Required for scons to "see" intermediate install location
 	mkdir -p "${D}"
 
-	local FPU_OPTIMIZATION="$((use altivec || use sse) && echo 1 || echo 0)"
+	#local FPU_OPTIMIZATION="$((use altivec || use sse) && echo 1 || echo 0)"
 	cd "${S}"
 
 	tc-export CC CXX
