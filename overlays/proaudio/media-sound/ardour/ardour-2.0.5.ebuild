@@ -82,7 +82,7 @@ src_compile() {
 	# Required for scons to "see" intermediate install location
 	mkdir -p "${D}"
 
-	local FPU_OPTIMIZATION=$((use altivec || use sse) && echo 1 || echo 0)
+	local FPU_OPTIMIZATION="$((use altivec || use sse) && echo 1 || echo 0)"
 	cd "${S}"
 
 	tc-export CC CXX
@@ -90,18 +90,26 @@ src_compile() {
 
 	# Avoid compiling x86 asm when building on amd64 without using sse
 	# bug #186798
-	use amd64 && append-flags "-DUSE_X86_64_ASM"
+	# NOTE: this doesn't work
+	#use amd64 && append-flags "-DUSE_X86_64_ASM"
+	
+	# touching FPU_OPTIMIZATION only if sse altivec is enabled, otherwhise
+	# don't even specify it
+
+	local myconf=""
+	(use sse || use altivec) && myconf="FPU_OPTIMIZATION=1"
 
 	scons \
 		$(ardour_use_enable DEBUG debug) \
-		FPU_OPTIMIZATION=${FPU_OPTIMIZATION} \
-		DESTDIR="${D}" \
 		$(ardour_use_enable NLS nls) \
 		$(ardour_use_enable FFT_ANALYSIS fftw) \
 		$(ardour_use_enable VST vst) \
 		SYSLIBS=1 \
+		DESTDIR="${D}" \
 		CFLAGS="${CFLAGS}" \
-		PREFIX=/usr || die "scons make failed"
+		PREFIX=/usr \
+		${myconf} \
+		|| die "scons make failed"
 }
 
 src_install() {
