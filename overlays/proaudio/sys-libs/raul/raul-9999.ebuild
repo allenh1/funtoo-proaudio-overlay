@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2007 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -14,6 +14,7 @@ ESVN_PROJECT="svn.drobilla.net"
 
 LICENSE="GPL-2"
 KEYWORDS=""
+SLOT="0"
 
 DEPEND=">=dev-util/pkgconfig-0.9.0
 	osc? ( >=media-libs/liblo-0.22 )

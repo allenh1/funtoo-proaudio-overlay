@@ -1,0 +1,7 @@
+# ChangeLog for media-plugins/omins
+# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  16 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> omins-9999.ebuild:
+  added SLOT
+

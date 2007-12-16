@@ -10,6 +10,7 @@ HOMEPAGE="http://www.notam02.no/arkiv/doc/mammut/"
 SRC_URI="http://www.notam02.no/arkiv/src/${P}.tar.gz"
 
 KEYWORDS="~x86 ~amd64"
+SLOT="0"
 IUSE="doc"
 
 RDEPEND=">=media-sound/jack-audio-connection-kit-0.100

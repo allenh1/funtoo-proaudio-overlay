@@ -16,6 +16,7 @@ ESVN_PROJECT="svn.drobilla.net"
 
 LICENSE="GPL-2"
 KEYWORDS=""
+SLOT="0"
 
 DEPEND=""
 	

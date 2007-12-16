@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2007 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -12,6 +12,7 @@ ESVN_REPO_URI="http://svn.berlios.de/svnroot/repos/smack/trunk"
 
 LICENSE="GPL-2"
 KEYWORDS=""
+SLOT="0"
 
 DEPEND="=media-sound/om-9999
 	media-plugins/omins

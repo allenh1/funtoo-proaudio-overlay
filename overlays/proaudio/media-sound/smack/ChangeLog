@@ -1,0 +1,8 @@
+# ChangeLog for media-sound/smack
+# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  16 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> smack-0.2.1.ebuild,
+  smack-0.3.ebuild, smack-9999.ebuild:
+  added SLOT
+

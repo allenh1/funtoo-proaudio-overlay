@@ -13,6 +13,7 @@ HOMEPAGE="http://drobilla.net/software"
 
 LICENSE="GPL-2"
 KEYWORDS=""
+SLOT="0"
 
 DEPEND="media-libs/ladspa-sdk
 	sci-libs/fftw

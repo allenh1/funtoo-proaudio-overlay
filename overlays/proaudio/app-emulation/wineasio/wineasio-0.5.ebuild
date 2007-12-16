@@ -12,6 +12,7 @@ RESTRICT="nomirror"
 LICENSE="LGPL-2.1"
 KEYWORDS="~x86 ~amd64"
 IUSE=""
+SLOT="0"
 
 DEPEND="media-libs/asio-sdk"
 RDEPEND=">=app-emulation/wine-0.9.35"
