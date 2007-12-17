@@ -56,7 +56,7 @@ src_unpack(){
 	cd ${S}/packed/
 	dkit="`find -iname '*.h2drumkit' -printf "\"${S}/packed/%P\" "`"
 	UNPACK_DESTDIR="${S}/drum_kits" unpacker $dkit
-	
+
 	# mv all demo songs to demo_songs/
 	cd ${S}
 	mkdir demo_songs

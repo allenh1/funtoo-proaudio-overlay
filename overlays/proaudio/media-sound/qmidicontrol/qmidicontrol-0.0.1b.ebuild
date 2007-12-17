@@ -21,7 +21,7 @@ src_unpack() {
 	unpack ${A}
 	cd ${S}
 	epatch ${FILESDIR}/${P}-qtbasedir.patch
-	sed -i -e "s:^\(CXXFLAGS\)\(.*\):\1+\2:"  -e 's:gcc:$(CXX):g' make_qmidicontrol 
+	sed -i -e "s:^\(CXXFLAGS\)\(.*\):\1+\2:"  -e 's:gcc:$(CXX):g' make_qmidicontrol
 }
 
 src_compile() {

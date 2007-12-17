@@ -32,6 +32,6 @@ src_install() {
 	PREFIX="${D}/usr" emake DESTDIR="${D}" install \
 		|| die "make install failed"
 	einfo "This plugin is very experimental"
-	
+
 #	dodoc AUTHORS ChangeLog README
 }

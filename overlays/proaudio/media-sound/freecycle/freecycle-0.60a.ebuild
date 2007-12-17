@@ -47,7 +47,7 @@ src_compile() {
 	 # HINT
 	 # find -iname '*pro' find -iname '*pri' # set settings
 	 # qmake freecycle.pro || die "qmake failed"
-	
+
        #fix compatibilty for gcc >=3.4.*
 	epatch ${FILESDIR}/${MY_P}_gcc34_compat.patch
 

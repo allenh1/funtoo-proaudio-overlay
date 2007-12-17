@@ -35,4 +35,4 @@ src_compile() {
 
 src_install() {
 	einstall || die "einstall failed"
-} 
+}

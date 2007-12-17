@@ -29,16 +29,16 @@ src_unpack() {
 	sed -i -e 's:bristoldir=${prefix}/bristol:bristoldir=${prefix}/share/bristol:' Makefile.am || die "Patching Makefile.am failed"
 	sed -i -e 's:BRISTOL_DIR=${prefix}/bristol:BRISTOL_DIR=${prefix}/share/bristol:' configure.ac || die "Patching configure.ac failed"
 }
-	
+
 src_compile() {
 	eautoreconf
-	
+
 	econf \
 		`use_enable alsa` \
 		`use_enable jack` \
 		`use_enable static` \
 		|| die "configure failed"
-	
+
 	emake || die "make failed"
 }
 

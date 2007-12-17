@@ -28,8 +28,8 @@ RDEPEND=">=media-libs/liblo-0.22
 		>=media-libs/raptor-0.21
 		>=dev-libs/rasqal-0.9.11
 		>=dev-libs/libsigc++-2.0 )
-	gtk2? ( >=dev-cpp/gtkmm-2.4 
-		>=dev-cpp/libgnomecanvasmm-2.6 
+	gtk2? ( >=dev-cpp/gtkmm-2.4
+		>=dev-cpp/libgnomecanvasmm-2.6
 		>=dev-cpp/libglademm-2.4
 		>=media-libs/flowcanvas-9999 )
 	media-libs/dssi
@@ -56,7 +56,7 @@ pkg_setup() {
 		eerror "this app need rauls osc support"
 		eerror "re-emerge sys-libs/raul with useflag osc"
 		eerror "and then try this one again"
-		die 
+		die
 	fi
 }
 src_unpack() {
@@ -84,9 +84,9 @@ src_compile() {
 	export WANT_AUTOMAKE=1.10
 	#eautoreconf
 	NOCONFIGURE=1 ./autogen.sh
-	
+
 	#	$(use_with pic) not needed?
-	
+
 	JACK_CFLAGS=`pkg-config --cflags jack` \
 	JACK_LIBS=`pkg-config --libs jack` \
 	ALSA_CFLAGS=`pkg-config --cflags alsa` \

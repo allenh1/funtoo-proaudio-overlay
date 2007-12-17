@@ -20,7 +20,7 @@ DEPEND="=media-sound/om-9999
 	media-plugins/blop
 	media-libs/ladspa-cmt
 	media-libs/phat"
-	
+
 src_compile() {
 	NOCONFIGURE="1" ./autogen.sh
 	econf || die

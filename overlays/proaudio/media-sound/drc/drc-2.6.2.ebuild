@@ -32,7 +32,7 @@ src_compile() {
 
 src_install() {
 	cd ${S}/source
-	dobin drc glsweep lsconv 
+	dobin drc glsweep lsconv
 
 	cd ${S}
 	dodoc readme.txt doc/text/drc.txt

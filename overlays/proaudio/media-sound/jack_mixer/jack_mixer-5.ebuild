@@ -28,7 +28,7 @@ RDEPEND="${DEPEND}
 	>=media-libs/pylash-3_pre"
 
 pkg_setup() {
-	ewarn "please make sure you're using latest jack-audio-connection-kit svn"	
+	ewarn "please make sure you're using latest jack-audio-connection-kit svn"
 	# 2. don't know if this is still valid refered to 1.
 	#if ! built_with_use swig python ; then
 	#	eerror "Please re-emerge swig with USE='python'"
@@ -51,7 +51,7 @@ src_install() {
 #	make DESTDIR="${D}" install || die
 	dosym /usr/bin/jack_mixer.py /usr/bin/jack_mixer
 	dodoc AUTHORS CHANGES README
-	
+
 }
 
 pkg_postinst() {

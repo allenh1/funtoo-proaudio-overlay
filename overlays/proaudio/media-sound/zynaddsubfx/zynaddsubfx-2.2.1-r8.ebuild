@@ -39,7 +39,7 @@ src_unpack() {
 	use jackmidi && use lash && epatch \
 		"${FILESDIR}/zyn-lash-and-jackmidi-051205.diff" \
 		&& epatch "${FILESDIR}/unzombify.diff"
-	use jackmidi && use !lash && epatch	"${FILESDIR}/zyn-jackmidi-051205.diff" 
+	use jackmidi && use !lash && epatch	"${FILESDIR}/zyn-jackmidi-051205.diff"
 	use lash && use !jackmidi && epatch "${FILESDIR}/zyn_lash-0.5.0pre0.diff"
 	# add our CXXFLAGS
 	sed -i "s@\(CXXFLAGS.\+=.*OS_PORT.*\)@\1 ${CXXFLAGS}@g" src/Makefile
@@ -59,7 +59,7 @@ src_compile() {
 	else
 		use jack && LINUX_AUDIOOUT=JACK
 	fi
-	
+
 	use lash && LINUX_USE_LASH=YES
 	use jackmidi && LINUX_USE_JACKMIDI=YES
 	use alsa && LINUX_MIDIIN=ALSA
@@ -72,11 +72,11 @@ src_compile() {
 	myconf="${myconf} LINUX_AUDIOOUT=${LINUX_AUDIOOUT}"
 	myconf="${myconf} LINUX_USE_LASH=${LINUX_USE_LASH}"
 	myconf="${myconf} LINUX_USE_JACKMIDI=${LINUX_USE_JACKMIDI}"
-	
+
 	cd ${S}/src
 	echo "make ${myconf}" > gentoo_make_options # for easier debugging
 	chmod +x gentoo_make_options
-	
+
 	emake -j1 ${myconf} || die "make failed with this options: ${myconf}"
 
 	cd ${S}/ExternalPrograms/Spliter
@@ -99,8 +99,8 @@ src_install() {
 	doins "${S}/examples/"*
 	# --------
 
-	mogrify -format png zynaddsubfx_icon.ico 
-	newicon "${S}/zynaddsubfx_icon.png" "zynaddsubfx_icon.png" 
+	mogrify -format png zynaddsubfx_icon.ico
+	newicon "${S}/zynaddsubfx_icon.png" "zynaddsubfx_icon.png"
 	make_desktop_entry "${PN}" "ZynAddSubFx-Synth" \
 		"zynaddsubfx_icon.png" "AudioVideo;Audio"
 }

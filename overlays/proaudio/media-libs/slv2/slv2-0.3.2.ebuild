@@ -12,7 +12,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE="jack"
-	
+
 DEPEND=">=dev-util/pkgconfig-0.9.0
 		jack? ( >=media-sound/jack-audio-connection-kit-0.102.29 )
 		dev-libs/redland"

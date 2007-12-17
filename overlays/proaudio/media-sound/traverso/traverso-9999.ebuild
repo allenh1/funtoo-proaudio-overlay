@@ -46,7 +46,7 @@ src_compile() {
 		$(cmake-utils_use_want portaudio PORTAUDIO)"
 
 	use lv2 && mycmakeargs="${mycmakeargs} -DUSE_SYSTEM_SLV2_LIBRARY=ON"
-	
+
 	CMAKE_IN_SOURCE_BUILD=1
 	cmake-utils_src_compile
 }

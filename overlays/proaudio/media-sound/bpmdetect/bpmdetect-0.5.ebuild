@@ -28,7 +28,7 @@ S="${WORKDIR}/${PN}"
 src_compile() {
 	local myconf=""
 	myconf="qtincludes=/usr/qt3/include"
-	
+
 	use kde && myconf="${myconf}  kdeinclude=/usr/kde/3.5/include"
 	use amd64 && myconf="${myconf} libsuffix=64"
 

@@ -19,7 +19,7 @@ RDEPEND="dev-util/scons
 	>=media-libs/libclam-1.0.0
 	<media-libs/libclam-9999
 	>=x11-libs/qt-4.1"
-	
+
 DEPEND="${DEPEND}
 	media-gfx/imagemagick"
 
@@ -29,7 +29,7 @@ src_compile() {
 	# required for scons to "see" intermediate install location
 	mkdir -p ${D}/usr/vmqt
 	addpredict /usr/share/clam/sconstools
-		    
+
 	cd ${S}/vmqt
 	scons clam_prefix=/usr DESTDIR="${D}/usr" release=yes || die "Building vmqt failed"
 	cd ${S}
@@ -41,9 +41,9 @@ src_install() {
 	cd ${S}
 	dodir /usr
 	addpredict /usr/share/clam/sconstools
-	
+
 	scons install || die "scons install failed"
-	
+
 	dodoc CHANGES COPYING README todos  || die "dodoc failed"
 
 	if use doc; then

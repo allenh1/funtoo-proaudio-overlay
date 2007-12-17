@@ -16,7 +16,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 ~ppc sparc x86"
 
-DEPEND="" 
+DEPEND=""
 
 src_install() {
 	dodir /usr/share/${PN}/waves

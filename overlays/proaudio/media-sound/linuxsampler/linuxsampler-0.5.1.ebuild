@@ -37,14 +37,14 @@ pkg_setup() {
 src_compile() {
 	local myconf=""
 	use arts && myconf="--with-arts-prefix=/usr/kde/3.5"
-	
+
 	econf \
 		`use_enable alsa alsa-driver` \
 		`use_enable arts arts-driver` \
 		`use_enable jack jack-driver` \
 		`use_enable sqlite instruments-db` \
 		${myconf} || die "configure failed"
-	
+
 	emake -j1 || die "make failed"
 }
 

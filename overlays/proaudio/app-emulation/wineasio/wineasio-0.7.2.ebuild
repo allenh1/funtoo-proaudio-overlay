@@ -37,7 +37,7 @@ src_install() {
 pkg_postinst() {
 	echo
 	elog "You need to register the DLL by typing"
-	elog 
+	elog
 	elog "regsvr32 wineasio.dll"
 	elog
 	elog "AS THE USER who uses wine!"

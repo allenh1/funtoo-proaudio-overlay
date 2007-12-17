@@ -34,7 +34,7 @@ RDEPEND="${DEPEND}
 	lash? ( >=media-sound/lash-0.4.0 )
 	!media-sound/museseq-cvs
 	!media-sound/museseq-svn
-	zynaddsubfx? ( =x11-libs/fltk-1.1* 
+	zynaddsubfx? ( =x11-libs/fltk-1.1*
 				>=dev-libs/mini-xml-2 )"
 
 pkg_setup() {
@@ -59,7 +59,7 @@ src_compile() {
 		-DENABLE_VST="$(! use vst; echo "$?")" \
 		-DENABLE_FLUID="$(! use fluidsynth; echo "$?")" \
 		-DENABLE_ZYNADDSUBFX="0" \
-		-DENABLE_ZYNADDSUBFX="$(! use zynaddsubfx; echo "$?")" 
+		-DENABLE_ZYNADDSUBFX="$(! use zynaddsubfx; echo "$?")"
 
 	cmake ../doc/CMakeLists.txt
 

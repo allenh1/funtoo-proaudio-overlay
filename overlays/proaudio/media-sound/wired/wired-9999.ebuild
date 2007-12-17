@@ -22,7 +22,7 @@ RDEPEND=">=media-libs/libsndfile-1.0
 	media-libs/libsamplerate
 	plugins? ( >=media-libs/libsoundtouch-1.2.1 )
 	dssi? ( >=media-libs/dssi-0.9 )
-	codecs? ( media-libs/libvorbis 
+	codecs? ( media-libs/libvorbis
 			media-libs/flac )
 	portaudio-internal? ( !media-libs/portaudio )
 	!portaudio-internal? ( >=media-libs/portaudio-19 )"
@@ -35,7 +35,7 @@ DEPEND="${RDEPEND}
 
 src_compile() {
 	cd "${S}"/wired
-	
+
 	WX_GTK_VER=2.8
 	need-wxwidgets unicode
 

@@ -34,11 +34,11 @@ src_unpack() {
 	unpack ${A}
 	# sonic configuration
 	cd ${S}
-	use O3 && local c_flag="-O3 -mfpmath=sse -fomit-frame-pointer" 
+	use O3 && local c_flag="-O3 -mfpmath=sse -fomit-frame-pointer"
 	sed -i \
 	-e "s~-DNDEBUG -O2 -march=pentium3~${c_flag}~" \
 	sonic-visualiser.pro || die "Sed failed"
-	
+
 	if ! use portaudio ; then
 	    sed -i \
 	    -e 's~DEFINES += HAVE_PORTAUDIO~#DEFINES += HAVE_PORTAUDIO~' \
@@ -47,7 +47,7 @@ src_unpack() {
 	fi
 	#gcc 4 fixes
 	sed -i -e 's@DirectoryCreationFailed::\(~DirectoryCreationFailed()\)@\1@g' \
-		base/TempDirectory.h 
+		base/TempDirectory.h
 	sed -i -e 's@MIDIException::\(~MIDIException()\)@\1@g' \
 		fileio/MIDIFileReader.cpp
 

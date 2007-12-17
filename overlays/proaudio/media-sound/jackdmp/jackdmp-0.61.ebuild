@@ -29,7 +29,7 @@ src_unpack() {
 	# set DESTDIR and remove libjack replacing as we
 	# use pkg_post* to accomplish that
 	sed -i -e "s@^prefix.*@prefix := \$(DESTDIR)/usr@" \
-		-e "s@.*ldconfig.*@@g" -e "s@.*libjack.so.*@@g" Makefile 
+		-e "s@.*ldconfig.*@@g" -e "s@.*libjack.so.*@@g" Makefile
 	# fix ADDON_DIR
 	sed -i -e 's@#define ADDON_DIR.*@#define ADDON_DIR \"/usr/lib/jackmp\"@' \
 	../common/JackDriverLoader.cpp
@@ -43,7 +43,7 @@ src_compile() {
 src_install() {
 	cd linux/
 	dodir /usr/bin /usr/lib/jackmp
-	make DESTDIR=${D} datadir=/usr/share/doc install || die	
+	make DESTDIR=${D} datadir=/usr/share/doc install || die
 	cd ${S}
 	use doc && einfo "generating dox" && doxygen doxyfile &>/dev/null
 	use doc && dohtml html/*
@@ -54,7 +54,7 @@ pkg_postinst() {
 	# replace libjack with libjackmp and set symlinks
 	cd ${ROOT}/usr/lib
 	# fetch libjack filename
-	local jacklib="$(find -name 'libjack.so*' -type f -printf "%f\n")" 
+	local jacklib="$(find -name 'libjack.so*' -type f -printf "%f\n")"
 	# rm stale sym
 	[ -L "${jacklib}" ] && rm -f "${jacklib}"
 	# mv libjack to tmp_jacklib and set symlinks to libjackmp
@@ -91,7 +91,7 @@ pkg_postrm() {
 		# case that jack-audio-connection was updated/installed
 		# after jackdmp was installed
 		einfo "new Jacklib detected, no restoring"
-		local tjacklib="$(find -name 'tmp_libjack.so*' -type f -printf "%f\n")"	
+		local tjacklib="$(find -name 'tmp_libjack.so*' -type f -printf "%f\n")"
 		[ -f "${tjacklib}" ] && rm -f "${tjacklib}"
 	fi
 

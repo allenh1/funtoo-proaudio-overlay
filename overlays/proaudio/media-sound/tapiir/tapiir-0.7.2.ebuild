@@ -40,7 +40,7 @@ src_compile() {
 	[ -e /usr/lib/fltk-1.* ] && \
 	local myconf="--with-fltk-inc-prefix=/usr/include/$(ls /usr/lib/|grep -m1 fltk-1)
 	--with-fltk-prefix=/usr/lib/$(ls /usr/lib/|grep -m1 fltk-1)"
-	
+
 	econf $(use_with X x) ${myconf}|| die "econf failed"
 	emake || die "emake failed"
 }

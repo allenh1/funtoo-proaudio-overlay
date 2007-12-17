@@ -16,7 +16,7 @@ DEPEND="media-libs/ladspa-sdk"
 
 S="${WORKDIR}/${MY_P}"
 src_install() {
-	dodoc AUTHORS README 
+	dodoc AUTHORS README
 	insinto /usr/lib/ladspa
 	insopts -m0755
 	doins *.so

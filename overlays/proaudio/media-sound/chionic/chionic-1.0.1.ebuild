@@ -25,7 +25,7 @@ need-qt 3
 
 src_unpack(){
 	unpack ${A}
-	cd ${S}	
+	cd ${S}
 	epatch $FILESDIR/gcc4.1-fix.patch
 	add_ccache_to_scons_v2
 }

@@ -74,7 +74,7 @@ src_install() {
 	dodir /usr/lib
 	insinto /usr/lib
 	doins fst/libfst.so
-	
+
 	# /usr/lib/pkgconfig/libfst.pc
 	dodir /usr/lib/pkgconfig
 	insinto /usr/lib/pkgconfig

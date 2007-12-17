@@ -17,11 +17,11 @@ IUSE="alsa debug flac jack ladspa oss pic samplerate sdl singerbot surround stk 
 DEPEND="=x11-libs/qt-3.3*
 	vorbis? ( media-libs/libvorbis )
 	alsa? ( media-libs/alsa-lib )
-	sdl? ( media-libs/libsdl 
+	sdl? ( media-libs/libsdl
 		>=media-libs/sdl-sound-1.0.1 )
 	samplerate? ( media-libs/libsamplerate )
 	jack? ( >=media-sound/jack-audio-connection-kit-0.99.0 )
-	vst? ( >=media-libs/vst-sdk-2.3-r3 
+	vst? ( >=media-libs/vst-sdk-2.3-r3
 			app-emulation/wine )
 	ladspa? ( media-libs/ladspa-sdk )
 	singerbot? ( app-accessibility/festival )
@@ -39,7 +39,7 @@ src_unpack() {
 src_compile() {
 	# autofoo
 	eautoreconf || die
-	
+
 	# VST won't compile with -fomit-frame-pointer
 	use vst && filter-flags "-fomit-frame-pointer"
 
@@ -61,7 +61,7 @@ src_compile() {
 		`use_with stk` \
 		--enable-hqsinc \
 		|| die "Configure failed"
-	
+
 	# we need MAKEOPTS="-j1" for VST support
 	if use vst; then
 		emake -j1 || die "Make failed"

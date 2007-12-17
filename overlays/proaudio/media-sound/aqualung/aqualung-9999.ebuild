@@ -78,10 +78,10 @@ src_compile() {
 		`use_with loop-playback loop` \
 		`use_enable debug` \
 		|| die "econf failed"
-	
+
 	emake || die "make failed"
 }
 
 src_install() {
 	make install DESTDIR=${D} || die "make install failed"
-} 
+}

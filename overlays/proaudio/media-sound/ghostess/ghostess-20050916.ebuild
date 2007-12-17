@@ -28,7 +28,7 @@ src_unpack() {
 	sed -i -e'/jack_midi_port_get_info/'i"AC_ARG_WITH\(jackmidi,AC_HELP_STRING([--with-jackmidi], [default=yes]),\n\t[ if test \$withval \= \"yes\";then with_jack_midi\=yes;\n\t\telse with_jack_midi=no; fi ])\nif test "x\${with_jack_midi}" = 'xyes'; then" ${S}/configure.ac
 	sed -i '/AC_DEFINE(MIDI_ALSA/'d  ${S}/configure.ac
 	sed -i -e'/AM_CONDITIONAL(MIDI_JACK/'i"else if test x\${darwin} = 'xno'; then\n\tAC_DEFINE(MIDI_ALSA, 1, [Define for ALSA MIDI support on Linux])\nfi fi"  ${S}/configure.ac
-	
+
 	# fixing jack_midi_event
 	einfo Patching ghostess.c
 	sed -i 's/jack_default_midi_event_t/jack_midi_event_t/g' ${S}/src/ghostess.c

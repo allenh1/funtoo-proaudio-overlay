@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /cvsroot/jacklab/gentoo/media-sound/tutka/tutka-0.12.3.ebuild,v 1.1 2006/04/10 17:19:53 gimpel Exp $
 
-inherit eutils 
+inherit eutils
 RESTRICT="nomirror"
 IUSE="jack" # lash" # cairo"
 DESCRIPTION="A free (as in freedom) tracker style MIDI sequencer for GNU/Linux"
@@ -39,7 +39,7 @@ src_compile() {
 
 src_install() {
 	make DESTDIR="${D}" install || die
-	dodoc AUTHORS ChangeLog README TODO 
+	dodoc AUTHORS ChangeLog README TODO
 }
 
 

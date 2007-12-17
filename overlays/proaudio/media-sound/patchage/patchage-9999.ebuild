@@ -45,4 +45,4 @@ src_install() {
 	cd "${S}/${PN}" || die "source for ${PN} not found"
 	make DESTDIR="${D}" install || die "install failed"
 	dodoc AUTHORS NEWS THANKS ChangeLog
-} 
+}

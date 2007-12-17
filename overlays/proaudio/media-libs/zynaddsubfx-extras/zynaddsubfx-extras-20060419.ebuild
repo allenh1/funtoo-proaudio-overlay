@@ -43,7 +43,7 @@ src_install(){
 	done
 	fowners -R root:root  "${unsorted}"
 	fperms -R 644 "${unsorted}"
-	
+
 	insinto "${examples}"
 	doins -r ../*zynaddsubfx*
 }

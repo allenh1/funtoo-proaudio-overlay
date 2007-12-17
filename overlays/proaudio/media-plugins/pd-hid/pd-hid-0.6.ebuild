@@ -34,13 +34,13 @@ src_compile() {
 src_install() {
 	insinto "/usr/lib/pd/doc/5.reference"
 	doins doc/*-help.pd
-	
+
 	insinto "/usr/lib/pd/extra/hid"
 	fperms 0755 *.pd_linux
 	doins	*.pd *.pd_linux
 
 	dodoc README TODO
-	
+
 	if use examples ; then
 		insinto "/usr/share/doc/${P}/examples"
 		doins *pd examples/*pd

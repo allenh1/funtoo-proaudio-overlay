@@ -42,7 +42,7 @@ DEPEND="dev-util/scons
 	app-doc/doxygen
 	dev-util/cppunit
 	osc? ( media-libs/oscpack )"
-	
+
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${MY_PN}"
@@ -50,9 +50,9 @@ S="${WORKDIR}/${MY_PN}"
 src_compile() {
 	# required for scons to "see" intermediate install location
 	mkdir -p ${D}/usr
-	    
+
 	cd ${S}/scons/libs
-	
+
 	local myconf="DESTDIR=${D}/usr prefix=/usr install_prefix=${D}/usr"
 	if use double; then
 	    myconf="${myconf} double=yes"
@@ -100,11 +100,11 @@ src_compile() {
 src_install() {
 	cd ${S}/scons/libs
 	dodir /usr
-	
+
 	scons install || die "scons install failed"
 	cd ${S}
 	dodoc CHANGES
-	
+
 	if use doc; then
 		docinto examples/CLAMRemoteController
 		dodoc ${S}/examples/CLAMRemoteController/*

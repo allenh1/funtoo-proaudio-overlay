@@ -27,7 +27,7 @@ DEPEND="app-arch/unzip
 #	unpack ${A}
 #
 #	cd ${S}
-#	
+#
 #}
 
 src_compile() {
@@ -37,14 +37,14 @@ src_compile() {
 	fi
 	# fix a DT_TEXREL warning on x86 and made it to compile on amd64 and possibely on ppc:
 	sed -i -e "s:-Wall -O3:-Wall -O3 -fPIC:" ${S}/Makefile || die "sed clafgs failed"
-	
+
 	emake || die "make failed"
 	emake lib || "make lib failed"
 }
 
 src_install() {
 	dodoc CHANGES LICENSE README TODO
-	
+
 	dolib liboscpack.so.1.0.2
 	insinto /usr/include/oscpack/ip
 	doins ip/*.h

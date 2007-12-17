@@ -27,10 +27,10 @@ src_compile() {
 }
 
 src_install() {
-	java-pkg_dojar livraisons/${MY_P}/${MY_P}.jar 
+	java-pkg_dojar livraisons/${MY_P}/${MY_P}.jar
 	# for whatever reason this one throws a null pointer exception
 	java-pkg_dolauncher ${PN} --jar /usr/share/${PN}/lib/${MY_P}.jar
-	
+
 	# so do it manually
 	#echo "java -jar /usr/share/${PN}/lib/${MY_P}.jar" > ${S}/${PN}
 	#dobin ${S}/${PN}

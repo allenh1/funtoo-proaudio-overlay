@@ -39,9 +39,9 @@ src_compile() {
 	econf || die "configure failed"
 	sed -i -e 's|DEFS = -DHAVE_CONFIG_H|DEFS = -DHAVE_CONFIG_H -DLINUX|g' \
 		audiocutter/Makefile
-	
+
 	emake || die "make failed"
-	
+
 	cd "${S}/gui"
 	javac \
 		-verbose \

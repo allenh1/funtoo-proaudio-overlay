@@ -25,5 +25,5 @@ src_unpack() {
 }
 
 src_install() {
-	make DESTDIR="${D}" install || die "install failed" 
+	make DESTDIR="${D}" install || die "install failed"
 }

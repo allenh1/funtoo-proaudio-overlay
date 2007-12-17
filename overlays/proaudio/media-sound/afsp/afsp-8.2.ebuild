@@ -30,4 +30,4 @@ src_compile() {
 src_install() {
 	einstall prefix="${D}/usr" || die "emake install failed"
 	dodoc Copying  INSTALL.txt  Notes.txt README.txt
-} 
+}

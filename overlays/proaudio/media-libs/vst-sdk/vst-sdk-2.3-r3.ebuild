@@ -27,13 +27,13 @@ pkg_nofetch() {
 	einfo "Please go to ${HOMEPAGE}"
 	einfo " or http://www.steinberg.de/532+M52087573ab0.html"
 	einfo "- Look for a link called: VST Plug-Ins SDK.."
-	einfo "- Download the VST-SDK for version ${PV}" 
+	einfo "- Download the VST-SDK for version ${PV}"
 	einfo "- Extract the archive and put the inner archive ${A}"
 	einfo "  into: ${DISTDIR}"
 	einfo
 	einfo "If above Homepage no longer provide ${A}"
 	einfo "You can try to search for ${A} with e.g. google"
-	einfo 
+	einfo
 	einfo "Please redigest your ebuild if you get digest errors:"
 	einfo "ebuild ${EBUILD} digest"
 	einfo
@@ -56,7 +56,7 @@ src_compile() {
 include_path="/usr/include/vst"
 src_install() {
 	header_path="source/common"
-		
+
 	use doc && dodir "${BASE}"
 	dodir "${include_path}"
 	mv ${S}/${header_path}/* ${D}/"${include_path}"
@@ -67,7 +67,7 @@ src_install() {
 		dodir "${BASE}/${MY_P}"
 		mv ${S}/*Licensing\ Agreement* "${D}/${BASE}/${MY_P}"
 	fi
-	fowners -R root:root . 
+	fowners -R root:root .
 
 }
 

@@ -18,9 +18,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc ~sparc x86"
 
 # libsndfile support is actually optional, but IMHO this package should have it
-DEPEND=">=dev-cpp/gtkmm-2.4 
+DEPEND=">=dev-cpp/gtkmm-2.4
 	>=media-libs/libsndfile-1.0
-	alsa? ( >=media-libs/alsa-lib-0.9 media-sound/alsa-utils ) 
+	alsa? ( >=media-libs/alsa-lib-0.9 media-sound/alsa-utils )
 	jack? ( media-sound/jack-audio-connection-kit )"
 
 S="${WORKDIR}/${MY_P}"

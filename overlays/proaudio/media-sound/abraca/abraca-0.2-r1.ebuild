@@ -24,10 +24,10 @@ src_unpack () {
 	unpack ${A}
 }
 
-src_compile() { 
+src_compile() {
 	${S}/waf --prefix=/usr configure || die "Configure failed"
 	${S}/waf || die "Build failed"
-}	
+}
 
 src_install() {
 	${S}/waf --destdir=${D} install || die "install failed"

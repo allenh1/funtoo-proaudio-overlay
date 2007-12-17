@@ -5,7 +5,7 @@
 RESTRICT="nomirror"
 IUSE=""
 
-inherit eutils 
+inherit eutils
 
 DESCRIPTION="synthesiser emulation package for Moog, Sequential Circuits, Hammond and several other keyboards."
 HOMEPAGE="http://sourceforge.net/projects/bristol"

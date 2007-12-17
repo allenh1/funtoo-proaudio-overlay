@@ -21,7 +21,7 @@ DEPEND="media-sound/alsaplayer"
 
 src_unpack() {
 	subversion_src_unpack
-	
+
 		./bootstrap || die "bootstrap failed"
 }
 

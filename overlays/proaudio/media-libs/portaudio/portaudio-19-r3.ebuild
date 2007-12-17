@@ -72,7 +72,7 @@ src_install() {
 #			dolib pa_mac_core/libportaudio.dylib
 #		fi
 		emake  DESTDIR="${D}" install || die "install failed"
-		
+
 		insinto /usr/include
 		doins include/portaudio.h
 		use doc && dodoc docs/*

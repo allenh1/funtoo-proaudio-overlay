@@ -13,12 +13,12 @@ KEYWORDS="amd64 x86"
 SLOT="0"
 
 DEPEND=">=media-sound/jack-audio-connection-kit-0.99
-	>=dev-cpp/gtkmm-2.4 
-	>=dev-cpp/libgnomecanvasmm-2.6 
+	>=dev-cpp/gtkmm-2.4
+	>=dev-cpp/libgnomecanvasmm-2.6
 	>=dev-cpp/libglademm-2.4.1
 	lash? ( >=media-sound/lash-0.5.0 )
 	!media-sound/patchage-cvs"
-	
+
 src_compile() {
 	econf `use_enable lash` || die
 	emake || die

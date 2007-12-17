@@ -30,7 +30,7 @@ src_compile() {
 	export WANT_AUTOCONF=2.5
 	export WANT_AUTOMAKE=1.9
 	./autogen.sh || die
-	
+
 	econf \
 		--disable-in-process-engine \
 		--disable-dssi \
@@ -42,7 +42,7 @@ src_compile() {
 		--disable-alsa \
 		--disable-lv2 \
 		--disable-machina-gui || die "configure failed"
-	
+
 	cd "${S}/${PN}" || die "source for ${PN} not found"
 	emake || die
 }

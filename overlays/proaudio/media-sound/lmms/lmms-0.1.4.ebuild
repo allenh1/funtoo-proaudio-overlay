@@ -18,7 +18,7 @@ IUSE="alsa oggvorbis sdl samplerate jack"
 DEPEND=">=x11-libs/qt-3.2.0
 	oggvorbis? ( media-libs/libvorbis )
 	alsa? ( media-libs/alsa-lib )
-	sdl? ( media-libs/libsdl 
+	sdl? ( media-libs/libsdl
 		>=media-libs/sdl-sound-1.0.1 )
 	samplerate? ( media-libs/libsamplerate )
 	jack? ( >=media-sound/jack-audio-connection-kit-0.99.0 )

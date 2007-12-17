@@ -24,7 +24,7 @@ DEPEND=">=dev-util/pkgconfig-0.9.0
 	dev-libs/redland
 	>=dev-cpp/glibmm-2.4
 	jack? ( >=media-sound/jack-audio-connection-kit-0.107.0 )
-	lash? ( >=media-sound/lash-0.5.2 
+	lash? ( >=media-sound/lash-0.5.2
 		>=dev-libs/libsigc++-2 )
 	=dev-libs/redlandmm-9999"
 
@@ -47,4 +47,4 @@ src_install() {
 	cd "${S}/${PN}" || die "source for ${PN} not found"
 	make DESTDIR="${D}" install || die "install failed"
 	dodoc AUTHORS NEWS THANKS ChangeLog
-} 
+}

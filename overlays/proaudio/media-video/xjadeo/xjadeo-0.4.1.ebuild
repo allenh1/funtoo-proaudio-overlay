@@ -51,7 +51,7 @@ src_compile() {
 	fi
 
 	[ $enable_sws_scale ] && eautoreconf
-		
+
 		econf $(use_enable xv) \
 		$(use_enable sdl) \
 		$(use_enable osd ft) \
@@ -63,7 +63,7 @@ src_compile() {
 	emake || die
 }
 
-	
+
 src_install() {
 	einstall || die "einstall failed"
 	dodoc AUTHORS ChangeLog TODO README NEWS

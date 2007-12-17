@@ -49,11 +49,11 @@ src_install() {
 	use doc && dohtml -r doc/*
 
 	# install application
-	insinto /usr/share/${PN} 
+	insinto /usr/share/${PN}
 	doins -r images Instruments Jokosher
 	fperms 755 /usr/share/${PN}/Jokosher/JokosherApp.py
 	dosym /usr/share/${PN}/Jokosher/JokosherApp.py /usr/bin/jokosher
-	
+
 	newicon "images/${PN}-icon.png" "${PN}.png"
 	make_desktop_entry "${PN}" "Jokosher" "${PN}" "AudioVideo;AudioVideoEditing;"
 }
@@ -61,13 +61,13 @@ src_install() {
 pkg_postinst() {
 
 	# byte compile all python mods
-	python_mod_optimize /usr/share/${PN} 
+	python_mod_optimize /usr/share/${PN}
 
 }
 
 pkg_postrm() {
 
 	# remove orphaned *.py[co]
-	python_mod_cleanup /usr/share/${PN} 
+	python_mod_cleanup /usr/share/${PN}
 
 }

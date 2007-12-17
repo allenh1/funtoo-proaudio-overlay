@@ -19,7 +19,7 @@ DEPEND="media-sound/lash
 	>=app-emulation/wine-0.9.5
 	>=media-sound/jack-audio-connection-kit-0.98.1
 	=media-libs/vst-sdk-${VST_SDK_VER}*"
-	
+
 pkg_setup() {
 	if [ ! -e "/usr/include/vst/aeffectx.h" -a ! -e \
 		"/usr/include/vst/aeffectx.h" ] ;then
@@ -31,10 +31,10 @@ pkg_setup() {
 
 src_unpack() {
 	unpack "${A}" || die
-	
+
 	einfo "Patch Makefile 0-5"
 	sed -i  /test\ -n\ \$\(SDKDIR\)\ \&\&\ \$\(RM\)\ -rf\ \$\(SDKDIR\)/d "${S}"/Makefile || die
-	
+
 	# remove unneeded vars
 	einfo "Patch Makefile 1-5"
 	sed -i /distclean:clean/d  "${S}"/Makefile || die
@@ -45,7 +45,7 @@ src_unpack() {
 	einfo "Patch Makefile 4-5"
 	sed -i  /^VSTDIR/d "${S}"/Makefile || die
 	einfo "Patch Makefile 5-5"
-	
+
 	# add VSTDIR include path to makefile
 	sed -i -e 1i'VSTDIR = /usr/include/vst' "${S}"/Makefile || die
 }
@@ -62,7 +62,7 @@ src_compile() {
 
 src_install() {
 	exeinto /usr/bin
-	doexe fst 
+	doexe fst
 	#fst.exe.so
 	#fperms 644 /usr/bin/fst.exe.so
 	# object files are needed for eg. ardour with fst-support

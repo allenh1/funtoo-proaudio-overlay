@@ -62,7 +62,7 @@ pkg_setup(){
 src_unpack() {
 	subversion_fetch
 	cd ${S}
-	svn log -r HEAD:7144 ${ESVN_REPO_URI} > ChangeLog-svn & 
+	svn log -r HEAD:7144 ${ESVN_REPO_URI} > ChangeLog-svn &
 }
 
 src_compile() {

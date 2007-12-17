@@ -22,7 +22,7 @@ src_install() {
 	if ! use laptop; then
 	    rm -f fvwm/recipes/*ACPI
 	fi
-	
+
 	einstall || die "einstall failed"
 
 	dodoc AUTHORS COPYING README INSTALL NEWS ChangeLog doc/*

@@ -16,7 +16,7 @@ KEYWORDS="x86"
 
 DEPEND=">=media-libs/libdsp-5.0.1
 	>=media-sound/jack-audio-connection-kit-0.99
-	media-libs/libsndfile 
+	media-libs/libsndfile
 	media-libs/libsamplerate
 	=sci-libs/fftw-3*
 	dev-util/pkgconfig"

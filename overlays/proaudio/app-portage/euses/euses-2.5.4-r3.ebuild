@@ -23,7 +23,7 @@ src_unpack() {
 	UNIPATCH_LIST="${FILESDIR}/euses-overlay-patches.tar.gz"
 	unipatch
 	[ -e "${KPATCH_DIR}" ] && rm -rf "${KPATCH_DIR}"
-	UNIPATCH_LIST="${FILESDIR}/euses-overlay-patches-2.tar.gz" 
+	UNIPATCH_LIST="${FILESDIR}/euses-overlay-patches-2.tar.gz"
 	unipatch
 	eautoreconf
 }

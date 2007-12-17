@@ -25,7 +25,7 @@ src_unpack() {
 	cd ${S}
 	sed -i -e "s:gcc:$(tc-getCC) ${CFLAGS}:g" \
 		-e 's:/usr/lib/qt3:/usr/qt/3:g' make_kaconnect
-	sed -i -e 's@ConnectorWidget::@@g' connector.h	
+	sed -i -e 's@ConnectorWidget::@@g' connector.h
 }
 
 src_compile() {

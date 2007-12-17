@@ -1,8 +1,8 @@
-# Copyright 1999-2006 Gentoo Foundation 
+# Copyright 1999-2006 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /cvsroot/jacklab/gentoo/media-sound/fmit/fmit-0.96.5-r1.ebuild,v 1.1 2006/04/10 16:16:23 gimpel Exp $
 
-inherit kde-functions eutils 
+inherit kde-functions eutils
 need-qt 3
 
 RESTRICT="nomirror"
@@ -34,5 +34,5 @@ src_compile() {
 
 src_install() {
 	make DESTDIR=${D} install || die "install failed"
-	dodoc AUTHORS ChangeLog INSTALL NEWS README 
+	dodoc AUTHORS ChangeLog INSTALL NEWS README
 }

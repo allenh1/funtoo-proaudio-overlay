@@ -1,7 +1,7 @@
 # Copyright 1999-2005 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $
-# Nonofficial ebuild by dangertools 
+# Nonofficial ebuild by dangertools
 
 inherit eutils toolchain-funcs flag-o-matic
 
@@ -16,7 +16,7 @@ IUSE=""
 
 RESTRICT="nomirror"
 
-RDEPEND="|| ( 
+RDEPEND="|| (
 		>=media-sound/xmms2-0.2.8_rc2
 		media-sound/xmms2-git )
 	>=dev-libs/boost-1.32

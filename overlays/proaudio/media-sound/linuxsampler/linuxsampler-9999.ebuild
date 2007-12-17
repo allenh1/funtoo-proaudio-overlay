@@ -26,7 +26,7 @@ RDEPEND="
 	jack? ( media-sound/jack-audio-connection-kit )
 	arts? ( || ( kde-base/kdebase kde-base/arts ) )
 	sqlite? ( >=dev-db/sqlite-3.3 )"
-	
+
 DEPEND="${RDEPEND}"
 
 pkg_setup() {
@@ -45,14 +45,14 @@ src_compile() {
 	make -f Makefile.cvs
 	local myconf=""
 	use arts && myconf="--with-arts-prefix=/usr/kde/3.5"
-	
+
 	econf \
 		`use_enable alsa alsa-driver` \
 		`use_enable arts arts-driver` \
 		`use_enable jack jack-driver` \
 		`use_enable sqlite instruments-db` \
 		${myconf} || die "configure failed"
-	
+
 	emake -j1 || die "make failed"
 }
 

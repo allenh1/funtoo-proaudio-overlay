@@ -44,17 +44,17 @@ pkg_setup() {
 
 src_compile() {
 	local myconf=""
-	
+
 	use llvm \
 		&& myconf="${myconf} LUNARTARGET=llvm LLVMGCCPATH=/usr/bin" \
 		|| myconf="${myconf} LUNARTARGET=gcc"
-	
+
 	scons \
 		PREFIX=/usr \
 		DESTDIR="${D}" \
 		${myconf} \
 		configure || die "configure failed"
-	
+
 	scons || die "compilation failed"
 }
 

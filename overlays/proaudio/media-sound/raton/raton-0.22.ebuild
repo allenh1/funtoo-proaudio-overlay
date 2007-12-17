@@ -17,7 +17,7 @@ SLOT="0"
 
 DEPEND=">=media-libs/alsa-lib-0.9
 	>=x11-libs/gtk+-2.4"
-	
+
 src_compile() {
 	./autogen.sh --prefix=/usr
 	emake || die

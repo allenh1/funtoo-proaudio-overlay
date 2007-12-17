@@ -30,7 +30,7 @@ src_compile() {
 	emake -f Makefile.cvs
 	#ugly qt4 configure hack
 	sed -i '1iac_qtlib_version=set' configure
-	
+
 	econf \
 		`use_enable vorbis libvorbis` \
 		`use_enable mp3 libmad` \

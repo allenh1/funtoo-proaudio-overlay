@@ -5,7 +5,7 @@
 RESTRICT="nomirror"
 IUSE=""
 
-inherit eutils toolchain-funcs 
+inherit eutils toolchain-funcs
 
 DESCRIPTION="synthesiser emulation package for Moog, Sequential Circuits, Hammond and several other keyboards."
 HOMEPAGE="http://sourceforge.net/projects/bristol"
@@ -22,7 +22,7 @@ DEPEND="|| ( (  x11-proto/xineramaproto
 				virtual/x11 )
 		media-libs/alsa-lib
 		jack? ( >=media-sound/jack-audio-connection-kit-0.100 )"
-		
+
 src_compile() {
 	epatch "${FILESDIR}/${P}-fix_startBristol.patch"
 	econf \
@@ -30,11 +30,11 @@ src_compile() {
 		`use_enable jack` \
 		`use_enable static` \
 		|| die "configure failed"
-	
+
 	emake bristoldir=/usr/share/${PN} || die "make failed"
 }
 
 src_install() {
 	make bristoldir="${D}/usr/share/${PN}" prefix="${D}/usr" install || die "install failed"
-	dodoc ChangeLog AUTHORS README NEWS 
+	dodoc ChangeLog AUTHORS README NEWS
 }

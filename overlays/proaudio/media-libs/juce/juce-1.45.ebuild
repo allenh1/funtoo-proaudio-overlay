@@ -36,7 +36,7 @@ DEPEND="${RDEPEND}
 	opengl? ( virtual/opengl || ( media-libs/freeglut media-libs/glut ) )"
 
 pkg_setup() {
-	if has_version "<= sys-libs/glibc-2.5"; then 
+	if has_version "<= sys-libs/glibc-2.5"; then
 		if ! built_with_use sys-libs/glibc nptl ; then
 			eerror "JUCE needs POSIX threads in order to work."
 			eerror "You will have to compile glibc with USE=\"nptl\"."
@@ -92,7 +92,7 @@ src_compile() {
 		# and compile the lib again
 		cd "${S}"/build/linux
 		make clean || die
-		CFLAGS="${CFLAGS} -m32" 
+		CFLAGS="${CFLAGS} -m32"
 		# debug
 		einfo "Running CFLAGS=${CFLAGS} make ${myconf} ..."
 		make ${myconf} || die

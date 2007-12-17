@@ -39,12 +39,12 @@ DEPEND="${RDEPEND}
 	nls? ( sys-devel/gettext )
 	gtk? ( >=x11-libs/gtk+-2.8 )
 	systray? ( >=x11-libs/gtk+-2.10 )"
-	
+
 src_unpack() {
 	subversion_src_unpack
 
 	cd ${S}
-	
+
 	if ! use custom-cflags; then
 		UNIPATCH_LIST="${FILESDIR}/${P}-cxxflags.patch"
 		unipatch || die "patching failed"

@@ -35,11 +35,11 @@ src_unpack() {
 
 	cd "${S}"
 	epatch "${FILESDIR}"/${P}-gentoo.patch
-	
+
 	if has_version ">media-sound/jack-audio-connection-kit-0.103.0"; then
 		epatch "${FILESDIR}"/${P}-jack-lock.patch
 	fi
-	
+
 	if ! use sse ; then
 		epatch "${FILESDIR}"/${P}-no-msse.patch
 		epatch "${FILESDIR}"/${P}-disable-optimization.patch

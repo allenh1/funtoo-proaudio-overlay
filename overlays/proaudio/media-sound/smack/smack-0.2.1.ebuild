@@ -18,7 +18,7 @@ DEPEND="media-sound/om
 	media-plugins/blop
 	media-libs/ladspa-cmt
 	media-libs/phat"
-	
+
 src_compile() {
 	econf || die
 	emake || die

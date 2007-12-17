@@ -1,6 +1,6 @@
 # Copyright 1999-2007 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# Header: $
+# $Header: $
 
 inherit eutils toolchain-funcs git
 
@@ -17,7 +17,7 @@ diskwrite ecore eq fam flac gnome jack lastfm mac mms modplug mp3 mp4 musepack n
 
 RESTRICT="nomirror"
 
-DEPEND="!clientonly? ( 
+DEPEND="!clientonly? (
 		>=dev-db/sqlite-3.3.4
 		aac? ( >=media-libs/faad2-2.0 )
 		alsa? ( media-libs/alsa-lib )
@@ -25,8 +25,8 @@ DEPEND="!clientonly? (
 		avahi? ( net-dns/avahi )
 		cdda? ( >=media-libs/libdiscid-0.1.1
 			>=media-sound/cdparanoia-3.9.8 )
-		curl? ( >=net-misc/curl-7.15.1 
-			 	!=net-misc/curl-7.16.1 
+		curl? ( >=net-misc/curl-7.15.1
+			 	!=net-misc/curl-7.16.1
 			 	!=net-misc/curl-7.16.2 )
 		flac? ( media-libs/flac )
 		gnome? ( gnome-base/gnome-vfs )
@@ -68,7 +68,7 @@ src_compile() {
 	local options="--conf-prefix=/etc --prefix=/usr --destdir=${D}"
 	if use clientonly ; then
 		exc="--without-xmms2d=1 "
-	else 
+	else
 		for x in avahi cpp:xmmsclient++,xmmsclient++-glib ecore:xmmsclient-ecore fam:medialib-updater nophonehome:et perl python ruby ; do
 			use ${x/:*} || excl_opts="${excl_opts},${x/*:}"
 		done
@@ -89,14 +89,14 @@ src_compile() {
 	CXX="$(tc-getCXX) ${CXXFLAGS} -fPIC" \
 	LINK="$(tc-getCXX) ${LDFLAGS} -fPIC"
 
-	${S}/waf --nocache ${options} ${exc} configure || die "Configure failed"
+	"${S}"/waf --nocache ${options} ${exc} configure || die "Configure failed"
 	# parallel builds are bad with DrJekyll, it will corrupt your pc-files
-	${S}/waf build || die "Build failed"
+	"${S}"/waf build || die "Build failed"
 }
 
 src_install() {
-	${S}/waf --destdir=${D} install || die
-	dodoc AUTHORS COPYING COPYING.GPL COPYING.LGPL TODO README
+	"${S}"/waf --destdir="${D}" install || die
+	dodoc AUTHORS TODO README
 }
 
 pkg_postinst() {

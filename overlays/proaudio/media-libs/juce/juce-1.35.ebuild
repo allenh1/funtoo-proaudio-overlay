@@ -53,12 +53,12 @@ src_unpack() {
 src_compile() {
 	local myconf
 		use debug && myconf="CONFIG=Debug" || myconf="CONFIG=Release"
-		
+
 	if use opengl; then
 		sed -i -e "s://  #define JUCE_OPENGL 1:  #define JUCE_OPENGL 1:" \
 		juce_Config.h
 	fi
-	
+
 	cd "${S}"/build/linux
 	make ${myconf} || die "compiling the juce library failed"
 

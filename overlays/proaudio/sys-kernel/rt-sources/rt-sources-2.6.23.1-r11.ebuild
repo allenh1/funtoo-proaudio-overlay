@@ -19,7 +19,7 @@ RESTRICT="nomirror"
 DESCRIPTION="Ingo Molnars realtime patch applied on vanilla"
 SRC_URI="${KERNEL_URI}
 http://www.kernel.org/pub/linux/kernel/projects/rt/${RT_PATCH}
-uvesafb? ( http://proaudio.tuxfamily.org/patches/${UVESAFB} ) 
+uvesafb? ( http://proaudio.tuxfamily.org/patches/${UVESAFB} )
 fbsplash? ( http://proaudio.tuxfamily.org/patches/${FBSPLASH} )"
 
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
@@ -35,16 +35,16 @@ pkg_setup(){
 
 src_unpack(){
 	kernel-2_src_unpack
-	
+
 	epatch "${DISTDIR}/${RT_PATCH}"
-	
+
 	# fix sandbox_problems
 	epatch "${FILESDIR}/build-id-sandbox-violation.patch"
 
 	# Spock's stuff
 	use uvesafb && patcher "${DISTDIR}/${UVESAFB} apply"
 	use fbsplash && patcher "${DISTDIR}/${FBSPLASH} apply"
-	
+
 	# expose 1gig lowmem options (x86 only)
 	#patcher "${FILESDIR}/kconfig-expose_vmsplit_option.patch apply"
 }
@@ -53,7 +53,7 @@ K_EXTRAEINFO="This kernel is not supported by Gentoo If you have any issues, try
 a matching vanilla-sources ebuild -- if the problem persists there, please file
 a bug at http://bugme.osdl.org. If the problem only occurs with rt-sources then
 please contact Ingo Molnar on the kernel mailinglist to get your issue resolved.
-But first search the mailinglist-archiv if your problem is already 
+But first search the mailinglist-archiv if your problem is already
 discussed/solved: http://lkml.org/ and
 http://www.mail-archive.com/linux-rt-users@vger.kernel.org/ .
 Recommended other packages: sys-process/rtirq and sys-apps/das_watchdog"

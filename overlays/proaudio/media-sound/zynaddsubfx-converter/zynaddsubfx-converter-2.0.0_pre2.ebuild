@@ -48,7 +48,7 @@ src_compile() {
 	else
 		use jack && LINUX_AUDIOOUT=JACK
 	fi
-	
+
 	use lash && LINUX_USE_LASH=YES
 
 	use alsa && LINUX_MIDIIN=ALSA

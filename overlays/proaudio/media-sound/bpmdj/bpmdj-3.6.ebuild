@@ -14,7 +14,7 @@ KEYWORDS="~amd64 ~x86 ~ppc"
 IUSE="alsa jack vorbis"
 
 DEPEND="${RDEPEND}
-	$(qt4_min_version 4.2)		
+	$(qt4_min_version 4.2)
 	dev-util/pkgconfig"
 
 RDEPEND="alsa? ( media-libs/alsa-lib )
@@ -53,17 +53,17 @@ src_compile() {
 }
 
 src_install () {
-	# makefile is absolutly a mess so we use portage features 
+	# makefile is absolutly a mess so we use portage features
 	dodoc authors changelog copyright readme todo support.txt
 	dodir /usr/$(get_libdir)/${PN}
 	exeinto /usr/$(get_libdir)/${PN}
 	doexe bpmcount bpmdj bpmdjraw bpmmerge bpmplay
 	# needed too..
-	mv sequences ${D}/usr/$(get_libdir)/${PN} 
+	mv sequences ${D}/usr/$(get_libdir)/${PN}
 	dodoc authors changelog readme support.txt
 	# install startup wrapper
 	dobin ${FILESDIR}/${PN}.sh
 	# install logo and desktop entry
-	doicon ${FILESDIR}/${PN}.png	
+	doicon ${FILESDIR}/${PN}.png
 	make_desktop_entry "bpmdj.sh" "BpmDj" ${PN} "AudioVideo;Audio"
 }

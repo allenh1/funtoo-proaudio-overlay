@@ -13,7 +13,7 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE=""
 
-RDEPEND="|| ( 
+RDEPEND="|| (
 			media-sound/xmms2
 			media-sound/xmms2-git
 		)

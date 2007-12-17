@@ -35,7 +35,7 @@ src_install(){
 	fowners -R root:root  "${banks_collection}"
 	fperms -R 600 "${banks_collection}"
 	fperms 755 "${banks_collection}"
-	
+
 	insinto "${banks_collection}"
 	doins -r ${S}/*
 }

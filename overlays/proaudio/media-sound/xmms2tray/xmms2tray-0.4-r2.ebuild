@@ -25,14 +25,14 @@ src_unpack () {
 	unpack ${A}
 }
 
-src_compile() { 
+src_compile() {
 	local which_xmms2="xmms2"
 	has_version media-sound/xmms2 2> /dev/null || which_xmms2="xmms2-git"
 	if ! built_with_use media-sound/${which_xmms2} python ; then
 		eerror "You didn't build xmms2 with the python USE-flag"
 		die
 	fi
-}	
+}
 
 src_install() {
 	python setup.py install --prefix=${D}/usr || die "Failed to create image"

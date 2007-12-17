@@ -24,7 +24,7 @@ DEPEND=">=media-sound/jack-audio-connection-kit-0.80.0
 	>=x11-libs/gtk+-2.0.0
 	osc? ( >=media-libs/liblo-0.5 )
 	!media-sound/jamin-cvs"
-	
+
 S="${WORKDIR}/${ECVS_MODULE}"
 
 src_compile() {

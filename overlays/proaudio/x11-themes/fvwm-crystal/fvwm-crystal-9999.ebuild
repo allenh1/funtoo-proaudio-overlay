@@ -26,7 +26,7 @@ src_unpack() {
 
 src_compile() {
 	sed -i 's/correctpermissions correctpath/correctpermissions/' Makefile || die "sed Makefile failed"
-	
+
 	if use session; then
 	    sed -i 's/Exec=fvwm/#Exec=fvwm/' addons/fvwm-crystal.desktop || die "sed failed"
 	    sed -i 's/#Exec=gnome/Exec=gnome/' addons/fvwm-crystal.desktop || die "sed failed"
@@ -40,7 +40,7 @@ src_install() {
 	if ! use laptop; then
 	    rm -f fvwm/recipes/*ACPI
 	fi
-	
+
 	einstall || die "einstall failed"
 
 	dodoc AUTHORS COPYING README INSTALL NEWS ChangeLog doc/*

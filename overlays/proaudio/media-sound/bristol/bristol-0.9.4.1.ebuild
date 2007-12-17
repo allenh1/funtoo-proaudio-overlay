@@ -5,7 +5,7 @@
 RESTRICT="nomirror"
 IUSE=""
 
-inherit eutils 
+inherit eutils
 MY_P="${PN}-${PV/.1/-1}.src.041906"
 DESCRIPTION="synthesiser emulation package for Moog, Sequential Circuits, Hammond and several other keyboards."
 HOMEPAGE="http://sourceforge.net/projects/bristol"
@@ -18,7 +18,7 @@ IUSE="jack"
 
 DEPEND="media-libs/alsa-lib
 		jack? ( >=media-sound/jack-audio-connection-kit-0.100 )"
-		
+
 S="${WORKDIR}/${PN}"
 
 src_unpack() {

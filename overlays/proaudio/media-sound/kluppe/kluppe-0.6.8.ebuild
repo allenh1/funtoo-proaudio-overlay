@@ -25,7 +25,7 @@ src_compile() {
 }
 
 src_install() {
-		dobin src/frontend/kluppe/kluppe	
+		dobin src/frontend/kluppe/kluppe
 		insinto /usr/share/pixmaps
 		doins src/frontend/kluppe/kluppe.png
 		newdoc CHANGES.log ChangeLog

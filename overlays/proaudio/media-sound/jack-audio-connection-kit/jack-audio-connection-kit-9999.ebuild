@@ -30,7 +30,7 @@ RDEPEND="dev-util/pkgconfig
 	netjack? ( dev-util/scons )
 	jackmidi? ( media-libs/alsa-lib )
 	freebob? ( sys-libs/libfreebob )
-	dbus? ( sys-apps/dbus 
+	dbus? ( sys-apps/dbus
 			dev-python/dbus-python )
 	!media-sound/jack-audio-connection-kit-svn"
 DEPEND="${RDEPEND}
@@ -73,7 +73,7 @@ src_unpack() {
 src_compile() {
 	sed -i -e "s:include/nptl/:include/:g" configure.ac || die
 	eautoreconf
-	
+
 	local myconf
 
 	sed -i "s/^CFLAGS=\$JACK_CFLAGS/CFLAGS=\"\$JACK_CFLAGS $(get-flag -march)\"/" configure || die
@@ -99,7 +99,7 @@ src_compile() {
 	use sndfile && \
 		export SNDFILE_CFLAGS="-I/usr/include" \
 		export SNDFILE_LIBS="-L/usr/$(get_libdir) -lsndfile"
-	
+
 	econf \
 		$(use_enable altivec) \
 		$(use_enable alsa) \

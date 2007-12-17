@@ -40,4 +40,4 @@ pkg_postinst(){
 	 einfo "$P is installed in /opt/${MY_P}"
 	 einfo "type tuxguitar to start the application"
 	 einfo "some example files are in /opt/${MY_P}/examples"
-} 
+}

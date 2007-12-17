@@ -46,7 +46,7 @@ pkg_postinst(){
 		# add new lash entry
 		if ! grep -q ^lash /etc/services ; then
 			cat >>/etc/services<<-EOF
-			
+
 lash		14541/tcp			# LASH client/server protocol
 EOF
 		fi
@@ -60,5 +60,5 @@ pkg_postrm(){
 		sed -i /lash/d /etc/services
 	fi
 	# cleanup trailing blank lines in /etc/service
-	sed -i -e :a -e '/^\n*$/{$d;N;};/\n$/ba' /etc/services	
+	sed -i -e :a -e '/^\n*$/{$d;N;};/\n$/ba' /etc/services
 }

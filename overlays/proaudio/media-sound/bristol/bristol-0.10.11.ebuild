@@ -33,7 +33,7 @@ src_compile() {
 		`use_enable static` \
 		${myconf} \
 		|| die "configure failed"
-	
+
 	emake || die "make failed"
 }
 
@@ -43,7 +43,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	echo	
+	echo
 	elog "To use Bristol with jack, use something like:"
 	echo
 	elog "startBristol -audio jack"

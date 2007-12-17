@@ -45,7 +45,7 @@ export LD_LIBRARY_PATH=/usr/lib:\$LD_LIBRARY_PATH
 /usr/share/snd-ls/snd-8/snd -noglob -noinit -l /usr/share/snd-ls/init.scm \$@
 EOT
 	}
-	dodoc README 
+	dodoc README
 	dohtml -r snd-8/*.html snd-8/*.png snd-8/tutorial
 	rm -f snd-8/*.html snd-8/*.png snd-8/snd.1
 	rm -rf snd-8/tutorial

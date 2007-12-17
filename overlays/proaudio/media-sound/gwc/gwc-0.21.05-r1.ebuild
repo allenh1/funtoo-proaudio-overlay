@@ -17,7 +17,7 @@ KEYWORDS="amd64 ~ppc x86"
 
 DEPEND=">=media-libs/libsndfile-1.0.1
 	>=dev-util/pkgconfig-0.9
-	=sci-libs/fftw-3*	
+	=sci-libs/fftw-3*
 	>=gnome-base/libgnomeui-2.0
 	alsa? ( >=media-libs/alsa-lib-0.9 )"
 
@@ -30,7 +30,7 @@ src_unpack(){
 	sed -i -e "/^CFLAGS =/s/@CFLAGS@ -mcpu=@UNAME_MACHINE@ -march=@UNAME_MACHINE@//" -e "s/^\(CFLAGS\).*\(\=\)/\1 +=/"  Makefile.in
 	sed -i -e '/^CFLAGS =/cCFLAGS +='  meschach/makefile.in
 	# add DESTDIR to Makefile.in
-	MYDIRS='\$(BINDIR)\|\$(pixmapdir)\|\$(HELPDIRC)\|\$(DOCDIR)' 
+	MYDIRS='\$(BINDIR)\|\$(pixmapdir)\|\$(HELPDIRC)\|\$(DOCDIR)'
 	sed -i -e "/^DOCDIR =/c DOCDIR = \/usr\/share\/doc\/\$\{P\}" \
 		-e "s:^\(HELPDIR\ \=\)\(.*GNOME)\):\1 \$\(prefix\):" \
 		-e 's:install -d :install -d \$\(DESTDIR\)/:' \
@@ -43,7 +43,7 @@ src_compile() {
 	econf $(use_enable alsa) $(use_with oss) \
 		$(use_enable singlefft single-fftw3) || die "Configuration failed"
 
-	# Build the meschach math library first 
+	# Build the meschach math library first
 	# so good CFLAGS are used
 	cd ${S}/meschach
 	PATH=".:$PATH"

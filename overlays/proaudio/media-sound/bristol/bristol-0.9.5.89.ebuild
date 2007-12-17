@@ -5,7 +5,7 @@
 RESTRICT="nomirror"
 IUSE=""
 
-inherit eutils versionator toolchain-funcs 
+inherit eutils versionator toolchain-funcs
 MY_P="${PN}-$(replace_version_separator "3" "-").src.102106"
 
 DESCRIPTION="synthesiser emulation package for Moog, Sequential Circuits, Hammond and several other keyboards."
@@ -19,7 +19,7 @@ IUSE="jack"
 
 DEPEND="media-libs/alsa-lib
 		jack? ( >=media-sound/jack-audio-connection-kit-0.100 )"
-		
+
 S="${WORKDIR}/${PN}-$(get_version_component_range "1-3")"
 
 src_unpack() {

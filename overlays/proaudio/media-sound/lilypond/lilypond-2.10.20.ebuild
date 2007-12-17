@@ -52,7 +52,7 @@ src_unpack() {
 		mkdir -p ${dir}
 		ln -s ${S}/python ${dir}/python
 	done
-	
+
 	if use doc; then
 		local mylangs="site"
 		use linguas_fr && mylangs="${mylangs}, fr"
@@ -96,7 +96,7 @@ src_install () {
 
 	emake DESTDIR=${D} vimdir=/usr/share/vim/vimfiles install \
 		|| die "emake install failed"
-	
+
 	if use doc; then
 		# Note: installs .html docs, .pdf docs and examples
 		emake out=www web-install DESTDIR=${D} \

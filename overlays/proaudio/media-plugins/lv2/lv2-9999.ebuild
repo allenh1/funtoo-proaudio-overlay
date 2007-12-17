@@ -19,7 +19,7 @@ KEYWORDS=""
 SLOT="0"
 
 DEPEND=""
-	
+
 src_unpack() {
 	subversion_src_unpack || die
 	#cd "${S}"
@@ -42,7 +42,7 @@ src_compile() {
 		--disable-alsa \
 		--disable-lv2 \
 		--disable-machina-gui || die "configure failed"
-	
+
 	cd "${S}/${PN}" || die "source for ${PN} not found"
 	emake || die
 }

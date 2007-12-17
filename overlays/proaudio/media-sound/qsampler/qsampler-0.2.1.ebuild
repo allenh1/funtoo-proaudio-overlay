@@ -28,4 +28,4 @@ src_compile() {
 src_install() {
 	make DESTDIR="${D}" install || die "einstall failed"
 	dodoc AUTHORS ChangeLog README
-} 
+}

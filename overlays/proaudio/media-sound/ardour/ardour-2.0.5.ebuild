@@ -92,7 +92,7 @@ src_compile() {
 	# bug #186798
 	# NOTE: this doesn't work
 	#use amd64 && append-flags "-DUSE_X86_64_ASM"
-	
+
 	# touching FPU_OPTIMIZATION only if sse altivec is enabled, otherwhise
 	# don't even specify it
 

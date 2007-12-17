@@ -48,8 +48,8 @@ pkg_setup() {
 }
 
 src_unpack() {
-	cvs_src_unpack	
-	
+	cvs_src_unpack
+
 	cd "${S}"
 	#epatch "${FILESDIR}/${P}-gentoo.patch"
 	#epatch "${FILESDIR}/${P}+flac-1.1.3.patch"

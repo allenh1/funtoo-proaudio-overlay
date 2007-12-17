@@ -15,11 +15,11 @@ SRC_URI="http://www.kokkinizita.net/linuxaudio/downloads/${MY_P}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="x86 ~amd64"
-	
+
 DEPEND="|| ( x11-libs/libX11 virtual/x11 )
 	>=media-libs/libclxclient-3.3.0
 	>=media-libs/libclalsadrv-1.1.0
-	>=media-libs/stops-0.3.0" 
+	>=media-libs/stops-0.3.0"
 
 src_unpack() {
 	unpack ${A}

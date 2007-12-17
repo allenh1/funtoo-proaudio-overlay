@@ -3,7 +3,7 @@
 # $Header: $
 
 RESTRICT="nomirror"
-inherit eutils 
+inherit eutils
 DESCRIPTION="Change the realtime scheduling policy and priority of relevant system driver IRQ handlers"
 HOMEPAGE="http://www.rncbc.org/jack/"
 
@@ -28,7 +28,7 @@ src_unpack(){
 
 src_install(){
 	exeinto /etc/init.d
-	doexe rtirq rtirq.sh 
+	doexe rtirq rtirq.sh
 	insinto /etc/conf.d
 	newins rtirq.conf rtirq
 }

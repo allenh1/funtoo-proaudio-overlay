@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils 
+inherit eutils
 DESCRIPTION="A Midi Controllable Audio Sampler"
 HOMEPAGE="http://zhevny.com/specimen"
 MY_P="${P/_/-}"

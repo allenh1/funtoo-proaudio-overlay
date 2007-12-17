@@ -19,7 +19,7 @@ RDEPEND=""
 DEPEND="dev-ruby/rubygems"
 
 src_compile() {
-	RUBY_ECONF="--prefix=${D}/usr"	
+	RUBY_ECONF="--prefix=${D}/usr"
 	ruby_src_configure
 }
 

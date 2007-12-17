@@ -14,7 +14,7 @@ KEYWORDS="x86"
 DEPEND="media-libs/ladspa-sdk"
 
 src_install() {
-	dodoc AUTHORS README 
+	dodoc AUTHORS README
 	insinto /usr/lib/ladspa
 	insopts -m0755
 	doins *.so

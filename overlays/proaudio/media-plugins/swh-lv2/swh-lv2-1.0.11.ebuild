@@ -18,7 +18,7 @@ DEPEND=">=sys-apps/sed-4"
 RDEPEND=""
 
 src_unpack() {
-	unpack "${A}" 
+	unpack "${A}"
 	cd "${S}"
 	esed_check -i -e 's@gcc@$(CC)@g' \
 		-e 's@^PREFIX.*@PREFIX = /usr@g' \

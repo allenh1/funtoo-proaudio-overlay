@@ -45,5 +45,5 @@ src_install(){
 	use wmaker && dobin wmglashctl
 	insinto /usr/share/${PN}
 	doins *.xpm *.png
-	dodoc README AUTHORS ChangeLog	
+	dodoc README AUTHORS ChangeLog
 }

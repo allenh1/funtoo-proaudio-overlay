@@ -31,25 +31,25 @@ src_unpack() {
 	subversion_src_unpack
 	cd "${S}"
 	esed_check -i -e 's|QSvgRenderer|Qt/QSvgRenderer|g' gui/src/widgets/Button.cpp
-	
+
 	# fake config.h
 	echo "#define CONFIG_PREFIX \"/usr\"" >> config.h
 	echo "#define DATA_PATH \"/usr/share/hydrogen/data\"" >> config.h
 }
 
 src_compile() {
-	eqmake4 all.pro	
+	eqmake4 all.pro
 	emake -j1 || die "emake failed"
 }
 
 src_install() {
 	make INSTALL_ROOT="${D}/usr" install || die "make install failed"
-	
+
 	# install tools
 	for i in hydrogenSynth hydrogenPlayer; do
 		dobin extra/$i/$i
 	done
-	
+
 	# desktop entry
 	newicon "data/img/gray/icon32.png" "${PN}.png"
 	make_desktop_entry "${PN}" "Hydrogen" "${PN}" "AudioVideo;Audio;sequencer"

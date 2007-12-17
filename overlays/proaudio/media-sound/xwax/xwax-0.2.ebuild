@@ -13,7 +13,7 @@ KEYWORDS="x86 amd64"
 
 
 IUSE="aac cdparanoia ffmpeg mp3 vorbis"
-DEPEND="media-libs/libsdl 
+DEPEND="media-libs/libsdl
 	 media-libs/sdl-ttf"
 
 RDEPEND="${DEPEND}

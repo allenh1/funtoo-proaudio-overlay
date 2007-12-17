@@ -17,7 +17,7 @@ KEYWORDS="amd64 x86"
 
 DEPEND=">=media-libs/alsa-lib-0.9.0
 	>=media-sound/jack-audio-connection-kit-0.99
-	media-libs/libsndfile 
+	media-libs/libsndfile
 	media-libs/libsamplerate
 	dev-util/pkgconfig"
 RDEPEND="${DEPEND}"

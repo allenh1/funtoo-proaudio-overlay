@@ -15,17 +15,17 @@ KEYWORDS=""
 
 S="${WORKDIR}/${PN}"
 
-IUSE="alsa debug flac jack ladspa oss pic samplerate sdl singerbot surround 
+IUSE="alsa debug flac jack ladspa oss pic samplerate sdl singerbot surround
 stk vorbis vst sndfile"
 
 DEPEND="$(qt4_min_version 4.3)
 	vorbis? ( media-libs/libvorbis )
 	alsa? ( media-libs/alsa-lib )
-	sdl? ( media-libs/libsdl 
+	sdl? ( media-libs/libsdl
 		>=media-libs/sdl-sound-1.0.1 )
 	samplerate? ( media-libs/libsamplerate )
 	jack? ( >=media-sound/jack-audio-connection-kit-0.99.0 )
-	vst? ( >=media-libs/vst-sdk-2.3-r3 
+	vst? ( >=media-libs/vst-sdk-2.3-r3
 			app-emulation/wine )
 	ladspa? ( media-libs/ladspa-sdk )
 	singerbot? ( app-accessibility/festival )
@@ -39,7 +39,7 @@ src_unpack() {
 	if use vst ; then
 		cp /usr/include/vst/{AEffect.h,aeffectx.h} include/
 	fi
-	
+
 	# fix Qt4 autofoo
 	epatch "${FILESDIR}/${P}-acinclude.patch"
 }
@@ -49,7 +49,7 @@ src_compile() {
 
 	# autofoo
 	eautoreconf || die
-	
+
 	# VST won't compile with -fomit-frame-pointer
 	use vst && filter-flags "-fomit-frame-pointer"
 
@@ -73,7 +73,7 @@ src_compile() {
 		`use_with sndfile libsf` \
 		--with-qtdir=/usr \
 		--enable-hqsinc"
-	
+
 	econf ${myconf} || die "Configure failed"
 
 	# we need MAKEOPTS="-j1" for VST support

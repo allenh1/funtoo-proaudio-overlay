@@ -22,7 +22,7 @@ src_unpack() {
 	unpack "${A}"
 	cd "${S}"
 	esed_check -i -e 's:ar rcs $$@ $$^ $(LDFLAGS) $$($(2)_LDFLAGS):ar rcs $$@ $$^ $($(2)_LDFLAGS):g' \
-		Makefile.template 
+		Makefile.template
 }
 
 src_compile(){

@@ -11,7 +11,7 @@ MY_P=ZynAddSubFX-${PV}
 DESCRIPTION="ZynAddSubFX is an opensource software synthesizer."
 HOMEPAGE="http://zynaddsubfx.sourceforge.net/"
 SRC_URI="mirror://sourceforge/zynaddsubfx/${MY_P}.tar.bz2"
-	
+
 	#jackmidi? ( lash? (	http://www.student.nada.kth.se/~d00-llu/code_patches/zyn-lash-and-jackmidi-051205.diff ))
 	#lash? ( !jackmidi? ( http://www.student.nada.kth.se/~d00-llu/code_patches/zyn_lash-0.5.0pre0.diff ))
 	#jackmidi? (!lash? (	http://www.student.nada.kth.se/~d00-llu/code_patches/zyn-jackmidi-051205.diff ))"

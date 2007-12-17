@@ -92,7 +92,7 @@ pkg_setup() {
 src_unpack() {
 	unpack ${A}
 	cd "${S}"
-cat << EOT >> "${S}/modules/pam_limits/limits.conf" 
+cat << EOT >> "${S}/modules/pam_limits/limits.conf"
 
 # REALTIME support for audio group users
 @audio          -       rtprio          100

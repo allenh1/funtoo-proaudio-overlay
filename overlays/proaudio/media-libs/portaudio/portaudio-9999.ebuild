@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /cvsroot/jacklab/gentoo/media-libs/portaudio/portaudio-19.ebuild,v 1.1.1.1 2006/04/10 11:22:11 gimpel Exp $
 
-inherit eutils subversion #fetch-tools 
+inherit eutils subversion #fetch-tools
 ESVN_REPO_URI="https://www.portaudio.com/repos/portaudio/branches/v19-devel"
 DESCRIPTION="An open-source cross platform audio API."
 HOMEPAGE="http://www.portaudio.com"
@@ -71,7 +71,7 @@ src_install() {
 #			dolib pa_mac_core/libportaudio.dylib
 #		fi
 		emake  DESTDIR="${D}" install || die "install failed"
-		
+
 		insinto /usr/include
 		doins include/portaudio.h
 		use doc && dodoc docs/*

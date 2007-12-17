@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /cvsroot/jacklab/gentoo/media-sound/specimen/specimen-0.5.1.ebuild,v 1.1.1.1 2006/04/10 11:50:09 gimpel Exp $
 
-inherit eutils 
+inherit eutils
 DESCRIPTION="A Midi Controllable Audio Sampler"
 HOMEPAGE="http://zhevny.com/specimen"
 SRC_URI="http://zhevny.com/specimen/files/${P}.tar.gz"

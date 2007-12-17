@@ -3,7 +3,7 @@
 # $Header: $
 
 RESTRICT="nomirror"
-inherit eutils wxwidgets 
+inherit eutils wxwidgets
 
 DESCRIPTION="Wired aims to be a professional music production and creation software"
 HOMEPAGE="http://wired.epitech.net"
@@ -29,7 +29,7 @@ RDEPEND=">=media-libs/libsndfile-1.0
 	media-libs/libsamplerate
 	plugins? ( >=media-libs/libsoundtouch-1.2.1 )
 	dssi? ( >=media-libs/dssi-0.9 )
-	codecs? ( media-libs/libvorbis 
+	codecs? ( media-libs/libvorbis
 			media-libs/flac )
 	portaudio-internal? ( !media-libs/portaudio )
 	!portaudio-internal? ( =media-libs/portaudio-19* )"
@@ -65,5 +65,5 @@ src_install() {
 	make DESTDIR="${D}" install || die "Install failed"
 	dodoc AUTHORS BUGS INSTALL LICENSE NEWS README TODO CHANGELOG
 	doicon "${FILESDIR}/${PN}.png"
-	make_desktop_entry ${PN} "Wired" ${PN} "AudioVideo;Audio;Sequencer;" 
+	make_desktop_entry ${PN} "Wired" ${PN} "AudioVideo;Audio;Sequencer;"
 }

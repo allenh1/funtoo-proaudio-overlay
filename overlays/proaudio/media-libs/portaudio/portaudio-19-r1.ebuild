@@ -34,7 +34,7 @@ src_compile() {
 	! use oss; myconf="${myconf} useOSS=$?"
 	einfo "${myconf}"
 	scons configure ${myconf} customCFlags="${CFLAGS}" || die "configure failed"
-	scons ${MAKEOPTS} || die "scons failed"	
+	scons ${MAKEOPTS} || die "scons failed"
 }
 
 src_install() {

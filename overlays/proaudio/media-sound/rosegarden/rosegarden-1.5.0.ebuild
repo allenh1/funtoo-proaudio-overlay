@@ -59,7 +59,7 @@ src_compile() {
 		-DWANT_LIRC="$(! use lirc; echo "$?")" \
 		|| die "cmake failed"
 	use debug && CFLAGS="${CFLAGS} -ggdb3"
-	
+
 	emake || die "emake failed"
 }
 

@@ -35,7 +35,7 @@ RDEPEND=">=media-libs/liblrdf-0.4.0
 		>=dev-cpp/cairomm-1.0
 		>=dev-cpp/gtkmm-2.8
 		>=dev-libs/atk-1.6
-		>=x11-libs/pango-1.4 
+		>=x11-libs/pango-1.4
 		>=dev-cpp/libgnomecanvasmm-2.12.0
 		>=media-libs/libsndfile-1.0.16
 		>=media-libs/libsoundtouch-1.0 )"
@@ -50,7 +50,7 @@ DEPEND="${RDEPEND}
 	>=dev-util/pkgconfig-0.8.0
 	>=dev-util/scons-0.96.1
 	nls? ( >=sys-devel/gettext-0.12.1 )
-	vst? ( app-arch/zip 
+	vst? ( app-arch/zip
 		=media-libs/vst-sdk-2.3* )"
 
 S="${WORKDIR}/ardour2"
@@ -89,14 +89,14 @@ src_unpack(){
 	#fetch_tarball_cmp "${URL}"
 	#unpack "${URL##*/}"
 	cd ${S}
-	
+
 	# hack to use the sys-lib for sndlib also
 	use sys-libs && epatch "${FILESDIR}/ardour-syslib_mod2.patch"
-	
+
 	# change template dir to not overwrite ardour1 stuff
 	sed -i -e 's:\(share\)/ardour/\(templates\):\1/ardour2/\2:g' templates/SConscript || die "changing template names failed"
 	add_ccache_to_scons
-	
+
 	# ################
 	# adjust files for vst support
 	if use vst;then
@@ -119,12 +119,12 @@ src_unpack(){
 src_compile() {
 	# Required for scons to "see" intermediate install location
 	mkdir -p ${D}
-	
+
 	local myconf=""
 	! use altivec; myconf="${myconf} ALTIVEC=$?"
 	! use debug; myconf="${myconf} ARDOUR_DEBUG=$?"
-	! use nls; myconf="${myconf} NLS=$?" 
-	! use vst; myconf="${myconf} VST=$?" 
+	! use nls; myconf="${myconf} NLS=$?"
+	! use vst; myconf="${myconf} VST=$?"
 	! use sys-libs; myconf="${myconf} SYSLIBS=$?"
 	! use sse; myconf="${myconf} USE_SSE_EVERYWHERE=$? BUILD_SSE_OPTIMIZATIONS=$?"
 	# static settings
@@ -167,7 +167,7 @@ agree_vst() {
 	else
 		eerror "You cannot build Ardour with VST support for distribution to others"
 		eerror "It is a violation of several different licenses"
-	
+
 		eerror "use: USE=-vst emerge $P"
 		eerror "to disable vst support"
 		return 1

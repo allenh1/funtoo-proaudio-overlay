@@ -14,7 +14,7 @@ KEYWORDS="~x86 ~ppc ~amd64"
 IUSE="alsa arts jack oss"
 
 RDEPEND="alsa? ( media-libs/alsa-lib )
-		jack? ( media-sound/jack-audio-connection-kit 
+		jack? ( media-sound/jack-audio-connection-kit
 				media-libs/bio2jack )
 		=sci-libs/fftw-3*"
 DEPEND="${RDEPEND}"

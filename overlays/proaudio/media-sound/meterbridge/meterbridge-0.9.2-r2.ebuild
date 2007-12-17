@@ -26,7 +26,7 @@ src_unpack() {
 src_compile() {
 	export WANT_AUTOCONF=2.5
 	#export WANT_AUTOMAKE=1.6
-		
+
 	autoconf || die "autoconf failed"
 	autoreconf
 

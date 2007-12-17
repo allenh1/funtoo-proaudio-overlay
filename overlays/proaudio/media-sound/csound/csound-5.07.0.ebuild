@@ -72,7 +72,7 @@ src_compile() {
 	addpredict "/usr/lib"
 
 	einfo "You enabled following scons options: ${myconf}"
-	
+
 	scons \
 		prefix=/usr \
 		CC=/usr/bin/gcc \

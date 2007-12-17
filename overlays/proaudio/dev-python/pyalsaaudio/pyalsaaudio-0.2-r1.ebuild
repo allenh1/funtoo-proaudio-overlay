@@ -22,10 +22,10 @@ DEPEND="media-libs/alsa-lib"
 src_install() {
 
 	distutils_src_install
-	
+
 	# html documentation
 	use doc && dohtml -A tex -r doc/*
-	
+
 	# install example files
 	if use examples; then
 		insinto /usr/share/${PN}

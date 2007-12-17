@@ -25,15 +25,15 @@ DEPEND="${RDEPEND}
 	alsa? ( media-libs/alsa-lib )
 	csound? ( media-sound/csound )
 	midi? ( media-sound/timidity++ )"
-	
+
 src_compile() {
 	append-flags -fpermissive
-	
-	use plugins && local myconf="${myconf} --with-plugins='analysis' 
-		--with-plugins='midiinput --with-plugins='rumour'" 
-	econf "$(use_enable gtk2 use_enable alsa  
-		use_enable pic use_enable nls) ${myconf}" || die "configure failed"	
-	
+
+	use plugins && local myconf="${myconf} --with-plugins='analysis'
+		--with-plugins='midiinput --with-plugins='rumour'"
+	econf "$(use_enable gtk2 use_enable alsa
+		use_enable pic use_enable nls) ${myconf}" || die "configure failed"
+
 	emake || die "make failed"
 }
 

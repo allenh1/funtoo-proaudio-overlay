@@ -34,7 +34,7 @@ DEPEND="$(qt4_min_version 4.2.3)
 	lash? ( >=media-sound/lash-0.4.0 )
 	!media-sound/museseq-cvs
 	!media-sound/museseq-svn
-	zynaddsubfx? ( =x11-libs/fltk-1.1* 
+	zynaddsubfx? ( =x11-libs/fltk-1.1*
 			>=dev-libs/mini-xml-2 )"
 
 pkg_setup() {
@@ -43,7 +43,7 @@ pkg_setup() {
 		eerror "You will have to compile >=qt-4 with USE=\"qt3support\"."
 		die
 	fi
-	
+
 	# check if libfst is valid
 #	if [ -e "/usr/lib/pkgconfig/libfst.pc"	];then
 #		egrep -q '1.8|1.7' /usr/lib/pkgconfig/libfst.pc &>/dev/null && \
@@ -55,10 +55,10 @@ pkg_setup() {
 src_unpack() {
 	subversion_src_unpack
 	cd ${S}
-	
+
 	# copy over correct header from ardour in case of amd64
 	use amd64 && cp ${FILESDIR}/sse_functions_64bit.s al/dspSSE.cpp
-	
+
 	#patcher "${FILESDIR}/fix_zyn.patch apply"
 	mkdir build
 
@@ -69,7 +69,7 @@ src_unpack() {
 src_compile() {
 	# linking with --as-needed is broken :(
 	filter-ldflags -Wl,--as-needed --as-needed
-	
+
 	cd "${S}/build"
 	cmake .. -DCMAKE_INSTALL_PREFIX=/usr \
 		-DENABLE_DSSI="$(! use dssi; echo "$?")" \
@@ -92,7 +92,7 @@ src_install() {
 	mv "${D}/usr/bin/grepmidi" "${D}/usr/bin/grepmidi-1.0"
 	newicon "${S}/packaging/muse_icon.png" "museseq.png"
 	make_desktop_entry "museseq-1.0" "MusE Sequencer 1.0" museseq \
-		"AudioVideo;Audio;Sequencer" 
+		"AudioVideo;Audio;Sequencer"
 }
 
 pkg_postinst() {

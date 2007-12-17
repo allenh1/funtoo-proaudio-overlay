@@ -39,7 +39,7 @@ src_compile() {
 	# fix Qt4 libdir
 	sed -i -e "s:/usr/local/Trolltech/Qt-4.2.2/lib:/usr/lib/qt4:" IanniX.pro ||
 		die
-		
+
 	/usr/bin/qmake || die "qmake failed"
 	emake || die "make failed"
 }
@@ -47,7 +47,7 @@ src_compile() {
 src_install() {
 	dobin bin/IanniX
 	dodoc README.txt TODO.txt
-	make_desktop_entry IanniX "IanniX"   
+	make_desktop_entry IanniX "IanniX"
 	if use doc; then
 		insinto /usr/share/doc/${P}
 		doins "${DISTDIR}"/*.pdf

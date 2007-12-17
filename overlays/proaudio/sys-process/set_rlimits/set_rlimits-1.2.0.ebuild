@@ -45,7 +45,7 @@ EOF
 }
 
 src_compile(){
-	emake clean 
+	emake clean
 	$(tc-getCC) -Wall ${CFLAGS} -g -o set_rlimits set_rlimits.c || die "compilation failed"
 }
 

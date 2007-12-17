@@ -43,7 +43,7 @@ DEPEND=">=dev-util/scons-0.96.92
 	app-doc/doxygen
 	dev-util/cppunit
 	osc? ( media-libs/oscpack )"
-	
+
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${MY_P}"
@@ -51,9 +51,9 @@ S="${WORKDIR}/${MY_P}"
 src_compile() {
 	# required for scons to "see" intermediate install location
 	mkdir -p ${D}/usr
-	    
+
 	cd ${S}
-	
+
 	local myconf="DESTDIR=${D}/usr prefix=/usr prefix_for_packaging=${D}/usr"
 	if use double; then
 	    myconf="${myconf} double=yes"
@@ -103,10 +103,10 @@ src_compile() {
 
 src_install() {
 	dodir /usr
-	
+
 	scons install || die "scons install failed"
 	dodoc CHANGES
-	
+
 	if use doc; then
 		docinto examples/ControlArrayExamples
 		dodoc ${S}/examples/ControlArrayExamples/*

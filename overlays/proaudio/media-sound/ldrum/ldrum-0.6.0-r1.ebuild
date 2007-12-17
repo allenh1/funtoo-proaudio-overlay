@@ -34,12 +34,12 @@ src_compile() {
 	for i in `find -iname '*.in'`;do sed -i "s|ac_uic\ \=\ \@ac_uic\@|ac_uic\ \=\ /usr/qt/3/bin/uic|g" "${i}";done
 	 for i in `find -iname '*.in'`;do sed -i "s|ac_moc\ \=\ \@ac_moc\@|ac_moc\ \=\ /usr/qt/3/bin/moc|g" "${i}";done
 	# patching to use the 3.x version of qmake  END
-	
+
 	# add -lrt to  engine/Makefile.in and gui/gui.pro
 	sed -i "s|-ljack\ -lasound|-ljack\ -lasound\ -lrt|g" engine/Makefile.in ||die
 	sed -i "s|-lsamplerate\ -lsndfile\ -lasound\ -ljack|-lsamplerate\ -lsndfile\ -lasound\ -ljack\ -lrt|g" engine/Makefile.in || die
 	sed -i -e "s:^\(LIBS.*\):\1 -lrt:" gui/gui.pro.in || die
-	
+
 	# add missing header-files
 	sed -i '1i#include <time.h>'  widgets/floatdial.h || die
 	sed -i '1i#include <math.h>'  widgets/floatdial.h || die

@@ -38,7 +38,7 @@ src_compile() {
 	automake -a -c
 
 	local myconf
-	econf #\	
+	econf #\
 	#	" --with-wine-includes=/usr/lib/wine/include/wine/windows \
 	#	--with-wine-libraries=/usr/lib/wine/lib \
 	#	--with-wine-tools=/usr/lib/wine/bin" || die
@@ -65,7 +65,7 @@ src_install() {
 	dodir /usr/lib
 	insinto /usr/lib
 	doins fst/libfst.so
-	
+
 	# /usr/lib/pkgconfig/libfst.pc
 	dodir /usr/lib/pkgconfig
 	insinto /usr/lib/pkgconfig

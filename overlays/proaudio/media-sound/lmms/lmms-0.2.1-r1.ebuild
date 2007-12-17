@@ -22,7 +22,7 @@ DEPEND="=x11-libs/qt-3.3*
 	jack? ( >=media-sound/jack-audio-connection-kit-0.99.0 )
 	flac? ( media-libs/flac )
 	ladspa? ( media-libs/ladspa-sdk )
-	vst? ( >=media-libs/vst-sdk-2.3-r3 
+	vst? ( >=media-libs/vst-sdk-2.3-r3
 			app-emulation/wine )"
 
 RDEPEND="${DEPEND}"

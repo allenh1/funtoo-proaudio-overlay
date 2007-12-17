@@ -33,7 +33,7 @@ pkg_setup() {
 	if ! use dssi; then
 		if ! use ladspa; then
 			if ! use vst; then
-				echo 
+				echo
 				eerror "Uhm, you disabled Support for all plugin systems!"
 				eerror "This would make Jost quite useless."
 				eerror "Please enable at least one of them!"
@@ -50,7 +50,7 @@ src_unpack() {
 	cd ${S}/plugins/Jost/src
 	use vst || \
 		sed -i -e "s:#define JOST_USE_VST://#define JOST_USE_VST:" \
-		Config.h || die "bad sed" 
+		Config.h || die "bad sed"
 
 	use ladspa || \
 		sed -i -e "s:#define JOST_USE_LADSPA://#define JOST_USE_LADSPA:" \
@@ -60,7 +60,7 @@ src_unpack() {
 		sed -i -e "s:#define JOST_USE_DSSI://#define JOST_USE_DSSI:" \
 		Config.h || die "bad sed"
 }
-	
+
 src_compile() {
 	# build modified juce
 	cd juce/build/linux

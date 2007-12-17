@@ -33,7 +33,7 @@ src_unpack(){
 
 src_install(){
 	exeinto /etc/init.d
-	doexe rtirq rtirq.sh 
+	doexe rtirq rtirq.sh
 	insinto /etc/conf.d
 	newins rtirq.conf rtirq
 }

@@ -25,7 +25,7 @@ src_unpack() {
 	RTSYNTH_JACK="rtsynth-1.9.1b-jack0.44.0"
 	mkdir -p ${S}
 	cd ${S}
-	rpm_unpack ${DISTDIR}/${P}-32.src.rpm 
+	rpm_unpack ${DISTDIR}/${P}-32.src.rpm
 	tar -xjpf  ${S}/${P}.tar.bz2 || die "untar failed"
 	if use jack ;then
 		tar -xjpf  ${S}/${RTSYNTH_JACK}.tar.bz2 || die "untar failed"
@@ -39,16 +39,16 @@ echo -n
 }
 
 src_install() {
-	dodir /usr/share/pixmaps /usr/share/mimelnk/audio/ 
+	dodir /usr/share/pixmaps /usr/share/mimelnk/audio/
 	insinto /usr/share/pixmaps
 	doins rtsynth.png
-	
+
 	insinto /usr/share/mimelnk/audio/
 	doins rtsynth*.desktop
-	
+
 	insinto /usr/share/${PN}/examples
 	for i in ${S}/${P}/Examples-v192/*;do doins "${i}";done
-	
+
 	if use jack;then
 		dobin ${S}/${P}/RTSynth-jack
 		fperms 755 /usr/bin/RTSynth-jack
@@ -57,7 +57,7 @@ src_install() {
 		dobin ${S}/${P}/RTSynth
 		fperms 755 /usr/bin/RTSynth
 	fi
-	
+
 	dohtml -r ${S}/${P}/HtmlDocs/*
 	dodoc ${S}/${P}/Changelog ${S}/${P}/README
 }

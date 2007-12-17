@@ -44,7 +44,7 @@ src_unpack() {
 	LD_alsa="`pkg-config --libs alsa`" || die "could not find alsa-lib"
 	LD_fftw3="`pkg-config --libs fftw3`" || die "could not find fftw libs"
 	sed -i -e "s@^LDFLAGS.*@LDFLAGS += $LD_alsa $LD_fftw3 -lrt@g" defines.gentoo
-	
+
 	# ################ makefile #############
 	# fix Makefile
 	epatch "${FILESDIR}/Makefile-make_install.patch"
@@ -55,7 +55,7 @@ src_unpack() {
 	# define Q_OS_LINUX
 	sed  -i -e'/#ifdef Q_OS_LINUX/'i"#define Q_OS_LINUX" Data/data.h
 	# fix qstring.h path
-	for i in `grep -l -Ri \<qstring.h\> *`;do 
+	for i in `grep -l -Ri \<qstring.h\> *`;do
 		einfo "qstring.h include dir changed in $i"
 		sed -i -e "s@<qstring.h>@\"${QTDIR}/include/qstring.h\"@g" $i
 	done
@@ -65,7 +65,7 @@ src_unpack() {
 		if grep include $i ;then
 			sed -ie 's@capacitywidget.h@capacity-widget.h@g' $i
 			sed -ie 's@beatgraphanalyzer.h@beatgraph-analyzer.logic.h@g' $i
-			sed -ie 's@metricwidget.h@metric-widget.h@g' $i	
+			sed -ie 's@metricwidget.h@metric-widget.h@g' $i
 		fi
 	done
 
@@ -82,7 +82,7 @@ src_compile() {
 }
 
 src_install () {
-	# makefile is absolutly a mess so we use portage features 
+	# makefile is absolutly a mess so we use portage features
 	#make PREFIX="/usr" DESTDIR="${D}" install || die "make install failed"
 	dobin `find -maxdepth 1 -type f -perm -+x -a ! -iname 'configure' -printf "%f "`
 	insinto /usr/share/${PN}
@@ -92,7 +92,7 @@ src_install () {
 	use vorbis && doexe bpmdj-import-ogg.pl
 	dodoc authors changelog copyright readme todo support.txt
 	mogrify -format png logo.png
-	newicon "${S}/logo.png" "bpmdjlogo.png" 
+	newicon "${S}/logo.png" "bpmdjlogo.png"
 	make_desktop_entry "kbpm-dj" "BpmDj" "bpmdjlogo.png" "AudioVideo;Audio"
 
 }

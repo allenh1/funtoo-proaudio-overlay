@@ -22,7 +22,7 @@ RDEPEND=">=dev-libs/glib-2.0
 	media-libs/audiofile"
 DEPEND="${RDEPEND}
 	dev-util/pkgconfig"
-	
+
 src_compile() {
 	./autogen.sh
 	econf \

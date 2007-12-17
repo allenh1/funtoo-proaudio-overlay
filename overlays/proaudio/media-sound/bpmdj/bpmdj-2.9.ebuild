@@ -33,11 +33,11 @@ src_unpack() {
 		die "changing uic-dir failed"
 	sed -i -e "s:^MOC.*:MOC = \${QTDIR}/bin/moc:" defines.gentoo || \
 		die "changing moc-dir failed"
-	
+
 	# DEFINE FIX
 	sed -i -e "s:^\(CFLAGS.*\):\1 -D QT_THREAD_SUPPORT:" defines.gentoo || \
 		die "ADD QT_THREAD_SUPPORT failed"
-	
+
 	# gcc4.1 fixes
 	sed -i -e "s|MixerDialogLogic::||g" mixerdialog.logic.h || \
 	 	die "failed to apply gcc4.1 fix to mixerdialog.logic.h"
@@ -58,7 +58,7 @@ src_unpack() {
 	sed -i -e "s:^PREFIX.*:PREFIX = /usr:" makefile || \
 	        die "changing makefile failed"
 	#verbose makefile
-	sed -i -e 's:^\t@:\t:g' makefile 
+	sed -i -e 's:^\t@:\t:g' makefile
 }
 
 src_compile() {

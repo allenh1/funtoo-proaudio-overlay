@@ -27,7 +27,7 @@ DEPEND="app-arch/unzip
 #	unpack ${A}
 #
 #	cd ${S}
-#	
+#
 #}
 
 src_compile() {
@@ -35,14 +35,14 @@ src_compile() {
 	if use ppc; then
 	    sed -i -e "s:ENDIANESS=OSC_HOST_LITTLE_ENDIAN:ENDIANESS=OSC_HOST_BIG_ENDIAN:" ${S}/Makefile || die "sed ppc failed"
 	fi
-	
+
 	emake || die "make failed"
 	emake lib || "make lib failed"
 }
 
 src_install() {
 	dodoc CHANGES LICENSE README TODO
-	
+
 	dolib liboscpack.so.1.0.2
 	insinto /usr/include/oscpack/ip
 	doins ip/*.h

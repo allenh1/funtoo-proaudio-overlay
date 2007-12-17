@@ -6,7 +6,7 @@ DESCRIPTION="This is a digital dj mixing software package, aimed towards live mu
 HOMEPAGE="http://gdam.ffem.org/"
 #SRC_URI="mirror:sourceforge.net/gdam/${P}.tar.gz"
 
-inherit cvs 
+inherit cvs
 LICENSE="LGPL"
 SLOT="0"
 KEYWORDS=""

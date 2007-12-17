@@ -28,7 +28,7 @@ src_compile() {
 	# build the whole bunch
 	cd src
 	emake || die "make in src failed!"
-	
+
 	cd ../projects
 	for i in demo effects examples ragamatic; do
 		cd $i
@@ -61,7 +61,7 @@ src_install() {
 	insinto /usr/share/stk/rawwaves
 	doins rawwaves/*.raw
 	dolib src/libstk.a
-	# this one actually sucks, but.. 
+	# this one actually sucks, but..
 	mv projects "${D}"/usr/share/stk
 }
 

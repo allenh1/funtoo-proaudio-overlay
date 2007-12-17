@@ -22,8 +22,8 @@ DEPEND=">=media-libs/liblo-0.22
 	media-libs/dssi
 	media-libs/ladspa-sdk
 	media-plugins/omins
-	>=dev-cpp/gtkmm-2.4 
-	>=dev-cpp/libgnomecanvasmm-2.6 
+	>=dev-cpp/gtkmm-2.4
+	>=dev-cpp/libgnomecanvasmm-2.6
 	>=dev-cpp/libglademm-2.4.1
 	>=media-libs/flowcanvas-0.1.0
 	lash? ( media-sound/lash )

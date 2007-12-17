@@ -76,10 +76,10 @@ src_unpack() {
 	if use vst;	then
 		agree_vst || die "you can not distribute ardour with vst support"
 	fi
-	
+
 	unpack ${A}
 	cd "${S}"
-	
+
 	# SYSLIBS also use external sndfile
 	use sys-libs && epatch "${FILESDIR}/${PN}-2.0.3-sndfile-external.patch"
 
@@ -103,7 +103,7 @@ src_compile() {
 
 	# touching FPU_OPTIMIZATION only if sse altivec is enabled, otherwhise
 	# don't even specify it
-	
+
 	local myconf=""
 	(use sse || use altivec) && myconf="FPU_OPTIMIZATION=1"
 

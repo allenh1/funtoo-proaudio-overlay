@@ -51,10 +51,10 @@ src_install() {
 	if use doc; then
 		dodoc doc/mammuthelp.html
 	fi
-	
+
 	# install binary
 	dobin src/"${PN}"
-	
+
 	# create desktop entry
 	newicon "icons/icon.png" "${PN}.png"
 	make_desktop_entry "${PN}" "Mammut" "${PN}" "AudioVideo;Audio;"

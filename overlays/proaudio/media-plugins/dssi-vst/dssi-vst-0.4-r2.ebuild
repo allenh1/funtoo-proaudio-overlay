@@ -60,5 +60,5 @@ src_install() {
 	make BINDIR="${D}/usr/bin" DSSIDIR="${D}/usr/lib/dssi" install || \
 	die "install failed"
 	dodoc README
-} 
+}
 

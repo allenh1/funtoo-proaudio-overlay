@@ -19,7 +19,7 @@ RDEPEND="dev-util/scons
 	>=media-libs/libclam-1.0.0
 	<media-libs/libclam-9999
 	=x11-libs/qt-4*"
-	
+
 DEPEND="${DEPEND}
 	media-gfx/imagemagick"
 
@@ -29,7 +29,7 @@ src_compile() {
 	# required for scons to "see" intermediate install location
 	mkdir -p ${D}/usr
 	addpredict /usr/share/clam/sconstools
-		    
+
 	cd ${S}
 	scons clam_prefix=/usr DESTDIR="${D}/usr" prefix="${D}/usr" \
 		qt_plugins_install_path="/lib/qt4/plugins/designer" || die "Build failed"
@@ -42,9 +42,9 @@ src_install() {
 	cd ${S}
 	dodir /usr
 	addpredict /usr/share/clam/sconstools
-	
+
 	scons install || die "scons install failed"
-	
+
 	dodoc CHANGES COPYING README || die "dodoc failed"
 	insinto /usr/share/pixmaps
 	doins *.xpm || die "install icons failed"

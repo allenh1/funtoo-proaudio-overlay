@@ -1,6 +1,6 @@
 # Copyright 1999-2007 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $ 
+# $Header: $
 
 K_PREPATCHED="yes"
 UNIPATCH_STRICTORDER="yes"
@@ -22,11 +22,11 @@ MY_MM_BASE="2.6.17-rc4"
 RESTRICT="nomirror"
 DESCRIPTION="Ingo Molnars realtime patch applied on vanilla"
 SRC_URI="${KERNEL_URI}
-vesafb-tng? ( http://dev.gentoo.org/~spock/projects/vesafb-tng/archive/vesafb-tng-1.0-rc1-r3-2.6.16.patch ) 
+vesafb-tng? ( http://dev.gentoo.org/~spock/projects/vesafb-tng/archive/vesafb-tng-1.0-rc1-r3-2.6.16.patch )
 http://download.tuxfamily.org/proaudio/realtime-patches/patch-${KV}-tglx4.bz2
 fbsplash? ( http://proaudio.tuxfamily.org/patches/fbsplash-0.9.2-r5-2.6.16-rt.patch )"
 KEYWORDS="amd64 ~ppc ~ppc64 x86"
-	
+
 IUSE="fbsplash vesafb-tng realtime-lsm" #reiser4"
 pkg_setup(){
 	einfo "To enable additional patches for $PN use USE-flags"
@@ -39,14 +39,14 @@ pkg_setup(){
 
 src_unpack(){
 	kernel-2_src_unpack
-	
+
 	# applying realtime patch (won't work with unipatch cause missing extension)
 	epatch "${DISTDIR}/patch-${KV}-tglx4.bz2"
-	
+
 	# apply reiser4-patch
 	#use reiser4 && add_reiser4 "${MY_MM_BASE}-${MM_MIN_VER}-broken-out.tar.bz2" \
 	#"reiser4-vs-nfs-permit-filesystem-to-override-root-dentry-on-mount.patch reiser4-writeback-fix-range-handling.patch"
-	
+
 	#bug-fix  "reiser4-unix_file_write-get_exclusive_access-carefully"
 	##use reiser4 && epatch ${FILESDIR}/reiser4-unix_file_write-get_exclusive_access-carefully.diff
 
@@ -61,6 +61,6 @@ K_EXTRAEINFO="This kernel is not supported by Gentoo If you have any issues, try
 a matching vanilla-sources ebuild -- if the problem persists there, please file
 a bug at http://bugme.osdl.org. If the problem only occurs with rt-sources then
 please contact Ingo Molnar on the kernel mailinglist to get your issue resolved.
-But first search the mailinglist-archiv if your problem is already 
+But first search the mailinglist-archiv if your problem is already
 discussed/solved: http://lkml.org/
 Recommended other packages: sys-process/rtirq and sys-apps/das_watchdog"

@@ -45,7 +45,7 @@ src_install() {
 	make DESTDIR="${D}" install || die
 	dosym /usr/share/jack_mixer/jack_mixer.py /usr/bin/jack_mixer
 	dodoc AUTHORS CHANGES README
-	
+
 }
 
 pkg_postinst() {

@@ -28,7 +28,7 @@ src_install() {
 	dolib.a src/libfishsound/.libs/libfishsound.a || die "Lib install failed"
 	dolib.so src/libfishsound/.libs/libfishsound.so.1.1.0 || die "Lib install2 failed."
 	rm src/libfishsound/.libs/libfishsound.la
-	mv src/libfishsound/.libs/libfishsound.lai src/libfishsound/.libs/libfishsound.la 
+	mv src/libfishsound/.libs/libfishsound.lai src/libfishsound/.libs/libfishsound.la
 	dolib.so src/libfishsound/.libs/libfishsound.la || die "Lib install3 failed"
 	dosym /usr/lib/libfishsound.so.1.1.0 /usr/lib/libfishsound.so || die "Dosym2 failed"
 	dodir /usr/include/${MY_PN}

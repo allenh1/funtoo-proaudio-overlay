@@ -24,8 +24,8 @@ src_unpack() {
 	unpack ${A}
 	cd ${S}
 	use tetex && epatch ${FILESDIR}/tetex_sandbox.patch
-	sed -i -e 's:\(\$(mkinstalldirs)\)\(.*\)\($(TEXMF)/tex/generic/kgtabs\):\1 $(DESTDIR)\3:' -e 's:\(\$(INSTALL_DATA).*$(srcdir)/kgtabs.tex\ *\):\1 $(DESTDIR):' kguitar_shell/Makefile.in 
-	sed -i -e 's:\(^TEXMF.*\=\)\(.*\):\1 /usr/share/texmf:' kguitar_shell/Makefile.in 
+	sed -i -e 's:\(\$(mkinstalldirs)\)\(.*\)\($(TEXMF)/tex/generic/kgtabs\):\1 $(DESTDIR)\3:' -e 's:\(\$(INSTALL_DATA).*$(srcdir)/kgtabs.tex\ *\):\1 $(DESTDIR):' kguitar_shell/Makefile.in
+	sed -i -e 's:\(^TEXMF.*\=\)\(.*\):\1 /usr/share/texmf:' kguitar_shell/Makefile.in
 }
 
 src_compile() {
