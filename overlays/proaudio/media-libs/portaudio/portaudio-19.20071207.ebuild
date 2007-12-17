@@ -24,9 +24,6 @@ RDEPEND="${DEPEND}"
 S="${WORKDIR}/${PN}"
 
 src_compile() {
-	# Jack is disabled, it seems to have runtime issues
-	# Moreover it fails to compile on some arches (like amd64)
-	# And this could cause cyclic dependencies with jack portaudio support
 	econf $(use_with alsa)\
 		$(use_with jack) \
 		$(use_with oss)\
