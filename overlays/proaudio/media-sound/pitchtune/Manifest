@@ -1,8 +1,2 @@
 DIST pitchtune-0.0.4.tar.bz2 146487 RMD160 1bb9b1f0bfddc7d01ab62fdf27ee3824ccec3454 SHA1 30a224b560df1cee9b7bc954596183f820653923 SHA256 85b4835029f8eddbd42e2c1eec9fdbeb030744ecdcf67925e05879b85f9f12fc
 EBUILD pitchtune-0.0.4.ebuild 596 RMD160 81ad2d2260f1fbfd7b4495c7073b23f9d163851c SHA1 2342b1d44fc11dc165fea1042d86af1ebcbb0c88 SHA256 e3c4dbf98e5e3ec84195baae4bf6fdf1b8d45153ae81a2cce43bdd5bb420bb78
-MD5 9b0f951220e1108b01b58938291930cd pitchtune-0.0.4.ebuild 596
-RMD160 81ad2d2260f1fbfd7b4495c7073b23f9d163851c pitchtune-0.0.4.ebuild 596
-SHA256 e3c4dbf98e5e3ec84195baae4bf6fdf1b8d45153ae81a2cce43bdd5bb420bb78 pitchtune-0.0.4.ebuild 596
-MD5 6ce2023cecea41694d0356f0cc6fb4cb files/digest-pitchtune-0.0.4 250
-RMD160 f2c5d070e8933eafb2835c250793b65076c68a10 files/digest-pitchtune-0.0.4 250
-SHA256 978ccea63ff12e82bbb07cf7d635487b937eb69a949a3db41a787d4024a9da92 files/digest-pitchtune-0.0.4 250

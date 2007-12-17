@@ -1,8 +1,2 @@
 DIST crystal-artwork-0.5.tar.bz2 1977730 RMD160 6446b4640c9e2cd2998ceaad097191e7f44474d5 SHA1 cb767b1147982797c4c8bcb524c1fe4e7984d530 SHA256 f8d8838a0f17220cf2276b7323f654a7ee827db8d36edfd1ca2ce88bd047124f
 EBUILD crystal-artwork-0.5.ebuild 702 RMD160 c13e74a95e58c6ce5839415a2840dcbd7045c712 SHA1 2eaf9e290b76eaad7d9e63e91bee872a1a7add52 SHA256 abf643fe34051c6da860d48a7fe8f4eb463c5d6a3ac64631bf72a9f0e3c887ab
-MD5 8290b2637bd3f1344b1643ce5fbcec29 crystal-artwork-0.5.ebuild 702
-RMD160 c13e74a95e58c6ce5839415a2840dcbd7045c712 crystal-artwork-0.5.ebuild 702
-SHA256 abf643fe34051c6da860d48a7fe8f4eb463c5d6a3ac64631bf72a9f0e3c887ab crystal-artwork-0.5.ebuild 702
-MD5 ac67a035621d97b53d913707e7efa8bb files/digest-crystal-artwork-0.5 265
-RMD160 0ab93deb0fd440877131a38100dfe77e3abe0a37 files/digest-crystal-artwork-0.5 265
-SHA256 80a73f0c774eea4f36ee49cb6ef1f0effe23622118130fb6fc25c3d7e82a62b1 files/digest-crystal-artwork-0.5 265

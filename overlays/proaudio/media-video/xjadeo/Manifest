@@ -1,12 +1,3 @@
 AUX xjadeo-0.4.1-use_sws_scale.patch 3230 RMD160 c0ae3b7ea5f5d453e74a7ca2dd02fbf56f5ebb70 SHA1 25b85c6255166e25412f0c38af30a822b1b92d8a SHA256 fd9c2067ee1e3e542c05a578fdc231061c1d3f092e12763f3b3ca0e4e1a01e90
-MD5 1dcaea49eca4d87be4e9fe1d449f3dfa files/xjadeo-0.4.1-use_sws_scale.patch 3230
-RMD160 c0ae3b7ea5f5d453e74a7ca2dd02fbf56f5ebb70 files/xjadeo-0.4.1-use_sws_scale.patch 3230
-SHA256 fd9c2067ee1e3e542c05a578fdc231061c1d3f092e12763f3b3ca0e4e1a01e90 files/xjadeo-0.4.1-use_sws_scale.patch 3230
 DIST xjadeo-0.4.1.tar.gz 303342 RMD160 ac60bee6df532516bdd64a841c3778b18dfb055f SHA1 18e3728e51ddc6bd408aeda931251b2ea91a3a9f SHA256 f78c2b9cd7ddad4c550ad4c4b0b178fe2cbdb9c09393baaf0ad19d814a4f5736
 EBUILD xjadeo-0.4.1.ebuild 1831 RMD160 f756af0e344c46887e2337af29861287cb23a902 SHA1 19c1ab11a9c8ef811f6e9626b4b08fbf4295b99e SHA256 b00eba48086a14b3e678ed5031f9ecb695f9f1893bb86fee02f4aabc8548448f
-MD5 9f4f77f697e3e9099b03f6f08270ece3 xjadeo-0.4.1.ebuild 1831
-RMD160 f756af0e344c46887e2337af29861287cb23a902 xjadeo-0.4.1.ebuild 1831
-SHA256 b00eba48086a14b3e678ed5031f9ecb695f9f1893bb86fee02f4aabc8548448f xjadeo-0.4.1.ebuild 1831
-MD5 3768aa403f7b86fb28a2ab4191f52e01 files/digest-xjadeo-0.4.1 238
-RMD160 2eef33c8f86c7ae72d61a03e6c2afaa57e4f6543 files/digest-xjadeo-0.4.1 238
-SHA256 7ea42eebd73858dfb6e9eeafa3a5f67e94172c84bf0c4c9f8db01ad8ffcde786 files/digest-xjadeo-0.4.1 238
