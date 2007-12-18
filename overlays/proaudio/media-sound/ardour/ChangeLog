@@ -2,6 +2,11 @@
 # Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  18 Dec 2007; <tom@gentoo.org> ardour-2.0.99992.ebuild,
+  +ardour-2.1.9999.ebuild:
+  copy 2.0.99992 to 2.1.9999 to avoid weird unmasking with 2.1
+  add media-libs/rubberband to depend for sys-libs
+
   16 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org>
   +files/ardour-2.0.3-cflags.patch, -files/ardour-vst-support_1_1.patch,
   +files/ardour-2.0.3-sndfile-external.patch,

@@ -88,7 +88,7 @@ src_unpack(){
 	cd ${S}
 
 	# hack to use the sys-lib for sndlib also
-	use sys-libs && epatch "${FILESDIR}/ardour-syslib_mod2.patch"
+	use sys-libs && epatch "${FILESDIR}/ardour-2.0.3-sndfile-external.patch"
 
 	add_ccache_to_scons
 
