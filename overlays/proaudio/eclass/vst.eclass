@@ -10,7 +10,7 @@
 ECLASS="vst"
 INHERITED="$INHERITED $ECLASS"
 
-RDEPEND=">=app-emulation/wine-0.9.5"
+RDEPEND="vst? ( >=app-emulation/wine-0.9.5 )"
 DEPEND="vst? ( =media-libs/vst-sdk-2.3*
 			app-arch/zip )"
 
