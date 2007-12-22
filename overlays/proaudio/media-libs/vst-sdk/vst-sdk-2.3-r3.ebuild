@@ -3,7 +3,7 @@
 # install proprietary Steinberg VST SDK 2.3 to "/opt/${MY_P}"
 # bug #61290
 
-inherit eutils
+inherit exteutils
 
 RESTRICT="nostrip fetch"
 
@@ -37,14 +37,22 @@ pkg_nofetch() {
 	einfo "Please redigest your ebuild if you get digest errors:"
 	einfo "ebuild ${EBUILD} digest"
 	einfo
-}
+}	
 
 src_unpack() {
 	unpack ${MY_P}.zip || die
-	sed -e :a -e 's/<[^>]*>//g;/</N;//ba' ${S}/VST\ Licensing\ Agreement.html > ${S}/VST_Licensing_Agreement.txt
+	esed -e :a -e 's/<[^>]*>//g;/</N;//ba' "${S}/VST Licensing Agreement.html" > ${S}/VST_Licensing_Agreement.txt
 	check_license "${S}/VST_Licensing_Agreement.txt"
 	rm -f "${S}/VST_Licensing_Agreement.txt"
-	find -type d -name 'CVS' -exec rm -rf {} \;
+	unneeded_dirs="$(find -type d -name 'CVS')"
+	old_ifs="$IFS"
+IFS="
+"
+	for dir in ${unneeded_dirs[@]};do
+		einfo "delete unneeded dir: $dir"
+		rm -rf "$dir"
+	done
+	IFS="$old_ifs"
 	find -type f -exec chmod 0644 {} \;
 	find -type d -exec chmod 0755 {} \;
 }
