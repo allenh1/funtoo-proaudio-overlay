@@ -41,7 +41,7 @@ src_unpack() {
 src_compile() {
 	TCL_VERSION=`echo 'puts [info tclversion]' | tclsh`
 
-	local myconf="PREFIX=/usr"
+	myconf="PREFIX=/usr"
 
 	#vkeybd requires at least one of its USE_ variable to be set
 	if use alsa ; then
@@ -57,13 +57,15 @@ src_compile() {
 			die "Error altering Makefile"
 	fi
 
+	einfo "${myconf} TCL_VERSION=$TCL_VERSION"
 	make ${myconf} TCL_VERSION=$TCL_VERSION || die "Make failed."
 }
 
 src_install() {
-	make DESTDIR=${D} TCL_VERSION=$TCL_VERSION PREFIX=/usr install || \
+	eerror " ${myconf} "
+	make ${myconf} DESTDIR=${D} TCL_VERSION=$TCL_VERSION PREFIX=/usr install || \
 		die "Installation Failed"
-	make DESTDIR=${D} TCL_VERSION=$TCL_VERSION PREFIX=/usr install-man || \
+	make ${myconf} DESTDIR=${D} TCL_VERSION=$TCL_VERSION PREFIX=/usr install-man || \
 		die "Man-Page Installation Failed"
 	dodoc README
 }
