@@ -1,6 +1,10 @@
 # ChangeLog for media-sound/meterbridge
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  01 Jan 2008; Frieder Buerzele <evermind@tuxfamily.org> ChangeLog:
+  fixed missing dependency closes bug#29
+  removed old ebuild 
 
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog

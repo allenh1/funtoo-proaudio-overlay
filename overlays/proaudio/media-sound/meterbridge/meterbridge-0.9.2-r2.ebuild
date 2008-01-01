@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -14,7 +14,8 @@ KEYWORDS="amd64 ppc sparc x86"
 
 DEPEND="media-sound/jack-audio-connection-kit
 	media-libs/sdl-image
-	lash? ( >=media-sound/lash-0.5.0 )"
+	lash? ( >=media-sound/lash-0.5.0 )
+	=sys-devel/automake-1.6*"
 
 src_unpack() {
 	unpack "${A}"
