@@ -1,11 +1,11 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 inherit flag-o-matic eutils multilib subversion autotools
 
 NETJACK="netjack-0.12"
-JACKDBUS="jackpatches-0.3"
+JACKDBUS="jackpatches-0.4"
 
 RESTRICT="nostrip nomirror"
 DESCRIPTION="A low-latency audio server"
@@ -64,9 +64,9 @@ src_unpack() {
 
 	# dbus patches from Nedko Arnaudov
 	if use dbus; then
-		for i in `cat ../${JACKDBUS}/order`; do
-			epatch "../${JACKDBUS}/$i"
-		done
+        epatch "../${JACKDBUS}/logs.patch"
+        epatch "../${JACKDBUS}/dbus.patch"
+        epatch "../${JACKDBUS}/watchdog-fix-on-driver-load-fail.patch"
 	fi
 }
 
