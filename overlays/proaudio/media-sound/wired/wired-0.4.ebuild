@@ -6,7 +6,7 @@ RESTRICT="nomirror"
 inherit eutils wxwidgets
 
 DESCRIPTION="Wired aims to be a professional music production and creation software"
-HOMEPAGE="http://wired.epitech.net"
+HOMEPAGE="http://wired.sourceforge.net"
 SRC_URI="mirror://sourceforge/wired/${P}.tar.gz"
 
 LICENSE="GPL-2"

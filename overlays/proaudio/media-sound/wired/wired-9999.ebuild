@@ -5,7 +5,7 @@
 inherit subversion eutils autotools wxwidgets
 
 DESCRIPTION="Wired aims to be a professional music production and creation software running on the Linux operating system."
-HOMEPAGE="http://wired.epitech.net"
+HOMEPAGE="http://wired.sourceforge.net"
 
 ESVN_REPO_URI="https://wired.svn.sourceforge.net/svnroot/wired/trunk"
 ESVN_PROJECT="wired"
