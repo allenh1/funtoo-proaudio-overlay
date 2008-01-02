@@ -5,7 +5,7 @@
 RESTRICT="nomirror"
 DESCRIPTION="live looping sequencer"
 HOMEPAGE="http://kluppe.klingt.org"
-SRC_URI="http://kluppe.klingt.org/downloads/${P}.tar.gz"
+SRC_URI="http://kluppe.klingt.org/downloads/old_files/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
