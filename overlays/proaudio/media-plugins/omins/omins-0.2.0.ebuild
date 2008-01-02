@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+inherit exteutils autotools 
+
 RESTRICT="nomirror"
 DESCRIPTION="Collection of LADSPA plugins for modular synthesizers."
 HOMEPAGE="http://www.nongnu.org/om-synth/omins.html"
@@ -18,8 +20,9 @@ RDEPEND="${DEPEND}"
 src_unpack() {
 	unpack ${A}
 	cd ${S}
-	sed -ie 's#$libdir/ladspa#\\$\\(DESTDIR\\)$libdir/ladspa#' \
+	esed_check -i -e 's#$libdir/ladspa#\\$\\(DESTDIR\\)$libdir/ladspa#' \
 		configure.ac
+	eautoreconf
 }
 
 src_compile() {
