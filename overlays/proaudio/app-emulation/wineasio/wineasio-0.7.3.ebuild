@@ -35,7 +35,11 @@ src_compile() {
 }
 
 src_install() {
-	exeinto /usr/$(get_libdir)/wine
+	# need to be a bit tricky here
+	local mylibdir="lib"
+	use amd64 && mylibdir="lib32"
+
+	exeinto /usr/${mylibdir}/wine
 	doexe *.so
 	dodoc README.TXT readme.txt
 	use amd64 && dobin jackbridge
