@@ -1,12 +1,15 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 inherit multilib
 
+WINEASIOX="wineasio-x.3"
+
 DESCRIPTION="ASIO driver for WINE"
 HOMEPAGE="http://forum.jacklab.net/viewtopic.php?t=417"
-SRC_URI="http://people.jacklab.net/edogawa/files/${PN}/${P}.tar.gz"
+SRC_URI="x86? ( http://people.jacklab.net/drumfix/${P}.tar.bz2 )
+amd64? ( http://people.jacklab.net/drumfix/${WINEASIOX}.tgz )"
 RESTRICT="nomirror"
 
 LICENSE="LGPL-2.1"
@@ -17,25 +20,25 @@ SLOT="0"
 DEPEND="media-libs/asio-sdk"
 RDEPEND=">=app-emulation/wine-0.9.35"
 
+if use amd64; then
+	S="${WORKDIR}/${WINEASIOX}"
+fi
+
 src_unpack() {
-	unpack "${A}"
+	unpack ${A}
 	cd "${S}"
 	cp /opt/asiosdk2.2/common/asio.h .
 }
 
 src_compile() {
-	use amd64 && multilib_toolchain_setup x86
 	emake || die "make failed"
 }
 
 src_install() {
-	if use amd64; then
-		exeinto /usr/lib32/wine
-	else
-		exeinto /usr/lib/wine
-	fi
+	exeinto /usr/$(get_libdir)/wine
 	doexe *.so
-	dodoc README.TXT
+	dodoc README.TXT readme.txt
+	use amd64 && dobin jackbridge
 }
 
 pkg_postinst() {
@@ -49,9 +52,10 @@ pkg_postinst() {
 	echo
 
 	if use amd64; then
-		elog "amd64 users please note that ${PN} will not work with 64bit JACK."
-		elog "One solution is to run JACK as different user in a 32bit chroot"
-		elog "and connect via netjack to your normal 64bit jack."
+		elog "For amd64 users:"
+		elog "You need to start jackbridge and make jack connections"
+		elog "before starting any wineasio application!"
+		elog "The jackbridge bridges 32bit wineasio clients into 64bit jack"
 	fi
 }
 
