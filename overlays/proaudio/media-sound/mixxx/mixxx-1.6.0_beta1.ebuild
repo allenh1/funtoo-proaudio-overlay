@@ -2,16 +2,19 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit exteutils qt4 subversion toolchain-funcs
+RESTRICT="nomirror"
+
+inherit exteutils qt4 toolchain-funcs versionator
+MY_P="${PN}-$(replace_version_separator "3" "-")"
+S="${WORKDIR}/$(replace_version_separator "4" "" "${MY_P}")"
 
 DESCRIPTION="Digital DJ tool using QT 4.x"
 HOMEPAGE="http://mixxx.sourceforge.net"
-
-ESVN_REPO_URI="https://mixxx.svn.sourceforge.net/svnroot/mixxx/trunk/mixxx"
+SRC_URI="mirror://sourceforge/mixxx/${MY_P}-src.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~x86 ~amd64 ~ppc"
 
 DEPEND="$(qt4_min_version 4.3)
 	media-sound/madplay
@@ -43,7 +46,7 @@ DEPEND="${DEPEND}
 	dev-util/scons
 	dev-util/pkgconfig"
 
-IUSE="alsa jack ffmpeg ladspa djconsole hifieq exbpm exrecord"
+IUSE="alsa jack ladspa djconsole hifieq exbpm exrecord"
 
 pkg_setup() {
 	if use jack; then
@@ -64,7 +67,7 @@ pkg_setup() {
 }
 
 src_unpack() {
-	subversion_src_unpack
+	unpack "${A}"
 	cd "${S}"
 	# use our own CXXFLAGS/CFLAGS
 	esed_check -i \
@@ -77,7 +80,7 @@ src_unpack() {
 src_compile() {
 	myconf=""
 	! use ladspa; myconf="ladspa=$?"
-	! use ffmpeg; myconf="${myconf} ffmpeg=$?"
+	myconf="${myconf} ffmpeg=0"
 	! use djconsole; myconf="${myconf} djconsole=$?"
 	! use hifieq; myconf="${myconf} hifieq=$?"
 	! use exbpm; myconf="${myconf} experimentalbpm=$?"
