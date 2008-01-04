@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  04 Jan 2008; <marco@gentoo.org> phat-0.4.1.ebuild:
+  New phat release
+
   04 Jan 2008; Marc-Olivier Barre <mobarre@gmail.com> phat-9999.ebuild:
   Added a patch and an ebuild fix to get svn to work with gcc 4.2.2 and not
   munge users CFLAGS
