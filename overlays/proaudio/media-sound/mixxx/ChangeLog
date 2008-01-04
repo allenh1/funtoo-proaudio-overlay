@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  04 Jan 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  mixxx-1.6.0_beta1.ebuild:
+  fix mixxx-1.6.0beta1 install_root and prefix
+
   04 Jan 2008; Frieder Buerzele <evermind@tuxfamily.org> ChangeLog:
   bumped mixxx-1.6.0_beta1
   	fix own cflags and USE flag selection in (1.6.0_beta1 and 9999)

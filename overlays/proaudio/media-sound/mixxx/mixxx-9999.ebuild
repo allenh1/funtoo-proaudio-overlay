@@ -82,7 +82,7 @@ src_compile() {
 	! use hifieq; myconf="${myconf} hifieq=$?"
 	! use exbpm; myconf="${myconf} experimentalbpm=$?"
 	! use exrecord; myconf="${myconf} experimentalrecord=$?"
-	myconf="${myconf} prefix=${D}/usr"
+	myconf="${myconf} prefix=/usr"
 
 	mkdir -p "${D}/usr"
 	einfo "selected options: ${myconf}"
@@ -92,6 +92,6 @@ src_compile() {
 
 src_install() {
 	mkdir -p "${D}/usr"
-	scons ${myconf} install || die
+	scons prefix="/usr" install_root="${D}/usr" install || die
 	dodoc README Mixxx-Manual.pdf
 }
