@@ -92,6 +92,6 @@ src_compile() {
 
 src_install() {
 	mkdir -p "${D}/usr"
-	scons prefix="/usr" install_root="${D}/usr" install || die
+	scons ${myconf} install_root="${D}/usr" install || die
 	dodoc README Mixxx-Manual.pdf
 }
