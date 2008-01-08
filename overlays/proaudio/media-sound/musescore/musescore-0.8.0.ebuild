@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils font toolchain-funcs
+inherit eutils font toolchain-funcs qt4
 
 MY_P=${P/musescore/mscore}
 
