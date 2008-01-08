@@ -36,12 +36,14 @@ pkg_setup() {
 		eerror "${failure}"
 		die "${failure}"
 	fi
+
+	if ! built_with_use ">=x11-libs/qt-4.3" accessibility; then
+		eerror "re-emerge x11-libs/qt with accessibility useflag enabled!"
+		die
+	fi
 }
 
 src_compile() {
-	# somehow headers might get mixed up with qt3
-	unset QTDIR
-
 	mkdir "${BUILDDIR}"
 	cd "${BUILDDIR}"
 

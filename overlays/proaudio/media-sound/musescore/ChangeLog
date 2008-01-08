@@ -4,6 +4,10 @@
 
   08 Jan 2008; Thomas Kuther <gimpel@sonnenkinder.org>
   musescore-0.8.0.ebuild:
+  actually we need the accessibilty useflag set
+
+  08 Jan 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  musescore-0.8.0.ebuild:
   unset QTDIR to avoid header mixup with qt3
 
   20 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org>
