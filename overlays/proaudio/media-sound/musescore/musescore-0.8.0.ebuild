@@ -1,4 +1,4 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -39,6 +39,9 @@ pkg_setup() {
 }
 
 src_compile() {
+	# somehow headers might get mixed up with qt3
+	unset QTDIR
+
 	mkdir "${BUILDDIR}"
 	cd "${BUILDDIR}"
 
@@ -57,7 +60,7 @@ src_compile() {
 
 src_install() {
 	cd "${BUILDDIR}"
-	emake DESTDIR="${D}" install || die "emake install failed."
+	make DESTDIR="${D}" install || die "make install failed."
 
 	font_src_install
 
