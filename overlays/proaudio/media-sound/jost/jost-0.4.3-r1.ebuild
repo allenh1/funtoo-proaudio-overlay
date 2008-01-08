@@ -1,4 +1,4 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -36,6 +36,7 @@ fi
 S="${WORKDIR}/${PN}-v${PV}"
 
 pkg_setup() {
+	# at least one of those must be selected
 	if ! use dssi; then
 		if ! use ladspa; then
 			if ! use vst; then
@@ -49,6 +50,15 @@ pkg_setup() {
 		fi
 	fi
 
+	# XCB issues
+	if built_with_use x11-libs/libX11 xcb; then
+		if has_version "<x11-libs/libxcb-1.1"; then
+			eerror "You have libX11 compiled with xcb support, and you are"
+			eerror "using libxcb older than version 1.1. Jost will not work."
+			eerror "Please update your libxcb first"
+			die
+		fi
+	fi
 }
 
 src_unpack() {
@@ -123,5 +133,14 @@ pkg_postinst() {
 		elog "In conecquence, you will not be able to connect JOST to a"
 		elog "64bit jackd instance! You can either emerge emul-linux-x86-jackd,"
 		elog "install JOST in a 32bit chroot, or disable VST support for JOST."
+	fi
+	
+	if built_with_use x11-libs/libX11 xcb; then
+		ewarn "You have compiled libX11 with xcb enabled."
+		ewarn "Make sure you use libxcb-1.1 or higher, and do"
+		echo
+		ewarn "export LIBXCB_ALLOW_SLOPPY_LOCK=1"
+		echo
+		ewarn "Otherwhise Jost will freeze after startup!"
 	fi
 }
