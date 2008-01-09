@@ -44,6 +44,10 @@ pkg_setup() {
 }
 
 src_compile() {
+	if ! use jack; then
+		sed -i -e "s/jackaudio.cpp //" ${S}/mscore/mscore/CMakeLists.txt
+	fi
+
 	mkdir "${BUILDDIR}"
 	cd "${BUILDDIR}"
 
@@ -68,7 +72,4 @@ src_install() {
 
 	cd "${S}"/mscore
 	dodoc ChangeLog NEWS README doc/README.translate
-
-	doicon mscore/data/mscore.png
-	make_desktop_entry mscore MuseScore mscore
 }
