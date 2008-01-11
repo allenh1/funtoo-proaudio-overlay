@@ -36,7 +36,7 @@ DEPEND="${RDEPEND}
 src_compile() {
 	cd "${S}"/wired
 
-	WX_GTK_VER=2.8
+	WX_GTK_VER="2.6"
 	need-wxwidgets unicode
 
 	NOCONFIGURE=1 ./autogen.sh

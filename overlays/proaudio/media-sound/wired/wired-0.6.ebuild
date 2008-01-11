@@ -15,8 +15,6 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE="nls pic static debug dssi plugins codecs oss alsa jack portaudio-internal"
 
-S="${WORKDIR}/${PN}"
-
 ## Gui related
 RDEPEND="${RDEPEND}
 	virtual/libc
@@ -38,8 +36,10 @@ DEPEND="${RDEPEND}
 	dev-util/pkgconfig"
 
 src_compile() {
-	WX_GTK_VER=2.8
+	WX_GTK_VER="2.6"
 	need-wxwidgets unicode
+
+	NOCONFIGURE=1 ./autogen.sh
 
 	local myconf
 	myconf=""
