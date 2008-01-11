@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit subversion exteutils
+inherit exteutils
 
 DESCRIPTION="lv2core is a bunch of stuff for LV2 libraries and hosts"
 HOMEPAGE="http://lv2plug.in"
@@ -25,7 +25,6 @@ src_compile() {
 }
 
 src_install() {
-	cd "${S}/" || die "source for ${PN} not found"
 	emake DESTDIR="${D}" install || die "install failed"
 	dodoc README AUTHORS
 }

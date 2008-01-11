@@ -10,7 +10,7 @@ SRC_URI="http://download.gna.org/zyn/zyn-1.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~x86 ~amd64"
 
 S="${WORKDIR}/zyn-1"
 

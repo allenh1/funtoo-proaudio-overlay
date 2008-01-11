@@ -10,7 +10,7 @@ HOMEPAGE="https://gna.org/projects/lv2vocoder"
 SRC_URI="http://download.gna.org/lv2vocoder/${P}.tar.bz2"
 
 LICENSE="GPL-2"
-KEYWORDS=""
+KEYWORDS="~x86 ~amd64"
 SLOT="0"
 
 DEPEND=""

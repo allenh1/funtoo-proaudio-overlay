@@ -18,11 +18,11 @@ S="${WORKDIR}/${PN}"
 
 IUSE=""
 RDEPEND="=sci-libs/fftw-3*
-	=media-libs/lv2dynparam-9999
+	=media-libs/lv2dynparam1-9999
 	=media-sound/zynjacku-9999"
 
 DEPEND="=sci-libs/fftw-3*
-	=media-libs/lv2dynparam-9999
+	=media-libs/lv2dynparam1-9999
 	media-libs/slv2"
 
 pkg_setup() {
