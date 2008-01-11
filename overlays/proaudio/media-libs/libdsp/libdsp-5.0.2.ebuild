@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils
+inherit exteutils toolchain-funcs
 
 DESCRIPTION="C++ class library of common digital signal processing functions."
 HOMEPAGE="http://libdsp.sf.net"
@@ -12,7 +12,7 @@ SRC_URI="mirror://sourceforge/${PN}/${PN}-src-${PV}.tar.gz
 LICENSE="GPL-2"
 SLOT="0"
 
-KEYWORDS="x86 -amd64 -sparc"
+KEYWORDS="x86 ~amd64 -sparc"
 IUSE="doc"
 DEPEND=""
 
@@ -30,27 +30,52 @@ src_unpack() {
 	sed -e "s:^CXXFLAGS.*:CXXFLAGS = ${CXXFLAGS}:" -i DynThreads/Makefile
 
 	# use our PREFIX too
-	sed -e "s:^PREFIX.*:PREFIX = ${D}/usr:" -i Inlines/Makefile
-	sed -e "s:^PREFIX.*:PREFIX = ${D}/usr:" -i libDSP/Makefile
-	sed -e "s:^PREFIX.*:PREFIX = ${D}/usr:" -i DynThreads/Makefile
+	esed_check -i -e "s:^PREFIX.*:PREFIX = ${D}/usr:" Inlines/Makefile \
+		libDSP/Makefile DynThreads/Makefile
+
+	if use amd64;then
+		esed_check -i -e "1iCFLAGS = ${CFLAGS}" \
+			-e "s:\(^CFLAGS.*\):#\1:" \
+			-e "s:\(^INCS.*\):INCS = -I. -I../Inlines -I/usr/include:" \
+			libDSP/Makefile.x86-64
+
+		esed_check -i -e "1iCXXFLAGS = ${CXXFLAGS}" \
+			-e "s:\(^CXXFLAGS.*\):#\1:" \
+			-e "s:\(^INCS.*\):INCS = -I. -I../Inlines -I/usr/include:" \
+			DynThreads/Makefile.x86-64
+
+		esed_check -i -e "s:^PREFIX.*:PREFIX = ${D}/usr:" \
+			libDSP/Makefile.x86-64 DynThreads/Makefile.x86-64
+
+	fi
+	tc-export CC CXX
+	# use our CC / CXX variables
+	esed_check -i -e "s:^CC\ *=.*:CC = ${CC}:g" \
+		-e "s:^CXX\ *=.*:CXX = ${CXX}:g" \
+		libDSP/Makefile libDSP/Makefile.x86-64 \
+		DynThreads/Makefile DynThreads/Makefile.x86-64
 
 	# fix NPTL includes
-	for filename in $(grep -rl nptl/pthread *); do
-		sed -e "s:nptl/pthread.h:pthread.h:g" -i $filename
+	for filename in $(grep -rl nptl/pthread libDSP/* Inlines/* DynThreads/*); do
+		esed_check -i -e "s:nptl/pthread.h:pthread.h:g"  $filename
 	done
 
 	# libtool only supports the --tag option from v1.5 onwards
 	if ! has_version ">=sys-devel/libtool-1.5.0"; then
-		sed -e "s/^LIBTOOL = libtool --tag=CXX/LIBTOOL = libtool/" -i libDSP/Makefile
+		esed_check -i -e "s/^LIBTOOL = libtool --tag=CXX/LIBTOOL = libtool/" libDSP/Makefile
+		use amd64 && esed_check -i -e \
+			"s/^LIBTOOL = libtool --tag=CXX/LIBTOOL = libtool/" libDSP/Makefile.x86_64
 	fi
 }
 
 src_compile() {
+	myconf=""
+	use amd64 myconf="-f Makefile.x86-64"
 	cd ${S}/DynThreads
-	emake || die "DynThreads make failed!"
+	emake ${myconf} || die "DynThreads make failed!"
 
 	cd ${S}/libDSP
-	emake || die "libDSP make failed!"
+	emake ${myconf} || die "libDSP make failed!"
 }
 
 src_install() {
@@ -60,10 +85,10 @@ src_install() {
 	make install || die "Inlines install failed!"
 
 	cd ${S}/DynThreads
-	make install || die "DynThreads install failed!"
+	make ${myconf} install || die "DynThreads install failed!"
 
 	cd ${S}/libDSP
-	make install || die "libDSP install failed!"
+	make ${myconf} install || die "libDSP install failed!"
 
 	if use doc; then
 		dohtml ${WORKDIR}/${PN}-doc-html/*

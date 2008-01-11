@@ -62,10 +62,10 @@ esed() {
 }
 
 # using sed and test if sed changed the file
-# WARNING: it's only tested to work if it's called inside the
-# dir which contains the file to patch
+# WARNING: don't pass the same file twice while using the same regexp
 # syntax same as sed
 # ESED=1 emerge pkg # will show the differences produced whith esed_check
+# and placed the pkg in ${S}/esed_patches
 CNT="0"
 esed_check() {
 #	set -x
@@ -78,38 +78,61 @@ esed_check() {
 
 	local cnt=0
 	local args=("$@")
+	local uniq_backup="esed_bac${RANDOM}" # needed to find modified files
 	for i in ${args[@]};do
 		if [ "$i" == "-i" ];then
-			args[$cnt]="-iesed_bac"
+			args[$cnt]="-i${uniq_backup}"
 		fi
 		let "cnt+=1"
 	done
 	LC_ALL=C sed "${args[@]}"
 	if [ "${?}" -ne "0" ] ;then
-		die_msg 
+		die_msg "retval not zero"
 	fi
 
-	local backup="`find -name '*esed_bac' -printf '%f\n'`"
-	local original="${backup/esed_bac/}"
-	einfo "patching: ${original}  (using sed)"
-	if diff --brief "${original}" "${backup}" &>/dev/null;then
-		die_msg "${original}"
-	fi
-
-	# check the differences produces with esed_check
+	local old_ifs="$IFS"
+IFS="
+"
+	local patch_file_exists="0"
+	local patch_name=""
 	local patch_dir="${S}/esed_patches"
-	if [ "${ESED}" == "1" ];then
-		# display diff 
-		einfo "In file ${original} esed changed:"
-		diff -u "${backup}" "${original}"
 
-		# save the sed geneated patches to $patch_dir
-		[ ! -e ${patch_dir} ] && mkdir ${patch_dir} &>/dev/null
-		echo "esed generated patch for ${original}" \
-			> "${patch_dir}/${CNT}-${original}.patch"
-		diff -u "${backup}" "${original}" \
-			>> "${patch_dir}/${CNT}-${original}.patch"
-		let CNT+=1
+	# find backup'd files
+	for backup in $(find -name "*${uniq_backup}");do
+		local patched="${backup/${uniq_backup}/}"
+		einfo "Patched with esed: ${patched#*/}"
+		if diff --brief "${patched}" "${backup}" &>/dev/null;then
+			die_msg "while diff ${patched}"
+		fi
+
+		# check the differences produces with esed_check
+		if [ "${ESED}" == "1" ];then
+			# display diff 
+			einfo "In file ${patched} esed changed:"
+			diff -u "${backup}" "${patched}"
+
+			# save the sed geneated patches to $patch_dir
+			[ ! -e "${patch_dir}" ] && mkdir "${patch_dir}" &>/dev/null
+			if [ "${patch_file_exists}" == "0" ];then
+				patch_name="${CNT}-esed_${patched##*/}"
+				patch_file_exists="1"
+				echo -e"\nesed generated patch for ${patch_name##/*}\n" \
+					> "${patch_dir}/${patch_name}.patch"
+			fi
+			diff -u "${backup}" "${patched}" \
+				>> "${patch_dir}/${patch_name}.patch"
+		fi
+
+		rm -f "${backup}"
+	done
+	
+	IFS="$old_ifs"
+	patch_file_exists="0"
+	let CNT+=1
+	if [ "${ESED}" == "1" ];then
+		einfo
+		einfo "esed_check generated patches are located in:"
+		einfo "${patch_dir}"
+		einfo
 	fi
-	rm -f "${backup}"
 }
