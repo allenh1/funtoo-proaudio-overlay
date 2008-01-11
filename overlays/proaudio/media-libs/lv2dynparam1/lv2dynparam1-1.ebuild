@@ -10,7 +10,7 @@ SRC_URI="http://download.gna.org/lv2dynparam/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~x86 ~amd64"
 
 IUSE=""
 DEPEND=""
@@ -26,7 +26,7 @@ src_compile() {
 }
 
 src_install() {
-    cd "${S}/" || die "source for ${PN} not found"
+	cd "${S}/" || die "source for ${PN} not found"
 	emake DESTDIR="${D}" install || die "Install failed"
 	dodoc README AUTHORS NEWS
 }

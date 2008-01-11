@@ -18,7 +18,7 @@ DEPEND=">=dev-util/pkgconfig-0.9.0
 	>=dev-libs/rasqal-0.9.11
 	>=media-libs/raptor-1.4.0
 	>=sys-libs/raul-0.4.0
-	>=media-libs/lv2core-1"
+	media-libs/lv2core"
 
 src_unpack() {
 	unpack ${A}

@@ -10,7 +10,7 @@ SRC_URI="http://download.gna.org/zynjacku/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~x86 ~amd64"
 
 IUSE=""
 DEPEND="=media-sound/jack-audio-connection-kit-9999
@@ -39,9 +39,6 @@ pkg_setup() {
 src_unpack() {
 	unpack ${A}
 	cd ${S}
-#	chmod +x gen_py_constants.py
-#	export WANT_AUTOMAKE="1.10"
-#	./bootstrap
 }
 
 src_compile() {
