@@ -4,7 +4,7 @@
 
 inherit subversion exteutils
 
-DESCRIPTION="SLV2 is a library for LV2 hosts"
+DESCRIPTION="lv2core is a bunch of stuff for LV2 libraries and hosts"
 HOMEPAGE="http://lv2plug.in"
 SRC_URI="http://lv2plug.in/spec/${P}.tar.gz"
 
