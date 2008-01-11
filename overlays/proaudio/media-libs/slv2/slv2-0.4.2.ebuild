@@ -33,7 +33,6 @@ src_compile() {
 }
 
 src_install() {
-	cd "${S}/${PN}" || die "source for ${PN} not found"
 	emake DESTDIR="${D}" install || die "install failed"
 	dodoc README AUTHORS
 }

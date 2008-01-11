@@ -28,7 +28,7 @@ DEPEND="=media-sound/jack-audio-connection-kit-9999
 	>=dev-libs/redland-1.0.6"
 
 RDEPEND="${DEPEND}
-	>=media-libs/pyphat-9999"
+	>=media-libs/pyphat-0.4.1"
 
 pkg_setup() {
 	ewarn "if building fails try the following:"
