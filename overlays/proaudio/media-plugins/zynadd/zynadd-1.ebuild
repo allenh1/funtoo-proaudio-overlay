@@ -48,7 +48,7 @@ src_install() {
 
 pkg_postinst() {
 	elog "to lauch eg. zynadd type:"
-	elog "zynjacku http://home.gna.org/zyn/zynadd/0"
+	elog "zynjacku http://home.gna.org/zyn/zynadd/1"
 	elog "(zynjacku is provided by media-sound/zynjacku)"
 }
 
