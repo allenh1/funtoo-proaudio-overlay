@@ -4,7 +4,7 @@
 
 inherit exteutils
 
-DESCRIPTION="lv2core is a bunch of stuff for LV2 libraries and hosts"
+DESCRIPTION="lv2core is the lv2 specification headers and ontology"
 HOMEPAGE="http://lv2plug.in"
 SRC_URI="http://lv2plug.in/spec/${P}.tar.gz"
 
