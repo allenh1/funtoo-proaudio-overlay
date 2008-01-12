@@ -15,3 +15,6 @@ media-sound/wired
 # Not sure about the copyright of the 2 IR files. I will unmask it
 # so soon I am sure which way to go <dominique.michel@citycable.ch>
 media-sound/aeolus-ym
+
+# Not yet released
+=media-sound/ardour-2.2
