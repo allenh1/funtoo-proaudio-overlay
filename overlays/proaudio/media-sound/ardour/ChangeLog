@@ -1,6 +1,9 @@
 # ChangeLog for media-sound/ardour
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  12 Jan 2008; Thomas Kuther <gimpel@sonnenkinder.org> +ardour-2.2.ebuild:
+  version bump
 
   18 Dec 2007; <tom@gentoo.org> ardour-2.0.99992.ebuild,
   +ardour-2.1.9999.ebuild:
