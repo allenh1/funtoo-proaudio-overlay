@@ -12,14 +12,13 @@ SRC_URI="http://download.savannah.nongnu.org/releases/lash/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 ppc sparc x86"
-IUSE="alsa debug gtk python"
+IUSE="alsa debug gtk"
 
 DEPEND="alsa? ( media-libs/alsa-lib )
 	!media-libs/ladcca
 	!media-libs/lash
 	media-sound/jack-audio-connection-kit
 	gtk? ( >=x11-libs/gtk+-2.0 )
-	python? ( dev-lang/python )
 	|| ( sys-libs/readline sys-libs/libedit )"
 
 pkg_setup() {
@@ -32,10 +31,6 @@ pkg_setup() {
 }
 
 src_compile() {
-	local myconf
-	# Yet-another-broken-configure: --enable-pylash would disable it.
-	use python || myconf="${myconf} --disable-pylash"
-
 	econf \
 		$(use_enable alsa alsa-midi) \
 		$(use_enable gtk gtk2) \
