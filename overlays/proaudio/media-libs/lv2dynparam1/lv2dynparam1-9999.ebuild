@@ -17,7 +17,7 @@ KEYWORDS=""
 S="${WORKDIR}/${PN}"
 
 IUSE=""
-DEPEND=""
+DEPEND=">=media-libs/lv2core-1"
 
 src_unpack() {
 	subversion_src_unpack ${A}

@@ -13,7 +13,7 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64"
 
 IUSE=""
-DEPEND=""
+DEPEND=">=media-libs/lv2core-1"
 
 src_unpack() {
 	unpack ${A}
