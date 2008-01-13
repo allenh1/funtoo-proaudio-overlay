@@ -23,9 +23,8 @@ DEPEND=">x11-libs/gtk+-2
 src_unpack() {
 	subversion_src_unpack ${A}
 	cd "${S}"
-	epatch "${FILESDIR}/svn-configure-ac-CFLAGS-fix.patch"
 	./bootstrap
-    if [[ $(gcc-major-version)$(gcc-minor-version)$(gcc-micro-version) -ge 413 ]] ; then
+	if [[ $(gcc-major-version)$(gcc-minor-version)$(gcc-micro-version) -ge 413 ]] ; then
 		ewarn "Appending -fgnu89-inline to CFLAGS/CXXFLAGS"
 		append-flags -fgnu89-inline
 	fi
