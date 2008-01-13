@@ -2,18 +2,15 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit subversion
 
 RESTRICT="nomirror"
 IUSE="boost osc lash jack debug"
 DESCRIPTION="Realtime Audio Utility Library: lightweight header-only C++"
 HOMEPAGE="http://wiki.drobilla.net/Raul"
-
-ESVN_REPO_URI="http://svn.drobilla.net/lad/"
-ESVN_PROJECT="svn.drobilla.net"
+SRC_URI="http://download.drobilla.net/${P}.tar.gz"
 
 LICENSE="GPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
 DEPEND=">=dev-util/pkgconfig-0.9.0
@@ -30,8 +27,8 @@ DEPEND=">=dev-util/pkgconfig-0.9.0
 
 src_compile() {
 	export WANT_AUTOMAKE="1.10"
-	cd "${S}/${PN}" || die "source for ${PN} not found"
-	NOCONFIGURE=1 ./autogen.sh
+	#cd "${S}/${PN}" || die "source for ${PN} not found"
+	#NOCONFIGURE=1 ./autogen.sh
 	econf \
 		$(use_enable boost smart_pointers) \
 		--enable-raptor \
@@ -44,7 +41,6 @@ src_compile() {
 }
 
 src_install() {
-	cd "${S}/${PN}" || die "source for ${PN} not found"
 	make DESTDIR="${D}" install || die "install failed"
-	dodoc AUTHORS NEWS THANKS ChangeLog
+	dodoc AUTHORS NEWS THANKS ChangeLog README
 }

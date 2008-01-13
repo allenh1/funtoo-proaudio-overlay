@@ -2,19 +2,16 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit subversion jackmidi
+inherit jackmidi
 
 RESTRICT="nomirror"
 IUSE="jackmidi lash"
 DESCRIPTION="Patchage is a modular patchbay for Jack audio and Alsa sequencer."
 HOMEPAGE="http://drobilla.net/software/patchage"
-
-
-ESVN_REPO_URI="http://svn.drobilla.net/lad/"
-ESVN_PROJECT="svn.drobilla.net"
+SRC_URI="http://download.drobilla.net/${P}.tar.gz"
 
 LICENSE="GPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
 DEPEND=">=media-libs/liblo-0.22
@@ -26,14 +23,14 @@ DEPEND=">=media-libs/liblo-0.22
 	>=media-libs/flowcanvas-0.4.0
 	lash? ( media-sound/lash )
 	!media-sound/patchage-cvs
-	=sys-libs/raul-9999"
+	>=sys-libs/raul-0.4.0"
 
 #S="${WORKDIR}/${ECVS_MODULE}"
 
 src_compile() {
-	cd "${S}/${PN}" || die "source for ${PN} not found"
+	#cd "${S}/${PN}" || die "source for ${PN} not found"
 	use jackmidi && need_jackmidi
-	NOCONFIGURE=1 ./autogen.sh
+	#NOCONFIGURE=1 ./autogen.sh
 	econf \
 		`use_enable jackmidi jack-midi` \
 		`use_enable lash` \
