@@ -25,12 +25,8 @@ DEPEND=">=media-libs/liblo-0.22
 	!media-sound/patchage-cvs
 	>=sys-libs/raul-0.4.0"
 
-#S="${WORKDIR}/${ECVS_MODULE}"
-
 src_compile() {
-	#cd "${S}/${PN}" || die "source for ${PN} not found"
 	use jackmidi && need_jackmidi
-	#NOCONFIGURE=1 ./autogen.sh
 	econf \
 		`use_enable jackmidi jack-midi` \
 		`use_enable lash` \
@@ -39,7 +35,6 @@ src_compile() {
 }
 
 src_install() {
-	cd "${S}/${PN}" || die "source for ${PN} not found"
 	make DESTDIR="${D}" install || die "install failed"
 	dodoc AUTHORS NEWS THANKS ChangeLog
 }
