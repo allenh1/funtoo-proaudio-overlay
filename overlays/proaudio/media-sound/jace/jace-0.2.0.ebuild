@@ -24,10 +24,8 @@ src_unpack(){
 	cd ${S}
 	esed_check -i -e 's@g++@$(CXX)@g' \
 		-e 's@^PREFIX.*@PREFIX = /usr@g' \
-		-e '/install\:/'a'XYZ/usr/bin/install -d \$\(DESTDIR\)\$\(PREFIX\)\/bin' \
+		-e '/install\:/'a'\	/usr/bin/install -d \$\(DESTDIR\)\$\(PREFIX\)\/bin' \
 		-e 's@\(/usr/bin/install -m 755 jace\ \)@\1$(DESTDIR)@g' Makefile
-	# replace XYZ with \t
-	esed_check -i -e 's@^XYZ@\t@g' Makefile
 }
 
 src_compile() {
