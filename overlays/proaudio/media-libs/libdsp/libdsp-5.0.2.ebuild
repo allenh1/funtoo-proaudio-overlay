@@ -1,4 +1,4 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -21,56 +21,75 @@ S=${WORKDIR}/${PN}-src-${PV}
 src_unpack() {
 	unpack ${A}
 	cd "${S}"
+	local ap_arch=""
 
-	# fixes some Makefile weirdness
-	epatch "${FILESDIR}"/${P}-Makefile.patch
-
-	# use our CFLAGS/CXXFLAGS instead
-	sed -e "s:^CFLAGS.*:CFLAGS = ${CFLAGS}:" -i libDSP/Makefile
-	sed -e "s:^CXXFLAGS.*:CXXFLAGS = ${CXXFLAGS}:" -i DynThreads/Makefile
-
-	# use our PREFIX too
-	esed_check -i -e "s:^PREFIX.*:PREFIX = ${D}/usr:" Inlines/Makefile \
-		libDSP/Makefile DynThreads/Makefile
-
-	if use amd64;then
-		esed_check -i -e "1iCFLAGS = ${CFLAGS}" \
-			-e "s:\(^CFLAGS.*\):#\1:" \
-			-e "s:\(^INCS.*\):INCS = -I. -I../Inlines -I/usr/include:" \
-			libDSP/Makefile.x86-64
-
-		esed_check -i -e "1iCXXFLAGS = ${CXXFLAGS}" \
-			-e "s:\(^CXXFLAGS.*\):#\1:" \
-			-e "s:\(^INCS.*\):INCS = -I. -I../Inlines -I/usr/include:" \
-			DynThreads/Makefile.x86-64
-
-		esed_check -i -e "s:^PREFIX.*:PREFIX = ${D}/usr:" \
-			libDSP/Makefile.x86-64 DynThreads/Makefile.x86-64
-
+	if use x86;then
+		ap_arch=""
+		# disable assembler optimization (gcc 4 fails)
+		esed_check -i -e "s@\(^DEFS.*-DDSP_X86\)@# \1@" \
+			-e "s@^#\(DEFS.*-DUSE_MEMMOVE\)@\1@" "libDSP/Makefile"
 	fi
-	tc-export CC CXX
-	# use our CC / CXX variables
-	esed_check -i -e "s:^CC\ *=.*:CC = ${CC}:g" \
-		-e "s:^CXX\ *=.*:CXX = ${CXX}:g" \
-		libDSP/Makefile libDSP/Makefile.x86-64 \
-		DynThreads/Makefile DynThreads/Makefile.x86-64
+
+	use amd64 && ap_arch=".x86-64"
+
+	# begin -- patch make files
+	patch_prefix "Inlines/Makefile" "libDSP/Makefile${ap_arch}" \
+		"DynThreads/Makefile${ap_arch}"
+
+	patch_cflags_include "libDSP/Makefile${ap_arch}" \
+		"DynThreads/Makefile${ap_arch}"
+
+	patch_used_compiler "libDSP/Makefile${ap_arch}" \
+		"DynThreads/Makefile${ap_arch}"
+
+	patch_libtool "libDSP/Makefile${ap_arch}"
+
+	patch_optcflags "libDSP/Makefile${ap_arch}"
+	# end -- patch make files
 
 	# fix NPTL includes
 	for filename in $(grep -rl nptl/pthread libDSP/* Inlines/* DynThreads/*); do
 		esed_check -i -e "s:nptl/pthread.h:pthread.h:g"  $filename
 	done
+}
 
+patch_cflags_include() {
+		esed_check -i -e "1iCFLAGS = ${CFLAGS}" \
+			-e "s:\(^CFLAGS.*\):#\1:" \
+			-e "s:\(^INCS.*\):INCS = -I. -I../Inlines -I/usr/include:" \
+			-e "1iCXXFLAGS = ${CXXFLAGS}" \
+			-e "s:\(^CXXFLAGS.*\):#\1:" $@
+}
+
+patch_optcflags() {
+	#remove optional flags
+	esed_check -i -e "s:\(^OPTCFLAGS.*\):#\1:" $@
+}
+
+patch_prefix() {
+	# use our PREFIX too
+	esed_check -i -e "s:^PREFIX.*:PREFIX = ${D}/usr:" $@
+}
+
+patch_used_compiler() {
+	# use our CC / CXX variables
+	tc-export CC CXX
+	esed_check -i -e "s:^CC\ *=.*:CC = ${CC}:g" \
+		-e "s:^CXX\ *=.*:CXX = ${CXX}:g" $@
+
+}
+
+patch_libtool() {
 	# libtool only supports the --tag option from v1.5 onwards
 	if ! has_version ">=sys-devel/libtool-1.5.0"; then
-		esed_check -i -e "s/^LIBTOOL = libtool --tag=CXX/LIBTOOL = libtool/" libDSP/Makefile
-		use amd64 && esed_check -i -e \
-			"s/^LIBTOOL = libtool --tag=CXX/LIBTOOL = libtool/" libDSP/Makefile.x86_64
+		esed_check -i -e "s/^LIBTOOL = libtool --tag=CXX/LIBTOOL = libtool/" $@
 	fi
 }
 
 src_compile() {
 	myconf=""
-	use amd64 myconf="-f Makefile.x86-64"
+	use x86 && myconf=""
+	use amd64 && myconf="-f Makefile.x86-64"
 	cd ${S}/DynThreads
 	emake ${myconf} || die "DynThreads make failed!"
 
