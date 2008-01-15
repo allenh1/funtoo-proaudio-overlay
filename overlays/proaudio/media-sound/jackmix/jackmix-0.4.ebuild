@@ -1,8 +1,8 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils qt4
+inherit exteutils qt4
 
 RESTRICT="nomirror"
 IUSE=""
@@ -22,13 +22,21 @@ RDEPEND="media-sound/jack-audio-connection-kit
 		$(qt4_min_version 4.2)
 		>=media-libs/liblo-0.23"
 
+src_unpack() {
+	unpack "${A}"
+	cd "${S}"
+	esed_check -i -e "s@\(^env\['CXXFLAGS'\].*\)\"@\1 ${CXXFLAGS}\"@" SConstruct
+}
 src_compile() {
+
+	tc-export CC CXX
 	QTDIR=/usr \
-	scons qtlibs=/usr/lib/qt4 prefix=${D}/usr || die "make failed"
+	scons CXXFLAGS="${CXXFLAGS}" qtlibs=/usr/lib/qt4 prefix="${D}"/usr || die "make failed"
 }
 
 src_install() {
-	scons install || die
+#	scons install || die
+	dobin jackmix/jackmix
 	dodoc AUTHORS ChangeLog
 	make_desktop_entry "${PN}" "JackMix" Audio "AudioVideo;Audio;Mixer"
 }
