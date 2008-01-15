@@ -13,7 +13,7 @@ SRC_URI="http://www.arnoldarts.de/drupal/files/downloads/jackmix/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 
 DEPEND="${RDEPEND}
 		dev-util/scons
@@ -23,11 +23,8 @@ RDEPEND="media-sound/jack-audio-connection-kit
 		>=media-libs/liblo-0.23"
 
 src_compile() {
-	eerror $PWD
 	QTDIR=/usr \
-	scons configure qtlibs=/usr/lib/qt4 prefix=${D}/usr || die "configure failed"
-
-	scons || die "make failed"
+	scons qtlibs=/usr/lib/qt4 prefix=${D}/usr || die "make failed"
 }
 
 src_install() {
