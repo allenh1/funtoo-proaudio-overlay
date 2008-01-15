@@ -7,7 +7,7 @@ inherit eutils
 RESTRICT="nomirror"
 IUSE="lash"
 DESCRIPTION="A convolution plugin for linux/DSSI"
-HOMEPAGE="http://tapas.affenbande.org/?page_id=36"
+HOMEPAGE="http://tapas.affenbande.org/wordpress/?page_id=36"
 SRC_URI="http://tapas.affenbande.org/jack_convolve/${P}.tgz"
 
 LICENSE="GPL-2"
