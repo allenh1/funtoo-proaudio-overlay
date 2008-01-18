@@ -20,8 +20,8 @@ KEYWORDS="amd64 x86"
 DEPEND="app-arch/unzip"
 
 BASE="/opt"
-S="${WORKDIR}/${MY_P}"
 MY_P="${P//-/}"
+S="${WORKDIR}/${MY_P}"
 
 pkg_nofetch() {
 	einfo "Please go to ${HOMEPAGE}"

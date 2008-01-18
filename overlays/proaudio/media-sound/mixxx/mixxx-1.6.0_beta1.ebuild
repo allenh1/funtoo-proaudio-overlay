@@ -34,7 +34,7 @@ DEPEND="$(qt4_min_version 4.3)
 			media-sound/gsm
 			media-libs/libdc1394
 			sys-libs/libraw1394
-			media-libs/libdts
+			media-libs/libdca
 			media-libs/a52dec )
 	ladspa? ( media-libs/ladspa-sdk )"
 
