@@ -1,8 +1,8 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header:$
 
-inherit kde eutils subversion qt3 exteutils
+inherit kde exteutils subversion qt3
 
 DESCRIPTION="MIDI and audio sequencer and notation editor."
 HOMEPAGE="http://www.rosegardenmusic.com/"
@@ -17,7 +17,7 @@ IUSE="alsa jack dssi lirc debug lilypond export kde gnome"
 RDEPEND="alsa? ( >=media-libs/alsa-lib-1.0 )
 	lilypond? ( media-sound/lilypond
 		|| ( kde? ( kde-base/kghostview ) gnome? ( app-text/evince ) app-text/ggv ) )
-	export? ( kde-base/kdialog
+	export? ( || ( kde-base/kdialog kde-base/kdebase )
 			dev-perl/XML-Twig
 			media-libs/libsndfile )
 	jack? ( >=media-sound/jack-audio-connection-kit-0.77 )
@@ -48,7 +48,9 @@ pkg_setup(){
 		eerror "if you disable alsa jack-support will also be disabled."
 		eerror "This is not what you want --> enable alsa useflag" && die
 	fi
-	if ! use export && ! has_all-pkg "kde-base/kdialog media-libs/libsndfile dev-perl/XML-Twig"  ;then
+	if ! use export && \
+		! ( has_all-pkg "media-libs/libsndfile dev-perl/XML-Twig" && \
+		has_any-pkg "kde-base/kdialog kde-base/kdebase" ) ;then
 		ewarn "you won't be able to use the rosegarden-project-package-manager"
 		ewarn "please remerge with USE=\"export\"" && sleep 3
 	fi
