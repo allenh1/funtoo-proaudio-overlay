@@ -13,7 +13,7 @@ if [ ! -e  .svn/text-base/generate-detailed-packages-list.svn-base ] ;then
 fi
 
 generate_list(){
-	for x in `find -maxdepth 1 -type d -printf '%f\n'|sed '1d'`;do
+	for x in `find -maxdepth 1 -type d -printf '%f\n'|sed '1d'|sort|uniq`;do
 	cd $x
 	for i in `find -name files`;do
 		i=${i/\/files/}
