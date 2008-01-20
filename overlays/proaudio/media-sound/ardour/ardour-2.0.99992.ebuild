@@ -124,5 +124,5 @@ src_install() {
 	dodoc  DOCUMENTATION/*
 
 	doicon "${S}/icons/icon/ardour_icon_mac.png"
-	make_desktop_entry ardour2 Ardour2 ardour_icon_mac.png "AudioVideo;Audio"
+	make_desktop_entry ardour Ardour ardour_icon_mac.png "AudioVideo;Audio"
 }

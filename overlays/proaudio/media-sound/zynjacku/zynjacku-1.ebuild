@@ -14,7 +14,7 @@ KEYWORDS="~x86 ~amd64"
 
 IUSE=""
 DEPEND="=media-sound/jack-audio-connection-kit-9999
-	media-libs/slv2
+	<media-libs/slv2-0.5
 	>=dev-libs/atk-1.0
 	>=media-libs/freetype-2.0
 	>=x11-libs/cairo-1.0
