@@ -1,4 +1,4 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -16,7 +16,7 @@ HOMEPAGE="http://www.muse-sequencer.org/"
 LICENSE="GPL-2"
 SLOT="1"
 KEYWORDS=""
-IUSE="vst dssi fluidsynth zynaddsubfx"
+IUSE="doc dssi fluidsynth vst zynaddsubfx"
 
 DEPEND="$(qt4_min_version 4.2.3)
 	>=dev-util/cmake-2.4.7
@@ -35,7 +35,8 @@ DEPEND="$(qt4_min_version 4.2.3)
 	!media-sound/museseq-cvs
 	!media-sound/museseq-svn
 	zynaddsubfx? ( =x11-libs/fltk-1.1*
-			>=dev-libs/mini-xml-2 )"
+			>=dev-libs/mini-xml-2 )
+	vst? ( media-libs/fst )"
 
 pkg_setup() {
 	if ! built_with_use ">=x11-libs/qt-4" qt3support; then
@@ -62,8 +63,8 @@ src_unpack() {
 	#patcher "${FILESDIR}/fix_zyn.patch apply"
 	mkdir build
 
-	# disable doc build for now
-	sed -i -e '304s@muse share doc@muse share@' CMakeLists.txt
+	# doc stuff
+	use doc || sed -i -e 's@muse share doc@muse share@' CMakeLists.txt
 }
 
 src_compile() {
@@ -78,7 +79,12 @@ src_compile() {
 		-DENABLE_ZYNADDSUBFX="0" \
 		-DENABLE_ZYNADDSUBFX="$(! use zynaddsubfx; echo "$?")"
 
-	cmake ../doc/CMakeLists.txt
+	use doc && cmake ../doc/CMakeLists.txt
+
+	# workaround empty revision.h
+	svn info ${ESVN_STORE_DIR}/${PN}/muse | grep Revision | \
+		cut	-f 2 -d " " > ${S}/build/revision.h \
+		|| die "generating revision.h failed"
 
 	emake -j1 || die "build failed"
 }

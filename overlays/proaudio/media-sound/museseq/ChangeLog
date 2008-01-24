@@ -1,6 +1,9 @@
 # ChangeLog for media-sound/museseq
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  24 Jan 2008; Thomas Kuther <gimpel@sonnenkinder.org> museseq-9999.ebuild:
+  minor fixes for svn ebuild
 
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog
