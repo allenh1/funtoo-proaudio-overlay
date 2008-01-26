@@ -39,7 +39,7 @@ src_compile() {
 	cd linux/
 	local myconf=""
 	use semaphores && myconf="SOCKET_RPC_POSIX_SEMA"
-	emake || die
+	emake ${myconf} || die
 }
 
 src_install() {
