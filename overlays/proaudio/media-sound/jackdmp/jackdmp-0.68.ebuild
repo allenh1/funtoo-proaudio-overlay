@@ -56,21 +56,32 @@ src_install() {
 }
 
 pkg_postinst() {
-	elog "Adding media-sound/jack-audio-connection-kit to"
-	elog "/etc/portage/profile/package.provided ..."
-	elog "Note that a lot of things might not compile correctly"
-	elog "against jackdmp's jack headers!"
-
+	local provided="${ROOT}/etc/portage/profile/package.provided"
+	
 	test -d ${ROOT}/etc/portage/profile \
 		|| dodir /etc/portage/profile
-	echo "media-sound/jack-audio-connection-kit-0.109.0" >> \
-		${ROOT}/etc/portage/profile/package.provided
+
+	if [ -z `grep "media-sound/jack-audio-connection-kit-0.109.0" ${provided}` ]
+	then
+		elog "Adding media-sound/jack-audio-connection-kit to"
+		elog "/etc/portage/profile/package.provided ..."
+		elog "Note that a lot of things might not compile correctly"
+		elog "against jackdmp's jack headers!"
+
+		echo "media-sound/jack-audio-connection-kit-0.109.0" >> \
+			${ROOT}/etc/portage/profile/package.provided
+
+		fi
 }
 
 pkg_postrm() {
-	elog "Removing media-sound/jack-audio-connection-kit from"
-	elog "/etc/portage/profile/package.provided ..."
+	# gets removed too when upgrading jackdmp, so let the user do it!
+	elog "*************** IMPORTANT ******************"
+	elog "PLEASE remove media-sound/jack-audio-connection-kit from"
+	elog "/etc/portage/profile/package.provided"
+	elog "if you switch to jack-audio-connection-kit again!!"
+	elog "Otherwhise you will mess up dependencies!"
 
-	sed '/media-sound\/jack-audio-connection-kit-0.109.0/d' \
-		-i ${ROOT}/etc/portage/profile/package.provided
+	#sed '/media-sound\/jack-audio-connection-kit-0.109.0/d' \
+	#	-i ${ROOT}/etc/portage/profile/package.provided
 }
