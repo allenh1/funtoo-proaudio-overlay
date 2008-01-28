@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -72,13 +72,12 @@ src_unpack() {
 		epatch "../${JACKDBUS}/watchdog-fix-on-driver-load-fail.patch"
 	fi
 
-
+	sed -i -e "s:include/nptl/:include/:g" configure.ac || die
+	eautoreconf
 }
 
 src_compile() {
 	local myconf
-	sed -i -e "s:include/nptl/:include/:g" configure.ac || die
-	eautoreconf
 
 	sed -i "s/^CFLAGS=\$JACK_CFLAGS/CFLAGS=\"\$JACK_CFLAGS $(get-flag -march)\"/" configure
 
