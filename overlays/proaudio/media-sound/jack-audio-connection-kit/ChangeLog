@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  31 Jan 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  +jack-audio-connection-kit-0.109.2.ebuild:
+  bump jack-audio-connection-kit-0.109.2
+
   28 Jan 2008; Thomas Kuther <gimpel@sonnenkinder.org>
   jack-audio-connection-kit-0.109.0.ebuild:
   QA: run autoreconf in src_unpack()
