@@ -6,7 +6,7 @@ inherit flag-o-matic eutils multilib autotools
 
 RESTRICT="nomirror"
 NETJACK="netjack-0.12"
-JACKDBUS="jackpatches-0.7"
+JACKDBUS="jackpatches-0.8"
 
 DESCRIPTION="A low-latency audio server"
 HOMEPAGE="http://www.jackaudio.org"

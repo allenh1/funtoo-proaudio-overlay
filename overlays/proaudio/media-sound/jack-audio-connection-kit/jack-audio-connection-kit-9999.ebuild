@@ -5,7 +5,7 @@
 inherit flag-o-matic eutils multilib subversion autotools
 
 NETJACK="netjack-0.12"
-JACKDBUS="jackpatches-0.7"
+JACKDBUS="jackpatches-0.8"
 
 RESTRICT="nostrip nomirror"
 DESCRIPTION="A low-latency audio server"
