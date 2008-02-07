@@ -81,7 +81,7 @@ src_unpack() {
 	cd "${S}"
 
 	# SYSLIBS also use external sndfile
-	use sys-libs && epatch "${FILESDIR}/${PN}-2.0.3-sndfile-external.patch"
+	#use sys-libs && epatch "${FILESDIR}/${PN}-2.0.3-sndfile-external.patch"
 
 	ardour_vst_prepare
 }
