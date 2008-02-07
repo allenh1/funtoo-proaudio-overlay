@@ -1,10 +1,10 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 inherit eutils fetch-tools scons-ccache subversion
 
-ESVN_REPO_URI="http://subversion.ardour.org/svn/ardour2/trunk"
+ESVN_REPO_URI="http://subversion.ardour.org/svn/ardour2/branches/3.0"
 DESCRIPTION="multi-track hard disk recording software"
 HOMEPAGE="http://ardour.org/"
 SRC_URI=""
@@ -87,9 +87,6 @@ src_unpack(){
 	subversion_src_unpack
 	cd ${S}
 
-	# change template dir to not overwrite ardour1 stuff
-	sed -i -e 's:\(share\)/ardour/\(templates\):\1/ardour2/\2:g' \
-		templates/SConscript || die "changing template names failed"
 	add_ccache_to_scons
 
 	# Fix libsoundtouch-1.0.pc detection
@@ -97,24 +94,6 @@ src_unpack(){
 		sed -i -e 's:libSoundTouch:soundtouch-1.0:g' SConstruct \
 			|| die "Fixing soundtouch detection failed"
 	fi
-
-	# ################
-	# adjust files for vst support
-	#if use vst;then
-		# delete vst question
-	#	touch ${S}/.personal_use_only
-
-		# fix vst header
-	#	sed -ie 's@vstsdk2.3/source/common/aeffectx.h@/usr/include/vst/aeffectx.h@g' libs/fst/SConscript || die "change vst-header location"
-		#symlink the include vst include files
-	#	vst_tmp_dir="vstsdk2.3/source/common"
-	#	mkdir -p ${vst_tmp_dir}
-	#	cp -r  /usr/include/vst/./ ${vst_tmp_dir}
-	#	zip -0r  libs/fst/vstsdk2.3.zip vstsdk2.3 &>/dev/null
-		#/usr/include/vst/ libs/fst
-		#ln -s ${DISTDIR}/vstsdk2.3.zip /libs/fst/
-	#fi
-	# ###############
 }
 
 src_compile() {
@@ -138,37 +117,5 @@ src_compile() {
 
 src_install() {
 	scons DESTDIR="${D}" install || die "make install failed"
-	#if use vst;then
-	#	newbin vst/ardour_vst.exe.so ardour2.exe.so
-	#	newbin vst/ardour_vst ardour2
-	#	fperms 644 /usr/bin/ardour2.exe.so
-	#	sed -i -e'/^appname/'i"export\ LD_LIBRARY_PATH=\"/usr/lib/ardour2/:\$LD_LIBRARY_PATH\"" ${D}/usr/bin/ardour2
-
-		# fix ardour file_name
-	#	sed -i -e 's@ardour_vst@ardour2@' ${D}/usr/bin/ardour2
-	#else
-		# fix ardour path
-		sed -i -e 's:'${D}'::g' ${D}/usr/bin/ardour2
-	#fi
-
-	cd DOCUMENTATION/
-	for i in `find -iname 'CVS'`;do rm -rf ${i};done
-	cd - &>/dev/null
-	dodoc  DOCUMENTATION/*
 }
 
-agree_vst() {
-	local ANSWER="no"
-	einfo "Are you building Ardour for personal use (rather than distribution to others)? [yes/no]: "
-	read ANSWER
-	if [ "$ANSWER" == "y" ] || [ "$ANSWER" == "yes" ];then
-		einfo "OK, VST support will be enabled"
-	else
-		eerror "You cannot build Ardour with VST support for distribution to others"
-		eerror "It is a violation of several different licenses"
-
-		eerror "use: USE=-vst emerge $P"
-		eerror "to disable vst support"
-		return 1
-	fi
-}
