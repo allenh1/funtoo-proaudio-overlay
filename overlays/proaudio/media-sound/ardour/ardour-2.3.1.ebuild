@@ -11,7 +11,7 @@ SRC_URI="http://ardour.org/files/releases/${P}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
-IUSE="altivec debug nls sse sys-libs vst"
+IUSE="altivec debug nls sse sys-libs vst lv2"
 S="${WORKDIR}/${PN}-2.3"
 
 RDEPEND="media-libs/liblo
@@ -36,7 +36,8 @@ RDEPEND="media-libs/liblo
 		>=x11-libs/pango-1.4
 		>=dev-cpp/libgnomecanvasmm-2.12.0
 		>=media-libs/libsndfile-1.0.16
-		>=media-libs/libsoundtouch-1.0 )"
+		>=media-libs/libsoundtouch-1.0 )
+	lv2? ( =media-libs/slv2-9999 )"
 
 DEPEND="${RDEPEND}
 	sys-devel/libtool
@@ -83,6 +84,7 @@ src_unpack() {
 
 	# SYSLIBS also use external sndfile
 	#use sys-libs && epatch "${FILESDIR}/${PN}-2.0.3-sndfile-external.patch"
+	epatch "${FILESDIR}/${P}-find_soundtouch.patch"
 
 	ardour_vst_prepare
 }
@@ -113,6 +115,7 @@ src_compile() {
 		$(ardour_use_enable NLS nls) \
 		$(ardour_use_enable VST vst) \
 		$(ardour_use_enable SYSLIBS sys-libs) \
+		$(ardour_use_enable LV2 lv2) \
 		DESTDIR="${D}" \
 		CFLAGS="${CFLAGS}" \
 		PREFIX=/usr \
