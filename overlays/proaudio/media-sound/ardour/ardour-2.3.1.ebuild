@@ -12,6 +12,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="altivec debug nls sse sys-libs vst"
+S="${WORKDIR}/${PN}-2.3"
 
 RDEPEND="media-libs/liblo
 	>=media-libs/liblrdf-0.4.0
