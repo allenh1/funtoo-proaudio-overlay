@@ -11,8 +11,3 @@ media-sound/wired
 # World's most fucked up build system [tm]
 # If autofoo is too complicated, than what's this? lol!
 =media-sound/bpmdj-3.6
-
-# Not sure about the copyright of the 2 IR files. I will unmask it
-# so soon I am sure which way to go <dominique.michel@citycable.ch>
-media-sound/aeolus-ym
-
