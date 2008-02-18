@@ -2,6 +2,9 @@
 # Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  18 Feb 2008; Dominique Michel <dominique.michel@citycable.ch> Oops:
+  changed the descrition to the correct one.
+  
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog
 
