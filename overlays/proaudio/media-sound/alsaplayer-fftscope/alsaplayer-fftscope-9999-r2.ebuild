@@ -4,7 +4,7 @@
 
 inherit eutils subversion # autotools
 
-DESCRIPTION="FftScope external visualizatopn scope for AlsaPlayer. It is a good starting point for others."
+DESCRIPTION="FftScope external visualization scope for AlsaPlayer. It is a good starting point for others."
 HOMEPAGE="http://www.alsaplayer.org/"
 SRC_URI=""
 
