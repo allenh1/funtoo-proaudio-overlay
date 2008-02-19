@@ -34,7 +34,7 @@ src_install() {
 	doins tuxguitar  TuxGuitar.jar
 	fperms 0755 /opt/${MY_P}/lib/*.so "/opt/${MY_P}/tuxguitar"
 	mv files doc lib share "${D}/opt/${MY_P}"
-	dosym "${D}/opt/${MY_P}/tuxguitar" /opt/bin/tuxguitar
+	newbin ${FILESDIR}/${MY_P} tuxguitar
 }
 
 pkg_postinst(){
