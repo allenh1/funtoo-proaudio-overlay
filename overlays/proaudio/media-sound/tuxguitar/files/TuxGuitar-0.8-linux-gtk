@@ -1,1 +1,2 @@
-PATH="/opt/TuxGuitar-0.8-linux-gtk:$PATH" tuxguitar
+#!/bin/bash
+PATH="/opt/TuxGuitar-0.8-linux-gtk:$PATH" tuxguitar $1
