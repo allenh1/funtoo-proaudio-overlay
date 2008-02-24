@@ -1,6 +1,10 @@
 # ChangeLog for media-sound/qtractor
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  24 Feb 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  qtractor-9999.ebuild:
+  added vst support (thx Lucio)
 
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog

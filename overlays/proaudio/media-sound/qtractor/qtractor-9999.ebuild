@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -16,13 +16,14 @@ S="${WORKDIR}/${PN}"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="vorbis mad"
+IUSE="vorbis mad vst"
 
 DEPEND="$(qt4_min_version 4.1)
 		>=media-sound/jack-audio-connection-kit-0.100.1
 		>=media-libs/alsa-lib-0.9
 		vorbis? ( >=media-libs/libvorbis-1.1.2 )
 		mad? ( >=media-libs/libmad-0.15.1b )
+        vst? ( >=media-libs/vst-sdk-2.3 )
 		>=media-libs/libsamplerate-0.1.1
 		>=media-libs/ladspa-sdk-1.12-r2"
 
@@ -34,6 +35,7 @@ src_compile() {
 	econf \
 		`use_enable vorbis libvorbis` \
 		`use_enable mp3 libmad` \
+        vst? "--with-vst=/usr/include/source/common " \
 		|| die "configure failed"
 	emake || die "make failed"
 }
