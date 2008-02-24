@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  24 Feb 2008; Thomas Kuther <gimpel@sonnenkinder.org> +jost-0.4.4.ebuild:
+  version bump, new build procedure
+
   08 Jan 2008; Thomas Kuther <gimpel@sonnenkinder.org> jost-0.4.3-r1.ebuild:
   add libxcb checks/warnings/notes
 
