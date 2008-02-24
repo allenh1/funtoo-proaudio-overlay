@@ -1,6 +1,10 @@
 # ChangeLog for media-sound/aqualung
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  24 Feb 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  aqualung-9999.ebuild:
+  updated ebuid (thx Maarten Maathuis)
 
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog
