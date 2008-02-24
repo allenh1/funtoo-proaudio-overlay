@@ -25,7 +25,7 @@ DEPEND="=sci-libs/fftw-3*
 
 pkg_setup() {
 	ewarn "if building fails try the following:"
-	ewarn "emerge -O media-libs/slv2 =media-libs/lv2dynparam-9999"
+	ewarn "emerge -O media-libs/slv2 =media-libs/lv2dynparam1-9999"
 }
 
 src_unpack() {

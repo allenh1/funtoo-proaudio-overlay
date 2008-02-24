@@ -27,7 +27,7 @@ DEPEND="=media-sound/jack-audio-connection-kit-9999
 	>=dev-python/pygtk-2.0
 	>=x11-libs/gtk+-2
 	>=dev-lang/python-2.4
-	=media-libs/lv2dynparam-9999
+	=media-libs/lv2dynparam1-9999
 	>=media-libs/phat-0.4.1
 	>=dev-libs/redland-1.0.6"
 
@@ -36,7 +36,7 @@ RDEPEND="${DEPEND}
 
 pkg_setup() {
 	ewarn "if building fails try the following:"
-	ewarn "emerge -O media-libs/slv2 =media-libs/lv2dynparam-9999"
+	ewarn "emerge -O media-libs/slv2 =media-libs/lv2dynparam1-9999"
 }
 
 

@@ -32,7 +32,7 @@ RDEPEND="${DEPEND}
 
 pkg_setup() {
 	ewarn "if building fails try the following:"
-	ewarn "emerge -O media-libs/slv2 =media-libs/lv2dynparam-9999"
+	ewarn "emerge -O media-libs/slv2 =media-libs/lv2dynparaml-9999"
 }
 
 
