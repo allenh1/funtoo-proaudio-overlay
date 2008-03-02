@@ -1,6 +1,9 @@
 # ChangeLog for media-sound/sonic-visualiser
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  02 Mar 2008; Marc-Olivier Barre <marco@marcochapeau.org> sonic-visualiser-1.2.ebuild:
+  Bumped version to 1.2
 
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog
