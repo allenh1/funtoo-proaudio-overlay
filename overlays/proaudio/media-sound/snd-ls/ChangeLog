@@ -1,6 +1,10 @@
 # ChangeLog for media-sound/snd-ls
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  08 Mar 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  +snd-ls-0.9.8.7.ebuild:
+  bumped
 
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog
