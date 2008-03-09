@@ -64,16 +64,14 @@ src_unpack() {
 
 	# dbus patches from Nedko Arnaudov
 	if use dbus; then
-        epatch "../${JACKDBUS}/logs.patch"
-        epatch "../${JACKDBUS}/dbus.patch"
-        epatch "../${JACKDBUS}/watchdog-fix-on-driver-load-fail.patch"
+		epatch "../${JACKDBUS}/dbus.patch"
+		epatch "../${JACKDBUS}/watchdog-fix-on-driver-load-fail.patch"
 	fi
+	sed -i -e "s:include/nptl/:include/:g" configure.ac || die
+	eautoreconf
 }
 
 src_compile() {
-	sed -i -e "s:include/nptl/:include/:g" configure.ac || die
-	eautoreconf
-
 	local myconf
 
 	sed -i "s/^CFLAGS=\$JACK_CFLAGS/CFLAGS=\"\$JACK_CFLAGS $(get-flag -march)\"/" configure || die
