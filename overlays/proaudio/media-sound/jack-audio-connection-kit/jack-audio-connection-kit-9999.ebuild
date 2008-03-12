@@ -4,22 +4,21 @@
 
 inherit flag-o-matic eutils multilib subversion autotools
 
-NETJACK="netjack-0.12"
-JACKDBUS="jackpatches-0.9"
+#NETJACK="netjack-0.12"
+#JACKDBUS="jackpatches-0.9"
 
 RESTRICT="nostrip nomirror"
 DESCRIPTION="A low-latency audio server"
 HOMEPAGE="http://www.jackaudio.org"
-SRC_URI="netjack? ( mirror://sourceforge/netjack/${NETJACK}.tar.bz2 )
-dbus? ( http://dl.sharesource.org/jack/${JACKDBUS}.tar.bz2 )"
+#SRC_URI="netjack? ( mirror://sourceforge/netjack/${NETJACK}.tar.bz2 )
+#dbus? ( http://dl.sharesource.org/jack/${JACKDBUS}.tar.bz2 )"
 
 ESVN_REPO_URI="http://subversion.jackaudio.org/jack/trunk/jack"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="3dnow altivec alsa caps coreaudio dbus doc debug jack-tmpfs mmx oss sndfile netjack
-sse jackmidi freebob"
+IUSE="3dnow altivec alsa caps coreaudio doc debug jack-tmpfs mmx oss sndfile sse jackmidi freebob"
 
 RDEPEND="dev-util/pkgconfig
 	netjack? ( !media-sound/netjack )
@@ -27,11 +26,8 @@ RDEPEND="dev-util/pkgconfig
 	sys-libs/ncurses
 	caps? ( sys-libs/libcap )
 	alsa? ( >=media-libs/alsa-lib-0.9.1 )
-	netjack? ( dev-util/scons )
 	jackmidi? ( media-libs/alsa-lib )
 	freebob? ( sys-libs/libfreebob )
-	dbus? ( sys-apps/dbus
-			dev-python/dbus-python )
 	!media-sound/jack-audio-connection-kit-svn"
 DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )"
@@ -53,8 +49,8 @@ pkg_setup() {
 
 src_unpack() {
 	subversion_src_unpack
-	use netjack && cd ${WORKDIR} && unpack ${NETJACK}.tar.bz2
-	use dbus && cd ${WORKDIR} && unpack ${JACKDBUS}.tar.bz2
+#	use netjack && cd ${WORKDIR} && unpack ${NETJACK}.tar.bz2
+#	use dbus && cd ${WORKDIR} && unpack ${JACKDBUS}.tar.bz2
 	cd ${S}
 
 	epatch ${FILESDIR}/${PN}-transport.patch
@@ -63,10 +59,10 @@ src_unpack() {
 	epatch "${FILESDIR}/jack-transport-start-at-zero-fix.diff"
 
 	# dbus patches from Nedko Arnaudov
-	if use dbus; then
-		epatch "../${JACKDBUS}/dbus.patch"
-		epatch "../${JACKDBUS}/watchdog-fix-on-driver-load-fail.patch"
-	fi
+#	if use dbus; then
+#		epatch "../${JACKDBUS}/dbus.patch"
+#	epatch "../${JACKDBUS}/watchdog-fix-on-driver-load-fail.patch"
+#	fi
 	sed -i -e "s:include/nptl/:include/:g" configure.ac || die
 	eautoreconf
 }
@@ -84,9 +80,9 @@ src_compile() {
 		myconf="${myconf} --with-default-tmpdir=/var/run/jack"
 	fi
 
-	if use dbus; then
-		myconf="${myconf} --enable-dbus --enable-pkg-config-dbus-service-dir"
-	fi
+	#if use dbus; then
+	#	myconf="${myconf} --enable-dbus --enable-pkg-config-dbus-service-dir"
+	#fi
 
 	if use userland_Darwin ; then
 		append-flags -fno-common
@@ -120,10 +116,10 @@ src_compile() {
 		emake jackstart || die "jackstart build failed."
 	fi
 
-	if use netjack; then
-		cd "${WORKDIR}/${NETJACK}"
-		scons jack_source_dir=${S}
-	fi
+	#if use netjack; then
+	#	cd "${WORKDIR}/${NETJACK}"
+	#	scons jack_source_dir=${S}
+	#fi
 
 }
 
@@ -156,18 +152,18 @@ src_install() {
 
 	rm -rf ${D}/usr/share/doc/${PF}/reference
 
-	if use netjack; then
-		cd ${WORKDIR}/${NETJACK}
-		dobin alsa_in
-		dobin alsa_out
-		dobin jacknet_client
-
-		# why on earth doesn't get_libdir work here
-		if use amd64; then
-			insinto /usr/lib64/jack
-		else
-			insinto /usr/lib/jack
-		fi
-		doins jack_net.so
-	fi
+#	if use netjack; then
+#		cd ${WORKDIR}/${NETJACK}
+#		dobin alsa_in
+#		dobin alsa_out
+#		dobin jacknet_client
+#
+#		# why on earth doesn't get_libdir work here
+#		if use amd64; then
+#			insinto /usr/lib64/jack
+#		else
+#			insinto /usr/lib/jack
+#		fi
+#		doins jack_net.so
+#	fi
 }
