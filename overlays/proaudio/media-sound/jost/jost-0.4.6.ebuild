@@ -79,9 +79,10 @@ src_unpack() {
 		sed -i -e "s:#define JOST_USE_DSSI://#define JOST_USE_DSSI:" \
 		Config.h || die "bad sed"
 
-	use amd64 && \
+	if use amd64; then
 		sed -i -e "s:#define JOST_USE_JACKBRIDGE         0:#define	JOST_USE_JACKBRIDGE         1:" \
 		Config.h || die "bad sed"
+	fi
 
 	# fix VST header path
 	sed -i -e 's:source/common:vst:g' "${S}/wrapper/formats/VST/juce_VstWrapper.cpp" || die
