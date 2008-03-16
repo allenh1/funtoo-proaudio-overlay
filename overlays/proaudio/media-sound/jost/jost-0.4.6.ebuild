@@ -15,7 +15,7 @@ RESTRICT="nomirror"
 LICENSE="LGPL-2.1"
 SLOT="0"
 EAPI="1"
-KEYWORDS="~x86"
+KEYWORDS="~x86 ~amd64"
 IUSE="+vst ladspa dssi"
 
 RDEPEND="|| ( (  x11-proto/xineramaproto
@@ -86,12 +86,16 @@ src_unpack() {
 	# fix VST header path
 	sed -i -e 's:source/common:vst:g' "${S}/wrapper/formats/VST/juce_VstWrapper.cpp" || die
 
-	# correct 32bit linking
+	# HACK!
 	cd "${S}"
-	epatch "${FILESDIR}/${P}-elf_i386.patch"
+	use amd64 && epatch "${FILESDIR}/${P}-jostbridge-m64.patch"
 }
 
 src_compile() {
+	# test.. we compile Release32, but with a 32bit toolchain, and compile
+	# jackbridge with -m64, let's see
+	use amd64 && multilib_toolchain_setup x86
+
 	# fails with --as-needed
 	filter-ldflags --as-needed -Wl,--as-needed
 
