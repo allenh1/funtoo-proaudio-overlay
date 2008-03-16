@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  16 Mar 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  +files/jost-0.4.6-elf_i386.patch, +jost-0.4.6.ebuild:
+  bump Jost, broken on amd64 now
+
   24 Feb 2008; Thomas Kuther <gimpel@sonnenkinder.org> +jost-0.4.4.ebuild:
   version bump, new build procedure
 

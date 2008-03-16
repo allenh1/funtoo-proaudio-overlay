@@ -1,0 +1,30 @@
+--- plugins/Jost/build/linux/premake.lua.orig	2008-03-16 16:21:51.000000000 +0100
++++ plugins/Jost/build/linux/premake.lua	2008-03-16 16:24:08.000000000 +0100
+@@ -33,6 +33,7 @@
+ package.config["Release32"].defines       = { "NDEBUG=1" }
+ package.config["Release32"].buildoptions  = { "-O2 -s -Wall -fvisibility=hidden -m32" }
+ package.config["Release32"].links         = { "juce32", "jucetice32" }
++package.config["Release32"].linkoptions   = { "-melf_i386" }
+ package.config["Release32"].libpaths      = { "/usr/X11R6/lib32/", "/usr/lib32/" }
+ 
+ package.includepaths = {
+--- juce/build/linux/juce_premake.lua	2008-03-16 16:48:54.000000000 +0100
++++ juce/build/linux/juce_premake.lua.mod	2008-03-16 16:48:45.000000000 +0100
+@@ -26,6 +26,7 @@
+ package.config["Release32"].target        = "juce32"
+ package.config["Release32"].objdir        = package.objdir .. "/JuceRelease32"
+ package.config["Release32"].defines       = { "NDEBUG=1" };
++package.config["Release32"].linkoptions   = { "-melf_i386" };
+ package.config["Release32"].buildoptions  = { "-O2 -s -Wall -fvisibility=hidden -m32" }
+ 
+ package.includepaths = { 
+--- jucetice/build/linux/jucetice_premake.lua.orig	2008-03-16 17:12:28.000000000 +0100
++++ jucetice/build/linux/jucetice_premake.lua	2008-03-16 17:13:24.000000000 +0100
+@@ -26,6 +26,7 @@
+ package.config["Release32"].target        = "jucetice32"
+ package.config["Release32"].objdir        = package.objdir .. "/JuceticeRelease32"
+ package.config["Release32"].defines       = { "NDEBUG=1" };
++package.config["Release32"].linkoptions   = { "-melf_i386" };
+ package.config["Release32"].buildoptions  = { "-O2 -s -Wall -fvisibility=hidden -m32" }
+ 
+ package.includepaths = { 
