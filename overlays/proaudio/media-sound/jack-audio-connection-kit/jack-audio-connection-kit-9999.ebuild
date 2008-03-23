@@ -5,20 +5,21 @@
 inherit flag-o-matic eutils multilib subversion autotools
 
 #NETJACK="netjack-0.12"
-#JACKDBUS="jackpatches-0.9"
+JACKDBUS="jackpatches-0.11"
 
 RESTRICT="nostrip nomirror"
 DESCRIPTION="A low-latency audio server"
 HOMEPAGE="http://www.jackaudio.org"
 #SRC_URI="netjack? ( mirror://sourceforge/netjack/${NETJACK}.tar.bz2 )
-#dbus? ( http://dl.sharesource.org/jack/${JACKDBUS}.tar.bz2 )"
+SRC_URI="dbus? ( http://dl.sharesource.org/jack/${JACKDBUS}.tar.bz2 )"
 
 ESVN_REPO_URI="http://subversion.jackaudio.org/jack/trunk/jack"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="3dnow altivec alsa caps coreaudio doc debug jack-tmpfs mmx oss sndfile sse jackmidi freebob"
+IUSE="3dnow altivec alsa caps coreaudio doc debug jack-tmpfs mmx oss sndfile sse
+jackmidi freebob dbus"
 
 RDEPEND="dev-util/pkgconfig
 	netjack? ( !media-sound/netjack )
@@ -59,18 +60,17 @@ src_unpack() {
 	epatch "${FILESDIR}/jack-transport-start-at-zero-fix.diff"
 
 	# dbus patches from Nedko Arnaudov
-#	if use dbus; then
-#		epatch "../${JACKDBUS}/dbus.patch"
-#	epatch "../${JACKDBUS}/watchdog-fix-on-driver-load-fail.patch"
-#	fi
+	if use dbus; then
+		epatch "../${JACKDBUS}/dbus.patch"
+		epatch "../${JACKDBUS}/watchdog-fix-on-driver-load-fail.patch"
+	fi
 	sed -i -e "s:include/nptl/:include/:g" configure.ac || die
 	eautoreconf
+	sed -i "s/^CFLAGS=\$JACK_CFLAGS/CFLAGS=\"\$JACK_CFLAGS $(get-flag -march)\"/" configure || die
 }
 
 src_compile() {
 	local myconf
-
-	sed -i "s/^CFLAGS=\$JACK_CFLAGS/CFLAGS=\"\$JACK_CFLAGS $(get-flag -march)\"/" configure || die
 
 	use doc && myconf="--with-html-dir=/usr/share/doc/${PF}"
 
@@ -80,9 +80,9 @@ src_compile() {
 		myconf="${myconf} --with-default-tmpdir=/var/run/jack"
 	fi
 
-	#if use dbus; then
-	#	myconf="${myconf} --enable-dbus --enable-pkg-config-dbus-service-dir"
-	#fi
+	if use dbus; then
+		myconf="${myconf} --enable-dbus --enable-pkg-config-dbus-service-dir"
+	fi
 
 	if use userland_Darwin ; then
 		append-flags -fno-common
