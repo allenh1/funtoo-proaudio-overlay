@@ -2,6 +2,15 @@
 # Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  25 Mar 2008; Marc-Olivier Barre <marco@marcochapeau.org> libfishsound-0.9.0.ebuild:
+  Version bump
+
+  25 Mar 2008; Marc-Olivier Barre <marco@marcochapeau.org> libfishsound-0.8.1.ebuild:
+  Version bump
+
+  25 Mar 2008; Marc-Olivier Barre <marco@marcochapeau.org> libfishsound-0.7.0.ebuild:
+  Deleted (it seems it has been deleted upstream on the tarball repo)
+
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog
 
