@@ -23,19 +23,5 @@ DEPEND="media-libs/speex
 MY_PN="fishsound"
 
 src_install() {
-	cd ${S}
-	dodoc AUTHORS COPYING ChangeLog INSTALL NEWS README || die "Doc install failed."
-	dolib.a src/libfishsound/.libs/libfishsound.a || die "Lib install failed"
-	dolib.so src/libfishsound/.libs/libfishsound.so.1.1.0 || die "Lib install2 failed."
-	rm src/libfishsound/.libs/libfishsound.la
-	mv src/libfishsound/.libs/libfishsound.lai src/libfishsound/.libs/libfishsound.la
-	dolib.so src/libfishsound/.libs/libfishsound.la || die "Lib install3 failed"
-	dosym /usr/lib/libfishsound.so.1.1.0 /usr/lib/libfishsound.so || die "Dosym2 failed"
-	dodir /usr/include/${MY_PN}
-	insinto /usr/include/${MY_PN}
-	cd include/fishsound
-	doins *.h || die "Include install failed"
-	cd ${S}
-	insinto /usr/lib/pkgconfig
-	doins fishsound.pc || die "Fishsound.pc install failed"
+	make DESTDIR="${D}" install || die
 }
