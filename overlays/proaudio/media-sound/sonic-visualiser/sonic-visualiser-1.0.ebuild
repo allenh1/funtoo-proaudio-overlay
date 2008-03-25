@@ -30,7 +30,7 @@ RDEPEND="$(qt4_min_version 4.2)
 	mad? ( media-libs/libmad )
 	ogg? ( media-libs/libfishsound )"
 DEPEND="${RDEPEND}
-		>=dev-libs/vamp-plugin-sdk-1.0
+		>=media-libs/vamp-plugin-sdk-1.0
 		>=dev-util/pkgconfig-0.9"
 
 src_unpack() {

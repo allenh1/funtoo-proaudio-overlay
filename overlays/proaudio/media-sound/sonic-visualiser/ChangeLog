@@ -2,6 +2,12 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  25 Mar 2008; Marc-Olivier Barre <marco@marcochapeau.org> sonic-visualiser-1.2.ebuild:
+  Fix the vamp-plugins-sdk dependency (was in dev-libs, now in media-libs)
+
+  25 Mar 2008; Marc-Olivier Barre <marco@marcochapeau.org> sonic-visualiser-1.0.ebuild:
+  Fix the vamp-plugins-sdk dependency (was in dev-libs, now in media-libs)
+
   02 Mar 2008; Marc-Olivier Barre <marco@marcochapeau.org> sonic-visualiser-1.2.ebuild:
   Bumped version to 1.2
 
