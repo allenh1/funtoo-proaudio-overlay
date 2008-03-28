@@ -1,0 +1,8 @@
+# ChangeLog for media-sound/buzzmachines
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  28 Mar 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  +buzzmachines-9999.ebuild:
+  initial ebuild
+

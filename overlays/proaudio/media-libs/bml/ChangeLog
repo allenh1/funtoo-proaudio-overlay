@@ -1,0 +1,7 @@
+# ChangeLog for media-libs/bml
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  28 Mar 2008; Thomas Kuther <gimpel@sonnenkinder.org> +bml-0.3.0.ebuild:
+  initial ebuild
+
