@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit subversion
+inherit multilib subversion
 
 DESCRIPTION="Machines for Buzztard"
 HOMEPAGE="http://www.buzztard.org"
@@ -19,9 +19,7 @@ DEPEND=">=media-libs/bml-0.3.0"
 RDEPEND="${DEPEND}"
 
 src_compile() {
-	./configure
-		--prefix=/usr/share/buzztard/machines \
-		`use_enable debug` \
+	econf `use_enable debug` \
 		|| die "Configure failed"
 	emake || die "Compilation failed"
 }
@@ -29,4 +27,9 @@ src_compile() {
 src_install() {
 	einstall || die "Install failed"
 	dodoc AUTHORS ChangeLog README
+}
+
+pkg_postinst() {
+	elog "Please see the README on how to set up environment variables etc."
+	elog "The machines got installed to /usr/$(get_libdir)/Gear"
 }
