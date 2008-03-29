@@ -1,6 +1,9 @@
 # ChangeLog for media-sound/csound
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  29 Mar 2008; Thomas Kuther <gimpel@sonnenkinder.org> csound-5.07.0.ebuild:
+  added ~ppc
 
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog
