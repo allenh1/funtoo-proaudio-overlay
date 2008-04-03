@@ -54,7 +54,7 @@ src_unpack() {
 	use dbus && cd ${WORKDIR} && unpack ${JACKDBUS}.tar.bz2
 	cd ${S}
 
-	epatch ${FILESDIR}/${PN}-transport.patch
+#	epatch ${FILESDIR}/${PN}-transport.patch
 
 	# jack transport patch from Torben Hohn
 	epatch "${FILESDIR}/jack-transport-start-at-zero-fix.diff"
