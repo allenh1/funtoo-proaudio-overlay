@@ -2,6 +2,11 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  04 Apr 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  ardour-2.3.1.ebuild, +ardour-2.4.ebuild,
+  +files/ardour-2.4-find_soundtouch.patch:
+  bumped ardour-2.4 and use versionator eclass
+
   07 Feb 2008; Thomas Kuther <gimpel@sonnenkinder.org> +ardour-2.3.1.ebuild:
   version bump
 
