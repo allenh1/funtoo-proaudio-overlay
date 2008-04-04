@@ -3,3 +3,4 @@ vst - Adds support for win32 vst's (Steinbergs virtual studio technology)
 dssi - Enable the DSSI midi synthesizer provider
 jackmidi - Enable for the JACK-MIDI API from jack-audio-connection-kit
 postgresql - Adds support for the PostgreSQL database server
+freesound - Add support direct searching and download of samples from Freesound

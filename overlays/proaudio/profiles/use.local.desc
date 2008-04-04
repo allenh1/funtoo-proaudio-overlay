@@ -13,3 +13,4 @@ media-sound/museseq:zynaddsubfx - integrate ZynAddSubFX into museseq
 x11-themes/crystal-audio:laptop - Add recipes for laptop (can hang a rt kernel)
 media-libs/librdf:postgresql - Enable use of the Redland PostgreSQL triple store backend
 media-sound/ardour:sys-libs - use system libs instead of provided. No upstream support!!!
+media-sound/ardour:freesound - directly import samples from freesound via the import dialog

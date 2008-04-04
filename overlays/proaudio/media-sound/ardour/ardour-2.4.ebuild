@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils toolchain-funcs flag-o-matic scons-ccache vst versionator
+inherit eutils toolchain-funcs flag-o-matic scons-ccache vst versionator patcher
 
 DESCRIPTION="multi-track hard disk recording software"
 HOMEPAGE="http://ardour.org/"
@@ -11,7 +11,7 @@ SRC_URI="http://ardour.org/files/releases/${P}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
-IUSE="altivec debug nls sse sys-libs vst lv2"
+IUSE="altivec debug nls sse sys-libs vst lv2 freesound"
 S="${WORKDIR}/${PN}-$(get_version_component_range 1-2 )"
 
 RDEPEND="media-libs/liblo
@@ -82,8 +82,11 @@ src_unpack() {
 	unpack ${A}
 	cd "${S}"
 
+	patcher "${FILESDIR}/${PN}-2.0.3-cflags.patch" apply_die
+
 	# SYSLIBS also use external sndfile
-	#use sys-libs && epatch "${FILESDIR}/${PN}-2.0.3-sndfile-external.patch"
+	use sys-libs && epatch "${FILESDIR}/${PN}-2.0.3-sndfile-external.patch"
+
 	epatch "${FILESDIR}/${P}-find_soundtouch.patch"
 
 	ardour_vst_prepare
@@ -116,6 +119,7 @@ src_compile() {
 		$(ardour_use_enable VST vst) \
 		$(ardour_use_enable SYSLIBS sys-libs) \
 		$(ardour_use_enable LV2 lv2) \
+		$(ardour_use_enable FREESOUND freesound) \
 		DESTDIR="${D}" \
 		CFLAGS="${CFLAGS}" \
 		PREFIX=/usr \

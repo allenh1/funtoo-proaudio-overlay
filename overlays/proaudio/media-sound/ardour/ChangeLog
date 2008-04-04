@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  04 Apr 2008; Frieder Buerzele <evermind@tuxfamily.org>; ardour-2.4.ebuild:
+  added custom cflags patch again + USE freesound
+
   04 Apr 2008; Frieder Buerzele <evermind@tuxfamily.org>;
   ardour-2.3.1.ebuild, +ardour-2.4.ebuild,
   +files/ardour-2.4-find_soundtouch.patch:

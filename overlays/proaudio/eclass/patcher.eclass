@@ -7,6 +7,11 @@
 # Purpose: 
 #
 
+# TODO
+#	* redo the options parsing as it is really ugly by now
+#	* include option to abort if patch fails
+#	* analyze complete arguments
+
 # patch files but don't interrupt if it fails
 # (just give a message)
 # only one function to use here:
@@ -124,6 +129,9 @@ function fnc_apply_patch(){
 		else
 			[ "${gVERBOSE}" == "1" ] && fnc_display_failed_patches "${lFAILED_PATCH_LOG}" "${lPATCHED}"
 			eerror " [NOT applied] ${lPATCHFILE##*/}"
+			if [ "$gDie" ];then
+				die "patching failed ${lPATCHFILE##*/}"
+			fi
 		fi
 		fnc_remove_tmp_file "${lDECOMPRESS_PATCH}"
 		fnc_remove_tmp_file "${lFAILED_PATCH_LOG}"
@@ -201,6 +209,14 @@ function fnc_check_cmdline(){
 	-o "x${lCMDLINE[1]}" == "x-R" -o "x${lCMDLINE[1]}" == "x-r" ] && gREVERSE=1 || gREVERSE=0
 	[ "x${lCMDLINE[1]}" == "xapply" -o "x${lCMDLINE[2]}" == "xapply" \
 	-o "x${lCMDLINE[1]}" == "x-a" -o "x${lCMDLINE[1]}" == "x-a" ] &&  gDontReverse=1 || gDontReverse=0
+	if [ "x${lCMDLINE[1]}" == "xapply_die" -o "x${lCMDLINE[2]}" == "xapply_die" \
+	-o "x${lCMDLINE[1]}" == "x-a" -o "x${lCMDLINE[1]}" == "x-a" ] ;then
+		gDontReverse=1 
+		gDie=1 
+	else
+		gDie=0 
+		gDontReverse=0
+	fi
 	[ "x${lCMDLINE[0]##*/}" == "xpatch-list" -o "x${lCMDLINE[0]##*.}" == "xlst" ] && gLIST_GIVEN=1 || gLIST_GIVEN=0
 	[ "x${lCMDLINE[1]}" == "xverbose" -o  "x${lCMDLINE[2]}" == "xverbose" \
 	-o "x${lCMDLINE[1]}" == "x-v" -o  "x${lCMDLINE[2]}" == "x-v" ] && gVERBOSE=1 || gVERBOSE=0
