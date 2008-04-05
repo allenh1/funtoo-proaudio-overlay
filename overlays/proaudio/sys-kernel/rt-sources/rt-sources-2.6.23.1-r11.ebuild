@@ -42,8 +42,8 @@ src_unpack(){
 	epatch "${FILESDIR}/build-id-sandbox-violation.patch"
 
 	# Spock's stuff
-	use uvesafb && patcher "${DISTDIR}/${UVESAFB} apply"
-	use fbsplash && patcher "${DISTDIR}/${FBSPLASH} apply"
+	use uvesafb && patcher "${DISTDIR}/${UVESAFB}" -a -f
+	use fbsplash && patcher "${DISTDIR}/${FBSPLASH}" -a -f
 
 	# expose 1gig lowmem options (x86 only)
 	#patcher "${FILESDIR}/kconfig-expose_vmsplit_option.patch apply"

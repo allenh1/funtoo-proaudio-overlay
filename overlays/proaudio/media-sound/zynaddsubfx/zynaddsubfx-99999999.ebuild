@@ -45,10 +45,10 @@ pkg_setup() {
 src_unpack() {
 	cvs_src_unpack
 	cd "${S}"
-	patcher ""${FILESDIR}/01-mutex-split.patch" apply"
-	patcher ""${FILESDIR}/02-ifdef-jackmidi.patch" apply"
-	patcher ""${FILESDIR}/03-fix_jackmidi.patch" apply"
-	patcher ""${FILESDIR}/fix_jack_midi_api.patch" apply"
+	patcher "${FILESDIR}/01-mutex-split.patch" -a -f
+	patcher "${FILESDIR}/02-ifdef-jackmidi.patch" -a -f
+	patcher "${FILESDIR}/03-fix_jackmidi.patch" -a -f
+	patcher "${FILESDIR}/fix_jack_midi_api.patch" -a -f
 	cd ${S}
 	unpack "zynaddsubfx-presets-0.1.tar.bz2"
 	cd src/

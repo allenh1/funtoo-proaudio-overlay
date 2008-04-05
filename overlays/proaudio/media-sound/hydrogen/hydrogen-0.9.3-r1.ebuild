@@ -57,11 +57,11 @@ src_unpack() {
 	fi ###
 
 	# configure.in.patch [20070109] fixes use_enable debug
-	patcher "${FILESDIR}/hydrogen-0.9.2-configure.in.patch apply"
+	patcher "${FILESDIR}/hydrogen-0.9.2-configure.in.patch" -a -f
 
 	# fixes a segfault while changing pattern change
 	# see bug: http://proaudio.tuxfamily.org/bugs/view.php?id=2
-	patcher "${FILESDIR}/hydrogen-0.9.3-segfault.patch apply"
+	patcher "${FILESDIR}/hydrogen-0.9.3-segfault.patch" -a -f
 	epatch "${FILESDIR}/${P}-flac113.patch"
 	make -f Makefile.cvs
 }

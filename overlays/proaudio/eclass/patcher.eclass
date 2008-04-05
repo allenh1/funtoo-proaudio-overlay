@@ -62,6 +62,11 @@ function fnc_remove_tmp_file(){
 	[ "x${lDELETE_FILE}" != "x" ] && [ -f "${lDELETE_FILE}" ] && rm -f "${lDELETE_FILE}"
 }
 
+function check_force_flag(){
+	if [ "$gDie" -eq 1 ];then
+		die "patching failed ${lPATCHFILE##*/}"
+	fi
+}
 # here we apply a given patch
 function fnc_apply_patch(){
 	local lTMP_PATCHFILE="$1"
@@ -126,12 +131,11 @@ function fnc_apply_patch(){
 		#echo -e -n "\n[NOT applied] ${lPATCHFILE##*/}"
 		if [ "$lAPPLY_POSSIBLE" == "1" ];then
 			ewarn "[NOT reversed but applying possible] ${lPATCHFILE##*/} "
+			check_force_flag
 		else
 			[ "${gVERBOSE}" == "1" ] && fnc_display_failed_patches "${lFAILED_PATCH_LOG}" "${lPATCHED}"
 			eerror " [NOT applied] ${lPATCHFILE##*/}"
-			if [ "$gDie" ];then
-				die "patching failed ${lPATCHFILE##*/}"
-			fi
+			check_force_flag
 		fi
 		fnc_remove_tmp_file "${lDECOMPRESS_PATCH}"
 		fnc_remove_tmp_file "${lFAILED_PATCH_LOG}"
@@ -196,32 +200,6 @@ function fnc_clean_orig_rej(){
 	exit 0
 }
 
-function fnc_check_cmdline(){
-	local lCMDLINE=$1
-	IFS=" "
-	set -- $lCMDLINE
-	lCMDLINE=($lCMDLINE)
-	gORIG_PATCHFILE="${lCMDLINE[0]}"
-	[ "x${lCMDLINE[*]}" == "x" -o "x${lCMDLINE[0]}" == "x-R" -o "x${lCMDLINE[0]}" == "x-r" -o "x${lCMDLINE[0]}" == "xnone" ] && echo "usage: `basename $0` [*.lst|patchfile|kernel-tarball] [reverse|apply|clean|verbose]" && exit
-	[ "x${lCMDLINE[0]}" == "xclean" ] && fnc_clean_orig_rej
-	[ "x${lCMDLINE[1]}" == "xnone" -o  "x${lCMDLINE[2]}" == "xnone" ] && gWRITE_LIST=none
-	[ "x${lCMDLINE[1]}" == "xreverse" -o "x${lCMDLINE[2]}" == "xreverse" \
-	-o "x${lCMDLINE[1]}" == "x-R" -o "x${lCMDLINE[1]}" == "x-r" ] && gREVERSE=1 || gREVERSE=0
-	[ "x${lCMDLINE[1]}" == "xapply" -o "x${lCMDLINE[2]}" == "xapply" \
-	-o "x${lCMDLINE[1]}" == "x-a" -o "x${lCMDLINE[1]}" == "x-a" ] &&  gDontReverse=1 || gDontReverse=0
-	if [ "x${lCMDLINE[1]}" == "xapply_die" -o "x${lCMDLINE[2]}" == "xapply_die" \
-	-o "x${lCMDLINE[1]}" == "x-a" -o "x${lCMDLINE[1]}" == "x-a" ] ;then
-		gDontReverse=1 
-		gDie=1 
-	else
-		gDie=0 
-		gDontReverse=0
-	fi
-	[ "x${lCMDLINE[0]##*/}" == "xpatch-list" -o "x${lCMDLINE[0]##*.}" == "xlst" ] && gLIST_GIVEN=1 || gLIST_GIVEN=0
-	[ "x${lCMDLINE[1]}" == "xverbose" -o  "x${lCMDLINE[2]}" == "xverbose" \
-	-o "x${lCMDLINE[1]}" == "x-v" -o  "x${lCMDLINE[2]}" == "x-v" ] && gVERBOSE=1 || gVERBOSE=0
-}
-
 # this part is if you pass a patcher generated patch-list
 # NOTE: patch-list is only available to be compatible with
 #	list generated with versions prior to v0.6.
@@ -254,14 +232,76 @@ function fnc_launching_apply_patch(){
 	fi
 }
 
+# global vars
+gDontReverse=0
+gDie=0
+gREVERSE=0 
+gVERBOSE=0
+gWRITE_LIST=none
+gLIST_GIVEN=0
+gORIG_PATCHFILE=""
+
+function check_cmdline(){
+	# check for cmdline parameters
+	params_cnt=${#}
+	if [ ${#} -eq 0 ];then
+		echo "no stuff in here"
+		exit
+	fi
+	while [ ${#} -gt 0 ]
+	do
+	        a=${1}
+	        shift
+	        case "${a}" in
+	
+	        -h|--help)
+			# TODO
+			echo -e "-d | --debug		enable debug-messages"
+			echo -e "-v | --version		display version"
+			exit
+			;;
+		# own real stuff
+		-a|--apply)
+			gDontReverse=1 
+			;;
+		-f|--force) # die if applying is not possible
+			gDie=1 
+			;;
+		-r|--reverse)
+			gREVERSE=1 
+			;;
+		-c| --clean)
+			fnc_clean_orig_rej
+			;;
+		-v| --verbose)
+			gVERBOSE=1
+			;;
+		-w| --write-list)
+			gWRITE_LIST=""
+			;;
+		*	)
+			# -- process the other options --
+
+			# check if a list of patches is present
+			if [ "x${a##*/}" == "xpatch-list" -o "x${a##*.}" == "xlst" ];then
+				gLIST_GIVEN=1
+				break
+			else
+				gLIST_GIVEN=0
+			fi
+
+			# read patch-name
+			gORIG_PATCHFILE="${a}"
+			;;   # DEFAULT
+		esac
+	done
+}
+
 ##################################call all functions#######################################################################
 # syntax:patcher "/path/to/patchfile.patch|gz|bz2 apply"
 # additional: restrict em with apply|reverse
 function patcher(){
-gCMDLINE=$1
-oldIFS="$IFS"
-fnc_check_cmdline "$gCMDLINE"
-IFS="$oldIFS"
+check_cmdline $@
 gORIG_PATCHFILE=`fnc_generate_absolute_path "${gORIG_PATCHFILE}"`
 
 [ "$gLIST_GIVEN" == "1" ] && fnc_launching_apply_patch "$gREVERSE" "${gORIG_PATCHFILE}"

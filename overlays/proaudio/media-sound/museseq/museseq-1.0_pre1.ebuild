@@ -48,7 +48,7 @@ pkg_setup() {
 src_unpack() {
 	unpack "${A}"
 	cd "${S}"
-	patcher "${FILESDIR}/fix_zyn.patch apply"
+	patcher "${FILESDIR}/fix_zyn.patch" -a -f
 	mkdir build
 }
 

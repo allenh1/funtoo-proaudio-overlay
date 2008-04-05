@@ -82,7 +82,7 @@ src_unpack() {
 	unpack ${A}
 	cd "${S}"
 
-	patcher "${FILESDIR}/${PN}-2.0.3-cflags.patch" apply_die
+	patcher "${FILESDIR}/${PN}-2.0.3-cflags.patch" -a -f
 
 	# SYSLIBS also use external sndfile
 	use sys-libs && epatch "${FILESDIR}/${PN}-2.0.3-sndfile-external.patch"
