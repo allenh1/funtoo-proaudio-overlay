@@ -3,7 +3,8 @@
 # $Header: $
 
   10 Apr 2008; Marc-Olivier Barre <marco@marcochapeau.org>; ardour-2.4.1.ebuild:
-  Version bump
+  * Version bump
+  * Disabled the CFLAGS patch until it's fixed
 
   04 Apr 2008; Frieder Buerzele <evermind@tuxfamily.org>; ardour-2.4.ebuild:
   added custom cflags patch again + USE freesound

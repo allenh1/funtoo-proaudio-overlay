@@ -12,7 +12,6 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="altivec debug nls sse sys-libs vst lv2 freesound"
-S="${WORKDIR}/${PN}-$(get_version_component_range 1-2 )"
 
 RDEPEND="media-libs/liblo
 	>=media-libs/liblrdf-0.4.0
@@ -82,7 +81,7 @@ src_unpack() {
 	unpack ${A}
 	cd "${S}"
 
-	patcher "${FILESDIR}/${PN}-2.0.3-cflags.patch" -a -f
+	# patcher "${FILESDIR}/${PN}-2.0.3-cflags.patch" -a -f
 
 	# SYSLIBS also use external sndfile
 	use sys-libs && epatch "${FILESDIR}/${PN}-2.0.3-sndfile-external.patch"
