@@ -12,8 +12,7 @@ EGIT_REPO_URI="git://git.xmms.se/xmms2/xmms2-devel.git"
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="aac alsa ao asx avahi avcodec cdda clientonly coreaudio curl cpp daap
-diskwrite ecore eq fam flac gnome jack lastfm mac mms modplug mp3 mp4 musepack nophonehome ofa oss perl python rss ruby samba shout sid speex vorbis wma xml xspf"
+IUSE="aac alsa ao asx avahi avcodec cdda clientonly coreaudio curl cpp daap diskwrite ecore eq fam flac jack lastfm mac mms modplug mp3 mp4 musepack nophonehome ofa oss perl python rss ruby samba shout sid speex vorbis wma xml xspf"
 
 RESTRICT="nomirror"
 
@@ -29,7 +28,6 @@ DEPEND="!clientonly? (
 			 	!=net-misc/curl-7.16.1
 			 	!=net-misc/curl-7.16.2 )
 		flac? ( media-libs/flac )
-		gnome? ( gnome-base/gnome-vfs )
 		jack? ( >=media-sound/jack-audio-connection-kit-0.101.1 )
 		mms? ( media-video/ffmpeg
 			>=media-libs/libmms-0.3 )
@@ -72,7 +70,7 @@ src_compile() {
 		for x in avahi cpp:xmmsclient++,xmmsclient++-glib ecore:xmmsclient-ecore fam:medialib-updater nophonehome:et perl python ruby ; do
 			use ${x/:*} || excl_opts="${excl_opts},${x/*:}"
 		done
-		for x in aac:faad alsa ao asx avcodec cdda coreaudio curl daap diskwrite eq:equalizer flac gnome:gnomevfs jack lastfm mac mp3:mad mp4 mms modplug musepack ofa oss rss samba sid speex vorbis xml xspf ; do
+		for x in aac:faad alsa ao asx avcodec cdda coreaudio curl daap diskwrite eq:equalizer flac jack lastfm mac mp3:mad mp4 mms modplug musepack ofa oss rss samba sid speex vorbis xml xspf ; do
 			use ${x/:*} || excl_pls="${excl_pls},${x/*:}"
 		done
 	fi
