@@ -24,6 +24,14 @@ DEPEND="osc? ( >=media-libs/liblo-0.24 )
 	vorbis? ( >=media-libs/libvorbis-1.2.0 )
 	xml? ( >=dev-libs/libxml2-2.6.31 )"
 
+
+pkg_setup() {
+	if ! built_with_use dev-games/ogre cegui; then
+		eerror "You need to compile dev-games/ogre with USE=\"cegui\"!"
+		die "Deps missing"
+	fi
+}
+
 src_unpack() {
 	unpack ${A}
 	# fix up soundtouch checks in configure.ac
@@ -36,7 +44,7 @@ src_unpack() {
 src_compile() {
 	econf  $(use_enable alsa) \
 		$(use_enable jack) \
-		$(use psynth3d) \
+		$(use_enable psynth3d) \
 		$(use_enable sndfile) \
 		$(use_enable vorbis) \
 		$(use_enable xml) \
