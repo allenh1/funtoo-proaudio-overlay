@@ -10,7 +10,7 @@ SRC_URI="http://forja.rediris.es/frs/download.php/707/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~x86 ~amd64"
 IUSE="alsa jack psynth3d oss sndfile vorbis xml osc"
 
 DEPEND="osc? ( >=media-libs/liblo-0.24 )
