@@ -26,9 +26,12 @@ DEPEND="osc? ( >=media-libs/liblo-0.24 )
 
 
 pkg_setup() {
-	if ! built_with_use dev-games/ogre cegui; then
-		eerror "You need to compile dev-games/ogre with USE=\"cegui\"!"
-		die "Deps missing"
+	if use psynth3d; then
+		if ! built_with_use dev-games/ogre cegui devil; then
+			eerror "You need to compile dev-games/ogre with"
+			eerror "USE=\"cegui devil\"!"
+			die "Deps missing"
+		fi
 	fi
 }
 
