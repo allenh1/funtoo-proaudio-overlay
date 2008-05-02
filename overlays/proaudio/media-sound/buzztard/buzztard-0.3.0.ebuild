@@ -20,6 +20,7 @@ RDEPEND=">=dev-libs/glib-2.10
 	x11-libs/pango
 	>=gnome-base/libgnomecanvas-2.14.0
 	>=media-libs/gstreamer-0.10.11
+	>=media-plugins/gst-plugins-alsa-0.10.14
 	media-plugins/gst-buzztard"
 DEPEND="${RDEPEND}
 	dev-util/pkgconfig"
