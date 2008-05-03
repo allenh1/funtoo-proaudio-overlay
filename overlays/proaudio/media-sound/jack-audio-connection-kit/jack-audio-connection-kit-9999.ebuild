@@ -22,14 +22,16 @@ IUSE="3dnow altivec alsa caps coreaudio doc debug jack-tmpfs mmx oss sndfile sse
 jackmidi freebob dbus jackdmp"
 
 RDEPEND="jackdmp? ( >=media-sound/jackdmp-9999-r1 )
-	!jackdmp? ( dev-util/pkgconfig
-	netjack? ( !media-sound/netjack )
-	sndfile? ( >=media-libs/libsndfile-1.0.0 )
-	sys-libs/ncurses
-	caps? ( sys-libs/libcap )
-	alsa? ( >=media-libs/alsa-lib-0.9.1 )
-	jackmidi? ( media-libs/alsa-lib )
-	freebob? ( sys-libs/libfreebob ) )"
+	!jackdmp? ( 
+		dev-util/pkgconfig
+		netjack? ( !media-sound/netjack )
+		sndfile? ( >=media-libs/libsndfile-1.0.0 )
+		sys-libs/ncurses
+		caps? ( sys-libs/libcap )
+		alsa? ( >=media-libs/alsa-lib-0.9.1 )
+		jackmidi? ( media-libs/alsa-lib )
+		freebob? ( sys-libs/libfreebob )
+		!media-sound/jackdmp )"
 DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )"
 
