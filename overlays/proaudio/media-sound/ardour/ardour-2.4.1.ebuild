@@ -11,7 +11,7 @@ SRC_URI="http://ardour.org/files/releases/${P}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
-IUSE="altivec debug nls sse sys-libs vst lv2 freesound"
+IUSE="altivec debug nls sse sys-libs vst lv2 freesound custom-cflags"
 
 RDEPEND="media-libs/liblo
 	>=media-libs/liblrdf-0.4.0
@@ -36,6 +36,7 @@ RDEPEND="media-libs/liblo
 		>=dev-cpp/libgnomecanvasmm-2.12.0
 		>=media-libs/libsndfile-1.0.16
 		>=media-libs/libsoundtouch-1.0 )
+	freesound? ( net-misc/curl )
 	lv2? ( =media-libs/slv2-9999 )"
 
 DEPEND="${RDEPEND}
@@ -81,13 +82,16 @@ src_unpack() {
 	unpack ${A}
 	cd "${S}"
 
-	# patcher "${FILESDIR}/${PN}-2.0.3-cflags.patch" -a -f
-
 	# SYSLIBS also use external sndfile
 	use sys-libs && epatch "${FILESDIR}/${PN}-2.0.3-sndfile-external.patch"
-
+	# optional custom cflags
+	use custom-cflags && epatch "${FILESDIR}/${PN}-2.4-cflags.patch"
+	# find libsoundtouch
 	epatch "${FILESDIR}/${P}-find_soundtouch.patch"
+	# GCC 4.3 fix
+	epatch "${FILESDIR}/${PN}-2.4-gcc43.patch"
 
+	# set up VST stuff
 	ardour_vst_prepare
 }
 
