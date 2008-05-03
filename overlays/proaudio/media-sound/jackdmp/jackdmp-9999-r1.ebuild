@@ -17,13 +17,12 @@ IUSE="doc debug examples freebob"
 
 RDEPEND="dev-util/pkgconfig
 	>=media-libs/alsa-lib-0.9.1
-	freebob? ( sys-libs/libfreebob )
-	!<media-sound/jack-audio-connection-kit-9999"
-
+	freebob? ( sys-libs/libfreebob )"
 DEPEND="${RDEPEND}
 	app-arch/unzip
 	dev-util/scons
 	doc? ( app-doc/doxygen )"
+PDEPEND=">=media-sound/jack-audio-connection-kit-9999"
 
 src_compile() {
 	local myconf="PREFIX=/usr"
