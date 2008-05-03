@@ -34,6 +34,6 @@ src_compile() {
 }
 
 src_install() {
-	scons PREFIX="${D}/usr"	install || die
+	scons PREFIX="/usr" DESTDIR="${D}" install || die
 	dodoc Readme Todo ChangeLog
 }
