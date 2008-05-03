@@ -17,7 +17,8 @@ IUSE="doc debug examples freebob"
 
 RDEPEND="dev-util/pkgconfig
 	>=media-libs/alsa-lib-0.9.1
-	freebob? ( sys-libs/libfreebob )"
+	freebob? ( sys-libs/libfreebob )
+	!<media-sound/jack-audio-connection-kit-9999"
 
 DEPEND="${RDEPEND}
 	app-arch/unzip
@@ -34,42 +35,6 @@ src_compile() {
 }
 
 src_install() {
-	cd linux/
-	dodir /usr/bin /usr/lib/jackmp
-	make DESTDIR="${D}" datadir=/usr/share/doc install || die
-	cd ${S}
-
-	dosym /usr/lib/libjackmp.so /usr/lib/libjack.so
-	dosym /usr/lib/libjackmp.so /usr/lib/libjack.so.0
-
+	scons PREFIX="${D}/usr"	install || die
 	dodoc Readme Todo ChangeLog
-}
-
-pkg_postinst() {
-	local provided="${ROOT}/etc/portage/profile/package.provided"
-	
-	test -d ${ROOT}/etc/portage/profile \
-		|| dodir /etc/portage/profile
-
-	if [ -z `grep "media-sound/jack-audio-connection-kit-0.109.0" ${provided}` ]
-	then
-		elog "Adding media-sound/jack-audio-connection-kit to"
-		elog "/etc/portage/profile/package.provided ..."
-		elog "Note that a lot of things might not compile correctly"
-		elog "against jackdmp's jack headers!"
-
-		echo "media-sound/jack-audio-connection-kit-0.109.0" >> ${provided}
-	fi
-}
-
-pkg_postrm() {
-	# gets removed too when upgrading jackdmp, so let the user do it!
-	elog "*************** IMPORTANT ******************"
-	elog "PLEASE remove media-sound/jack-audio-connection-kit from"
-	elog "/etc/portage/profile/package.provided"
-	elog "if you switch to jack-audio-connection-kit again!!"
-	elog "Otherwhise you will mess up dependencies!"
-
-	#sed '/media-sound\/jack-audio-connection-kit-0.109.0/d' \
-	#	-i ${ROOT}/etc/portage/profile/package.provided
 }
