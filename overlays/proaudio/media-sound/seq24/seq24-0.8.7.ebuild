@@ -1,4 +1,4 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -15,6 +15,7 @@ KEYWORDS="~amd64 ~ppc x86"
 
 DEPEND=">=media-libs/alsa-lib-0.9.0
 	>=dev-cpp/gtkmm-2.4
+	>=dev-libs/libsigc++-2.0
 	jack? ( >=media-sound/jack-audio-connection-kit-0.90.0 )
 	lash? ( >=media-sound/lash-0.5.0 )"
 	#cairo? ( x11-libs/cairo )"
@@ -30,6 +31,11 @@ src_unpack() {
 		epatch "${FILESDIR}/${P}-label-fix.diff"
 		epatch "${FILESDIR}/${P}.olivier.patch"
 		#epatch "${FILESDIR}/${P}.olivier2.patch"
+	fi
+
+	# fix sigc++ >= 2.2 compile error
+	if has_version ">=dev-libs/libsigc++-2.2"; then
+		epatch "${FILESDIR}/${P}-sigc22_fix.patch"
 	fi
 }
 
