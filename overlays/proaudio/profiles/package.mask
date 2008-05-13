@@ -11,3 +11,6 @@ media-sound/wired
 # World's most fucked up build system [tm]
 # If autofoo is too complicated, than what's this? lol!
 =media-sound/bpmdj-3.6
+
+# broken
+=media-sound/csound-5.08.0
