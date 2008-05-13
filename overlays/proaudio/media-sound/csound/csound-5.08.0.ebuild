@@ -38,7 +38,7 @@ DEPEND="${RDEPEND}
 	dssi? ( >=media-libs/dssi-0.9.1 )"
 	#broken
 	#csoundvst? ( >=dev-libs/boost-1.32.1 )
-S="${WORKDIR}/${PN}5"
+S="${WORKDIR}/${MY_P}"
 
 src_unpack() {
 	unpack ${A}
