@@ -17,6 +17,7 @@ RDEPEND="|| (
 	>=x11-libs/gtk+-2.10.9
 	dev-lang/vala"
 DEPEND="${RDEPEND}"
+S="${WORKDIR}/${PN}"
 
 src_compile() {
 	sed -i -e "s:/usr/local:${D}/usr:g" configure || die
