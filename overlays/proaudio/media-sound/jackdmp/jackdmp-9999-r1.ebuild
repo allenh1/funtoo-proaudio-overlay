@@ -23,8 +23,7 @@ DEPEND="${RDEPEND}
 	app-arch/unzip
 	dev-util/scons
 	doc? ( app-doc/doxygen )
-	dbus? ( sys-apps/dbus )
-	!media-sound/jack-audio-connection-kit"
+	dbus? ( sys-apps/dbus )"
 
 src_compile() {
 	local myconf="PREFIX=/usr"
