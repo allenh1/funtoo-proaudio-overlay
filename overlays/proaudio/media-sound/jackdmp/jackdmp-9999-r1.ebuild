@@ -27,7 +27,7 @@ DEPEND="${RDEPEND}
 
 src_compile() {
 	local myconf="PREFIX=/usr"
-	use amd64 && myconfi="${myconf} LIBDIR=/usr/lib64"
+	use amd64 && myconf="${myconf} LIBDIR=/usr/lib64"
 	use dbus && myconf="${myconf} ENABLE_DBUS=True"
 	use freebob || myconf="${myconf} ENABLE_FREEBOB=False ENABLE_FIREWIRE=False"
 	use debug || myconf="${myconf} DEBUG=False"
