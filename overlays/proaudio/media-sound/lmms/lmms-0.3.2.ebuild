@@ -1,4 +1,4 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -37,8 +37,9 @@ src_unpack() {
 }
 
 src_compile() {
-	# autofoo
-	eautoreconf || die
+	# -O3 breaks linking
+	# http://forums.gentoo.org/viewtopic-p-4533764.html#4533764
+	replace-flags -O3 -O2
 
 	# VST won't compile with -fomit-frame-pointer
 	use vst && filter-flags "-fomit-frame-pointer"
