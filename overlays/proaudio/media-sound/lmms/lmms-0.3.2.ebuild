@@ -21,20 +21,10 @@ DEPEND="=x11-libs/qt-3.3*
 		>=media-libs/sdl-sound-1.0.1 )
 	samplerate? ( media-libs/libsamplerate )
 	jack? ( >=media-sound/jack-audio-connection-kit-0.99.0 )
-	vst? ( >=media-libs/vst-sdk-2.3-r3
-			app-emulation/wine )
+	vst? ( app-emulation/wine )
 	ladspa? ( media-libs/ladspa-sdk )
 	singerbot? ( app-accessibility/festival )
 	stk? ( media-sound/stk )"
-
-src_unpack() {
-	unpack ${A}
-	cd "${S}"
-	# copy VST headers
-	if use vst ; then
-		cp /usr/include/vst/{AEffect.h,aeffectx.h} include/
-	fi
-}
 
 src_compile() {
 	# -O3 breaks linking
