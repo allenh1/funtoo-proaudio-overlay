@@ -43,6 +43,8 @@ pkg_setup() {
 }
 
 src_compile() {
+	make -f Makefile.cvs
+
 	local myconf
 	use vst && myconf="--with-vst=/usr/include/vst"
 
