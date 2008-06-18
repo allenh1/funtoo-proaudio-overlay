@@ -24,7 +24,7 @@ GSTDEPEND=">=media-libs/gstreamer-0.10.12
 	media-plugins/gst-plugins-gnomevfs
 	>=media-libs/gnonlin-0.10.8
 	mad? ( >=media-libs/gst-plugins-ugly-0.10.4 )
-	ladspa? ( >=media-libs/gst-plugins-bad-0.10.4)"
+	ladspa? ( >=media-libs/gst-plugins-bad-0.10.4  )"
 
 # python deps
 PYDEPEND=">=dev-lang/python-2.4
