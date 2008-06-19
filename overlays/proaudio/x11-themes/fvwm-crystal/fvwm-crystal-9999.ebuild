@@ -2,13 +2,19 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/x11-themes/fvwm-crystal/fvwm-crystal-3.0.4.ebuild,v 1.6 2007/02/04 19:20:09 beandog Exp $
 
+inherit subversion
+
 DESCRIPTION="Configurable and full featured theme for FVWM, with lots of transparency. This version add a freedesktop compatible menu"
-HOMEPAGE="http://fvwm-crystal.sourceforge.net/"
+HOMEPAGE="http://fvwm-crystal.org/"
 SRC_URI=""
+
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 IUSE="laptop session"
+
+ESVN_REPO_URI="https://fvwm-crystal.svn.sourceforge.net/svnroot/fvwm-crystal"
+
 RDEPEND=">=x11-wm/fvwm-2.5.13
 	media-gfx/imagemagick
 	|| ( >=x11-misc/stalonetray-0.6.2-r2 x11-misc/trayer )
@@ -16,12 +22,11 @@ RDEPEND=">=x11-wm/fvwm-2.5.13
 	sys-devel/bc
 	!x11-themes/crystal-audio"
 
-#S="${WORKDIR}/${PN}"
-S="${WORKDIR}/current"
+S="${WORKDIR}/${PN}"
+#S="${WORKDIR}/current"
 
 src_unpack() {
-#	darcs get http://linux.net.pl/~harnir/fvwm-crystal/
-	darcs get http://crystal-audio.sourceforge.net/repository/current
+	subversion_src_unpack
 }
 
 src_compile() {
