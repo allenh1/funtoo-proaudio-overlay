@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/x11-themes/fvwm-crystal/fvwm-crystal-3.0.4.ebuild,v 1.6 2007/02/04 19:20:09 beandog Exp $
 
-inherit subversion
+inherit subversion eutils
 
 DESCRIPTION="Configurable and full featured theme for FVWM, with lots of transparency. This version add a freedesktop compatible menu"
 HOMEPAGE="http://fvwm-crystal.org/"
@@ -72,5 +72,22 @@ pkg_postinst() {
 	einfo "Read addons/session-management.README, it contain important"
 	einfo "information about session management support in FVWM-Crystal"
 	einfo
+	ebeep 5
+	ewarn
+	ewarn " Do not use konsole into fvwm-crystal to do portage or emerge work"
+	ewarn "because it will break your system. Use another terminal instead."
+	ewarn " Urxvt is working fine for me."
+	ewarn " See http://bugs.gentoo.org/show_bug.cgi?id=210580 for a discussion"
+	ewarn "on this issue."
+	ewarn
+	ewarn " The envfix.sh script will break the user configuration. It is why"
+	ewarn "I will not apply this script into this ebuild until I am 100% sure"
+	ewarn "that it address the real problem and that it is not a workaround for"
+	ewarn "some portage, konsole or gentoo specific issue."
+	ewarn
+	ewarn " You have be warned. If you want to use konsole into fvwm-crystal to do"
+	ewarn "portage work, use the last official gentoo ebuild for fvwm-crystal."
+	ewarn
+	ebeep 10
 }
 

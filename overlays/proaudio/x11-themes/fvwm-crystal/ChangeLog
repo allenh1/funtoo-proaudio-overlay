@@ -2,6 +2,11 @@
 # Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  22 Jun 2008; Dominique Michel <dominique.michel@citycable.ch> Added
+  important warning about bug 210580: http://bugs.gentoo.org/show_bug.cgi?=210580
+  Changed the fvwm-crystal session file in order to use the new and correct
+  gentoo executable name.
+  
   19 Jun 2008; Dominique Michel <dominique.michel@citycable.ch> use
   the new svn repository on sourceforge.
 
