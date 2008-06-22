@@ -15,7 +15,10 @@ IUSE="laptop session"
 
 ESVN_REPO_URI="https://fvwm-crystal.svn.sourceforge.net/svnroot/fvwm-crystal"
 
-RDEPEND=">=x11-wm/fvwm-2.5.13
+# Should work with fvwm-2.5.13, but like portage use the correct fvwm exec name
+# only from 2.5.26 and that I am using this version to develop fvwm-crystal, it
+# is best to use 2.5.26 as dependency.
+RDEPEND=">=x11-wm/fvwm-2.5.26
 	media-gfx/imagemagick
 	|| ( >=x11-misc/stalonetray-0.6.2-r2 x11-misc/trayer )
 	|| ( >=x11-misc/habak-0.2.4.1 x11-misc/hsetroot )
