@@ -11,6 +11,3 @@ media-sound/wired
 # World's most fucked up build system [tm]
 # If autofoo is too complicated, than what's this? lol!
 =media-sound/bpmdj-3.6
-
-# New shitty buildsystem, no eclass available yet
-media-sound/jackdmp

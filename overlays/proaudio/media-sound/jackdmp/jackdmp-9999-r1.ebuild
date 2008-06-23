@@ -21,22 +21,20 @@ RDEPEND="dev-util/pkgconfig
 
 DEPEND="${RDEPEND}
 	app-arch/unzip
-	dev-util/scons
 	doc? ( app-doc/doxygen )
 	dbus? ( sys-apps/dbus )"
 
 src_compile() {
-	local myconf="PREFIX=/usr"
-	use amd64 && myconf="${myconf} LIBDIR=/usr/lib64"
-	use dbus && myconf="${myconf} ENABLE_DBUS=True"
-	use freebob || myconf="${myconf} ENABLE_FREEBOB=False ENABLE_FIREWIRE=False"
-	use debug || myconf="${myconf} DEBUG=False"
-	use doc || myconf="${myconf} BUILD_DOXYGEN_DOCS=False"
-	use examples || myconf="${myconf} BUILD_EXAMPLES=False"
-	scons ${myconf} || die
+	local myconf="--prefix=/usr --destdir=${D}"
+	use dbus && myconf="${myconf} --dbus"
+	use doc && myconf="${myconf} --doxygen"
+	
+	einfo "Running \"/waf ${myconf} configure\" ..."
+	./waf configure ${myconf} || die "waf failed"
+	./waf build ${MAKEOPTS}
 }
 
 src_install() {
-	scons PREFIX="/usr" DESTDIR="${D}" install || die
+	./waf install --prefix=/usr --destdir="${D}" || die "waf install failed"
 	dodoc Readme Todo ChangeLog
 }
