@@ -2,6 +2,10 @@
 # Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  23 Jun 2008; Dominique Michel <dominique.michel@citycable.ch> The posix bug
+  is fixed into the svn, removed the warning and added info about what is needed
+  to do to the user config.
+  
   22 Jun 2008; Dominique Michel <dominique.michel@citycable.ch> Added
   important warning about bug 210580: http://bugs.gentoo.org/show_bug.cgi?=210580
   Changed the fvwm-crystal session file in order to use the new and correct

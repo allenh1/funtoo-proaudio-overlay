@@ -26,7 +26,6 @@ RDEPEND=">=x11-wm/fvwm-2.5.26
 	!x11-themes/crystal-audio"
 
 S="${WORKDIR}/${PN}"
-#S="${WORKDIR}/current"
 
 src_unpack() {
 	subversion_src_unpack
@@ -75,22 +74,12 @@ pkg_postinst() {
 	einfo "Read addons/session-management.README, it contain important"
 	einfo "information about session management support in FVWM-Crystal"
 	einfo
-	ebeep 5
-	ewarn
-	ewarn " Do not use konsole into fvwm-crystal to do portage or emerge work"
-	ewarn "because it will break your system. Use another terminal instead."
-	ewarn " Urxvt is working fine for me."
-	ewarn " See http://bugs.gentoo.org/show_bug.cgi?id=210580 for a discussion"
-	ewarn "on this issue."
-	ewarn
-	ewarn " The envfix.sh script will break the user configuration. It is why"
-	ewarn "I will not apply this script into this ebuild until I am 100% sure"
-	ewarn "that it address the real problem and that it is not a workaround for"
-	ewarn "some portage, konsole or gentoo specific issue."
-	ewarn
-	ewarn " You have be warned. If you want to use konsole into fvwm-crystal to do"
-	ewarn "portage work, use the last official gentoo ebuild for fvwm-crystal."
-	ewarn
-	ebeep 10
+	einfo "An important POSIX bugfix was committed recently to the svn"
+	einfo "repository. All the environment variable names with - in their"
+	einfo "name was changed to the same name with _ insted of -."
+	einfo " This will break your user configuration, so please check every"
+	einfo "file into your user config and change all the - into _ for all"
+	einfo "the environment variable names with - in their name."
+	einfo
 }
 
