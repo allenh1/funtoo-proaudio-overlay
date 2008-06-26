@@ -12,16 +12,16 @@ ESVN_REPO_URI="http://subversion.jackaudio.org/jack/jack2/trunk/jackmp"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="doc debug examples freebob dbus"
+IUSE="doc freebob dbus"
 
 RDEPEND="dev-util/pkgconfig
 	>=media-libs/alsa-lib-0.9.1
 	freebob? ( sys-libs/libfreebob )"
-
 DEPEND="${RDEPEND}
 	app-arch/unzip
 	doc? ( app-doc/doxygen )
 	dbus? ( sys-apps/dbus )"
+PDEPEND="=media-sound/jack-audio-connection-kit-9999"
 
 src_compile() {
 	local myconf="--prefix=/usr --destdir=${D}"
