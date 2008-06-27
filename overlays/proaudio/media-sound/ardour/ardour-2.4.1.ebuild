@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI=1
+
 inherit eutils toolchain-funcs flag-o-matic scons-ccache vst versionator patcher
 
 DESCRIPTION="multi-track hard disk recording software"
@@ -11,7 +13,7 @@ SRC_URI="http://ardour.org/files/releases/${P}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
-IUSE="altivec debug nls sse sys-libs vst lv2 freesound custom-cflags"
+IUSE="altivec debug nls sse +sys-libs vst lv2 freesound -custom-cflags"
 
 RDEPEND="media-libs/liblo
 	>=media-libs/liblrdf-0.4.0
