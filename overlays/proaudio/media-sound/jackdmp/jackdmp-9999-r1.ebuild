@@ -34,6 +34,6 @@ src_compile() {
 }
 
 src_install() {
-	./waf install --prefix=/usr --destdir="${D}" || die "waf install failed"
+	./waf install --destdir="${D}" || die "waf install failed"
 	dodoc Readme Todo ChangeLog Readme_NetJack2.txt
 }
