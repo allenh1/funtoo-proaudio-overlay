@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit subversion exteutils
+inherit eutils
 
 DESCRIPTION="SLV2 is a library for LV2 hosts "
 HOMEPAGE="http://drobilla.net/software"
