@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  12 Jul 2008; Marc-Olivier Barre <marco@marcochapeau.org> +patchage-0.4.1.ebuild:
+  bump
+
   13 Jan 2008; Frieder Buerzele <evermind@tuxfamily.org>;
   +patchage-0.4.0.ebuild, patchage-9999.ebuild:
   bump
