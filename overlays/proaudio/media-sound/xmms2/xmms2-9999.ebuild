@@ -46,8 +46,7 @@ DEPEND="!clientonly? (
 		xspf? ( dev-libs/libxml2 ) )
 	>=dev-lang/python-2.4.3
 	>=dev-libs/glib-2.12.9
-	cpp? ( >=dev-libs/boost-1.32
-			>=sys-devel/gcc-3.4 )
+	cpp? ( >=dev-libs/boost-1.32 )
 	ecore? ( x11-libs/ecore )
 	fam? ( app-admin/gamin )
 	perl? ( >=dev-lang/perl-5.8.8 )
