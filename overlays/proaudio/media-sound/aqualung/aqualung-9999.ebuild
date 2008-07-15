@@ -53,6 +53,10 @@ src_unpack() {
 	echo "#define AQUALUNG_VERSION \"R-$(cd
 "${ESVN_STORE_DIR}/${ESVN_PROJECT}/${ESVN_REPO_URI##*/}" ; svn info |
 grep '^Revision' | awk '{print $2}')\"" > src/version.h
+
+	# FFMpeg headers...
+	epatch "${FILESDIR}/new-ffmpeg-headers.patch"
+
 	eautoreconf || die
 }
 

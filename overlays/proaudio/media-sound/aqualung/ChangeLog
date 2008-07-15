@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  15 Jul 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  +files/new-ffmpeg-headers.patch, aqualung-9999.ebuild:
+  fix for ffmpeg headers
+
   24 Feb 2008; Frieder Buerzele <evermind@tuxfamily.org>;
   aqualung-9999.ebuild:
   updated ebuid (thx Maarten Maathuis)
