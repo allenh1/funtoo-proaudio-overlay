@@ -3,6 +3,7 @@
 # $Header: $
 
 inherit autotools
+
 RESTRICT="nomirror"
 DESCRIPTION="Free software synthesizer inspired by the ideas of the Reactable"
 HOMEPAGE="http://www.psychosynth.com/"
@@ -41,6 +42,12 @@ src_unpack() {
 	sed -i -e "s/\[\ libSoundTouch\ \]/\[\ soundtouch-1.0\ \]/"	\
 		"${S}/configure.ac" || die "sed of configure.ac failed"
 	cd "${S}"
+
+	# gcc-4.3
+	epatch "${FILESDIR}/${P}-gcc43.patch"
+
+	# AT_M4DIR="." fails too, so...
+	sed -i -e 's:-I m4:-I .:' Makefile.in Makefile.am || die
 	eautoreconf
 }
 
