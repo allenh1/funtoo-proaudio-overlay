@@ -22,14 +22,6 @@ DEPEND=">=dev-util/pkgconfig-0.9.0
 	>=media-libs/raptor-1.4.0
 	>=sys-libs/raul-9999"
 
-src_unpack() {
-	subversion_src_unpack
-	cd "${S}/${PN}" || die "source for ${PN} not found"
-
-	# fix pkg-config .pc
-	epatch "${FILESDIR}/${PN}-pc.in.patch"
-}
-
 src_compile() {
 	cd "${S}/${PN}" || die "source for ${PN} not found"
 	NOCONFIGURE=1 ./autogen.sh
