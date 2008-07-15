@@ -6,8 +6,7 @@ inherit eutils
 
 MY_P="${PN/mini/Mini}V${PV}"
 
-DESCRIPTION="Minicomputer is a standalone Linux softwaresynthesizer for creating
-experimental electronic sounds"
+DESCRIPTION="Standalone Linux softwaresynthesizer"
 HOMEPAGE="http://minicomputer.sourceforge.net"
 SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.gz"
 
@@ -44,6 +43,14 @@ src_install() {
 	dobin minicomputer minicomputerCPU
 	doicon minicomputer.xpm
 	dodoc CHANGES README
-	make_desktop_entry "${PN}" "Minicomputer" "AudioVideo;Audio"
+	make_desktop_entry "${PN}" "Minicomputer" "${PN}" "AudioVideo;Audio"
+
+	# install presets
+	insinto /usr/share/${PN}
+	doins -r factoryPresets
 }
 
+pkg_postinst() {
+	elog "The presets can be found in /usr/share/${PN}"
+	elog "Just copy them to ~/.miniComputer/"
+}

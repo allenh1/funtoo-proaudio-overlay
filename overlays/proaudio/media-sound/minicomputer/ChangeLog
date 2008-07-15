@@ -1,0 +1,8 @@
+# ChangeLog for media-sound/minicomputer
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  15 Jul 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  minicomputer-1.2.ebuild:
+  initial ebuild
+
