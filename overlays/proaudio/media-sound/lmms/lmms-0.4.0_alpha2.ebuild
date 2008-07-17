@@ -14,7 +14,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 
-IUSE="alsa debug flac jack ladspa oss pic samplerate sdl singerbot surround stk vorbis vst"
+IUSE="alsa debug flac jack ladspa oss pic samplerate sdl singerbot stk vorbis vst"
 
 DEPEND="|| ( >=x11-libs/qt-4.3.0 x11-libs/qt-gui )
 	vorbis? ( media-libs/libvorbis )
@@ -42,15 +42,19 @@ src_compile() {
 		`use_with flac` \
 		`use_with ladspa` \
 		`use_with pic` \
-		`use_enable surround` \
 		`use_enable debug` \
 		`use_with vst` \
 		`use_with singerbot` \
 		`use_with stk` \
 		--enable-hqsinc \
+		--enable-surround \
 		|| die "Configure failed"
 
-	emake || die "Make failed"
+	if use vst; then
+		emake -j1 || die "Make failed"
+	else
+		emake || die "Make failed"
+	fi
 }
 
 src_install() {
