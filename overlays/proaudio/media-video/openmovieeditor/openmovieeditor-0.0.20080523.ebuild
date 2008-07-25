@@ -13,9 +13,9 @@ LICENSE="GPL-2"
 KEYWORDS="~x86"
 
 IUSE="mpeg"
-DEPEND=">=media-libs/libquicktime-1.0.0
+DEPEND=">=media-libs/libquicktime-1.0.2
 		x11-libs/fltk
-		media-libs/gavl
+		>=media-libs/gavl-1.0.0
 		media-sound/jack-audio-connection-kit
 		media-libs/libsndfile
 		mpeg? ( >=media-libs/libmpeg3-1.5 )"
