@@ -25,7 +25,6 @@ src_compile() {
 	scons \
 		PREFIX=/usr \
 		LIDBDIR="/usr/$(get_libdir)" \
-		LINKFLAGS="${LDFLAGS}" \
 		${myconf} || die "scons failed"
 }
 
