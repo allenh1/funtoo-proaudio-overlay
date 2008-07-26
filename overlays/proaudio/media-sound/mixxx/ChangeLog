@@ -2,6 +2,12 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  26 Jul 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  +files/mixxx-1.6.0_beta4-debug.patch, -mixxx-1.5.0.ebuild,
+  -mixxx-1.6.0_beta1.ebuild, -mixxx-1.6.0_beta2.ebuild,
+  +mixxx-1.6.0_beta4.ebuild:
+  version bump
+
   09 Apr 2008; Thomas Kuther <gimpel@sonnenkinder.org>
   -mixxx-1.5.0_beta1.ebuild, +mixxx-1.6.0_beta2.ebuild:
   version bump
