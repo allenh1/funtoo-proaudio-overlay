@@ -27,7 +27,7 @@ src_compile() {
 	econf $(use_with alsa)\
 		$(use_with jack) \
 		$(use_with oss)\
-		$(use_with debug debug-output)\
+		$(use_enable debug debug-output)\
 		--enable-cxx\
 		|| die "econf failed"
 
