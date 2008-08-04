@@ -1,19 +1,16 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils qt3 cvs
+EAPI=1
+
+inherit eutils qt4 cvs
 
 DESCRIPTION="A Qt application to control the JACK Audio Connection Kit and ALSA sequencer connections."
 HOMEPAGE="http://qjackctl.sourceforge.net/"
-SRC_URI=""
 
 ECVS_SERVER="qjackctl.cvs.sourceforge.net:/cvsroot/qjackctl"
-ECVS_USER="anonymous"
-ECVS_PASS=""
-ECVS_AUTH="pserver"
 ECVS_MODULE="qjackctl"
-ECVS_TOP_DIR="${DISTDIR}/cvs-src/${ECVS_MODULE}"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -22,7 +19,10 @@ KEYWORDS=""
 IUSE="alsa debug jackmidi"
 
 DEPEND="alsa? ( media-libs/alsa-lib )
-	$(qt_min_version 3.1.1)
+	|| ( (
+			x11-libs/qt-core:4
+			x11-libs/qt-gui:4
+		) >=x11-libs/qt-4.1:4 )
 	media-sound/jack-audio-connection-kit"
 
 pkg_setup() {
@@ -34,25 +34,28 @@ pkg_setup() {
 	fi
 }
 
-S=${WORKDIR}/${PN}
-
 src_compile() {
-	emake -f Makefile.cvs
+	make -f Makefile.cvs || die
 	econf \
-		$(use jackmidi jack-midi) \
+		$(use_enable jackmidi jack-midi) \
 		$(use_enable alsa alsa-seq) \
 		$(use_enable debug) \
 		|| die "econf failed"
-	emake || die "emake failed"
+
+	# Emulate what the Makefile does, so that we can get the correct
+	# compiler used.
+	eqmake4 ${PN}.pro -o ${PN}.mak || die "eqmake4 failed"
+
+	emake -f ${PN}.mak || die "emake failed"
 }
 
 src_install() {
-	emake -j1 DESTDIR="${D}" install || die "make install failed"
+	emake DESTDIR="${D}" install || die "make install failed"
 
 	rm "${D}/usr/share/applications/qjackctl.desktop"
 
 	# Upstream desktop file is invalid, better stick with our for now.
-	make_desktop_entry "${PN}" "QjackCtl" "/usr/share/icons/qjackctl.png"
+	make_desktop_entry "${PN}" "QjackCtl" "${PN}"
 
 	dodoc README ChangeLog TODO AUTHORS
 }
