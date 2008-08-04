@@ -4,7 +4,7 @@
 
 EAPI=1
 
-inherit exteutils qt4 subversion
+inherit eutils qt4 subversion
 
 DESCRIPTION="Linux Drum Machine"
 HOMEPAGE="http://hydrogen.sourceforge.net/"
@@ -36,15 +36,12 @@ DEPEND="${RDEPEND}"
 src_unpack() {
 	subversion_src_unpack
 	cd "${S}"
-	esed_check -i -e 's|QSvgRenderer|Qt/QSvgRenderer|g' gui/src/widgets/Button.cpp
-
-	# fake config.h
-	echo "#define CONFIG_PREFIX \"/usr\"" >> config.h
-	echo "#define DATA_PATH \"/usr/share/hydrogen/data\"" >> config.h
+	sed -i -e 's:/lib/libQtCore.so:/lib/qt4/libQtCore.so:' configure || die
 }
 
 src_compile() {
-	eqmake4 all.pro
+	prefix=/usr ./configure
+	eqmake4 all.pro || die
 	emake -j1 || die "emake failed"
 }
 
