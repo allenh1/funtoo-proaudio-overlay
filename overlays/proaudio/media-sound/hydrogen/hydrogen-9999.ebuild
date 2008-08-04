@@ -14,11 +14,15 @@ SLOT="0"
 KEYWORDS=""
 IUSE="alsa debug jack ladspa oss portaudio"
 
-RDEPEND="dev-libs/libxml2
+RDEPEND="
+	|| ( (
+         	x11-libs/qt-core:4
+			x11-libs/qt-gui:4 )
+			>=x11-libs/qt-4.1:4	)
+	dev-libs/libxml2
 	media-libs/libsndfile
 	media-libs/audiofile
 	media-libs/flac
-	$(qt4_min_version 4.1.0)
 	dev-libs/libtar
 	portaudio? ( =media-libs/portaudio-18.1* )
 	alsa? ( media-libs/alsa-lib )
