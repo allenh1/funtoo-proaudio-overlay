@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  05 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  +ardour-2.5.ebuild:
+  enhanced use-flags
+
   03 May 2008; Thomas Kuther <gimpel@sonnenkinder.org>
   +files/ardour-2.4-cflags.patch, +files/ardour-2.4-gcc43.patch,
   ardour-2.4.1.ebuild:
