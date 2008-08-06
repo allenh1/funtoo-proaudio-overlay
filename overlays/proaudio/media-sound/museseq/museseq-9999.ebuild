@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI=1
+
 inherit subversion virtualx eutils toolchain-funcs qt4 patcher flag-o-matic
 
 ESVN_REPO_URI="https://lmuse.svn.sourceforge.net/svnroot/lmuse/trunk/muse"
@@ -18,7 +20,9 @@ SLOT="1"
 KEYWORDS=""
 IUSE="doc dssi fluidsynth vst zynaddsubfx"
 
-DEPEND="$(qt4_min_version 4.2.3)
+DEPEND="|| ( ( x11-libs/qt-core x11-libs/qt-gui x11-libs/qt-xmlpatterns
+		x11-libs/qt-qt3support x11-libs/qt-svg )
+		>=x11-libs/qt-4.2:4 )
 	>=dev-util/cmake-2.4.7
 	=sys-devel/gcc-4*
 	>=media-libs/alsa-lib-1.0

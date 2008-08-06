@@ -19,7 +19,7 @@ KEYWORDS=""
 
 IUSE="debug dssi ladspa libsamplerate mad osc rubberband vorbis sse vst"
 
-DEPEND="|| ( ( x11-libs/qt-core x11-libs/qt-gui )
+DEPEND="|| ( ( x11-libs/qt-core x11-libs/qt-gui x11-libs/qt-xmlpatterns )
 			>=x11-libs/qt-4.1:4 )
 	media-libs/alsa-lib
 	media-libs/libsndfile

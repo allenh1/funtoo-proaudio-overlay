@@ -2,6 +2,11 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  06 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  -jackmix-0.1.ebuild, jackmix-0.2.ebuild, jackmix-0.3.1.ebuild,
+  jackmix-0.4.ebuild:
+  fixed qt4_min... QA msg -- removed old ebuilds
+
   15 Jan 2008; Frieder Buerzele <evermind@tuxfamily.org>;
   jackmix-0.4.ebuild:
   fixed installation and use cflags now

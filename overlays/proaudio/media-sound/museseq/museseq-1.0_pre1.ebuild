@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI=1
+
 inherit virtualx eutils toolchain-funcs qt4 patcher
 
 MY_PN=${PN/museseq/muse}
@@ -20,7 +22,9 @@ IUSE="vst dssi fluidsynth zynaddsubfx"
 DEPEND=">=dev-util/cmake-2.4.1
 		=sys-devel/gcc-4*"
 RDEPEND="${DEPEND}
-	$(qt4_min_version 4.2.3)
+	|| ( ( x11-libs/qt-core x11-libs/qt-gui x11-libs/qt-xmlpatterns
+		x11-libs/qt-qt3support x11-libs/qt-svg )
+		>=x11-libs/qt-4.2:4 )
 	>=media-libs/alsa-lib-1.0
 	>=media-sound/fluidsynth-1.0.3
 	doc? ( app-text/openjade

@@ -1,6 +1,8 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
+
+EAPI=1
 
 inherit eutils qt4
 
@@ -12,7 +14,8 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
-RDEPEND="$(qt4_min_version 4.1)
+RDEPEND="|| ( ( x11-libs/qt-core x11-libs/qt-gui )
+			>=x11-libs/qt-4.1:4 )
 	>=media-libs/liblscp-0.5.5
 	>=media-libs/libgig-0.3.3
 	>=media-sound/linuxsampler-0.4

@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI=1
+
 inherit exteutils qt4
 
 RESTRICT="nomirror"
@@ -19,7 +21,8 @@ DEPEND="${RDEPEND}
 		dev-util/scons
 		dev-util/pkgconfig"
 RDEPEND="media-sound/jack-audio-connection-kit
-		$(qt4_min_version 4.2)
+	|| ( ( x11-libs/qt-core x11-libs/qt-gui x11-libs/qt-xmlpatterns )
+		>=x11-libs/qt-4.2:4 )
 		>=media-libs/liblo-0.23"
 
 src_unpack() {

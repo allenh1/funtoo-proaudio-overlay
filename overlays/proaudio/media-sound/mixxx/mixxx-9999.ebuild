@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI=1
+
 inherit exteutils qt4 subversion toolchain-funcs
 
 DESCRIPTION="Digital DJ tool using QT 4.x"
@@ -13,7 +15,11 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 
-DEPEND="$(qt4_min_version 4.3)
+DEPEND="|| ( ( x11-libs/qt-core
+		x11-libs/qt-gui
+		x11-libs/qt-opengl 
+		x11-libs/qt-xmlpatterns )
+		>=x11-libs/qt-4.3:4 )
 	media-sound/madplay
 	media-libs/libogg
 	media-libs/libvorbis

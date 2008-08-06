@@ -1,6 +1,8 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
+
+EAPI=1
 
 IUSE="alsa jack lua"
 
@@ -16,7 +18,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64 ~ppc"
 
-DEPEND="$(qt_min_version 3.1)
+DEPEND="=x11-libs/qt-3*
 	media-sound/madplay
 	media-libs/libogg
 	media-libs/libvorbis

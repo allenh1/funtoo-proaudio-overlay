@@ -1,4 +1,4 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -15,7 +15,7 @@ KEYWORDS="~amd64 ~ppc ~sparc ~x86"
 IUSE="alsa debug jackmidi"
 
 DEPEND="alsa? ( media-libs/alsa-lib )
-	$(qt_min_version 3.1.1)
+	=x11-libs/qt-3*
 	media-sound/jack-audio-connection-kit"
 
 pkg_setup() {

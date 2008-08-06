@@ -1,6 +1,6 @@
 # Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/mixxx/mixxx-1.6.0_beta3.ebuild,v 1.2 2008/06/23 16:54:02 nixnut Exp $
+# $Header: $
 
 EAPI=1
 
@@ -31,7 +31,8 @@ RDEPEND="media-libs/mesa
 	virtual/glu
 	|| ( ( x11-libs/qt-core
 		x11-libs/qt-gui
-		x11-libs/qt-opengl )
+		x11-libs/qt-opengl 
+		x11-libs/qt-xmlpatterns )
 		>=x11-libs/qt-4.3:4 )"
 DEPEND="${RDEPEND}
 	dev-util/scons

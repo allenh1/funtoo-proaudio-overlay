@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI=1
+
 inherit qt4
 
 MY_P="SimpleSysexxer"
@@ -23,7 +25,8 @@ RDEPEND="|| ( ( x11-libs/libX11
 			)"
 DEPEND="${RDEPEND}
 		>=media-libs/alsa-lib-1.0.9
-		$(qt4_min_version 4)"
+		|| ( ( x11-libs/qt-gui )
+			>=x11-libs/qt-4.1:4 )"
 
 src_compile() {
 	qmake

@@ -1,6 +1,8 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
+
+EAPI=1
 
 inherit eutils subversion autotools flag-o-matic qt4
 
@@ -18,7 +20,8 @@ S="${WORKDIR}/${PN}"
 IUSE="alsa debug flac jack ladspa oss pic samplerate sdl singerbot surround
 stk vorbis vst sndfile"
 
-DEPEND="$(qt4_min_version 4.3)
+DEPEND="|| ( ( x11-libs/qt-core x11-libs/qt-gui x11-libs/qt-xmlpatterns )
+		>=x11-libs/qt-4.3:4 )
 	vorbis? ( media-libs/libvorbis )
 	alsa? ( media-libs/alsa-lib )
 	sdl? ( media-libs/libsdl
@@ -41,7 +44,7 @@ src_unpack() {
 	fi
 
 	# fix Qt4 autofoo
-	epatch "${FILESDIR}/${P}-acinclude.patch"
+	#epatch "${FILESDIR}/${P}-acinclude.patch"
 }
 
 src_compile() {
