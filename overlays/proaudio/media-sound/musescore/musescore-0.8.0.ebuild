@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI=1
+
 inherit eutils font toolchain-funcs qt4
 
 MY_P=${P/musescore/mscore}
@@ -15,7 +17,9 @@ SLOT="0"
 KEYWORDS="~sparc ~x86 ~amd64"
 IUSE="doc jack"
 
-RDEPEND=">=x11-libs/qt-4.3
+RDEPEND="|| ( ( x11-libs/qt-core x11-libs/qt-gui
+		x11-libs/qt-xmlpatterns x11-libs/qt-svg )
+		>=x11-libs/qt-4.3:4 )
 	media-sound/fluidsynth
 	media-libs/alsa-lib
 	jack? ( media-sound/jack-audio-connection-kit )"

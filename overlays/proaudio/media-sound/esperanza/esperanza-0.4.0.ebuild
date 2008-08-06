@@ -1,7 +1,9 @@
-# Copyright 1999-2005 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $
 # Nonofficial ebuild by dangertools
+
+EAPI=1
 
 inherit eutils toolchain-funcs flag-o-matic
 
@@ -20,7 +22,8 @@ RDEPEND="|| (
 		>=media-sound/xmms2-0.2.8_rc2
 		media-sound/xmms2-git )
 	>=dev-libs/boost-1.32
-	>=x11-libs/qt-4"
+	|| ( ( x11-libs/qt-core x11-libs/qt-gui x11-libs/qt-xmlpatterns )
+		>=x11-libs/qt-4:4 )"
 
 DEPEND=">=sys-devel/gcc-3.4
 	!media-sound/esperanza-git

@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/x11-libs/qwt/qwt-5_pre20060130.ebuild,v 1.3 2006/07/21 17:55:57 caleb Exp $
 
@@ -18,7 +18,10 @@ IUSE="doc"
 
 QWTVER="5.0.0"
 
-DEPEND="=x11-libs/qt-4*
+DEPEND="|| (
+	( x11-libs/qt-gui:4
+	  svg? ( x11-libs/qt-svg:4 ) )
+	=x11-libs/qt-4.3*:4 )
 	>=sys-apps/sed-4"
 
 S="${WORKDIR}/${ECVS_MODULE}"

@@ -1,6 +1,8 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
+
+EAPI=1
 
 inherit eutils
 
@@ -18,7 +20,8 @@ RESTRICT="nomirror"
 RDEPEND="dev-util/scons
 	>=media-libs/libclam-1.0.0
 	<media-libs/libclam-9999
-	>=x11-libs/qt-4.1"
+	|| ( ( x11-libs/qt-core x11-libs/qt-gui x11-libs/qt-opengl )
+			>=x11-libs/qt-4.1:4 )"
 
 DEPEND="${DEPEND}
 	media-gfx/imagemagick"

@@ -1,6 +1,8 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
+
+EAPI=1
 
 inherit eutils
 
@@ -22,12 +24,18 @@ IUSE="doc examples"
 S="${WORKDIR}/IanniX SRC Little Endian"
 
 DEPEND="${RDEPEND}"
-RDEPEND=">=x11-libs/qt-4.2"
+RDEPEND="|| ( ( x11-libs/qt-core
+		x11-libs/qt-gui
+		x11-libs/qt-sql
+		x11-libs/qt-test
+		x11-libs/qt-opengl
+		x11-libs/qt-svg )
+		>=x11-libs/qt-4.2:4 )"
 
 pkg_setup() {
-	if ! built_with_use x11-libs/qt opengl; then
-		ewarn "You need to compile x11-libs/qt with USE=\"opengl\"."
-		die
+	if ! has_version x11-libs/qt-opengl && ! built_with_use =x11-libs/qt-4* opengl; then
+		eerror "You need to build qt4 with opengl support to have it in ${PN}"
+		die "Enabling opengl for $PN requires qt4 to be built with opengl support"
 	fi
 }
 

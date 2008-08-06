@@ -1,6 +1,8 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
+
+EAPI=1
 
 inherit subversion qt4
 
@@ -18,7 +20,10 @@ RESTRICT="nomirror"
 
 RDEPEND="dev-util/scons
 	=media-libs/libclam-9999
-    	=x11-libs/qt-4*"
+ 	|| ( ( x11-libs/qt-core x11-libs/qt-gui 
+ 		x11-libs/qt-xmlpatterns x11-libs/qt-opengl 
+		x11-libs/qt-svg )
+ 		>=x11-libs/qt-4:4 )"
 
 DEPEND="${DEPEND}
 	media-gfx/imagemagick"
@@ -26,6 +31,13 @@ DEPEND="${DEPEND}
 QTDIR=""
 
 S="${WORKDIR}/${PN}"
+
+pkg_setup() {
+	if ! has_version x11-libs/qt-opengl && ! built_with_use =x11-libs/qt-4* opengl; then
+		eerror "You need to build qt4 with opengl support to have it in ${PN}"
+		die "Enabling opengl for $PN requires qt4 to be built with opengl support"
+	fi
+}
 
 src_compile() {
 	# required for scons to "see" intermediate install location

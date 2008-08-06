@@ -1,4 +1,4 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -23,12 +23,18 @@ RDEPEND=">=media-sound/jack-audio-connection-kit-0.100
 DEPEND="${RDPEND}
 	>=sys-libs/zlib-1.2.2
 	qt3? ( >=x11-libs/qt-3 )
-	qt4? ( >=x11-libs/qt-4.1 )
+	qt4? ( || ( ( x11-libs/qt-qt3support )
+		>=x11-libs/qt-4:4 ) )
 	dev-util/pkgconfig"
 
 S="${WORKDIR}/${MY_P}"
 
 pkg_setup() {
+	if use qt4 && ! has_version x11-libs/qt-qt3support && ! built_with_use =x11-libs/qt-4* qt3support; then
+		eerror "You need to build qt4 with qt3support support to have it in ${PN}"
+		die "Enabling qt3support for $PN requires qt4 to be built with qt3support support"
+	fi
+
 	if  pkg-config --exists libswscale ;then
 		einfo "ffmpeg offers sws_scale support --> enabled"
 		append-flags -DHAVE_SWSCALE

@@ -1,6 +1,8 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
+
+EAPI=1
 
 inherit multilib
 
@@ -13,7 +15,8 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="x86 amd64"
 
-DEPEND="=x11-libs/qt-4*
+DEPEND="|| ( ( x11-libs/qt-core x11-libs/qt-gui x11-libs/qt-xmlpatterns )
+		>=x11-libs/qt-4:4 )
 	>=x11-libs/qwt-5.0.0_rc0
 	media-sound/jack-audio-connection-kit
 	>=media-libs/libsndfile-1.0
