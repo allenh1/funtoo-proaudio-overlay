@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  06 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  -phat-0.3.1.ebuild, -phat-0.4.0.ebuild, phat-0.4.1.ebuild:
+  en/disable doc via useflag without rm -- remove old ebuild
+
   13 Jan 2008; Marc-Olivier Barre <mobarre@gmail.com> phat-9999.ebuild::
   Remove the CFLAGS patch from the SVN ebuild since the patch has been applied
   upstream

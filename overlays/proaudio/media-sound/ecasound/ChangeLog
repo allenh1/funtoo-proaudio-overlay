@@ -1,7 +1,0 @@
-# ChangeLog for media-sound/ecasound
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
-
-  24 Dec 2007; Frieder Buerzele <evermind@tuxfamily.org> ChangeLog:
-  bumped portages ebuild to 2.4.6.1
-

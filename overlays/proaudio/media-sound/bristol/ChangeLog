@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  06 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  -bristol-0.20.5.ebuild:
+  remove duplicated ebuilds
+
   22 Apr 2008; <tom@gentoo.org> -bristol-0.9.1.ebuild,
   -bristol-0.9.4.1.ebuild, -bristol-0.9.4.57.ebuild,
   -bristol-0.9.5.60.ebuild, -bristol-0.9.5.66.ebuild,

@@ -15,9 +15,17 @@ KEYWORDS="amd64 x86"
 DEPEND="media-libs/ladspa-sdk"
 
 S="${WORKDIR}/${MY_P}"
+
+src_compile() {
+	tc-export CXX
+	sed -i -e "s/-O3//" Makefile
+	sed -i -e "s/g++/$(tc-getCXX)/" Makefile
+	emake || die
+}
+
 src_install() {
 	dodoc AUTHORS README
-	insinto /usr/lib/ladspa
+	insinto /usr/$(get_libdir)/ladspa
 	insopts -m0755
 	doins *.so
 }
