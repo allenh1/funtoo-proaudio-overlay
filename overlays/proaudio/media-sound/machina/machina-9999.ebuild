@@ -31,7 +31,7 @@ RDEPEND=">=media-libs/liblo-0.22
 	 >=dev-cpp/gtkmm-2.4
 	>=dev-cpp/libgnomecanvasmm-2.6
 	>=dev-cpp/libglademm-2.4
-	>=media-libs/flowcanvas-9999
+	>=x11-libs/flowcanvas-9999
 	>=media-sound/jack-audio-connection-kit-0.107.0"
 
 DEPEND="${RDEPEND}
@@ -40,7 +40,7 @@ DEPEND="${RDEPEND}
 
 pkg_setup() {
 	ewarn "if the compilation fails you can try to re-emerge"
-	ewarn "media-libs/flowcanvas-9999 and sys-libs/raul-9999"
+	ewarn "x11-libs/flowcanvas-9999 and sys-libs/raul-9999"
 	ewarn "as ingen depens atm. on their latest code"
 	sleep 3s
 	if ! built_with_use sys-libs/raul osc ; then
