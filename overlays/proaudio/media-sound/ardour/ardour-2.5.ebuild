@@ -16,6 +16,7 @@ KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="altivec debug nls sse +sys-libs vst lv2 freesound custom-cflags"
 
 RDEPEND="media-libs/liblo
+	>=media-libs/aubio-0.3.2
 	>=media-libs/liblrdf-0.4.0
 	>=media-libs/raptor-1.4.2
 	>=media-sound/jack-audio-connection-kit-0.109.2
