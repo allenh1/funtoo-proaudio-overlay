@@ -90,7 +90,10 @@ src_unpack() {
 	use custom-cflags && epatch "${FILESDIR}/${PN}-2.4-cflags.patch"
 	# find libsoundtouch
 	esed_check -i -e 's@\(libraries.*\)libSoundTouch@\1 soundtouch-1.0@g' SConstruct 
-
+	# fix gcc 4.3
+	cd  libs/surfaces/tranzport/
+	esed_check -i -e 's@\(#include <tranzport_control_protocol.h>\)@\1\n#include <cstring>@g' screen.cc
+	cd -
 	# set up VST stuff
 	ardour_vst_prepare
 }

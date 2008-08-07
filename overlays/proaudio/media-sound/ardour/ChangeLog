@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  07 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>; ardour-2.5.ebuild:
+  gcc-4.3 fix (thx Philipp)
+
   05 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
   +ardour-2.5.ebuild:
   enhanced use-flags
