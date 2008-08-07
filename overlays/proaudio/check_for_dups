@@ -1,0 +1,58 @@
+#!/bin/bash
+# LICENCE GPL v2 (c) proaudio team
+DUP_FILES="dup_files"
+DUP_DEL_FILES="dup_deleted_files"
+DUP_EDIT_FILES="dup_edited_files"
+DUP_KEEP_FILES="dup_why_keep_files"
+
+DIFF_FILE="portage_vs_proaudio.diff"
+echo "This script is meant to determine if a ebuild is already in the"
+echo "portage tree. The script has two modes. The standard mode is interactive:"
+echo "In this mode you first get a diff between the dup ebuilds, after"
+echo "that you should decide if this ebuild should be marked as deletable,"
+echo "or if you want to edit it or comment why to keep this ebuild."
+echo "Basically three files are created which lists the ebuilds according to"
+echo "your decisions:"
+echo "The files would be \"$DUP_DEL_FILES\" \"$DUP_KEEP_FILES\" \"$DUP_DEL_FILES\""
+echo 
+echo "If you want to edit a ebuild. vim is launched opening the overlay version"
+echo "the portage's version and also a diff between them"
+echo 
+echo "--> to enable this mode just press ENTER"
+echo 
+echo "The second mode activated with [2]"
+echo "just generates a list \"$DUP_FILES\" with duped ebuilds"
+echo "which mode you'd like to use? [ENTER] or [2] ([CTRL-C] to exit)"
+read MODE
+
+if [ "${#PORTAGE_TREE}" == "0" ];then
+	PORTAGE_TREE=/usr/portage
+fi
+for i in */*/*.ebuild;do
+	if [ -e "${PORTAGE_TREE}/${i}" ] ;then
+		if [ "${MODE}" == "2" ];then
+			echo $i >> $DUP_FILES
+		else
+			diff -u  "${PORTAGE_TREE}/${i}" "$i"|less
+			echo "$i"
+			echo "What to do with this file?"
+			echo "[d]elete, [e]dit or argue why to [k]eep"
+			read ACTION
+			if [ "${ACTION}" == "d" ];then
+				echo "will delete"
+				#rm -f $i{i}
+				echo $i >> $DUP_DEL_FILES
+			elif [ "${ACTION}" == "e" ];then
+				diff -u  "${PORTAGE_TREE}/${i}" "$i" > "$DIFF_FILE"
+				vim -o "$i" "${PORTAGE_TREE}/${i}" "$DIFF_FILE"
+				echo "why did you edit this ebuild? (eg for ChangeLog)"
+				read edit
+				echo -e "$i\t$edit" >> $DUP_EDIT_FILES
+			else 
+				echo "why keep this ebuild?"
+				read keep
+				echo -e "$i\t$keep" >> $DUP_KEEP_FILES
+			fi
+		fi
+	fi
+done
