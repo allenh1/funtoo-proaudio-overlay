@@ -17,6 +17,7 @@ KEYWORDS=""
 IUSE="nls debug sse altivec sys-libs" #vst"
 
 RDEPEND=">=media-libs/liblrdf-0.4.0
+	>=media-libs/aubio-0.3.2
 	>=media-libs/raptor-1.2.0
 	>=media-libs/libart_lgpl-2.3.16
 	>=media-libs/ladspa-sdk-1.12
