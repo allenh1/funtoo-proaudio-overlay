@@ -27,7 +27,7 @@ src_compile() {
 }
 
 src_install() {
-	make DESTDIR="${D}" install || die "install failed"
+	emake DESTDIR="${D}" install || die "install failed"
 	dodoc README NEWS TODO AUTHORS
 	newicon "${S}/pixmaps/${PN}-icon.png" "${PN}.png"
 	make_desktop_entry "${PN}" "PHASEX" "${PN}" "AudioVideo;Audio;Synthesizer"
