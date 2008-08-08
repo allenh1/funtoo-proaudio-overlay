@@ -12,26 +12,28 @@ DESCRIPTION="free alternative to popular programs such as FruityLoops, Cubase an
 HOMEPAGE="http://lmms.sourceforge.net"
 SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.bz2"
 
-LICENSE="GPL-2 LGPL"
+LICENSE="GPL-2 LGPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 
-IUSE="alsa debug fftw jack ladspa ogg pch pulseaudio samplerate sdl stk vst"
+IUSE="alsa debug fftw fluidsynth jack ladspa ogg pch pulseaudio sdl stk vst"
 
 RDEPEND="|| ( (
 				x11-libs/qt-core
 				x11-libs/qt-gui
 			) >=x11-libs/qt-4.3.0 )
+	>=media-libs/libsndfile-1.0.11
+	media-libs/libsamplerate
 	alsa? ( media-libs/alsa-lib )
 	fftw? ( =sci-libs/fftw-3* )
 	jack? ( >=media-sound/jack-audio-connection-kit-0.99.0 )
 	ladspa? ( media-libs/ladspa-sdk )
-	ogg? ( media-libs/libvorbis 
-				media-libs/libogg )
+	ogg? ( media-libs/libvorbis
+			media-libs/libogg )
+	fluidsynth? ( media-sound/fluidsynth )
 	pulseaudio? ( media-sound/pulseaudio )
-	samplerate? ( media-libs/libsamplerate )
 	sdl? ( media-libs/libsdl
-		>=media-libs/sdl-sound-1.0.1 )
+			>=media-libs/sdl-sound-1.0.1 )
 	stk? ( media-libs/stk )
 	vst? ( app-emulation/wine )"
 DEPEND="${RDEPEND}
@@ -45,12 +47,13 @@ src_compile() {
 		$(cmake-utils_use_want ladspa CAPS)
 		$(cmake-utils_use_want ladspa TAP)
 		$(cmake-utils_use_want fftw FFTW3F)
-		$(cmake-utils_use_want fftw JACK)
+		$(cmake-utils_use_want jack JACK)
 		$(cmake-utils_use_want ogg OGGVORBIS)
 		$(cmake-utils_use_want sdl SDL)
 		$(cmake-utils_use_want stk STK)
-		$(cmake-utils_use_want samplerate SYSTEM_SR)
+		-DWANT_SYSTEM_SR=TRUE
 		$(cmake-utils_use_want vst VST)
+		$(cmake-utils_use_want fluidsynth SF2)
 		$(cmake-utils_use_want pch PCH)"
 
 	cmake-utils_src_compile -j1

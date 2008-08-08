@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  08 Aug 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  +files/stk-4.3.1-ldflags.patch, stk-4.3.1.ebuild:
+  moved to media-libs
+
   16 Jul 2008; Thomas Kuther <gimpel@sonnenkinder.org>
   +files/stk-4.3.1-cflags-lib.patch, +files/stk-4.3.1-fpic.patch,
   +files/stk-4.3.1-gcc43.patch, +files/stk-4.3.1-missing.patch,
