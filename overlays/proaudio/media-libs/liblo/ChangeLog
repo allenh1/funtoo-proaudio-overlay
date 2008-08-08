@@ -1,0 +1,8 @@
+# ChangeLog for media-libs/liblo
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  08 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  +liblo-0.25.ebuild, +metadata.xml:
+  omins-9999 needs this one
+

@@ -16,6 +16,7 @@ KEYWORDS=""
 SLOT="0"
 
 DEPEND="media-libs/ladspa-sdk
+	>=media-libs/liblo-0.2.5
 	sci-libs/fftw
 	>=dev-libs/redland-1.0.6"
 
