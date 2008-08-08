@@ -4,18 +4,17 @@
 
 EAPI="1"
 
-inherit eutils cmake-utils subversion
+inherit eutils cmake-utils
 
 MY_P="${P/_/-}"
 
 DESCRIPTION="free alternative to popular programs such as FruityLoops, Cubase and Logic"
 HOMEPAGE="http://lmms.sourceforge.net"
-
-ESVN_REPO_URI="https://lmms.svn.sourceforge.net/svnroot/lmms/trunk/lmms"
+SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2 LGPL"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64"
 
 IUSE="alsa debug fftw jack ladspa ogg pch pulseaudio samplerate sdl stk vst"
 
