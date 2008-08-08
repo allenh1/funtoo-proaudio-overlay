@@ -33,7 +33,7 @@ RDEPEND="|| ( (
 	samplerate? ( media-libs/libsamplerate )
 	sdl? ( media-libs/libsdl
 		>=media-libs/sdl-sound-1.0.1 )
-	stk? ( media-sound/stk )
+	stk? ( media-libs/stk )
 	vst? ( app-emulation/wine )"
 DEPEND="${RDEPEND}
 	>=dev-util/cmake-2.4.5"
