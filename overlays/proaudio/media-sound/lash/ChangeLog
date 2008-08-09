@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  09 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>; lash-0.5.4.ebuild,
+  +files/lash-0.5.4-glibc2.8.patch:
+  KEEP -- imho better /etc/service cleanup handling
+
   13 Jan 2008; Thomas Kuther <gimpel@sonnenkinder.org> lash-0.5.4.ebuild:
   add useflags
 

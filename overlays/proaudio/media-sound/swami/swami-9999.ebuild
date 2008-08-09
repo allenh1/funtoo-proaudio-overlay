@@ -1,12 +1,12 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 inherit eutils flag-o-matic subversion
 
-DESCRIPTION="A GPL sound font editor"
-HOMEPAGE="http://swami.sourceforge.net/"
-#SRC_URI="mirror://sourceforge/swami/${P/_/}.tar.gz"
+DESCRIPTION="an instrument editor for MIDI music composition and a sampler frontend"
+HOMEPAGE="http://swami.sourceforge.net"
+#SRC_URI="mirror://sourceforge/${PN}/${P/_/}.tar.bz2"
 
 ESVN_REPO_URI="https://swami.svn.sourceforge.net/svnroot/swami/trunk/swami"
 
@@ -37,6 +37,7 @@ src_compile() {
 	./autogen.sh
 	use amd64 && myconf='--with-pic'
 	econf ${myconf} \
+		--disable-gtktest --disable-audiofiletest \
 		$(use_enable nls) \
 		$(use_enable debug) \
 		$(use_enable python) \
@@ -45,7 +46,7 @@ src_compile() {
 }
 
 src_install() {
-	make DESTDIR="${D}" install || die
+	emake DESTDIR="${D}" install || die "emake install failed."
 	dodoc AUTHORS ChangeLog NEWS README
 	doicon "${D}"/usr/share/icons/hicolor/48x48/apps/swami-2.png
 }

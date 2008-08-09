@@ -2,47 +2,63 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils
+inherit eutils libtool
 
-#RESTRICT="nomirror"
 DESCRIPTION="LASH Audio Session Handler"
-HOMEPAGE="http://www.nongnu.org/lash"
-SRC_URI="http://download.savannah.nongnu.org/releases/lash/${P}.tar.gz"
+HOMEPAGE="http://www.nongnu.org/lash/"
+SRC_URI="http://download.savannah.gnu.org/releases/lash/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 ppc sparc x86"
-IUSE="alsa debug gtk"
+IUSE="alsa debug gtk python"
 
-DEPEND="alsa? ( media-libs/alsa-lib )
-	!media-libs/ladcca
-	!media-libs/lash
+RDEPEND="alsa? ( media-libs/alsa-lib )
 	media-sound/jack-audio-connection-kit
+	dev-libs/libxml2
 	gtk? ( >=x11-libs/gtk+-2.0 )
-	|| ( sys-libs/readline sys-libs/libedit )"
+	python? ( dev-lang/python )
+	|| ( sys-libs/readline dev-libs/libedit )"
+DEPEND="${RDEPEND}
+	dev-util/pkgconfig
+	python? ( >=dev-lang/swig-1.3.31 )"
 
 pkg_setup() {
 	if use alsa && ! built_with_use --missing true media-libs/alsa-lib midi; then
 		eerror ""
-		eerror "To be able to build ${CATEGORY}/${PN} with ALSA	support you"
+		eerror "To be able to build ${CATEGORY}/${PN} with ALSA support you"
 		eerror "need to have built media-libs/alsa-lib with midi USE flag."
-		die	"Missing midi USE flag on media-libs/alsa-lib"
+		die "Missing midi USE flag on media-libs/alsa-lib"
 	fi
 }
 
+src_unpack() {
+	unpack "${A}"
+	cd "${S}"
+	epatch "${FILESDIR}/${P}-glibc2.8.patch"
+	elibtoolize
+}
+
 src_compile() {
+	local myconf
+
+	# Yet-another-broken-configure: --enable-pylash would disable it.
+	use python || myconf="${myconf} --disable-pylash"
+
 	econf \
 		$(use_enable alsa alsa-midi) \
 		$(use_enable gtk gtk2) \
 		$(use_enable debug) \
+		${myconf} \
 		--disable-serv-inst \
 		--disable-dependency-tracking \
-		|| die
-	emake || die
+		|| die "econf failed"
+	emake || die "emake failed"
 }
 
 src_install() {
-	make DESTDIR="${D}" install || die
+	emake DESTDIR="${D}" install || die
+
 	dodoc AUTHORS ChangeLog NEWS README TODO
 }
 
