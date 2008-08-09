@@ -255,7 +255,7 @@ diff -urN a/src/main.c b/src/main.c
  
 +#ifdef HAVE_LASH
 +SDL_Thread  *lash_thread = NULL;
-+#include <mb_lash.c>
++#include <mb_lash.h>
 +#endif
 +
  SDL_Thread *gt;
