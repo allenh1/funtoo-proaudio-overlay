@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  09 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  dssi-vst-0.6.ebuild:
+  gcc-4.3 include fixes
+
   07 Jan 2008; <tom@gentoo.org> +dssi-vst-0.6.ebuild:
   initial ChangeLog, version bump
 

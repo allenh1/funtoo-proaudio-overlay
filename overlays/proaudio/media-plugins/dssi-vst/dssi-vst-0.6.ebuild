@@ -33,6 +33,13 @@ src_unpack() {
 		esed_check -i -e 's@install:\tall@install:@g' Makefile
 		esed_check -i -e 's/\(CXXFLAGS\)\(\ *\)\([^I]*\)\(=\)/\1 = -fPIC/' Makefile
 	fi
+
+	# fix gcc 4.3 include issues
+	esed_check -i -e "s@\(#include <unistd.h>\)@#include <cstdlib>\n\1@g" dssi-vst_gui.cpp
+	esed_check -i -e "s@\(#include <string>\)@#include <cstdlib>\n\1@g" paths.h
+	for i in remotepluginserver.h remotepluginclient.h;do 
+		esed_check -i -e "s@\(#include <string>\)@#include <cstdlib>\n#include <cstring>\n\1@g" $i
+	done
 }
 
 src_compile(){
