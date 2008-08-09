@@ -1,16 +1,15 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 inherit eutils flag-o-matic
-DESCRIPTION="Tapiir is a simple and flexible audio effects processor"
+DESCRIPTION="a flexible audio effects processor, inspired on the classical magnetic tape delay systems"
 HOMEPAGE="http://www.iua.upf.es/~mdeboer/projects/tapiir/"
 SRC_URI="http://www.iua.upf.es/~mdeboer/projects/tapiir/download/${P}.tar.gz"
 
-RESTRICT="nomirror"
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="x86 ~amd64"
+KEYWORDS="~amd64 ~ppc ~sparc x86"
 IUSE="X"
 
 DEPEND="media-sound/jack-audio-connection-kit
@@ -18,19 +17,13 @@ DEPEND="media-sound/jack-audio-connection-kit
 		media-libs/libsndfile
 		dev-libs/libxml2
 		media-libs/libsamplerate
-		media-libs/alsa-lib
+		>=media-libs/alsa-lib-0.9
 		>=x11-libs/fltk-1.0.0"
 
 src_unpack() {
 	append-ldflags -Wl,-z,now
 	unpack ${A}
 	cd ${S}
-	#planetcrrma fixes
-	#patcher "${FILESDIR}/tapiir-0.7.1-mtd.patch apply"
-	#patcher "${FILESDIR}/tapiir-0.7.1-multiline.patch apply"
-	#patcher "${FILESDIR}/tapiir-buffersizecallback.patch apply"
-	#patcher "${FILESDIR}/tapiir-gcc4.patch apply"
-
 	# workaround for buggy Makefile
 	sed -i 's/fltk_found=no/fltk_found=yes/g' configure
 }
@@ -46,6 +39,10 @@ src_compile() {
 }
 
 src_install() {
-	make DESTDIR=${D} install || die "make install failed"
-	dodoc AUTHORS
+	emake DESTDIR="${D}" install || die "emake install failed."
+	doman doc/${PN}.1
+	dodoc AUTHORS doc/${PN}.txt
+	dohtml doc/*.html doc/images/*.png
+	insinto /usr/share/${PN}/examples
+	doins doc/examples/*.mtd || die "doins failed."
 }

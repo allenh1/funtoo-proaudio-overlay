@@ -1,4 +1,4 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -6,7 +6,7 @@ inherit eutils
 DESCRIPTION="A Midi Controllable Audio Sampler"
 HOMEPAGE="http://zhevny.com/specimen"
 MY_P="${P/_/-}"
-SRC_URI="http://zhevny.com/specimen/files/${MY_P}.tar.gz"
+SRC_URI="http://zhevny.com/${PN}/files/${MY_P}.tar.gz"
 
 RESTRICT="nomirror"
 LICENSE="GPL-2"
@@ -16,7 +16,7 @@ KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="lash debug" # jackmidi"
 
 RDEPEND="media-sound/jack-audio-connection-kit
-	virtual/alsa
+	>=media-libs/alsa-lib-0.9
 	media-libs/libsamplerate
 	media-libs/libsndfile
 	>=media-libs/phat-0.4.0
@@ -26,19 +26,18 @@ RDEPEND="media-sound/jack-audio-connection-kit
 	lash? ( media-sound/lash )"
 
 DEPEND="${RDEPEND}
-	>=gnome-base/libgnomeui-2.0"
+	>=gnome-base/libgnomeui-2.0
+	dev-util/pkgconfig"
 
 S="${WORKDIR}/${MY_P}"
+
 src_unpack() {
-	unpack ${MY_P}.tar.gz
-	cd ${S}
-#	epatch "${FILESDIR}/jack_client.patch"
+	unpack ${A}
+	cd "${S}"
+	sed -e "s:-Werror::" -e "s:-O3:${CFLAGS}:" -i configure
 }
 
 src_compile() {
-
-	#elibtoolize
-	#./bootstrap
 	econf \
 		$(use_enable debug) \
 		$(use_enable lash) \
@@ -47,6 +46,9 @@ src_compile() {
 }
 
 src_install() {
-	make DESTDIR=${D} install || die
-	dodoc AUTHORS ChangeLog NEWS README TODO
+	emake DESTDIR="${D}" install || die "emake install failed."
+	dodoc AUTHORS BUGS ChangeLog NEWS PROFILE \
+		README ROADMAP TODO STYLE TODO WISHLIST
+	doicon pixmaps/${PN}.png
+	make_desktop_entry ${PN} Specimen ${PN}
 }

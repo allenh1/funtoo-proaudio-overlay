@@ -2,6 +2,11 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  09 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  -seq24-0.8.3-r2.ebuild, -files/seq24-0.8.3-dr-lash-1.patch,
+  -files/seq24-0.8.3-dr-lash-cairo.bz2, -seq24-0.8.6.ebuild,
+  seq24-0.8.7.ebuild: KEEP: more USE (devel patches) & desktop entry
+
   03 May 2008; Thomas Kuther <gimpel@sonnenkinder.org>
   +files/seq24-0.8.7-sigc22_fix.patch, seq24-0.8.7.ebuild:
   fix compile error agains libsigc++ >= 2.2

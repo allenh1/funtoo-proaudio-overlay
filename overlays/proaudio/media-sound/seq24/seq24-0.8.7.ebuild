@@ -11,14 +11,25 @@ SRC_URI="http://www.filter24.org/seq24/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc x86"
+KEYWORDS="amd64 ~ppc x86"
 
-DEPEND=">=media-libs/alsa-lib-0.9.0
+RDEPEND=">=media-libs/alsa-lib-0.9.0
 	>=dev-cpp/gtkmm-2.4
 	>=dev-libs/libsigc++-2.0
 	jack? ( >=media-sound/jack-audio-connection-kit-0.90.0 )
 	lash? ( >=media-sound/lash-0.5.0 )"
 	#cairo? ( x11-libs/cairo )"
+DEPEND="${RDEPEND}
+	dev-util/pkgconfig"
+
+pkg_setup() {
+	if ! built_with_use --missing true media-libs/alsa-lib midi; then
+		eerror ""
+		eerror "To be able to build ${CATEGORY}/${PN} with ALSA support you"
+		eerror "need to have built media-libs/alsa-lib with midi USE flag."
+		die "Missing midi USE flag on media-libs/alsa-lib"
+	fi
+}
 
 src_unpack() {
 	unpack ${A}
@@ -43,16 +54,20 @@ src_compile() {
 	export WANT_AUTOCONF=2.5
 	#export WANT_AUTOMAKE=1.6
 
-	autoconf || die "autoconf failed"
-	autoreconf
+	if use devel-patches ;then 
+		autoconf || die "autoconf failed"
+		autoreconf
+	fi
 
 	econf $(use_enable jack jack-support) \
-		 $(use_enable lash) || die
+		 $(use_enable lash) 
+		--disable-alsatest \
+		|| die
 	emake || die
 }
 
 src_install() {
-	make DESTDIR="${D}" install || die
+	emake DESTDIR="${D}" install || die
 	dodoc AUTHORS ChangeLog README RTC SEQ24
 	doicon ${FILESDIR}/${PN}.png
 	make_desktop_entry "${PN}" "SEQ24" "${PN}" "AudioVideo;Audio;Sequencer"

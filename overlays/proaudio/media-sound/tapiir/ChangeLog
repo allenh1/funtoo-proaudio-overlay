@@ -1,6 +1,10 @@
 # ChangeLog for media-sound/tapiir
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  09 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  tapiir-0.7.1-r1.ebuild: KEEP: patches with more functionality
+  tapiir-0.7.2.ebuild: KEEP: more deps and useflag
 
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog
