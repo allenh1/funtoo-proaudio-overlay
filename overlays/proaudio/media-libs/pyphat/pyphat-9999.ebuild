@@ -27,9 +27,10 @@ src_unpack() {
 
 src_compile() {
 	econf || die "Configure failed"
+	emake || die "make failed"
 }
 
 src_install() {
-	make DESTDIR="${D}" install || die "Install failed"
+	emake DESTDIR="${D}" install || die "Install failed"
 	dodoc README AUTHORS NEWS || die "dodoc failed"
 }
