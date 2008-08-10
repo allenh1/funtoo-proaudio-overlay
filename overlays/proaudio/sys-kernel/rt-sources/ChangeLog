@@ -2,6 +2,11 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  10 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  -rt-sources-2.6.24-r1.ebuild, +rt-sources-2.6.24.7-r17.ebuild,
+  rt-sources-2.6.25.8-r7.ebuild, +rt-sources-2.6.26-r1.ebuild:
+  bumped and fixed SRC_URIs
+
   7 Jul 2008; Marc-Olivier Barre <marco@marcochapeau.org>;
   +rt-sources-2.6.25.8-r7.ebuild:
   bumped rt-sources-2.6.25.8-r7

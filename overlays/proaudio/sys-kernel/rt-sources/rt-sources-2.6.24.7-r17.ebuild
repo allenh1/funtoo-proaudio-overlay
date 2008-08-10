@@ -17,7 +17,7 @@ RT_PATCH="patch-${KV}.bz2"
 RESTRICT="nomirror"
 DESCRIPTION="Ingo Molnars realtime patch applied on vanilla"
 SRC_URI="${KERNEL_URI}
-http://download.tuxfamily.org/proaudio/realtime-patches/${RT_PATCH}
+http://www.kernel.org/pub/linux/kernel/projects/rt/${RT_PATCH}
 fbsplash? ( http://proaudio.tuxfamily.org/patches/${FBSPLASH} )"
 
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"

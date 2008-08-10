@@ -12,12 +12,12 @@ detect_version
 K_NOSETEXTRAVERSION="don't_set_it"
 
 FBSPLASH="fbcondecor-0.9.4-2.6.23-rc7_for_rt.patch"
-RT_PATCH="patch-2.6.25.8-rt7.bz2"
+RT_PATCH="patch-${KV}.bz2"
 
 RESTRICT="nomirror"
 DESCRIPTION="Ingo Molnars realtime patch applied on vanilla"
 SRC_URI="${KERNEL_URI}
-http://www.kernel.org/pub/linux/kernel/projects/rt/older/${RT_PATCH}
+http://download.tuxfamily.org/proaudio/realtime-patches/${RT_PATCH}
 fbsplash? ( http://proaudio.tuxfamily.org/patches/${FBSPLASH} )"
 
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
