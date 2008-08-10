@@ -1,4 +1,4 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -13,7 +13,7 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64"
 
 IUSE=""
-DEPEND="=media-sound/jack-audio-connection-kit-9999
+DEPEND=">=media-sound/jack-audio-connection-kit-0.109.0
 	<media-libs/slv2-0.5
 	>=dev-libs/atk-1.0
 	>=media-libs/freetype-2.0
