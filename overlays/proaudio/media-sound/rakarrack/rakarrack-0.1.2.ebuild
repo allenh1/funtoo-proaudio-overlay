@@ -18,7 +18,7 @@ DEPEND=">=x11-libs/fltk-1.1
 	x11-libs/libXpm
 	>=media-libs/alsa-lib-0.9
 	>=media-sound/alsa-utils-0.9
-	>=media-sound/jack-audio-connection-kit-100.0"
+	>=media-sound/jack-audio-connection-kit-0.100.0"
 
 src_install() {
 	make DESTDIR=${D} install || die
