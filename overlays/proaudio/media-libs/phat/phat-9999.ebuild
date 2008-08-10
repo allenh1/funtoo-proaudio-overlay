@@ -1,8 +1,8 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils subversion autotools flag-o-matic toolchain-funcs
+inherit exteutils subversion autotools flag-o-matic toolchain-funcs
 
 DESCRIPTION="Collection of GTK+ widgets geared toward pro-audio apps."
 HOMEPAGE="https://developper.berlios.de/projects/phat/"
@@ -15,7 +15,7 @@ KEYWORDS=""
 
 S="${WORKDIR}/${PN}"
 
-IUSE="debug doc glade"
+IUSE="debug -doc glade"
 DEPEND=">x11-libs/gtk+-2
 	doc? ( dev-util/gtk-doc )
 	glade? ( dev-util/glade )"
@@ -23,6 +23,15 @@ DEPEND=">x11-libs/gtk+-2
 src_unpack() {
 	subversion_src_unpack ${A}
 	cd "${S}"
+	# workaround: bootstrap should not need gtkdocize if no docs are build
+	if ! use doc ;then
+		esed_check -i -e "s@\(^gtkdocize.*\)@# \1@g" bootstrap
+		touch gtk-doc.make
+		cd docs
+			esed_check -i -e "s@\(^EXTRA_DIST\).*@\1 =@g" Makefile.am
+		cd ..
+	fi
+
 	./bootstrap
 	if [[ $(gcc-major-version)$(gcc-minor-version)$(gcc-micro-version) -ge 413 ]] ; then
 		ewarn "Appending -fgnu89-inline to CFLAGS/CXXFLAGS"
@@ -43,6 +52,6 @@ src_compile() {
 }
 
 src_install() {
-	make DESTDIR="${D}" install || die "Install failed"
+	emake DESTDIR="${D}" install || die "Install failed"
 	dodoc README AUTHORS BUGS INSTALL NEWS TODO
 }

@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  10 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>; phat-9999.ebuild:
+  fixup if no docs are build
+
   06 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
   -phat-0.3.1.ebuild, -phat-0.4.0.ebuild, phat-0.4.1.ebuild:
   en/disable doc via useflag without rm -- remove old ebuild
