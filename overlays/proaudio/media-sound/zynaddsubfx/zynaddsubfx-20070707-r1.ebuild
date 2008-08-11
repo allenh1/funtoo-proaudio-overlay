@@ -19,8 +19,7 @@ IUSE="oss alsa jack jackmidi lash mmx"
 
 DEPEND=">=x11-libs/fltk-1.1.2
 	=sci-libs/fftw-3*
-    jackmidi?  ( >=media-sound/jack-audio-connection-kit-9999 )
-	!jackmidi? ( media-sound/jack-audio-connection-kit )
+	 media-sound/jack-audio-connection-kit
 	>=dev-libs/mini-xml-2.2.1
 	lash? ( >=media-sound/lash-0.5 )"
 #	portaudio? ( media-libs/portaudio )"
@@ -30,10 +29,10 @@ RDEPEND="media-libs/zynaddsubfx-banks
 
 S="${WORKDIR}/${MY_P}"
 
-pkg_setup() {
-	# jackmidi.eclass
-	use jackmidi && need_jackmidi
-}
+#pkg_setup() {
+#	# jackmidi.eclass
+#	use jackmidi && need_jackmidi
+#}
 
 src_unpack() {
 	unpack ${MY_P}.tar.bz2 || die
