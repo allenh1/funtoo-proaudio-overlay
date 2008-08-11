@@ -76,13 +76,13 @@ src_install() {
 	# install examples
 	if use examples; then
 		# cleanup
-		for i in *.bat *.cpp *.h *Makefile* *.tcl; do
+		for i in *.bat *.cpp *.h *Makefile* *.tcl *.dsp *.dsw; do
 			find projects/ -name $i -exec rm -f {} \;
 		done
 		rm -r projects/*/{Debug,Release,tcl}
 		# demo
 		exeinto /usr/libexec/"${PN}"/demo
-		for i in demo* Drums Md2Skini* Modal Physical Shakers StkDemo Voice; do
+		for i in demo Drums Md2Skini Modal Physical Shakers StkDemo Voice; do
 			doexe projects/demo/$i
 		done
 		insinto /usr/share/"${PN}"/demo
@@ -94,18 +94,16 @@ src_install() {
 		doins -r projects/examples/{rawwaves,midifiles,scores}
 		# effects
 		exeinto /usr/libexec/"${PN}"/effects
-		doexe projects/effects/effects* projects/effects/StkEffects
+		doexe projects/effects/effects projects/effects/StkEffects
 		# ragamatic
 		exeinto /usr/libexec/"${PN}"/ragamatic
-		doexe projects/ragamatic/Raga projects/ragamatic/ragamat*
+		doexe projects/ragamatic/Raga projects/ragamatic/ragamat
 		insinto /usr/share/"${PN}"/ragamatic
-		doins -r projects/ragamatic/rawwaves projects/ragamatic/ragamatic.dsw
+		doins -r projects/ragamatic/rawwaves
 	fi
 	# install docs
 	if use doc; then
-		rm doc/html/*.{map,md5}
-		insinto /usr/share/doc/"${PF}"/html
-		doins -r doc/html/*
+		dohtml -r doc/html/*
 	fi
 }
 
