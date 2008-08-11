@@ -1,6 +1,10 @@
 # ChangeLog for media-sound/japa
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  11 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  -japa-0.2.1.ebuild, +japa-0.4.0.ebuild:
+  bumped and fixup PREFIX
 
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog

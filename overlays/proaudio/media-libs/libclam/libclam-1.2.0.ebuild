@@ -1,4 +1,4 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -15,7 +15,7 @@ SRC_URI="http://clam.iua.upf.edu/download/src/${MY_P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 x86"
-IUSE="doc double jack ladspa osc fftw fft alsa optimize qt3 sndfile vorbis mad id3 portaudio"
+IUSE="doc double jack ladspa osc fftw fft alsa optimize qt3 sndfile vorbis mad portaudio"
 # portmidi"
 
 RESTRICT="nomirror"
@@ -31,7 +31,7 @@ DEPEND=">=dev-util/scons-0.96.92
 	    media-libs/libogg )
 	mad? ( media-libs/libmad )
 	sndfile? ( media-libs/libsndfile )
-	id3? ( media-libs/id3lib )
+	mad? ( media-libs/id3lib )
 	portaudio? ( =media-libs/portaudio-19* )
 	media-libs/jpeg
 	alsa? ( media-libs/alsa-lib )
@@ -86,9 +86,11 @@ src_compile() {
 	fi
 	if ! use mad; then
 	    myconf="${myconf} with_mad=no"
+	    myconf="${myconf} with_id3=no" # workaround buggy buildsys
 	fi
-	if ! use id3; then
-	    myconf="${myconf} with_id3=no"
+	if  use mad; then # was ! use id3 workaround buggy buildsys
+	    myconf="${myconf} with_mad=yes"
+	    myconf="${myconf} with_id3=yes" # was no
 	fi
 	if ! use portaudio; then
 	    myconf="${myconf} with_portaudio=no"

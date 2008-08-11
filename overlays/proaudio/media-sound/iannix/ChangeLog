@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  11 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  -iannix-0.638_beta.ebuild, +iannix-0.640_beta.ebuild:
+  bumped
+
   06 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
   iannix-0.638_beta.ebuild:
   use modular qt4 deps

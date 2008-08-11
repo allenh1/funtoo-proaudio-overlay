@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -14,9 +14,9 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="x86 ~amd64"
 
-DEPEND=">=media-libs/libclalsadrv-1.1.0
-	>=media-libs/libclthreads-2.2.0
-	>=media-libs/libclxclient-3.3.0
+DEPEND=">=media-libs/libclalsadrv-1.2.2
+	>=media-libs/libclthreads-2.4.0
+	>=media-libs/libclxclient-3.6.1
 	=sci-libs/fftw-3*
 	=media-libs/freetype-2*"
 
@@ -32,11 +32,13 @@ src_unpack(){
 }
 
 src_compile() {
-	emake || die "make failed"
+	emake PREFIX="/usr/" || die "make failed"
 }
 
 src_install() {
-	make DESTDIR="${D}" install || die "make install failed"
+	emake PREFIX="/usr/" DESTDIR="${D}" install || die "make install failed"
 	dodoc AUTHORS README
-	newdoc .japarc japarc.example
+	insinto /etc/
+	insopts -m 0644
+	newins .japarc japa.conf
 }

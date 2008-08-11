@@ -1,13 +1,13 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit jackmidi
+inherit jackmidi eutils
 RESTRICT="nomirror"
 IUSE="jackmidi"
 DESCRIPTION="graphical DSSI host, based on jack-dssi-host"
-HOMEPAGE="http://home.jps.net/~musound/"
-SRC_URI="http://home.jps.net/~musound/${P}.tar.gz"
+HOMEPAGE="http://www.smbolton.com/linux.html"
+SRC_URI="http://www.smbolton.com/linux/${P}.tar.gz"
 
 LICENSE="GPL-2"
 KEYWORDS="amd64 x86"
@@ -18,23 +18,26 @@ DEPEND=">=media-libs/dssi-0.9.1
 	dev-util/pkgconfig
 	>=media-libs/liblo-0.18
 	>=media-libs/ladspa-sdk-1.0
-	jackmidi? ( media-sound/jack-audio-connection-kit )
+	jackmidi? ( >=media-sound/jack-audio-connection-kit-0.109.0 )
 	>=media-libs/ladspa-sdk-1.0"
 
 src_unpack() {
 	use jackmidi && need_jackmidi
-	unpack ${P}.tar.gz
+	unpack ${A}
+	cd "$S"
+	epatch "${FILESDIR}/ghostess-alsaseq-type.patch"
+	epatch "${FILESDIR}/ghostess-jackmidi-nframes.patch"
 }
 
 src_compile() {
 	#./autogen.sh
 	#autoconf
 	#libtoolize --copy --force
-	econf `use_with jackmidi` --with-gtk2|| die
-	emake || die
+	econf `use_with jackmidi` --with-gtk2|| die "configure failed"
+	emake || die "make failed"
 }
 
 src_install() {
-	make DESTDIR=${D} install || die
+	emake DESTDIR=${D} install || die "install failed"
 	dodoc AUTHORS ChangeLog README NEWS
 }

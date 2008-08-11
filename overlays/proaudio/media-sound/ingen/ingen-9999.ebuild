@@ -108,6 +108,6 @@ src_compile() {
 
 src_install() {
 	cd "${S}/${PN}" || die "source for ${PN} not found"
-	make DESTDIR="${D}" install || die "install failed"
+	emake DESTDIR="${D}" install || die "install failed"
 	dodoc AUTHORS README THANKS NEWS TODO ChangeLog
 }

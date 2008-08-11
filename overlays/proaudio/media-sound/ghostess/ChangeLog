@@ -1,6 +1,11 @@
 # ChangeLog for media-sound/ghostess
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  11 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  ghostess-20061127.ebuild, +files/ghostess-alsaseq-type.patch,
+  +files/ghostess-jackmidi-nframes.patch:
+  closes bug #51
 
   16 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org>
   ghostess-20050916.ebuild, ghostess-20061127.ebuild:

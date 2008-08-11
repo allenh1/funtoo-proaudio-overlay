@@ -1,6 +1,10 @@
 # ChangeLog for media-libs/libclam
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  11 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  libclam-1.2.0.ebuild:
+  workaround enable id3 if mad USE is set
 
   09 Feb 2008; Dominique Michel <dominique.michel@citycable.ch> version
   bump to 1.2.0

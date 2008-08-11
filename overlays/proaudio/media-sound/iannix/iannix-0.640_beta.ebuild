@@ -12,7 +12,7 @@ DESCRIPTION="IanniX is a graphical score editor based on the previous UPIC devel
 HOMEPAGE="http://sourceforge.net/projects/iannix/"
 SRC_URI="mirror://sourceforge/${PN}/${MY_P}-SRC-LittleEndian.tgz
 		doc? ( mirror://sourceforge/${PN}/IanniX-Tutorial.pdf )
-		examples? (	mirror://sourceforge/${PN}/IanniX-Processing-Examples-1.2.tgz )"
+		examples? (	mirror://sourceforge/${PN}/IanniX-Examples-Processing-1.5.tgz )"
 
 RESTRICT="nomirror"
 
