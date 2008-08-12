@@ -2,6 +2,22 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  12 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  -jack-audio-connection-kit-0.100.7-r2.ebuild,
+  -jack-audio-connection-kit-0.100.7-r3.ebuild,
+  jack-audio-connection-kit-0.101.1.ebuild,
+  jack-audio-connection-kit-0.102.20.ebuild,
+  -jack-audio-connection-kit-0.103.0.ebuild,
+  +files/jack-audio-connection-kit-0.103.0-ppc64fix.patch,
+  +files/jack-audio-connection-kit-0.103.0-riceitdown.patch,
+  -jack-audio-connection-kit-0.109.0.ebuild,
+  -jack-audio-connection-kit-0.109.2.ebuild,
+  +jack-audio-connection-kit-0.109.2-r2.ebuild,
+  jack-audio-connection-kit-9999.ebuild:
+  respin against portage -- deleted old ebuilds
+  using unipatch and 
+  http://download.tuxfamily.org/proaudio/distfiles/ for dbus-patches
+
   23 Mar 2008; Marc-Olivier Barre <marco@marcochapeau.org> jack-audio-connection-kit-9999.ebuild:
   * Reactivated dbus. jackpatches version 0.12.
 
