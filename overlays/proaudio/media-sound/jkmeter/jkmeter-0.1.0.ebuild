@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+inherit exteutils
+
 RESTRICT="nomirror"
 DESCRIPTION="measures the latency between two jack ports with subsample accuracy"
 HOMEPAGE="http://www.kokkinizita.net/linuxaudio"
@@ -17,11 +19,22 @@ DEPEND=">=media-sound/jack-audio-connection-kit-0.100
         >=media-libs/libclxclient-3.3.2
         >=media-libs/libclalsadrv-1.2.2"
 
+src_unpack() {
+	unpack ${A}
+	cd "${S}"/source
+	# fix Makefile
+	esed_check -i -e "s@\(^PREFIX.*\)@\PREFIX = /usr@g" \
+		-e "s@\(/usr/bin/install[^\$]*\)@\1\$(DESTDIR)@g" Makefile
+}
+
 src_compile() {
-	cd source; emake || die "make failed"
+	cd source;
+	emake || die "make failed"
 }
 
 src_install() {
-	dobin source/jkmeter
-	dodoc README
+	#dobin source/jkmeter
+	cd "${S}"/source
+	emake DESTDIR="${D}" install || die "install failed"
+	cd .. ; dodoc README
 }
