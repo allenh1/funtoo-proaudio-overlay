@@ -17,10 +17,10 @@ KEYWORDS=""
 SLOT="0"
 
 DEPEND=">=dev-util/pkgconfig-0.9.0
-	osc? ( >=media-libs/liblo-0.22 )
+	>=media-libs/liblo-0.22
 	>=dev-libs/rasqal-0.9.11
 	>=media-libs/raptor-1.4.14
-	boost? ( dev-libs/boost )
+	dev-libs/boost
 	dev-libs/redland
 	>=dev-cpp/glibmm-2.4
 	jack? ( >=media-sound/jack-audio-connection-kit-0.107.0 )
@@ -33,10 +33,8 @@ src_compile() {
 	cd "${S}/${PN}" || die "source for ${PN} not found"
 	NOCONFIGURE=1 ./autogen.sh
 	econf \
-		$(use_enable boost smart_pointers) \
-		--enable-raptor \
+		$(use_enable debug pointer-debug) \
 		$(use_enable debug) \
-		$(use_enable osc liblo) \
 		$(use_enable lash) \
 		$(use_enable jack) \
 		|| die "configure failed"
@@ -45,6 +43,6 @@ src_compile() {
 
 src_install() {
 	cd "${S}/${PN}" || die "source for ${PN} not found"
-	make DESTDIR="${D}" install || die "install failed"
+	emake DESTDIR="${D}" install || die "install failed"
 	dodoc AUTHORS NEWS THANKS ChangeLog
 }

@@ -21,10 +21,10 @@ DEPEND=">=media-sound/jack-audio-connection-kit-0.100
 
 src_unpack() {
 	unpack ${A}
-	cd "${S}"/source
+	cd "${S}"
 	# fix Makefile
 	esed_check -i -e "s@\(^PREFIX.*\)@\PREFIX = /usr@g" \
-		-e "s@\(/usr/bin/install[^\$]*\)@\1\$(DESTDIR)@g" Makefile
+		-e "s@\(/usr/bin/install[^\$]*\)@\1\$(DESTDIR)@g" "source/Makefile"
 }
 
 src_compile() {

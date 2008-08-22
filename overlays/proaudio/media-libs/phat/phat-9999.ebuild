@@ -53,5 +53,6 @@ src_compile() {
 
 src_install() {
 	emake DESTDIR="${D}" install || die "Install failed"
-	dodoc README AUTHORS BUGS INSTALL NEWS TODO
+	dodoc AUTHORS BUGS NEWS README TODO
+	use doc || rm -rf "${D}"/usr/share/gtk-doc/html/${PN}
 }

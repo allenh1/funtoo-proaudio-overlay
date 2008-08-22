@@ -17,8 +17,10 @@ ccache_to_scons() {
 }
 
 add_ccache_to_scons_v2() {
+	local sconscript_file="$1"
+	[ "${#sconscript_file}" == "0" ] && sconscript_file="SConstruct"
 if [ -n "${FEATURES}" -a -z "${FEATURES##*ccache*}" ];then
-	cat >>"SConstruct" <<EOF
+	cat >>"${sconscript_file}" <<EOF
 ## Using ccache if possible
 if '/usr/lib/ccache/bin' in os.environ['PATH'] and os.environ.has_key('CCACHE_DIR') and os.path.exists('/usr/lib/ccache/bin'):
 	print('Using ccache')

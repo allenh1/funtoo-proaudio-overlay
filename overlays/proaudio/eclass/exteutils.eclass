@@ -112,9 +112,9 @@ IFS="
 			diff -u "${backup}" "${patched}"
 
 			# save the sed geneated patches to $patch_dir
-			[ ! -e "${patch_dir}" ] && mkdir "${patch_dir}" &>/dev/null
+			[ ! -e "${patch_dir}" ] && mkdir -p "${patch_dir}" &>/dev/null
 			if [ "${patch_file_exists}" == "0" ];then
-				patch_name="${CNT}-esed_${patched##*/}"
+				patch_name="$(printf "%.4d" $CNT)-esed_${patched##*/}"
 				patch_file_exists="1"
 				echo -e"\nesed generated patch for ${patch_name##/*}\n" \
 					> "${patch_dir}/${patch_name}.patch"
