@@ -21,7 +21,7 @@ IUSE="alsa debug fftw fluidsynth jack ladspa ogg pch pulseaudio sdl stk vst"
 RDEPEND="|| ( (
 				x11-libs/qt-core
 				x11-libs/qt-gui
-			) >=x11-libs/qt-4.3.0 )
+			) >=x11-libs/qt-4.3.0:4 )
 	>=media-libs/libsndfile-1.0.11
 	media-libs/libsamplerate
 	alsa? ( media-libs/alsa-lib )
@@ -43,6 +43,7 @@ S="${WORKDIR}/${MY_P}"
 
 src_compile() {
 	mycmakeargs="${mycmakeargs}
+		-DWANT_SYSTEM_SR=TRUE
 		$(cmake-utils_use_want alsa ALSA)
 		$(cmake-utils_use_want ladspa CAPS)
 		$(cmake-utils_use_want ladspa TAP)
@@ -51,12 +52,11 @@ src_compile() {
 		$(cmake-utils_use_want ogg OGGVORBIS)
 		$(cmake-utils_use_want sdl SDL)
 		$(cmake-utils_use_want stk STK)
-		-DWANT_SYSTEM_SR=TRUE
 		$(cmake-utils_use_want vst VST)
 		$(cmake-utils_use_want fluidsynth SF2)
 		$(cmake-utils_use_want pch PCH)"
 
-	cmake-utils_src_compile -j1
+	cmake-utils_src_compile
 }
 
 src_install() {
