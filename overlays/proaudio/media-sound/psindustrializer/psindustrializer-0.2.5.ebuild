@@ -1,4 +1,4 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -14,6 +14,7 @@ KEYWORDS="~x86 ~amd64"
 IUSE="alsa esd"
 
 RDEPEND=">=x11-libs/gtk+-2.0
+		>=x11-libs/gtkglarea-1.99.0
 		>=dev-libs/libxml2-2.6
 		media-libs/audiofile
 		virtual/opengl
