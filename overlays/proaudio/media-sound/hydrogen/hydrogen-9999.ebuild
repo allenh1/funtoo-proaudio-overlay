@@ -1,4 +1,4 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -14,7 +14,7 @@ ESVN_REPO_URI="http://hydrogen-music.org/svn/trunk"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="alsa debug jack ladspa oss portaudio"
+IUSE="alsa debug flac jack ladspa lash portaudio"
 
 RDEPEND="
 	|| ( (
@@ -24,29 +24,50 @@ RDEPEND="
 	dev-libs/libxml2
 	media-libs/libsndfile
 	media-libs/audiofile
-	media-libs/flac
 	dev-libs/libtar
-	portaudio? ( =media-libs/portaudio-18.1* )
+	portaudio? ( >=media-libs/portaudio-18.1 )
 	alsa? ( media-libs/alsa-lib )
 	jack? ( media-sound/jack-audio-connection-kit )
-	ladspa? ( media-libs/liblrdf )"
+	ladspa? ( media-libs/liblrdf )
+	lash? ( media-sound/lash )
+	flac? ( media-libs/flac )"
 
 DEPEND="${RDEPEND}"
 
-src_unpack() {
-	subversion_src_unpack
-	cd "${S}"
-	sed -i -e 's:/lib/libQtCore.so:/lib/qt4/libQtCore.so:' configure || die
-}
-
 src_compile() {
-	prefix=/usr ./configure
-	eqmake4 all.pro || die
-	emake -j1 || die "emake failed"
+	# export qt4 related environ (copy 'n paste fromt qt4.eclass)
+	export QTDIR=/usr/$(get_libdir)
+	export QMAKE=/usr/bin/qmake
+	export QMAKE_CC=$(tc-getCC)
+	export QMAKE_CXX=$(tc-getCXX)
+	export QMAKE_LINK=$(tc-getCXX)
+	export QMAKE_CFLAGS_RELEASE="${CFLAGS}"
+	export QMAKE_CFLAGS_DEBUG="${CFLAGS}" 
+	export QMAKE_CXXFLAGS_RELEASE="${CXXFLAGS}" 
+	export QMAKE_CXXFLAGS_DEBUG="${CXXFLAGS}"
+	export QMAKE_LFLAGS_RELEASE="${LDFLAGS}"
+	export QMAKE_LFLAGS_DEBUG="${LDFLAGS}"
+
+	local myconf="prefix=${ROOT}usr destdir=${D}"
+	! use alsa; myconf="${myconf} alsa=$?"
+	! use debug; myconf="${myconf} debug=$?"
+	! use jack; myconf="${myconf} jack=$?"
+	! use ladspa; myconf="${myconf} lrdf=$?"
+	! use portaudio; myconf="${myconf} portaudio=$?"
+	! use lash; myconf="${myconf} lash=$?"
+	! use flac; myconf="${myconf} flac=$?"
+
+	tc-export CC CXX
+	myconf="${myconf} CC=${CC} CXX=${CXX}"
+	mkdir -p ${D}
+	einfo "${myconf}"
+	scons CUSTOMCCFLAGS="${CFLAGS}" CUSTOMCXXFLAGS="${CXXFLAGS}" \
+		MAKEOPTS="${MAKEOPTS}" \
+		${myconf} || die "scons failed"
 }
 
 src_install() {
-	make INSTALL_ROOT="${D}/usr" install || die "make install failed"
+	scons install prefix="${ROOT}usr" destdir="${D}" || die "scons install failed"
 
 	# install tools
 	for i in hydrogenSynth hydrogenPlayer; do
