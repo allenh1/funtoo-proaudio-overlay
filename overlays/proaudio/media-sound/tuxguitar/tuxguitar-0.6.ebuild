@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -10,7 +10,7 @@ MY_PN="TuxGuitar"
 MY_P="${MY_PN}-${PV}-linux-gtk"
 
 DESCRIPTION="Multitrack guitar tablature editor and player with multitrack display, autoscroll while playing, various effects, import and export gp3 and gp4 files, and more."
-HOMEPAGE="http://www.herac.com.ar/tuxguitar.html"
+HOMEPAGE="http://www.tuxguitar.com.ar"
 SRC_URI="x86? ( mirror://sourceforge/tuxguitar/${MY_P}-i386.tar.gz )
 	amd64? ( mirror://sourceforge/tuxguitar/${MY_P}-x86_64.tar.gz )"
 LICENSE="LGPL"

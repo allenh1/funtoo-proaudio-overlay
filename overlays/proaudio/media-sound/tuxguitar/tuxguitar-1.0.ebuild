@@ -6,35 +6,27 @@ IUSE=""
 
 inherit eutils
 
-MY_PN="TuxGuitar"
-MY_P="${MY_PN}-${PV}-linux-gtk"
-
 DESCRIPTION="Multitrack guitar tablature editor and player with multitrack display, autoscroll while playing, various effects, import and export gp3 and gp4 files, and more."
 HOMEPAGE="http://www.tuxguitar.com.ar"
+MY_P="${P}-linux"
 SRC_URI="x86? ( mirror://sourceforge/tuxguitar/${MY_P}-x86.tar.gz )
+	ppc? ( mirror://sourceforge/tuxguitar/${MY_P}-ppc.tar.gz )
 	amd64? ( mirror://sourceforge/tuxguitar/${MY_P}-x86_64.tar.gz )"
 LICENSE="LGPL"
 SLOT="0"
 
-KEYWORDS="~amd64 ~ppc ~sparc x86"
+KEYWORDS="~amd64 ~ppc ~x86"
 
 DEPEND=">=virtual/jre-1.5"
 
-src_unpack() {
-	 unpack ${A}
-	cd ${S}
-	for i in `find -iname 'CVS'`;do rm -rf ${i};done
-}
-
 S="${WORKDIR}/${A/.tar.gz/}"
-
 src_install() {
-	dodir "/opt/${MY_P}" "/opt/bin"
+	dodir "/opt/${MY_P}"
 	insinto "/opt/${MY_P}"
-	doins tuxguitar  TuxGuitar.jar
+	doins tuxguitar  tuxguitar.jar
 	fperms 0755 /opt/${MY_P}/lib/*.so "/opt/${MY_P}/tuxguitar"
 	mv files doc lib share "${D}/opt/${MY_P}"
-	newbin ${FILESDIR}/${MY_P} tuxguitar
+	newbin ${FILESDIR}/${P} tuxguitar
 }
 
 pkg_postinst(){
