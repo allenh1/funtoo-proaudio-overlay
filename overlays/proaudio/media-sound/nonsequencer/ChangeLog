@@ -1,0 +1,8 @@
+# ChangeLog for media-sound/nonsequencer
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  05 Sep 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  +nonsequencer-9999.ebuild, +files/nonsequencer-makefile-fix.patch:
+  initial ebuild thx Jean-Baptiste
+
