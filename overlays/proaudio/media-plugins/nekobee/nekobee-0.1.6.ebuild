@@ -1,12 +1,11 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 
 DESCRIPTION="nekobee, a DSSI TB303 plugin"
-HOMEPAGE="http://www.gjcp.net/wsynth.html"
-SRC_URI="http://www.gjcp.net/${P}.tar.gz"
-
+HOMEPAGE="http://www.nekosynth.co.uk/wiki/nekobee"
+SRC_URI="http://www.nekosynth.co.uk/releases/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
