@@ -1,4 +1,4 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -72,22 +72,22 @@ src_compile() {
 	myconf="${myconf} LINUX_USE_LASH=${LINUX_USE_LASH}"
 	myconf="${myconf} LINUX_USE_JACKMIDI=${LINUX_USE_JACKMIDI}"
 
-	cd ${S}/src
+	cd "${S}/src"
 	echo "make ${myconf}" > gentoo_make_options # for easier debugging
 	chmod +x gentoo_make_options
 
 	emake -j1 ${myconf} || die "make failed with this options: ${myconf}"
 
-	cd ${S}/ExternalPrograms/Spliter
+	cd "${S}/ExternalPrograms/Spliter"
 	./compile.sh
-	cd ${S}/ExternalPrograms/Controller
+	cd "${S}/ExternalPrograms/Controller"
 	./compile.sh
 }
 
 src_install() {
-	dobin ${S}/src/zynaddsubfx
-	dobin ${S}/ExternalPrograms/Spliter/spliter
-	dobin ${S}/ExternalPrograms/Controller/controller
+	dobin "${S}/src/zynaddsubfx"
+	dobin "${S}/ExternalPrograms/Spliter/spliter"
+	dobin "${S}/ExternalPrograms/Controller/controller"
 	dodoc ChangeLog FAQ.txt HISTORY.txt README.txt ZynAddSubFX.lsm bugs.txt
 
 	# -------- install examples presets

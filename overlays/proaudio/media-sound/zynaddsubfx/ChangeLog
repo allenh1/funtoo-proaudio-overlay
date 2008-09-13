@@ -1,6 +1,11 @@
 # ChangeLog for media-sound/zynaddsubfx
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  13 Sep 2008; Frieder Buerzele <evermind@tuxfamily.org;
+  zynaddsubfx-2.2.1-r8.ebuild, zynaddsubfx-20070707.ebuild,
+  zynaddsubfx-20070707-r1.ebuild, zynaddsubfx-99999999.ebuild:
+  fix wrong elif in zyn-patches and fix some repoman complaints
 
   16 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org>
   zynaddsubfx-2.2.1-r5.ebuild:

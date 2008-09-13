@@ -1,4 +1,4 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -7,9 +7,10 @@ RESTRICT="nomirror"
 MY_P=ZynAddSubFX-${PV}
 DESCRIPTION="ZynAddSubFX is an opensource software synthesizer."
 HOMEPAGE="http://zynaddsubfx.sourceforge.net/"
+zyn_patches="zynaddsubfx-patches-2.tar.gz"
 SRC_URI="http://download.tuxfamily.org/proaudio/distfiles/${MY_P}.tar.bz2
 	http://download.tuxfamily.org/proaudio/distfiles/zynaddsubfx-presets-0.1.tar.bz2
-	http://download.tuxfamily.org/proaudio/distfiles/zynaddsubfx-patches-1.tar.gz"
+	http://download.tuxfamily.org/proaudio/distfiles/$zyn_patches"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -36,10 +37,10 @@ S="${WORKDIR}/${MY_P}"
 
 src_unpack() {
 	unpack ${MY_P}.tar.bz2 || die
-	cd ${S}
+	cd "${S}"
 	unpack "zynaddsubfx-presets-0.1.tar.bz2"
 	# add our CXXFLAGS
-	UNIPATCH_LIST="${DISTDIR}/zynaddsubfx-patches-1.tar.gz"
+	UNIPATCH_LIST="${DISTDIR}/$zyn_patches"
 	unipatch
 	cd src/
 	esed_check -i "s@\(CXXFLAGS.\+=.*OS_PORT.*\)@\1 ${CXXFLAGS}@g" Makefile
@@ -74,22 +75,22 @@ src_compile() {
 	myconf="${myconf} LINUX_USE_LASH=${LINUX_USE_LASH}"
 	myconf="${myconf} LINUX_USE_JACKMIDI=${LINUX_USE_JACKMIDI}"
 
-	cd ${S}/src
+	cd "${S}/src"
 	echo "make ${myconf}" > gentoo_make_options # for easier debugging
 	chmod +x gentoo_make_options
 
 	emake -j1 ${myconf} || die "make failed with this options: ${myconf}"
 
-	cd ${S}/ExternalPrograms/Spliter
+	cd "${S}/ExternalPrograms/Spliter"
 	./compile.sh
-	cd ${S}/ExternalPrograms/Controller
+	cd "${S}/ExternalPrograms/Controller"
 	./compile.sh
 }
 
 src_install() {
-	dobin ${S}/src/zynaddsubfx
-	dobin ${S}/ExternalPrograms/Spliter/spliter
-	dobin ${S}/ExternalPrograms/Controller/controller
+	dobin "${S}/src/zynaddsubfx"
+	dobin "${S}/ExternalPrograms/Spliter/spliter"
+	dobin "${S}/ExternalPrograms/Controller/controller"
 	dodoc ChangeLog FAQ.txt HISTORY.txt README.txt ZynAddSubFX.lsm bugs.txt
 
 	# -------- install examples presets

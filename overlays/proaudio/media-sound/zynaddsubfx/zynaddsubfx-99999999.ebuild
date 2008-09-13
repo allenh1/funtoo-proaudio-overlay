@@ -1,4 +1,4 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -25,7 +25,7 @@ IUSE="oss alsa jack jackmidi lash"
 
 DEPEND=">=x11-libs/fltk-1.1.2
 	=sci-libs/fftw-3*
-    jackmidi?  ( >=media-sound/jack-audio-connection-kit-0.100.0-r3 )
+	jackmidi? ( >=media-sound/jack-audio-connection-kit-0.100.0-r3 )
 	!jackmidi? ( media-sound/jack-audio-connection-kit )
 	>=dev-libs/mini-xml-2.2.1
 	lash? ( >=media-sound/lash-0.5 )"
@@ -49,7 +49,7 @@ src_unpack() {
 	patcher "${FILESDIR}/02-ifdef-jackmidi.patch" -a -f
 	patcher "${FILESDIR}/03-fix_jackmidi.patch" -a -f
 	patcher "${FILESDIR}/fix_jack_midi_api.patch" -a -f
-	cd ${S}
+	cd "${S}"
 	unpack "zynaddsubfx-presets-0.1.tar.bz2"
 	cd src/
 	# add our CXXFLAGS
@@ -85,22 +85,22 @@ src_compile() {
 	myconf="${myconf} LINUX_USE_LASH=${LINUX_USE_LASH}"
 	myconf="${myconf} LINUX_USE_JACKMIDI=${LINUX_USE_JACKMIDI}"
 
-	cd ${S}/src
+	cd "${S}/src"
 	echo "make ${myconf}" > gentoo_make_options # for easier debugging
 	chmod +x gentoo_make_options
 
 	emake -j1 ${myconf} || die "make failed with this options: ${myconf}"
 
-	cd ${S}/ExternalPrograms/Spliter
+	cd "${S}/ExternalPrograms/Spliter"
 	./compile.sh
-	cd ${S}/ExternalPrograms/Controller
+	cd "${S}/ExternalPrograms/Controller"
 	./compile.sh
 }
 
 src_install() {
-	dobin ${S}/src/zynaddsubfx
-	dobin ${S}/ExternalPrograms/Spliter/spliter
-	dobin ${S}/ExternalPrograms/Controller/controller
+	dobin "${S}/src/zynaddsubfx"
+	dobin "${S}/ExternalPrograms/Spliter/spliter"
+	dobin "${S}/ExternalPrograms/Controller/controller"
 	dodoc ChangeLog FAQ.txt HISTORY.txt README.txt ZynAddSubFX.lsm bugs.txt
 
 	# -------- install examples presets
