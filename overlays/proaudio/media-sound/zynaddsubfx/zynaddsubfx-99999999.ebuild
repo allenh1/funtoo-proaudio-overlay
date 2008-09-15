@@ -49,6 +49,9 @@ src_unpack() {
 	patcher "${FILESDIR}/02-ifdef-jackmidi.patch" -a -f
 	patcher "${FILESDIR}/03-fix_jackmidi.patch" -a -f
 	patcher "${FILESDIR}/fix_jack_midi_api.patch" -a -f
+
+	#fixup 01-mutex-split patch
+	esed_check -i -e 's@\(applyparameters(\)true@\1@g' src/Params/PADnoteParameters.C
 	cd "${S}"
 	unpack "zynaddsubfx-presets-0.1.tar.bz2"
 	cd src/
