@@ -4,7 +4,7 @@
 
 IUSE=""
 
-#inherit multilib
+inherit eutils
 
 RESTRICT=nomirror
 DESCRIPTION="Snd-ls is a sound editor based on Snd"
@@ -29,7 +29,7 @@ RDEPEND="${DEPEND}
 	=sci-libs/fftw-3*"
 
 pkg_setup(){
-	if ! built_with_use dev-scheme/guile deprecated;then
+	if ! built_with_use --missing true dev-scheme/guile deprecated; then
 		eerror "You need to rebuild guile with"
 		eerror "the 'deprecated' USE flag"
 		eerror "USE=deprecated emerge dev-scheme/guile"
