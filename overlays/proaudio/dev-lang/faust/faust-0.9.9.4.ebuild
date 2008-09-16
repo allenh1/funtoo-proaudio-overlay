@@ -1,6 +1,8 @@
-# Copyright 1999-2005 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
+
+inherit exteutils
 
 IUSE="doc"
 
@@ -16,8 +18,19 @@ RDEPEND="sys-devel/bison
 		 sys-devel/flex"
 DEPEND="sys-apps/sed"
 
+src_unpack() {
+	unpack "${A}"
+	cd "${S}"
+	# missing destdir
+	esed_check -i -e 's@\($(prefix)\)@$(DESTDIR)/\1@g' Makefile
+	esed_check -i -e 's@mkdir -p \($(DESTDIR).*\)@install -d \1@g' Makefile
+	# create dir for binary
+	esed_check -i -e 's@^\(install :.*\)@\1\n\tinstall -d $(DESTDIR)/$(prefix)/bin@g' Makefile
+	# fix prefix
+	esed_check -i -e "s\/usr/local\ /usr\ " Makefile
+}
+
 src_compile() {
-	sed -i "s\/usr/local\ /usr\ " Makefile
 	emake || die "parallel make failed"
 }
 

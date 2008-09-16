@@ -27,6 +27,7 @@ src_compile() {
 	# required for scons to "see" intermediate install location
 	mkdir -p ${D}/usr
 	addpredict /usr/share/clam/sconstools
+	addpredict /usr/qt/3/etc/settings/.qt_plugins_3.3rc.lock
 
 	cd ${S}
 	scons clam_prefix=/usr DESTDIR="${D}/usr" prefix="${D}/usr" release=yes || die "Build failed"

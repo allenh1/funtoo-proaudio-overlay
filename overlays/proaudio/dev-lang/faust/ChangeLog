@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  16 Sep 2008; Frieder Buerzele <evermind@tuxfamily.org;
+  faust-0.9.9.4.ebuild:
+  fixup sandboxing
+
   16 Sep 2008; Frieder Buerzele <evermind@tuxfamily.org; ChangeLog:
   initial ebuild
 
