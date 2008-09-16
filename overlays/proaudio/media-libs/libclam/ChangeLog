@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  16 Sep 2008; Frieder Buerzele <evermind@tuxfamily.org;
+  +libclam-1.3.0.ebuild:
+  added libclam-1.3.0 it maybe fails if NOT using sndfile
+
   11 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
   libclam-1.2.0.ebuild:
   workaround enable id3 if mad USE is set

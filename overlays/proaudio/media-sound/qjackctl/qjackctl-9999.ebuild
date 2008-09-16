@@ -25,6 +25,7 @@ DEPEND="alsa? ( media-libs/alsa-lib )
 		) >=x11-libs/qt-4.1:4 )
 	media-sound/jack-audio-connection-kit"
 
+S="${WORKDIR}/${PN}"
 pkg_setup() {
 	if use alsa && ! built_with_use --missing true media-libs/alsa-lib midi; then
 		eerror ""
