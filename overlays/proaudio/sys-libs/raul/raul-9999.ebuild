@@ -9,7 +9,7 @@ IUSE="boost osc lash jack debug"
 DESCRIPTION="Realtime Audio Utility Library: lightweight header-only C++"
 HOMEPAGE="http://wiki.drobilla.net/Raul"
 
-ESVN_REPO_URI="http://svn.drobilla.net/lad/"
+ESVN_REPO_URI="http://svn.drobilla.net/lad/trunk"
 ESVN_PROJECT="svn.drobilla.net"
 
 LICENSE="GPL-2"
@@ -17,7 +17,7 @@ KEYWORDS=""
 SLOT="0"
 
 DEPEND=">=dev-util/pkgconfig-0.9.0
-	>=media-libs/liblo-0.22
+	>=media-libs/liblo-0.25
 	>=dev-libs/rasqal-0.9.11
 	>=media-libs/raptor-1.4.14
 	dev-libs/boost
