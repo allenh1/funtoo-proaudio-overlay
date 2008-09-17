@@ -17,6 +17,8 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 IUSE="alsa debug fftw fluidsynth jack ladspa ogg pch pulseaudio sdl stk vst"
+	
+DOCS="README AUTHORS ChangeLog TODO"
 
 RDEPEND="|| ( (
 				x11-libs/qt-core
@@ -57,9 +59,4 @@ src_compile() {
 		$(cmake-utils_use_want pch PCH)"
 
 	cmake-utils_src_compile
-}
-
-src_install() {
-	DOCS="README AUTHORS ChangeLog TODO"
-	cmake-utils_src_install
 }
