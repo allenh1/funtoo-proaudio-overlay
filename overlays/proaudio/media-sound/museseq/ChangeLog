@@ -2,6 +2,12 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  22 Sep 2008; Frieder Buerzele <evermind@tuxfamily.org; +files/0.9.9999,
+  +museseq-0.9.9999.ebuild, +files/0.9.9999/02_all_log2f_aliasing.patch,
+  +files/0.9.9999/04_all_asneeded.patch, +files/0.9.9999/amd64.diff:
+  added qt3-branch aka later stable 1.0 version
+  see http://forums.gentoo.org/viewtopic-p-5223520.html#5223520
+
   24 Jan 2008; Thomas Kuther <gimpel@sonnenkinder.org> museseq-9999.ebuild:
   minor fixes for svn ebuild
 

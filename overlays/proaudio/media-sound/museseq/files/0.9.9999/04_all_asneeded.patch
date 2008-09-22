@@ -1,0 +1,18 @@
+--- muse/muse/Makefile.am.orig	2008-09-17 15:58:55.684125997 +0200
++++ muse/muse/Makefile.am	2008-09-17 14:02:16.687954356 +0200
+@@ -111,11 +111,12 @@
+ 	cliplist/libcliplist.a \
+       instruments/libinstruments.a \
+ 	widgets/libwidgets.a \
+-      ../synti/libsynti/libsynti.la
+-
+-muse_LDFLAGS = -fno_exceptions $(X_LIBS) $(QT_LIBS) \
++      ../synti/libsynti/libsynti.la \
++	$(X_LIBS) $(QT_LIBS) \
+ 	-lasound $(SNDFILE_LIBS) $(JACK_LIBS) $(LASH_LIBS) $(FST_LIBS)
+ 
++muse_LDFLAGS = -fno_exceptions 
++
+ 
+ CLEANFILES = stamp-chown
+ 
