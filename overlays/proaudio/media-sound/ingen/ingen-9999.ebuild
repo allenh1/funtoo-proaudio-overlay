@@ -11,7 +11,7 @@ IUSE="dssi jackmidi midi ladspa lv2 jack osc gtk2 alsa lash in-process"
 DESCRIPTION="Ingen (successor of om) is a modular synthesizer for GNU/Linux audio systems using the Jack audio server and LADSPA or DSSI plugins."
 HOMEPAGE="http://drobilla.net/software/ingen"
 
-ESVN_REPO_URI="http://svn.drobilla.net/lad/"
+ESVN_REPO_URI="http://svn.drobilla.net/lad/trunk"
 ESVN_PROJECT="svn.drobilla.net"
 
 LICENSE="GPL-2"
