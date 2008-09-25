@@ -120,7 +120,7 @@ src_compile() {
 	local myconf=""
 	(use sse || use altivec) && myconf="FPU_OPTIMIZATION=1"
 
-	scons \
+	escons \
 		$(ardour_use_enable DEBUG debug) \
 		$(ardour_use_enable NLS nls) \
 		$(ardour_use_enable VST vst) \
@@ -135,7 +135,7 @@ src_compile() {
 }
 
 src_install() {
-	scons install || die "make install failed"
+	escons install || die "make install failed"
 
 	dodoc DOCUMENTATION/*
 

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils fetch-tools scons-ccache subversion vst
+inherit exteutils fetch-tools scons-ccache subversion vst
 
 ESVN_REPO_URI="http://subversion.ardour.org/svn/ardour2/branches/2.0-ongoing"
 DESCRIPTION="multi-track hard disk recording software"
@@ -113,11 +113,11 @@ src_compile() {
 	einfo "${myconf}"
 
 	cd ${S}
-	scons ${myconf}	${MAKEOPTS} || die "compilation failed"
+	escons ${myconf}	${MAKEOPTS} || die "compilation failed"
 }
 
 src_install() {
-	scons DESTDIR="${D}" install || die "make install failed"
+	escons DESTDIR="${D}" install || die "make install failed"
 	if use vst;then
 		mv "${D}"/usr/bin/ardourvst "${D}"/usr/bin/ardour2
 	fi

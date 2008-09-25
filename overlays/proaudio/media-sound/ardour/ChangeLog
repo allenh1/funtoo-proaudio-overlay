@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  25 Sep 2008; Frieder Buerzele <evermind@tuxfamily.org; ardour-2.5.ebuild,
+  ardour-2.9999.ebuild, ardour-99992.ebuild:
+  MAKEOPT aware scons
+
   07 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>; ardour-2.5.ebuild:
   missing aubio dep gcc-4.3 fix (thx Philipp)
 
