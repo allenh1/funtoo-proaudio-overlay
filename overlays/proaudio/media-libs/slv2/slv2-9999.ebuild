@@ -9,7 +9,7 @@ IUSE="jack"
 DESCRIPTION="SLV2 is a library for LV2 hosts "
 HOMEPAGE="http://drobilla.net/software"
 
-ESVN_REPO_URI="http://svn.drobilla.net/lad/"
+ESVN_REPO_URI="http://svn.drobilla.net/lad/trunk"
 ESVN_PROJECT="svn.drobilla.net"
 
 LICENSE="GPL-2"

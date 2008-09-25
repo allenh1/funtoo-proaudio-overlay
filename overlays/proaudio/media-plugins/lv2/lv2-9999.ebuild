@@ -4,14 +4,14 @@
 
 inherit subversion eutils
 
-ESVN_REPO_URI="http://svn.drobilla.net/lad/"
+ESVN_REPO_URI="http://svn.drobilla.net/lad/trunk"
 ESVN_PROJECT="svn.drobilla.net"
 
 IUSE=""
 DESCRIPTION="Collection of lv2 plugins for modular synthesizers."
 HOMEPAGE="http://drobilla.net/software"
 
-ESVN_REPO_URI="http://svn.drobilla.net/lad/"
+ESVN_REPO_URI="http://svn.drobilla.net/lad/trunk"
 ESVN_PROJECT="svn.drobilla.net"
 
 LICENSE="GPL-2"

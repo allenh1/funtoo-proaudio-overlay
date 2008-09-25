@@ -9,7 +9,7 @@ IUSE="debug"
 DESCRIPTION="An STL-style C++ wrapper for the Redland RDF Toolkit (librdf)"
 HOMEPAGE="http://drobilla.net/software"
 
-ESVN_REPO_URI="http://svn.drobilla.net/lad/"
+ESVN_REPO_URI="http://svn.drobilla.net/lad/trunk"
 ESVN_PROJECT="svn.drobilla.net"
 
 LICENSE="GPL-2"

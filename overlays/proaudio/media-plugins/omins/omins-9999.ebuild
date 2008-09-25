@@ -4,7 +4,7 @@
 
 inherit subversion eutils
 
-ESVN_REPO_URI="http://svn.drobilla.net/lad/"
+ESVN_REPO_URI="http://svn.drobilla.net/lad/trunk"
 ESVN_PROJECT="svn.drobilla.net"
 
 IUSE=""

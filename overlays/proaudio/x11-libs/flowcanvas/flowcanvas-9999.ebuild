@@ -7,7 +7,7 @@ inherit subversion
 DESCRIPTION="Gtkmm/Gnomecanvasmm widget for boxes and lines environments"
 HOMEPAGE="http://wiki.drobilla.net/FlowCanvas"
 
-ESVN_REPO_URI="http://svn.drobilla.net/lad/"
+ESVN_REPO_URI="http://svn.drobilla.net/lad/trunk"
 ESVN_PROJECT="svn.drobilla.net"
 
 LICENSE="GPL-2"
