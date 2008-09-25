@@ -19,7 +19,7 @@ KEYWORDS=""
 SLOT="0"
 
 RDEPEND=">=media-libs/liblo-0.22
-	>=sys-libs/raul-9999
+	>=media-libs/raul-9999
 	>=media-sound/lash-0.5.0
 	>=media-sound/jack-audio-connection-kit-0.102.20
 	>=dev-libs/redland-1.0.6
@@ -40,13 +40,13 @@ DEPEND="${RDEPEND}
 
 pkg_setup() {
 	ewarn "if the compilation fails you can try to re-emerge"
-	ewarn "x11-libs/flowcanvas-9999 and sys-libs/raul-9999"
+	ewarn "x11-libs/flowcanvas-9999 and media-libs/raul-9999"
 	ewarn "as ingen depens atm. on their latest code"
 	sleep 3s
-	if ! built_with_use sys-libs/raul osc ; then
+	if ! built_with_use media-libs/raul osc ; then
 	    echo
 		eerror "this app need rauls osc support"
-		eerror "re-emerge sys-libs/raul with useflag osc"
+		eerror "re-emerge media-libs/raul with useflag osc"
 		eerror "and then try this one again"
 		die
 	fi

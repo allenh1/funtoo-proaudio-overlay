@@ -20,7 +20,7 @@ DEPEND=">=dev-util/pkgconfig-0.9.0
 	jack? ( >=media-sound/jack-audio-connection-kit-0.102.29 )
 	>=dev-libs/rasqal-0.9.11
 	>=media-libs/raptor-1.4.0
-	>=sys-libs/raul-9999"
+	>=media-libs/raul-9999"
 
 src_compile() {
 	cd "${S}/${PN}" || die "source for ${PN} not found"

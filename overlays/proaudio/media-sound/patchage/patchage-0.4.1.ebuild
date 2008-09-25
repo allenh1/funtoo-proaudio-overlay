@@ -23,7 +23,7 @@ DEPEND=">=media-libs/liblo-0.22
 	>=x11-libs/flowcanvas-0.4.0
 	lash? ( media-sound/lash )
 	!media-sound/patchage-cvs
-	>=sys-libs/raul-0.4.0"
+	>=media-libs/raul-0.4.0"
 
 src_compile() {
 	use jackmidi && need_jackmidi
