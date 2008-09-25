@@ -9,11 +9,13 @@ inherit eutils
 # extend eutils eclass
 
 # gives back 1 if useflag set, 0 if not
-# syntax: usesflag "flag"
-usesflag() {
-	local retval="0"
-	use "$1" && retval="1"
-	echo "${retval}"
+# syntax: scons_use_enable flag [option]
+scons_use_enable() {
+	use ${1} && echo "${2}=1" || echo "${2}=0"
+}
+
+escons() {
+	scons ${MAKEOPTS} "$@"
 }
 
 # returns true/false if pkg is installed or not
