@@ -17,6 +17,7 @@ S="${WORKDIR}/${PN}"
 
 IUSE="debug -doc glade"
 DEPEND=">x11-libs/gtk+-2
+	dev-util/gtk-doc-am
 	doc? ( dev-util/gtk-doc )
 	glade? ( dev-util/glade )"
 
