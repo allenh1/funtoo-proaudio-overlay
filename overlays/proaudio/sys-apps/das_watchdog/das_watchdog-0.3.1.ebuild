@@ -10,7 +10,7 @@ SRC_URI="http://www.notam02.no/arkiv/src/${P}.tar.gz"
 
 LICENSE="GPL2"
 SLOT="0"
-KEYWORDS="x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 DEPEND=">=gnome-base/libgtop-2.0
