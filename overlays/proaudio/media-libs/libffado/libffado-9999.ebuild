@@ -21,7 +21,7 @@ RDEPEND=">=media-libs/alsa-lib-1.0.0
 	>=media-libs/libiec61883-1.1.0
 	>=sys-libs/libavc1394-0.5.3
 	>=sys-apps/dbus-1.0
-	>=media-sound/jack-audio-connection-kit-0.109.2"
+	=media-sound/jack-audio-connection-kit-9999"
 
 DEPEND="${RDEPEND}
 	dev-util/scons"
