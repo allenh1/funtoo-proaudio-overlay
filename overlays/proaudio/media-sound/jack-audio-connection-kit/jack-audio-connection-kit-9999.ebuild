@@ -21,7 +21,8 @@ ESVN_REPO_URI="http://subversion.jackaudio.org/jack/trunk/jack"
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="3dnow altivec alsa caps coreaudio cpudetection dbus doc debug jack-tmpfs mmx oss portaudio sse netjack freebob jackdmp"
+IUSE="3dnow altivec alsa caps coreaudio cpudetection dbus doc debug jack-tmpfs
+mmx oss portaudio sse netjack freebob ieee1394 jackdmp"
 
 RDEPEND="jackdmp? ( >=media-sound/jackdmp-9999-r1 )
 	!jackdmp? ( 
@@ -32,7 +33,8 @@ RDEPEND="jackdmp? ( >=media-sound/jackdmp-9999-r1 )
 	alsa? ( >=media-libs/alsa-lib-0.9.1 )
     dbus? ( sys-apps/dbus
 		dev-python/dbus-python )
-	freebob? ( sys-libs/libfreebob )
+	freebob? ( sys-libs/libfreebob !media-libs/libffado )
+	ieee1394? ( =media-libs/libffado-9999 !sys-libs/libfreebob )
 	!media-sound/jackdmp )"
 
 DEPEND="${RDEPEND}
@@ -68,7 +70,7 @@ src_unpack() {
 		einfo "You requested to install jackdmp. Nothing to do"
 		return # no more to do
 	fi
-	unpack ${A}
+	use netjack && unpack ${A}
 	subversion_src_unpack
 
 	cd "${S}"
@@ -133,6 +135,7 @@ src_compile() {
 	fi
 
 	econf \
+		$(use_enable ieee1394 firewire) \
 		$(use_enable freebob) \
 		$(use_enable altivec) \
 		$(use_enable alsa) \

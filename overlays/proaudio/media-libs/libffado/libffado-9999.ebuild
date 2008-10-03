@@ -34,8 +34,14 @@ src_compile () {
 		CFLAGS="${CFLAGS}" \
 		PREFIX="/usr/"
 }
+
 src_install () {
 	cd "$PN"
 	escons DESTDIR="${D}" install || die
 	dodoc AUTHORS ChangeLog NEWS README TODO
+}
+
+pkg_postinst() {
+	elog "If jack won't work with libffado. You have to"
+	elog "re-emerge jack-audio-connection-kit"
 }

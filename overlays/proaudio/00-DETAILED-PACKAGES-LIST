@@ -12,7 +12,7 @@
 
 
 #------- app-portage/euses --------
-	euses-2.5.4-r3	arch: ~amd64 ~hppa ~ppc ~x86 ~x86-fbsd
+	euses-2.5.5-r1	arch: ~alpha ~amd64 ~hppa ~ppc ~sparc ~x86 ~x86-fbsd
 	Description: look up USE flag descriptions fast
 	Homepage:    http://www.xs4all.nl/~rooversj/gentoo
 
@@ -128,6 +128,7 @@
 	libclam-1.0.0-r1	arch: ~amd64 x86
 	libclam-1.1.0	arch: ~amd64 x86
 	libclam-1.2.0	arch: ~amd64 x86
+	libclam-1.3.0	arch: ~amd64 x86
 	libclam-9999-r1	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: Framework for research and application development
 		 in the Audio and Music domain
@@ -228,6 +229,15 @@
 	pyphat-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: python binding for phat
 	Homepage:    http://phat.berlios.de/
+
+
+#------- media-libs/raul --------
+	raul-0.4.0	arch: ~amd64 ~x86
+	raul-0.5.0	arch: ~amd64 ~x86
+	raul-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Realtime Audio Utility Library: lightweight
+		 header-only C++
+	Homepage:    http://wiki.drobilla.net/Raul
 
 
 #------- media-libs/stk --------
@@ -369,8 +379,8 @@
 
 
 #------- media-plugins/nekobee --------
-	nekobee-0.1.3	arch: amd64 x86
 	nekobee-0.1.5	arch: amd64 x86
+	nekobee-0.1.6	arch: amd64 x86
 	Description: nekobee, a DSSI TB303 plugin
 	Homepage:    http://www.nekosynth.co.uk/wiki/nekobee
 
@@ -577,12 +587,14 @@
 	NetworkEditor-1.0.0	arch: ~amd64 x86
 	NetworkEditor-1.1.0	arch: ~amd64 x86
 	NetworkEditor-1.2.0	arch: ~amd64 x86
+	NetworkEditor-1.3.0	arch: ~amd64 ~x86
 	NetworkEditor-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: CLAM's visual builder
 	Homepage:    http://clam.iua.upf.edu/index.html
 
 
 #------- media-sound/SMSTools --------
+	SMSTools-0.4.10	arch: ~amd64 x86
 	SMSTools-0.4.7-r1	arch: ~amd64 x86
 	SMSTools-0.4.8	arch: ~amd64 x86
 	SMSTools-0.4.9	arch: ~amd64 x86
@@ -781,6 +793,7 @@
 	csound-5.02	arch: -* ~amd64 ~ppc ~ppc64 x86
 	csound-5.07.0	arch: ~amd64 ~x86 ~ppc
 	csound-5.08.0	arch: ~amd64 ~x86 ~ppc
+	csound-5.09.0	arch: ~amd64 ~x86 ~ppc
 	Description: Csound is a sound and music synthesis system,
 		 providing facilities for composition and performance
 		 over a wide range of platforms.
@@ -924,6 +937,7 @@
 
 #------- media-sound/hydrogen --------
 	hydrogen-0.9.3-r1	arch: ~amd64 ~ppc ~ppc64 ~sparc ~x86
+	hydrogen-0.9.4_beta	arch: ~amd64 ~x86
 	hydrogen-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: Linux Drum Machine
 	Homepage:    http://hydrogen.sourceforge.net/
@@ -1004,6 +1018,7 @@
 #------- media-sound/jack_mixer --------
 	jack_mixer-2	arch: ~x86 ~amd64
 	jack_mixer-5	arch: ~x86
+	jack_mixer-6	arch: ~amd64 ~x86
 	Description: JACK audio mixer using GTK2 interface.
 	Homepage:    http://home.gna.org/jackmixer/
 
@@ -1181,9 +1196,8 @@
 
 
 #------- media-sound/lmms --------
-	lmms-0.3.1	arch: ~x86 ~amd64
 	lmms-0.3.2	arch: ~x86 ~amd64
-	lmms-0.4.0_beta1	arch: ~amd64
+	lmms-0.4.0_rc1	arch: ~amd64
 	lmms-9999-r1	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: free alternative to popular programs such
 		 as FruityLoops, Cubase and Logic
@@ -1258,6 +1272,7 @@
 
 
 #------- media-sound/museseq --------
+	museseq-0.9.9999	arch: -> live ebuild: [svn|cvs|...]<-
 	museseq-0.9_pre1	arch: ~amd64 ~sparc x86
 	museseq-0.9_pre2	arch: ~amd64 ~sparc x86
 	museseq-0.9_pre3	arch: ~amd64 ~sparc x86
@@ -1287,6 +1302,13 @@
 	Description: NINJAM is a program to allow people to make
 		 real music together via the Internet
 	Homepage:    http://www.ninjam.com
+
+
+#------- media-sound/nonsequencer --------
+	nonsequencer-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: The Non Sequencer is a powerful real-time,
+		 pattern-based MIDI sequencer for Linux.
+	Homepage:    http://non-sequencer.tuxfamily.org/
 
 
 #------- media-sound/om --------
@@ -1623,11 +1645,12 @@
 	tuxguitar-0.5	arch: ~amd64 ~ppc ~sparc x86
 	tuxguitar-0.6	arch: ~amd64 ~ppc ~sparc x86
 	tuxguitar-0.8	arch: ~amd64 ~ppc ~sparc x86
+	tuxguitar-1.0	arch: ~amd64 ~ppc ~x86
 	Description: Multitrack guitar tablature editor and player
 		 with multitrack display, autoscroll while playing,
 		 various effects, import and export gp3 and gp4 files,
 		 and more.
-	Homepage:    http://www.herac.com.ar/tuxguitar.html
+	Homepage:    http://www.tuxguitar.com.ar
 
 
 #------- media-sound/vkeybd --------
@@ -1740,7 +1763,7 @@
 #------- sys-apps/das_watchdog --------
 	das_watchdog-0.2.4	arch: x86
 	das_watchdog-0.2.5	arch: x86
-	das_watchdog-0.3.1	arch: x86
+	das_watchdog-0.3.1	arch: amd64 x86
 	Description: watchdog to ensure a realtime process won't
 		 hang the machine
 	Homepage:    http://www.notam02.no/arkiv/src/
@@ -1758,7 +1781,7 @@
 	rt-sources-2.6.24.7-r17	arch: ~amd64 ~ppc ~ppc64 ~x86
 	rt-sources-2.6.25.4-r5	arch: ~amd64 ~ppc ~ppc64 ~x86
 	rt-sources-2.6.25.8-r7	arch: ~amd64 ~ppc ~ppc64 ~x86
-	rt-sources-2.6.26.3-r2	arch: ~amd64 ~ppc ~ppc64 ~x86
+	rt-sources-2.6.26.3-r3	arch: ~amd64 ~ppc ~ppc64 ~x86
 	Description: Ingo Molnars realtime patch applied on vanilla
 		
 	Homepage:    unknown
@@ -1780,17 +1803,8 @@
 	Homepage:    http://www.kernel.org/pub/linux/libs/pam/
 
 
-#------- sys-libs/raul --------
-	raul-0.4.0	arch: ~amd64 ~x86
-	raul-0.5.0	arch: ~amd64 ~x86
-	raul-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Realtime Audio Utility Library: lightweight
-		 header-only C++
-	Homepage:    http://wiki.drobilla.net/Raul
-
-
 #------- sys-process/rt-exec --------
-	rt-exec-1.0.3	arch: ~x86
+	rt-exec-1.0.3	arch: amd64 ~x86
 	Description: Test the deterministic/real-time capabilities
 		 of your computer.
 	Homepage:    ftp://ftp.compro.net/public/rt-exec
@@ -1808,7 +1822,7 @@
 
 
 #------- sys-process/set_rlimits --------
-	set_rlimits-1.2.0	arch: x86 ppc amd64
+	set_rlimits-1.3.0	arch: x86 ppc amd64
 	Description: Give unpriviledged users access to realtime
 		 scheduling
 	Homepage:    http://www.physics.adelaide.edu.au/~jwoithe
