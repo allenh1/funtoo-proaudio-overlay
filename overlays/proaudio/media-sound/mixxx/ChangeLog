@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  11 Oct 2008; Frieder Buerzele <evermind@tuxfamily.org;
+  +mixxx-1.6.1.ebuild:
+  bumped
+
   06 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
   mixxx-1.5.0.1.ebuild, mixxx-1.6.0_beta4.ebuild, mixxx-9999.ebuild:
   fixed qt4_min... QA msg
