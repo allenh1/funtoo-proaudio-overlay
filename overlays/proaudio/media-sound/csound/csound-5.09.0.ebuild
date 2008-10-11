@@ -53,20 +53,20 @@ src_compile() {
 
 	cp "${FILESDIR}/custom.py" .
 
-	! use dssi; myconf="${myconf} buildDSSI=$?"
-	! use expensive_math; myconf="${myconf} useDouble=$?"
-	! use portaudio; myconf="${myconf} usePortAudio=$?"
-	! use jack; myconf="${myconf} useJack=$?"
-	#! use csoundvst; myconf="${myconf} buildCsoundVST=$? buildCsound5GUI=$?"
-	! use gui; myconf="${myconf} buildCsound5GUI=$?"
-	! use doc; myconf="${myconf} generatePdf=$?"
-	! use static; myconf="${myconf} dynamicCsoundLibrary=$?"
-	! use osc_opcodes; myconf="${myconf} useOSC=$?"
-	! use stk_opcodes; myconf="${myconf} buildStkOpcodes=$?"
-	! use java; myconf="${myconf} buildJavaWrapper=$?"
-	! use altivec; myconf="${myconf} useAltivec=$?"
-	! use debug; myconf="${myconf} buildRelease=$?"
+	local myconf="$(scons_use_enable dssi buildDSSI) \
+		$(scons_use_enable expensive_math useDouble) \
+		$(scons_use_enable portaudio usePortAudio) \
+		$(scons_use_enable jack useJack) \
+		$(scons_use_enable gui buildCsound5GUI) \
+		$(scons_use_enable doc generatePdf) \
+		$(scons_use_enable static dynamicCsoundLibrary) \
+		$(scons_use_enable osc_opcodes useOSC) \
+		$(scons_use_enable stk_opcodes buildStkOpcodes) \
+		$(scons_use_enable java buildJavaWrapper) \
+		$(scons_use_enable altivec useAltivec) \
+		$(scons_use_enable debug buildRelease)"
 	( use amd64 || use ppc64 )  && myconf="${myconf} Word64=1"
+	#! use csoundvst; myconf="${myconf} buildCsoundVST=$? buildCsound5GUI=$?"
 
 	# These addpredicts are to stop sandbox violation errors
 	# addpredict in src_compile() alone does not stop sandbox
@@ -94,7 +94,7 @@ src_compile() {
 src_install() {
 #	addpredict "/usr/include"
 #	dodir "/usr/bin"
-#	scons prefix=${D}/usr install || die "scons install failed!"
+#	escons prefix=${D}/usr install || die "scons install failed!"
 	./install.py --prefix="/usr/" --instdir="${D}"
 	cd ${D}/usr
 	rm -f *.md5sums

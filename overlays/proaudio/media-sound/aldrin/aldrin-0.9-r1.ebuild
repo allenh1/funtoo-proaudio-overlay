@@ -1,6 +1,8 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
+
+inherit exteutils
 
 DESCRIPTION="Aldrin is an open source modular sequencer/tracker, compatible to
 Buzz"
@@ -20,6 +22,6 @@ DEPEND="${RDEPEND}
 	dev-util/scons"
 
 src_install() {
-	scons PREFIX=/usr DESTDIR="${D}" install || die "install failed"
+	escons PREFIX=/usr DESTDIR="${D}" install || die "install failed"
 	dodoc CREDITS ChangeLog
 }

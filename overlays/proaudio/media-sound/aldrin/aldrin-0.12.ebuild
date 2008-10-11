@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+inherit exteutils
+
 DESCRIPTION="Aldrin is an open source modular sequencer/tracker, compatible to
 Buzz"
 HOMEPAGE="http://trac.zeitherrschaft.org/aldrin/"
@@ -20,7 +22,7 @@ DEPEND="${RDEPEND}
 	dev-util/scons"
 
 src_install() {
-	scons PREFIX=/usr DESTDIR="${D}" install || die "install failed"
+	escons PREFIX=/usr DESTDIR="${D}" install || die "install failed"
 	dodoc CREDITS ChangeLog
 	# fix FDO entry
 	sed -i -e "s:AudioVideo;:AudioVideo;Audio;Sequencer;:" \

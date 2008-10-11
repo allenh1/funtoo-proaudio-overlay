@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit qt3
+inherit qt3 exteutils
 
 DESCRIPTION="Simple BPM detection utility"
 HOMEPAGE="http://kde-apps.org/content/show.php/BPM+Detect?content=43147"
@@ -32,11 +32,11 @@ src_compile() {
 	use kde && myconf="${myconf}  kdeinclude=/usr/kde/3.5/include"
 	use amd64 && myconf="${myconf} libsuffix=64"
 
-	scons configure ${myconf} || die "scons configure failed"
-	scons || die "scons failed"
+	escons configure ${myconf} || die "scons configure failed"
+	escons || die "scons failed"
 }
 
 src_install() {
-	DESTDIR="${D}" scons install || die "scons install failed"
+	DESTDIR="${D}" escons install || die "scons install failed"
 	dodoc ChangeLog AUTHORS NEWS TODO README
 }

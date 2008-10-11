@@ -72,10 +72,6 @@ pkg_setup() {
 	fi
 }
 
-ardour_use_enable() {
-	use ${2} && echo "${1}=1" || echo "${1}=0"
-}
-
 src_unpack() {
 	# abort if user answers no to distribution of vst enabled binaries
 	if use vst;	then
@@ -119,14 +115,15 @@ src_compile() {
 
 	local myconf=""
 	(use sse || use altivec) && myconf="FPU_OPTIMIZATION=1"
+		eerror $(scons_use_enable lv2 LV2)
 
 	escons \
-		$(ardour_use_enable DEBUG debug) \
-		$(ardour_use_enable NLS nls) \
-		$(ardour_use_enable VST vst) \
-		$(ardour_use_enable SYSLIBS sys-libs) \
-		$(ardour_use_enable LV2 lv2) \
-		$(ardour_use_enable FREESOUND freesound) \
+		$(scons_use_enable debug DEBUG) \
+		$(scons_use_enable nls NLS) \
+		$(scons_use_enable vst VST) \
+		$(scons_use_enable sys-libs SYSLIBS) \
+		$(scons_use_enable lv2 LV2) \
+		$(scons_use_enable freesound FREESOUND) \
 		DESTDIR="${D}" \
 		CFLAGS="${CFLAGS}" \
 		PREFIX=/usr \

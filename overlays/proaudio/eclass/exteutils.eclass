@@ -11,11 +11,12 @@ inherit eutils
 # gives back 1 if useflag set, 0 if not
 # syntax: scons_use_enable flag [option]
 scons_use_enable() {
-	use ${1} && echo "${2}=1" || echo "${2}=0"
+	[ ! -z "${2}" ] && local option="$2" || local option=$1
+	use ${1} && echo " ${option}=1" || echo " ${option}=0"
 }
 
 escons() {
-	scons ${MAKEOPTS} "$@"
+	$(type -P scons) ${MAKEOPTS} "$@"
 }
 
 # returns true/false if pkg is installed or not

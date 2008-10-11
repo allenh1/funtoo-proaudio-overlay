@@ -2,6 +2,11 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  11 Oct 2008; Frieder Buerzele <evermind@tuxfamily.org;
+  aldrin-0.9-r1.ebuild, aldrin-0.10.1.ebuild, aldrin-0.11.ebuild,
+  aldrin-0.12.ebuild, aldrin-9999.ebuild:
+  switch to escons
+
   02 May 2008; Thomas Kuther <gimpel@sonnenkinder.org> +aldrin-0.12.ebuild:
   version bump
 

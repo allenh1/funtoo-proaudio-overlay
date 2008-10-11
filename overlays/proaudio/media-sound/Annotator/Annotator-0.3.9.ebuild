@@ -4,7 +4,7 @@
 
 EAPI=1
 
-inherit eutils
+inherit exteutils
 
 DESCRIPTION="CLAM Music Annotator can visualize, check and modify music information extracted from audio"
 HOMEPAGE="http://clam.iua.upf.edu/index.html"
@@ -34,9 +34,9 @@ src_compile() {
 	addpredict /usr/share/clam/sconstools
 
 	cd ${S}/vmqt
-	scons clam_prefix=/usr DESTDIR="${D}/usr" release=yes || die "Building vmqt failed"
+	escons clam_prefix=/usr DESTDIR="${D}/usr" release=yes || die "Building vmqt failed"
 	cd ${S}
-	scons clam_prefix=/usr DESTDIR="${D}/usr" prefix="${D}/usr" release=yes || die "Building Annotator failed"
+	escons clam_prefix=/usr DESTDIR="${D}/usr" prefix="${D}/usr" release=yes || die "Building Annotator failed"
 	convert -resize 48x48 -colors 24 src/images/annotator-icon1.png src/images/clam-annotator.xpm || die "convert icon failed"
 }
 
@@ -45,7 +45,7 @@ src_install() {
 	dodir /usr
 	addpredict /usr/share/clam/sconstools
 
-	scons install || die "scons install failed"
+	escons install || die "scons install failed"
 
 	dodoc CHANGES COPYING README todos  || die "dodoc failed"
 

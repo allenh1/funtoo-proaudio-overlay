@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit kde-functions eutils scons-ccache
+inherit kde-functions exteutils scons-ccache
 
 DESCRIPTION="advanced sampler for linux"
 HOMEPAGE="http://www.reduz.com.ar/chionic"
@@ -31,11 +31,11 @@ src_unpack(){
 }
 
 src_compile() {
-	scons prefix=/usr || die "compile failed"
+	escons prefix=/usr || die "compile failed"
 }
 
 src_install() {
-	scons install prefix=${D}/usr || die "install failed"
+	escons install prefix=${D}/usr || die "install failed"
 	rm -f "${D}/usr/bin/.sconsign"
 	dodoc ChangeLog AUTHORS NEWS TODO
 }
