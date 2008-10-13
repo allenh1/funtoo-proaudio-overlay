@@ -1,12 +1,14 @@
 # Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /cvsroot/jacklab/gentoo/sys-process/rtirq/rtirq-20050914-r1.ebuild,v 1.1.1.1 2006/04/10 11:35:53 gimpel Exp $
+# $Header: $
 
-#inherit eutils 
+RESTRICT="nomirror"
+inherit eutils
 DESCRIPTION="Change the realtime scheduling policy and priority of relevant system driver IRQ handlers"
 HOMEPAGE="http://www.rncbc.org/jack/"
-SRC_URI=""
 
+P_URL="http://www.rncbc.org/jack"
+SRC_URI="http://download.tuxfamily.org/proaudio/distfiles/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 ppc x86"
@@ -14,15 +16,25 @@ IUSE=""
 
 DEPEND="|| ( >=sys-apps/util-linux-2.13 sys-process/schedutils )
 		sys-apps/sysvinit"
+
+src_unpack(){
+	unpack ${A}
+	cd "${S}"
+	gzip -cdf "${FILESDIR}/rt-initscript.gz" >  rtirq
+	sed -ie "s:^\(RTIRQ_CONFIG\=\)\(.*\):\1/etc/conf.d/rtirq:" rtirq.sh || die "patching failed"
+	sed -ie "s/:-\"softirq-timer\"//" rtirq.sh || die "patching failed"
+	sed -ie "s:/etc/sysconfig/rtirq:/etc/conf.d/rtirq:" rtirq.conf
+
+	# fixup to work with different kernels
+	# see http://article.gmane.org/gmane.linux.gentoo.proaudio/2497
+	sed -i -e 's@\(egrep.*\)softirq\(.*\)@\1s(oft)?irq\2@g' rtirq.sh
+}
+
 src_install(){
-	cd  "${D}"
-	bzip2 -dc -k  "${FILESDIR}/rtirq-20050914-v0.1.bz2" |patch -p1
-	fperms 755 /etc/init.d/rtirq
-	fowners root:root /etc/init.d/rtirq
-	# I know its the wrong place to patch :)
-	cd etc/init.d
-	pwd
-	patch -p3 <"${FILESDIR}/pidof_workaround.patch" || die "patching failed"
+	exeinto /etc/init.d
+	doexe rtirq rtirq.sh
+	insinto /etc/conf.d
+	newins rtirq.conf rtirq
 }
 
 pkg_postinst(){

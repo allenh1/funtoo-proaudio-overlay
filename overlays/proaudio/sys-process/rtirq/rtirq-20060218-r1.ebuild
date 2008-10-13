@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -8,17 +8,17 @@ DESCRIPTION="Change the realtime scheduling policy and priority of relevant syst
 HOMEPAGE="http://www.rncbc.org/jack/"
 SRC_URI="http://www.rncbc.org/jack/${P}.tar.gz"
 
-LICENSE="GPL"
+LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="x86 amd64 ppc"
+KEYWORDS="amd64 ppc x86"
 IUSE=""
 
 DEPEND="|| ( >=sys-apps/util-linux-2.13 sys-process/schedutils )
 		sys-apps/sysvinit"
 
 src_unpack(){
-	unpack "${A}"
-	cd ${S}
+	unpack ${A}
+	cd "${S}"
 	gzip -cdf "${FILESDIR}/rt-initscript.gz" >  rtirq
 	sed -ie "s:^\(RTIRQ_CONFIG\=\)\(.*\):\1/etc/conf.d/rtirq:" rtirq.sh || die "patching failed"
 	sed -ie "s/:-\"softirq-timer\"//" rtirq.sh || die "patching failed"

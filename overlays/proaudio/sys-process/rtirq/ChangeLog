@@ -1,6 +1,12 @@
 # ChangeLog for sys-process/rtirq
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  13 Oct 2008; Frieder Buerzele <evermind@tuxfamily.org;
+  rtirq-20050914-r2.ebuild, rtirq-20060218-r1.ebuild,
+  rtirq-20060819-r1.ebuild, rtirq-20070101.ebuild, +rtirq-20071012.ebuild:
+  fixup QA messages,
+  include fix to work with different kernels (thx Steve and Dominique)
 
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog
