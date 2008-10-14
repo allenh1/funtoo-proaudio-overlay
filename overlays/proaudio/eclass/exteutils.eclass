@@ -75,20 +75,32 @@ esed_check() {
 	die_msg() {
 		eerror "failed to patch: ${1}"
 		eerror "Sed argument:"
-		eerror "sed ${args[@]}"
+		eerror "sed ${new_args[@]}"
 		die "sed patching failed"
 	}
 
 	local cnt=0
 	local args=("$@")
 	local uniq_backup="esed_bac${RANDOM}" # needed to find modified files
+	local new_args=""
 	for i in ${args[@]};do
-		if [ "$i" == "-i" ];then
-			args[$cnt]="-i${uniq_backup}"
+		if [ "${i::2}" == "-i" ];then
+			new_args[$cnt]="-i${uniq_backup}"
+
+			# eg if a switch like -ie is passed we've to separate em
+			if [ ! -z "${i:2}" ];then
+				let "cnt+=1"
+				new_args[$cnt]="-${i:2}"
+			fi
+		else
+			new_args[$cnt]="${i}"
 		fi
 		let "cnt+=1"
 	done
-	LC_ALL=C sed "${args[@]}"
+
+	# call sed to do the work
+	LC_ALL=C sed "${new_args[@]}"
+	
 	if [ "${?}" -ne "0" ] ;then
 		die_msg "retval not zero"
 	fi
