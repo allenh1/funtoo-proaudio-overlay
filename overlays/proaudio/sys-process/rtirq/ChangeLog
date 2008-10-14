@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  14 Oct 2008; Frieder Buerzele <evermind@tuxfamily.org
+  rtirq-20071012.ebuild:
+  use fullstatus to see whats going on
+
   13 Oct 2008; Frieder Buerzele <evermind@tuxfamily.org;
   rtirq-20050914-r2.ebuild, rtirq-20060218-r1.ebuild,
   rtirq-20060819-r1.ebuild, rtirq-20070101.ebuild, +rtirq-20071012.ebuild:
