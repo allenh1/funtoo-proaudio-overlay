@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  20 Oct 2008; Frieder Buerzele <evermind@tuxfamily.org;
+  iannix-0.640_beta.ebuild:
+  fix amd64 build
+
   11 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
   -iannix-0.638_beta.ebuild, +iannix-0.640_beta.ebuild:
   bumped

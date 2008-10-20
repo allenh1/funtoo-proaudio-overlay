@@ -4,7 +4,7 @@
 
 EAPI=1
 
-inherit eutils
+inherit exteutils
 
 MY_P="IanniX-${PV/_beta/b}"
 
@@ -41,13 +41,14 @@ pkg_setup() {
 
 src_compile() {
 	cd "${S}"
-	# Temp build fix
-	sed -i -e "s:setAccessibleName:// setAccessibleName:" \
-		src/graphics/opengl/NxGLScore.cpp || die
 	# fix Qt4 libdir
-	sed -i -e "s:/usr/local/Trolltech/Qt-4.2.2/lib:/usr/lib/qt4:" IanniX.pro ||
-		die
-
+	esed_check -i -e "s:/usr/local/Trolltech/Qt-...../lib:/usr/lib/qt4:" IanniX.pro
+	
+	# make amd64 compile
+	use amd64 && esed_check -i -e "45s|<int>|<long>|" \
+		-e "60s|<int>|<long>|" \
+		-e "61s|<int>|<long>|" \
+		src/network/OSCin/osc/OscReceivedElements.cpp
 	/usr/bin/qmake || die "qmake failed"
 	emake || die "make failed"
 }
