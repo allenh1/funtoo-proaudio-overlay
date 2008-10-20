@@ -79,24 +79,45 @@ esed_check() {
 		die "sed patching failed"
 	}
 
-	local cnt=0
-	local args=("$@")
 	local uniq_backup="esed_bac${RANDOM}" # needed to find modified files
-	local new_args=""
-	for i in ${args[@]};do
-		if [ "${i::2}" == "-i" ];then
+	local cnt=0
+	## begin debugin
+	if [ ! -z "$ESED_DBG" ];then
+		for arg in "$@";do
+			ewarn "DBG:old_arg $cnt is ->${arg}<-"
+			let "cnt+=1"
+		done
+		cnt=0
+	fi
+	## end debugin
+
+	# alter the cmdline (add a backup file -- later needed to verify patching)
+	local new_args
+	for arg in "$@";do
+		if [ "${arg::2}" == "-i" ];then
 			new_args[$cnt]="-i${uniq_backup}"
 
 			# eg if a switch like -ie is passed we've to separate em
-			if [ ! -z "${i:2}" ];then
+			if [ ! -z "${arg:2}" ];then
 				let "cnt+=1"
-				new_args[$cnt]="-${i:2}"
+				new_args[$cnt]=-${arg:2}
 			fi
 		else
-			new_args[$cnt]="${i}"
+			new_args[$cnt]=${arg}
 		fi
 		let "cnt+=1"
+		###
 	done
+	## begin debugin
+	if [ ! -z "$ESED_DBG" ];then
+		cnt=0
+		for arg in "${new_args[@]}";do
+			ewarn "DBG:new_arg $cnt is ->${arg}<-"
+			let "cnt+=1"
+		done
+		ewarn "sed ${new_args[@]}" 
+	fi
+	## end debugin
 
 	# call sed to do the work
 	LC_ALL=C sed "${new_args[@]}"
