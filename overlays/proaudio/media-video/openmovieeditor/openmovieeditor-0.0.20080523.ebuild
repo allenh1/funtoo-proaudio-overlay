@@ -31,7 +31,7 @@ RDEPEND="${DEPEND}
 src_unpack(){
 	unpack ${A}
 	cd "${S}"
-	# newer ffmepg version 
+	# newer ffmepg version api changes
 	local incl="${ROOT}/usr/include/libavcodec/avcodec.h"
 	if grep -q 'avcodec_decode_audio2' "$incl" ;then
 		esed_check -i -e 's@\(avcodec_decode_audio\)(@\12(@g' \
@@ -40,11 +40,10 @@ src_unpack(){
 }
 
 src_compile(){
-	econf || die "econf failed!"
-	append-ldflags -Wl,--no-as-needed
-
 	# workaround for newer ffmpeg
-	CPPFLAGS="${CPPFLAGS} -D__STDC_CONSTANT_MACROS" econf || die "econf failed"
+	CPPFLAGS="${CPPFLAGS} -D__STDC_CONSTANT_MACROS" \
+		econf || die "econf failed"
+	append-ldflags -Wl,--no-as-needed
 	emake || die "emake failed"
 }
 
