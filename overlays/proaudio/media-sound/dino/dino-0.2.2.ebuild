@@ -1,4 +1,4 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -16,7 +16,7 @@ KEYWORDS="~amd64 ~ppc x86"
 
 DEPEND=">=dev-cpp/libglademm-2.4.1
 	>=dev-cpp/libxmlpp-2.6.1
-	>=media-sound/jack-audio-connection-kit-9999
+	>=media-sound/jack-audio-connection-kit-0.102.6
 	>=media-sound/lash-0.5.0"
 
 src_unpack() {
