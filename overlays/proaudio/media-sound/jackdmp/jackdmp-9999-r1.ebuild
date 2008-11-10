@@ -31,7 +31,7 @@ src_compile() {
 	
 	einfo "Running \"/waf configure ${myconf}\" ..."
 	./waf configure ${myconf} || die "waf configure failed"
-	./waf build ${MAKEOPTS} || die "waf build failed"
+	./waf build || die "waf build failed"
 }
 
 src_install() {
