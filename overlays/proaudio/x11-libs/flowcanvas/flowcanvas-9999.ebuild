@@ -22,23 +22,21 @@ RDEPEND="dev-libs/boost
 DEPEND="${RDEPEND}
 	dev-util/pkgconfig
 	doc? ( app-doc/doxygen )"
-#S="${WORKDIR}/${ECVS_MODULE}"
 
 src_compile() {
-	export WANT_AUTOMAKE="1.10"
-	cd "${S}/${PN}" || die "source for ${PN} not found"
-	NOCONFIGURE=1 ./autogen.sh
-	econf $(use_enable debug) \
-		$(use_enable doc documentation)
-	emake || die "make failed"
-	if use doc; then
-		emake docs || die "make docs failed"
-	fi
+	cd ${PN}
+
+	local myconf="--prefix=/usr --libdir=/usr/$(get_libdir)/"
+
+	use doc && myconf="${myconf} --build-docs --htmldir=/usr/share/doc/${P}/html"
+	use debug && myconf="${myconf} --debug"
+
+	./waf configure ${myconf} || die
+	./waf build ${MAKEOPTS} || die
 }
 
 src_install() {
-	cd "${S}/${PN}" || die "binaries for ${PN} not found"
-	emake DESTDIR="${D}" install || die "make install failed"
+	cd ${PN}
+	./waf install --destdir="${D}" || die
 	dodoc AUTHORS README ChangeLog NEWS
-	use doc && dohtml -r doc/html/*
 }

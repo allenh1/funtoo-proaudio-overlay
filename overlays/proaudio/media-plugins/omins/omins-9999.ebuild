@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit subversion eutils
+inherit subversion eutils multilib
 
 ESVN_REPO_URI="http://svn.drobilla.net/lad/trunk"
 ESVN_PROJECT="svn.drobilla.net"
@@ -20,36 +20,17 @@ DEPEND="media-libs/ladspa-sdk
 	sci-libs/fftw
 	>=dev-libs/redland-1.0.6"
 
-#S="${WORKDIR}/${ESVN_PROJECT}"
-
-src_unpack() {
-	subversion_src_unpack || die
-	#cd "${S}"
-}
-
 src_compile() {
-	export WANT_AUTOCONF=2.5
-	export WANT_AUTOMAKE=1.9
-	./autogen.sh || die
-
-	econf \
-		--disable-in-process-engine \
-		--disable-dssi \
-		--disable-lash \
-		--disable-ladspa \
-		--disable-server \
-		--disable-ingen-gtk-client \
-		--disable-jack \
-		--disable-alsa \
-		--disable-lv2 \
-		--disable-machina-gui || die "configure failed"
-
-	cd "${S}/${PN}" || die "source for ${PN} not found"
-	emake || die
+	cd ${PN}/src
+	scons || die "scons failed"
 }
 
 src_install() {
-	cd "${S}/${PN}" || die "source for ${PN} not found"
-	make DESTDIR="${D}" install || die
+	cd ${PN}
 	dodoc NEWS AUTHORS README ChangeLog
+	
+	cd src
+	dodir /usr/$(get_libdir)/ladspa
+	into /usr/$(get_libdir)/ladspa
+	dolib *.so
 }

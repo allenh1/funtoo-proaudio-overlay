@@ -2,10 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit subversion jackmidi
+inherit subversion
 
 RESTRICT="nomirror"
-IUSE="jackmidi lash"
+IUSE="lash"
 DESCRIPTION="Patchage is a modular patchbay for Jack audio and Alsa sequencer."
 HOMEPAGE="http://drobilla.net/software/patchage"
 
@@ -18,31 +18,33 @@ KEYWORDS=""
 SLOT="0"
 
 DEPEND=">=media-libs/liblo-0.22
-	>=media-sound/jack-audio-connection-kit-0.99
+	>=media-sound/jack-audio-connection-kit-0.107.0
 	>=dev-libs/libxml2-2.6
-	>=dev-cpp/gtkmm-2.4
+	>=dev-libs/glib-2.14.0
+	>=dev-cpp/glibmm-2.14.0
+	>=dev-cpp/gtkmm-2.11.12
 	>=dev-cpp/libgnomecanvasmm-2.6
-	>=dev-cpp/libglademm-2.4.1
-	>=x11-libs/flowcanvas-0.4.0
+	>=dev-cpp/libglademm-2.6.0
+	>=x11-libs/flowcanvas-0.5.1
+	dev-libs/dbus-glib
 	lash? ( media-sound/lash )
-	!media-sound/patchage-cvs
 	=media-libs/raul-9999"
 
-#S="${WORKDIR}/${ECVS_MODULE}"
 
 src_compile() {
-	cd "${S}/${PN}" || die "source for ${PN} not found"
-	use jackmidi && need_jackmidi
-	NOCONFIGURE=1 ./autogen.sh
-	econf \
-		`use_enable jackmidi jack-midi` \
-		`use_enable lash` \
-		|| die "configure failed"
-	emake || die "make failed"
+	cd ${PN}
+
+	local myconf="--prefix=/usr --libdir=/usr/$(get_libdir)/"
+
+	use doc && myconf="${myconf} --build-docs --htmldir=/usr/share/doc/${P}/html"
+	use debug && myconf="${myconf} --debug"
+
+	./waf configure ${myconf} || die
+	./waf build ${MAKEOPTS} || die
 }
 
 src_install() {
-	cd "${S}/${PN}" || die "source for ${PN} not found"
-	make DESTDIR="${D}" install || die "install failed"
+	cd ${PN}
+	./waf install --destdir="${D}" || die
 	dodoc AUTHORS NEWS THANKS ChangeLog
 }
