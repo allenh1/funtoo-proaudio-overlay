@@ -18,7 +18,7 @@ RESTRICT="nomirror"
 DESCRIPTION="Ingo Molnars realtime patch applied on vanilla"
 SRC_URI="${KERNEL_URI}
 http://download.tuxfamily.org/proaudio/realtime-patches/${RT_PATCH}
-fbsplash? ( http://proaudio.tuxfamily.org/patches/${FBSPLASH} )"
+fbcondecor? ( http://proaudio.tuxfamily.org/patches/${FBSPLASH} )"
 
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE="fbcondecor"
