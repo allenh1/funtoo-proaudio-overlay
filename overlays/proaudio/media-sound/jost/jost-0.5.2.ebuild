@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI=1
+
 inherit eutils flag-o-matic multilib
 
 MY_P="${PN}_src-v${PV}"
@@ -14,8 +16,9 @@ RESTRICT="nomirror"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
+EAPI="1"
 KEYWORDS="~x86 ~amd64"
-IUSE="vst ladspa dssi"
+IUSE="+vst ladspa lash dssi"
 
 RDEPEND="|| ( (  x11-proto/xineramaproto
 					x11-proto/xextproto
@@ -25,13 +28,9 @@ RDEPEND="|| ( (  x11-proto/xineramaproto
 DEPEND="${RDEPEND}
 		vst? ( media-libs/vst-sdk )
 		ladspa? ( media-libs/ladspa-sdk )
-        dssi? ( media-libs/dssi )"
-
-# uh, is there any better way to say following:
-if use amd64 && use vst; then
-	DEPEND="${DEPEND}
-		app-emulation/emul-linux-x86-xlibs"
-fi
+        dssi? ( media-libs/dssi )
+		lash? ( media-sound/lash )
+		amd64? ( vst? ( app-emulation/emul-linux-x86-xlibs ) )"
 
 S="${WORKDIR}/${PN}-v${PV}"
 
@@ -64,57 +63,40 @@ pkg_setup() {
 src_unpack() {
 	unpack ${A}
 
-	# patch use flags
-	cd ${S}/plugins/Jost/src
-	use vst || \
-		sed -i -e "s:#define JOST_USE_VST://#define JOST_USE_VST:" \
-		Config.h || die "bad sed"
-
-	use ladspa || \
-		sed -i -e "s:#define JOST_USE_LADSPA://#define JOST_USE_LADSPA:" \
-		Config.h || die "bad sed"
-
-	use dssi || \
-		sed -i -e "s:#define JOST_USE_DSSI://#define JOST_USE_DSSI:" \
-		Config.h || die "bad sed"
-
-	# If USE="vst" is requested, we build 32bit on amd64
-	# otherwhise you won't be able to load VSTs
-	if use amd64 && use vst; then
-			sed -i \
-			-e 's:/usr/lib/:/usr/lib32/:' \
-			-e 's:/usr/X11R6/lib/:/usr/X11R6/lib32/:' \
-			"../build/linux/jost.make"
-	fi
-
-	# tmp fix, lash isn't needed
-	sed -i -e 's:-llash ::' "../build/linux/jost.make"
+	# fix VST header path
+	sed -i -e 's:source/common:vst:g' "${S}/wrapper/formats/VST/juce_VstWrapper.cpp" || die
 }
 
 src_compile() {
+	local myconf="CONFIG=Release"
+	
+	# we compile Release32, but with a 32bit toolchain
+	if use amd64 && use vst; then
+		multilib_toolchain_setup x86
+		myconf="CONFIG=Release32 JOST_USE_JACKBRIDGE=1"
+	fi
+
+	use lash && myconf="${myconf} JOST_USE_LASH=1"
+	use ladspa && myconf="${myconf} JOST_USE_LADSPA=1"
+	use dssi && myconf="${myconf} JOST_USE_DSSI=1"
+	use vst && myconf="${myconf} JOST_USE_VST=1"
+
 	# fails with --as-needed
 	filter-ldflags --as-needed -Wl,--as-needed
 
-	# If USE="vst" is requested, we build 32bit on amd64
-	# otherwhise you won't be able to load VSTs
-	if use amd64 && use vst; then
-		multilib_toolchain_setup x86
-		einfo "VST support requested. JOST will be built as 32bit binary"
-	fi
+	# append -fPIC
+	append-flags -fPIC -DPIC
+	append-ldflags -fPIC -DPIC
 
-	# build modified juce
-	cd ${S}/juce/build/linux
-	emake CONFIG=Release || die "building JUCE failed"
-
-	# build jost
-	cd ${S}/plugins/Jost/build/linux
-	emake CONFIG=Release || die "building JOST failed"
+	cd "${S}"/build/linux
+	einfo "Running \"make ${myconf}\" ..."
+	make ${myconf} || die
 }
 
 src_install() {
-	exeinto /usr/bin
-	doexe bin/jost
-	dodoc readme.txt
+	dobin bin/jost
+	use amd64 && dobin bin/jostbridge
+	dodoc readme.txt changelog.txt
 	doicon "${FILESDIR}/jost.png"
 	make_desktop_entry "${PN}" "Jost" "${PN}" "AudioVideo;Audio;"
 }
@@ -128,11 +110,8 @@ pkg_postinst() {
 
 	if use amd64 && use vst; then
 		echo
-		elog "You have enabled the vst useflag on amd64. JOST has been"
-		elog "built as 32bit binary, so you are able to load VSTs."
-		elog "In conecquence, you will not be able to connect JOST to a"
-		elog "64bit jackd instance! You can either emerge emul-linux-x86-jackd,"
-		elog "install JOST in a 32bit chroot, or disable VST support for JOST."
+		elog "You have to start jostbridge prior to jost, or use ALSA output!"
+		echo
 	fi
 	
 	if built_with_use x11-libs/libX11 xcb; then
