@@ -20,6 +20,7 @@ SLOT="0"
 
 RDEPEND="osc? ( >=media-libs/liblo-0.22 )
 	>=media-libs/raul-9999
+	>=dev-libs/redlandmm-9999
 	lash? ( >=media-sound/lash-0.5.0 )
 	midi? ( >=media-libs/alsa-lib-1.0.0 )
 	>=dev-libs/libxml2-2.6

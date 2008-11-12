@@ -17,13 +17,9 @@ KEYWORDS=""
 SLOT="0"
 
 DEPEND=">=dev-util/pkgconfig-0.9.0
-	>=dev-libs/rasqal-0.9.11
-	>=media-libs/raptor-1.4.14
-	dev-libs/boost
-	dev-libs/redland
-	>=dev-cpp/glibmm-2.4
-	doc? ( app-doc/doxygen )
-	=dev-libs/redlandmm-9999"
+	>=dev-libs/glib-2.14.0	
+	>=dev-cpp/glibmm-2.14.0
+	doc? ( app-doc/doxygen )"
 
 src_compile() {
 	cd "${S}/${PN}" || die "source for ${PN} not found"
