@@ -2,7 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI=2
+
 inherit eutils
+
 RESTRICT="nomirror"
 IUSE="jack lash devel-patches" # cairo"
 DESCRIPTION="Seq24 is a loop based MIDI sequencer with focus on live performances."
@@ -13,7 +16,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 ~ppc x86"
 
-RDEPEND=">=media-libs/alsa-lib-0.9.0
+RDEPEND=">=media-libs/alsa-lib-1.0.15[midi]
 	>=dev-cpp/gtkmm-2.4
 	>=dev-libs/libsigc++-2.0
 	jack? ( >=media-sound/jack-audio-connection-kit-0.90.0 )
@@ -21,15 +24,6 @@ RDEPEND=">=media-libs/alsa-lib-0.9.0
 	#cairo? ( x11-libs/cairo )"
 DEPEND="${RDEPEND}
 	dev-util/pkgconfig"
-
-pkg_setup() {
-	if ! built_with_use --missing true media-libs/alsa-lib midi; then
-		eerror ""
-		eerror "To be able to build ${CATEGORY}/${PN} with ALSA support you"
-		eerror "need to have built media-libs/alsa-lib with midi USE flag."
-		die "Missing midi USE flag on media-libs/alsa-lib"
-	fi
-}
 
 src_unpack() {
 	unpack ${A}
@@ -50,7 +44,7 @@ src_unpack() {
 	fi
 }
 
-src_compile() {
+src_configure() {
 	export WANT_AUTOCONF=2.5
 	#export WANT_AUTOMAKE=1.6
 
@@ -59,10 +53,14 @@ src_compile() {
 		autoreconf
 	fi
 
-	econf $(use_enable jack jack-support) \
-		 $(use_enable lash) 
+	econf \
+		$(use_enable jack jack-support) \
+		$(use_enable lash) \
 		--disable-alsatest \
 		|| die
+}
+
+src_compile() {
 	emake || die
 }
 
