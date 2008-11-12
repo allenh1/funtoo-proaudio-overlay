@@ -18,19 +18,22 @@ LICENSE="LGPL-2.1"
 SLOT="0"
 EAPI="1"
 KEYWORDS="~x86 ~amd64"
-IUSE="+vst ladspa lash dssi"
+IUSE="alsa +vst ladspa lash dssi opengl"
 
 RDEPEND="|| ( (  x11-proto/xineramaproto
 					x11-proto/xextproto
 					x11-proto/xproto )
 			virtual/x11 )
-		media-sound/jack-audio-connection-kit"
+	media-sound/jack-audio-connection-kit
+	dssi? ( media-libs/dssi )
+	lash? ( media-sound/lash )
+	opengl? ( virtual/opengl )
+	alsa? ( media-libs/alsa-lib )
+	amd64? ( vst? ( app-emulation/emul-linux-x86-xlibs ) )"
 DEPEND="${RDEPEND}
-		vst? ( media-libs/vst-sdk )
-		ladspa? ( media-libs/ladspa-sdk )
-        dssi? ( media-libs/dssi )
-		lash? ( media-sound/lash )
-		amd64? ( vst? ( app-emulation/emul-linux-x86-xlibs ) )"
+	vst? ( media-libs/vst-sdk )
+	ladspa? ( media-libs/ladspa-sdk )
+	dev-util/premake"
 
 S="${WORKDIR}/${PN}-v${PV}"
 
@@ -65,9 +68,27 @@ src_unpack() {
 
 	# fix VST header path
 	sed -i -e 's:source/common:vst:g' "${S}/wrapper/formats/VST/juce_VstWrapper.cpp" || die
+
+	if use amd64; then
+		sed -i -e "s:#define JOST_USE_JACKBRIDGE         0:#define		JOST_USE_JACKBRIDGE         1:" \
+		"${S}/src/Config.h" || die "bad sed"
+	fi
 }
 
 src_compile() {
+	cd "${S}"/build/linux
+
+	premake \
+		--file premake.lua \
+		--cc gcc --target gnu --os linux \
+		`use_enable alsa` \
+		`use_enable opengl` \
+		`use_enable lash` \
+		`use_enable vst` \
+		`use_enable ladspa` \
+		`use_enable dssi` \
+		|| die "premake failed"
+	
 	local myconf="CONFIG=Release"
 	
 	# we compile Release32, but with a 32bit toolchain
@@ -76,11 +97,6 @@ src_compile() {
 		myconf="CONFIG=Release32 JOST_USE_JACKBRIDGE=1"
 	fi
 
-	use lash && myconf="${myconf} JOST_USE_LASH=1"
-	use ladspa && myconf="${myconf} JOST_USE_LADSPA=1"
-	use dssi && myconf="${myconf} JOST_USE_DSSI=1"
-	use vst && myconf="${myconf} JOST_USE_VST=1"
-
 	# fails with --as-needed
 	filter-ldflags --as-needed -Wl,--as-needed
 
@@ -88,7 +104,6 @@ src_compile() {
 	append-flags -fPIC -DPIC
 	append-ldflags -fPIC -DPIC
 
-	cd "${S}"/build/linux
 	einfo "Running \"make ${myconf}\" ..."
 	make ${myconf} || die
 }
