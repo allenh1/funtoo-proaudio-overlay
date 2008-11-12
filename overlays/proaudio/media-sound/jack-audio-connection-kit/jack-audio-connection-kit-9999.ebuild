@@ -10,11 +10,10 @@ JACKDBUS="jackdbus-patches-0.12.tar.bz2"
 RESTRICT="nostrip nomirror"
 DESCRIPTION="A low-latency audio server"
 HOMEPAGE="http://www.jackaudio.org"
-SRC_URI="
-    netjack? ( mirror://sourceforge/netjack/${NETJACK}.tar.bz2 )
-	!jackdmp? (
-	dbus? ( http://download.tuxfamily.org/proaudio/distfiles/${JACKDBUS} )
-	)"
+SRC_URI="!jackdmp? ( 
+			netjack? ( mirror://sourceforge/netjack/${NETJACK}.tar.bz2 )
+			dbus? ( http://download.tuxfamily.org/proaudio/distfiles/${JACKDBUS} )
+		)"
 
 ESVN_REPO_URI="http://subversion.jackaudio.org/jack/trunk/jack"
 
@@ -24,8 +23,7 @@ KEYWORDS=""
 IUSE="3dnow altivec alsa caps coreaudio cpudetection dbus doc debug jack-tmpfs
 mmx oss portaudio sse netjack freebob ieee1394 jackdmp"
 
-RDEPEND="jackdmp? ( >=media-sound/jackdmp-9999-r1 )
-	!jackdmp? ( 
+RDEPEND="!jackdmp? ( 
 	>=media-libs/libsndfile-1.0.0
 	sys-libs/ncurses
 	caps? ( sys-libs/libcap )
@@ -43,6 +41,7 @@ DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )
 	netjack? ( dev-util/scons )
 	)"
+PDEPEND="jackdmp? ( >=media-sound/jackdmp-9999-r1 )"
 
 pkg_setup() {
 	if use jackdmp; then

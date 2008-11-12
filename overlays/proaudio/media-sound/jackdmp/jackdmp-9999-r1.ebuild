@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI=2
+
 inherit subversion flag-o-matic 
 
 DESCRIPTION="Jackdmp jack implemention for multi-processor machine"
@@ -20,10 +22,10 @@ RDEPEND="dev-util/pkgconfig
 DEPEND="${RDEPEND}
 	app-arch/unzip
 	doc? ( app-doc/doxygen )
-	dbus? ( sys-apps/dbus )"
-PDEPEND="=media-sound/jack-audio-connection-kit-9999"
+	dbus? ( sys-apps/dbus )
+	=media-sound/jack-audio-connection-kit-9999[jackdmp]"
 
-src_compile() {
+src_configure() {
 	local myconf="--prefix=/usr --destdir=${D}"
 	use dbus && myconf="${myconf} --dbus"
 	use doc && myconf="${myconf} --doxygen"
@@ -31,6 +33,9 @@ src_compile() {
 	
 	einfo "Running \"/waf configure ${myconf}\" ..."
 	./waf configure ${myconf} || die "waf configure failed"
+}
+
+src_compile() {
 	./waf build || die "waf build failed"
 }
 
