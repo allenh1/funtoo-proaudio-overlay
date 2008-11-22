@@ -6,7 +6,7 @@ inherit eutils
 
 DESCRIPTION="XMMS2 AudioScrobbler client"
 HOMEPAGE="http://code-monkey.de/pages/xmms2-scrobbler"
-SRC_URI="http://exodus.xmms.se/~tilman/${P}.tar.gz"
+SRC_URI="ftp://ftp.code-monkey.de/pub/${PN}/${P}.tar.gz"
 
 LICENSE="AS-IS"
 SLOT="0"
