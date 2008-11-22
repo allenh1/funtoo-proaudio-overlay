@@ -2,13 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils subversion autotools
+inherit eutils git autotools
 
 DESCRIPTION="JACK based, GTK (2.x) host for LV2 synths"
 HOMEPAGE="http://home.gna.org/zynjacku/"
 
-ESVN_REPO_URI="http://svn.gna.org/svn/zynjacku/code"
-ESVN_PROJECT="zynjacku"
+EGIT_REPO_URI="git://repo.or.cz/zynjacku.git"
+ESVN_PROJECT="master"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -18,6 +18,7 @@ S="${WORKDIR}/${PN}"
 
 IUSE=""
 DEPEND=">=media-sound/jack-audio-connection-kit-0.109.0
+	>=media-libs/lv2core-1
 	media-libs/slv2
 	>=dev-libs/atk-1.0
 	>=media-libs/freetype-2.0
@@ -28,11 +29,11 @@ DEPEND=">=media-sound/jack-audio-connection-kit-0.109.0
 	>=x11-libs/gtk+-2
 	>=dev-lang/python-2.4
 	=media-libs/lv2dynparam1-9999
-	>=media-libs/phat-0.4.1
+	=media-libs/phat-0.4.1
+	=media-libs/pyphat-0.4.1
 	>=dev-libs/redland-1.0.6"
 
-RDEPEND="${DEPEND}
-	>=media-libs/pyphat-9999"
+RDEPEND="${DEPEND}"
 
 pkg_setup() {
 	ewarn "if building fails try the following:"
@@ -41,8 +42,8 @@ pkg_setup() {
 
 
 src_unpack() {
-	subversion_src_unpack ${A}
-	cd ${S}
+	git_src_unpack
+	cd "${S}"
 	chmod +x gen_py_constants.py
 #	export WANT_AUTOMAKE="1.10"
 	./bootstrap

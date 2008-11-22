@@ -2,13 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils subversion autotools
+inherit eutils git autotools
 
 DESCRIPTION="LV2 dynparam extension"
 HOMEPAGE="http://home.gna.org/lv2dynparam/"
 
-ESVN_REPO_URI="http://svn.gna.org/svn/lv2dynparam/code"
-ESVN_PROJECT="lv2dynparam"
+EGIT_REPO_URI="git://repo.or.cz/lv2dynparam.git"
+ESVN_PROJECT="master"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -21,8 +21,8 @@ DEPEND=">=media-libs/lv2core-1
 	!media-libs/lv2dynparam"
 
 src_unpack() {
-	subversion_src_unpack ${A}
-	cd ${S}
+	git_src_unpack
+	cd "${S}"
 	export WANT_AUTOMAKE="1.10"
 	export WANT_AUTOCONF="2.61"
 	./bootstrap
