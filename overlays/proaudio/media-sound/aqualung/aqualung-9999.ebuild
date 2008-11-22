@@ -2,10 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit subversion eutils autotools
+inherit subversion base eutils autotools
 
-IUSE="sndfile mod mad vorbis speex flac musepack wavpack ffmpeg ladspa
-cddb cdda jack alsa oss loop-playback systray podcast debug"
+IUSE="sndfile mod mad vorbis speex flac musepack wavpack ffmpeg libsamplerate
+ladspa cddb cdda jack alsa oss loop-playback systray podcast debug"
 
 DESCRIPTION="Aqualung is a music player capable of gapless playback.
 Not very suitable for eye candy seekers."
@@ -37,7 +37,7 @@ RDEPEND="vorbis? ( >=media-libs/libvorbis-1.0 )
 	cdda? ( dev-libs/libcdio )
 	systray? ( >=x11-libs/gtk+-2.10 )
 	loop-playback? ( >=x11-libs/gtk+-2.8 )
-	media-libs/libsamplerate
+	libsamplerate? ( media-libs/libsamplerate )
 	>=x11-libs/gtk+-2.6"
 
 DEPEND="ladspa? ( >=media-libs/liblrdf-0.4.0 )
@@ -53,9 +53,6 @@ src_unpack() {
 	echo "#define AQUALUNG_VERSION \"R-$(cd
 "${ESVN_STORE_DIR}/${ESVN_PROJECT}/${ESVN_REPO_URI##*/}" ; svn info |
 grep '^Revision' | awk '{print $2}')\"" > src/version.h
-
-	# FFMpeg headers...
-	epatch "${FILESDIR}/new-ffmpeg-headers.patch"
 
 	eautoreconf || die
 }
@@ -80,12 +77,11 @@ src_compile() {
 		`use_with cdda` \
 		`use_with loop-playback loop` \
 		`use_with podcast` \
+		`use_with libsamplerate src` \
 		`use_enable debug` \
 		|| die "econf failed"
 	
 	emake || die "make failed"
 }
 
-src_install() {
-	emake install DESTDIR="${D}" || die "make install failed"
-}
+DOCS="AUTHORS ChangeLog INSTALL NEWS README"
