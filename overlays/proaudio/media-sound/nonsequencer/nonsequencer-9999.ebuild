@@ -21,7 +21,6 @@ RDEPEND="${DEPEND}"
 src_unpack(){
 	git_src_unpack || die "git clone failed."
 	cd "${S}"
-	epatch "${FILESDIR}/nonsequencer-makefile-fix.patch"
 }
 
 src_compile() {
