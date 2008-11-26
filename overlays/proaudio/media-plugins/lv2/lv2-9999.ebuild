@@ -24,10 +24,10 @@ RDEPEND="${DEPEND}"
 src_compile() {
 	cd "${S}/${PN}" || die "source for ${PN} not found"
 	
-	local myconf="--prefix=/usr --libdir=/usr/$(get_libdir)/"
+	local myconf="--prefix=/usr"
 	use debug && myconf="${myconf} --debug"
 	./waf configure ${myconf} || die
-	./waf build ${MAKEOPTS} || die
+	./waf build || die
 }
 
 src_install() {

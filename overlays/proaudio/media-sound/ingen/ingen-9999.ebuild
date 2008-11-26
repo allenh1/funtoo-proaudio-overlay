@@ -26,8 +26,6 @@ RDEPEND="osc? ( >=media-libs/liblo-0.22 )
 	>=dev-libs/libxml2-2.6
 	>=dev-libs/glib-2.14.0
 	>=dev-cpp/glibmm-2.14.0
-	>=media-libs/raptor-0.21
-	>=dev-libs/rasqal-0.9.11
 	>=dev-libs/libsigc++-2.0
 	gtk? ( >=dev-cpp/gtkmm-2.11.12
 		>=dev-cpp/libgnomecanvasmm-2.6
@@ -35,9 +33,6 @@ RDEPEND="osc? ( >=media-libs/liblo-0.22 )
 		>=net-libs/libsoup-2.4.0
 		>=x11-libs/flowcanvas-0.5.1 )
 	ladspa? ( media-libs/ladspa-sdk )
-	media-plugins/omins
-	!media-sound/om
-	dssi? ( media-libs/dssi )
 	jack? ( >=media-sound/jack-audio-connection-kit-0.109.0 )
 	>=media-libs/slv2-0.6"
 
