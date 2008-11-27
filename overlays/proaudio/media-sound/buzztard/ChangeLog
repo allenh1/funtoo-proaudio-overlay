@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  27 Nov 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  +buzztard-0.4.0.ebuild:
+  version bump
+
   28 Mar 2008; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   initial ebuild
 
