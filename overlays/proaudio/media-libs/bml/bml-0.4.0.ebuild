@@ -2,8 +2,6 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit multilib
-
 DESCRIPTION="Buzz Machines Loader for Buzztard"
 HOMEPAGE="http://www.buzztard.org"
 SRC_URI="mirror://sourceforge/buzztard/${P}.tar.gz"
@@ -17,19 +15,6 @@ IUSE="debug"
 DEPEND="app-emulation/wine"
 RDEPEND="${DEPEND}"
 
-pkg_setup() {
-	if use amd64; then
-		ewarn "This package is totally useless on amd64 as long our multilib setup"
-		ewarn "is too poor to compile 32bit gnome-vfs and gstreamer (needed for"
-		ewarn "32bit buzztard). BML does compile, but again: it's useless!"
-		echo
-		ewarn "Press Control-C in between 5 secs to cancel."
-		echo
-		sleep 5
-		multilib_toolchain_setup x86
-	fi
-}
-
 src_compile() {
 	econf \
 		`use_enable debug ` \
@@ -40,4 +25,13 @@ src_compile() {
 src_install() {
 	einstall || die
 	dodoc AUTHORS ChangeLog NEWS README TODO
+}
+
+pkg_postinst() {
+	if use amd64; then
+		echo
+		ewarn "AMD64 users please note that you will not be able to load 32bit"
+		ewarn "machines! To get some native 64bit ones, install	media-plugins/buzzmachines"
+		echo
+	fi
 }
