@@ -1,17 +1,15 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit cvs
+inherit git
 
 DESCRIPTION="collection of LV2 plugins, LV2 extension definitions, and LV2 related tools"
 HOMEPAGE="http://ll-plugins.nongnu.org"
-SRC_URI=""
 
-ECVS_SERVER="cvs.savannah.nongnu.org:/sources/ll-plugins"
-ECVS_MODULE="ll-plugins"
+EGIT_REPO_URI="git://git.sv.gnu.org/ll-plugins.git"
 
-LICENSE="gpl2"
+LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 IUSE=""
@@ -23,18 +21,11 @@ DEPEND=">=media-sound/jack-audio-connection-kit-0.102.27
 	>=media-libs/liblo-0.22
 	>=sci-libs/gsl-1.8
 	>=media-libs/libsndfile-1.0.16
-	>=media-libs/slv2-0.3.2"
+	media-plugins/lv2"
 
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${PN}"
-
-src_unpack(){
-	cvs_src_unpack
-	cd ${S}
-	# find slv2!
-	epatch "${FILESDIR}/${PN}-vs-slv2.patch"
-}
 
 src_compile(){
 	./configure \
