@@ -48,7 +48,7 @@ src_compile() {
 	export QMAKE_LFLAGS_RELEASE="${LDFLAGS}"
 	export QMAKE_LFLAGS_DEBUG="${LDFLAGS}"
 
-	local myconf="prefix=${ROOT}usr destdir=${D}"
+	local myconf="prefix=${ROOT}usr DESTDIR=${D}"
 	! use alsa; myconf="${myconf} alsa=$?"
 	! use debug; myconf="${myconf} debug=$?"
 	! use jack; myconf="${myconf} jack=$?"
@@ -67,7 +67,7 @@ src_compile() {
 }
 
 src_install() {
-	scons install prefix="${ROOT}usr" destdir="${D}" || die "scons install failed"
+	scons install prefix="${ROOT}usr" DESTDIR="${D}" || die "scons install failed"
 
 	# install tools
 	for i in hydrogenSynth hydrogenPlayer; do
