@@ -2,5 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  01 Dec 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  +rakarrack-0.3.0.ebuild:
+  version bump
+
   21 May 2008; Dominique Michel <dominique.michel@citycable.ch> Version
   rakarrack initial commit : v 0.1.2
