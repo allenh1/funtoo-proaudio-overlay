@@ -2,11 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-RESTRICT="mirror"
+inherit base
 
 DESCRIPTION="Basic rack of 10 effects for guitar with presets, banks and MIDI control"
 HOMEPAGE="http://rakarrack.sourceforge.net/"
 SRC_URI="mirror://sourceforge/rakarrack/${P}.tar.gz"
+RESTRICT="mirror"
 
 LICENSE="GPL-2"
 SLOT="0"
