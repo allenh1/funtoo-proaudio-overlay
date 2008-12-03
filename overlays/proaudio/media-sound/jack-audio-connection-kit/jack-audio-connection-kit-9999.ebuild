@@ -5,22 +5,22 @@
 inherit flag-o-matic eutils multilib subversion linux-info autotools unipatch-001
 
 NETJACK="netjack-0.12"
-JACKDBUS="jackdbus-patches-0.12.tar.bz2"
+#JACKDBUS="jackdbus-patches-0.12.tar.bz2"
 
 RESTRICT="nostrip nomirror"
 DESCRIPTION="A low-latency audio server"
 HOMEPAGE="http://www.jackaudio.org"
 SRC_URI="!jackdmp? ( 
 			netjack? ( mirror://sourceforge/netjack/${NETJACK}.tar.bz2 )
-			dbus? ( http://download.tuxfamily.org/proaudio/distfiles/${JACKDBUS} )
 		)"
+		#	dbus? ( http://download.tuxfamily.org/proaudio/distfiles/${JACKDBUS} )
 
 ESVN_REPO_URI="http://subversion.jackaudio.org/jack/trunk/jack"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="3dnow altivec alsa caps coreaudio cpudetection dbus doc debug jack-tmpfs
+IUSE="3dnow altivec alsa caps coreaudio cpudetection doc debug jack-tmpfs
 mmx oss portaudio sse netjack freebob ieee1394 jackdmp"
 
 RDEPEND="!jackdmp? ( 
@@ -77,10 +77,10 @@ src_unpack() {
 	epatch "${FILESDIR}/jack-transport-start-at-zero-fix.diff"
 	
 	# dbus patches from Nedko Arnaudov
-	if use dbus; then
-		UNIPATCH_LIST="${DISTDIR}/${JACKDBUS}"
-		unipatch
-	fi
+	#if use dbus; then
+	#	UNIPATCH_LIST="${DISTDIR}/${JACKDBUS}"
+	#	unipatch
+	#fi
 
 	sed -i -e "s:include/nptl/:include/:g" configure.ac || die
 	eautoreconf
@@ -104,9 +104,9 @@ src_compile() {
 		myconf="${myconf} --with-default-tmpdir=/var/run/jack"
 	fi
 
-	if use dbus; then
-		myconf="${myconf} --enable-dbus --enable-pkg-config-dbus-service-dir"
-	fi
+	#if use dbus; then
+	#	myconf="${myconf} --enable-dbus --enable-pkg-config-dbus-service-dir"
+	#fi
 
 	if [[ ${CHOST} == *-darwin* ]] ; then
 		append-flags -fno-common
