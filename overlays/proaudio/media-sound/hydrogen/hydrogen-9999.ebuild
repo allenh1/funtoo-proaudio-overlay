@@ -73,8 +73,4 @@ src_install() {
 	for i in hydrogenSynth hydrogenPlayer; do
 		dobin extra/$i/$i
 	done
-
-	# desktop entry
-	newicon "data/img/gray/icon32.png" "${PN}.png"
-	make_desktop_entry "${PN}" "Hydrogen" "${PN}" "AudioVideo;Audio;sequencer"
 }

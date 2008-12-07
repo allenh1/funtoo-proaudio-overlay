@@ -15,7 +15,7 @@ LICENSE="GPL-2 LGPL"
 SLOT="0"
 KEYWORDS=""
 
-IUSE="alsa debug fftw fluidsynth jack ogg pch portaudio pulseaudio samplerate sdl stk vst"
+IUSE="alsa debug fftw fluidsynth jack ogg pulseaudio sdl stk vst"
 
 RDEPEND="|| ( (
 				x11-libs/qt-core
@@ -27,7 +27,6 @@ RDEPEND="|| ( (
 	jack? ( >=media-sound/jack-audio-connection-kit-0.99.0 )
 	ogg? ( media-libs/libvorbis 
 				media-libs/libogg )
-	portaudio? ( media-libs/portaudio )
 	pulseaudio? ( media-sound/pulseaudio )
 	>=media-libs/libsndfile-1.0.11
 	media-libs/libsamplerate
@@ -49,13 +48,11 @@ src_configure() {
 		$(cmake-utils_use_want fftw FFTW3F)
 		$(cmake-utils_use_want jack JACK)
 		$(cmake-utils_use_want ogg OGGVORBIS)
-		$(cmake-utils_use_want portaudio PORTAUDIO)
 		$(cmake-utils_use_want pulseaudio PULSEAUDIO)
 		$(cmake-utils_use_want sdl SDL)
 		$(cmake-utils_use_want fluidsynth SF2)
 		$(cmake-utils_use_want stk STK)
-		$(cmake-utils_use_want vst VST)
-		$(cmake-utils_use_want pch PCH)"
+		$(cmake-utils_use_want vst VST)"
 
 	cmake-utils_src_configure
 }
