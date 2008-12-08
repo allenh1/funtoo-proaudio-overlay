@@ -85,12 +85,9 @@ src_compile() {
 		`use_enable dssi` \
 		|| die "premake failed"
 	
-	local myconf="CONFIG=Release"
-	
 	# we compile Release32, but with a 32bit toolchain
 	if use amd64 && use vst; then
 		multilib_toolchain_setup x86
-		myconf="CONFIG=Release32 JOST_USE_JACKBRIDGE=1"
 	fi
 
 	# fails with --as-needed
@@ -101,13 +98,13 @@ src_compile() {
 	append-ldflags -fPIC -DPIC
 
 	einfo "Running \"make ${myconf}\" ..."
-	make ${myconf} || die
+	make CONFIG=Release || die
 }
 
 src_install() {
 	dobin bin/jost
 	dodoc readme.txt changelog.txt
-	doicon "${FILESDIR}/jost.png"
+	doicon "resources/jost.png"
 	make_desktop_entry "${PN}" "Jost" "${PN}" "AudioVideo;Audio;"
 }
 
