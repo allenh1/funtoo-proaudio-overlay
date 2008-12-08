@@ -25,6 +25,7 @@ RDEPEND="|| ( (  x11-proto/xineramaproto
 					x11-proto/xproto )
 			virtual/x11 )
 	media-sound/jack-audio-connection-kit
+	media-libs/juce
 	dssi? ( media-libs/dssi )
 	lash? ( media-sound/lash )
 	opengl? ( virtual/opengl )
