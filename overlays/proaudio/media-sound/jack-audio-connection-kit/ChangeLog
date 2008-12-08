@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  08 Dec 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  +jack-audio-connection-kit-0.116.1.ebuild:
+  version bump
+
   12 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
   -jack-audio-connection-kit-0.100.7-r2.ebuild,
   -jack-audio-connection-kit-0.100.7-r3.ebuild,
