@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  09 Dec 2008; Thomas Kuther <gimpel@sonnenkinder.org> +ardour-2.7.1.ebuild:
+  lv2 enabled version bump
+
   25 Sep 2008; Frieder Buerzele <evermind@tuxfamily.org; ardour-2.5.ebuild,
   ardour-2.9999.ebuild, ardour-99992.ebuild:
   MAKEOPT aware scons
