@@ -33,7 +33,8 @@ pkg_setup() {
 		if kernel_is 2 4 ; then
 			einfo "will build jackstart for 2.4 kernel"
 		else
-			einfo "using compatibility symlink for jackstart"
+			ewarn "USE=\"caps\" is unneded on Linux 2.6 kernels"
+			einfo "Anyways, compiling it and using compatibility symlink for jackstart"
 		fi
 	fi
 }
