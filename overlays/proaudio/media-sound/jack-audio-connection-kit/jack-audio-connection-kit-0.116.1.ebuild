@@ -11,14 +11,14 @@ SRC_URI="http://jackaudio.org/downloads/${P}.tar.gz"
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="3dnow altivec alsa caps celt coreaudio cpudetection doc debug ieee1394
-jack-tmpfs mmx netjack oss portaudio sse freebob"
+IUSE="3dnow altivec alsa caps celt coreaudio cpudetection dbus doc debug ieee1394 jack-tmpfs mmx netjack oss portaudio sse freebob"
 
 RDEPEND="
 	>=media-libs/libsndfile-1.0.0
 	sys-libs/ncurses
 	caps? ( sys-libs/libcap )
 	celt? ( >=media-libs/celt-0.5.0 )
+	dbus? ( sys-apps/dbus )
 	portaudio? ( =media-libs/portaudio-18* )
 	alsa? ( >=media-libs/alsa-lib-0.9.1 )
 	freebob? ( sys-libs/libfreebob )
@@ -36,6 +36,17 @@ pkg_setup() {
 			ewarn "USE=\"caps\" is unneded on Linux 2.6 kernels!"
 			einfo "Anyways, compiling it and using compatibility symlink for jackstart"
 		fi
+	fi
+}
+
+src_unpack() {
+	unpack ${A}
+	cd "${S}"
+
+	if use dbus; then
+		epatch "${FILESDIR}/${P}-dbus.patch"
+		epatch "${FILESDIR}/${P}-dbus_as-needed.patch"
+		eautoreconf
 	fi
 }
 
