@@ -12,7 +12,7 @@ HOMEPAGE="http://ardour.org/"
 ESVN_REPO_URI="http://subversion.ardour.org/svn/ardour2/branches/3.0"
 
 LICENSE="GPL-2"
-SLOT="0"
+SLOT="3"
 KEYWORDS=""
 IUSE="altivec debug lv2 freesound nls sse surfaces"
 
@@ -50,6 +50,22 @@ DEPEND="${RDEPEND}
 	>=dev-util/scons-0.98.5
 	nls? ( sys-devel/gettext )"
 
+src_unpack() {
+	subversion_src_unpack
+	cd "${S}"
+
+	# some temporary slotting fixes
+	sed -i -e 's:ardour2:ardour3:' \
+		libs/rubberband/SConscript \
+		libs/clearlooks-older/SConscript \
+		|| die
+		# now it gets dirty... the locale files...
+	sed -e "s:share/locale:share/ardour3/locale:" \
+		-i SConstruct gtk2_ardour/SConscript || die
+	sed -e "s:'share', 'locale':'share', 'ardour3', 'locale':" \
+		-i libs/ardour/SConscript
+}
+	
 ardour_use_enable() {
 	use ${2} && echo "${1}=1" || echo "${1}=0"
 }
@@ -64,10 +80,10 @@ src_compile() {
 	tc-export CC CXX
 
 	scons \
+		$(ardour_use_enable NLS nls) \
 		$(ardour_use_enable DEBUG debug) \
 		FPU_OPTIMIZATION=${FPU_OPTIMIZATION} \
 		DESTDIR="${D}" \
-		$(ardour_use_enable NLS nls) \
 		$(ardour_use_enable FREESOUND freesound) \
 		$(ardour_use_enable LV2 lv2) \
 		$(ardour_use_enable SURFACES surfaces) \
@@ -82,8 +98,11 @@ src_install() {
 
 	dodoc DOCUMENTATION/*
 
-	doicon "${S}/icons/icon/ardour_icon_mac.png"
-	make_desktop_entry ardour3 Ardour3 ardour3 AudioVideo
+	newicon "icons/icon/ardour_icon_tango_48px_red.png" "ardour3.png"
+	make_desktop_entry "ardour3" "Ardour3" "ardour3" "AudioVideo;Audio"
+
+	# fix wrapper
+	sed -i -e 's:ardour2:ardour3:g' ${D}/usr/bin/ardour3 || die
 }
 
 pkg_postinst() {
@@ -92,7 +111,7 @@ pkg_postinst() {
 	
 	ewarn "---------------- WARNING -------------------"
 	ewarn ""
-	ewarn "MAKE BACKUPS OF THE SESSION FILES."
+	ewarn "MAKE BACKUPS OF THE SESSION FILES BEFORE TRYING THIS VERSION."
 	ewarn ""
 	ewarn "The simplest way to address this is to make a copy of the session file itself"
 	ewarn "(e.g mysession/mysession.ardour) and make that file unreadable using chmod(1)."
