@@ -4,7 +4,7 @@
 
 EAPI=2
 
-inherit eutils toolchain-funcs flag-o-matic versionator
+inherit eutils toolchain-funcs fdo-mime flag-o-matic versionator
 
 DESCRIPTION="multi-track hard disk recording software"
 HOMEPAGE="http://ardour.org/"
@@ -95,6 +95,9 @@ src_install() {
 }
 
 pkg_postinst() {
+	fdo-mime_mime_database_update
+	fdo-mime_desktop_database_update
+
 	ewarn "---------------- WARNING -------------------"
 	ewarn ""
 	ewarn "Do not use Ardour 2.0 to open the only copy of sessions created with Ardour 0.99."

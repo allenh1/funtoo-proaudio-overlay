@@ -98,7 +98,7 @@ src_install() {
 
 	dodoc DOCUMENTATION/*
 
-	newicon "icons/icon/ardour_icon_tango_48px_red.png" "ardour3.png"
+	newicon "icons/icon/ardour_icon_tango_48px_blue.png" "ardour3.png"
 	make_desktop_entry "ardour3" "Ardour3" "ardour3" "AudioVideo;Audio"
 
 	# fix wrapper
