@@ -44,7 +44,6 @@ src_compile () {
 }
 
 src_install () {
-	cd "$PN"
 	scons DESTDIR="${D}" install || die
 	dodoc AUTHORS ChangeLog NEWS README TODO
 }
