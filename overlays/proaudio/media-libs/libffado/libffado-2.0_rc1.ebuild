@@ -25,6 +25,8 @@ RDEPEND=">=media-libs/alsa-lib-1.0.0
 DEPEND="${RDEPEND}
 	dev-util/scons"
 
+S="${WORKDIR}/${MY_P}"
+
 src_compile () {
 	cd "$PN"
 	scons \
