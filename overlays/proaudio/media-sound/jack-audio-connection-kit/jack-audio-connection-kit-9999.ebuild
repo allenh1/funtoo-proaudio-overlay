@@ -19,22 +19,18 @@ ESVN_REPO_URI="http://subversion.jackaudio.org/jack/trunk/jack"
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="3dnow altivec alsa caps celt coreaudio cpudetection doc debug jack-tmpfs
-mmx oss portaudio sse netjack freebob ieee1394 jackdmp"
+IUSE="3dnow altivec alsa celt coreaudio cpudetection doc debug examples mmx oss sse netjack freebob ieee1394 jackdmp"
 
 RDEPEND="!jackdmp? ( 
 	>=media-libs/libsndfile-1.0.0
 	sys-libs/ncurses
-	caps? ( sys-libs/libcap )
 	celt? ( >=media-libs/celt-0.5.0 )
-	portaudio? ( =media-libs/portaudio-18* )
 	alsa? ( >=media-libs/alsa-lib-0.9.1 )
-    dbus? ( sys-apps/dbus
-		dev-python/dbus-python )
 	freebob? ( sys-libs/libfreebob !media-libs/libffado )
 	ieee1394? ( media-libs/libffado !sys-libs/libfreebob )
 	netjack? ( media-libs/libsamplerate )
 	!media-sound/jackdmp )"
+	#dbus? ( sys-apps/dbus )
 
 DEPEND="${RDEPEND}
 	!jackdmp? ( 
@@ -50,15 +46,6 @@ pkg_setup() {
 		ewarn "in jackdmp and will NOT compile and install ${PN}!"
 		sleep 3
 		return # no more to do
-	fi
-
-	if use caps; then
-		if kernel_is 2 4 ; then
-			einfo "will build jackstart for 2.4 kernel"
-		else
-			ewarn "USE=\"caps\" is unneded on Linux 2.6 kernels!"
-			einfo "Anyways, compiling it and using compatibility symlink for jackstart"
-		fi
 	fi
 }
 
@@ -88,64 +75,33 @@ src_compile() {
 
 	local myconf="--with-html-dir=/usr/share/doc/${PF}"
 
-	if use jack-tmpfs; then
-		myconf="${myconf} --with-default-tmpdir=/dev/shm"
-	else
-		myconf="${myconf} --with-default-tmpdir=/var/run/jack"
-	fi
-
 	#if use dbus; then
 	#	myconf="${myconf} --enable-dbus --enable-pkg-config-dbus-service-dir"
 	#fi
 
-	if [[ ${CHOST} == *-darwin* ]] ; then
-		append-flags -fno-common
-		use altivec && append-flags -force_cpusubtype_ALL \
-			-maltivec -mabi=altivec -mhard-float -mpowerpc-gfxopt
-	fi
-
 	# CPU Detection (dynsimd) uses asm routines which requires 3dnow, mmx and sse.
-	# Also, without -O2 it will not compile as well.
-	# we test if it is present before enabling the configure flag.
-	if use cpudetection ; then
-		if (! grep 3dnow /proc/cpuinfo >/dev/null) ; then
-			ewarn "Can't build cpudetection (dynsimd) without cpu 3dnow support. see bug #136565."
-		elif (! grep sse /proc/cpuinfo >/dev/null) ; then
-			ewarn "Can't build cpudetection (dynsimd) without cpu sse support. see bug #136565."
-		elif (! grep mmx /proc/cpuinfo >/dev/null) ; then
-			ewarn "Can't build cpudetection (dynsimd) without cpu mmx support. see bug #136565."
-		else
-			einfo "Enabling cpudetection (dynsimd). Adding -mmmx, -msse, -m3dnow and -O2 to CFLAGS."
-			myconf="${myconf} --enable-dynsimd"
-
-			filter-flags -O*
-			append-flags -mmmx -msse -m3dnow -O2
-		fi
+	if use cpudetection && use 3dnow && use mmx && use sse ; then
+		einfo "Enabling cpudetection (dynsimd). Adding -mmmx, -msse, -m3dnow and -O2 to CFLAGS."
+		myconf="${myconf} --enable-dynsimd"
+		append-flags -mmmx -msse -m3dnow -O2
 	fi
+	
+	use doc || export ac_cv_prog_HAVE_DOXYGEN=false
 
 	econf \
 		$(use_enable ieee1394 firewire) \
 		$(use_enable freebob) \
 		$(use_enable altivec) \
 		$(use_enable alsa) \
-		$(use_enable caps capabilities) $(use_enable caps stripped-jackd) \
 		$(use_enable coreaudio) \
 		$(use_enable debug) \
-		$(use_enable doc html-docs) \
 		$(use_enable mmx) \
 		$(use_enable oss) \
-		$(use_enable portaudio) \
 		$(use_enable sse)  \
-		$(use_enable 3dnow dynsimd) \
 		--disable-dependency-tracking \
+		--with-default-tmpdir=/dev/shm \
 		${myconf} || die "configure failed"
 	emake || die "compilation failed"
-
-	if use caps && kernel_is 2 4 ; then
-		einfo "Building jackstart for 2.4 kernel"
-		cd "${S}"/jackd
-		emake jackstart || die "jackstart build failed."
-	fi
 }
 
 src_install() {
@@ -155,30 +111,10 @@ src_install() {
 	fi
 
 	emake DESTDIR="${D}" install || die "install failed"
+	dodoc AUTHORS TODO README
 
-	if use caps; then
-		if kernel_is 2 4 ; then
-			cd "${S}/jackd"
-			dobin jackstart
-		else
-			dosym /usr/bin/jackd /usr/bin/jackstart
-		fi
-	fi
-
-	if ! use jack-tmpfs; then
-		keepdir /var/run/jack
-		chmod 4777 ${D}/var/run/jack
-	fi
-
-	if use doc; then
-		mv ${D}/usr/share/doc/${PF}/reference/html \
-		   ${D}/usr/share/doc/${PF}/
-
+	if use examples; then
 		insinto /usr/share/doc/${PF}
 		doins -r "${S}/example-clients"
-	else
-		rm -rf ${D}/usr/share/doc
 	fi
-
-	rm -rf ${D}/usr/share/doc/${PF}/reference
 }
