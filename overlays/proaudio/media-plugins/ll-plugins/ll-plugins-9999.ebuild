@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit git
+inherit multilib git
 
 DESCRIPTION="collection of LV2 plugins, LV2 extension definitions, and LV2 related tools"
 HOMEPAGE="http://ll-plugins.nongnu.org"
@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-DEPEND=">=media-sound/jack-audio-connection-kit-0.102.27
+DEPEND=">=media-sound/jack-audio-connection-kit-0.109.0
 	>=dev-cpp/gtkmm-2.8.8
 	>=dev-cpp/cairomm-0.6.0
 	>=media-sound/lash-0.5.1
@@ -37,5 +37,5 @@ src_compile(){
 }
 
 src_install(){
-	make DESTDIR="${D}" install || die "install failed"
+	make DESTDIR="${D}" libdir="/usr/$(get_libdir)" install || die "install failed"
 }

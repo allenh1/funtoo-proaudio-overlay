@@ -9,7 +9,7 @@ inherit eutils qt4 subversion
 DESCRIPTION="Linux Drum Machine"
 HOMEPAGE="http://hydrogen.sourceforge.net/"
 
-ESVN_REPO_URI="http://hydrogen-music.org/svn/trunk"
+ESVN_REPO_URI="http://svn.assembla.com/svn/hydrogen/trunk"
 
 LICENSE="GPL-2"
 SLOT="0"
