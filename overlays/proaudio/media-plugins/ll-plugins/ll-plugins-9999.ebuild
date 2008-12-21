@@ -21,11 +21,19 @@ DEPEND=">=media-sound/jack-audio-connection-kit-0.109.0
 	>=media-libs/liblo-0.22
 	>=sci-libs/gsl-1.8
 	>=media-libs/libsndfile-1.0.16
-	media-plugins/lv2"
+	dev-util/lv2-c++-tools"
 
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${PN}"
+
+src_unpack() {
+	git_src_unpack
+	cd "${S}"
+	# ar doesn't really like ldflags
+	sed -e 's:ar rcs $$@ $$^ $(LDFLAGS) $$($(2)_LDFLAGS):ar rcs	$$@ $$^:' \
+		-i Makefile.template || die
+}
 
 src_compile(){
 	./configure \

@@ -2,6 +2,13 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  19 Dec 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  +files/libffado-2.0_rc1-dbus_mailoop.patch, +L, libffado-2.0_rc1.ebuild,
+  libffado-9999.ebuild:
+  libffado updates: * libffado-2.0_rc1: apply patch from trunk to find
+  dbus.mainloop.qt py module * rename useflag mixer -> qt4 * allow qt < 4.4
+  * merge optimization useflag with debug
+
   30 Sep 2008; Frieder Buerzele <evermind@tuxfamily.org;
   libffado-9999.ebuild:
   fix dependency: use dev-cpp/libxmlpp instead dev-libs/libxml2
