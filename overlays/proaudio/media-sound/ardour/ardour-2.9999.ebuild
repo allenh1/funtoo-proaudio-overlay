@@ -4,12 +4,11 @@
 
 inherit exteutils fetch-tools scons-ccache subversion vst
 
-ESVN_REPO_URI="http://subversion.ardour.org/svn/ardour2/branches/2.0-ongoing"
 DESCRIPTION="multi-track hard disk recording software"
 HOMEPAGE="http://ardour.org/"
-SRC_URI=""
-URL="http://ardour.org/files/releases/${PN}.tar.bz2"
-RESTRICT="nomirror"
+
+ESVN_REPO_URI="http://subversion.ardour.org/svn/ardour2/branches/2.0-ongoing"
+ESVN_RESTRICT="export"
 
 LICENSE="GPL-2"
 SLOT="0"
