@@ -85,6 +85,11 @@ src_unpack(){
 		agree_vst || die "you can not distribute ardour with vst support"
 	fi
 	subversion_src_unpack
+	subversion_wc_info
+	einfo "Copying working copy to source dir:"
+	mkdir -p "${S}"
+	cp -R "${ESVN_WC_PATH}"/* "${S}"
+	cp -R "${ESVN_WC_PATH}"/.* "${S}"
 	cd ${S}
 
 	# hack to use the sys-lib for sndlib also
