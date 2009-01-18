@@ -15,7 +15,7 @@ KEYWORDS="~amd64 x86"
 IUSE=""
 RESTRICT="nomirror"
 
-RDEPEND="dev-util/scons
+DEPEND="dev-util/scons
 	>=media-libs/libclam-1.0.0
 	<media-libs/libclam-9999
 	=x11-libs/qt-3*"

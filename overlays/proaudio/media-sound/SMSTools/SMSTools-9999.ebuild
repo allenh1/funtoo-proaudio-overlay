@@ -16,7 +16,7 @@ KEYWORDS=""
 IUSE=""
 RESTRICT="nomirror"
 
-RDEPEND="dev-util/scons
+DEPEND="dev-util/scons
 	dev-util/subversion
 	=media-libs/libclam-9999
 	=x11-libs/qt-3*"
