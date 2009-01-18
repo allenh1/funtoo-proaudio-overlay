@@ -21,7 +21,7 @@ RESTRICT="nomirror"
 
 DEPEND="dev-util/scons
 	ladspa? ( media-libs/ladspa-sdk )
-	>=dev-libs/xerces-c-2.7
+	=dev-libs/xerces-c-2.7*
 	fftw? ( =sci-libs/fftw-3* )
 	virtual/opengl
 	x11-libs/fltk
