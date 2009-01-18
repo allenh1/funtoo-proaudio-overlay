@@ -17,13 +17,13 @@ KEYWORDS="~amd64 x86"
 IUSE="doc"
 RESTRICT="nomirror"
 
-RDEPEND="dev-util/scons
+DEPEND="dev-util/scons
 	>=media-libs/libclam-1.2.0
 	<media-libs/libclam-9999
 	|| ( ( x11-libs/qt-core x11-libs/qt-gui x11-libs/qt-opengl )
 			>=x11-libs/qt-4.1:4 )"
 	
-DEPEND="${DEPEND}
+RDEPEND="${DEPEND}
 	media-gfx/imagemagick"
 
 QTDIR=""
