@@ -13,18 +13,18 @@ amd64? ( http://people.jacklab.net/drumfix/${WINEASIOX}.tgz )"
 RESTRICT="nomirror"
 
 LICENSE="GPL-2"
-KEYWORDS="~x86"
+KEYWORDS="~x86 ~amd64"
 IUSE=""
 SLOT="0"
 
 DEPEND="media-libs/asio-sdk"
 RDEPEND=">=app-emulation/wine-0.9.35"
 
+S="${WORKDIR}/${PN}"
+
 if use amd64; then
 	S="${WORKDIR}/${WINEASIOX}"
 fi
-
-S="${WORKDIR}/${PN}"
 
 src_unpack() {
 	unpack ${A}
