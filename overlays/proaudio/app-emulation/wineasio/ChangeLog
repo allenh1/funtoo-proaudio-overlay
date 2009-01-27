@@ -1,6 +1,10 @@
 # ChangeLog for app-emulation/wineasio
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  27 Jan 2009; Frieder Buerzele <evermind@tuxfamily.org;
+  +wineasio-0.7.4.ebuild:
+  bump
 
   04 Jan 2008; Thomas Kuther <gimpel@sonnenkinder.org> -wineasio-0.5.ebuild,
   -wineasio-0.7.2.ebuild, +wineasio-0.7.3.ebuild:
