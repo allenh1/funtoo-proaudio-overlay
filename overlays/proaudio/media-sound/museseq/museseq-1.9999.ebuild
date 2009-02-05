@@ -21,11 +21,11 @@ SLOT="0"
 KEYWORDS=""
 IUSE="doc lash debug"
 
-RDEPEND="x11-libs/qt:3
+RDEPEND=">=x11-libs/qt-3.2.0:3
 	>=media-libs/alsa-lib-0.9.0
 	>=media-sound/fluidsynth-1.0.3
 	dev-lang/perl
-	>=media-libs/libsndfile-1.0.4
+	>=media-libs/libsndfile-1.0.0
 	>=media-libs/libsamplerate-0.1.0
 	>=media-sound/jack-audio-connection-kit-0.98.0
 	lash? ( >=media-sound/lash-0.5.0 )"
@@ -41,7 +41,6 @@ src_unpack() {
 	cvs_src_unpack
 	cd "${S}"
 	EPATCH_SUFFIX="patch" epatch "${FILESDIR}"/${PV}
-	use amd64 && epatch "${FILESDIR}"/${PV}/amd64.diff
 }
 
 src_compile() {
