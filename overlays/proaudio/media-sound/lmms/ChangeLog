@@ -1,6 +1,11 @@
 # ChangeLog for media-sound/lmms
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  24 Feb 2009; Thomas Kuther <gimpel@sonnenkinder.org>
+  -files/lmms-qt4_configure_gentoo.patch, -files/lmms-9999-acinclude.patch,
+  -lmms-0.3.2.ebuild, lmms-9999-r1.ebuild:
+  lmms goes git, cleanup
 
   17 Sep 2008; Thomas Kuther <gimpel@sonnenkinder.org>
   -lmms-0.4.0_beta2.ebuild, +lmms-0.4.0_rc1.ebuild:

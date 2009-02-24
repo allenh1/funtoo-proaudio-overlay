@@ -1,15 +1,15 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI="2"
 
-inherit eutils cmake-utils subversion
+inherit eutils cmake-utils git
 
 DESCRIPTION="free alternative to popular programs such as FruityLoops, Cubase and Logic"
 HOMEPAGE="http://lmms.sourceforge.net"
 
-ESVN_REPO_URI="https://lmms.svn.sourceforge.net/svnroot/lmms/trunk/lmms"
+EGIT_REPO_URI="git://lmms.git.sourceforge.net/gitroot/lmms"
 
 LICENSE="GPL-2 LGPL"
 SLOT="0"
