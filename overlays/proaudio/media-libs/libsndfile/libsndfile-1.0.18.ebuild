@@ -4,15 +4,11 @@
 
 inherit eutils libtool autotools
 
-MY_PV="${PV/_/}h"
-MY_P="${PN}-${MY_PV}"
-
 DESCRIPTION="A C library for reading and writing files containing sampled sound"
 HOMEPAGE="http://www.mega-nerd.com/libsndfile"
-SRC_URI="http://www.mega-nerd.com/tmp/${MY_P}.tar.gz"
+SRC_URI="http://www.mega-nerd.com/tmp/${P}.tar.gz"
 #	mirror://gentoo/${P}+flac-1.1.3.patch.bz2"
 
-S="${WORKDIR}/${MY_P}"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
