@@ -26,6 +26,6 @@ src_compile() {
 }
 
 src_install() {
-	einstall || die
+	emake install DESTDIR="${D}" || die
 	dodoc ChangeLog
-	}
+}
