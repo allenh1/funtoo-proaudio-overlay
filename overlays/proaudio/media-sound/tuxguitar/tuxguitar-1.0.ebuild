@@ -19,14 +19,26 @@ KEYWORDS="~amd64 ~ppc ~x86"
 
 DEPEND=">=virtual/jre-1.5"
 
-S="${WORKDIR}/${A/.tar.gz/}"
+conv_arch() {
+	local ret=""
+	use x86 && ret="x86"
+	use ppc && ret="ppc"
+	use amd64 && ret="x86_64"
+	echo $ret
+}
+
+S="${WORKDIR}/${MY_P}-$(conv_arch)"
 src_install() {
 	dodir "/opt/${MY_P}"
 	insinto "/opt/${MY_P}"
 	doins tuxguitar  tuxguitar.jar
 	fperms 0755 /opt/${MY_P}/lib/*.so "/opt/${MY_P}/tuxguitar"
 	mv files doc lib share "${D}/opt/${MY_P}"
-	newbin ${FILESDIR}/${P} tuxguitar
+	cat >>"${WORKDIR}/wrapper" <<EOF
+#!/bin/bash
+PATH="/opt/${MY_P}:\$PATH" tuxguitar \$@
+EOF
+	newbin "${WORKDIR}/wrapper" tuxguitar
 }
 
 pkg_postinst(){
@@ -34,3 +46,4 @@ pkg_postinst(){
 	 einfo "type tuxguitar to start the application"
 #	 einfo "some example files are in /opt/${MY_P}/examples"
 }
+
