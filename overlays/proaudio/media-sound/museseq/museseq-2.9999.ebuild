@@ -48,7 +48,7 @@ src_unpack() {
 	use amd64 && cp ${FILESDIR}/sse_functions_64bit.s al/dspSSE.cpp
 
 	# find fltk
-	epatch "${FILESDIR}/${P}-find_fltk.patch"
+	epatch "${FILESDIR}/${PN}-9999-find_fltk.patch"
 
 	# doc stuff
 	use doc || sed -i -e 's@muse share doc@muse share@' CMakeLists.txt
