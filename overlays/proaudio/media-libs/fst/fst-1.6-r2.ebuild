@@ -12,7 +12,7 @@ LICENSE="GPL-2"
 
 SRC_URI="http://www.linuxaudiosystems.com/fst/${P}.tar.gz"
 
-KEYWORDS="-*"
+KEYWORDS=""
 DEPEND="app-emulation/wine
 	>=media-libs/vst-sdk-2.3"
 
