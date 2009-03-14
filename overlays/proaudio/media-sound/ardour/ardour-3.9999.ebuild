@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -17,6 +17,7 @@ KEYWORDS=""
 IUSE="altivec debug lv2 freesound nls sse surfaces"
 
 RDEPEND="media-libs/liblo
+	>=media-libs/taglib-1.5
 	media-libs/aubio
 	>=media-libs/liblrdf-0.4.0
 	>=media-libs/raptor-1.4.2
