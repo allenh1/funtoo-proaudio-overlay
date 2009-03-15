@@ -38,7 +38,7 @@ src_unpack() {
 	unpack ${A}
 	cd "${S}"
 	# http://subversion.ffado.org/ticket/171
-	epatch "${FILESDIR}/${P}-dbus_mailoop.patch" 
+	epatch "${FILESDIR}/${P}-dbus_mainloop.patch" 
 }
 
 src_compile () {
