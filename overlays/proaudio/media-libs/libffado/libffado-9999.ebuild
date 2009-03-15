@@ -6,12 +6,10 @@ EAPI=1
 
 inherit eutils multilib subversion
 
-MY_P="${P/_/-}"
-
 DESCRIPTION="Successor for freebob: Library for accessing BeBoB IEEE1394 devices"
 HOMEPAGE="http://www.ffado.org"
 
-ESVN_REPO_URI="http://subversion.ffado.org/ffado/trunk"
+ESVN_REPO_URI="http://subversion.ffado.org/ffado/trunk/libffado"
 
 LICENSE="GPL-2"
 KEYWORDS=""
@@ -32,8 +30,6 @@ RDEPEND=">=media-libs/alsa-lib-1.0.0
 
 DEPEND="${RDEPEND}
 	dev-util/scons"
-
-S="${WORKDIR}/${MY_P}"
 
 src_compile () {
 	local myconf=""
