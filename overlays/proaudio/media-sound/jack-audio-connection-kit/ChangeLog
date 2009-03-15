@@ -2,6 +2,13 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  15 Mar 2009; Marc-Olivier Barre <marco@marcochapeau.org>
+  * Renamed jack-audio-connection-kit-9999.ebuild to jack-audio-connection-kit-1.9999.ebuild
+  * Added jack-audio-connection-kit-2.9999.ebuild for Jack 2 SVN (Former jackmp)
+  * Added jack-audio-connection-kit-1.9.1.ebuild (considered to be a stable Jack 2 RC)
+  * You need to play with package.mask to choose between Jack 1 SVN and Jack 2 SVN
+  * Also note that jackdmp package does not exist anymore. This should solve some of the pain :)
+
   08 Dec 2008; Thomas Kuther <gimpel@sonnenkinder.org>
   +jack-audio-connection-kit-0.116.1.ebuild:
   version bump
