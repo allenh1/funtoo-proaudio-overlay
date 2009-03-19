@@ -96,6 +96,13 @@
 	Homepage:    http://librdf.org/
 
 
+#------- media-libs/gmerlin-avdecoder --------
+	gmerlin-avdecoder-0.1.8	arch: ~amd64
+	gmerlin-avdecoder-1.0.0	arch: ~amd64
+	Description: Gmerlin A/V decoder library
+	Homepage:    http://gmerlin.sourceforge.net/
+
+
 #------- media-libs/portaudio --------
 	portaudio-19.20071207	arch: ~amd64 ~x86
 	portaudio-19-r3	arch: x86 sparc amd64 ~ppc ~ppc-macos ~mips
@@ -277,6 +284,13 @@
 	Description: Realtime Audio Utility Library: lightweight
 		 header-only C++
 	Homepage:    http://wiki.drobilla.net/Raul
+
+
+#------- media-libs/gmerlin --------
+	gmerlin-0.3.8	arch: ~amd64
+	gmerlin-0.4.0	arch: ~amd64
+	Description: Gmerlin A/V decoder library
+	Homepage:    http://gmerlin.sourceforge.net/
 
 
 #------- media-libs/libdsp --------
@@ -1718,6 +1732,7 @@
 	openmovieeditor-0.0.20071118	arch: ~x86
 	openmovieeditor-0.0.20080102	arch: ~x86
 	openmovieeditor-0.0.20080523-r1	arch: ~amd64 ~x86
+	openmovieeditor-0.0.20081029	arch: ~amd64 ~x86
 	Description: Open Movie Editor is designed to be a simple
 		 tool, that provides basic movie making capabilites.
 		

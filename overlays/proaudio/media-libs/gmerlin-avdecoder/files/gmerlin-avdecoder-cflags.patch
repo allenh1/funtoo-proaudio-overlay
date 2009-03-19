@@ -1,0 +1,11 @@
+--- configure.ac.orig	2008-07-22 14:08:36.000000000 +0200
++++ configure.ac	2008-11-03 19:07:50.227050371 +0100
+@@ -374,7 +374,7 @@
+ dnl Build optimization flags
+ dnl
+ 
+-LQT_OPT_CFLAGS($host_cpu, ["-O3 -funroll-all-loops -ffast-math"])
++LQT_OPT_CFLAGS($host_cpu, [""])
+ AC_SUBST(OPT_CFLAGS)
+ 
+ dnl

@@ -1,0 +1,11 @@
+--- configure.ac.orig	2008-07-22 14:07:57.000000000 +0200
++++ configure.ac	2008-11-03 19:06:24.964398946 +0100
+@@ -797,7 +797,7 @@
+ dnl CFLAGS
+ dnl
+ 
+-LQT_OPT_CFLAGS($host_cpu, ["-O3 -funroll-all-loops -fomit-frame-pointer -ffast-math"])
++LQT_OPT_CFLAGS($host_cpu, [""])
+ 
+ CFLAGS="$CFLAGS -D_REENTRANT -D_FILE_OFFSET_BITS=64 $GAVL_CFLAGS $OPT_CFLAGS"
+ 

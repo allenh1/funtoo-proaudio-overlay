@@ -10,6 +10,7 @@ media-libs/libgig
 media-libs/asio-sdk
 media-libs/liblscp
 media-libs/librdf
+media-libs/gmerlin-avdecoder
 media-libs/portaudio
 media-libs/bse-alsa
 media-libs/alsaplayer-python
@@ -32,6 +33,7 @@ media-libs/libzzub
 media-libs/hydrogen-drumkits
 media-libs/zynaddsubfx-collection
 media-libs/raul
+media-libs/gmerlin
 media-libs/libdsp
 app-portage/euses
 media-sound/minicomputer

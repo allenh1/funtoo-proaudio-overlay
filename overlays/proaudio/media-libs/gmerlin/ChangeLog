@@ -1,0 +1,8 @@
+# ChangeLog for media-libs/gmerlin
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  19 Mar 2009; Marcin Deranek <gringo@gentoo.org>
+  +files/gmerlin-cflags.patch, +gmerlin-0.3.8.ebuild, +gmerlin-0.4.0.ebuild:
+  Initial bump
+

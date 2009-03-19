@@ -1,0 +1,69 @@
+Mon Nov 24 04:32:31 UTC 2008  richard.spindler@gmail.com
+  * Fixed segfault in AudioFileGmerlin, Hint: always use gavl frame allocators
+diff -rN -u old-openme-developers/src/AudioFileGmerlin.H new-openme-developers/src/AudioFileGmerlin.H
+--- old-openme-developers/src/AudioFileGmerlin.H	2008-12-17 07:02:29.000000000 +0000
++++ new-openme-developers/src/AudioFileGmerlin.H	2008-12-17 07:02:29.000000000 +0000
+@@ -50,7 +50,7 @@
+ 		gavl_audio_frame_t* m_frame2;
+ 		gavl_audio_converter_t* m_converter;
+ 		int m_samples_per_frame;
+-		void init_converter( unsigned long frames );
++		void reinit_frame( unsigned long frames );
+ 		gavl_audio_format_t m_format;
+ 		gavl_audio_format_t m_float_format;
+ };
+diff -rN -u old-openme-developers/src/AudioFileGmerlin.cxx new-openme-developers/src/AudioFileGmerlin.cxx
+--- old-openme-developers/src/AudioFileGmerlin.cxx	2008-12-17 07:02:29.000000000 +0000
++++ new-openme-developers/src/AudioFileGmerlin.cxx	2008-12-17 07:02:29.000000000 +0000
+@@ -84,7 +84,7 @@
+ 	m_samples_per_frame = 0;
+ 	m_converter = gavl_audio_converter_create();
+ 	gavl_audio_converter_init( m_converter, &m_format, &m_float_format );
+-	m_frame2 = gavl_audio_frame_create( 0 );
++	m_frame2 = gavl_audio_frame_create( &m_float_format );
+ 	//Create converter that transforms audio to 2chan float interleaved,
+ 	//resampling happens outside.
+ 	m_ok = true;
+@@ -96,7 +96,6 @@
+ 		gavl_audio_frame_destroy( m_frame1 );
+ 	}
+ 	if ( m_frame2 ) {
+-		gavl_audio_frame_null( m_frame2 );
+ 		gavl_audio_frame_destroy( m_frame2 );
+ 	}
+ 	m_frame1 = 0;
+@@ -105,27 +104,29 @@
+ void AudioFileGmerlin::seek( int64_t sample )
+ {
+ 	bgav_seek_audio( m_file, 0, sample );
+-	gavl_audio_converter_reinit( m_converter );
+ }
+-void AudioFileGmerlin::init_converter( unsigned long frames )
++void AudioFileGmerlin::reinit_frame( unsigned long frames )
+ {
+ 	m_samples_per_frame = frames;
+ 	m_format.samples_per_frame = frames;
+ 	m_float_format.samples_per_frame = frames;
+-	gavl_audio_converter_init( m_converter, &m_format, &m_float_format );
+ 	if ( m_frame1 ) {
+ 		gavl_audio_frame_destroy( m_frame1 );
+ 	}
+ 	m_frame1 = gavl_audio_frame_create( &m_format );
++	gavl_audio_frame_destroy( m_frame2 );
++	m_frame2 = gavl_audio_frame_create( &m_float_format );
+ }
+ int AudioFileGmerlin::fillBuffer( float* output, unsigned long frames )
+ {
+ 	if ( frames != m_samples_per_frame ) {
+-		init_converter( frames );
++		reinit_frame( frames );
+ 	}
++	float* tmp = m_frame2->samples.f;
+ 	m_frame2->samples.f = output;
+ 	int ret = bgav_read_audio( m_file, m_frame1, 0, frames );
+ 	gavl_audio_convert( m_converter, m_frame1, m_frame2 );
++	m_frame2->samples.f = tmp;
+ 	return ret;
+ }
+ 
+
