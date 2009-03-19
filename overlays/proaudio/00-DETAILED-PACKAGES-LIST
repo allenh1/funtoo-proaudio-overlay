@@ -1733,6 +1733,7 @@
 	openmovieeditor-0.0.20080102	arch: ~x86
 	openmovieeditor-0.0.20080523-r1	arch: ~amd64 ~x86
 	openmovieeditor-0.0.20081029	arch: ~amd64 ~x86
+	openmovieeditor-0.0.20090105-r1	arch: ~amd64 ~x86
 	Description: Open Movie Editor is designed to be a simple
 		 tool, that provides basic movie making capabilites.
 		

@@ -3,6 +3,11 @@
 # $Header: $
 
   19 Mar 2009; Marcin Deranek <gringo@gentoo.org>
+  +files/openmovieeditor-fix-as-needed.patch,
+  +openmovieeditor-0.0.20090105-r1.ebuild:
+  Version bump
+
+  19 Mar 2009; Marcin Deranek <gringo@gentoo.org>
   +files/openmovieeditor-fix-audio-segfault.patch,
   +openmovieeditor-0.0.20081029.ebuild:
   Version bump

@@ -1,0 +1,22 @@
+--- configure.ac.old	2009-01-05 09:26:29.000000000 +0100
++++ configure.ac	2009-01-15 00:01:08.000000000 +0100
+@@ -132,8 +132,8 @@
+ AC_SUBST(FLTK_CFLAGS)
+ AC_SUBST(FLTK_LIBS)
+ 
+-LDFLAGS_RESTORE="$LDFLAGS"
+-LDFLAGS="$LDFLAGS $LIBQUICKTIME_LIBS"
++LIBS_RESTORE="$LIBS"
++LIBS="$LIBQUICKTIME_LIBS"
+ 
+ AC_RUN_IFELSE(
+      [AC_LANG_PROGRAM([[#include <lqt/lqt.h>]],
+@@ -147,7 +147,7 @@
+                       [],
+                       [AC_MSG_ERROR([x264 Codec in libquicktime not found, reinstall libquicktime with x264 enabled])] )
+ 
+-LDFLAGS="$LDFLAGS_RESTORE"
++LIBS="$LIBS_RESTORE"
+ 
+ AC_CONFIG_FILES([
+    Makefile
