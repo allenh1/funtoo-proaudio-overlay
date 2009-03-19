@@ -35,7 +35,7 @@ done
 # remove entries of files which are listed in the Manifest-files
 # but have no corresponding file
 for i in `find -name 'Manifest'|grep -v '.svn'`;do
-	for j in `grep MD5  $i |awk '{print $3}'`;do
+	for j in `grep SHA1  $i |awk '{print $3}'`;do
 		if [ ! -e "${i%/*}/$j" ];then
 			echo NOT HERE ${i%/*}/$j
 			j=${j//\//\\/}
@@ -52,9 +52,9 @@ for i in `find -name 'Manifest'|grep -v '.svn'`;do
 	echo ${i%/*}
 		for j in `find  -type f |grep -v 'Manifest'|grep -v '.svn'`;do
 			j=${j//\.\//}
-			MD5="`md5sum ${j}`"
+			SHA1="`sha1sum ${j}`"
 			FNAME=${j}
-			grep  ''${MD5}'' Manifest |grep -q ''${FNAME}'' 
+			grep  ''${SHA1}'' Manifest |grep -q ''${FNAME}'' 
 			if [ "$?" == "1" ];then
 				pkz="`ls -t *.ebuild|head -n1`"
 				echo "ebuild ${pkz} digest"

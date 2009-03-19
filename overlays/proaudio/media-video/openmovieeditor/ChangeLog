@@ -1,6 +1,11 @@
 # ChangeLog for media-video/openmovieeditor
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  19 Mar 2009; Marcin Deranek <gringo@gentoo.org> ++,
+  +files/openmovieeditor-fix-linkage.patch,
+  -openmovieeditor-0.0.20080523.ebuild:
+  Fix for newer ffmpeg and linkage problem
 
   22 Oct 2008; Frieder Buerzele <evermind@tuxfamily.org;
   openmovieeditor-0.0.20080523.ebuild:
