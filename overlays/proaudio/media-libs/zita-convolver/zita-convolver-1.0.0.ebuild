@@ -7,7 +7,7 @@ IUSE=""
 inherit eutils multilib toolchain-funcs
 
 RESTRICT="nomirror"
-S="${WORKDIR}/${PN}"
+#S="${WORKDIR}/${PN}"
 
 DESCRIPTION="An audio library by Fons Adriaensen <fons.adriaensen@skynet.be>"
 HOMEPAGE="http://www.kokkinizita.net/linuxaudio"
