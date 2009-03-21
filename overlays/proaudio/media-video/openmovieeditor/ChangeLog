@@ -2,17 +2,17 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  19 Mar 2009; Marcin Deranek <gringo@slonko.net>
+  19 Mar 2009; Marcin Deranek <gringo@tuxfamily.org>
   +files/openmovieeditor-fix-as-needed.patch,
   +openmovieeditor-0.0.20090105-r1.ebuild:
   Version bump
 
-  19 Mar 2009; Marcin Deranek <gringo@slonko.net>
+  19 Mar 2009; Marcin Deranek <gringo@tuxfamily.org>
   +files/openmovieeditor-fix-audio-segfault.patch,
   +openmovieeditor-0.0.20081029.ebuild:
   Version bump
 
-  19 Mar 2009; Marcin Deranek <gringo@slonko.net>
+  19 Mar 2009; Marcin Deranek <gringo@tuxfamily.org>
   +files/openmovieeditor-fix-linkage.patch,
   +openmovieeditor-0.0.20080523-r1.ebuild,
   -openmovieeditor-0.0.20080523.ebuild:

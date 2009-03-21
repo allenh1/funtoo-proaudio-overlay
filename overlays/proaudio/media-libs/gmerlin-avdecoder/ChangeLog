@@ -2,7 +2,7 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  19 Mar 2009; Marcin Deranek <gringo@slonko.net>
+  19 Mar 2009; Marcin Deranek <gringo@tuxfamily.org>
   +files/gmerlin-avdecoder-cflags.patch, +gmerlin-avdecoder-0.1.8.ebuild,
   +gmerlin-avdecoder-1.0.0.ebuild:
   Initial bump
