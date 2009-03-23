@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit flag-o-matic 
+inherit multilib 
 
 DESCRIPTION="Jackdmp jack implemention for multi-processor machine"
 HOMEPAGE="http://www.jackaudio.org"
@@ -23,13 +23,8 @@ DEPEND="${RDEPEND}
 
 S="${WORKDIR}/jack-${PV}"
 
-src_unpack() {
-	unpack ${A}
-	cd "${S}"
-}
-
 src_compile() {
-	local myconf="--prefix=/usr --destdir=${D}"
+	local myconf="--prefix=/usr --libdir=/usr/$(get_libdir) --destdir=${D}"
 	use dbus && myconf="${myconf} --dbus"
 	use debug && myconf="${myconf} -d debug"
 	use doc && myconf="${myconf} --doxygen"
@@ -37,7 +32,7 @@ src_compile() {
 
 	einfo "Running \"./waf configure ${myconf}\" ..."
 	./waf configure ${myconf} || die "waf configure failed"
-	./waf build || die "waf build failed"
+	./waf build ${MAKEOPTS} || die "waf build failed"
 }
 
 src_install() {
