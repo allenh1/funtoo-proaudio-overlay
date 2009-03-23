@@ -41,25 +41,18 @@ LANGS="ca cs cy de en_GB en es et fr it ja nl ru sv zh_CN"
 
 pkg_setup(){
 	if ! use alsa  && use jack ;then
-		eerror "if you disable alsa jack-support will also be disabled."
+		eerror "If you disable alsa jack-support will also be disabled."
 		eerror "This is not what you want --> enable alsa useflag" && die
-	fi
-	if ! use export && \
-		! ( has_all-pkg "media-libs/libsndfile dev-perl/XML-Twig" && \
-		has_any-pkg "kde-base/kdialog kde-base/kdebase" ) ;then
-		ewarn "you won't be able to use the rosegarden-project-package-manager"
-		ewarn "please remerge with USE=\"export\"" && sleep 3
-	fi
-
-	if ! use lilypond && ! ( has_version "media-sound/lilypond" && has_any-pkg "app-text/ggv kde-base/kghostview app-text/evince" ) ;then
-		ewarn "lilypond preview won't work."
-		ewarn "If you want this feature please remerge USE=\"lilypond\""
 	fi
 }
 
 src_compile() {
-	# hack
+	# hacks
 	sed -i -e 's:meinproc:meinproc4:g' cmake_admin/FindMEINPROC.cmake || die
+	sed -i -s '/KLedButton/d' src/GUIFileList.txt || die
+	rcc data/data.qrc > data/data.cpp
+	# use our own here
+	rm -f cmake_admin/FindQt4.cmake
 
 	mycmakeargs="${mycmakeargs}
 		$(cmake-utils_use_want debug DEBUG)
