@@ -1,1 +1,3 @@
-=media-libs/libsndfile-1.0.18_pre*
+# waf seems broken
+=media-sound/jack-audio-connection-kit-1.9.1
+=media-sound/jack-audio-connection-kit-1.9.2
