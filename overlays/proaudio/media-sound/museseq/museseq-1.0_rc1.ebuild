@@ -4,7 +4,7 @@
 
 EAPI=1
 
-inherit eutils flag-o-matic toolchain-funcs
+inherit eutils autotools flag-o-matic 
 
 MY_P=${P/museseq/muse}
 MY_P=${MY_P/_/}
