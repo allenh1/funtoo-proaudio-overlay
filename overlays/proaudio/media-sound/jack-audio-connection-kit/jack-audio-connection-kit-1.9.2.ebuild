@@ -20,8 +20,28 @@ DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )
 	dbus? ( sys-apps/dbus )"
 
-
 S="${WORKDIR}/jack-${PV}"
+
+pkg_setup() {
+	# sandbox-1.6 breaks, on amd64 at least
+
+	# paludis...
+	if use amd64 && has_version "=sys-apps/sandbox-1.6" && [[ -n $(echo `ps -fp $$`|grep paludis) ]]; then
+		eerror "The compile will hang with =sandbox-1.6. You are using paludis,"
+		eerror "so you'll have to downgrade sandbox."
+		die
+	fi
+	
+	# portage
+	if use amd64 && hasq "sandbox" ${FEATURES} && ! hasq "-sandbox" ${FEATURES} && has_version "=sys-apps/sandbox-1.6"; then
+		eerror "The compile will hang with =sandbox-1.6. Please use:"
+		echo
+		eerror "FEATURES=\"-sandbox\" emerge ${PN}"
+		echo
+		eerror "OR downgrade sandbox to 1.4 at least."
+		die
+	fi
+}
 
 src_compile() {
 	local myconf="--prefix=/usr --libdir=/usr/$(get_libdir) --destdir=${D}"
