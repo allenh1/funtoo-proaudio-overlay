@@ -26,14 +26,14 @@ pkg_setup() {
 	# sandbox-1.6 breaks, on amd64 at least
 
 	# paludis...
-	if use amd64 && has_version "=sys-apps/sandbox-1.6" && [[ -n $(echo `ps -fp $$`|grep paludis) ]]; then
-		eerror "The compile will hang with =sandbox-1.6. You are using paludis,"
-		eerror "so you'll have to downgrade sandbox."
+	if has_version "=sys-apps/sandbox-1.6" && [[ -n $(echo `ps -fp $$`|grep paludis) ]]; then
+		eerror "The compile will hang with =sandbox-1.6. Either downgrade to sandbox-1.4, or use"
+		eerror "PALUDIS_DO_NOTHING_SANDBOXY=1 paludis -i ${PN}"
 		die
 	fi
 	
 	# portage
-	if use amd64 && hasq "sandbox" ${FEATURES} && ! hasq "-sandbox" ${FEATURES} && has_version "=sys-apps/sandbox-1.6"; then
+	if hasq "sandbox" ${FEATURES} && ! hasq "-sandbox" ${FEATURES} && has_version "=sys-apps/sandbox-1.6"; then
 		eerror "The compile will hang with =sandbox-1.6. Please use:"
 		echo
 		eerror "FEATURES=\"-sandbox\" emerge ${PN}"
