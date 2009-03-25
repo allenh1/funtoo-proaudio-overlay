@@ -36,6 +36,8 @@ src_compile() {
 	# new strange --as-needed error, not like the old one
 	filter-ldflags -Wl,--as-needed --as-needed
 
+	addpredict /usr/qt/3/etc/settings/.qt_plugins_3.3rc.lock
+
 	econf \
 		`use_enable lash` \
 		`use_enable debug` \
