@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit qt3
+EAPI=1
+
 RESTRICT="nomirror"
 DESCRIPTION="Gui for ld10k1 (EMU10K1 (EMU10K2) effect loader for ALSA)"
 HOMEPAGE="http://ld10k1.sourceforge.net/"
@@ -13,7 +14,7 @@ KEYWORDS="x86 ~amd64"
 
 IUSE=""
 DEPEND=">=media-libs/ld10k1-0.1.8
-	$(qt_min_version 3.2)"
+	>=x11-libs/qt-3.2:3"
 
 src_install() {
 	make DESTDIR="${D}" install || die "Installation failed."

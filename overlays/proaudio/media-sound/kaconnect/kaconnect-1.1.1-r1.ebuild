@@ -2,7 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit qt3 toolchain-funcs
+EAPI=1
+
+inherit toolchain-funcs
 
 IUSE=""
 
@@ -15,7 +17,7 @@ SLOT="0"
 KEYWORDS="amd64 ~ppc sparc x86"
 
 RDEPEND="media-sound/alsa-utils
-	$(qt_min_version 3.1)"
+	>=x11-libs/qt-3.1:3"
 
 DEPEND="${RDEPEND}
 	sys-apps/sed"
