@@ -31,7 +31,7 @@ RDEPEND="media-libs/liblo
 	>=media-libs/libsndfile-1.0.16
 	gnome-base/libgnomecanvas
 	x11-themes/gtk-engines
-	>=dev-cpp/gtkmm-2.12.3[accessibility]
+	>=dev-cpp/gtkmm-2.12.3
 	>=dev-cpp/glibmm-2.14.2
 	>=dev-cpp/libgnomecanvasmm-2.20.0
 	dev-cpp/cairomm
