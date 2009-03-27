@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit qt3 exteutils
+inherit exteutils
 
 DESCRIPTION="Simple BPM detection utility"
 HOMEPAGE="http://kde-apps.org/content/show.php/BPM+Detect?content=43147"
@@ -15,12 +15,12 @@ IUSE="kde"
 
 DEPEND=">=dev-util/scons-0.96.1
 		>=dev-util/pkgconfig-0.9
-		$(qt_min_version 3.2)"
+		x11-libs/qt:3"
 RDEPEND=">=media-libs/fmod-4.06.01
 		media-libs/id3lib
 		media-libs/libsoundtouch
 		>=media-libs/taglib-1.4
-		$(qt_min_version 3.2)
+		x11-libs/qt:3
 		kde? ( =kde-base/kdelibs-3.5* )"
 
 S="${WORKDIR}/${PN}"
