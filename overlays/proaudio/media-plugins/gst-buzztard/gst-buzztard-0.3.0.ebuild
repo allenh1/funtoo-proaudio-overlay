@@ -1,15 +1,15 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 DESCRIPTION="GStreamer plugin used by buzztard"
 HOMEPAGE="http://www.buzztard.org"
 SRC_URI="mirror://sourceforge/buzztard/${P}.tar.gz"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="mad"
 
 RDEPEND=">=media-libs/gstreamer-0.10.11

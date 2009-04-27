@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -7,11 +7,11 @@ inherit gnome2 flag-o-matic
 DESCRIPTION="free, open source music studio that is conceptionally based on Buzz"
 HOMEPAGE="http://www.buzztard.org"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND=">=dev-libs/glib-2.10
@@ -21,7 +21,7 @@ RDEPEND=">=dev-libs/glib-2.10
 	>=gnome-base/libgnomecanvas-2.14.0
 	>=media-libs/gstreamer-0.10.11
 	>=media-plugins/gst-plugins-alsa-0.10.14
-	media-plugins/gst-buzztard"
+	=media-plugins/gst-buzztard-${PV}"
 DEPEND="${RDEPEND}
 	dev-util/pkgconfig"
 
