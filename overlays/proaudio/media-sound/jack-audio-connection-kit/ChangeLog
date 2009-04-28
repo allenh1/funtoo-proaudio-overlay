@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 Apr 2009; Marc-Olivier Barre <marco@marcochapeau.org>
+  Remove version 0.116.1. Everyone pro-audio overlay user should use 0.116.2 anyways.
+
   23 Mar 2009; Marc-Olivier Barre <marco@marcochapeau.org>
   +jack-audio-connection-kit-0.116.2.ebuild:
   version bump

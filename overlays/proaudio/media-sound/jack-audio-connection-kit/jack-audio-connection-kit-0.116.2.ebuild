@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -26,7 +26,7 @@ DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )"
 
 src_compile() {
-	# building docs isn't configureable anymore, they are build if doxygen is
+	# building docs isn't configureable anymore, they are built if doxygen is
 	# installed
 	local myconf="--with-html-dir=/usr/share/doc/${PF}"
 

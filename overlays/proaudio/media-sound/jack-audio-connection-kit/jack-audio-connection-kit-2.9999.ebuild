@@ -7,10 +7,7 @@ inherit subversion flag-o-matic
 DESCRIPTION="Jackdmp jack implemention for multi-processor machine"
 HOMEPAGE="http://www.grame.fr/~letz/jackdmp.html"
 
-# To get a specific revision, use @rev at the end of the URI
-# ESVN_REPO_URI="http://subversion.jackaudio.org/jack/jack2/trunk/jackmp@3305"
 ESVN_REPO_URI="http://subversion.jackaudio.org/jack/jack2/trunk/jackmp"
-
 
 LICENSE="GPL-2"
 SLOT="0"

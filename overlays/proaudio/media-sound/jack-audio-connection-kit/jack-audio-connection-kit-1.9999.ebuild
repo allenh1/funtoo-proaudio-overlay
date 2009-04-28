@@ -1,18 +1,12 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 inherit flag-o-matic eutils multilib subversion linux-info autotools unipatch-001
 
-#JACKDBUS="jackdbus-patches-0.12.tar.bz2"
-
 RESTRICT="nostrip nomirror"
 DESCRIPTION="A low-latency audio server"
 HOMEPAGE="http://www.jackaudio.org"
-
-#SRC_URI="!jackdmp? ( 
-#			dbus? ( http://download.tuxfamily.org/proaudio/distfiles/${JACKDBUS} )
-#		)"
 
 ESVN_REPO_URI="http://subversion.jackaudio.org/jack/trunk/jack"
 
@@ -30,7 +24,6 @@ RDEPEND="!jackdmp? (
 	ieee1394? ( media-libs/libffado !sys-libs/libfreebob )
 	netjack? ( media-libs/libsamplerate )
 	!media-sound/jackdmp )"
-	#dbus? ( sys-apps/dbus )
 
 DEPEND="${RDEPEND}
 	!jackdmp? ( 
@@ -58,12 +51,6 @@ src_unpack() {
 
 	cd "${S}"
 	
-	# dbus patches from Nedko Arnaudov
-	#if use dbus; then
-	#	UNIPATCH_LIST="${DISTDIR}/${JACKDBUS}"
-	#	unipatch
-	#fi
-
 	eautoreconf
 }
 
@@ -74,10 +61,6 @@ src_compile() {
 	fi
 
 	local myconf="--with-html-dir=/usr/share/doc/${PF}"
-
-	#if use dbus; then
-	#	myconf="${myconf} --enable-dbus --enable-pkg-config-dbus-service-dir"
-	#fi
 
 	# CPU Detection (dynsimd) uses asm routines which requires 3dnow, mmx and sse.
 	if use cpudetection && use 3dnow && use mmx && use sse ; then
