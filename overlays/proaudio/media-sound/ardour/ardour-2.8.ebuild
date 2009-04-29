@@ -14,7 +14,7 @@ SRC_URI="http://ardour.org/files/releases/${P/_p/-}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS=""
 IUSE="altivec debug freesound nls sse lv2 vst sys-libs"
 
 RDEPEND=">=media-libs/liblrdf-0.4.0
@@ -54,8 +54,6 @@ DEPEND="${RDEPEND}
 
 S=${WORKDIR}/${P%_p*}
 
-ewarn "You need to manually download the source from http://ardour.org to use
-this ebuild. Place it in your distfiles directory."
 
 pkg_setup(){
 	einfo "this ebuild fetches from the svn maintaince"
@@ -79,6 +77,8 @@ pkg_setup(){
 }
 
 src_prepare() {
+	ewarn "You need to manually download the source from http://ardour.org to"
+	ewarn "use this ebuild. Place it in your distfiles directory."
 	use sys-libs && epatch "${FILESDIR}/${PN}-2.0.3-sndfile-external.patch"
 #	Doesn't apply to 2.8 anymore. Do we need a new patch ?
 # 	how can we extract the -march flag from our system CFLAGS and add it to the
