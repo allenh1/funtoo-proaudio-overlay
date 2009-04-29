@@ -4,17 +4,17 @@
 
 EAPI=2
 
-inherit eutils toolchain-funcs fdo-mime flag-o-matic subversion versionator
+inherit eutils toolchain-funcs fdo-mime flag-o-matic versionator
 
 DESCRIPTION="multi-track hard disk recording software"
 HOMEPAGE="http://ardour.org/"
 
-ESVN_REPO_URI="http://subversion.ardour.org/svn/ardour2/branches/2.0-ongoing"
-ESVN_RESTRICT="export"
+SRC_URI="http://ardour.org/files/releases/${P/_p/-}.tar.bz2"
+
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="altivec debug freesound nls sse lv2 vst sys-libs"
 
 RDEPEND=">=media-libs/liblrdf-0.4.0
@@ -43,7 +43,7 @@ RDEPEND=">=media-libs/liblrdf-0.4.0
 		>=media-libs/libsndfile-1.0.16
 		>=media-libs/libsoundtouch-1.0 )"
 		# currently internal rubberband is used
-		# that needs fftw3 and vamp-sdk, but it rocks, so enable by default
+		# that needs fftw3 and vamp-sdk, but it rocks, so enable by default"
 
 DEPEND="${RDEPEND}
 	sys-devel/libtool
@@ -52,7 +52,10 @@ DEPEND="${RDEPEND}
 	dev-util/scons
 	nls? ( sys-devel/gettext )"
 
-S="${WORKDIR}/ardour2"
+S=${WORKDIR}/${P%_p*}
+
+ewarn "You need to manually download the source from http://ardour.org to use
+this ebuild. Place it in your distfiles directory."
 
 pkg_setup(){
 	einfo "this ebuild fetches from the svn maintaince"
@@ -75,25 +78,12 @@ pkg_setup(){
 	fi
 }
 
-src_unpack(){
-	# abort if user answers no to distribution of vst enabled binaries
-	if use vst; then 
-		agree_vst || die "you can not distribute ardour with vst support"
-	fi
-	subversion_src_unpack
-	subversion_wc_info
-	einfo "Copying working copy to source dir:"
-	mkdir -p "${S}"
-	cp -R "${ESVN_WC_PATH}"/* "${S}"
-	cp -R "${ESVN_WC_PATH}"/.* "${S}"
-	cd ${S}
-
-	# hack to use the sys-lib for sndlib also
-	use sys-libs && epatch "${FILESDIR}/ardour-2.0.3-sndfile-external.patch"
-
-	add_ccache_to_scons
-
-	ardour_vst_prepare
+src_prepare() {
+	use sys-libs && epatch "${FILESDIR}/${PN}-2.0.3-sndfile-external.patch"
+#	Doesn't apply to 2.8 anymore. Do we need a new patch ?
+# 	how can we extract the -march flag from our system CFLAGS and add it to the
+# 	scons ARCH variable ?
+#	epatch "${FILESDIR}/${PN}-2.4-cflags.patch"
 }
 
 src_compile() {
@@ -112,7 +102,7 @@ src_compile() {
 
 	# static settings
 	myconf="${myconf} DESTDIR=${D} PREFIX=/usr KSI=0"
-	einfo "${myconf}"
+	einfo "scons configure options : \"${myconf}\""
 
 	cd ${S}
 	scons ${myconf}	${MAKEOPTS} || die "compilation failed"

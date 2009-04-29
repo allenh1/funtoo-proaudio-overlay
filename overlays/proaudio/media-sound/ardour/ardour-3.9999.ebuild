@@ -11,17 +11,18 @@ HOMEPAGE="http://ardour.org/"
 
 ESVN_REPO_URI="http://subversion.ardour.org/svn/ardour2/branches/3.0"
 
+
 LICENSE="GPL-2"
 SLOT="3"
 KEYWORDS=""
-IUSE="altivec debug lv2 freesound nls sse surfaces"
+IUSE="altivec debug freesound nls sse lv2 vst sys-libs"
 
 RDEPEND="media-libs/liblo
 	>=media-libs/taglib-1.5
 	media-libs/aubio
 	>=media-libs/liblrdf-0.4.0
 	>=media-libs/raptor-1.4.2
-	>=media-sound/jack-audio-connection-kit-0.109.2
+	>=media-sound/jack-audio-connection-kit-0.116.2
 	>=dev-libs/glib-2.10.3
 	x11-libs/pango
 	>=x11-libs/gtk+-2.8.8
@@ -67,35 +68,33 @@ src_unpack() {
 		-i libs/ardour/SConscript
 }
 	
-ardour_use_enable() {
-	use ${2} && echo "${1}=1" || echo "${1}=0"
-}
-
 src_compile() {
 	# Required for scons to "see" intermediate install location
-	mkdir -p "${D}"
+	mkdir -p ${D}
 
-	local FPU_OPTIMIZATION=$((use altivec || use sse) && echo 1 || echo 0)
-	cd "${S}"
+	local myconf=""
+	(use sse || use altivec) && myconf="FPU_OPTIMIZATION=1"
+	! use altivec; myconf="${myconf} ALTIVEC=$?"
+	! use debug; myconf="${myconf} ARDOUR_DEBUG=$?"
+	! use nls; myconf="${myconf} NLS=$?"
+	! use vst; myconf="${myconf} VST=$?"
+	! use sys-libs; myconf="${myconf} SYSLIBS=$?"
+	! use sse; myconf="${myconf} USE_SSE_EVERYWHERE=$? BUILD_SSE_OPTIMIZATIONS=$?"
+	! use lv2; myconf="${myconf} LV2=$?"
 
-	tc-export CC CXX
+	# static settings
+	myconf="${myconf} DESTDIR=${D} PREFIX=/usr KSI=0"
+	einfo "${myconf}"
 
-	scons \
-		$(ardour_use_enable NLS nls) \
-		$(ardour_use_enable DEBUG debug) \
-		FPU_OPTIMIZATION=${FPU_OPTIMIZATION} \
-		DESTDIR="${D}" \
-		$(ardour_use_enable FREESOUND freesound) \
-		$(ardour_use_enable LV2 lv2) \
-		$(ardour_use_enable SURFACES surfaces) \
-		FFT_ANALYSIS=1 \
-		SYSLIBS=1 \
-		CFLAGS="${CFLAGS}" \
-		PREFIX=/usr || die "scons failed"
+	cd ${S}
+	scons ${myconf}	${MAKEOPTS} || die "compilation failed"
 }
 
 src_install() {
 	scons install || die "make install failed"
+	if use vst;then
+		mv "${D}"/usr/bin/ardourvst "${D}"/usr/bin/ardour2
+	fi
 
 	dodoc DOCUMENTATION/*
 

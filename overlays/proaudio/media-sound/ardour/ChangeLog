@@ -2,6 +2,20 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 Apr 2009; Marc-Olivier Barre <marco@marcochapeau.org>; 
+  * bump to ardour-2.8.ebuild
+  * note: 2.8 voluntarily has no keyworkds yet
+  * Try to make all the ebuilds look a litle more homogeneous
+  * Version 2.7.1 remains the same. It'll be removed when 2.8 works right
+  * First attempt to get a sys-libs flag everywhere so the devs are happy (see gentoo bug #263364))
+  * Disable the cflag patch for now (non working with 2.8, still needed ?)
+  * Remove some old unused patches:
+    -ardour-2.4-gcc43.patch
+    -ardour-2.4-find_soundtouch.patch
+    -ardour-2.3.1-find_soundtouch.patch
+    -ardour-2.4.1-find_soundtouch.patch
+    -ardour-2.0.3-cflags.patch
+
   14 Mar 2009; Frieder Buerzele <evermind@tuxfamily.org
   ardour-3.9999.ebuild:
   fix added taglib dep (thx Olof)
