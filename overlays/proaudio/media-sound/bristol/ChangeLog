@@ -1,6 +1,11 @@
 # ChangeLog for media-sound/bristol
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  30 Apr 2009; Gavin Pryke <gavinlee303@googlemail.com> ChangeLog:
+  ~bristol-0.10.11.ebuild, +bristol-0.30.9.ebuild, -bristol-0.10.1.ebuild,
+  -bristol-0.10.1-r2.ebuild, -bristol-0.20.6.ebuild:
+  repoman payment, version bump, remove some older and duplicate ebuilds
 
   06 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
   -bristol-0.20.5.ebuild:

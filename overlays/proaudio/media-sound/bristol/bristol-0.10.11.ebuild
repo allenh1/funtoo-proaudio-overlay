@@ -1,10 +1,10 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
-inherit eutils toolchain-funcs autotools
+inherit eutils toolchain-funcs
 
 DESCRIPTION="synthesiser emulation package for Moog, Sequential Circuits, Hammond and several other keyboards."
 HOMEPAGE="http://sourceforge.net/projects/bristol"
