@@ -6,8 +6,8 @@ inherit eutils flag-o-matic
 
 DESCRIPTION="PHASEX is an experimental software synthesizer for use with
 Linux/ALSA/JACK"
-HOMEPAGE="http://linux-sound.org/phasex/"
-SRC_URI="http://linux-sound.org/phasex/${P}.tar.gz"
+HOMEPAGE="http://sysex.net/phasex/"
+SRC_URI="http://sysex.net/phasex/${P}.tar.gz"
 RESTRICT="nomirror"
 
 LICENSE="GPL-2"
