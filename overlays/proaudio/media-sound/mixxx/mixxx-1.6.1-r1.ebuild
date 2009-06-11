@@ -4,17 +4,17 @@
 
 EAPI=1
 
-inherit exteutils qt4 bzr toolchain-funcs
+inherit exteutils qt4 toolchain-funcs
+
+MY_P="${P/-/_}"
 
 DESCRIPTION="Digital DJ tool using QT 4.x"
 HOMEPAGE="http://mixxx.sourceforge.net"
-
-EBZR_REPO_URI="lp:mixxx/1.7"
-EBZR_BRANCH=""
+SRC_URI="http://mixxx.org/download/${P}+Herc/${MY_P}+Herc.orig.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~ppc ~sparc ~x86"
 
 DEPEND="|| ( ( x11-libs/qt-core
 		x11-libs/qt-gui
@@ -51,9 +51,9 @@ DEPEND="${DEPEND}
 	dev-util/scons
 	dev-util/pkgconfig"
 
-IUSE="alsa jack ladspa djconsole hifieq shout tonal +vinylcontrol"
+IUSE="alsa jack ladspa djconsole hifieq recording shout +vinylcontrol"
 
-S="${WORKDIR}/${P}/mixxx"
+S="${WORKDIR}/${P}+Herc"
 
 pkg_setup() {
 	if use jack; then
@@ -74,7 +74,8 @@ pkg_setup() {
 }
 
 src_unpack() {
-	bzr_fetch
+	unpack ${A}
+	cd "${S}"
 	# use our own CXXFLAGS/CFLAGS
 	esed_check -i \
 		-e "0,/\(^env.Append.*\)/s//\1\nenv.Append(CCFLAGS = Split(\"\"\" \
@@ -86,13 +87,13 @@ src_unpack() {
 src_compile() {
 	myconf=""
 	! use ladspa; myconf="ladspa=$?"
-	# disable ffmpeg for now
+	# disable ffmpeg for now, it doesn't compile as of 20090429
 	#! use ffmpeg; myconf="${myconf} ffmpeg=$?"
 	myconf="${myconf} ffmpeg=0"
 	! use djconsole; myconf="${myconf} djconsole=$?"
 	! use hifieq; myconf="${myconf} hifieq=$?"
 	! use shout; myconf="${myconf} shoutcast=$?"
-	! use tonal; myconf="${myconf} tonal=$?"
+	! use vinylcontrol; myconf="${myconf} vinylcontrol=$?"
 	myconf="${myconf} prefix=/usr"
 	myconf="${myconf} qtdir=/usr/share/qt4"
 

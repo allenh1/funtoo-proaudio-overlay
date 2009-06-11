@@ -6,4 +6,12 @@
 		<email>proaudio@tuxfamily.org</email>
 		<name>pro-audio overlay team</name>
 	</maintainer>
+	<use>
+		<flag name="djconsole">Enable djconsole support</flag>
+		<flag name="hifieq">Enable hifi equalizer support</flag>
+		<flag name="recording">Enable experimental recording support</flag>
+		<flag name="shout">Enable shoutcast support</flag>
+		<flag name="tonal">Enable tonal analysis feature</flag>
+		<flag name="vinylcontrol">Enable vinylcontrol feature</flag>
+	</use>
 </pkgmetadata>

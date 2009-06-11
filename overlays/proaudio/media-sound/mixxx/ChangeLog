@@ -1,6 +1,15 @@
 # ChangeLog for media-sound/mixxx
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  10 Jun 2009; Gavin Pryke <gavinlee303@googlemail.com> ChangeLog:
+  +mixxx-1.6.1-r1.ebuild: latest stable release with herc support
+  +mixxx-1.7.0_beta1.ebuild: latest beta
+  ~mixxx-9999.ebuild: live ebuild changed from old svn to new bzr 1.7 branch
+  ~mixxx-1.6.1.ebuild: repoman cosmetic fixes
+  -mixxx-1.5.0.1.ebuild, -mixxx-1.6.0_beta4.ebuild: removed older ebuilds
+  amended metadata.xml and USE flags to match what each mixxx version expects
+  and match current gentoo ebuilds
 
   11 Oct 2008; Frieder Buerzele <evermind@tuxfamily.org;
   +mixxx-1.6.1.ebuild:
