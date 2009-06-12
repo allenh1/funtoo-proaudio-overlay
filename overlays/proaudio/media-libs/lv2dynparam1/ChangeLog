@@ -1,6 +1,11 @@
 # ChangeLog for media-libs/lv2dynparam
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*lv2dynparam1-2 (12 Jun 2009)
+
+  12 Jun 2009; Frieder Buerzele <evermind@tuxfamily.org
+  +lv2dynparam1-2.ebuild:
 
   22 Nov 2008; Frieder Buerzele <evermind@tuxfamily.org;
   lv2dynparam1-9999.ebuild:
