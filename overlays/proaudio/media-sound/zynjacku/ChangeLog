@@ -1,6 +1,11 @@
 # ChangeLog for media-sound/zynjacku
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*zynjacku-4 (12 Jun 2009)
+
+  11 Jun 2009; Stephane Angot <sa@hydre.org> +zynjacku-4.ebuild:
+      Version bump
 
   22 Nov 2008; Frieder Buerzele <evermind@tuxfamily.org;
   zynjacku-9999.ebuild:
