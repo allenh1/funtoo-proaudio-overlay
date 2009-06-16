@@ -2,10 +2,16 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*zynjacku-5 (16 Jun 2009)
+
+  16 Jun 2009; Stephane Angot <sa@hydre.org> +zynjacku-5.ebuild:
+  Version bump
+  Remove jackmidi use flag since it's broken for the moment
+
 *zynjacku-4 (12 Jun 2009)
 
   11 Jun 2009; Stephane Angot <sa@hydre.org> +zynjacku-4.ebuild:
-      Version bump
+  Version bump
 
   22 Nov 2008; Frieder Buerzele <evermind@tuxfamily.org;
   zynjacku-9999.ebuild:
