@@ -2,6 +2,9 @@
 # Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  16 Jun 2009; Stephane Angot <sa@hydre.org>redlandmm-9999.ebuild:
+  add addpredict to resolve a sandbox violation
+
   15 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org>
   redlandmm-9999.ebuild:
   add missing SLOT, thanks Nathan
