@@ -2,6 +2,11 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  16 Jun 2009; Stephane Angot <sa@hydre.org>;
+  flowcanvas-9999.ebuild:
+  added a addpredict to resolve a sandbox violation
+  removed NEWS in dodoc since it does not exist
+
   07 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
   -flowcanvas-0.5.0.ebuild:
   removed dup ebuild

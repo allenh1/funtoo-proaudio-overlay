@@ -37,6 +37,8 @@ src_compile() {
 
 src_install() {
 	cd ${PN}
+	# addpredict for the ldconfig
+	addpredict /etc/ld.so.cache
 	./waf install --destdir="${D}" || die
-	dodoc AUTHORS README ChangeLog NEWS
+	dodoc AUTHORS README ChangeLog
 }
