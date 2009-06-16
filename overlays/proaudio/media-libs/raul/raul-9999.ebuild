@@ -35,6 +35,8 @@ src_compile() {
 
 src_install() {
 	cd "${S}/${PN}" || die "source for ${PN} not found"
+	# addpredict for the ldconfig
+	addpredict /etc/ld.so.cache
 	./waf install --destdir="${D}" || die "install failed"
 	dodoc AUTHORS ChangeLog
 }

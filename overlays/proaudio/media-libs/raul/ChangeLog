@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  16 Jun 2009; Stephane Angot <sa@hydre.org>; raul-9999.ebuild:
+  add addpredict to the ebuild for resolving the sandbox issue
+  
   22 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>; raul-9999.ebuild:
   adjust USE-flags
 
