@@ -69,13 +69,6 @@ DESCR:
 HOMEPAGE: http://hypermammut.sourceforge.net/
 
 
-# NAME: jack_oscrolloscope-0.1.tar.gz
-EBUID_STATE: none
-DEVELOPER: none
-DESCR:
-HOMEPAGE:
-
-
 # NAME: KCorreMeter
 EBUID_STATE: none
 DEVELOPER: none
