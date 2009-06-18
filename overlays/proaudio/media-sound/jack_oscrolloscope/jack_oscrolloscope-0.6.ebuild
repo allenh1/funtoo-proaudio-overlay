@@ -15,18 +15,7 @@ DEPEND=">=media-sound/jack-audio-connection-kit-0.109.0
 	>=media-libs/libsdl-1.2.13"
 RDEPEND="${DEPEND}"
 
-src_unpack() {
-	unpack ${A}
-	cd ${S}
-}
-
-src_compile() {
-	emake || die "Make failed"
-}
-
 src_install() {
-#	emake PREFIX="${D}/usr" install || die "Install failed"
-	mkdir -p "${D}/usr/bin"
-	cp "${PN}" "${D}/usr/bin/" || die "Install failed"
+	dobin "${PN}"
 	dodoc README NEWS
 }
