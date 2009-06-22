@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  22 Jun 2009; Dominique Michel <dominique.michel@vtxnet.ch>
+  JACK2: Added classic USE flag. If you want jackd with USE=dbus, add USE=classic.
+  
   28 Apr 2009; Marc-Olivier Barre <marco@marcochapeau.org>
   Remove version 0.116.1. Everyone pro-audio overlay user should use 0.116.2 anyways.
 

@@ -8,6 +8,7 @@ media-sound/alsaplayer:custom-cflags - Enables custom cflags (not supported)
 media-sound/alsaplayer:systray - Enables systray support (very experimental...)
 media-sound/rosegarden:export - enables project export functionality
 media-sound/rosegarden:lilypond - enables lilypond preview functionality
+media-sound/jack-audio-connection-kit:classic - force enable standard JACK (jackd) even if D_Bus JACK (jackdbus) is enabled too
 media-sound/jack-audio-connection-kit:freebob - enables support for 'BeBoB'
 media-sound/jack-audio-connection-kit:ieee1394 - enables support FFADO - 'BeBoB'
 media-sound/museseq:zynaddsubfx - integrate ZynAddSubFX into museseq
