@@ -1,6 +1,13 @@
 # ChangeLog for media-sound/freecycle
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  22 Jun 2009; Gavin Pryke <gavinlee303@googlemail.com> ChangeLog:
+  ~freecycle-0.6.1.1_alpha.ebuild: add ~x86 keyword, some repoman payment
+  -freecycle-0.51a-r1.ebuild, freecycle-0.60a.ebuild: removed older ebuilds
+  with illegal names as freecycle-0.6.1.1_alpha not to appear in emerge even
+  when unmasked and all keywords accepted
+  -files/freecycle-0.6alpha_gcc34_compat.patch: latest source already patched
 
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog

@@ -1,19 +1,19 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils qt3 
+inherit eutils qt3
 
 MY_P="${P/_alpha/alpha}"
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="Freecycle is a beat slicer"
 HOMEPAGE="http://www.redsteamrecords.com/freecycle/"
 SRC_URI="http://download.savannah.gnu.org/releases/freecycle/${MY_P}.tar.bz2
 		doc? ( http://download.savannah.gnu.org/releases/freecycle/freecycle-manual-1.0.0.tar.gz )"
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 
 IUSE="doc oss jack portaudio"
 
@@ -24,6 +24,7 @@ DEPEND="=sci-libs/fftw-3*
 	media-libs/ladspa-sdk
 	>=media-libs/aubio-0.2
 	=x11-libs/qt-3*"
+RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${PN}"
 
