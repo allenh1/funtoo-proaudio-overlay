@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  27 Jun 2009; Stephane Angot <sa@hydre.org>; patchage-9999.ebuild:
+  add addpredict to the ebuild for resolving the sandbox issue
+
   12 Jul 2008; Marc-Olivier Barre <marco@marcochapeau.org> +patchage-0.4.1.ebuild:
   bump
 
