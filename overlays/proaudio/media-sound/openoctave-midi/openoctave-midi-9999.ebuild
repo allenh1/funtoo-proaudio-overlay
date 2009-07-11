@@ -62,6 +62,6 @@ src_compile() {
 
 src_install() {
 	cmake-utils_src_install
-	cd "${CMAKE_BUILD_DIR}"
+	cd "${S}"
 	dodoc AUTHORS README TRANSLATORS
 }
