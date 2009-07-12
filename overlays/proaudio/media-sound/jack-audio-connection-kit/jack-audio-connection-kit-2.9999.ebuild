@@ -12,7 +12,7 @@ ESVN_REPO_URI="http://subversion.jackaudio.org/jack/jack2/trunk/jackmp"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="classic doc debug freebob dbus"
+IUSE="classic doc debug freebob dbus mixed"
 
 RDEPEND="dev-util/pkgconfig
 	>=media-libs/alsa-lib-0.9.1"
@@ -46,6 +46,9 @@ src_compile() {
 	local myconf="--prefix=/usr --destdir=${D}"
 	if use classic && use dbus ; then
 	    myconf="${myconf} --classic"
+	fi
+	if use mixed && use amd64 ; then
+	    myconf="${myconf} --mixed"
 	fi
 	use dbus && myconf="${myconf} --dbus"
 	use debug && myconf="${myconf} -d debug"

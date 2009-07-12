@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  12 Jul 2009; Marc-Olivier Barre <marco@marcochapeau.org>
+  * jack-audio-connection-kit-2.9999: Added the mixed use flag 
+  (necessary to get a working 32 bit jack lib on a 64 bit system)
+
   22 Jun 2009; Dominique Michel <dominique.michel@vtxnet.ch>
   JACK2: Added classic USE flag. If you want jackd with USE=dbus, add USE=classic.
   
