@@ -1,3 +1,10 @@
 # waf seems broken
 =media-sound/jack-audio-connection-kit-1.9.1
 =media-sound/jack-audio-connection-kit-1.9.2
+
+# Drop hacked support for optional MIDI in ALSA
+# Keep masked until all reverse deps are fixed
+# See Gentoo bug 272659
+>=media-libs/alsa-lib-1.0.20-r1
+>=media-libs/alsa-utils-1.0.20-r1
+>=media-libs/alsa-tools-1.0.20-r1
