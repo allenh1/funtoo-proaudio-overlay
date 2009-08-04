@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  04 Aug 2009; Dominique Michel <dominique@tuxfamily.org>;
+  Removed alsa-lib midi USE flag check from 1.7.0
+
   02 May 2008; Frieder Buerzele <evermind@tuxfamily.org>;
   +files/rosegarden-1.6.1-asneeded.patch,
   +files/rosegarden-1.6.1.desktop.diff, +rosegarden-1.7.0.ebuild:

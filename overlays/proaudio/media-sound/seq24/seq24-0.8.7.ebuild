@@ -16,7 +16,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 ~ppc x86"
 
-RDEPEND=">=media-libs/alsa-lib-1.0.15[midi]
+RDEPEND=">=media-libs/alsa-lib-1.0.15
 	>=dev-cpp/gtkmm-2.4
 	>=dev-libs/libsigc++-2.0
 	jack? ( >=media-sound/jack-audio-connection-kit-0.90.0 )

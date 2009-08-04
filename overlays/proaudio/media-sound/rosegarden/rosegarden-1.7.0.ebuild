@@ -60,13 +60,6 @@ pkg_setup() {
 		ewarn "lilypond preview won't work."
 		ewarn "If you want this feature please remerge USE=\"lilypond\""
 	fi
-
-	if use alsa && ! built_with_use --missing true media-libs/alsa-lib midi; then
-		eerror ""
-		eerror "To be able to build Rosegarden with ALSA support you need"
-		eerror "to have built media-libs/alsa-lib with midi USE flag."
-		die "Missing midi USE flag on media-libs/alsa-lib"
-	fi
 }
 
 src_unpack() {

@@ -33,15 +33,6 @@ DEPEND="|| ( ( x11-libs/qt-core x11-libs/qt-gui x11-libs/qt-xmlpatterns )
 	vorbis? ( media-libs/libvorbis )
 	vst? ( >=media-libs/vst-sdk-2.3 )"
 
-pkg_setup() {
-	if ! built_with_use --missing true media-libs/alsa-lib midi; then
-		eerror ""
-		eerror "To be able to build ${CATEGORY}/${PN} with ALSA support you"
-		eerror "need to have built media-libs/alsa-lib with midi USE flag."
-		die "Missing midi USE flag on media-libs/alsa-lib"
-	fi
-}
-
 src_compile() {
 	make -f Makefile.cvs
 

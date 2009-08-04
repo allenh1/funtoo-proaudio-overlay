@@ -19,13 +19,6 @@ RDEPEND="alsa? ( media-libs/alsa-lib )
 DEPEND="${RDEPEND}
 	dev-lang/perl"
 
-pkg_setup() {
-	if use midi && ! built_with_use media-libs/alsa-lib midi; then
-		eerror "You need to compile media-libs/alsa-lib with USE=\"midi\""
-		eerror "in order to get midi suppport in STK"
-	fi
-}
-
 src_unpack() {
 	unpack ${A}
 	cd "${S}"

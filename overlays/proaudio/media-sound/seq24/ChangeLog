@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  04 Aug 2009; Dominique Michel; <dominique@tuxfamily.org>;
+  Removed alsa-lib midi USE check
+  
   29 Nov 2008; Thomas Kuther <gimpel@sonnenkinder.org> +seq24-0.9.0.ebuild:
   version bump
 
