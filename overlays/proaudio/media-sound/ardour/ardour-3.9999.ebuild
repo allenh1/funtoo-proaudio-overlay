@@ -27,7 +27,7 @@ RDEPEND="media-libs/liblo
 	x11-libs/pango
 	>=x11-libs/gtk+-2.8.8
 	media-libs/flac
-	>=media-libs/alsa-lib-1.0.14a-r1[midi]
+	>=media-libs/alsa-lib-1.0.14a-r1
 	>=media-libs/libsamplerate-0.1.1-r1
 	>=dev-libs/libxml2-2.6.0
 	dev-libs/libxslt

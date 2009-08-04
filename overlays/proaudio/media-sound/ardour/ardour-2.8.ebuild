@@ -24,7 +24,7 @@ RDEPEND=">=media-libs/liblrdf-0.4.0
 	>=dev-libs/glib-2.10.3
 	>=x11-libs/gtk+-2.8.8
 	media-libs/flac
-	>=media-libs/alsa-lib-1.0.14a-r1[midi]
+	>=media-libs/alsa-lib-1.0.14a-r1
 	>=media-libs/libsamplerate-0.1.1-r1
 	media-libs/liblo
 	>=dev-libs/libxml2-2.6.0

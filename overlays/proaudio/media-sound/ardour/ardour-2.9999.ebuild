@@ -24,7 +24,7 @@ RDEPEND=">=media-libs/liblrdf-0.4.0
 	>=dev-libs/glib-2.10.3
 	>=x11-libs/gtk+-2.8.8
 	media-libs/flac
-	>=media-libs/alsa-lib-1.0.14a-r1[midi]
+	>=media-libs/alsa-lib-1.0.14a-r1
 	>=media-libs/libsamplerate-0.1.1-r1
 	media-libs/liblo
 	>=dev-libs/libxml2-2.6.0
@@ -89,7 +89,7 @@ src_unpack(){
 	cd ${S}
 
 	# hack to use the sys-lib for sndlib also
-	use sys-libs && epatch "${FILESDIR}/ardour-2.0.3-sndfile-external.patch"
+#	use sys-libs && epatch "${FILESDIR}/ardour-2.0.3-sndfile-external.patch"
 
 	add_ccache_to_scons
 

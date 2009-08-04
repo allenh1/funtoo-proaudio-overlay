@@ -17,7 +17,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="alsa debug gtk python"
 
-RDEPEND="alsa? ( media-libs/alsa-lib[midi] )
+RDEPEND="alsa? ( media-libs/alsa-lib )
 	media-sound/jack-audio-connection-kit
 	dev-libs/libxml2
 	gtk? ( >=x11-libs/gtk+-2.0 )

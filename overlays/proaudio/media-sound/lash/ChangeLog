@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  04 Aug 2009; Dominique Michel <dominique@tuxfamily.org>;
+  Removed midi USE check from alsa-lib depend
+
   09 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>; lash-0.5.4.ebuild,
   +files/lash-0.5.4-glibc2.8.patch:
   KEEP -- imho better /etc/service cleanup handling

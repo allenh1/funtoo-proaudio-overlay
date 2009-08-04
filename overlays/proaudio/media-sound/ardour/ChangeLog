@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  04 Aug 2009; Dominique Michel <dominique@tuxfamily.org>;
+  * Removed midi USE check from alsa-lib depend into all the ebuilds
+  * Commented out sndfile patch into ardour-2.9999
+
   28 Apr 2009; Marc-Olivier Barre <marco@marcochapeau.org>; 
   * bump to ardour-2.8.ebuild
   * note: 2.8 voluntarily has no keyworkds yet
