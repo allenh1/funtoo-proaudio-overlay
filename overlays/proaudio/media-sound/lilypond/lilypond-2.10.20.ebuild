@@ -4,7 +4,7 @@
 
 inherit eutils autotools versionator toolchain-funcs
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="GNU Music Typesetter"
 SRC_URI="http://download.linuxaudio.org/lilypond/sources/v$(get_version_component_range 1-2)/${P}.tar.gz"
 HOMEPAGE="http://lilypond.org/"

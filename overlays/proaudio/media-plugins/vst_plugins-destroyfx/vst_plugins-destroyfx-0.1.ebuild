@@ -13,7 +13,7 @@ SRC_URI="http://www.anticore.org/jucetice/wp-content/uploads/skidder.tar.bz2
 		http://www.anticore.org/jucetice/wp-content/uploads/BufferOverride.tar.bz2
 		http://www.anticore.org/jucetice/wp-content/uploads/Transverb.tar.bz2
 		http://www.anticore.org/jucetice/wp-content/uploads/MonoMaker.tar.bz2"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 LICENSE="LGPL"
 SLOT="0"

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 inherit kde
 
 MY_PV=${PV/b/-b}

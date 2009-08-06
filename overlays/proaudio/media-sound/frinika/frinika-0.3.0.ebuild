@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 inherit eutils java-pkg-2
 
 DESCRIPTION="Frinika is a free, complete music workstation software"

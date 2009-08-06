@@ -3,7 +3,7 @@
 # $Header: $
 
 inherit eutils
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 DESCRIPTION="Program to analyse a stereo audio signal."
 HOMEPAGE="http://arvin.schnell-web.net/xanalyser/"

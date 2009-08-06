@@ -7,7 +7,7 @@ inherit vstplugin
 DESCRIPTION="8 voice synth with filter, envelopes, LFO and GUI"
 HOMEPAGE="http://www.linux-vst.com/"
 SRC_URI="http://www.linux-vst.com/download/synth4.tar.gz"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 LICENSE="LGPL-2.1"
 SLOT="0"

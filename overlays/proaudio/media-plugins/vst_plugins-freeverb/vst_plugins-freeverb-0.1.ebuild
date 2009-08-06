@@ -7,7 +7,7 @@ inherit vstplugin
 DESCRIPTION="Linux version of Jezar's reverb plugin"
 HOMEPAGE="http://www.linux-vst.com/"
 SRC_URI="http://www.linux-vst.com/download/freeverb.tar.gz"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 LICENSE="LGPL-2.1"
 SLOT="0"

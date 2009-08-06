@@ -3,7 +3,7 @@
 # $Header: $
 
 inherit toolchain-funcs
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="Give unpriviledged users access to realtime scheduling"
 HOMEPAGE="http://www.physics.adelaide.edu.au/~jwoithe"
 SRC_URI="http://www.physics.adelaide.edu.au/~jwoithe/${P}.tgz"

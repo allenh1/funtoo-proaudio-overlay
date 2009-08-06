@@ -10,7 +10,7 @@ need-qt 3
 DESCRIPTION="The LDrum is an open-source drummachine that offers ten sample channels, realtime control, a simple pattern sequencer, MIDI support and a Qt-GUI"
 HOMEPAGE="http://ldrum.sf.net/"
 SRC_URI="mirror://sourceforge/ldrum/${P}.tgz"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 LICENSE="GPL-2"
 SLOT="0"

@@ -3,7 +3,7 @@
 # $Header: $
 
 inherit kde
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="MIDI Step Sequencer"
 HOMEPAGE="http://www.monasteriomono.org/programs/kmiditracker"
 SRC_URI="http://www.monasteriomono.org/programs/kmiditracker/${P}.tar.bz2"

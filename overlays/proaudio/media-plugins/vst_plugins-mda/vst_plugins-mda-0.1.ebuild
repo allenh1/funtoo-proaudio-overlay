@@ -7,7 +7,7 @@ inherit vstplugin
 DESCRIPTION="Linux port of Paul Kellet's mda plugin collection"
 HOMEPAGE="http://www.linux-vst.com/"
 SRC_URI="http://www.energy-xt.com/download/mda_linux.tar.gz"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 LICENSE="LGPL-2.1"
 SLOT="0"

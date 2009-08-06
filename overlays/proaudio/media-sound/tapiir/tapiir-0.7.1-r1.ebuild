@@ -7,7 +7,7 @@ DESCRIPTION="Tapiir is a simple and flexible audio effects processor"
 HOMEPAGE="http://www.iua.upf.es/~mdeboer/projects/tapiir/"
 SRC_URI="http://www.iua.upf.es/~mdeboer/projects/tapiir/download/${P}.tar.gz"
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="x86 ~amd64"

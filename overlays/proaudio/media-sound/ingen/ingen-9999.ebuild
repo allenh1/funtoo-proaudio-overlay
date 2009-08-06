@@ -4,7 +4,7 @@
 
 inherit subversion exteutils autotools
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 # lash currently not supported upstream
 IUSE="midi ladspa osc gtk alsa lash"
 

@@ -5,7 +5,7 @@
 inherit eutils gnome2
 
 IUSE=""
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 DESCRIPTION="JACK audio mixer using GTK2 interface."
 HOMEPAGE="http://home.gna.org/jackmixer/"

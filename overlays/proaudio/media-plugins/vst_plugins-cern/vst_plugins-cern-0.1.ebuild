@@ -14,7 +14,7 @@ SRC_URI="http://cern.linux.vst.googlepages.com/abfpan.tar.bz2
 		http://cern.linux.vst.googlepages.com/msmatrix.tar.bz2
 		http://cern.linux.vst.googlepages.com/midigain.tar.bz2
 		http://cern.linux.vst.googlepages.com/refuzznik.tar.bz2"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 S="${WORKDIR}"
 
 LICENSE="LGPL-2.1 GPL-2"

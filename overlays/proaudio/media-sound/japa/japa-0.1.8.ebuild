@@ -4,7 +4,7 @@
 
 inherit eutils
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 IUSE=""
 DESCRIPTION="JAPA is a perceptual analyzer for JACK and ALSA"
 HOMEPAGE="http://www.kokkinizita.net/linuxaudio/"

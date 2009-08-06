@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="EMU10K1 (EMU10K2) effect loader for ALSA"
 HOMEPAGE="http://ld10k1.sourceforge.net/"
 SRC_URI="mirror://sourceforge/ld10k1/${P}.tar.gz"

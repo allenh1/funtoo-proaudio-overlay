@@ -9,7 +9,7 @@ DESCRIPTION="Drum sequencing software with impressive UI. Not in development
 anymore"
 HOMEPAGE="http://openbeatbox.org/"
 SRC_URI="mirror://sourceforge/openbeatbox/${MY_P}.tar.gz"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 LICENSE="GPL-2"
 SLOT="0"

@@ -13,7 +13,7 @@ audio and video applications."
 HOMEPAGE=" http://www.rawmaterialsoftware.com/juce"
 #SRC_URI="http://www.rawmaterialsoftware.com/juce/downloads/${MY_P}.zip "
 SRC_URI="http://downloads.sourceforge.net/juce/${MY_P}.zip "
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 S="${WORKDIR}/${PN}"
 

@@ -3,7 +3,7 @@
 
 inherit eutils
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 DESCRIPTION="FreeST audio plugin VST container library"
 HOMEPAGE="http://www.linuxaudiosystems.com/fst/"

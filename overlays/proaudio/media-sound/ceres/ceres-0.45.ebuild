@@ -3,7 +3,7 @@
 # $Header: $
 
 inherit virtualx2
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="A program for displaying sonograms and for sound effects in the frequency domain"
 HOMEPAGE="http://ccrma.stanford.edu/~kjetil/src"
 SRC_URI="http://ccrma.stanford.edu/~kjetil/src/${P}.tar.gz"

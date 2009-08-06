@@ -8,7 +8,7 @@ DESCRIPTION="a simple MIDI drum machine program modeled to a large extent on the
 Hydrogen sample-based drum machine software"
 HOMEPAGE="http://gneutronica.sourceforge.net/"
 SRC_URI="mirror://sourceforge/gneutronica/${P}.tar.gz"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 LICENSE="GPL-2"
 SLOT="0"

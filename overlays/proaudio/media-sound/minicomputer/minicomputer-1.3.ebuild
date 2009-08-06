@@ -11,7 +11,7 @@ HOMEPAGE="http://minicomputer.sourceforge.net"
 SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.gz"
 
 # poor gentoo mirrors
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 
 LICENSE="GPL-3"

@@ -6,7 +6,7 @@ inherit versionator
 
 IUSE=""
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 MY_P="${PN}-$(replace_version_separator "2" "-kh")"
 DESCRIPTION="icecast OGG streaming client. supports on the fly re-encoding, and the jack-audio-connection-kit"

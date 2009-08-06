@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="simple tool to capture what goes out to soundcard from JACK"
 HOMEPAGE="http://ccrma.stanford.edu/~kjetil/src"
 SRC_URI="http://ccrma.stanford.edu/~kjetil/src/${P}.tar.gz"

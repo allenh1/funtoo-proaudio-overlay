@@ -3,7 +3,7 @@
 # $Header: $
 
 inherit eutils
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 DESCRIPTION="Open Movie Editor is designed to be a simple tool, that provides basic movie making capabilites."
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"

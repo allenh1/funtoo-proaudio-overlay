@@ -3,7 +3,7 @@
 # $Header: $
 
 IUSE=""
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 DESCRIPTION="Configurable mixer for ALSA, with MIDI connectivity."
 HOMEPAGE="http://alsamodular.sourceforge.net/"

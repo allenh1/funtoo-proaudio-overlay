@@ -14,7 +14,7 @@ K_NOSETEXTRAVERSION="don't_set_it"
 FBSPLASH="fbcondecor-0.9.4-2.6.23-rc7_for_rt.patch"
 RT_PATCH="patch-2.6.25.8-rt7.bz2"
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="Ingo Molnars realtime patch applied on vanilla"
 SRC_URI="${KERNEL_URI}
 http://www.kernel.org/pub/linux/kernel/projects/rt/older/${RT_PATCH}

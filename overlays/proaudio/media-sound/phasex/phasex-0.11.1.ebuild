@@ -8,7 +8,7 @@ DESCRIPTION="PHASEX is an experimental software synthesizer for use with
 Linux/ALSA/JACK"
 HOMEPAGE="http://sysex.net/phasex/"
 SRC_URI="http://sysex.net/phasex/${P}.tar.gz"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 LICENSE="GPL-2"
 SLOT="0"

@@ -4,7 +4,7 @@
 
 inherit eutils
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="audio editor and live playback tool"
 HOMEPAGE="http://www.metadecks.org/software/sweep/"
 SRC_URI="http://www.metadecks.org/software/sweep/download/${P}.tar.bz2"

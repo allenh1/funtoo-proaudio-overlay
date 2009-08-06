@@ -3,7 +3,7 @@
 # $Header: $
 
 inherit jackmidi
-RESTRICT="nomirror"
+RESTRICT="mirror"
 IUSE="jackmidi"
 DESCRIPTION="graphical DSSI host, based on jack-dssi-host"
 HOMEPAGE="http://home.jps.net/~musound/"

@@ -9,7 +9,7 @@ inherit multilib
 DESCRIPTION="Tool to measure loudspeaker frequency and step responses and distortions"
 HOMEPAGE="http://gaydenko.com/qloud/"
 SRC_URI="http://gaydenko.com/qloud/download/${P}.tar.bz2"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 LICENSE="GPL-2"
 SLOT="0"

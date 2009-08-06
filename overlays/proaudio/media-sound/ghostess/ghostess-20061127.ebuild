@@ -3,7 +3,7 @@
 # $Header: $
 
 inherit jackmidi eutils
-RESTRICT="nomirror"
+RESTRICT="mirror"
 IUSE="jackmidi"
 DESCRIPTION="graphical DSSI host, based on jack-dssi-host"
 HOMEPAGE="http://www.smbolton.com/linux.html"

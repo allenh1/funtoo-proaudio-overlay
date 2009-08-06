@@ -4,7 +4,7 @@
 
 inherit eutils
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="Internet DJ Console"
 HOMEPAGE="http://www.onlymeok.nildram.co.uk"
 SRC_URI="http://www.onlymeok.nildram.co.uk/download/${P}.tar.gz"

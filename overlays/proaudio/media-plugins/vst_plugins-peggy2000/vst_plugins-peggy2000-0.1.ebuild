@@ -9,7 +9,7 @@ MY_P="Peggy2000"
 DESCRIPTION="ZynAddSubFX native linux VST version"
 HOMEPAGE="http://www.anticore.org/jucetice/?page_id=8"
 SRC_URI="http://www.anticore.org/jucetice/wp-content/uploads/${MY_P}.tar.bz2"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 LICENSE="LGPL"
 SLOT="0"

@@ -3,7 +3,7 @@
 # $Header: $
 
 inherit eutils
-RESTRICT=nomirror
+RESTRICT=mirror
 DESCRIPTION="A vocoder is a sound effect that can make a human voice sound
 synthetic"
 HOMEPAGE="http://www.sirlab.de/linux/descr_vocoder.html"

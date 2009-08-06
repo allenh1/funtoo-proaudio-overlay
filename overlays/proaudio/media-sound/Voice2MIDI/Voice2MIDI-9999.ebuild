@@ -16,7 +16,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 IUSE=""
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 DEPEND="dev-util/scons
 	=media-libs/libclam-9999

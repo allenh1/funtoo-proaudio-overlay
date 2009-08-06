@@ -4,7 +4,7 @@
 
 inherit subversion
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 IUSE="lash"
 DESCRIPTION="Patchage is a modular patchbay for Jack audio and Alsa sequencer."
 HOMEPAGE="http://drobilla.net/software/patchage"

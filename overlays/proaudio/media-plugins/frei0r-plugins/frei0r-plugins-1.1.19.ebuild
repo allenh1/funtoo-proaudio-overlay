@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION=""
 HOMEPAGE=""
 SRC_URI="http://frei0r.kexbox.org/download/source/${P}.tar.gz"

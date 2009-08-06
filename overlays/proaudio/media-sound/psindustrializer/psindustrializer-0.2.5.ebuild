@@ -6,7 +6,7 @@ DESCRIPTION="Industrializer is a program for generating percussion sounds for mu
 HOMEPAGE="http://sourceforge.net/projects/industrializer"
 SRC_URI="mirror://sourceforge/industrializer/${P}.tar.bz2"
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 LICENSE="GPL-2"
 SLOT="0"

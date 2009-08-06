@@ -8,7 +8,7 @@ At2="Minster1_000_YZ_48k.wav"
 IUSE=""
 
 inherit eutils multilib toolchain-funcs
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 DESCRIPTION="Aeolus with conbolution reverb using Ambiosonic impulse responses by Fons Adriaensen"
 HOMEPAGE="http://www.kokkinizita.net/linuxaudio/aeolus"

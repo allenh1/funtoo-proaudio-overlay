@@ -3,7 +3,7 @@
 # $Header: $
 
 inherit toolchain-funcs
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="Launch jackd at bootime with user id and privileges"
 HOMEPAGE=""
 SRC_URI=""

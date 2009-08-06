@@ -4,7 +4,7 @@
 
 inherit cvs
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 IUSE="dssi pic lash jackmidi"
 DESCRIPTION="Om is a modular synthesizer for GNU/Linux audio systems using the Jack audio server and LADSPA or DSSI plugins."
 HOMEPAGE="http://www.nongnu.org/om-synth/"

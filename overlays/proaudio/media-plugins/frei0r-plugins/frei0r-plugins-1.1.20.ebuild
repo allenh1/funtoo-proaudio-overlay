@@ -4,7 +4,7 @@
 
 inherit exteutils
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="a minimalistic plugin API for video effects"
 HOMEPAGE="http://www.piksel.org/frei0r"
 SRC_URI="http://propirate.net/frei0r/${P}.tar.gz"

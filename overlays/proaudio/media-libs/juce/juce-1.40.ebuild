@@ -12,7 +12,7 @@ class library for developing cross-platform applications, especially UIs for
 audio and video applications."
 HOMEPAGE=" http://www.rawmaterialsoftware.com/juce"
 SRC_URI="http://www.rawmaterialsoftware.com/juce/downloads/${MY_P}.zip "
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 S="${WORKDIR}/${PN}"
 

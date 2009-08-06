@@ -5,7 +5,7 @@
 inherit kde-functions eutils
 need-qt 3
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 DESCRIPTION="Free Music Instrument Tuner"
 SRC_URI="http://download.gna.org/fmit/${P}.tar.bz2"

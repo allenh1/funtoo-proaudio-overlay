@@ -6,7 +6,7 @@ EAPI=2
 
 inherit eutils
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 IUSE="jack lash devel-patches" # cairo"
 DESCRIPTION="Seq24 is a loop based MIDI sequencer with focus on live performances."
 HOMEPAGE="http://www.filter24.org/seq24/"

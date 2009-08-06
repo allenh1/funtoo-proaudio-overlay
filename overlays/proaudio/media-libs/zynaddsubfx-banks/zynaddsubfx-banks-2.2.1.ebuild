@@ -3,7 +3,7 @@
 # $Header: $
 
 inherit zyn3
-RESTRICT="nomirror"
+RESTRICT="mirror"
 MY_P="ZynAddSubFX-${PV}"
 DESCRIPTION="ZynAddSubFX banks/instruments"
 HOMEPAGE="http://zynaddsubfx.sourceforge.net/doc/instruments/"

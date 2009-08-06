@@ -9,7 +9,7 @@ MY_P="${PN/vst_plugins-/}-v${PV}"
 DESCRIPTION="Lightweight soundfont player - VST plugin"
 HOMEPAGE="http://www.anticore.org/jucetice/?page_id=29"
 SRC_URI="http://www.anticore.org/jucetice/wp-content/uploads/${MY_P}.tar.bz2"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 LICENSE="LGPL-2.1"
 SLOT="0"

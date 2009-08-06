@@ -4,7 +4,7 @@
 
 inherit multilib subversion exteutils
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="SLV2 is a library for LV2 hosts "
 HOMEPAGE="http://drobilla.net/software"
 

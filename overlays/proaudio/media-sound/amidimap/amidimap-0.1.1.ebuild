@@ -3,7 +3,7 @@
 # $Header: $
 
 IUSE=""
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 DESCRIPTION="Read in, process and output MIDI events."
 HOMEPAGE="http://www.cowlark.com/amidimap.html"

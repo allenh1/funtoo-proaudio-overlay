@@ -4,7 +4,7 @@
 
 inherit versionator
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 IUSE="debug emacs profile doc vim"
 
 DESCRIPTION="GNU Music Typesetter"

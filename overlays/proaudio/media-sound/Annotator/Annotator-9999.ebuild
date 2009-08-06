@@ -16,7 +16,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 IUSE="doc"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 DEPEND="dev-util/scons
 	dev-util/subversion

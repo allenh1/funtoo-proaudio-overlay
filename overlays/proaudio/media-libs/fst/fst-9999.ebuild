@@ -8,7 +8,7 @@ DESCRIPTION="FreeST audio plugin VST container library"
 HOMEPAGE="http://joebutton.co.uk/fst/"
 LICENSE="GPL-2"
 SLOT="0"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 EGIT_REPO_URI="git://repo.or.cz/fst.git"
 IUSE="lash"
 

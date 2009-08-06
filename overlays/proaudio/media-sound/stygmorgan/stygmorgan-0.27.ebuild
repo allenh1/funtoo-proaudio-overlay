@@ -4,7 +4,7 @@
 
 IUSE="nls"
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="stygmorgan is an Interactive Musical Workstation software emulator"
 HOMEPAGE="http://stygmorgan.berlios.de"
 SRC_URI="http://download.berlios.de/${PN}/${P}.tar.gz"

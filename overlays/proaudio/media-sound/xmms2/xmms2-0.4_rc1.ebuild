@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64 ~sparc"
 IUSE="aac alsa ao asx avahi avcodec cdda clientonly coreaudio curl cpp daap diskwrite ecore eq fam flac gnome jack lastfm mms modplug mp3 mp4 musepack nophonehome ofa oss perl python rss ruby samba shout sid speex vorbis wma xml xspf"
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 DEPEND="!media-sound/xmms2-git
 	!clientonly? (

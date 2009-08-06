@@ -3,7 +3,7 @@
 # $Header: $
 
 IUSE=""
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 DESCRIPTION="Mouse driven MIDI controller."
 HOMEPAGE="http://home.earthlink.net/~gmoonlit/raton/raton.html"

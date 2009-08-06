@@ -6,7 +6,7 @@ EAPI=1
 
 inherit exteutils qt4
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 IUSE=""
 
 DESCRIPTION="A mixer app for jack"

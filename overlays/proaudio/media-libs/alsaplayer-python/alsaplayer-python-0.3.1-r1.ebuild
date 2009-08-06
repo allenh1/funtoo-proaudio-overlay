@@ -9,7 +9,7 @@ inherit eutils distutils # autotools
 MY_P="python"
 MY_PN="${MY_P}_alsaplayer"
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 DESCRIPTION="New Python bindings for Alsaplayer."
 HOMEPAGE="http://alsaplayer.sourceforge.net/"

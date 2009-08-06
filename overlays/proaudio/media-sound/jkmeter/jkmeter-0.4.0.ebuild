@@ -4,7 +4,7 @@
 
 inherit exteutils
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="Jkmeter is a combined RMS/digital peak meter based on the ideas of mastering guru Bob Katz"
 HOMEPAGE="http://www.kokkinizita.net/linuxaudio"
 SRC_URI="http://www.kokkinizita.net/linuxaudio/downloads/${P}.tar.bz2"

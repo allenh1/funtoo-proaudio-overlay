@@ -3,7 +3,7 @@
 # $Header: $
 
 IUSE=""
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 DESCRIPTION="Set MIDI controller values using sliders and buttons."
 HOMEPAGE="http://sourceforge.net/projects/midicontrol/"

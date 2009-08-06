@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="JACK sound wrapper for OSS applications"
 HOMEPAGE="http://www.craknet.net/joss"
 SRC_URI="http://www.craknet.net/joss/${P}.tar.gz"

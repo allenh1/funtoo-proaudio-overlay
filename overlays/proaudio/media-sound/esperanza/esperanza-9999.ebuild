@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 RDEPEND="|| (
 		>=media-sound/xmms2-0.2.8_rc2

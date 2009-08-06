@@ -12,7 +12,7 @@ MY_P="${P/b/B}"
 MY_PN="${PN/b/B}"
 SRC_URI="http://www.blackholeprojector.com/${MY_P}.zip"
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 LICENSE="GPL-2"
 KEYWORDS="~x86"
 SLOT="0"

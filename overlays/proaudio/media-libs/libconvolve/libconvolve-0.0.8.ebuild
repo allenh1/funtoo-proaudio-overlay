@@ -4,7 +4,7 @@
 
 inherit eutils
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 IUSE=""
 DESCRIPTION="A simple C library for partitioned convolution"
 HOMEPAGE="http://tapas.affenbande.org/?page_id=9"

@@ -6,7 +6,7 @@ IUSE=""
 
 #inherit multilib
 
-RESTRICT=nomirror
+RESTRICT=mirror
 DESCRIPTION="Snd is a sound editor"
 HOMEPAGE="http://www.notam02.no/arkiv/src/snd/"
 SRC_URI="http://www.notam02.no/arkiv/src/snd/${P}.tar.gz"

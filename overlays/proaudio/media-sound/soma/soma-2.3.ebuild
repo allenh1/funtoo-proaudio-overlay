@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="soma is a complete audio broadcasting solution"
 HOMEPAGE="http://www.somasuite.org"
 SRC_URI="http://www.somasuite.org/src/${P}.tar.gz"

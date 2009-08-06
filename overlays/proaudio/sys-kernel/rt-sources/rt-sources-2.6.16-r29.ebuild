@@ -19,7 +19,7 @@ MM_MIN_VER=mm1
 # base for mm-patch
 MY_MM_BASE="2.6.17-rc4"
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="Ingo Molnars realtime patch applied on vanilla"
 SRC_URI="${KERNEL_URI}
 vesafb-tng? ( http://dev.gentoo.org/~spock/projects/vesafb-tng/archive/vesafb-tng-1.0-rc1-r3-2.6.16.patch )

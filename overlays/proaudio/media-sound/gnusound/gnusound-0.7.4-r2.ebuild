@@ -3,7 +3,7 @@
 # $Header: $
 
 IUSE="libsamplerate mmx sse"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 inherit gnuconfig eutils
 

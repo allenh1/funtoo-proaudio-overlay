@@ -13,7 +13,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="x86 ~amd64"
 IUSE=""
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 RDEPEND=">=media-libs/dssi-0.9
 	>=dev-cpp/libglademm-2.6.0

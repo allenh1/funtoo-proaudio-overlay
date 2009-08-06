@@ -10,7 +10,7 @@ DESCRIPTION="ASIO driver for WINE"
 HOMEPAGE="http://sourceforge.net/projects/wineasio"
 SRC_URI="x86? ( mirror://sourceforge/${PN}/${P}.tar.bz2 ) 
 amd64? ( http://people.jacklab.net/drumfix/${WINEASIOX}.tgz )"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 LICENSE="GPL-2"
 KEYWORDS="~x86 ~amd64"

@@ -3,7 +3,7 @@
 # $Header: $
 
 IUSE=""
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 DESCRIPTION="Joystick to ALSA MIDI sequencer converter."
 HOMEPAGE="http://terminatorx.org/aseqjoy.html"

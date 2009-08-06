@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 inherit eutils
 DESCRIPTION="Change the realtime scheduling policy and priority of relevant system driver IRQ handlers"
 HOMEPAGE="http://www.rncbc.org/jack/"

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 IUSE=""
 DESCRIPTION="Smack is a drum synth, 100% sample free"
 HOMEPAGE="http://smack.berlios.de/"

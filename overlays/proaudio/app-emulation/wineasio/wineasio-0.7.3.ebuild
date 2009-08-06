@@ -10,7 +10,7 @@ DESCRIPTION="ASIO driver for WINE"
 HOMEPAGE="http://forum.jacklab.net/viewtopic.php?t=417"
 SRC_URI="x86? ( http://people.jacklab.net/drumfix/${P}.tar.bz2 )
 amd64? ( http://people.jacklab.net/drumfix/${WINEASIOX}.tgz )"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 LICENSE="LGPL-2.1"
 KEYWORDS="~x86 ~amd64"

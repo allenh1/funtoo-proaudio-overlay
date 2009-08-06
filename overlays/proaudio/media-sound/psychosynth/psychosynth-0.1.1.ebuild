@@ -4,7 +4,7 @@
 
 inherit autotools
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="Free software synthesizer inspired by the ideas of the Reactable"
 HOMEPAGE="http://www.psychosynth.com/"
 SRC_URI="http://forja.rediris.es/frs/download.php/707/${P}.tar.gz"

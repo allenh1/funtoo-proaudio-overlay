@@ -6,7 +6,7 @@ IUSE=""
 
 inherit eutils
 
-RESTRICT=nomirror
+RESTRICT=mirror
 DESCRIPTION="A Tcl/Tk front end for Ecasound, with almost all of Ecasound features."
 HOMEPAGE="http://tkeca.sourceforge.net"
 SRC_URI="mirror://sourceforge/tkeca/${P}.tar.gz"

@@ -5,7 +5,7 @@
 inherit distutils
 
 IUSE=""
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 DESCRIPTION="Live user interface builder for controlling parameters via OSC."
 HOMEPAGE="http://khagan.berlios.de/"

@@ -9,7 +9,7 @@ Ad="http://store.spatialaudiocreativeengineeringnetwork.com/"
 IUSE=""
 
 #inherit eutils multilib toolchain-funcs
-RESTRICT="nomirror fetch"
+RESTRICT="mirror fetch"
 
 DESCRIPTION="Files used by Aeolus-ym to generate the convolution reverb using Ambiosonic impulse responses"
 HOMEPAGE="http://space-net.org.uk/node/54"

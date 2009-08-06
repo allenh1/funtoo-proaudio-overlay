@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="jackEQ is a tool for routing and manipulating audio from/to
 multiple input/output sources"
 HOMEPAGE="http://jackeq.sourceforge.net"

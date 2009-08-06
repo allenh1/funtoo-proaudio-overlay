@@ -6,7 +6,7 @@ DESCRIPTION="MadJACK is a MPEG Audio Deck for the Jack Audio Connection Kit with
 an OSC based control interface"
 HOMEPAGE="http://www.ecs.soton.ac.uk/~njh/madjack/"
 SRC_URI="http://www.ecs.soton.ac.uk/~njh/madjack/${P}.tar.gz"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 LICENSE="GPL-2"
 SLOT="0"

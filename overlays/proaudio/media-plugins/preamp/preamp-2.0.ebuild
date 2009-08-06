@@ -4,7 +4,7 @@
 
 inherit eutils
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 IUSE=""
 DESCRIPTION="preamp LADSPA plugins"
 HOMEPAGE="http://quitte.de/dsp/preamp.html"

@@ -5,7 +5,7 @@
 IUSE="alsa oss singlefft"
 
 inherit eutils versionator
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="Gnome Wave Cleaner"
 HOMEPAGE="http://gwc.sourceforge.net/"
 MY_P="${PN}-$(replace_version_separator "2" "-")"

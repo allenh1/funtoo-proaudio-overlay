@@ -30,7 +30,7 @@ MY_MM_BASE="2.6.17-rc4"
 
 VESAFB="vesafb-tng-1.0-rc2-2.6.19-rc2.patch.bz2"
 FBSPLASH="fbsplash-0.9.2-r5-2.6.19-rt.patch.bz2"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="Ingo Molnars realtime patch applied on vanilla"
 SRC_URI="${KERNEL_URI}
 http://download.tuxfamily.org/proaudio/realtime-patches/patch-${KV}

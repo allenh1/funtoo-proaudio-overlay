@@ -3,7 +3,7 @@
 # $Header: $
 
 IUSE=""
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 DESCRIPTION="Multithreaded stereo recording tool."
 HOMEPAGE="http://alsamodular.sourceforge.net/"

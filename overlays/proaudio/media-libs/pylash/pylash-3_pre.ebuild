@@ -11,7 +11,7 @@ HOMEPAGE="http://nedko.arnaudov.name/soft/pylash/"
 MY_P="${P/3_pre/pre-3}"
 SRC_URI="http://nedko.arnaudov.name/soft/pylash/${MY_P}.tar.bz2"
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"

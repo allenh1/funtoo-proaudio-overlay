@@ -3,7 +3,7 @@
 # $Header: $
 
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 MY_P="${P/alsa-midi-h/ALSA-MIDI-H}"
 DESCRIPTION="ALSA MIDI Humanizer is a tiny utility application that routes MIDI events between two applications adding random timing and velocity offsets to NOTEON and NOTEOFF events"
 SRC_URI="http://www.cesaremarilungo.com/download/${MY_P}.tar.gz"

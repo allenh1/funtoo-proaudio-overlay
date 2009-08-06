@@ -7,7 +7,7 @@ inherit distutils
 DESCRIPTION="buzz compatibility lib for aldrin"
 HOMEPAGE="http://trac.zeitherrschaft.org/aldrin"
 SRC_URI="mirror://sourceforge/aldrin/${P}.tar.bz2"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 LICENSE="GPL-2"
 SLOT="0"

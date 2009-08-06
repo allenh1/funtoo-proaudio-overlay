@@ -10,7 +10,7 @@ DESCRIPTION="JACK host for native linux VST, DSSI and LADSPA plugins with
 sequencer capabilities"
 HOMEPAGE="http://www.anticore.org/jucetice/?page_id=4"
 SRC_URI="http://www.anticore.org/jucetice/wp-content/uploads/${MY_P}.tar.bz2"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 LICENSE="LGPL-2.1"
 SLOT="0"

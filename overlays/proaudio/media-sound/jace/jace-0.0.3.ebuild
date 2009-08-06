@@ -4,7 +4,7 @@
 
 inherit eutils
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 IUSE=""
 DESCRIPTION="JACE is a Convolution Engine for JACK and ALSA"
 HOMEPAGE="http://www.kokkinizita.net/linuxaudio/"

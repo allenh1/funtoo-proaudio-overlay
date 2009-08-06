@@ -6,7 +6,7 @@ IUSE="jack"
 
 inherit rpm
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="reproduce sounds of strings, organs, flutes and drums in real time"
 HOMEPAGE="http://www.linux-sound.org/rtsynth/"
 SRC_URI="ftp://ftp.suse.com/pub/suse/i386/9.3/suse/src/${P}-32.src.rpm"

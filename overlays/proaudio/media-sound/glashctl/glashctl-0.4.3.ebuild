@@ -3,7 +3,7 @@
 # $Header: $
 
 inherit exteutils
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="GLASHCtl is a simple applet for controlling the LASH Audio Session Handler"
 HOMEPAGE="http://dino.nongnu.org/glashctl"
 SRC_URI="http://download.savannah.nongnu.org/releases/dino/${P}.tar.bz2"

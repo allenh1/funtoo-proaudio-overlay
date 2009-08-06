@@ -9,7 +9,7 @@ need-kde 3
 DESCRIPTION="tuneroid is a tuner for variety of musical instruments"
 HOMEPAGE="http://zyzstar.kosoru.com/?tuneroid"
 SRC_URI="http://zyzstar.kosoru.com/projects/tuneroid/downloads/${P}.tar.bz2"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 LICENSE="GPL-2"
 SLOT="0"

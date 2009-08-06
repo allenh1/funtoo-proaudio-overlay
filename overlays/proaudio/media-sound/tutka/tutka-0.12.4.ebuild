@@ -3,7 +3,7 @@
 # $Header: /cvsroot/jacklab/gentoo/media-sound/tutka/tutka-0.12.3.ebuild,v 1.1 2006/04/10 17:19:53 gimpel Exp $
 
 inherit eutils
-RESTRICT="nomirror"
+RESTRICT="mirror"
 IUSE="jack" # lash" # cairo"
 DESCRIPTION="A free (as in freedom) tracker style MIDI sequencer for GNU/Linux"
 HOMEPAGE="http://www.nongnu.org/tutka"

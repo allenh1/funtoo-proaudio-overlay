@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="live looping sequencer"
 HOMEPAGE="http://kluppe.klingt.org"
 SRC_URI="http://kluppe.klingt.org/downloads/old_files/${P}.tar.gz"

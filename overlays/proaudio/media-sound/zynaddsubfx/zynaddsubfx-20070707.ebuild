@@ -3,7 +3,7 @@
 # $Header: $
 
 inherit exteutils jackmidi
-RESTRICT="nomirror"
+RESTRICT="mirror"
 MY_P=ZynAddSubFX-${PV}
 DESCRIPTION="ZynAddSubFX is an opensource software synthesizer."
 HOMEPAGE="http://zynaddsubfx.sourceforge.net/"

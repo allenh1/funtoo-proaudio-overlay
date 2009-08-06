@@ -4,7 +4,7 @@
 
 inherit flag-o-matic eutils multilib subversion linux-info autotools unipatch-001
 
-RESTRICT="nostrip nomirror"
+RESTRICT="nostrip mirror"
 DESCRIPTION="A low-latency audio server"
 HOMEPAGE="http://www.jackaudio.org"
 

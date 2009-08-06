@@ -7,7 +7,7 @@ inherit multilib
 DESCRIPTION="Buzz Machines Loader for Buzztard"
 HOMEPAGE="http://www.buzztard.org"
 SRC_URI="mirror://sourceforge/buzztard/${P}.tar.gz"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 LICENSE="GPL-2"
 SLOT="0"

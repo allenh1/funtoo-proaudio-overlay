@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /cvsroot/jacklab/gentoo/media-sound/gnuitar/gnuitar-0.3.2.ebuild,v 1.2 2006/04/10 16:35:53 gimpel Exp $
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="a program for real-time guitar sound effect processing"
 HOMEPAGE="http//www.gnuitar.com"
 SRC_URI="mirror://sourceforge/gnuitar/${P}.tar.bz2"

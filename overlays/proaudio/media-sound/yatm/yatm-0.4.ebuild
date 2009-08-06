@@ -5,7 +5,7 @@
 #IUSE="speex ogg sndfile"
 IUSE=""
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="adjust the playback speed without changing the pitch of the
 recording"
 HOMEPAGE="http://delysid.org/yatm.html"

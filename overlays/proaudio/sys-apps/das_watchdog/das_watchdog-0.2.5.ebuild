@@ -3,7 +3,7 @@
 # $Header: $
 
 inherit toolchain-funcs
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="watchdog to ensure a realtime process won't hang the machine"
 HOMEPAGE="http://www.notam02.no/arkiv/src/"
 SRC_URI="http://www.notam02.no/arkiv/src/${P}.tar.gz"

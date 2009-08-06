@@ -4,7 +4,7 @@
 
 inherit toolchain-funcs
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="extreme sound stretching of the audio"
 HOMEPAGE="http://hypermammut.sourceforge.net/paulstretch"
 

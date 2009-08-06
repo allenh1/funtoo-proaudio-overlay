@@ -8,7 +8,7 @@ DESCRIPTION="Aldrin is an open source modular sequencer/tracker, compatible to
 Buzz"
 HOMEPAGE="http://trac.zeitherrschaft.org/aldrin/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 LICENSE="GPL-2"
 SLOT="0"

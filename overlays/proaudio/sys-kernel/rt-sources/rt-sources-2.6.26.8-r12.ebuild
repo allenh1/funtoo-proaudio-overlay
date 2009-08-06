@@ -14,7 +14,7 @@ K_NOSETEXTRAVERSION="don't_set_it"
 FBSPLASH="fbcondecor-0.9.4_for_2.6.26-rt.patch"
 RT_PATCH="patch-${KV}.bz2"
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="Realtimne Preemption patched low latency Linux kernel"
 SRC_URI="${KERNEL_URI}
 http://www.kernel.org/pub/linux/kernel/projects/rt/older/${RT_PATCH}

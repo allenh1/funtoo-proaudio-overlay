@@ -17,7 +17,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 x86"
 IUSE="doc double jack ladspa osc fftw fft alsa qt3 sndfile vorbis mad id3 portaudio"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 DEPEND="dev-util/scons
 	ladspa? ( media-libs/ladspa-sdk )

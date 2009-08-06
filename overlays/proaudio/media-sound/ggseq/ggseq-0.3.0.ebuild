@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /cvsroot/jacklab/gentoo/media-sound/ggseq/ggseq-0.3.0.ebuild,v 1.1.1.1 2006/04/10 10:35:21 gimpel Exp $
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="Gungirl Sequencer is an easy to use Audiosequencer"
 HOMEPAGE="http://ggseq.sourceforge.net"
 SRC_URI="mirror://sourceforge/ggseq/${P}.tar.gz"

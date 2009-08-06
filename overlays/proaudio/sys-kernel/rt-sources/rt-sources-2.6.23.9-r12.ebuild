@@ -15,7 +15,7 @@ UVESAFB="uvesafb-0.1-rc3-2.6.23-rc3.patch"
 FBSPLASH="fbcondecor-0.9.4-2.6.23-rc7_for_rt.patch"
 RT_PATCH="patch-${KV}.bz2"
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="Ingo Molnars realtime patch applied on vanilla"
 SRC_URI="${KERNEL_URI}
 http://www.kernel.org/pub/linux/kernel/projects/rt/older/${RT_PATCH}

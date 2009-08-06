@@ -8,7 +8,7 @@ HOMEPAGE="http://zhevny.com/specimen"
 MY_P="${P/_/-}"
 SRC_URI="http://zhevny.com/${PN}/files/${MY_P}.tar.gz"
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"

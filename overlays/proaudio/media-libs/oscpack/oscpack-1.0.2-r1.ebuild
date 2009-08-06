@@ -3,7 +3,7 @@
 # $Header: $
 
 inherit eutils
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 DESCRIPTION="Set of C++ classes for packing and unpacking OSC packets"
 HOMEPAGE="http://www.audiomulch.com/~rossb/code/oscpack"

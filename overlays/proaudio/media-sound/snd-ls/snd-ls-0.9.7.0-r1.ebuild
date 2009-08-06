@@ -6,7 +6,7 @@ IUSE=""
 
 #inherit multilib
 
-RESTRICT=nomirror
+RESTRICT=mirror
 DESCRIPTION="Snd is a sound editor"
 HOMEPAGE="http://ccrma.stanford.edu/~kjetil/"
 SRC_URI="http://ccrma.stanford.edu/~kjetil/src/${P}.tar.gz"

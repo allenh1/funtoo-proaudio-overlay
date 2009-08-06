@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 inherit python eutils
 DESCRIPTION="A simple yet powerful multi-track studio"
 HOMEPAGE="http://www.jokosher.org/"

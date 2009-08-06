@@ -10,7 +10,7 @@ DESCRIPTION="NINJAM is a program to allow people to make real music together via
 the Internet"
 HOMEPAGE="http://www.ninjam.com/"
 SRC_URI="http://www.ninjam.com/downloads/src/${MY_P}.tar.gz"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 LICENSE="GPL-2"
 SLOT="0"

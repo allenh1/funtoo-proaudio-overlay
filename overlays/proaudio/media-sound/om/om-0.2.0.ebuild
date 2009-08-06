@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 DESCRIPTION="Modular audio synthesizer using Jack, LADSPA, DSSI etc."
 HOMEPAGE="http://www.nongnu.org/om-synth/"

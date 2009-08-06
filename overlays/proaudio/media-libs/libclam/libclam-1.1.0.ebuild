@@ -18,7 +18,7 @@ KEYWORDS="~amd64 x86"
 IUSE="doc double jack ladspa osc fftw fft alsa optimize qt3 sndfile vorbis mad id3 portaudio"
 # portmidi"
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 DEPEND=">=dev-util/scons-0.96.92
 	ladspa? ( media-libs/ladspa-sdk )

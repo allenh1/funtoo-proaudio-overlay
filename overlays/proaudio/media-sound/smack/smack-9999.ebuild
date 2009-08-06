@@ -3,7 +3,7 @@
 # $Header: $
 
 inherit subversion
-RESTRICT="nomirror"
+RESTRICT="mirror"
 IUSE=""
 DESCRIPTION="Smack is a drum synth, 100% sample free"
 HOMEPAGE="http://smack.berlios.de/"

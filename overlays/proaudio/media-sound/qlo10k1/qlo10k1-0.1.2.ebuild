@@ -4,7 +4,7 @@
 
 EAPI=1
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="Gui for ld10k1 (EMU10K1 (EMU10K2) effect loader for ALSA)"
 HOMEPAGE="http://ld10k1.sourceforge.net/"
 SRC_URI="mirror://sourceforge/ld10k1/${P}.tar.gz"

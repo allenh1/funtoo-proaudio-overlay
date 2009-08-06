@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 IUSE=""
 MY_P="${P/amb/AMB}"
 DESCRIPTION="AMB ladspa plugins package"

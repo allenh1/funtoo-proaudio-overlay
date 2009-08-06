@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="Wsynth-DSSI, a wavetable synthesizer plugin"
 HOMEPAGE="http://dssi.sourceforge.net/download.html#Xsynth-DSSI"
 SRC_URI="mirror://sourceforge/dssi/${P}.tar.gz"
@@ -11,7 +11,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 RDEPEND=">=media-libs/dssi-0.9
 	>=x11-libs/gtk+-2.0"

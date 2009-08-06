@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 IUSE=""
 DESCRIPTION="foo-plugins for ladspa"
 HOMEPAGE="http://www.studionumbersix.com/foo/"

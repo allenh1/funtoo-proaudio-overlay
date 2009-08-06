@@ -3,7 +3,7 @@
 # $Header: $
 
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 IUSE="boost osc lash jack debug"
 DESCRIPTION="Realtime Audio Utility Library: lightweight header-only C++"
 HOMEPAGE="http://wiki.drobilla.net/Raul"

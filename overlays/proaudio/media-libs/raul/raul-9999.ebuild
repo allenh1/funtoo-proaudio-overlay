@@ -4,7 +4,7 @@
 
 inherit multilib subversion
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 IUSE="debug doc"
 DESCRIPTION="Realtime Audio Utility Library: lightweight header-only C++"
 HOMEPAGE="http://wiki.drobilla.net/Raul"

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /cvsroot/jacklab/gentoo/media-sound/frinika/frinika-0.1.7.ebuild,v 1.1 2006/04/10 10:04:59 gimpel Exp $
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 inherit eutils java-pkg
 
 DESCRIPTION="Frinika is a free, complete music workstation software"

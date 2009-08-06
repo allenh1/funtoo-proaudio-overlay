@@ -6,7 +6,7 @@ EAPI=1
 
 inherit eutils
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 IUSE=""
 
 DESCRIPTION="A mixer app for jack"

@@ -6,7 +6,7 @@ inherit kde
 
 need-kde 3
 
-RESTRICT=nomirror
+RESTRICT=mirror
 DESCRIPTION="An efficient and easy-to-use environment for a guitarist"
 HOMEPAGE="http://kguitar.sourceforge.net/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"

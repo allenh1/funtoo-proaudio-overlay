@@ -5,7 +5,7 @@
 inherit multilib exteutils
 
 IUSE=""
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="DSSI wrapper plugin for Windows VSTs"
 HOMEPAGE="http://dssi.sourceforge.net/"
 SRC_URI="mirror://sourceforge/dssi/${P}.tar.gz"

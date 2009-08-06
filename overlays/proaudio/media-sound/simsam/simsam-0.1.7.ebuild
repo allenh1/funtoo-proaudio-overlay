@@ -5,7 +5,7 @@
 inherit kde-functions eutils
 need-qt 3
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 IUSE=""
 DESCRIPTION="Simsam is a simple MIDI sample playback program. You can use it to play drum samples and loops from a MIDI keyboard or sequencer"
 HOMEPAGE="http://simsam.sourceforge.net"

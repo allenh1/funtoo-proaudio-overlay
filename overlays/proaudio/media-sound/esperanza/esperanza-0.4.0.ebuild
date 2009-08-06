@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64 ~sparc"
 IUSE=""
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 RDEPEND="|| (
 		>=media-sound/xmms2-0.2.8_rc2

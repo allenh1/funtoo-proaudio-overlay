@@ -4,7 +4,7 @@
 
 inherit eutils
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 IUSE="lash"
 DESCRIPTION="A convolution plugin for linux/DSSI"
 HOMEPAGE="http://tapas.affenbande.org/wordpress/?page_id=36"

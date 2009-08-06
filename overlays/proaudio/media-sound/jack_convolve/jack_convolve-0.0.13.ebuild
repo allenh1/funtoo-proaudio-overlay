@@ -4,7 +4,7 @@
 
 inherit eutils
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 IUSE="lash"
 DESCRIPTION="jack_convolve - a simple commandline convolution engine for jackd"
 HOMEPAGE="http://tapas.affenbande.org/?page_id=5"

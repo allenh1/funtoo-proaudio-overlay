@@ -5,7 +5,7 @@
 DESCRIPTION="A GPL'ed GTK oscilloscope-style musical instrument tuning program. It can also be used to find the frequency of sounds"
 HOMEPAGE="http://pitchtune.sourceforge.net"
 SRC_URI="mirror://sourceforge/pitchtune/${P}.tar.bz2"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 LICENSE="GPL-2"
 SLOT="0"

@@ -4,7 +4,7 @@
 
 inherit subversion exteutils autotools
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 IUSE=""
 #IUSE="dssi pic jackmidi midi ladspa lv2 jack osc gtk2 alsa lash in-process"
 

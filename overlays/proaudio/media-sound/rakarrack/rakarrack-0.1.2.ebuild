@@ -4,7 +4,7 @@
 
 IUSE=""
 
-RESTRICT=nomirror
+RESTRICT=mirror
 
 DESCRIPTION="Basic rack of 10 effects for guitar with presets, banks and MIDI control"
 HOMEPAGE="http://rakarrack.sourceforge.net/"

@@ -14,7 +14,7 @@ SRC_URI="mirror://sourceforge/${PN}/${MY_P}-SRC-LittleEndian.tgz
 		doc? ( mirror://sourceforge/${PN}/IanniX-Tutorial.pdf )
 		examples? (	mirror://sourceforge/${PN}/IanniX-Examples-Processing-1.5.tgz )"
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 LICENSE="GPL-2"
 SLOT="0"

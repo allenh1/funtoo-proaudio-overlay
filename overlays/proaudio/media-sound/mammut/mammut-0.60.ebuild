@@ -4,7 +4,7 @@
 
 inherit eutils flag-o-matic
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="A program for doing sound effects using one gigantic fft analysis (no windows)."
 HOMEPAGE="http://www.notam02.no/arkiv/doc/mammut/"
 SRC_URI="http://www.notam02.no/arkiv/src/${P}.tar.gz"

@@ -11,7 +11,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="x86"
 IUSE="doc"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 RDEPEND=">=media-libs/dssi-0.9
 	>=x11-libs/gtk+-2.0

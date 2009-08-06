@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE="aac alsa ao asx avahi avcodec cdda clientonly coreaudio curl cpp daap diskwrite ecore eq fam flac jack lastfm mac mms modplug mp3 mp4 musepack nophonehome ofa oss perl python rss ruby samba shout sid speex vorbis wma xml xspf"
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 DEPEND="!clientonly? (
 		>=dev-db/sqlite-3.3.4

@@ -3,7 +3,7 @@
 # $Header: $
 
 inherit eutils jackmidi
-RESTRICT="nomirror"
+RESTRICT="mirror"
 IUSE="debug"
 DESCRIPTION="Dino is a pattern-based MIDI sequencer."
 HOMEPAGE="http://dino.nongnu.org"

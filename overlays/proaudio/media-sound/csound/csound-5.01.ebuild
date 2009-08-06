@@ -6,7 +6,7 @@ DESCRIPTION="Csound is a sound and music synthesis system, providing facilities 
 
 HOMEPAGE="http://csounds.com"
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 MY_P=${P/csound-/Csound}
 SRC_URI="mirror://sourceforge/${PN}/${MY_P}_src.tar.gz"
 

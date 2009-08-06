@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="A softsynth to generate organ-like, organic-like, alien-like and
 water-like sounds, plus various kinds of noise"
 HOMEPAGE="http://www.notam02.no/~kjetism/sandysth/"

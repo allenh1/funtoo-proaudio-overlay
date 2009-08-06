@@ -9,7 +9,7 @@ MY_P="${PN/vst_plugins-/}"
 DESCRIPTION="Rumpelrausch Taips ZR3 - native linux VST"
 HOMEPAGE="http://www.anticore.org/jucetice/?page_id=7"
 SRC_URI="http://www.anticore.org/jucetice/wp-content/uploads/${MY_P}.tar.bz2"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 LICENSE="LGPL"
 SLOT="0"

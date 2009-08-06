@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 IUSE="lash"
 DESCRIPTION="Patchage is a modular patchbay for Jack audio and Alsa sequencer"
 HOMEPAGE="http://www.nongnu.org/om-synth/"

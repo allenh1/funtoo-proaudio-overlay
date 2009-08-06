@@ -4,7 +4,7 @@
 
 inherit exteutils
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="live looping sequencer"
 HOMEPAGE="http://kluppe.klingt.org"
 SRC_URI="http://kluppe.klingt.org/downloads/${P}.tar.gz"

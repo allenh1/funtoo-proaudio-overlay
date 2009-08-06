@@ -4,7 +4,7 @@
 
 IUSE="doc"
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 DESCRIPTION="DRC generates digital room correction FIR filters to be used within HiFi systems in conjunction with real time convolution engines like BruteFIR."
 HOMEPAGE="http://drc-fir.sourceforge.net"

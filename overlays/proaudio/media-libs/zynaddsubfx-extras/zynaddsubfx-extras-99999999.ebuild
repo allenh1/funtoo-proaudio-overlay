@@ -3,7 +3,7 @@
 # $Header: $
 
 inherit zyn3  fetch-tools unpacker
-RESTRICT="nomirror"
+RESTRICT="mirror"
 MY_P="unsorted_${PN/-extras/}Parameters_${PV}"
 MY_PN="zynaddsubfx"
 DESCRIPTION="unsorted bank/instruments and parameters for zynaddsubfx"

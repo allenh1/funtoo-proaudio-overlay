@@ -4,7 +4,7 @@
 
 inherit autotools
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 DESCRIPTION="library that provides direct access to the IEEE 1394 bus"
 HOMEPAGE="http://www.linux1394.org/"

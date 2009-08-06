@@ -10,7 +10,7 @@ else
 	SRC_URI="http://propirate.net/frei0r/${P}.tar.gz"
 fi
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="Minimalistic plugin API for video effects"
 HOMEPAGE="http://www.piksel.org/frei0r"
 

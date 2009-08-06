@@ -4,7 +4,7 @@
 
 inherit multilib subversion
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 IUSE="debug"
 DESCRIPTION="An STL-style C++ wrapper for the Redland RDF Toolkit (librdf)"
 HOMEPAGE="http://drobilla.net/software"

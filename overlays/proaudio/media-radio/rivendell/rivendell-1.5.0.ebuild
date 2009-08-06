@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="alsa jack pam"
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 DEPEND="alsa? ( media-libs/alsa-lib )
 	jack? ( media-sound/jack-audio-connection-kit )

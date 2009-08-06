@@ -3,7 +3,7 @@
 # $Header: $
 
 inherit eutils versionator
-RESTRICT="nomirror"
+RESTRICT="mirror"
 MY_PN="${PN/m/M}"
 MY_P="${MY_PN}.$(replace_version_separator "0" "-")"
 

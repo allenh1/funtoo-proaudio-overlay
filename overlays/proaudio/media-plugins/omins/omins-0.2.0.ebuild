@@ -4,7 +4,7 @@
 
 inherit exteutils autotools 
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="Collection of LADSPA plugins for modular synthesizers."
 HOMEPAGE="http://www.nongnu.org/om-synth/omins.html"
 SRC_URI="http://savannah.nongnu.org/download/om-synth/${P}.tar.gz"

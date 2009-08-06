@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="measures the latency between two jack ports with subsample accuracy"
 HOMEPAGE="http://www.kokkinizita.net/linuxaudio"
 SRC_URI="http://www.kokkinizita.net/linuxaudio/downloads/jdelay.tar.bz2"

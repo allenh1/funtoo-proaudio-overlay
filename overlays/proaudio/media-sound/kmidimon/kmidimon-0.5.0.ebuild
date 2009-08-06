@@ -13,7 +13,7 @@ SRC_URI="mirror://sourceforge/kmetronome/${P}.tar.bz2"
 LICENSE="GPL-2"
 KEYWORDS="~x86 ~amd64"
 SLOT="0"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 RDEPEND=">=media-libs/alsa-lib-1.0
 	kde-base/kdelibs"

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="This is a digital dj mixing software package, aimed towards live music remixing and production."
 HOMEPAGE="http://gdam.ffem.org/"
 SRC_URI="mirror://sourceforge/gdam/${P}.tar.gz"

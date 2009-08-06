@@ -3,7 +3,7 @@
 # $Header: $
 
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="an instrument editor for MIDI music composition and a sampler frontend"
 HOMEPAGE="http://swami.sourceforge.net"
 SRC_URI="mirror://sourceforge/${PN}/${P/_/}.tar.bz2"

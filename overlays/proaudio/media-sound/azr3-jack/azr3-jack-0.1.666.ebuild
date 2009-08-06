@@ -5,7 +5,7 @@
 DESCRIPTION="Rumpelrausch Täips AZR3 standalone Linux port"
 HOMEPAGE="http://ll-plugins.nongnu.org/azr3"
 SRC_URI="http://download.savannah.nongnu.org/releases/ll-plugins/${P}.tar.bz2"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 LICENSE="GPL-2"
 SLOT="0"

@@ -14,7 +14,7 @@ K_NOSETEXTRAVERSION="don't_set_it"
 FBSPLASH="fbcondecor-0.9.4_for_2.6.26-rt.patch"
 RT_PATCH="patch-${KV}.bz2"
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="Ingo Molnars realtime patch applied on vanilla"
 SRC_URI="${KERNEL_URI}
 http://download.tuxfamily.org/proaudio/realtime-patches/${RT_PATCH}

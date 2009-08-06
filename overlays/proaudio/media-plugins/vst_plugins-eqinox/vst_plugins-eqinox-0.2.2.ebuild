@@ -9,7 +9,7 @@ MY_P="${PN/vst_plugins-/}-v${PV}"
 DESCRIPTION="6-Band graphic VST Equalizer"
 HOMEPAGE="http://www.anticore.org/jucetice/?page_id=7"
 SRC_URI="http://www.anticore.org/jucetice/wp-content/uploads/${MY_P}.tar.bz2"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 LICENSE="LGPL-2.1"
 SLOT="0"

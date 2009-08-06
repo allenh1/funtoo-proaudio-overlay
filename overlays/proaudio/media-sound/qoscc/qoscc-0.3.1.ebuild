@@ -3,7 +3,7 @@
 # $Header: $
 
 IUSE="debug alsa jack oss"
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 DESCRIPTION="Highly flexible and configurable software oscilloscope."
 HOMEPAGE="http://flup.homelinux.org/qoscc.html"

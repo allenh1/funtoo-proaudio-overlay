@@ -4,7 +4,7 @@
 
 inherit eutils subversion
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="sound font editor library ?"
 HOMEPAGE="http://swami.sourceforge.net/"
 #SRC_URI="mirror://sourceforge/swami/${P/_/}.tar.gz"
