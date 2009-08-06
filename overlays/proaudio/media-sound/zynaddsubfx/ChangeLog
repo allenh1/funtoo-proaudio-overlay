@@ -1,6 +1,11 @@
 # ChangeLog for media-sound/zynaddsubfx
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*zynaddsubfx-2.4.0 (06 Aug 2009)
+
+  06 Aug 2009; Frieder Buerzele <evermind@tuxfamily.org
+  +zynaddsubfx-2.4.0.ebuild: bumped
 
   15 Sep 2008; Frieder Buerzele <evermind@tuxfamily.org;
   zynaddsubfx-99999999.ebuild:
