@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI="1"
-inherit  base eutils autotools
+inherit base eutils autotools
 
 DESCRIPTION="An automated system for acquisition, management, scheduling and playout of audio content."
 HOMEPAGE="http://rivendellaudio.org/"
@@ -11,17 +11,18 @@ SRC_URI="http://rivendellaudio.org/ftpdocs/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="alsa jack pam"
 
-RESTRICT="mirror"
+RESTRICT="nomirror"
 
 DEPEND="alsa? ( media-libs/alsa-lib )
+	alsa? ( media-libs/libsamplerate )
 	jack? ( media-sound/jack-audio-connection-kit )
+	jack? ( media-libs/libsamplerate )
 	media-libs/flac
 	media-libs/id3lib
 	media-libs/libogg
-	media-libs/libsamplerate
 	media-libs/libvorbis
 	virtual/mysql
 	x11-libs/qt:3"
@@ -31,24 +32,23 @@ RDEPEND="${DEPEND}
 	media-sound/cdparanoia
 	media-sound/lame
 	media-sound/mpg321
-	media-sound/sox
 	media-sound/vorbis-tools
 	net-ftp/lftp
-	net-misc/wget
-	sys-devel/bc"
+	net-misc/wget"
+
+pkg_setup() {
+	enewgroup ${PN}
+	enewuser ${PN} -1 -1 /var/lib/${PN} "${PN},audio"
+}
 
 src_unpack() {
-	unpack "${A}"
+	unpack ${A}
 	cd "${S}"
-	epatch "${FILESDIR}/${P}-sandbox.patch" || die "epatch failed" || die "epatch failed"
-
-
-#PATCHES=( "${FILESDIR}/${PN}-init.patch"
-#	"${FILESDIR}/${PN}-sox.patch" )
+	epatch "${FILESDIR}/${PN}-init.patch"
+	epatch "${FILESDIR}/${PN}-sandbox.patch"
 }
 
 src_compile() {
-#	eautoreconf || die "autoreconf failed"
 	local myconf=""
 
 	use alsa || myconf="${myconf} --disable-alsa"
@@ -72,12 +72,6 @@ src_install() {
 	prepalldocs || die "prepalldocs failed"
 }
 
-pkg_preinst() {
-	enewgroup ${PN}
-	enewuser ${PN} -1 -1 /var/lib/${PN} "${PN},audio"
-}
-
-
 pkg_postinst() {
 	elog "If you would like ASI or GPIO hardware support,"
 	elog "install their drivers and re-emerge this package."
@@ -87,7 +81,7 @@ pkg_postinst() {
 	einfo "the Rivendell database before starting"
 	einfo "/etc/init.d/rivendell."
 	einfo "/var/snd is owned by ${PN}:${PN}."
-	einfo "Set AudioOwner aand AudioGroup into /etc/rd.conf"
+	einfo "Set AudioOwner and AudioGroup into /etc/rd.conf"
 	einfo "accordingly."
 	einfo
 	ewarn "If this is an upgrade, run rdadmin to ensure your"
