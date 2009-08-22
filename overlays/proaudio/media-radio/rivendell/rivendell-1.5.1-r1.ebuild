@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 inherit base eutils autotools
 
 DESCRIPTION="An automated system for acquisition, management, scheduling and playout of audio content."
@@ -25,7 +25,7 @@ DEPEND="alsa? ( media-libs/alsa-lib )
 	media-libs/libogg
 	media-libs/libvorbis
 	virtual/mysql
-	x11-libs/qt:3"
+	x11-libs/qt:3[mysql]"
 RDEPEND="${DEPEND}
 	pam? ( sys-libs/pam )
 	app-cdr/cdrkit
