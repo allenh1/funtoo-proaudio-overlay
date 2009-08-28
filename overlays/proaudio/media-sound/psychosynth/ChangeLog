@@ -1,6 +1,13 @@
 # ChangeLog for media-sound/psychosynth
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*psychosynth-9999 (28 Aug 2009)
+*psychosynth-0.1.5 (28 Aug 2009)
+
+  28 Aug 2009; Gavin Pryke <gavinlee303@googlemail.com>
+  +psychosynth-0.1.5.ebuild, +psychosynth-9999.ebuild, metadata.xml:
+  add latest release, include a live cvs ebuild
 
   20 Apr 2008; Thomas Kuther <gimpel@sonnenkinder.org>
   psychosynth-0.1.1.ebuild:
