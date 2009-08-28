@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -25,7 +25,7 @@ DEPEND=">=media-libs/liblo-0.22
 	>=dev-cpp/gtkmm-2.11.12
 	>=dev-cpp/libgnomecanvasmm-2.6
 	>=dev-cpp/libglademm-2.6.0
-	>=x11-libs/flowcanvas-0.5.1
+	>=x11-libs/flowcanvas-9999
 	dev-libs/dbus-glib
 	lash? ( media-sound/lash )
 	=media-libs/raul-9999"
