@@ -1,6 +1,9 @@
 # ChangeLog for media-sound/ingen
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  28 Aug 2009; Gavin Pryke <gavinlee303@googlemail.com> ingen-9999.ebuild:
+  fix some deps
 
   16 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ingen-9999.ebuild:
   added SLOT

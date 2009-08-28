@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -31,10 +31,10 @@ RDEPEND="osc? ( >=media-libs/liblo-0.22 )
 		>=dev-cpp/libgnomecanvasmm-2.6
 		>=dev-cpp/libglademm-2.6.0
 		>=net-libs/libsoup-2.4.0
-		>=x11-libs/flowcanvas-0.5.1 )
+		>=x11-libs/flowcanvas-9999 )
 	ladspa? ( media-libs/ladspa-sdk )
 	jack? ( >=media-sound/jack-audio-connection-kit-0.109.0 )
-	>=media-libs/slv2-0.6"
+	>=media-libs/slv2-9999"
 
 DEPEND="${RDEPEND}
 	>=dev-libs/boost-1.33.1
@@ -44,14 +44,14 @@ src_compile() {
 	cd ${PN}
 
 	local myconf="--prefix=/usr --libdir=/usr/$(get_libdir)/"
-	
+
 	use doc && myconf="${myconf} --build-docs --htmldir=/usr/share/doc/${P}/html"
 	use debug && myconf="${myconf} --debug"
 
 	./waf configure \
 		--module-dir=/usr/$(get_libdir)/ingen \
 		${myconf} || die
-	
+
 	./waf build ${MAKEOPTS} || die
 }
 src_install() {
