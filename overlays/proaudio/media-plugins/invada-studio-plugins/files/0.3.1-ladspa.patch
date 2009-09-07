@@ -1,0 +1,60 @@
+--- invada-studio-plugins-0.3.1/Makefile	2009-02-14 02:07:04.000000000 +0000
++++ Makefile	2009-09-07 11:23:49.000000000 +0100
+@@ -23,8 +23,8 @@
+ # Change this if you want to install somewhere else. In particular
+ # you may wish to remove the middle "local/" part of the path.
+ 
+-INSTALL_PLUGINS_DIR	=	/usr/local/lib/ladspa/
+-INSTALL_LRDF_DIR	=	/usr/local/share/ladspa/rdf/
++INSTALL_PLUGINS_DIR	=	/usr/lib/ladspa/
++INSTALL_LRDF_DIR	=	/usr/share/ladspa/rdf/
+ 
+ # NO EDITING below this line is required
+ # if all you want to do is install and use the plugins.
+@@ -33,10 +33,11 @@
+ 
+ # GENERAL
+ 
+-CC		=	gcc
+-LD		=	ld
+-CFLAGS		=	-I. -O3 -Wall -fomit-frame-pointer -fstrength-reduce -funroll-loops -ffast-math -c -fPIC -DPIC
+-LDFLAGS		=	-shared -lc -lm -L. -linv_common
++AR		?=	ar
++CC		?=	gcc
++CFLAGS		+=	-I. -Wall
++LDFLAGS		+=	-shared
++LIBS		=	-L. -lc -lm -linv_common
+ 
+ PLUGINS		=	libinv_common.a \
+                         inv_compressor.so \
+@@ -63,10 +64,10 @@
+ # OTHER TARGETS
+ 
+ install: targets
+-	-mkdir -p		$(INSTALL_PLUGINS_DIR)
+-	cp *.so 		$(INSTALL_PLUGINS_DIR)
+-	-mkdir -p		$(INSTALL_LRDF_DIR)
+-	cp inv_plugins.rdf 	$(INSTALL_LRDF_DIR)
++	-mkdir -p		$(DESTDIR)$(INSTALL_PLUGINS_DIR)
++	cp *.so 		$(DESTDIR)$(INSTALL_PLUGINS_DIR)
++	-mkdir -p		$(DESTDIR)$(INSTALL_LRDF_DIR)
++	cp inv_plugins.rdf 	$(DESTDIR)$(INSTALL_LRDF_DIR)
+ 
+ targets:	$(PLUGINS)
+ 
+@@ -80,12 +81,12 @@
+ 
+ %.o: %.c
+ 	@echo "Compiling $<"
+-	@$(CC) -c $(CPPFLAGS) $(CFLAGS) $< -o $@ 
++	@$(CC) -c $(CFLAGS) -fPIC -DPIC $< -o $@ 
+ 
+ %.so: %.o
+ 	@echo "Creating  $@"
+-	@$(LD) -o $@ $< $(LDFLAGS)
++	@$(CC) -nostartfiles $(LDFLAGS) -o $@ $< $(LIBS)
+ 
+ %.a: %.o
+ 	@echo "Creating  $@"
+-	@ar rcs $@ $<
++	@$(AR) rcs $@ $<
