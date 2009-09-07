@@ -28,5 +28,5 @@ src_compile() {
 
 src_install() {
 	emake DESTDIR="${D}" install || die
-	dodoc dodoc COPYING CREDITS README
+	dodoc COPYING CREDITS README
 }
