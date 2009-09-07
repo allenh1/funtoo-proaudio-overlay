@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+inherit eutils
+
 IUSE="debug alsa jack oss"
 RESTRICT="mirror"
 
@@ -18,6 +20,12 @@ DEPEND="=sci-libs/fftw-3*
 	alsa? ( media-libs/alsa-lib )
 	jack? ( media-sound/jack-audio-connection-kit )"
 
+src_unpack() {
+	unpack ${A}
+	cd "${S}/src"
+	epatch "${FILESDIR}/${PN}-includes.patch"
+}
+
 src_compile() {
 	econf \
 	$(use_enable debug) \
@@ -29,6 +37,7 @@ src_compile() {
 }
 
 src_install (){
-	make DESTDIR="${D}" install || die
+	addpredict /usr/qt/3/etc/settings/.qt_plugins_3.3rc.lock
+	emake DESTDIR="${D}" install || die
 	dodoc README TODO
 }
