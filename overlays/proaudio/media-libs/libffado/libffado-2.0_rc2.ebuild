@@ -1,10 +1,11 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI=1
 
 inherit eutils multilib
+RESTRICT="mirror"
 
 MY_P="${P/_/-}"
 
@@ -37,8 +38,6 @@ S="${WORKDIR}/${MY_P}"
 src_unpack() {
 	unpack ${A}
 	cd "${S}"
-	# http://subversion.ffado.org/ticket/171
-	epatch "${FILESDIR}/${P}-dbus_mainloop.patch" 
 }
 
 src_compile () {
