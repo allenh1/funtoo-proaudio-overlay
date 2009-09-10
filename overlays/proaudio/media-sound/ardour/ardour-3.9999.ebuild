@@ -15,7 +15,7 @@ ESVN_REPO_URI="http://subversion.ardour.org/svn/ardour2/branches/3.0"
 LICENSE="GPL-2"
 SLOT="3"
 KEYWORDS=""
-IUSE="altivec debug freesound nls sse lv2 vst sys-libs"
+IUSE="altivec debug freesound nls sse lv2 vst sys-libs tranzport wiimote"
 
 RDEPEND="media-libs/liblo
 	>=media-libs/taglib-1.5
@@ -23,7 +23,7 @@ RDEPEND="media-libs/liblo
 	>=media-libs/liblrdf-0.4.0
 	>=media-libs/raptor-1.4.2
 	>=media-sound/jack-audio-connection-kit-0.116.2
-	>=dev-libs/glib-2.10.3
+	>=dev-libs/glib-2.2
 	x11-libs/pango
 	>=x11-libs/gtk+-2.8.8
 	media-libs/flac
@@ -55,54 +55,56 @@ DEPEND="${RDEPEND}
 src_unpack() {
 	subversion_src_unpack
 	cd "${S}"
+	# get the svn revision
+	subversion_wc_info
+	echo $ESVN_WC_REVISION > libs/ardour/svn_revision.cc
 
-	# some temporary slotting fixes
-	sed -i -e 's:ardour2:ardour3:' \
-		libs/rubberband/SConscript \
-		libs/clearlooks-older/SConscript \
-		|| die
-		# now it gets dirty... the locale files...
-	sed -e "s:share/locale:share/ardour3/locale:" \
-		-i SConstruct gtk2_ardour/SConscript || die
-	sed -e "s:'share', 'locale':'share', 'ardour3', 'locale':" \
-		-i libs/ardour/SConscript
+
+##	# some temporary slotting fixes
+##	sed -i -e 's:ardour2:ardour3:' \
+##		libs/rubberband/SConscript \
+##		libs/clearlooks-older/SConscript \
+##		|| die
+##		# now it gets dirty... the locale files...
+##	sed -e "s:share/locale:share/ardour3/locale:" \
+##		-i SConstruct gtk2_ardour/SConscript || die
+##	sed -e "s:'share', 'locale':'share', 'ardour3', 'locale':" \
+##		-i libs/ardour/SConscript
 }
 	
 src_compile() {
-	# Required for scons to "see" intermediate install location
-	mkdir -p ${D}
 
-	local myconf=""
-	(use sse || use altivec) && myconf="FPU_OPTIMIZATION=1"
-	! use altivec; myconf="${myconf} ALTIVEC=$?"
-	! use debug; myconf="${myconf} ARDOUR_DEBUG=$?"
-	! use nls; myconf="${myconf} NLS=$?"
-	! use vst; myconf="${myconf} VST=$?"
-	! use sys-libs; myconf="${myconf} SYSLIBS=$?"
-	! use sse; myconf="${myconf} USE_SSE_EVERYWHERE=$? BUILD_SSE_OPTIMIZATIONS=$?"
-	! use lv2; myconf="${myconf} LV2=$?"
+	local myconf="--freedesktop --prefix=/usr --aubio"
+		use debug     && myconf="$myconf --debug"
+		use nls       && myconf="$myconf --nls"
+		use lv2       && myconf="$myconf --lv2"
+		use sys-libs  && myconf="$myconf --syslibs"
+		use tranzport && myconf="$myconf --tranzport"
+		use freesound && myconf="$myconf --freesound"
+		use wiimote   && myconf="$myconf --wiimote"
+		use vst       && myconf="$myconf --vst"
+	if use sse || use altivec ;then
+		myconf="$myconf --fpu-optimization"
+	fi
 
-	# static settings
-	myconf="${myconf} DESTDIR=${D} PREFIX=/usr KSI=0"
-	einfo "${myconf}"
-
-	cd ${S}
-	scons ${myconf}	${MAKEOPTS} || die "compilation failed"
+	einfo "./waf $myconf" # show configure options
+	./waf configure $myconf || die "failed to configure"
+	./waf build ${MAKEOPTS} || die "failed to build"
 }
 
 src_install() {
-	scons install || die "make install failed"
-	if use vst;then
-		mv "${D}"/usr/bin/ardourvst "${D}"/usr/bin/ardour2
-	fi
+	./waf --destdir="${D}" install || die "install failed"
+	#if use vst;then
+	#	mv "${D}"/usr/bin/ardourvst "${D}"/usr/bin/ardour2
+	#fi
 
 	dodoc DOCUMENTATION/*
 
-	newicon "icons/icon/ardour_icon_tango_48px_blue.png" "ardour3.png"
-	make_desktop_entry "ardour3" "Ardour3" "ardour3" "AudioVideo;Audio"
+	#newicon "icons/icon/ardour_icon_tango_48px_blue.png" "ardour3.png"
+	#make_desktop_entry "ardour3" "Ardour3" "ardour3" "AudioVideo;Audio"
 
 	# fix wrapper
-	sed -i -e 's:ardour2:ardour3:g' ${D}/usr/bin/ardour3 || die
+	#sed -i -e 's:ardour2:ardour3:g' ${D}/usr/bin/ardour3 || die
 }
 
 pkg_postinst() {
