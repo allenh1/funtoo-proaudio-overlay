@@ -1,0 +1,10 @@
+# ChangeLog for media-sound/nondaw
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*nondaw-9999 (15 Sep 2009)
+
+  15 Sep 2009; Gavin Pryke <gavinlee303@googlemail.com> +nondaw-9999.ebuild,
+  +metadata.xml:
+  initial import of nondaw
+
