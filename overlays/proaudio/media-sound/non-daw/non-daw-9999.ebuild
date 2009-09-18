@@ -5,7 +5,7 @@
 inherit git eutils
 
 DESCRIPTION="The Non DAW is a powerful, reliable and fast modular Digital Audio Workstation system"
-HOMEPAGE="http://non-sequencer.tuxfamily.org/"
+HOMEPAGE="http://non-daw.tuxfamily.org/"
 EGIT_REPO_URI="git://git.tuxfamily.org/gitroot/non/daw.git"
 LICENSE="GPL-2"
 SLOT="0"
