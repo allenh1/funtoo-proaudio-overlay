@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -21,6 +21,8 @@ RDEPEND="${DEPEND}"
 src_unpack(){
 	git_src_unpack || die "git clone failed."
 	cd "${S}"
+	# don't strip the binary
+	sed -i -e '/strip/d' "${S}/Makefile" || die "sed of Makefile failed"
 }
 
 src_compile() {
