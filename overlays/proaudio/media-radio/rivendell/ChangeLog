@@ -1,6 +1,9 @@
 # ChangeLog for media-radio/rivendell
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  17 Dec 2009; Emery Hemingway <emery@werenotkillers.com>;
+  bump to rivendell-1.5.2
 
   22 Aug 2009: Dominique Michel <dominique@tuxfamilly.org;
   bump to rivendell-1.5.1-r1.ebuild,
