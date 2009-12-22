@@ -9,8 +9,8 @@ inherit eutils toolchain-funcs fdo-mime flag-o-matic versionator
 DESCRIPTION="multi-track hard disk recording software"
 HOMEPAGE="http://ardour.org/"
 
-SRC_URI="http://ardour.org/files/releases/${P/_p/-}.tar.bz2"
-
+ESVN_REPO_URI="http://subversion.ardour.org/svn/ardour2/tags/2.8"
+ESVN_RESTRICT="export"
 
 LICENSE="GPL-2"
 SLOT="0"
