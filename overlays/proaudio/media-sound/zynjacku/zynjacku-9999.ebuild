@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -16,36 +16,24 @@ KEYWORDS=""
 
 S="${WORKDIR}/${PN}"
 
-IUSE=""
+IUSE="+lv2dynparam"
 DEPEND=">=media-sound/jack-audio-connection-kit-0.109.0
 	>=media-libs/lv2core-1
-	media-libs/slv2
-	>=dev-libs/atk-1.0
-	>=media-libs/freetype-2.0
-	>=x11-libs/cairo-1.0
-	>=x11-libs/pango-1.0
-	>=dev-libs/glib-2.0
 	>=dev-python/pygtk-2.0
-	>=x11-libs/gtk+-2
-	>=dev-lang/python-2.4
-	=media-libs/lv2dynparam1-9999
-	=media-libs/phat-0.4.1
-	=media-libs/pyphat-0.4.1
-	>=dev-libs/redland-1.0.6"
+    >=dev-python/pycairo-1.8.2
+    lv2dynparam? ( =media-libs/lv2dynparam1-9999 )"
 
-RDEPEND="${DEPEND}"
+RDEPEND"${DEPEND}"
 
 pkg_setup() {
 	ewarn "if building fails try the following:"
-	ewarn "emerge -O media-libs/slv2 =media-libs/lv2dynparam1-9999"
+	ewarn "emerge -O =media-libs/lv2dynparam1-9999"
 }
-
 
 src_unpack() {
 	git_src_unpack
 	cd "${S}"
 	chmod +x gen_py_constants.py
-#	export WANT_AUTOMAKE="1.10"
 	./bootstrap
 }
 
@@ -62,7 +50,6 @@ src_install() {
 	dosym /usr/share/zynjacku/gpl.txt /usr/lib/zynjacku/gpl.txt
 	dosym /usr/bin/midi_led.py /usr/lib/zynjacku/midi_led.py
 	make_wrapper "zynjacku" "/usr/lib/zynjacku/zynjacku.py" "/usr/lib/zynjacku"
-#	dodoc README AUTHORS NEWS
 }
 
 pkg_postinst() {

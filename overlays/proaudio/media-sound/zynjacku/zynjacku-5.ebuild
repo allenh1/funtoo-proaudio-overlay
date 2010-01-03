@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -10,14 +10,13 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 
+IUSE="+lv2dynparam"
 DEPEND=">=media-sound/jack-audio-connection-kit-0.109.0
 	>=media-libs/lv2core-1.0
-	>=x11-libs/gtk+-2
 	>=dev-python/pygtk-2.0
-	>=media-libs/slv2-0.6.1
 	>=dev-lang/python-2.4
 	>=dev-python/pycairo-1.8.2
-	>=media-libs/lv2dynparam1-2"
+	lv2dynparam? ( =media-libs/lv2dynparam1-2 )"
 RDEPEND="${DEPEND}"
 
 src_unpack() {
