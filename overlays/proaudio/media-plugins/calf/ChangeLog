@@ -2,7 +2,11 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  30 Jan 2009; Thomas Kuther <gimpel@sonnenkinder.org>
+  3 Jan 2010; Marc-Olivier Barre <marco@marcochapeau.org>;
+  +calf-9999.ebuild:
+  Added an ebuild from Nedko Arnaudov for calf git version
+
+  30 Jan 2009; Thomas Kuther <gimpel@sonnenkinder.org>;
   +calf-0.0.18.2.ebuild:
   version bump
 
