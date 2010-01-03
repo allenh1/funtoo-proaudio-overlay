@@ -20,10 +20,11 @@ IUSE="+lv2dynparam"
 DEPEND=">=media-sound/jack-audio-connection-kit-0.109.0
 	>=media-libs/lv2core-1
 	>=dev-python/pygtk-2.0
-    >=dev-python/pycairo-1.8.2
-    lv2dynparam? ( =media-libs/lv2dynparam1-9999 )"
+	>=dev-lang/python-2.4
+	>=dev-python/pycairo-1.8.2
+	lv2dynparam? ( =media-libs/lv2dynparam1-9999 )"
 
-RDEPEND"${DEPEND}"
+RDEPEND="${DEPEND}"
 
 pkg_setup() {
 	ewarn "if building fails try the following:"
