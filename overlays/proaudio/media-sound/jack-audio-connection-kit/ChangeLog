@@ -2,6 +2,13 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  13 Jan 2010; Marc-Olivier Barre <marco@marcochapeau.org>
+  version bump jack-audio-connection-kit-0.118.0
+  version bump jack-audio-connection-kit-1.9.3
+  version bump jack-audio-connection-kit-1.9.4
+  remove the use of the unipatch-001 module in
+  jack-audio-connection-kit-1.9999
+
   12 Jul 2009; Marc-Olivier Barre <marco@marcochapeau.org>
   * jack-audio-connection-kit-2.9999: Added the mixed use flag 
   (necessary to get a working 32 bit jack lib on a 64 bit system)
