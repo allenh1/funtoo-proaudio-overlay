@@ -2,16 +2,19 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-*zynaddsubfx-2.4.0 (06 Aug 2009)
+  13 Jan 2010; Marc-Olivier Barre <marco@marcochapeau.org>
+  * Fixed jack dependency on jack-audio-connection-kit for version 20070707
+  * Removed the une of unipatch from version 20070707-r1 which doesn't even work anymore
+  We'll have to find another way to apply those patches...
 
-  06 Aug 2009; Frieder Buerzele <evermind@tuxfamily.org
+  06 Aug 2009; Frieder Buerzele <evermind@tuxfamily.org>
   +zynaddsubfx-2.4.0.ebuild: bumped
 
-  15 Sep 2008; Frieder Buerzele <evermind@tuxfamily.org;
+  15 Sep 2008; Frieder Buerzele <evermind@tuxfamily.org>
   zynaddsubfx-99999999.ebuild:
   fix wrong function-signature
 
-  13 Sep 2008; Frieder Buerzele <evermind@tuxfamily.org;
+  13 Sep 2008; Frieder Buerzele <evermind@tuxfamily.org>
   zynaddsubfx-2.2.1-r8.ebuild, zynaddsubfx-20070707.ebuild,
   zynaddsubfx-20070707-r1.ebuild, zynaddsubfx-99999999.ebuild:
   fix wrong elif in zyn-patches and fix some repoman complaints

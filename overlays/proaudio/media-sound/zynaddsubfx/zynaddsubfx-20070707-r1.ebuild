@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit exteutils jackmidi unipatch-001
+inherit exteutils jackmidi
 RESTRICT="mirror"
 MY_P=ZynAddSubFX-${PV}
 DESCRIPTION="ZynAddSubFX is an opensource software synthesizer."
@@ -40,8 +40,6 @@ src_unpack() {
 	cd "${S}"
 	unpack "zynaddsubfx-presets-0.1.tar.bz2"
 	# add our CXXFLAGS
-	UNIPATCH_LIST="${DISTDIR}/$zyn_patches"
-	unipatch
 	cd src/
 	esed_check -i "s@\(CXXFLAGS.\+=.*OS_PORT.*\)@\1 ${CXXFLAGS}@g" Makefile
 	esed_check -i "s@&master->mutex@\&master->processMutex@g" main.C
