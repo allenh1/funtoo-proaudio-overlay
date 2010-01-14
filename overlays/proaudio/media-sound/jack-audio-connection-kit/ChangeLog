@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  14 Jan 2010; Marc-Olivier Barre <marco@marcochapeau.org>
+  fix a libdir issue with 1.9.4
+  remove monitor option from 1.9.4
+
   13 Jan 2010; Marc-Olivier Barre <marco@marcochapeau.org>
   version bump jack-audio-connection-kit-0.118.0
   version bump jack-audio-connection-kit-1.9.3
