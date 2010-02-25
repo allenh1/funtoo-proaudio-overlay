@@ -57,6 +57,7 @@ src_unpack() {
 
 	epatch "${FILESDIR}/${PN}-2.0.3-sndfile-external.patch"
 	epatch "${FILESDIR}/${PN}-2.4-cflags.patch"
+	epatch "${FILESDIR}/${PN}-2.7.1-gcc44.patch"
 }
 
 ardour_use_enable() {

@@ -11,7 +11,7 @@ SRC_URI="http://zhevny.com/${PN}/files/${MY_P}.tar.gz"
 RESTRICT="mirror"
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="~amd64 ~ppc sparc x86"
 
 IUSE="lash debug" # jackmidi"
 

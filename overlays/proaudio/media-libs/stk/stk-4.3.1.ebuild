@@ -27,6 +27,7 @@ src_unpack() {
 	epatch "${FILESDIR}/${P}-fpic.patch"
 	epatch "${FILESDIR}/${P}-missing.patch"
 	epatch "${FILESDIR}/${P}-ldflags.patch"
+	epatch "${FILESDIR}/${P}-gcc44.patch"
 	eautoreconf
 }
 		
