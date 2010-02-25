@@ -27,7 +27,7 @@ src_unpack() {
 	cd "${S}"
 	echo $S
 	# fixup the Makefile (installation and prefix)
-	esed_check -i -e 's@^\(install:.*\)@\1\n\t/usr/bin/install -d $(DESTDIR)/$(PREFEX)/bin@g' \
+	esed_check -i -e 's@^\(install:.*\)@\1\n\t/usr/bin/install -d $(DESTDIR)/$(PREFIX)/bin@g' \
 		-e 's@\(/usr/bin/install -m 755.*\$\)@\1(DESTDIR)/$@g' \
 		-e 's@^PREFIX.*@PREFIX = /usr@g' Makefile
 }
