@@ -1,6 +1,12 @@
 # ChangeLog for media-sound/csound
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*csound-5.09.0-r1 (25 Feb 2010)
+
+  25 Feb 2010; Frieder Buerzele <evermind@tuxfamily.org>
+  -csound-5.09.0.ebuild, +csound-5.09.0-r1.ebuild, files/custom.py:
+  fix fltk problem
 
   30 Sep 2008; Frieder Buerzele <evermind@tuxfamily.org;
   +csound-5.09.0.ebuild:

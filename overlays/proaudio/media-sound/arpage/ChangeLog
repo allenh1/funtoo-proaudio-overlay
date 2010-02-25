@@ -1,0 +1,11 @@
+# ChangeLog for media-sound/arpage
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*arpage-9999 (25 Feb 2010)
+*arpage-0.2 (25 Feb 2010)
+
+  25 Feb 2010; Frieder Buerzele <evermind@tuxfamily.org> +arpage-0.2.ebuild,
+  +arpage-9999.ebuild:
+  added arpage
+

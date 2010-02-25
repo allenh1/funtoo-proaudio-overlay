@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -25,6 +25,12 @@ DEPEND=">=dev-libs/glib-2.10
 RDEPEND="${DEPEND}"
 
 DOCS="AUTHORS ChangeLog NEWS README TODO"
+
+src_unpack() {
+	unpack "${A}"
+	cd "${S}"
+	epatch "${FILESDIR}/c-files-include.patch"
+}
 
 src_compile() {
 	econf \

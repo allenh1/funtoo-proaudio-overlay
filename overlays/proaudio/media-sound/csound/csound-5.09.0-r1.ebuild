@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -73,6 +73,7 @@ src_compile() {
 	# violation errors in src_install(()
 	addpredict "/usr/include"
 	addpredict "/usr/lib"
+	addpredict "/etc/ld.so.cache"
 
 	einfo "You enabled following scons options: ${myconf}"
 
@@ -84,7 +85,7 @@ src_compile() {
 		dynamicCsoundLibrary=0 \
 		useCoreAudio=0 \
 		buildLoris=1 \
-		pythonVersion=2.4 \
+		pythonVersion=2.6 \
 		buildPythonOpcodes=0\
 		useFluidsynth=1 \
 		useALSA=1 \

@@ -1,6 +1,13 @@
 # ChangeLog for media-plugins/calf
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*calf-0.0.18.5 (25 Feb 2010)
+
+  25 Feb 2010; Frieder Buerzele <evermind@tuxfamily.org>
+  -calf-0.0.18.2.ebuild, +calf-0.0.18.5.ebuild,
+  +files/c-files-include.patch:
+  bumped
 
   3 Jan 2010; Marc-Olivier Barre <marco@marcochapeau.org>;
   +calf-9999.ebuild:
