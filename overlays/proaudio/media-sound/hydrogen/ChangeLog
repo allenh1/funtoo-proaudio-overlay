@@ -1,6 +1,10 @@
 # ChangeLog for media-sound/hydrogen
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  25 Feb 2010; Frieder Buerzele <evermind@tuxfamily.org>
+  hydrogen-0.9.3-r1.ebuild, -hydrogen-0.9.4_beta.ebuild:
+  cleanup
 
   13 Sep 2008; Frieder Buerzele <evermind@tuxfamily.org;
   +hydrogen-0.9.4_beta.ebuild:

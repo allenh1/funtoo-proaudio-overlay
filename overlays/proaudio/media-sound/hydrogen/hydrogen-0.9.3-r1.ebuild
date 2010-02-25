@@ -1,8 +1,9 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils kde-functions patcher autotools multilib
+inherit eutils patcher autotools multilib
+EAPI=1
 
 DESCRIPTION="Linux Drum Machine"
 HOMEPAGE="http://hydrogen.sourceforge.net/"
@@ -20,15 +21,13 @@ RDEPEND="dev-libs/libxml2
 	portaudio? ( =media-libs/portaudio-18.1* )
 	alsa? ( media-libs/alsa-lib )
 	jack? ( media-sound/jack-audio-connection-kit )
-	ladspa? ( media-libs/liblrdf )"
+	ladspa? ( media-libs/liblrdf )
+	x11-libs/qt:3"
 
 	#  disabled
 DEPEND="${RDEPEND}"
 	# app-text/docbook-sgml-utils is only needed to support:
 	# data/doc/updateManuals.sh (we don't run this)
-
-
-need-qt 3
 
 src_unpack() {
 	unpack ${A}

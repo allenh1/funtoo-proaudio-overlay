@@ -4,13 +4,6 @@
 	Homepage:    http://www.hydrogen-music.org
 
 
-#------- media-libs/aeolus-ym-files --------
-	aeolus-ym-files-0.7.0	arch: ~x86 ~amd64
-	Description: Files used by Aeolus-ym to generate the convolution
-		 reverb using Ambiosonic impulse responses
-	Homepage:    http://space-net.org.uk/node/54
-
-
 #------- media-libs/pylash --------
 	pylash-3_pre	arch: ~x86 ~amd64
 	Description: Python bindings for LASH.
@@ -444,7 +437,6 @@
 
 #------- media-sound/hydrogen --------
 	hydrogen-0.9.3-r1	arch: ~amd64 ~ppc ~ppc64 ~sparc ~x86
-	hydrogen-0.9.4_beta	arch: ~amd64 ~x86
 	hydrogen-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: Linux Drum Machine
 	Homepage:    http://hydrogen.sourceforge.net/
@@ -566,7 +558,7 @@
 
 
 #------- media-sound/specimen --------
-	specimen-0.5.2_rc3	arch: ~amd64 ~ppc ~x86
+	specimen-0.5.2_rc3	arch: ~amd64 ~ppc sparc x86
 	Description: A Midi Controllable Audio Sampler
 	Homepage:    http://zhevny.com/specimen
 
