@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -25,7 +25,6 @@ DEPEND=">=media-libs/gavl-1.1.0
 		mad? ( media-libs/libmad )
 		mjpeg? ( media-video/mjpegtools )
 		mpeg? ( media-libs/libmpeg2 )
-		musepack? ( media-libs/libmpcdec )
 		plugins? ( >=media-libs/gmerlin-0.3.8 )
 		png? ( media-libs/libpng )
 		samba? ( net-fs/samba )
