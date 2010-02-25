@@ -11,7 +11,7 @@ RESTRICT="mirror"
 
 DESCRIPTION="An audio library by Fons Adriaensen <fons.adriaensen@skynet.be>"
 HOMEPAGE="http://www.kokkinizita.net/linuxaudio"
-SRC_URI="http://www.kokkinizita.net/linuxaudio/downloads/${P}.tar.bz2"
+SRC_URI="http://www.audiodef.com/gentoo/proaudio/src/zita-convolver/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"

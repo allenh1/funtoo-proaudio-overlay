@@ -5,7 +5,7 @@
 
 DESCRIPTION="Wsynth-DSSI, a wavetable synthesizer plugin"
 HOMEPAGE="http://www.nekosynth.co.uk/wiki/wsynth"
-SRC_URI="http://static.nekosynth.co.uk/releases/${P}.tar.gz"
+SRC_URI="http://www.audiodef.com/gentoo/proaudio/src/wsynth-dssi/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"

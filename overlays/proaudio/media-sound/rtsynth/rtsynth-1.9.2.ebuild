@@ -9,7 +9,7 @@ inherit rpm
 RESTRICT="mirror"
 DESCRIPTION="reproduce sounds of strings, organs, flutes and drums in real time"
 HOMEPAGE="http://www.linux-sound.org/rtsynth/"
-SRC_URI="ftp://ftp.suse.com/pub/suse/i386/9.3/suse/src/${P}-32.src.rpm"
+SRC_URI="http://www.audiodef.com/gentoo/proaudio/src/rtsynth/${P}.tar.bz2"
 
 LICENSE="unknown"
 SLOT="0"
@@ -25,10 +25,10 @@ src_unpack() {
 	RTSYNTH_JACK="rtsynth-1.9.1b-jack0.44.0"
 	mkdir -p ${S}
 	cd ${S}
-	rpm_unpack ${DISTDIR}/${P}-32.src.rpm
-	tar -xjpf  ${S}/${P}.tar.bz2 || die "untar failed"
+        cp ${DISTDIR}/${P}.tar.bz2 .
+        tar xvjpf  ${S}/${P}.tar.bz2 || die "untar failed"
 	if use jack ;then
-		tar -xjpf  ${S}/${RTSYNTH_JACK}.tar.bz2 || die "untar failed"
+                tar xvzf  ${S}/${RTSYNTH_JACK}.tgz || die "untar failed"
 		mv ${S}/${RTSYNTH_JACK}/RTSynth-jack ${S}/${P}/ || die "mv failed"
 		mv ${S}/${RTSYNTH_JACK}/README ${S}/${P}/README-jack || die "mv failed"
 	fi

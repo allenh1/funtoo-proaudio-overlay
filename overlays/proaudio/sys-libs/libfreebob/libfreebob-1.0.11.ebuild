@@ -6,7 +6,7 @@ inherit eutils
 
 DESCRIPTION="Library for accessing BeBoB IEEE1394 devices"
 HOMEPAGE="http://freebob.sf.net"
-SRC_URI="mirror://sourceforge/freebob/${P}.tar.gz"
+SRC_URI="http://audiodef.com/gentoo/proaudio/src/libfreebob/${P}.tar.gz"
 
 SLOT="0"
 LICENSE="GPL-2"

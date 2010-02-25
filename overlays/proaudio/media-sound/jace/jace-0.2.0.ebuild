@@ -7,10 +7,6 @@ inherit exteutils
 RESTRICT="mirror"
 IUSE=""
 DESCRIPTION="JACE is a Convolution Engine for JACK and ALSA"
-#alchemist: dead URL
-#see http://forums.gentoo.org/viewtopic-p-6144886.html
-#HOMEPAGE="http://www.kokkinizita.net/linuxaudio/"
-#SRC_URI="http://www.kokkinizita.net/linuxaudio/downloads/${P}.tar.bz2"
 HOMEPAGE="http://www.audiodef.com/gentoo/proaudio/"
 SRC_URI="http://www.audiodef.com/gentoo/proaudio/src/jace/${P}.tar.bz2"
 
