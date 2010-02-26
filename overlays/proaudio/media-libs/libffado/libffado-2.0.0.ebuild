@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -24,7 +24,7 @@ RDEPEND=">=media-libs/alsa-lib-1.0.0
 	>=media-libs/libiec61883-1.1.0
 	>=sys-libs/libavc1394-0.5.3
 	>=sys-apps/dbus-1.0
-	qt4? ( 
+	qt4? (
 		|| ( ( x11-libs/qt-core x11-libs/qt-gui )
 				>=x11-libs/qt-4.0:4 )
 		dev-python/PyQt4

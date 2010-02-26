@@ -1,5 +1,5 @@
 #------- media-libs/hydrogen-drumkits --------
-	hydrogen-drumkits-0.2	arch: ~amd64 ~x86
+	hydrogen-drumkits-0.3	arch: amd64 x86
 	Description: free drumkits for hydrogen
 	Homepage:    http://www.hydrogen-music.org
 
@@ -18,7 +18,7 @@
 
 
 #------- media-libs/libffado --------
-	libffado-2.0_rc2	arch: ~amd64 ~x86
+	libffado-2.0.0	arch: ~amd64 ~x86
 	libffado-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: Successor for freebob: Library for accessing
 		 BeBoB IEEE1394 devices
@@ -26,7 +26,7 @@
 
 
 #------- media-libs/zita-convolver --------
-	zita-convolver-1.0.0	arch: ~amd64 ~x86
+	zita-convolver-1.0.0	arch: amd64 ~x86
 	Description: An audio library by Fons Adriaensen <fons.adriaensen@skynet.be>
 		
 	Homepage:    http://www.kokkinizita.net/linuxaudio
@@ -154,6 +154,7 @@
 
 
 #------- media-plugins/ll-plugins --------
+	ll-plugins-0.2.8	arch: ~amd64
 	ll-plugins-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: collection of LV2 plugins, LV2 extension
 		 definitions, and LV2 related tools
@@ -186,7 +187,7 @@
 
 #------- media-sound/tapiir --------
 	tapiir-0.7.1-r1	arch: x86 ~amd64
-	tapiir-0.7.2	arch: ~amd64 ~ppc ~sparc x86
+	tapiir-0.7.2	arch: amd64 ~ppc ~sparc x86
 	Description: a flexible audio effects processor, inspired
 		 on the classical magnetic tape delay systems
 		

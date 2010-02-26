@@ -2,16 +2,15 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit multilib git
+inherit multilib
 
 DESCRIPTION="collection of LV2 plugins, LV2 extension definitions, and LV2 related tools"
 HOMEPAGE="http://ll-plugins.nongnu.org"
-
-EGIT_REPO_URI="git://git.sv.gnu.org/ll-plugins.git"
+SRC_URI="http://download.savannah.nongnu.org/releases/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND=">=media-sound/jack-audio-connection-kit-0.109.0
@@ -25,10 +24,8 @@ DEPEND=">=media-sound/jack-audio-connection-kit-0.109.0
 
 RDEPEND="${DEPEND}"
 
-S="${WORKDIR}/${PN}"
-
 src_unpack() {
-	git_src_unpack
+	unpack ${A}
 	cd "${S}"
 	# ar doesn't really like ldflags
 	sed -e 's:ar rcs $$@ $$^ $(LDFLAGS) $$($(2)_LDFLAGS):ar rcs	$$@ $$^:' \
@@ -36,7 +33,7 @@ src_unpack() {
 }
 
 src_compile(){
-	./configure \
+	econf \
 		--prefix=/usr \
 		--CFLAGS="${CFLAGS} `pkg-config --cflags slv2`" \
 		--LDFLAGS="${LDFLAGS} `pkg-config --libs slv2`" \
@@ -45,5 +42,5 @@ src_compile(){
 }
 
 src_install(){
-	make DESTDIR="${D}" libdir="/usr/$(get_libdir)" install || die "install failed"
+	emake DESTDIR="${D}" libdir="/usr/$(get_libdir)" install || die "install failed"
 }
