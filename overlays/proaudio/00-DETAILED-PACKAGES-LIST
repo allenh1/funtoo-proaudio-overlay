@@ -256,6 +256,7 @@
 	csound-5.07.0	arch: ~amd64 ~x86 ~ppc
 	csound-5.08.0	arch: ~amd64 ~x86 ~ppc
 	csound-5.09.0-r1	arch: ~amd64 ~x86 ~ppc
+	csound-5.12.1	arch: ~amd64 ~x86 ~ppc
 	Description: Csound is a sound and music synthesis system,
 		 providing facilities for composition and performance
 		 over a wide range of platforms.
@@ -662,26 +663,12 @@
 
 
 #------- sys-kernel/rt-sources --------
-	rt-sources-2.6.16-r29	arch: amd64 ~ppc ~ppc64 x86
-	rt-sources-2.6.19-r15	arch: ~amd64 ~ppc ~ppc64 ~x86
-	rt-sources-2.6.20-r8	arch: ~amd64 ~ppc ~ppc64 ~x86
-	rt-sources-2.6.21.5-r20	arch: ~amd64 ~ppc ~ppc64 ~x86
-	rt-sources-2.6.22.1-r9	arch: ~amd64 ~ppc ~ppc64 ~x86
-	rt-sources-2.6.23.11-r14	arch: ~amd64 ~ppc ~ppc64 ~x86
-	rt-sources-2.6.23.1-r11	arch: ~amd64 ~ppc ~ppc64 ~x86
-	rt-sources-2.6.23.9-r12	arch: ~amd64 ~ppc ~ppc64 ~x86
 	rt-sources-2.6.24.7-r17	arch: ~amd64 ~ppc ~ppc64 ~x86
-	rt-sources-2.6.25.4-r5	arch: ~amd64 ~ppc ~ppc64 ~x86
-	rt-sources-2.6.25.8-r7	arch: ~amd64 ~ppc ~ppc64 ~x86
-	rt-sources-2.6.26.3-r3	arch: ~amd64 ~ppc ~ppc64 ~x86
-	rt-sources-2.6.26.6-r11	arch: ~amd64 ~ppc ~ppc64 ~x86
 	rt-sources-2.6.26.8-r12	arch: ~amd64 ~x86
-	rt-sources-2.6.29.2-r11	arch: ~amd64 ~x86
 	rt-sources-2.6.29.6-r23	arch: ~amd64 ~x86
-	rt-sources-2.6.31.12-r20	arch: ~amd64 ~x86
 	rt-sources-2.6.31.12-r21	arch: ~amd64 ~x86
 	rt-sources-2.6.31.6-r19	arch: ~amd64 ~x86
-	rt-sources-2.6.33_rc8-r2	arch: ~amd64 ~x86
+	rt-sources-2.6.33-r4	arch: ~amd64 ~x86
 	Description: Realtimne Preemption patched low latency
 		 Linux kernel
 	Homepage:    unknown
