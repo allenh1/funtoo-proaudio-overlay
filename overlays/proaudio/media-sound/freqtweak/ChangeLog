@@ -2,6 +2,12 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*freqtweak-9999 (09 Mar 2010)
+
+  09 Mar 2010; Frieder Buerzele <evermind@tuxfamily.org>
+  +freqtweak-9999.ebuild:
+  bumped thx Viktor
+
 *freqtweak-0.7.2 (07 Mar 2010)
 
   07 Mar 2010; Frieder Buerzele <evermind@tuxfamily.org>

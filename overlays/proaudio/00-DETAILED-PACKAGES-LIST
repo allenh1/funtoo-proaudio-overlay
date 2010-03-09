@@ -517,6 +517,7 @@
 #------- media-sound/freqtweak --------
 	freqtweak-0.7.0_pre20070214-r1	arch: amd64 ppc sparc x86
 	freqtweak-0.7.2	arch: amd64 ppc sparc x86
+	freqtweak-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: FFT-based realtime audio spectral manipulation
 		 and display
 	Homepage:    http://freqtweak.sourceforge.net
