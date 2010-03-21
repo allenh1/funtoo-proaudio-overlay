@@ -4,11 +4,11 @@
 
 *rivendell-1.6.0 (18 Dec 2009)
 
-  18 Dec 2009; Emery Hemingway <emery@werenotkillers.com>
+  18 Dec 2009; Emery Hemingway <emery@icmlf.net>
   +rivendell-1.6.0.ebuild:
   bump to rivendell-1.6, added die message about missing *.la files.
 
-  17 Dec 2009; Emery Hemingway <emery@werenotkillers.com>;
+  17 Dec 2009; Emery Hemingway <emery@icmlf.net>
   bump to rivendell-1.5.2
 
   22 Aug 2009: Dominique Michel <dominique@tuxfamilly.org;

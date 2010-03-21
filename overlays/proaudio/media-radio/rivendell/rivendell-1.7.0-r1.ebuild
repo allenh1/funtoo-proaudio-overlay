@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -34,7 +34,8 @@ RDEPEND="${DEPEND}
 	media-sound/mpg321
 	media-sound/vorbis-tools
 	net-ftp/lftp
-	net-misc/wget"
+	net-misc/wget
+	sys-devel/bc"
 
 pkg_setup() {
 	enewgroup ${PN}
@@ -48,15 +49,18 @@ src_prepare() {
 	epatch "${FILESDIR}/${PN}-sandbox.patch"
 }
 
-src_compile() {
-	local myconf=""
+src_configure() {
+	local myconf="--libexecdir=/usr/libexec/rd-bin"
 
 	use alsa || myconf="${myconf} --disable-alsa"
 	use jack || myconf="${myconf} --disable-jack"
 	use pam || myconf="${myconf} --disable-pam"
 
-	econf ${myconf}
-	emake || die "make failed"
+	econf ${myconf} || die "econf failed"
+}
+
+src_compile() {
+	emake || die "make failed."
 }
 
 src_install() {
@@ -65,8 +69,13 @@ src_install() {
 	insinto /etc
 	doins conf/rd.conf-sample || die "install /etc/rd.conf failed"
 
+	dodir /var/log/${PN}
+	keepdir /var/log/${PN} || die "keepdir failed"
+	fowners ${PN}:${PN} /var/log/${PN} || die "fowners failed"
+
+	dodir /var/snd
 	keepdir /var/snd || die "keepdir failed"
-	fowners ${PN}:${PN} /var/snd || die "fowners failed"
+	fowners ${PN}:${PN} var/snd || die "fowners failed"
 
 	dodoc AUTHORS ChangeLog INSTALL NEWS README SupportedCards docs/*.txt || die "install doc failed"
 	prepalldocs || die "prepalldocs failed"
@@ -79,6 +88,7 @@ pkg_postinst() {
 	einfo "See http://rivendell.tryphon.org/wiki/index.php/Install_under_Gentoo"
 	einfo "for Gentoo specific instructions."
 	einfo
-	ewarn "If this is an upgrade, run rdadmin to ensure your"
-	ewarn "database schema is up to date"
+	einfo "Podcasting cgi scripts are in /usr/libexec/rd-bin"
+	einfo
+	ewarn "If ${P} comes as an update, it may use a new database schema, run rdadmin to ensure your schema is current."
 }
