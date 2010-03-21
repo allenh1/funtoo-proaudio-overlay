@@ -4,6 +4,9 @@
 
 *alsaplayer-9999.ebuild (16 Jun 2007)
 
+  21 Mar 2010: Dominique Michel <dominique@tuxfamily.org>
+  - Removed outdated unipatch eclass
+
   16 Jun 2007; Dominique Michel <dominique@tuxfamily.org>
   - Bux #172115 is hopefully fixed into the svn
   - Added eautoreconf in the ebuild as in portage

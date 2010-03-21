@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit unipatch-001 eutils subversion flag-o-matic autotools
+inherit eutils subversion flag-o-matic autotools
 
 DESCRIPTION="Media player primarily utilising ALSA"
 HOMEPAGE="http://www.alsaplayer.org/"
@@ -11,7 +11,7 @@ SRC_URI=""
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE="alsa audiofile custom-cflags doc esd flac gtk jack mad mikmod nas nls ogg opengl oss vorbis
+IUSE="alsa audiofile doc esd flac gtk jack mad mikmod nas nls ogg opengl oss vorbis
 systray xosd"
 
 ESVN_REPO_URI="https://alsaplayer.svn.sourceforge.net/svnroot/alsaplayer/trunk/alsaplayer"
@@ -45,10 +45,9 @@ src_unpack() {
 
 	cd ${S}
 
-	if ! use custom-cflags; then
-		UNIPATCH_LIST="${FILESDIR}/${P}-cxxflags.patch"
-		unipatch || die "patching failed"
-	fi
+#	if ! use custom-cflags; then
+#		epatch "${FILESDIR}/${P}-cxxflags.patch" || die "patching failed"
+#	fi
 
 	./bootstrap || die "bootstrap failed"
 	eautoreconf || die "eautoreconf failed"
