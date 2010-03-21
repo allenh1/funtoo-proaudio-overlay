@@ -4,6 +4,10 @@
 
 *rivendell-1.6.0 (18 Dec 2009)
 
+  21 Mar 2010; Emery Hemingway <emery@icmlf.net>
+  +rivendell-1.7.0-r1.ebuild:
+  Portage now creates a /var/log directory and puts cgi scripts in their own folder.
+
   18 Dec 2009; Emery Hemingway <emery@icmlf.net>
   +rivendell-1.6.0.ebuild:
   bump to rivendell-1.6, added die message about missing *.la files.
