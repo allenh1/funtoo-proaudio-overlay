@@ -1,6 +1,9 @@
 # ChangeLog for media-sound/iannix
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  28 Mar 2010; Stephane Angot <sa@hydre.org>:
+  fix some typo thx to repoman
 
   20 Oct 2008; Frieder Buerzele <evermind@tuxfamily.org;
   iannix-0.640_beta.ebuild:

@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -8,7 +8,7 @@ inherit exteutils
 
 MY_P="IanniX-${PV/_beta/b}"
 
-DESCRIPTION="IanniX is a graphical score editor based on the previous UPIC developed by Iannis Xenakis"
+DESCRIPTION="IanniX is a graphical score editor based on the previous UPIC developed by Iannis Xenakis"
 HOMEPAGE="http://sourceforge.net/projects/iannix/"
 SRC_URI="mirror://sourceforge/${PN}/${MY_P}-SRC-LittleEndian.tgz
 		doc? ( mirror://sourceforge/${PN}/IanniX-Tutorial.pdf )
@@ -40,10 +40,9 @@ pkg_setup() {
 }
 
 src_compile() {
-	cd "${S}"
+#	cd "${S}"
 	# fix Qt4 libdir
 	esed_check -i -e "s:/usr/local/Trolltech/Qt-...../lib:/usr/lib/qt4:" IanniX.pro
-	
 	# make amd64 compile
 	use amd64 && esed_check -i -e "45s|<int>|<long>|" \
 		-e "60s|<int>|<long>|" \
