@@ -14,7 +14,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
-DEPEND=">=x11-libs/fltk-1.1.2
+DEPEND=">=x11-libs/fltk-1.1.2:1.1
 	=sci-libs/fftw-3*
 	 media-sound/jack-audio-connection-kit
 	>=dev-libs/mini-xml-2.5"
