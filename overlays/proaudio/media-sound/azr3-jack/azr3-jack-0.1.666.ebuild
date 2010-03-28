@@ -1,8 +1,8 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-DESCRIPTION="Rumpelrausch Täips AZR3 standalone Linux port"
+DESCRIPTION="Rumpelrausch Taips AZR3 standalone Linux port"
 HOMEPAGE="http://ll-plugins.nongnu.org/azr3"
 SRC_URI="http://download.savannah.nongnu.org/releases/ll-plugins/${P}.tar.bz2"
 RESTRICT="mirror"
