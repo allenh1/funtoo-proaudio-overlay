@@ -1,0 +1,10 @@
+# ChangeLog for media-sound/yoshimi
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*yoshimi-0.055.6 (28 Mar 2010)
+
+  28 Mar 2010; Hakan Demiralp <keenblade@tuxfamily.org
+  +yoshimi-0.055.6.ebuild, +metadata.xml:
+  Initial ebuild for bug 311709 at bgo
+
