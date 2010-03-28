@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -25,21 +25,21 @@ DEPEND=">=gnome-base/libglade-2.0.1
 src_unpack() {
 	unpack ${A} || die "unpack failure"
 	epatch "${FILESDIR}/gnusound_0.7.4-5.diff.bz2"
-	cd ${S} || die "workdir not found"
+	cd "${S}" || die "workdir not found"
 
 	# remove this patch as it cause ffmpeg linkage problems
 	rm -f "${S}/debian/patches/03_ffmpeg_config.patch"
 	rm -f "${S}/debian/patches/11_ffmpeg_api_changes.patch"
 
-	for i in `ls  ${S}/debian/patches`;do
+	for i in `ls  "${S}/debian/patches"`;do
 		epatch "${S}/debian/patches/$i"
 	done
-	epatch  ${FILESDIR}/gnusound-ffmpeg-struct.patch
+	epatch  "${FILESDIR}/gnusound-ffmpeg-struct.patch"
 	#rm -f doc/Makefile || die "could not remove doc Makefile"
 	#rm -f modules/Makefile || die "could not remove modules Makefile"
 	sed -i "s:docrootdir:datadir:" doc/Makefile.in
 
-	epatch ${FILESDIR}/${P}-destdir.patch
+	epatch "${FILESDIR}/${P}-destdir.patch"
 
 	gnuconfig_update
 	./autogen.sh
@@ -62,7 +62,7 @@ src_install() {
 
 	# mv desktop entry to right location
 	dodir /usr/share/applications/
-	mv ${D}/usr/share/gnome/apps/Multimedia/gnusound.desktop \
-		${D}/usr/share/applications/
-	rm -rf ${D}/usr/share/gnome/apps/
+	mv "${D}/usr/share/gnome/apps/Multimedia/gnusound.desktop" \
+		"${D}/usr/share/applications/"
+	rm -rf "${D}/usr/share/gnome/apps/"
 }
