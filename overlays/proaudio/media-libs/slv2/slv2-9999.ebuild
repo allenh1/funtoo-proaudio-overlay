@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -31,14 +31,15 @@ src_compile() {
 
 	use doc && myconf="${myconf} --build-docs --htmldir=/usr/share/doc/${P}/html"
 	use debug && myconf="${myconf} --debug"
-	
+
 	./waf configure ${myconf} || die "configure failed"
 	./waf build ${MAKEOPTS} || die "waf failed"
 }
 
 src_install() {
 	cd "${S}/${PN}" || die "source for ${PN} not found"
+	# addpredict for the ldconfig
+	addpredict /etc/ld.so.cache
 	./waf install --destdir="${D}" || die "install failed"
 	dodoc AUTHORS ChangeLog
 }
-

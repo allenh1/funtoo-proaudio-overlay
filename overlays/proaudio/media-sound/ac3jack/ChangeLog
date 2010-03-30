@@ -2,6 +2,11 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*ac3jack-2.0.3 (30 Mar 2010)
+
+  30 Mar 2010; Viktor Lazarev <taurus101v@gmail.com> +ac3jack-2.0.3.ebuild:
+  version bump
+
   28 Mar 2010; Stephane Angot <sa@hydre.org> ac3jack-0.1.2.ebuild:
   Fix LICENCE to GPL-2
 
