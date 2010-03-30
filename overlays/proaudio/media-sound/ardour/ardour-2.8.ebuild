@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -10,7 +10,6 @@ DESCRIPTION="multi-track hard disk recording software"
 HOMEPAGE="http://ardour.org/"
 
 SRC_URI="http://ardour.org/files/releases/${P/_p/-}.tar.bz2"
-
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -54,7 +53,6 @@ DEPEND="${RDEPEND}
 
 S=${WORKDIR}/${P%_p*}
 
-
 pkg_setup(){
 	einfo "this ebuild fetches from the svn maintaince"
 	einfo "ardour-2.X branch"
@@ -88,7 +86,7 @@ src_prepare() {
 
 src_compile() {
 	# Required for scons to "see" intermediate install location
-	mkdir -p ${D}
+	mkdir -p "${D}"
 
 	local myconf=""
 	(use sse || use altivec) && myconf="FPU_OPTIMIZATION=1"
@@ -104,7 +102,7 @@ src_compile() {
 	myconf="${myconf} DESTDIR=${D} PREFIX=/usr KSI=0"
 	einfo "scons configure options : \"${myconf}\""
 
-	cd ${S}
+	cd "${S}"
 	scons ${myconf}	${MAKEOPTS} || die "compilation failed"
 }
 
@@ -123,7 +121,7 @@ src_install() {
 pkg_postinst() {
 	fdo-mime_mime_database_update
 	fdo-mime_desktop_database_update
-	
+
 	ewarn "---------------- WARNING -------------------"
 	ewarn ""
 	ewarn "MAKE BACKUPS OF THE SESSION FILES BEFORE TRYING THIS VERSION."

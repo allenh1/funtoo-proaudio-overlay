@@ -1,6 +1,10 @@
 # ChangeLog for media-sound/ardour
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  30 Mar 2010; Viktor Lazarev <taurus101v@gmail.com>  ardour-3.9999.ebuild:
+  added creating libs/ardour/svn_revision.cc file;
+  cleanup
 
   10 Sep 2009; Frieder Buerzele <evermind@tuxfamily.org
   ardour-3.9999.ebuild:

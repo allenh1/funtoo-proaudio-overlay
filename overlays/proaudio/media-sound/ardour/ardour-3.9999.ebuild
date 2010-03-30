@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -10,7 +10,6 @@ DESCRIPTION="multi-track hard disk recording software"
 HOMEPAGE="http://ardour.org/"
 
 ESVN_REPO_URI="http://subversion.ardour.org/svn/ardour2/branches/3.0"
-
 
 LICENSE="GPL-2"
 SLOT="3"
@@ -57,8 +56,9 @@ src_unpack() {
 	cd "${S}"
 	# get the svn revision
 	subversion_wc_info
-	echo $ESVN_WC_REVISION > libs/ardour/svn_revision.cc
-
+	echo '#include "ardour/svn_revision.h"' > libs/ardour/svn_revision.cc
+	echo "namespace ARDOUR { const char* svn_revision=\"$ESVN_WC_REVISION\"; }" >> libs/ardour/svn_revision.cc
+	echo >> libs/ardour/svn_revision.cc
 
 ##	# some temporary slotting fixes
 ##	sed -i -e 's:ardour2:ardour3:' \
@@ -71,10 +71,10 @@ src_unpack() {
 ##	sed -e "s:'share', 'locale':'share', 'ardour3', 'locale':" \
 ##		-i libs/ardour/SConscript
 }
-	
+
 src_compile() {
 
-	local myconf="--freedesktop --prefix=/usr --aubio"
+	local myconf="--freedesktop --prefix=/usr"
 		use debug     && myconf="$myconf --debug"
 		use nls       && myconf="$myconf --nls"
 		use lv2       && myconf="$myconf --lv2"
@@ -89,7 +89,7 @@ src_compile() {
 
 	einfo "./waf $myconf" # show configure options
 	./waf configure $myconf || die "failed to configure"
-	./waf build ${MAKEOPTS} || die "failed to build"
+	./waf build ${MAKEOPTS/-s/} || die "failed to build"
 }
 
 src_install() {
@@ -110,7 +110,7 @@ src_install() {
 pkg_postinst() {
 	fdo-mime_mime_database_update
 	fdo-mime_desktop_database_update
-	
+
 	ewarn "---------------- WARNING -------------------"
 	ewarn ""
 	ewarn "MAKE BACKUPS OF THE SESSION FILES BEFORE TRYING THIS VERSION."

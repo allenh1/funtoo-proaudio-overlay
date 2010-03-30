@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -77,7 +77,7 @@ pkg_setup(){
 
 src_unpack(){
 	# abort if user answers no to distribution of vst enabled binaries
-	if use vst; then 
+	if use vst; then
 		agree_vst || die "you can not distribute ardour with vst support"
 	fi
 	subversion_src_unpack
@@ -86,7 +86,7 @@ src_unpack(){
 	mkdir -p "${S}"
 	cp -R "${ESVN_WC_PATH}"/* "${S}"
 	cp -R "${ESVN_WC_PATH}"/.* "${S}"
-	cd ${S}
+	cd "${S}"
 
 	# hack to use the sys-lib for sndlib also
 #	use sys-libs && epatch "${FILESDIR}/ardour-2.0.3-sndfile-external.patch"
@@ -98,7 +98,7 @@ src_unpack(){
 
 src_compile() {
 	# Required for scons to "see" intermediate install location
-	mkdir -p ${D}
+	mkdir -p "${D}"
 
 	local myconf=""
 	(use sse || use altivec) && myconf="FPU_OPTIMIZATION=1"
@@ -114,7 +114,7 @@ src_compile() {
 	myconf="${myconf} DESTDIR=${D} PREFIX=/usr KSI=0"
 	einfo "${myconf}"
 
-	cd ${S}
+	cd "${S}"
 	scons ${myconf}	${MAKEOPTS} || die "compilation failed"
 }
 
@@ -133,7 +133,7 @@ src_install() {
 pkg_postinst() {
 	fdo-mime_mime_database_update
 	fdo-mime_desktop_database_update
-	
+
 	ewarn "---------------- WARNING -------------------"
 	ewarn ""
 	ewarn "MAKE BACKUPS OF THE SESSION FILES BEFORE TRYING THIS VERSION."
