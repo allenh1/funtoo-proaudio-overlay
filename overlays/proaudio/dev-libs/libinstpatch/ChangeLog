@@ -2,6 +2,10 @@
 # Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  31 Mar 2010; Stephane Angot <sa@hydre.org> libinstpatch-1.0.0_pre1.ebuild, libinstpatch-9999.ebuild:
+  header update
+  added keyword "~ppc" to 1.0.0_pre1 for /media-sound/swami compatibility
+
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog
 
