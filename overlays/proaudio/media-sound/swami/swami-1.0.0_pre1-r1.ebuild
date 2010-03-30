@@ -1,12 +1,11 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
-
 
 RESTRICT="mirror"
 DESCRIPTION="an instrument editor for MIDI music composition and a sampler frontend"
 HOMEPAGE="http://swami.sourceforge.net"
-SRC_URI="mirror://sourceforge/${PN}/${P/_/}.tar.bz2"
+SRC_URI="mirror://sourceforge/${PN}/${P/_/}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
