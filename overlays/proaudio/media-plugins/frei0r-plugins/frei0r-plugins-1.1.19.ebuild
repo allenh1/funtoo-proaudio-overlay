@@ -1,10 +1,10 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 RESTRICT="mirror"
-DESCRIPTION=""
-HOMEPAGE=""
+DESCRIPTION="a minimalistic plugin API for video effects"
+HOMEPAGE="http://www.piksel.org/frei0r"
 SRC_URI="http://frei0r.kexbox.org/download/source/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
@@ -16,7 +16,7 @@ DEPEND="dev-util/scons"
 RDEPEND=""
 
 src_unpack(){
-	unpack "${A}"
+	unpack ${A}
 	# use our CFLAGS/CXXCLFAGS
 	cat << EOF >> "${S}/plugins/SConstruct"
 import os

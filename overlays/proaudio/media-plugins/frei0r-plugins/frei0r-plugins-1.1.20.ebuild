@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -18,7 +18,7 @@ DEPEND=""
 RDEPEND=""
 
 src_unpack(){
-	unpack "${A}"
+	unpack ${A}
 	cd "${S}/include"
 	# gcc 4.3 include fix
 	esed_check -i -e "s@\(#define INCLUDED_FREI0R_H\)@\1\n#include <string.h>\n#include <stdlib.h>@g" frei0r.h
