@@ -13,10 +13,11 @@ SRC_URI="http://download.savannah.nongnu.org/releases/ll-plugins/${P}.tar.bz2"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="doc"
 
-DEPEND=">=dev-cpp/gtkmm-2.8.8:2.4"
-RDEPEND="${DEPEND}"
+RDEPEND=">=dev-cpp/gtkmm-2.8.8:2.4"
+DEPEND="${RDEPEND}
+	doc? ( app-doc/doxygen )"
 
 src_unpack() {
 	unpack ${A}
@@ -30,9 +31,11 @@ src_compile() {
 	./configure \
 		--prefix=/usr \
 		--CFLAGS="${CFLAGS}" \
-		|| die
-
-	emake || die
+		|| die "configure failed"
+	emake || die "emake failed"
+	if use doc; then
+		doxygen || die "making docs failed"
+	fi
 }
 
 src_install() {
@@ -40,4 +43,7 @@ src_install() {
 		libdir="/usr/$(get_libdir)" \
 		docdir="/usr/share/doc/${PF}" \
 		install || die "install failed"
+	if use doc; then
+		dohtml -r html/*
+	fi
 }

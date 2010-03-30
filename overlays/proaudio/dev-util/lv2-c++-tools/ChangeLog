@@ -1,6 +1,13 @@
 # ChangeLog for dev-util/lv2-c++-tools
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*lv2-c++-tools-1.0.3 (30 Mar 2010)
+
+  30 Mar 2010; Viktor Lazarev <taurus101v@gmail.com>
+  +lv2-c++-tools-1.0.3.ebuild:
+  version bump
+  +metadata.xml
 
   17 Dec 2008; Thomas Kuther <gimpel@sonnenkinder.org>
   +lv2-c++-tools-1.0.2.ebuild:
