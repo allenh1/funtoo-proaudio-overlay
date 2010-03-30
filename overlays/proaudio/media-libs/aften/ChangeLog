@@ -1,0 +1,9 @@
+# ChangeLog for media-libs/aften
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*aften-9999 (30 Mar 2010)
+
+  30 Mar 2010; Viktor Lazarev <taurus101v@gmail.com> +aften-9999.ebuild:
+  initial ebuild
+  
