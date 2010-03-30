@@ -2,6 +2,10 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  30 Mar 2010; Stephane Angot <sa@hydre.org> +gst-buzztard-0.5.0.ebuild:
+  version bump
+  spring cleanup
+
   27 Nov 2008; Thomas Kuther <gimpel@sonnenkinder.org>
   +gst-buzztard-0.4.0.ebuild:
   version bump
