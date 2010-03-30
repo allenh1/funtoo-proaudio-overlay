@@ -1,0 +1,11 @@
+# ChangeLog for dev-util/premake
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*premake-4.2.1 (30 Mar 2010)
+
+  30 Mar 2010; Viktor Lazarev <taurus101v@gmail.com> +premake-4.2.1.ebuild:
+  version bump, bgo #60960
+
+  30 Mar 2010; Viktor Lazarev <taurus101v@gmail.com> ChangeLog:
+  added a changelog
