@@ -30,14 +30,12 @@ src_unpack() {
 	cd "${S}"
 
 	# add our defines
-	cp "${FILESDIR}/${PN}-3-defines.gentoo" defines
-
-	epatch "${FILESDIR}/${P}-include.patch"
+	cp "${FILESDIR}/${PN}-4-defines.gentoo" defines
 
 	# and now.. the useflags. What a giant PITA!
 	# Note: oss could be optional, but compile fails if disabled!
 	local flags=""
-	flags="CFLAGS         += -D QT_THREAD_SUPPORT -D QT3_SUPPORT"
+	flags="CFLAGS         += -D QT_THREAD_SUPPORT"
 	use alsa && flags="${flags} -D COMPILE_ALSA"
 	use jack && flags="${flags} -D COMPILE_JACK"
 	echo "${flags} -D COMPILE_OSS -D NO_EMPTY_ARRAYS -fPIC" >> defines
@@ -58,14 +56,15 @@ src_compile() {
 }
 
 src_install () {
-	mv support.txt support
 	# makefile is absolutly a mess so we use portage features
-	dodoc authors changelog copyright readme todo support
+	for i in authors changelog copyright readme support; do
+		mv ${i}.txt ${i}; dodoc ${i}; done
 	dodir /usr/$(get_libdir)/${PN}
 	exeinto /usr/$(get_libdir)/${PN}
 	doexe bpmcount bpmdj bpmdjraw bpmmerge bpmplay
 	# needed too..
 	mv sequences "${D}/usr/$(get_libdir)/${PN}"
+	#dodoc authors changelog readme support.txt
 	# install startup wrapper
 	dobin "${FILESDIR}/${PN}.sh"
 	# install logo and desktop entry

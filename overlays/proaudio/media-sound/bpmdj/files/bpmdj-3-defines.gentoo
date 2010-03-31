@@ -1,9 +1,9 @@
-UIC3            = /usr/qt/3/bin/uic
+UIC3            = /usr/bin/uic3
 RCC             = /usr/bin/rcc
 UIC             = /usr/bin/uic
 MOC             = /usr/bin/moc
 QT_INCLUDE_PATH = -I/usr/include/qt4 -I/usr/include/qt4/Qt
-QT_LIBRARY_PATH = -L/usr/lib/qt4 
+QT_LIBRARY_PATH = -L/usr/lib/qt4
 QT_LIBS         = -lQt3Support -lQtGui -lQtCore
 CP = cp
 MV = mv

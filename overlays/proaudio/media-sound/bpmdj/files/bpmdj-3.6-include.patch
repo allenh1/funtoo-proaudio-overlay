@@ -1,0 +1,10 @@
+--- ./numbers.h.old	2007-08-09 23:38:21.000000000 +0500
++++ ./numbers.h	2010-04-01 00:41:57.000000000 +0500
+@@ -23,6 +23,7 @@
+ 
+ #ifndef OM_NUMBERS_H
+ #define OM_NUMBERS_H
++#include <stdlib.h>
+ #include "data.h"
+ #include "data-visitor.h"
+ 
