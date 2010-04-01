@@ -1,8 +1,8 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit subversion flag-o-matic 
+inherit subversion flag-o-matic
 
 DESCRIPTION="Jackdmp jack implemention for multi-processor machine"
 HOMEPAGE="http://www.grame.fr/~letz/jackdmp.html"
@@ -12,7 +12,7 @@ ESVN_REPO_URI="http://subversion.jackaudio.org/jack/jack2/trunk/jackmp"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="classic doc debug freebob dbus mixed"
+IUSE="alsa classic doc debug freebob dbus mixed"
 
 RDEPEND="dev-util/pkgconfig
 	>=media-libs/alsa-lib-0.9.1"
@@ -44,11 +44,12 @@ pkg_setup() {
 
 src_compile() {
 	local myconf="--prefix=/usr --destdir=${D}"
+	use alsa && myconf="${myconf} --alsa"
 	if use classic && use dbus ; then
-	    myconf="${myconf} --classic"
+		myconf="${myconf} --classic"
 	fi
 	if use mixed && use amd64 ; then
-	    myconf="${myconf} --mixed"
+		myconf="${myconf} --mixed"
 	fi
 	use dbus && myconf="${myconf} --dbus"
 	use debug && myconf="${myconf} -d debug"
