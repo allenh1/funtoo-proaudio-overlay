@@ -12,14 +12,15 @@ ESVN_REPO_URI="http://subversion.jackaudio.org/jack/jack2/trunk/jackmp"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="alsa classic doc debug freebob dbus mixed"
+IUSE="alsa classic doc debug freebob dbus ieee1394 mixed"
 
 RDEPEND="dev-util/pkgconfig
 	>=media-libs/alsa-lib-0.9.1"
 DEPEND="${RDEPEND}
-	freebob? ( sys-libs/libfreebob )
+	freebob? ( sys-libs/libfreebob !media-libs/libffado )
 	doc? ( app-doc/doxygen )
-	dbus? ( sys-apps/dbus )"
+	dbus? ( sys-apps/dbus )
+	ieee1394? ( media-libs/libffado !sys-libs/libfreebob )"
 
 pkg_setup() {
 	# sandbox-1.6 breaks, on amd64 at least
@@ -55,6 +56,7 @@ src_compile() {
 	use debug && myconf="${myconf} -d debug"
 	use doc && myconf="${myconf} --doxygen"
 	use freebob && myconf="${myconf} --freebob"
+	use ieee1394 && myconf="${myconf} --firewire"
 
 	einfo "Running \"./waf configure ${myconf}\" ..."
 	./waf configure ${myconf} || die "waf configure failed"
