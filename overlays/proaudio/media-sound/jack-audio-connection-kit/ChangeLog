@@ -4,6 +4,10 @@
 
   01 Apr 2010; Hakan Demiralp <keenblade@tuxfamily.org
   jack-audio-connection-kit-2.9999.ebuild:
+  freebob useflag fixed. It was missing in the src_compile function
+
+  01 Apr 2010; Hakan Demiralp <keenblade@tuxfamily.org
+  jack-audio-connection-kit-2.9999.ebuild:
   alsa useflag added. Without it jack does not support alsa driver
 
   14 Jan 2010; Marc-Olivier Barre <marco@marcochapeau.org>

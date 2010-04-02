@@ -54,6 +54,7 @@ src_compile() {
 	use dbus && myconf="${myconf} --dbus"
 	use debug && myconf="${myconf} -d debug"
 	use doc && myconf="${myconf} --doxygen"
+	use freebob && myconf="${myconf} --freebob"
 
 	einfo "Running \"./waf configure ${myconf}\" ..."
 	./waf configure ${myconf} || die "waf configure failed"
