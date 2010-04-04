@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -11,11 +11,10 @@ SRC_URI="http://ccrma.stanford.edu/software/stk/release/${P}.tar.gz"
 LICENSE="as-is"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-IUSE="alsa debug doc examples jack midi oss"
+IUSE="alsa debug doc examples jack oss"
 
 RDEPEND="alsa? ( media-libs/alsa-lib )
-	jack? ( media-sound/jack-audio-connection-kit )
-	midi? ( media-libs/alsa-lib )"
+	jack? ( media-sound/jack-audio-connection-kit )"
 DEPEND="${RDEPEND}
 	dev-lang/perl"
 
@@ -30,7 +29,7 @@ src_unpack() {
 	epatch "${FILESDIR}/${P}-gcc44.patch"
 	eautoreconf
 }
-		
+
 src_compile() {
 	econf \
 		`use_with alsa` \

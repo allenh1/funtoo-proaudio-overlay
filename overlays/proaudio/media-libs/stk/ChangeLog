@@ -1,6 +1,13 @@
-# ChangeLog for media-sound/stk
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# ChangeLog for media-libs/stk
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*stk-4.4.2 (04 Apr 2010)
+
+  04 Apr 2010; Viktor Lazarev <taurus101v@gmail.com> stk-4.3.1.ebuild,
+  +stk-4.4.2.ebuild, +files/stk-4.4.2/noExamplesOrDemo.patch,
+  +files/stk-4.4.2/removeForcedFlags.patch:
+  Version bump, add patches (see bgo #309037). Removed `midi` USE
 
   04 Aug 2008; Dominique Michel <dominique@tuxfamily.org>
   Removed alsa-lib midi USE check
