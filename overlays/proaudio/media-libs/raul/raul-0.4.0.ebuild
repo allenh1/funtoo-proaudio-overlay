@@ -1,7 +1,6 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
-
 
 RESTRICT="mirror"
 IUSE="boost osc lash jack debug"
@@ -13,13 +12,15 @@ LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
-DEPEND=">=dev-util/pkgconfig-0.9.0
+RDEPEND="
+	boost? ( dev-libs/boost )
+	>=dev-cpp/glibmm-2.4"
+DEPEND="${RDEPEND}
+	dev-util/pkgconfig
 	osc? ( >=media-libs/liblo-0.22 )
 	>=dev-libs/rasqal-0.9.11
 	>=media-libs/raptor-1.4.14
-	boost? ( dev-libs/boost )
 	dev-libs/redland
-	>=dev-cpp/glibmm-2.4
 	jack? ( >=media-sound/jack-audio-connection-kit-0.107.0 )
 	lash? ( >=media-sound/lash-0.5.2
 		>=dev-libs/libsigc++-2 )

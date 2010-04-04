@@ -1,6 +1,12 @@
-# ChangeLog for sys-libs/raul
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# ChangeLog for media-libs/raul
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*raul-0.6.0 (04 Apr 2010)
+
+  04 Apr 2010; Viktor Lazarev <taurus101v@gmail.com> raul-0.4.0.ebuild,
+  raul-0.5.0.ebuild, +raul-0.6.0.ebuild, raul-9999.ebuild:
+  Version bump. Cleanup.
 
   16 Jun 2009; Stephane Angot <sa@hydre.org>; raul-9999.ebuild:
   add addpredict to the ebuild for resolving the sandbox issue

@@ -1,29 +1,28 @@
 # Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/raul/raul-0.5.1.ebuild,v 1.4 2009/08/02 21:06:41 chainsaw Exp $
 
-inherit multilib subversion
+inherit eutils
 
 RESTRICT="mirror"
-IUSE="debug doc"
 DESCRIPTION="Realtime Audio Utility Library: lightweight header-only C++"
 HOMEPAGE="http://wiki.drobilla.net/Raul"
-
-ESVN_REPO_URI="http://svn.drobilla.net/lad/trunk"
-ESVN_PROJECT="svn.drobilla.net"
+SRC_URI="http://download.drobilla.net/${P}.tar.bz2"
 
 LICENSE="GPL-2"
-KEYWORDS=""
 SLOT="0"
+KEYWORDS="~amd64 ~x86"
+IUSE="debug doc"
 
-RDEPEND=">=dev-libs/glib-2.14.0
-	>=dev-cpp/glibmm-2.14.0"
-DEPEND="dev-util/pkgconfig
+#TODO: cleanup dependencies
+RDEPEND=">=dev-cpp/glibmm-2.4
+	>=dev-libs/glib-2.0
+	dev-libs/boost"
+DEPEND="${RDEPEND}
+	dev-util/pkgconfig
 	doc? ( app-doc/doxygen )"
 
 src_compile() {
-	cd "${S}/${PN}" || die "source for ${PN} not found"
-
 	local myconf="--prefix=/usr --libdir=/usr/$(get_libdir)/"
 
 	use doc && myconf="${myconf} --build-docs --htmldir=/usr/share/doc/${P}/html"
@@ -34,9 +33,9 @@ src_compile() {
 }
 
 src_install() {
-	cd "${S}/${PN}" || die "source for ${PN} not found"
 	# addpredict for the ldconfig
 	addpredict /etc/ld.so.cache
 	./waf install --destdir="${D}" || die "install failed"
-	dodoc AUTHORS ChangeLog
+	dodoc AUTHORS README
+	ChangeLog
 }
