@@ -1,0 +1,14 @@
+# ChangeLog for dev-libs/xerces-c
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*xerces-c-2.8.0-r1 (05 Apr 2010)
+
+  05 Apr 2010; Viktor Lazarev <taurus101v@gmail.com>
+  +xerces-c-2.8.0-r1.ebuild, +files/xerces-c-2.8.0-64bit_cast.patch,
+  +files/xerces-c-2.8.0-IconvGNUTransService.cpp.patch,
+  +files/xerces-c-2.8.0-icu_ressource_fix.patch,
+  +files/xqilla-xercesc_content_type.patch,
+  +files/xqilla-xercesc_regex.patch, +metadata.xml:
+  Initial commit. Copied from the official CVS tree. Needed for clam-project (libclam)
+
