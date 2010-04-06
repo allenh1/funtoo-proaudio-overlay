@@ -2,6 +2,10 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  06 Apr 2010; Viktor Lazarev <taurus101v@gmail.com>
+  files/ac3jack-2.0.3-compile-fix.patch:
+  Changed patch, see bgo #238324
+
 *ac3jack-2.0.3 (30 Mar 2010)
 
   30 Mar 2010; Viktor Lazarev <taurus101v@gmail.com> +ac3jack-2.0.3.ebuild:
