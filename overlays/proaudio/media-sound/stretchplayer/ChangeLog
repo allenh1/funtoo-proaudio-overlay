@@ -1,0 +1,11 @@
+# ChangeLog for media-sound/stretchplayer
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header$
+
+*stretchplayer-9999 (07 Apr 2010)
+*stretchplayer-0.500 (07 Apr 2010)
+
+  07 Apr 2010; Viktor Lazarev <taurus101v@gmail.com>
+  +stretchplayer-0.500.ebuild, +stretchplayer-9999.ebuild, +metadata.xml:
+  initial ebuilds
+
