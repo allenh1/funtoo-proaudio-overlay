@@ -330,6 +330,13 @@
 	Homepage:    http://lv2plug.in/
 
 
+#------- media-libs/libclalsadrv --------
+	libclalsadrv-2.0.0	arch: amd64 ~ppc ~sparc x86
+	Description: An audio library by Fons Adriaensen <fons.adriaensen@skynet.be>
+		
+	Homepage:    http://www.kokkinizita.net/linuxaudio/
+
+
 #------- media-libs/zynaddsubfx-banks --------
 	zynaddsubfx-banks-20060419	arch: amd64 ppc x86
 	zynaddsubfx-banks-20061031	arch: amd64 ppc x86
@@ -573,6 +580,12 @@
 	foo-plugins-1.0	arch: x86
 	Description: foo-plugins for ladspa
 	Homepage:    http://www.studionumbersix.com/foo/
+
+
+#------- media-plugins/wah-plugins --------
+	wah-plugins-0.0.2	arch: amd64 x86
+	Description: Auto-WAH plugin.
+	Homepage:    http://www.kokkinizita.net/linuxaudio/ladspa/index.html
 
 
 #------- media-plugins/invada-studio-plugins --------
@@ -1391,6 +1404,14 @@
 	Homepage:    http://zombiehq.jollybox.de/zhq/static/view/projects/xmms2tray
 
 
+#------- media-sound/tetraproc --------
+	tetraproc-0.6.2	arch: ~x86 ~amd64
+	Description: TetraProc converts the A-format signals from
+		 a tetrahedral Ambisonic microphone into B-format
+		 signals ready for recording.
+	Homepage:    http://www.kokkinizita.net/linuxaudio
+
+
 #------- media-sound/ices --------
 	ices-2.0.60a	arch: x86 sparc amd64 ppc64
 	Description: icecast OGG streaming client. supports on
@@ -1408,6 +1429,13 @@
 	snd-ls-0.9.8.7	arch: ~amd64 ~ppc ~sparc ~x86
 	Description: Snd-ls is a sound editor based on Snd
 	Homepage:    http://www.notam02.no/arkiv/src/snd/
+
+
+#------- media-sound/jaaa --------
+	jaaa-0.6.0	arch: amd64 ~ppc ~sparc x86
+	Description: The JACK and ALSA Audio Analyser is an audio
+		 signal generator and spectrum analyser
+	Homepage:    http://www.kokkinizita.net/linuxaudio
 
 
 #------- media-sound/arpage --------
@@ -1529,7 +1557,7 @@
 
 #------- media-sound/japa --------
 	japa-0.1.8	arch: x86 ~amd64
-	japa-0.4.0	arch: x86 ~amd64
+	japa-0.6.0	arch: x86 ~amd64
 	Description: JAPA is a perceptual analyzer for JACK and
 		 ALSA
 	Homepage:    http://www.kokkinizita.net/linuxaudio/

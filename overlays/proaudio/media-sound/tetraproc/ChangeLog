@@ -1,0 +1,9 @@
+# ChangeLog for media-sound/tetraproc
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*tetraproc-0.6.2 (08 Apr 2010)
+
+  08 Apr 2010; Florian Faber <faber@faberman.de>
+  +tetraproc-0.6.2.ebuild, +metadata.xml:
+  initial ebuild

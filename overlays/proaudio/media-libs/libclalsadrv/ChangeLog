@@ -1,0 +1,9 @@
+# ChangeLog for media-libs/libclalsadrv
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*libclalsadrv-2.0.0 (08 Apr 2010)
+
+  08 Apr 2010; Florian Faber <faber@faberman.de>
+  +libclalsadrv-2.0.0.ebuild:
+  version bump
