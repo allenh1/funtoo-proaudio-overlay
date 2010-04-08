@@ -1,0 +1,10 @@
+# ChangeLog for media-sound/fastbreeder
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header$
+
+*fastbreeder-1.0.1 (08 Apr 2010)
+
+  08 Apr 2010; Gavin Pryke <gavinlee303@googlemail.com>
+  +fastbreeder-1.0.1.ebuild, +metadata.xml:
+  Initial import of fastbreeder
+
