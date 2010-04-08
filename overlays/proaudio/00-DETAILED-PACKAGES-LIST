@@ -446,10 +446,9 @@
 
 
 #------- media-plugins/amb-plugins --------
-	amb-plugins-0.0.2	arch: amd64 x86
-	amb-plugins-0.1.0	arch: amd64 x86
-	amb-plugins-0.3.0	arch: amd64 x86
-	Description: AMB ladspa plugins package
+	amb-plugins-0.6.1	arch: amd64 x86
+	Description: AMB-plugins ladspa plugin package. Filters
+		 by Fons Adriaensen
 	Homepage:    http://www.kokkinizita.net/linuxaudio/
 
 
