@@ -50,10 +50,9 @@ generate_list(){
 	for x in `find -maxdepth 1 -type d -printf '%f\n'|sed '1d'|sort|uniq`;do
 	old_pwd=$PWD
 	cd $x
-	for i in `find -name files`;do
-		i=${i/\/files/}
-		ebuilds="$(ls $i/*.ebuild)"
+	for i in `find -maxdepth 1 -type d|sed '1d'`;do
 		i=${i/.\//}
+		ebuilds="$(ls $i/*.ebuild)"
 
 		if [ "$OPT_LIST_OVERLAY_ONLY" -eq 1 ] && [ -e $PORTAGE_TREE/$x/$i ];then
 			continue
