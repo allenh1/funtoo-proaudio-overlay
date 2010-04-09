@@ -2,6 +2,11 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  09 Apr 2010; Gavin Pryke <gavinlee303@googlemail.com> -raul-0.4.0.ebuild,
+  -raul-0.5.0.ebuild, raul-9999.ebuild:
+  Remove old ebuilds, 0.5.1 in Gentoo tree. utilise ${S} and pkgconfig fix,
+  Thanks to Alexandros Diamantidis for testing
+
 *raul-0.6.0 (04 Apr 2010)
 
   04 Apr 2010; Viktor Lazarev <taurus101v@gmail.com> raul-0.4.0.ebuild,
