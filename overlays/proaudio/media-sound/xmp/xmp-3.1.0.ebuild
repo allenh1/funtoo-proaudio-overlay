@@ -1,8 +1,8 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-IUSE="X alsa arts esd nas oss pulseaudio"
+IUSE="X alsa audacious esd nas oss pulseaudio"
 
 inherit eutils
 
@@ -13,24 +13,21 @@ SRC_URI="mirror://sourceforge/xmp/${P}.tar.gz"
 SLOT="0"
 LICENSE="GPL-2"
 KEYWORDS="~x86"
+RESTRICT="mirror"
 
 RDEPEND="X? ( x11-libs/libX11 )"
 DEPEND="${RDEPEND}
 	X? ( x11-proto/xproto )
 	alsa? ( >=media-libs/alsa-lib-1.0.14a-r1 )
-	arts? ( >=kde-base/arts-3.5.8 )
-	audacious? ( >=media-sound/audacious-1.4.6 )
+	audacious? ( >=media-sound/audacious-2.2 )
 	esd? ( >=media-sound/esound-0.2.38-r1 )
 	nas? ( >=media-libs/nas-1.8b )
 	pulseaudio? ( >=media-sound/pulseaudio-0.9.9 )"
 
 src_compile() {
-	# audacious plugin seems broken right now, put audacious in IUSE and
-	# uncomment <use> in metadata.xml to enable it otherwise it will
-	# not get built
 	econf \
 		$(use_enable alsa) \
-		$(use_enable arts) \
+		--disable-arts \
 		$(use_enable audacious audacious-plugin) \
 		$(use_enable esd) \
 		$(use_enable nas) \
