@@ -24,10 +24,10 @@ DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )
 	dev-util/pkgconfig"
 
-src_compile() {
-	cd "${S}/${PN}" || die "source for ${PN} not found"
+S="${WORKDIR}/${PN}"
 
-	local myconf="--prefix=/usr --libdir=/usr/$(get_libdir)/"
+src_compile() {
+	local myconf="--prefix=/usr"
 
 	use doc && myconf="${myconf} --build-docs --htmldir=/usr/share/doc/${P}/html"
 	use debug && myconf="${myconf} --debug"
@@ -37,7 +37,6 @@ src_compile() {
 }
 
 src_install() {
-	cd "${S}/${PN}" || die "source for ${PN} not found"
 	# addpredict for the ldconfig
 	addpredict /etc/ld.so.cache
 	./waf install --destdir="${D}" || die "install failed"
