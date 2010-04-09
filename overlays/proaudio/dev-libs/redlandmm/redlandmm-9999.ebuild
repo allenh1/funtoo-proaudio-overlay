@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -15,26 +15,26 @@ ESVN_PROJECT="svn.drobilla.net"
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="0"
-DEPEND=">=dev-util/pkgconfig-0.9.0
-	dev-libs/redland
+RDEPEND="dev-libs/redland
 	dev-libs/boost
 	>=dev-cpp/glibmm-2.4"
+DEPEND=">=dev-util/pkgconfig-0.9.0
+	${RDEPEND}"
+
+S="${WORKDIR}/${PN}"
 
 src_compile() {
-	cd ${S}/${PN}
-	
-	local myconf="--prefix=/usr --libdir=/usr/$(get_libdir)/"
+	local myconf="--prefix=/usr"
 
 	use doc && myconf="${myconf} --build-docs --htmldir=/usr/share/doc/${P}/html"
 	use debug && myconf="${myconf} --debug"
-	
+
 	./waf configure ${myconf} || die
-	
+
 	./waf build ${MAKEOPTS} || die
 }
 
 src_install() {
-	cd ${S}/${PN}
 	# addpredict for the ldconfig
 	addpredict /etc/ld.so.cache
 	./waf install --destdir="${D}" || die
