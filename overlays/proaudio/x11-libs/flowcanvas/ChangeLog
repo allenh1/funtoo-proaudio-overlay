@@ -1,6 +1,10 @@
-# ChangeLog for media-libs/flowcanvas
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# ChangeLog for x11-libs/flowcanvas
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  09 Apr 2010; Gavin Pryke <gavinlee303@googlemail.com>
+  flowcanvas-9999.ebuild:
+  utilise ${S} and pkgconfig fix, Thanks to Alexandros Diamantidis for testing
 
   16 Jun 2009; Stephane Angot <sa@hydre.org>;
   flowcanvas-9999.ebuild:

@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -23,10 +23,10 @@ DEPEND="${RDEPEND}
 	dev-util/pkgconfig
 	doc? ( app-doc/doxygen )"
 
-src_compile() {
-	cd ${PN}
+S="${WORKDIR}/${PN}"
 
-	local myconf="--prefix=/usr --libdir=/usr/$(get_libdir)/"
+src_compile() {
+	local myconf="--prefix=/usr"
 
 	use doc && myconf="${myconf} --build-docs --htmldir=/usr/share/doc/${P}/html"
 	use debug && myconf="${myconf} --debug"
@@ -36,7 +36,6 @@ src_compile() {
 }
 
 src_install() {
-	cd ${PN}
 	# addpredict for the ldconfig
 	addpredict /etc/ld.so.cache
 	./waf install --destdir="${D}" || die
