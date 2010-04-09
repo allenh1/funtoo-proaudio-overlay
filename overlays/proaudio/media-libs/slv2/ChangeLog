@@ -3,6 +3,9 @@
 # $Header: $
 
   09 Apr 2010; Gavin Pryke <gavinlee303@googlemail.com> slv2-9999.ebuild:
+  Don't utilise ${S} in this ebuild...
+
+  09 Apr 2010; Gavin Pryke <gavinlee303@googlemail.com> slv2-9999.ebuild:
   utilise ${S} and pkgconfig fix, Thanks to Alexandros Diamantidis for testing
 
   30 Mar 2010; Viktor Lazarev <taurus101v@gmail.com> slv2-9999.ebuild:

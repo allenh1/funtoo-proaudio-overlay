@@ -24,9 +24,8 @@ DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )
 	dev-util/pkgconfig"
 
-S="${WORKDIR}/${PN}"
-
 src_compile() {
+	cd "${S}/${PN}" || die "cd to ${S}/${PN} failed"
 	local myconf="--prefix=/usr"
 
 	use doc && myconf="${myconf} --build-docs --htmldir=/usr/share/doc/${P}/html"
@@ -37,6 +36,7 @@ src_compile() {
 }
 
 src_install() {
+	cd "${S}/${PN}" || die "cd to ${S}/${PN} failed"
 	# addpredict for the ldconfig
 	addpredict /etc/ld.so.cache
 	./waf install --destdir="${D}" || die "install failed"
