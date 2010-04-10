@@ -1,6 +1,9 @@
 # ChangeLog for media-sound/lmms
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  10 Apr 2010; Viktor Lazarev <taurus101v@gmail.com> lmms-9999-r1.ebuild:
+  license, git repo URI & DOCS fixed
 
   24 Feb 2009; Thomas Kuther <gimpel@sonnenkinder.org>
   -files/lmms-qt4_configure_gentoo.patch, -files/lmms-9999-acinclude.patch,

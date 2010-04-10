@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -9,9 +9,9 @@ inherit eutils cmake-utils git
 DESCRIPTION="free alternative to popular programs such as FruityLoops, Cubase and Logic"
 HOMEPAGE="http://lmms.sourceforge.net"
 
-EGIT_REPO_URI="git://lmms.git.sourceforge.net/gitroot/lmms"
+EGIT_REPO_URI="git://lmms.git.sourceforge.net/gitroot/lmms/lmms"
 
-LICENSE="GPL-2 LGPL"
+LICENSE="GPL-2 LGPL-2"
 SLOT="0"
 KEYWORDS=""
 
@@ -25,7 +25,7 @@ RDEPEND="|| ( (
 	fftw? ( =sci-libs/fftw-3* )
 	fluidsynth? ( media-sound/fluidsynth )
 	jack? ( >=media-sound/jack-audio-connection-kit-0.99.0 )
-	ogg? ( media-libs/libvorbis 
+	ogg? ( media-libs/libvorbis
 				media-libs/libogg )
 	pulseaudio? ( media-sound/pulseaudio )
 	>=media-libs/libsndfile-1.0.11
@@ -37,7 +37,7 @@ RDEPEND="|| ( (
 DEPEND="${RDEPEND}
 	>=dev-util/cmake-2.4.5"
 
-DOCS="README AUTHORS ChangeLog TODO"
+DOCS="README AUTHORS ChangeLog.old TODO"
 
 src_configure() {
 	mycmakeargs="${mycmakeargs}
