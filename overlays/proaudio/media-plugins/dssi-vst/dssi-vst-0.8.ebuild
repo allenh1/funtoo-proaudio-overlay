@@ -29,7 +29,7 @@ src_unpack() {
 	esed_check -i -e "s:-Ivestige -Wall -fPIC:${CXXFLAGS} -Ivestige -Wall -fPIC:" \
 		-e 's@\([[:blank:]]\)g++\([[:blank:]]\)@\1\$(CXX)\2@g' Makefile
 	# fixup includes for gcc 4.3 compat
-	esed_check -i "-e/#/{;s/#/#include <cstdlib>\n#/;:a" "-en;ba" "-e}" \
+	esed_check -i "-e/#/{;s/#/#include <stdio.h>\n#/;:a" "-en;ba" "-e}" \
 		remotepluginclient.cpp dssi-vst.cpp rdwrops.cpp remotevstclient.cpp \
 		remotepluginserver.cpp
 }

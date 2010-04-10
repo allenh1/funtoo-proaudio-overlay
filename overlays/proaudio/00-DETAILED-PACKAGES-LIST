@@ -112,8 +112,6 @@
 
 
 #------- media-libs/raul --------
-	raul-0.4.0	arch: ~amd64 ~x86
-	raul-0.5.0	arch: ~amd64 ~x86
 	raul-0.6.0	arch: ~amd64 ~x86
 	raul-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: Realtime Audio Utility Library: lightweight
@@ -1431,6 +1429,14 @@
 	Homepage:    http://www.notam02.no/arkiv/src/snd/
 
 
+#------- media-sound/chordata --------
+	chordata-1.0.0	arch: ~x86 ~amd64
+	chordata-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Chordata is a tool for tonal analysis of
+		 audio files.
+	Homepage:    http://clam-project.org/
+
+
 #------- media-sound/jaaa --------
 	jaaa-0.6.0	arch: amd64 ~ppc ~sparc x86
 	Description: The JACK and ALSA Audio Analyser is an audio
@@ -1506,7 +1512,7 @@
 
 
 #------- media-sound/xmp --------
-	xmp-2.7.1	arch: ~x86
+	xmp-3.1.0	arch: ~x86
 	Description: Extended Module Player
 	Homepage:    http://xmp.sf.net
 
@@ -1939,6 +1945,13 @@
 	canorus-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: Graphical Score-editor using Qt4
 	Homepage:    http://canorus.berlios.de
+
+
+#------- media-sound/fastbreeder --------
+	fastbreeder-1.0.1	arch: ~x86
+	Description: An experimental genetic programming synthesiser.
+		
+	Homepage:    http://www.pawfal.org/Software/fastbreeder/
 
 
 #------- media-sound/esperanza --------
