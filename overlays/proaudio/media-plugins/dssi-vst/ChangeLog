@@ -1,6 +1,10 @@
 # ChangeLog for media-plugins/dssi-vst
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  10 Apr 2010; Frieder Buerzele <evermind@tuxfamily.org>
+  dssi-vst-0.8.ebuild:
+  fixup gcc 4.3 cstdio includes
 
   15 Dec 2008; Thomas Kuther <gimpel@sonnenkinder.org>
   -dssi-vst-0.3.1.ebuild, -dssi-vst-0.4.ebuild, -dssi-vst-0.4-r1.ebuild,

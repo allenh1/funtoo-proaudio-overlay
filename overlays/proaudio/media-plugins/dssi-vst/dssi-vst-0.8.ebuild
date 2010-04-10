@@ -1,8 +1,8 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit multilib
+inherit multilib exteutils toolchain-funcs
 
 DESCRIPTION="DSSI wrapper plugin for Windows VSTs"
 HOMEPAGE="http://dssi.sourceforge.net/"
@@ -25,11 +25,17 @@ DEPEND="${RDEPEND}"
 src_unpack() {
 	unpack ${A}
 	cd "${S}"
-	sed -i -e "s:-Ivestige -Wall -fPIC:${CXXFLAGS} -Ivestige -Wall -fPIC:" \
-		Makefile || die
+	# fixup g++/cxxflags
+	esed_check -i -e "s:-Ivestige -Wall -fPIC:${CXXFLAGS} -Ivestige -Wall -fPIC:" \
+		-e 's@\([[:blank:]]\)g++\([[:blank:]]\)@\1\$(CXX)\2@g' Makefile
+	# fixup includes for gcc 4.3 compat
+	esed_check -i "-e/#/{;s/#/#include <cstdlib>\n#/;:a" "-en;ba" "-e}" \
+		remotepluginclient.cpp dssi-vst.cpp rdwrops.cpp remotevstclient.cpp \
+		remotepluginserver.cpp
 }
 
 src_compile(){
+	tc-export CXX
 	emake || "die emake failed"
 }
 
