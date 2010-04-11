@@ -22,8 +22,7 @@ S="${WORKDIR}/${PN}"
 
 src_prepare() {
 	epatch "${FILESDIR}/${P}-makefile.patch"
-	esed_check -i -e 's@g++@\$(CXX)@g' \
-		-e '/^CPPFLAGS/ s/-O3//' "${S}/Makefile"
+	esed_check -e '/^CPPFLAGS/ s/-O3//' "${S}/Makefile"
 }
 
 src_compile() {
@@ -32,6 +31,6 @@ src_compile() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die "install failed"
+	emake PREFIX="/usr" DESTDIR="${D}" install || die "install failed"
 	dodoc AUTHORS README
 }

@@ -1,6 +1,16 @@
 --- Makefile.old	2010-04-10 03:53:31.000000000 +0100
-+++ Makefile	2010-04-11 02:01:12.000000000 +0100
-@@ -22,20 +22,20 @@
++++ Makefile	2010-04-11 19:41:47.000000000 +0100
+@@ -15,27 +15,28 @@
+ #  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ 
+ 
+-PREFIX = /usr/local
++CXX ?= g++
++PREFIX ?= /usr/local
+ SUFFIX := $(shell uname -m | sed -e 's/^unknown/$//' -e 's/^i.86/$//' -e 's/^x86_64/$/64/')
+-LIBDIR = lib$(SUFFIX)
++LIBDIR ?= lib$(SUFFIX)
+ VERSION = 0.4.0
  DISTDIR = jnoise-$(VERSION)
  CPPFLAGS += -O3 -Wall -MMD -MP -DVERSION=\"$(VERSION)\" -DPREFIX=\"$(PREFIX)\"
  #CPPFLAGS += -march=pentium4

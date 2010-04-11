@@ -3,6 +3,10 @@
 # $Header: $
 
   11 Apr 2010; Gavin Pryke <gavinlee303@googlemail.com> jnoise-0.4.0.ebuild,
+  files/jnoise-0.4.0-makefile.patch:
+  simplify more, update makefile patch
+
+  11 Apr 2010; Gavin Pryke <gavinlee303@googlemail.com> jnoise-0.4.0.ebuild,
   +files/jnoise-0.4.0-makefile.patch, metadata.xml:
   patch for Makefile to work around sandbox errors, add sed tricks from
   jaaa/japa
