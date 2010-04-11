@@ -4,7 +4,7 @@
 
 EAPI=2
 
-inherit eutils multilib
+inherit exteutils toolchain-funcs multilib
 
 RESTRICT="mirror"
 DESCRIPTION="A command line JACK app generating white and pink gaussian noise"
@@ -22,15 +22,13 @@ S="${WORKDIR}/${PN}"
 
 src_prepare() {
 	epatch "${FILESDIR}/${P}-makefile.patch"
-	sed -i -e 's@g++@\$(CXX)@g' \
-		-e '/^CPPFLAGS/ s/-O3//' \
-		-e '/^PREFIX/ s@/usr/local@/usr@' \
-		-e "/^LIBDIR/ s/lib\$(SUFFIX)/$(get_libdir)/" "${S}/Makefile" \
-		|| die "sed of Makefile failed"
+	esed_check -i -e 's@g++@\$(CXX)@g' \
+		-e '/^CPPFLAGS/ s/-O3//' "${S}/Makefile"
 }
 
 src_compile() {
-	emake || die "make failed"
+	tc-export CC CXX
+	emake PREFIX="/usr" LIBDIR="$(get_libdir)" || die "make failed"
 }
 
 src_install() {

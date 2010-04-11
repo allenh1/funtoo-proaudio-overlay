@@ -24,13 +24,12 @@ DEPEND=">=media-sound/jack-audio-connection-kit-0.100
 src_unpack() {
 	unpack ${A}
 	cd "${S}"
-	esed_check -i -e 's@g++@\$(CXX) \$(LDFLAGS)@g' -e '/^CPPFLAGS/ s/-O2//' \
-		-e "/^LIBDIR/ s/lib\$(SUFFIX)/$(get_libdir)/" Makefile
+	esed_check -i -e 's@g++@\$(CXX) \$(LDFLAGS)@g' -e '/^CPPFLAGS/ s/-O2//' Makefile
 }
 
 src_compile() {
 	tc-export CC CXX
-	emake || die "emake failed"
+	emake PREFIX="/usr" LIBDIR="$(get_libdir)" || die "emake failed"
 }
 
 src_install() {

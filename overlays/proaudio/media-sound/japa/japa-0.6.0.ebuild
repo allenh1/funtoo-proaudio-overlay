@@ -25,19 +25,12 @@ src_unpack(){
 	cd "${S}"
 	# fixup vars
 	esed_check -i -e 's@g++@$(CXX)@g' \
-		-e '/^CPPFLAGS/ s/-O2//' \
-		-e "/^LIBDIR/ s/lib\$(SUFFIX)/$(get_libdir)/" Makefile
-
-	# fixup install 
-	esed_check -i \
-		-e '/install\:/'a'XYZ/usr/bin/install -d \$\(DESTDIR\)\$\(PREFIX\)\/bin' \
-		-e 's@\(/usr/bin/install -m 755 japa\ \)@\1$(DESTDIR)@g' Makefile
-	esed_check -i -e 's@^XYZ@\t@g' Makefile
+		-e '/^CPPFLAGS/ s/-O2//' Makefile
 }
 
 src_compile() {
 	tc-export CC CXX
-	emake PREFIX="/usr/" || die "make failed"
+	emake PREFIX="/usr/" LIBDIR="$(get_libdir)" || die "make failed"
 }
 
 src_install() {
