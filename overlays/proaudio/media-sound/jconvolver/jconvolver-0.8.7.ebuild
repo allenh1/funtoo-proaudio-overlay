@@ -23,7 +23,7 @@ DEPEND="|| ( x11-libs/libX11 virtual/x11 )
 	=sci-libs/fftw-3*"
 
 S="${S}/source"
-EX_S=${WORKDIR}/reverbs
+EX_S="${WORKDIR}/reverbs"
 src_unpack() {
 	unpack ${A}
 	cd "${S}"
