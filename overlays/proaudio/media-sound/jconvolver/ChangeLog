@@ -4,6 +4,9 @@
 
 *jconvolver-0.8.4 (25 Feb 2010)
 
+  12 Apr 2010: Dominique Michel <dominique@tuxfamilly.org>
+  bump to 0.8.4
+
   25 Feb 2010; Frieder Buerzele <evermind@tuxfamily.org>
   +jconvolver-0.8.4.ebuild:
   initial ebuild from bugtracker + some fixes
