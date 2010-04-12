@@ -2,6 +2,10 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  12 Apr 2010; Gavin Pryke <gavinlee303@googlemail.com> aliki-0.0.3.ebuild,
+  +files/aliki-0.0.3-makefile.patch:
+  add makefile patch and some tweaks
+
 *aliki-0.0.3 (07 Apr 2010)
 
   12 Jan 2009; Florian Faber <faber@faberman.de>;
