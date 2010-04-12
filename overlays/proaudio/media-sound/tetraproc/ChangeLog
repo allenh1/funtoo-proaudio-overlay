@@ -2,6 +2,10 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  12 Apr 2010; Gavin Pryke <gavinlee303@googlemail.com>
+  tetraproc-0.6.2.ebuild, +files/tetraproc-0.6.2-makefile.patch:
+  add makefile patch and some tweaks
+
 *tetraproc-0.6.2 (08 Apr 2010)
 
   08 Apr 2010; Florian Faber <faber@faberman.de>
