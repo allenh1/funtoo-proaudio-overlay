@@ -9,7 +9,7 @@ inherit cmake-utils
 DESCRIPTION="A software synthesizer for Linux, based on ZynAddSubFX"
 HOMEPAGE="http://yoshimi.sourceforge.net"
 RESTRICT="mirror"
-SRC_URI="mirror://sourceforge/${PN}/${PN}-0.055.6.tar.bz2"
+SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"

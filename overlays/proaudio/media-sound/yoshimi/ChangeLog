@@ -4,6 +4,9 @@
 
 *yoshimi-0.055.6 (28 Mar 2010)
 
+  12 Apr 2010: Dominique Michel <dominique@tuxfamilly.org>
+  bump to 0.056
+
   28 Mar 2010; Hakan Demiralp <keenblade@tuxfamily.org
   +yoshimi-0.055.6.ebuild, +metadata.xml:
   Initial ebuild for bug 311709 at bgo
