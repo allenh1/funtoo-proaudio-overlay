@@ -1,4 +1,4 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -10,12 +10,11 @@ HOMEPAGE="http://arvin.schnell-web.net/xanalyser/"
 SRC_URI="http://arvin.schnell-web.net/${PN}/${P}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="x86 ~amd64"
+KEYWORDS="x86 amd64"
 IUSE=""
 
-DEPEND="virtual/motif
-	sci-libs/fftw
-	x11-base/xorg-x11
+DEPEND="sci-libs/fftw
+	x11-libs/openmotif
 	media-libs/alsa-lib"
 
 RDEPEND="${DEPEND}"
