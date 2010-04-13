@@ -911,7 +911,7 @@
 
 
 #------- media-sound/yoshimi --------
-	yoshimi-0.055.6	arch: ~amd64 ~x86
+	yoshimi-0.056	arch: ~amd64 ~x86
 	Description: A software synthesizer for Linux, based on
 		 ZynAddSubFX
 	Homepage:    http://yoshimi.sourceforge.net
@@ -1061,7 +1061,7 @@
 
 
 #------- media-sound/jconvolver --------
-	jconvolver-0.8.4	arch: x86 amd64
+	jconvolver-0.8.7	arch: x86 amd64
 	Description: Command line convolution reverb by Fons Adriaensen
 		
 	Homepage:    http://www.kokkinizita.net/linuxaudio/index.html
@@ -1404,9 +1404,8 @@
 
 #------- media-sound/tetraproc --------
 	tetraproc-0.6.2	arch: ~x86 ~amd64
-	Description: TetraProc converts the A-format signals from
-		 a tetrahedral Ambisonic microphone into B-format
-		 signals ready for recording.
+	Description: A-format to B-format signal converter for
+		 tetrahedral Ambisonic microphones
 	Homepage:    http://www.kokkinizita.net/linuxaudio
 
 
@@ -2107,7 +2106,7 @@
 
 
 #------- x11-misc/xanalyser --------
-	xanalyser-1.30	arch: x86 ~amd64
+	xanalyser-1.32	arch: x86 amd64
 	Description: Program to analyse a stereo audio signal.
 		
 	Homepage:    http://arvin.schnell-web.net/xanalyser/

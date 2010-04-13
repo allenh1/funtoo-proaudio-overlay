@@ -15,6 +15,7 @@ IUSE=""
 
 DEPEND="sci-libs/fftw
 	x11-libs/openmotif
+	x11-libs/libXpm
 	media-libs/alsa-lib"
 
 RDEPEND="${DEPEND}"
