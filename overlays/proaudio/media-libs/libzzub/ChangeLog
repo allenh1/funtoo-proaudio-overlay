@@ -1,6 +1,14 @@
 # ChangeLog for media-libs/libzzub
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*libzzub-0.2.5 (16 Apr 2010)
+
+  16 Apr 2010; Gavin Pryke <gavinlee303@googlemail.com>
+  -libzzub-0.2.1.ebuild, -libzzub-0.2.2.ebuild, -libzzub-0.2.3.ebuild,
+  +libzzub-0.2.5.ebuild, -libzzub-9999.ebuild, metadata.xml:
+  remove ebuilds with non-existant SRC_URI. cleanup and bump to latest
+  version
 
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog

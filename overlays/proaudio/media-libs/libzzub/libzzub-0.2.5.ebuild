@@ -1,12 +1,14 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit distutils
+EAPI=2
+
+inherit eutils distutils
 
 DESCRIPTION="buzz compatibility lib for aldrin"
-HOMEPAGE="http://trac.zeitherrschaft.org/aldrin"
-SRC_URI="mirror://sourceforge/aldrin/${P}.tar.bz2"
+HOMEPAGE="http://code.google.com/p/aldrin-sequencer/"
+SRC_URI="http://aldrin-sequencer.googlecode.com/files/${P}.tar.bz2"
 RESTRICT="mirror"
 
 LICENSE="GPL-2"
@@ -16,15 +18,14 @@ IUSE="alsa jack llvm"
 
 DEPEND="${RDEPEND}
 		dev-util/scons"
-RDEPEND=">=dev-lang/python-2.4
+RDEPEND=">=dev-lang/python-2.5
 		>=dev-python/wxpython-2.6
 		media-libs/libsndfile
-		dev-python/ctypes
 		jack? ( media-sound/jack-audio-connection-kit  )
 		alsa? ( media-libs/alsa-lib )
 		sys-libs/zlib
 		media-libs/flac
-		llvm? ( >=sys-devel/llvm-base-1.9 )"
+		llvm? ( >=sys-devel/llvm-base-1.9[jit] )"
 
 pkg_setup() {
 	if use llvm; then
@@ -33,12 +34,6 @@ pkg_setup() {
 		ewarn "llvm-base and llvm-gcc can be found in the proaudio-dev overlay."
 		ewarn ""
 		ewarn "You can also choose libzzub's GCC wrapper with USE=\"-llvm\"."
-
-		if ! built_with_use sys-devel/llvm-base jit;then
-			eerror "You need to compile sys-devel/llvm-base with the \"jit\""
-			eerror "enabled."
-			die
-		fi
 	fi
 }
 
@@ -64,4 +59,3 @@ src_install() {
 	cd src/pyzzub
 	distutils_src_install
 }
-
