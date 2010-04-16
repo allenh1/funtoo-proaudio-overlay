@@ -9,7 +9,7 @@ inherit subversion
 DESCRIPTION="MIDI Arpeggiator w/ JACK Tempo Sync, includes Zonage MIDI splitter/manipulator"
 HOMEPAGE="http://sourceforge.net/projects/arpage/"
 SRC_URI=""
-LICENSE="GPL"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
 IUSE=""
@@ -18,9 +18,12 @@ RDEPEND=""
 
 ESVN_REPO_URI=https://arpage.svn.sourceforge.net/svnroot/arpage
 
+src_configure() {
+	econf || die "econf failed"
+}
+
 src_compile() {
 	cd "${WORKDIR}"/"${PN}"-9999/branches
-	econf || die "econf failed"
 	emake || die "make failed"
 }
 

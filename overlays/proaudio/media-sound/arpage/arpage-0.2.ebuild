@@ -7,15 +7,18 @@ EAPI="2"
 DESCRIPTION="MIDI Arpeggiator w/ JACK Tempo Sync, includes Zonage MIDI splitter/manipulator"
 HOMEPAGE="http://sourceforge.net/projects/arpage/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
-LICENSE="GPL"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 DEPEND=""
 RDEPEND=""
 
-src_compile() {
+src_configure() {
 	econf || die "econf failed"
+}
+
+src_compile() {
 	emake || die "make failed"
 }
 

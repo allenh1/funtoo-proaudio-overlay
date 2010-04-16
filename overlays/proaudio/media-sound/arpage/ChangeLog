@@ -5,6 +5,9 @@
 *arpage-9999 (25 Feb 2010)
 *arpage-0.2 (25 Feb 2010)
 
+  17 Avr 2010; Stephane Angot <sa@hydre.org> arpage-0.2.ebuild, arpage-9999.ebuild:
+  Licence fix, cleanup
+
   25 Feb 2010; Frieder Buerzele <evermind@tuxfamily.org> +arpage-0.2.ebuild,
   +arpage-9999.ebuild:
   added arpage
