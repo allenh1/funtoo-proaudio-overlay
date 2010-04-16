@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -10,10 +10,10 @@ MY_PN="AFsp"
 MY_PV="v$(replace_version_separator "1" "r")"
 MY_P="${MY_PN}-${MY_PV}"
 
-DESCRIPTION="The AFsp package provides audio file utility programs and a library of routines for reading and writing audio files."
+DESCRIPTION="audio file utility programs and library of routines for reading and writing audio files"
 HOMEPAGE="http://www-mmsp.ece.mcgill.ca/Documents/Software/Packages/AFsp/AFsp.html"
-SRC_URI="ftp://ftp.tsp.ece.mcgill.ca/TSP/AFsp/${MY_P}.tar.gz"
-LICENSE="Unknown"
+SRC_URI="http://www-mmsp.ece.mcgill.ca/Documents/Downloads/AFsp/${MY_P}.tar.gz"
+LICENSE="AFsp"
 SLOT="0"
 KEYWORDS="x86 amd64"
 IUSE=""
