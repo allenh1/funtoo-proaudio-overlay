@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  17 Avr 2010; Stephane Angot <sa@hydre.org>; +dino-0.2.4.ebuild, dino-0.2.2.ebuid:
+  Fix license, version bump
+
   23 Oct 2008; Frieder Buerzele <evermind@tuxfamily.org; dino-0.2.2.ebuild:
   make depend on >=media-sound/jack-audio-connection-kit-0.102.6
 

@@ -2,31 +2,26 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils jackmidi cvs
+inherit eutils jackmidi
 RESTRICT="mirror"
 IUSE="debug"
 DESCRIPTION="Dino is a pattern-based MIDI sequencer."
 HOMEPAGE="http://dino.nongnu.org"
 
-#SRC_URI="http://download.savannah.nongnu.org/releases/${PN}/${P}.tar.gz"
-ECVS_SERVER="cvs.savannah.nongnu.org:/sources/dino"
-ECVS_MODULE="${PN}"
-S="${WORKDIR}/${ECVS_MODULE}"
+SRC_URI="http://download.savannah.nongnu.org/releases/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~ppc ~x86"
 
 DEPEND=">=dev-cpp/libglademm-2.4.1
 	>=dev-cpp/libxmlpp-2.6.1
-	>=media-sound/jack-audio-connection-kit-9999
+	>=media-sound/jack-audio-connection-kit-0.102.6
 	>=media-sound/lash-0.5.0"
 
 src_unpack() {
 	need_jackmidi
-	cvs_src_unpack
-	cd "${S}"
-	#epatch "${FILESDIR}/jack_midi_api_fix.diff"
+	unpack ${A}
 }
 
 src_compile() {
