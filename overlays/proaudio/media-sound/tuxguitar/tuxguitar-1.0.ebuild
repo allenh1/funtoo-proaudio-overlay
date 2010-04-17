@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -6,13 +6,13 @@ IUSE=""
 
 inherit eutils
 
-DESCRIPTION="Multitrack guitar tablature editor and player with multitrack display, autoscroll while playing, various effects, import and export gp3 and gp4 files, and more."
+DESCRIPTION="TuxGuitar is a multitrack guitar tablature editor and player written in Java-SWT"
 HOMEPAGE="http://www.tuxguitar.com.ar"
 MY_P="${P}-linux"
 SRC_URI="x86? ( mirror://sourceforge/tuxguitar/${MY_P}-x86.tar.gz )
 	ppc? ( mirror://sourceforge/tuxguitar/${MY_P}-ppc.tar.gz )
 	amd64? ( mirror://sourceforge/tuxguitar/${MY_P}-x86_64.tar.gz )"
-LICENSE="LGPL"
+LICENSE="LGPL-2.1"
 SLOT="0"
 
 KEYWORDS="~amd64 ~ppc ~x86"
@@ -46,4 +46,3 @@ pkg_postinst(){
 	 einfo "type tuxguitar to start the application"
 #	 einfo "some example files are in /opt/${MY_P}/examples"
 }
-

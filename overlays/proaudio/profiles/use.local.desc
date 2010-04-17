@@ -16,3 +16,4 @@ x11-themes/crystal-audio:laptop - Add recipes for laptop (can hang a rt kernel)
 media-libs/librdf:postgresql - Enable use of the Redland PostgreSQL triple store backend
 media-sound/ardour:sys-libs - use system libs instead of provided. No upstream support!!!
 media-sound/psychosynth:psynth3d - Build the 3D client
+media-sound/tuxguitar:fluidsynth - Enable fluidsynth support

@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /home/robert/ebuilds/tuxguitar-1.2-r1.ebuild,v 1.2 2009/11/13 16:12:45 robert Exp $
 
@@ -18,7 +18,7 @@ IUSE="alsa fluidsynth oss pdf"
 # Test notes
 # Couldn't get JSA plugin working out of the box with IcedTea.
 
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~x86 ~ppc"
 CDEPEND="dev-java/swt:3.4[cairo]
 	alsa? ( media-libs/alsa-lib )
 	fluidsynth? ( media-sound/fluidsynth )
