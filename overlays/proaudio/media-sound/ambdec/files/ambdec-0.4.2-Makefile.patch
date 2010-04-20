@@ -1,5 +1,5 @@
 --- ambdec-0.4.2/source/Makefile.old	2010-04-20 17:26:16.000000000 +0100
-+++ ambdec-0.4.2/source/Makefile	2010-04-20 17:28:52.000000000 +0100
++++ ambdec-0.4.2/source/Makefile	2010-04-20 18:38:33.000000000 +0100
 @@ -14,10 +14,10 @@
  #  along with this program; if not, write to the Free Software
  #  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
@@ -41,7 +41,7 @@
 -	/usr/bin/install -d $(SHARED)/ambdec
 -	/usr/bin/install -m 644 ../share/* $(SHARED)/ambdec
 +	/usr/bin/install -D -m 755 ambdec $(DESTDIR)$(PREFIX)/bin/ambdec
-+	/usr/bin/install -m 755 ambdec_cli $(DESTDIR)$(PREFIX)/bin/ambdec_cli
++	/usr/bin/install -D -m 755 ambdec_cli $(DESTDIR)$(PREFIX)/bin/ambdec_cli
 +	/usr/bin/install -d $(DESTDIR)$(SHARED)/ambdec
 +	/usr/bin/install -m 644 ../share/* $(DESTDIR)$(SHARED)/ambdec
  
