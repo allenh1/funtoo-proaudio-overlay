@@ -22,7 +22,7 @@ S="${WORKDIR}/${PN}"
 
 src_prepare() {
 	epatch "${FILESDIR}/${P}-makefile.patch"
-	esed_check -e '/^CPPFLAGS/ s/-O3//' "${S}/Makefile"
+	esed_check -i -e '/^CPPFLAGS/ s/-O3//' "${S}/Makefile"
 }
 
 src_compile() {
