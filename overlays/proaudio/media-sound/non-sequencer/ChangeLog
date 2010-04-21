@@ -1,6 +1,10 @@
 # ChangeLog for media-sound/non-sequencer
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  21 Apr 2010; Gavin Pryke <gavinlee303@googlemail.com>
+  non-sequencer-9999.ebuild:
+  update call to configure as it is a custom shell script. dependency tweak.
 
   18 Sep 2009; Gavin Pryke <gavinlee303@googlemail.com>
   +non-sequencer-9999.ebuild, +metadata.xml:

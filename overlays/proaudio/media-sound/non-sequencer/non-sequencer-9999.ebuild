@@ -1,6 +1,8 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
+
+EAPI=1
 
 inherit git eutils
 
@@ -12,7 +14,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE="lash"
 
-DEPEND=">=x11-libs/fltk-1.1.2
+DEPEND=">=x11-libs/fltk-1.1.2:1.1
 	>=dev-libs/libsigc++-2.0
 	>=media-sound/jack-audio-connection-kit-0.103
 	lash? ( >=media-sound/lash-0.5.4 )"
@@ -26,7 +28,8 @@ src_unpack(){
 }
 
 src_compile() {
-	econf $(use_enable lash) || die "econf failed"
+	# configure is a hand written shell script, thus econf will not work
+	./configure --prefix=/usr $(use_enable lash) || die "configure failed"
 	emake || die "emake failed"
 }
 
