@@ -4,7 +4,7 @@
 
 EAPI=2
 
-inherit eutils cvs autotools
+inherit exteutils cvs autotools
 
 DESCRIPTION="MIDI Arpeggiator QMidiArp"
 HOMEPAGE="http://alsamodular.sourceforge.net/"
@@ -17,8 +17,8 @@ IUSE=""
 ECVS_SERVER="alsamodular.cvs.sourceforge.net:/cvsroot/alsamodular"
 ECVS_MODULE="qmidiarp"
 
-DEPEND=">=x11-libs/qt-core-4.2:4
-	>=x11-libs/qt-gui-4.2:4
+DEPEND=">=x11-libs/qt-core-4.2:4[qt3support]
+	>=x11-libs/qt-gui-4.2:4[qt3support]
 	>=media-sound/jack-audio-connection-kit-0.103.0
 	>=media-libs/alsa-lib-0.9.0"
 RDEPEND="${DEPEND}"
@@ -28,16 +28,13 @@ S="${WORKDIR}/${PN}"
 src_unpack() {
 	cvs_src_unpack
 	cd "$S"
+	# workaround: remove qtcore/qtgui checks
+	esed_check -i -e '/AC_CHECK_LIB(\[QtGui/, /QtGui is required)\])/ s@.*@@g' \
+		-e '/AC_CHECK_LIB(\[QtCore/, /QtCore is required)\])/ s@.*@@g' configure.ac 
 	eautoreconf
-}
-
-src_compile() {
-	econf || die 
-	emake || die
 }
 
 src_install() {
 	make DESTDIR="$D" install || die "install failed"
-	dodoc LICENSE README
-	doins demo.qma demo_up_down.qma
+	dodoc README
 }

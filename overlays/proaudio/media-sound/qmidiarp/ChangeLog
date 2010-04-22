@@ -2,6 +2,10 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  22 Apr 2010; Frieder Buerzele <evermind@tuxfamily.org>
+  qmidiarp-9999.ebuild:
+  fixup deps and workaround buggy configure.ac
+
 *qmidiarp-9999 (21 Apr 2010)
 
   21 Apr 2010; Frieder Buerzele <evermind@tuxfamily.org>
