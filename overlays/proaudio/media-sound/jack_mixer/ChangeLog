@@ -1,6 +1,13 @@
 # ChangeLog for media-sound/jack_mixer
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*jack_mixer-8 (23 Apr 2010)
+
+  23 Apr 2010; Frieder Buerzele <evermind@tuxfamily.org>
+  -jack_mixer-2.ebuild, -files/jack_mixer-2-destdir.patch,
+  -jack_mixer-5.ebuild, -jack_mixer-6.ebuild, +jack_mixer-8.ebuild:
+  bumped thx (Raphaël)
 
   25 Sep 2008; Frieder Buerzele <evermind@tuxfamily.org;
   +jack_mixer-6.ebuild:

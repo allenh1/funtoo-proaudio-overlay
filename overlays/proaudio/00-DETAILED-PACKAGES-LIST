@@ -97,12 +97,9 @@
 
 
 #------- media-libs/libzzub --------
-	libzzub-0.2.1	arch: ~x86 ~amd64
-	libzzub-0.2.2	arch: ~x86 ~amd64
-	libzzub-0.2.3	arch: ~x86 ~amd64
-	libzzub-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	libzzub-0.2.5	arch: ~x86 ~amd64
 	Description: buzz compatibility lib for aldrin
-	Homepage:    http://trac.zeitherrschaft.org/aldrin
+	Homepage:    http://code.google.com/p/aldrin-sequencer/
 
 
 #------- media-libs/pylash --------
@@ -333,6 +330,14 @@
 	Description: An audio library by Fons Adriaensen <fons.adriaensen@skynet.be>
 		
 	Homepage:    http://www.kokkinizita.net/linuxaudio/
+
+
+#------- media-libs/armstrong --------
+	armstrong-0.2.6	arch: ~x86 ~amd64
+	armstrong-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Open source C/C++ music tracking and sequencing
+		 library (previously known as libzzub)
+	Homepage:    http://www.bitbucket.org/paniq/armstrong
 
 
 #------- media-libs/zynaddsubfx-banks --------
@@ -946,9 +951,9 @@
 #------- media-sound/tuxguitar --------
 	tuxguitar-0.5	arch: ~amd64 ~ppc ~sparc x86
 	tuxguitar-0.6	arch: ~amd64 ~ppc ~sparc x86
-	tuxguitar-0.8	arch: ~amd64 ~ppc ~sparc x86
+	tuxguitar-0.8	arch: ~amd64 ~ppc x86
 	tuxguitar-1.0	arch: ~amd64 ~ppc ~x86
-	tuxguitar-1.2	arch: ~amd64 ~x86
+	tuxguitar-1.2	arch: ~amd64 ~x86 ~ppc
 	Description: TuxGuitar is a multitrack guitar tablature
 		 editor and player written in Java-SWT
 	Homepage:    http://www.tuxguitar.com.ar/
@@ -1365,15 +1370,6 @@
 	Homepage:    http://kmetronome.sourceforge.net/kmidimon/
 
 
-#------- media-sound/alsa-midi-humanizer --------
-	alsa-midi-humanizer-0.0.3	arch: x86 ~amd64
-	Description: ALSA MIDI Humanizer is a tiny utility application
-		 that routes MIDI events between two applications
-		 adding random timing and velocity offsets to NOTEON
-		 and NOTEOFF events
-	Homepage:    http://www.cesaremarilungo.com/sw/alsamidihumanizer.php
-
-
 #------- media-sound/NetworkEditor --------
 	NetworkEditor-1.0.0	arch: ~amd64 x86
 	NetworkEditor-1.1.0	arch: ~amd64 x86
@@ -1769,21 +1765,19 @@
 
 
 #------- media-sound/aldrin --------
-	aldrin-0.10.1	arch: ~x86 ~amd64
-	aldrin-0.11	arch: ~x86 ~amd64
 	aldrin-0.12	arch: ~x86 ~amd64
-	aldrin-0.9-r1	arch: ~x86 ~amd64
+	aldrin-0.13	arch: ~x86 ~amd64
 	aldrin-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: Aldrin is an open source modular sequencer/tracker,
 		 compatible to Buzz
-	Homepage:    http://trac.zeitherrschaft.org/aldrin/
+	Homepage:    http://code.google.com/p/aldrin-sequencer/
 
 
 #------- media-sound/afsp --------
 	afsp-8.2	arch: x86 amd64
-	Description: The AFsp package provides audio file utility
-		 programs and a library of routines for reading
-		 and writing audio files.
+	Description: audio file utility programs and library of
+		 routines for reading and writing audio files
+		
 	Homepage:    http://www-mmsp.ece.mcgill.ca/Documents/Software/Packages/AFsp/AFsp.html
 
 
@@ -1877,6 +1871,12 @@
 	Homepage:    http://www.suse.de/~mana/kalsatools.html
 
 
+#------- media-sound/qmidiarp --------
+	qmidiarp-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: MIDI Arpeggiator QMidiArp
+	Homepage:    http://alsamodular.sourceforge.net/
+
+
 #------- media-sound/paulstretch --------
 	paulstretch-1.000	arch: x86 ~amd64
 	paulstretch-1.024	arch: x86 ~amd64
@@ -1928,6 +1928,7 @@
 
 #------- media-sound/dino --------
 	dino-0.2.2	arch: ~amd64 ~ppc x86
+	dino-0.2.4	arch: ~amd64 ~ppc ~x86
 	dino-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: Dino is a pattern-based MIDI sequencer.
 	Homepage:    http://dino.nongnu.org
@@ -1978,9 +1979,7 @@
 
 
 #------- media-sound/jack_mixer --------
-	jack_mixer-2	arch: ~x86 ~amd64
-	jack_mixer-5	arch: ~x86
-	jack_mixer-6	arch: ~amd64 ~x86
+	jack_mixer-8	arch: ~amd64 ~x86
 	Description: JACK audio mixer using GTK2 interface.
 	Homepage:    http://home.gna.org/jackmixer/
 
