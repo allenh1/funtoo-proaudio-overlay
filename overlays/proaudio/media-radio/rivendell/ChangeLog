@@ -1,6 +1,13 @@
 # ChangeLog for media-radio/rivendell
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*rivendell-1.7.0-r1 (25 Apr 2010)
+
+  25 Apr 2010; Emery Hemingway <emery@icmlf.net +rivendell-1.7.0-r1.ebuild:
+  Set rivendell user and group UID to 585 to reduce permissions errors in
+  networked systems. Changed /var/snd intial permissions. Moved rivendell
+  CGI stuff to /usr/libexec/rd-bin.
 
 *rivendell-1.6.0 (18 Dec 2009)
 
