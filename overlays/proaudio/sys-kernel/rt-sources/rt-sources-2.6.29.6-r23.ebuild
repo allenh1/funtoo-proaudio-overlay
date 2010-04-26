@@ -17,7 +17,8 @@ RT_PATCH="patch-${KV}.bz2"
 RESTRICT="mirror"
 DESCRIPTION="Realtimne Preemption patched low latency Linux kernel"
 SRC_URI="${KERNEL_URI}
-http://www.kernel.org/pub/linux/kernel/projects/rt/${RT_PATCH}"
+http://www.kernel.org/pub/linux/kernel/projects/rt/${RT_PATCH}
+http://www.kernel.org/pub/linux/kernel/projects/rt/older/${RT_PATCH}"
 #fbcondecor? ( http://proaudio.tuxfamily.org/patches/${FBSPLASH} )"
 #http://download.tuxfamily.org/proaudio/realtime-patches/${RT_PATCH}
 
