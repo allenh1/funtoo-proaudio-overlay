@@ -1,6 +1,8 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
+
+EAPI="2"
 
 inherit elisp-common subversion
 
@@ -24,15 +26,19 @@ FEATURES="-ccache"
 # lid means linux input device support.
 IUSE="sse emacs lid devel debug wii alsa"
 
+RDEPEND=">=media-sound/jack-audio-connection-kit-0.100.0
+	media-libs/alsa-lib
+	>=media-libs/libsndfile-1.0.16
+	>=sci-libs/fftw-3.0
+	>=sys-libs/readline-5.0"
+
 DEPEND="${RDEPEND}
 	sys-apps/sed
 	sys-devel/automake
 	dev-util/scons
-	emacs? ( virtual/emacs )"
-
-RDEPEND=">=media-sound/jack-audio-connection-kit-0.100.0
-	media-libs/alsa-lib
-	>=media-libs/libsndfile-1.0.16"
+	emacs? ( virtual/emacs )
+	dev-util/pkgconfig
+	dev-util/scons"
 
 src_unpack() {
 	subversion_src_unpack
@@ -67,7 +73,7 @@ src_compile() {
 #		myconf="${myconf} OPT_ARCH=pentium4"
 #	fi
 
-	myconf="${myconf} CROSSCOMPILE="1""
+	myconf="${myconf} CROSSCOMPILE="1" READLINE="0""
 	myconf="${myconf} AUDIOAPI="jack""
 
 	tc-export CC CXX
@@ -76,16 +82,19 @@ src_compile() {
 	mkdir -p ${D}
 	einfo "${myconf}"
 	#CCFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}" \
+	cd "${S}/common"
 	scons CUSTOMCCFLAGS="${CFLAGS}" CUSTOMCXXFLAGS="${CXXFLAGS}" \
 		PREFIX="/usr" DESTDIR="${D}" \
 	 	${myconf} || die "scons failed."
 }
 
 src_install() {
+	cd "${S}/common"
 	# Main install
 	scons  install
 
 	# Install our config file
+	cd "${S}"
 	insinto /etc/supercollider
 	doins linux/examples/sclang.cfg
 

@@ -1,6 +1,10 @@
 # ChangeLog for media-sound/supercollider
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  26 Apr 2010; Viktor Lazarev <taurus101v@gmail.com>
+  supercollider-99999999.ebuild, +metadata.xml:
+  Added some dependencies, turned off using of readline
 
   15 Jan 2008; Frieder Buerzele <evermind@tuxfamily.org>;
   supercollider-99999999.ebuild,
