@@ -6,4 +6,10 @@
 		<email>proaudio@tuxfamily.org</email>
 		<name>pro-audio overlay team</name>
 	</maintainer>
+	<use>
+		<flag name="devel">Build and install the development files</flag>
+		<flag name="emacs">Enable the SCEL user interface</flag>
+		<flag name="lid">Build with Linux Input Device support</flag>
+		<flag name="wii">Build with Linux WII support</flag>
+	</use>
 </pkgmetadata>
