@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils autotools wxwidgets flag-o-matic
+inherit eutils wxwidgets flag-o-matic
 
 DESCRIPTION="FFT-based realtime audio spectral manipulation and display"
 HOMEPAGE="http://freqtweak.sourceforge.net"

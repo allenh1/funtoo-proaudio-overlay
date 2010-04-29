@@ -2,6 +2,13 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  29 Apr 2010; Viktor Lazarev <taurus101v@gmail.com>
+  +files/10_configure-fixes.patch, freqtweak-0.7.0_pre20070214-r1.ebuild,
+  +files/20_wx-strings.patch.tar.bz2, freqtweak-0.7.2.ebuild,
+  +files/30_64bit-safe.patch, -files/freqtweak-patches-1.tar.bz2,
+  +files/40_manpage.patch, freqtweak-9999.ebuild:
+  cleanup, repoman payment, fix patchset
+
 *freqtweak-9999 (09 Mar 2010)
 
   09 Mar 2010; Frieder Buerzele <evermind@tuxfamily.org>

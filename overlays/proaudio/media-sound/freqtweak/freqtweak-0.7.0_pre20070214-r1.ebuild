@@ -1,8 +1,8 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils autotools wxwidgets flag-o-matic unipatch-001
+inherit eutils autotools wxwidgets flag-o-matic
 
 DESCRIPTION="FFT-based realtime audio spectral manipulation and display"
 HOMEPAGE="http://freqtweak.sourceforge.net"
@@ -13,11 +13,13 @@ SLOT="0"
 KEYWORDS="amd64 ppc sparc x86"
 IUSE=""
 
-DEPEND="=x11-libs/wxGTK-2.6*
+RDEPEND="=x11-libs/wxGTK-2.6*
 	>=sci-libs/fftw-3.0
 	=dev-libs/libsigc++-1.2*
 	dev-libs/libxml2
 	media-sound/jack-audio-connection-kit"
+DEPEND="${RDEPEND}
+	dev-util/pkgconfig"
 
 S="${WORKDIR}/${PN}"
 
@@ -25,7 +27,10 @@ src_unpack() {
 	unpack ${A}
 	cd "${S}"
 
-	unipatch "${FILESDIR}"/freqtweak-patches-1.tar.bz2
+	epatch "${FILESDIR}/10_configure-fixes.patch"
+	epatch "${FILESDIR}/20_wx-strings.patch.tar.bz2"
+	epatch "${FILESDIR}/30_64bit-safe.patch"
+	epatch "${FILESDIR}/40_manpage.patch"
 	eautoreconf
 }
 

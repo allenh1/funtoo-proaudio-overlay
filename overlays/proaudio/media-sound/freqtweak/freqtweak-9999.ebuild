@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils autotools wxwidgets flag-o-matic cvs
+inherit eutils wxwidgets flag-o-matic cvs
 
 DESCRIPTION="FFT-based realtime audio spectral manipulation and display"
 HOMEPAGE="http://freqtweak.sourceforge.net"
@@ -24,10 +24,10 @@ DEPEND="=x11-libs/wxGTK-2.6*
 	dev-libs/libxml2
 	media-sound/jack-audio-connection-kit"
 
-src_unpack() {
-	cvs_src_unpack
-	cd "${S}"
-}
+#src_unpack() {
+#	cvs_src_unpack
+#	cd "${S}"
+#}
 
 src_compile() {
 	WX_GTK_VER="2.6"

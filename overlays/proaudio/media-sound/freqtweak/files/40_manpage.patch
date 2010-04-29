@@ -1,0 +1,154 @@
+diff -Nur freqtweak.1.old freqtweak.1
+--- freqtweak.1.old	2003-08-20 12:22:36.000000000 +0900
++++ freqtweak.1	2007-05-11 11:44:19.092008638 +0900
+@@ -14,39 +14,39 @@
+ .\" .fi        enable filling
+ .\" .br        insert line break
+ .\" .sp <n>    insert n+1 empty lines
+-.\" for manpage-specific macros, see man(7)
++.\" for manpage\(hyspecific macros, see man(7)
+ .SH NAME
+ freqtweak \- Realtime audio frequency spectral manipulation
+ .SH SYNOPSIS
+ .br
+ .B freqtweak
+-.RI [-h] 
++.RI [\-h] 
+ [
+-.B -c
++.B \-c
+ .I <num>
+ ]
+ [
+-.B -i
++.B \-i
+ .I <str>
+ ]
+ [
+-.B -o
++.B \-o
+ .I <str>
+ ]
+ [
+-.B -n 
++.B \-n 
+ .I <str>
+ ]
+ [
+-.B -D
++.B \-D
+ .I <str>
+ ]
+ [
+-.B -p
++.B \-p
+ .I <str>
+ ]
+ [
+-.B -r
++.B \-r
+ .I <str>
+ ]
+ .br
+@@ -58,16 +58,20 @@
+ manipulation and display. It provides several algorithms for
+ processing audio data in the frequency domain and a highly interactive
+ GUI to manipulate each associated filter. It also provides
+-high-resolution spectral displays in the form of scrolling-raster
++high\(hyresolution spectral displays in the form of scrolling\(hyraster
+ spectrograms and energy vs frequency plots displaying both pre and
+-post-processed spectra.
++post\(hyprocessed spectra.
++
++Freqtweak is a jack client.  You need to have jackd running in order to
++get sound input and output with freqtweak
++
+ .SH MOUSE CONTROL
+ .P
+ The processing filters are controlled through mouse operations on each
+ filter GUI window. The possible operations are:
+ .P
+ .I Left button click/drag
+-to draw filters. If Control is down, the y-axis is fixed at the last
++to draw filters. If Control is down, the y\(hyaxis is fixed at the last
+ cursor location (to draw nice horizontal lines).  If Control and Alt
+ are down you can draw nice arbitrary straight lines.
+ 
+@@ -81,19 +85,19 @@
+ modifies the alternate filter (on double filter graphs like Gate) for
+ the previous operations.
+ 
+-.I Middle-button
++.I Middle\(hybutton
+ pops up frequency axis menu.
+ 
+-.I Ctrl-Alt right-click
++.I Ctrl\(hyAlt right\(hyclick
+ resets a filter to default values.
+ 
+-.I Shift-Ctrl-Alt left-drag 
++.I Shift\(hyCtrl\(hyAlt left\(hydrag 
+ zooms in on the y axis.  Look at the status bar to see the values for
+ the cursor itself and the values of the filter at the cursor's
+ frequency.
+ 
+-.I Shift-Ctrl-Alt right-click
+-release resets the Y-zoom to full.
++.I Shift\(hyCtrl\(hyAlt right\(hyclick
++release resets the Y\(hyzoom to full.
+ 
+ The
+ .I B and BA buttons
+@@ -108,14 +112,14 @@
+ mean Toggle Grid and Toggle Grid Snap respectively.
+ .SH OPTIONS
+ This program follows the usual GNU command line syntax, with long
+-options starting with two dashes (`-').
++options starting with two dashes (`\-').
+ A summary of options is included below.
+ .TP
+ .B \-h, \-\-help
+ Show summary of options.
+ .TP
+ .B \-c <num>, \-\-channels=<num>
+-Processing channels (1-4). Default is 2.
++Processing channels (1\(hy4). Default is 2.
+ .TP
+ .B \-i <str>, \-\-inputs=<str>
+ Connect inputs from these jack ports (separate each channel with commas).
+@@ -125,17 +129,17 @@
+ Connect outputs to these jack ports (separate each channel with commas).
+ Defaults to 'alsa_pcm:playback_1,...'
+ .TP
+-.B \-n <str>, \-\-jack-name=<str>
++.B \-n <str>, \-\-jack\-name=<str>
+ Jack name. Default is freqtweak_1.
+ .TP
+ .B \-D <str>, \-\-tmpdir=<str>
+-Jack server tmp directory (should match jackd --tmpdir).
++Jack server tmp directory (should match jackd \-\-tmpdir).
+ .TP
+ .B \-p <str>, \-\-preset=<str>
+ Load the given preset initially.
+ .TP
+-.B \-r <str>, \-\-rc-dir=<str>
+-Specifies what directory to use for run-control state. Default is ~/.freqtweak.
++.B \-r <str>, \-\-rc\-dir=<str>
++Specifies what directory to use for run\(hycontrol state. Default is ~/.freqtweak.
+ 
+ .SH EXAMPLES
+ 
+@@ -146,11 +150,11 @@
+ Start freqtweak first with this command line:
+ 
+ .T
+-.B freqtweak -n ft &
++.B freqtweak \-n ft &
+ 
+ Then start alsaplayer like so: 
+ 
+-.B alsaplayer -o jack -d ft:in_1,ft:in_2 &
++.B alsaplayer \-o jack \-d ft:in_1,ft:in_2 &
+ 
+ 
+ .SH SEE ALSO
