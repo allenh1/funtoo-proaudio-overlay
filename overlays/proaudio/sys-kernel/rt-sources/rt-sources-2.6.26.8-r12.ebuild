@@ -15,7 +15,7 @@ FBSPLASH="fbcondecor-0.9.4_for_2.6.26-rt.patch"
 RT_PATCH="patch-${KV}.bz2"
 
 RESTRICT="mirror"
-DESCRIPTION="Realtimne Preemption patched low latency Linux kernel"
+DESCRIPTION="Realtime Preemption patched low latency Linux kernel"
 SRC_URI="${KERNEL_URI}
 http://www.kernel.org/pub/linux/kernel/projects/rt/older/${RT_PATCH}
 fbcondecor? ( http://proaudio.tuxfamily.org/patches/${FBSPLASH} )"

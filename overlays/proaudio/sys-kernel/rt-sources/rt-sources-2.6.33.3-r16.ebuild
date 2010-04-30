@@ -15,7 +15,7 @@ K_NOSETEXTRAVERSION="don't_set_it"
 RT_PATCH="patch-${KV}.bz2"
 
 RESTRICT="mirror"
-DESCRIPTION="Realtimne Preemption patched low latency Linux kernel"
+DESCRIPTION="Realtime Preemption patched low latency Linux kernel"
 SRC_URI="${KERNEL_URI}
 http://www.kernel.org/pub/linux/kernel/projects/rt/${RT_PATCH}
 http://www.kernel.org/pub/linux/kernel/projects/rt/older/${RT_PATCH}"
