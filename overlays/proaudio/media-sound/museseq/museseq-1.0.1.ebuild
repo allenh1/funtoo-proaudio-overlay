@@ -17,7 +17,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="debug doc fluidsynth lash pch"
-
+# how about "dssi (open)jade sse vst/win"?
 RDEPEND="
 	x11-libs/qt-core:4[qt3support]
 	x11-libs/qt-gui:4[qt3support]
@@ -39,6 +39,14 @@ S="${WORKDIR}/${MY_P}"
 src_configure() {
 	# new strange --as-needed error, not like the old one
 	filter-ldflags -Wl,--as-needed --as-needed
+
+	for i in am in; do
+		sed -e "/-include \$(top_srcdir)\/all.h/s/dir)\/all.h/dir)\/all.h -DINSTPREFIX=\"\$(prefix)\"/" \
+			-i "./muse/remote/Makefile.${i}" || die "fix Makefile.${i} failed";
+	done
+
+	sed -e "/string launcherfilename =/s/string(INSTPREFIX)/string(\"INSTPREFIX\")/" \
+		-i "./muse/remote/pyapi.cpp" || die "fix failed"
 
 	econf \
 		`use_enable lash` \

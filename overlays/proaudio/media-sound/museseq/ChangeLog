@@ -1,6 +1,16 @@
 # ChangeLog for media-sound/museseq
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*museseq-1.0.1 (30 Apr 2010)
+
+  30 Apr 2010; Viktor Lazarev <taurus101v@gmail.com>
+  -files/1.0.9999/02_all_log2f_aliasing.patch, -museseq-0.9_pre3.ebuild,
+  museseq-1.0_rc1.ebuild, -files/1.0.9999/04_all_asneeded.patch,
+  +museseq-1.0.1.ebuild, museseq-1.9999.ebuild, -files/1.0.9999/amd64.diff,
+  museseq-2.9999.ebuild, metadata.xml:
+  version bump, repoman payment, some cleanup, remove unneeded patches & very
+  old ebuild
 
   07 Mar 2009; Dominique Michel <dominique.michel@vtxnet.ch>
   museseq-2.9999: fix for fltk patch to apply

@@ -6,4 +6,8 @@
 		<email>proaudio@tuxfamily.org</email>
 		<name>pro-audio overlay team</name>
 	</maintainer>
+	<use>
+		<flag name="fluidsynth">Enable fluidsynth support</flag>
+		<flag name="zynaddsubfx">Enable zynaddsubfx support</flag>
+	</use>
 </pkgmetadata>

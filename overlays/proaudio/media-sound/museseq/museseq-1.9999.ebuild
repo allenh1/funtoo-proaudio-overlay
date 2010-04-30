@@ -1,34 +1,35 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/media-sound/museseq/museseq-0.9.ebuild,v 1.4 2008/07/27 21:30:21 carlo Exp $
 
-EAPI=1
+EAPI="2"
 
-inherit kde-functions exteutils cvs
-
-MY_PN=${PN/museseq/muse}
+inherit exteutils subversion
 
 DESCRIPTION="MusE is a MIDI/Audio sequencer with recording and editing capabilities"
 HOMEPAGE="http://www.muse-sequencer.org"
 SRC_URI=""
 
-ECVS_SERVER="lmuse.cvs.sourceforge.net:/cvsroot/lmuse"
-ECVS_MODULE="muse"
-ECVS_BRANCH="REL07"
+ESVN_REPO_URI="https://lmuse.svn.sourceforge.net/svnroot/lmuse/trunk/muse"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 IUSE="doc lash debug"
 
-RDEPEND=">=x11-libs/qt-3.2.0:3
+MY_PN=${PN/museseq/muse}
+
+RDEPEND="
+	x11-libs/qt-core:4[qt3support]
+	x11-libs/qt-gui:4[qt3support]
 	>=media-libs/alsa-lib-0.9.0
 	>=media-sound/fluidsynth-1.0.3
 	dev-lang/perl
-	>=media-libs/libsndfile-1.0.0
+	>=media-libs/libsndfile-1.0.1
 	>=media-libs/libsamplerate-0.1.0
 	>=media-sound/jack-audio-connection-kit-0.98.0
 	lash? ( >=media-sound/lash-0.5.0 )"
+
 DEPEND="${RDEPEND}
 	dev-util/pkgconfig
 	doc? ( app-text/openjade
@@ -37,21 +38,13 @@ DEPEND="${RDEPEND}
 
 S="${WORKDIR}/${MY_PN}"
 
-src_unpack() {
-	cvs_src_unpack
-	cd "${S}"
-	EPATCH_SUFFIX="patch" epatch "${FILESDIR}"/${PV}
-}
-
-src_compile() {
+src_configure() {
 	einfo "Running autogen..."
 	./autogen.sh || die "autogen failed"
 
 	econf --disable-suid-build --disable-optimize \
 		$(use_enable lash) $(use_enable debug) \
 		|| die "econf failed."
-
-	emake || die "emake failed."
 }
 
 src_install() {
