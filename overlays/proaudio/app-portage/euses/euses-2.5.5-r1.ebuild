@@ -1,10 +1,10 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit toolchain-funcs autotools unipatch-001
+EAPI="2"
 
-WANT_AUTOCONF="latest"
+inherit toolchain-funcs autotools
 
 DESCRIPTION="look up USE flag descriptions fast"
 HOMEPAGE="http://www.xs4all.nl/~rooversj/gentoo"
@@ -18,12 +18,8 @@ IUSE=""
 
 S="${WORKDIR}"
 
-src_unpack() {
-	cd "${S}"
-	unpack ${A}
-#	UNIPATCH_LIST=
-#	unipatch
-	EPATCH_SOURCE="$S" EPATCH_SUFFIX="patch" EPATCH_FORCE="yes" epatch  
+src_prepare() {
+	EPATCH_SOURCE="$S" EPATCH_SUFFIX="patch" EPATCH_FORCE="yes" epatch
 	eautoreconf
 }
 
