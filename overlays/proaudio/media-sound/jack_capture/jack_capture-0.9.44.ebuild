@@ -26,8 +26,11 @@ src_compile() {
 	tc-export CC CXX
 	make jack_capture prefix=/usr OPTIMIZE="${CFLAGS}" \
 		${MAKEOPTS} || die "make jack_capture failed"
-	use gtk && ( make jack_capture_gui2 prefix=/usr OPTIMIZE="${CXXFLAGS}" \
-			${MAKEOPTS} || die "make jack_capture_gui2 failed" )
+	if use gtk; then
+		make jack_capture_gui2 CPP="${CXX}" \
+			prefix=/usr OPTIMIZE="${CXXFLAGS}" \
+			${MAKEOPTS} || die "make jack_capture_gui2 failed"
+	fi
 }
 
 src_install() {
