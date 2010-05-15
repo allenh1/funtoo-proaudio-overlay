@@ -6,4 +6,8 @@
 		<email>proaudio@tuxfamily.org</email>
 		<name>pro-audio overlay team</name>
 	</maintainer>
+	<use>
+		<flag name="lilypond">Enable lilypond support</flag>
+		<flag name="export"></flag>
+	</use>
 </pkgmetadata>
