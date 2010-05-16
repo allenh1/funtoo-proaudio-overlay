@@ -1,6 +1,6 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/www/viewcvs.gentoo.org/raw_cvs/gentoo-x86/dev-libs/xerces-c/Attic/xerces-c-2.8.0-r1.ebuild,v 1.5 2010/02/26 05:47:20 halcy0n dead $
+# $Header: $
 
 EAPI="1"
 
@@ -59,8 +59,8 @@ src_unpack() {
 		"${FILESDIR}/${P}-IconvGNUTransService.cpp.patch"
 
 	use xqilla && epatch \
-		"${FILESDIR}/xqilla-xercesc_content_type.patch" \
-		"${FILESDIR}/xqilla-xercesc_regex.patch"
+		"${FILESDIR}/xqilla-xercesc_content_type.patch.tar.bz2" \
+		"${FILESDIR}/xqilla-xercesc_regex.patch.tar.bz2"
 
 }
 
