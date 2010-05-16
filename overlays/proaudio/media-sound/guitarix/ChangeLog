@@ -1,0 +1,10 @@
+# ChangeLog for media-sound/guitarix
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*guitarix-0.08.0 (16 May 2010)
+
+  16 May 2010; Viktor Lazarev <taurus101v@gmail.com>
+  +guitarix-0.08.0.ebuild, +metadata.xml:
+  initial ebuild. Ebuild is taken from bgo #254707 & bumped to 0.08.0
+
