@@ -1,6 +1,15 @@
 # ChangeLog for media-sound/bristol
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*bristol-0.60.3 (16 May 2010)
+
+  16 May 2010; Viktor Lazarev <taurus101v@gmail.com>
+  -files/bristol-0.10.1-fix_startBristol.patch, -bristol-0.10.11.ebuild,
+  -bristol-0.30.9.ebuild, +bristol-0.60.3.ebuild, -files/Makefile,
+  -files/build:
+  version bump (from the Portage tree), remove old ebuilds, add X use flag,
+  fix mandir
 
   30 Apr 2009; Gavin Pryke <gavinlee303@googlemail.com> ChangeLog:
   ~bristol-0.10.11.ebuild, +bristol-0.30.9.ebuild, -bristol-0.10.1.ebuild,
