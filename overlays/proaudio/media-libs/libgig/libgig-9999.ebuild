@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -25,7 +25,7 @@ DEPEND="${RDEPEND}
 
 src_unpack() {
 	cvs_src_unpack
-	cd ${S}
+	cd "${S}"
 }
 
 src_compile() {
@@ -43,7 +43,6 @@ src_install() {
 	dodoc AUTHORS ChangeLog TODO README
 
 	if use doc; then
-		mv ${S}/doc/html ${D}/usr/share/doc/${PF}/
+		mv "${S}/doc/html" "${D}/usr/share/doc/${PF}/"
 	fi
 }
-
