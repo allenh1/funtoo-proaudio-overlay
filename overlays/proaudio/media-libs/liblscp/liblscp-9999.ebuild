@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -23,7 +23,7 @@ DEPEND=""
 
 src_unpack() {
 	cvs_src_unpack
-	cd ${S}
+	cd "${S}"
 }
 
 src_compile() {

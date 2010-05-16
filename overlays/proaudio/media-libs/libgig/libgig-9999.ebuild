@@ -5,7 +5,7 @@
 inherit eutils cvs
 
 DESCRIPTION="libgig is a C++ library for loading Gigasampler files and DLS (Downloadable Sounds) Level 1/2 files."
-HOMEPAGE="http://stud.fh-heilbronn.de/~cschoene/projects/libgig/"
+HOMEPAGE="http://www.linuxsampler.org/libgig/"
 # SRC_URI="http://stud.fh-heilbronn.de/~cschoene/projects/libgig/${P}.tar.bz2"
 
 ECVS_SERVER="cvs.linuxsampler.org:/var/cvs/linuxsampler"
