@@ -6,7 +6,7 @@ inherit exteutils multilib toolchain-funcs
 
 MY_P="${P/lib/}"
 
-RESTRICT=nomirror
+RESTRICT="mirror"
 DESCRIPTION="An audio library by Fons Adriaensen <fons.adriaensen@skynet.be>"
 HOMEPAGE="http://www.kokkinizita.net/linuxaudio/"
 SRC_URI="http://www.kokkinizita.net/linuxaudio/downloads/${MY_P}.tar.bz2"
@@ -19,6 +19,7 @@ IUSE=""
 DEPEND="media-libs/alsa-lib"
 
 S="${WORKDIR}/${MY_P}/libs"
+
 src_unpack() {
 	unpack ${A}
 	cd "${S}"
