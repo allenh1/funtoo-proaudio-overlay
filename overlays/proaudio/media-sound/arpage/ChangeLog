@@ -2,6 +2,11 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*arpage-0.3 (16 May 2010)
+
+  16 May 2010; Viktor Lazarev <taurus101v@gmail.com> +arpage-0.3.ebuild:
+  version bump
+
 *arpage-9999 (25 Feb 2010)
 *arpage-0.2 (25 Feb 2010)
 
