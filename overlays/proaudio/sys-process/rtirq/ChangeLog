@@ -1,6 +1,17 @@
 # ChangeLog for sys-process/rtirq
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*rtirq-20090920 (17 May 2010)
+
+  17 May 2010; Viktor Lazarev <taurus101v@gmail.com>
+  -rtirq-20050914-r2.ebuild, -files/rtirq-20050914-v0.1.bz2,
+  -rtirq-20060218-r1.ebuild, -rtirq-20060819-r1.ebuild,
+  -rtirq-20070101.ebuild, -rtirq-20071012.ebuild, -rtirq-20090131.ebuild,
+  +rtirq-20090920.ebuild, -files/pidof_workaround.patch,
+  -files/rt-initscript.gz, -files/rtirq-quick_fix.patch,
+  -files/rtirq-quick_fix2.patch:
+  version bump, change SRC_URI, move to EAPI2, delete old ebuils & files
 
 *rtirq-20090131 (03 Mar 2009)
 

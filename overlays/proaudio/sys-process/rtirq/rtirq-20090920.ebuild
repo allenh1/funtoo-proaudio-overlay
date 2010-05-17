@@ -1,29 +1,29 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-RESTRICT="mirror"
+EAPI="2"
+
 inherit exteutils
+
+RESTRICT="mirror"
 DESCRIPTION="Change the realtime scheduling policy and priority of relevant system driver IRQ handlers"
 HOMEPAGE="http://www.rncbc.org/jack/"
 
-P_URL="http://www.rncbc.org/jack"
-SRC_URI="http://download.tuxfamily.org/proaudio/distfiles/${P}.tar.gz"
+SRC_URI="http://www.rncbc.org/jack/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ppc x86"
+KEYWORDS="~amd64 ~ppc ~x86"
 IUSE=""
 
-DEPEND="|| ( >=sys-apps/util-linux-2.13 sys-process/schedutils )
+DEPEND=">=sys-apps/util-linux-2.13
 		sys-apps/sysvinit"
 
-src_unpack(){
-	unpack ${A}
-	cd "${S}"
-	gzip -cdf "${FILESDIR}/rt-initscript.gz" >  rtirq
+src_prepare() {
+	#gzip -cdf "${FILESDIR}/rt-initscript.gz" >  rtirq
 	# use fullstatus to show the status of rtirq.sh
-	esed_check  -i -e '/depend(/'i"opts=\"fullstatus\"\n" \
-		-e 's@\(^status(.*\)@full\1@g' rtirq
+	#esed_check  -i -e '/depend(/'i"opts=\"fullstatus\"\n" \
+	#	-e 's@\(^status(.*\)@full\1@g' rtirq
 
 	# set path for cfg file
 	esed_check -ie "s:^\(RTIRQ_CONFIG\=\)\(.*\):\1/etc/conf.d/rtirq:" rtirq.sh
@@ -37,8 +37,9 @@ src_unpack(){
 }
 
 src_install(){
+	mv rtirq.sh rtirq
 	exeinto /etc/init.d
-	doexe rtirq rtirq.sh
+	doexe rtirq
 	insinto /etc/conf.d
 	newins rtirq.conf rtirq
 }
