@@ -2,6 +2,11 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  17 May 2010; Gavin Pryke <gavinlee303@googlemail.com> calf-0.0.17.ebuild,
+  calf-0.0.18.5.ebuild, calf-9999.ebuild, +metadata.xml:
+  add ~x86 keyword and metadata.xml. workaround sandbox violation. repoman
+  payment.
+
 *calf-0.0.18.5 (25 Feb 2010)
 
   25 Feb 2010; Frieder Buerzele <evermind@tuxfamily.org>

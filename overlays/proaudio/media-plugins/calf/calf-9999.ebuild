@@ -13,16 +13,16 @@ EGIT_REPO_URI="git://repo.or.cz/calf.git"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS=""
 IUSE="debug dssi +jack +lash +lv2 -ladspa"
 
 DEPEND=">=dev-libs/glib-2.10
-        >=x11-libs/gtk+-2.12
-        dssi? ( media-libs/dssi )
-        lash? ( media-sound/lash )
-        jack? ( media-sound/jack-audio-connection-kit )
-        lv2? ( media-libs/lv2core )
-        ladspa? ( media-libs/ladspa-sdk )"
+	>=x11-libs/gtk+-2.12
+	dssi? ( media-libs/dssi )
+	lash? ( media-sound/lash )
+	jack? ( media-sound/jack-audio-connection-kit )
+	lv2? ( media-libs/lv2core )
+	ladspa? ( media-libs/ladspa-sdk )"
 RDEPEND="${DEPEND}"
 
 DOCS="AUTHORS ChangeLog NEWS README TODO"
@@ -38,5 +38,5 @@ src_compile() {
 }
 
 src_install() {
-	make install DESTDIR=${D} || die "make install failed"
+	make install DESTDIR="${D}" || die "make install failed"
 }

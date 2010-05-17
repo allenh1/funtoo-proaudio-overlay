@@ -12,7 +12,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE="debug dssi +jack +lash +lv2 -ladspa"
 
 DEPEND=">=dev-libs/glib-2.10
@@ -27,7 +27,7 @@ RDEPEND="${DEPEND}"
 DOCS="AUTHORS ChangeLog NEWS README TODO"
 
 src_unpack() {
-	unpack "${A}"
+	unpack ${A}
 	cd "${S}"
 	epatch "${FILESDIR}/c-files-include.patch"
 }
@@ -39,4 +39,9 @@ src_compile() {
 		$(use_with lv2) \
 		|| die
 	emake || die
+}
+
+src_install() {
+	make install DESTDIR="${D}" || die "make install failed"
+	rm -f "${D}/usr/share/icons/hicolor/icon-theme.cache"
 }
