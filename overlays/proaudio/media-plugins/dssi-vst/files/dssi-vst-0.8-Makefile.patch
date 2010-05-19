@@ -1,0 +1,23 @@
+--- dssi-vst-0.8/Makefile.old	2010-05-01 14:53:31.000000000 +0100
++++ dssi-vst-0.8/Makefile	2010-05-01 17:02:53.000000000 +0100
+@@ -38,12 +38,16 @@
+ all:		$(TARGETS)
+ 
+ install:	all
+-		mkdir -p $(DSSIDIR)/dssi-vst
+-		mkdir -p $(LADSPADIR)
+-		mkdir -p $(BINDIR)
++		install -d $(DSSIDIR)/dssi-vst
++		install -d $(LADSPADIR)
++		install -d $(BINDIR)
+ 		install dssi-vst.so $(DSSIDIR)
+ 		install dssi-vst.so $(LADSPADIR)
+-		install dssi-vst-server.exe.so dssi-vst-server dssi-vst-scanner.exe.so dssi-vst-scanner dssi-vst_gui $(DSSIDIR)/dssi-vst
++		install -D -m 755 dssi-vst_gui $(DSSIDIR)/dssi-vst/dssi-vst_gui
++		install -D -m 755 dssi-vst-server.exe.so $(DSSIDIR)/dssi-vst/dssi-vst-server.exe.so
++		install -D -m 755 dssi-vst-server.exe $(DSSIDIR)/dssi-vst/dssi-vst-server
++		install -D -m 755 dssi-vst-scanner.exe.so $(DSSIDIR)/dssi-vst/dssi-vst-scanner.exe.so
++		install -D -m 755 dssi-vst-scanner.exe $(DSSIDIR)/dssi-vst/dssi-vst-scanner
+ 		install vsthost $(BINDIR)
+ 
+ clean:

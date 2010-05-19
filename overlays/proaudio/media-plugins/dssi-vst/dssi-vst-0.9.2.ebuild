@@ -2,16 +2,16 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit multilib exteutils toolchain-funcs
+inherit multilib exteutils toolchain-funcs flag-o-matic
 
 DESCRIPTION="DSSI wrapper plugin for Windows VSTs"
-HOMEPAGE="http://dssi.sourceforge.net/"
-SRC_URI="mirror://sourceforge/dssi/${P}.tar.gz"
+HOMEPAGE="http://breakfastquay.com/dssi-vst/"
+SRC_URI="http://code.breakfastquay.com/attachments/download/10/${P}.tar.bz2"
 RESTRICT="mirror"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND=">=media-libs/dssi-0.9.0
@@ -23,16 +23,16 @@ RDEPEND=">=media-libs/dssi-0.9.0
 DEPEND="${RDEPEND}"
 
 src_unpack() {
+	# strip all flags. wineg++ doesn't like it if CXXFLAGS contains things
+	# to tune cache sizes like "--param l1-cache-size=32" and it looks like
+	# we don't want -fomit-frame-pointer because of instability.
+	strip-flags
 	unpack ${A}
 	cd "${S}"
-	epatch "${FILESDIR}/${P}-Makefile.patch"
+	epatch "${FILESDIR}/${PN}-0.8-Makefile.patch"
 	# fixup g++/cxxflags
 	esed_check -i -e "s:-Ivestige -Wall -fPIC:${CXXFLAGS} -Ivestige -Wall -fPIC:" \
 		-e 's@\([[:blank:]]\)g++\([[:blank:]]\)@\1\$(CXX)\2@g' Makefile
-	# fixup includes for gcc 4.3 compat
-	esed_check -i "-e/#/{;s/#/#include <stdio.h>\n#/;:a" "-en;ba" "-e}" \
-		remotepluginclient.cpp dssi-vst.cpp rdwrops.cpp remotevstclient.cpp \
-		remotepluginserver.cpp
 }
 
 src_compile(){
