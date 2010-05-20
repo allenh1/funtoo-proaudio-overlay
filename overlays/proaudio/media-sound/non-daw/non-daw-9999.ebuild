@@ -1,6 +1,8 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
+
+EAPI=1
 
 inherit git eutils
 
@@ -10,32 +12,99 @@ EGIT_REPO_URI="git://git.tuxfamily.org/gitroot/non/daw.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="lash"
+IUSE="debug doc"
 
-DEPEND=">=x11-libs/fltk-1.1.8
+DEPEND=">=x11-libs/fltk-1.1.8:1.1
+	>=media-libs/liblrdf-0.4.0
 	>=media-libs/libsndfile-0.18.0
-	>=media-sound/jack-audio-connection-kit-0.103
-	lash? ( >=media-sound/lash-0.5.4 )"
+	>=media-sound/jack-audio-connection-kit-0.103"
 RDEPEND="${DEPEND}"
 
-src_unpack(){
-	git_src_unpack || die "git clone failed."
-	cd "${S}"
-	# DESTDIR before prefix to stop sandbox violation
-	sed -i -e 's:$(prefix):$(DESTDIR)$(prefix):g' \
-		"${S}/Makefile" || die "sed of Makefile failed"
-	# don't strip the binary
-	sed -i -e '/strip/d' "${S}/Makefile" || die "sed of Makefile failed"
-}
-
 src_compile() {
-	econf $(use_enable lash) || die "econf failed"
-	emake || die "emake failed"
+	local x
+	local debugme
+	# the components of non-daw
+	local ndc="nonlib FL timeline mixer"
+
+	# patches for sandbox install violations
+	epatch "${FILESDIR}/${P}-Makefiles.patch"
+
+	# don't strip the binaries
+	sed -i -e '/strip/d' "${S}/timeline/Makefile" "${S}/mixer/Makefile" \
+		|| die "sed strip fix failed"
+
+	# needs CFLAGS/CXXFLAGS work. yes, it is ugly.
+	if use debug ; then
+		debugme=yes
+		sed -i -e "/^[[:blank:]]CFLAGS/ s/-pipe//" \
+			-e "/^[[:blank:]]CFLAGS/ s/-O0/${CFLAGS}/" \
+			-e "/^[[:blank:]]CXXFLAGS/ \
+			s/\= -Wnon-virtual-dtor/\= ${CXXFLAGS} -Wnon-virtual-dtor/" \
+			"${S}/timeline/Makefile" "${S}/mixer/Makefile" \
+			"${S}/FL/Makefile" "${S}/nonlib/Makefile" \
+			|| die "sed CFLAGS/CXXFLAGS for debug failed"
+	else
+		debugme=no
+		sed -i -e "/^[[:blank:]]CFLAGS/ s/-pipe -O2/${CFLAGS}/" -e \
+			"/^[[:blank:]]CXXFLAGS/ s/\= -fno-rtti/\= ${CXXFLAGS} -fno-rtti/" \
+			"${S}/timeline/Makefile" "${S}/mixer/Makefile" \
+			"${S}/FL/Makefile" "${S}/nonlib/Makefile" \
+			|| die "sed CFLAGS/CXXFLAGS for non debug failed"
+	fi
+
+	# configure all components
+	for x in ${ndc} ; do
+		pushd "${x}" || die "pushd ${x} failed"
+		case "${x}" in
+			nonlib|FL)
+			# the configure scripts are hand written. at least one option is
+			# needed or they will prompt for input from stdin and pause the
+			# emerge. thus we force debug and provide our own flags with the
+			# sed mess above
+				./configure --enable-debug="${debugme}" \
+					|| die "configure ${x} failed"
+			;;
+			timeline|mixer)
+			# only the timeline and mixer components have install scripts
+				./configure --prefix=/usr --enable-debug="${debugme}" \
+					|| die "configure ${x} failed"
+			;;
+			*) die "no ${x} found" ;;
+		esac
+		popd
+	done
+
+	# compile all components
+	for x in ${ndc} ; do
+		pushd "${x}" || die "pushd ${x} failed"
+		emake || die "emake ${x} failed"
+		popd
+	done
 }
 
 src_install() {
-	# make the bin directory or make will die because it's not found
-	mkdir -p "${D}/usr/bin"
-	emake DESTDIR="${D}" install || die "install failed"
-	fowners root:audio  "${ROOT}/usr/bin/non-daw" || die "chown failed"
+	# only the timeline and mixer components have install scripts
+	local x
+	for x in timeline mixer ; do
+		pushd "${x}" || die "pushd ${x} failed"
+		make DESTDIR="${D}" install || die "make install of ${x} failed"
+		popd
+	done
+
+	# shell script tools
+	dobin "${S}/timeline/bin/import-external-sources"
+	dobin "${S}/timeline/bin/remove-unused-sources"
+
+	# docs install
+	mv "${D}/usr/share/doc/" "${T}"
+	if use doc ; then
+		cd "${T}/doc"
+		dohtml -r non-daw
+		dohtml -r non-mixer
+		# maybe moving docs breaks "Manual" entry in Help menu but it doesn't
+		# appear to function anyway
+		#cd "${D}/usr/share/doc"
+		#dosym "${P}/html/non-daw"
+		#dosym "${P}/html/non-mixer"
+	fi
 }

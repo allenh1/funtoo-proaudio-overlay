@@ -1,6 +1,10 @@
 # ChangeLog for media-sound/non-daw
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  20 May 2010; Gavin Pryke <gavinlee303@googlemail.com> non-daw-9999.ebuild,
+  +files/non-daw-9999-Makefiles.patch:
+  try to get this thing to build. added a patch as well.
 
   18 Sep 2009; Gavin Pryke <gavinlee303@googlemail.com>
   +non-daw-9999.ebuild, +metadata.xml:
