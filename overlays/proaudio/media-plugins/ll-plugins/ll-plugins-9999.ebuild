@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI="2"
+
 inherit multilib git
 
 DESCRIPTION="collection of LV2 plugins, LV2 extension definitions, and LV2 related tools"
@@ -29,19 +31,27 @@ S="${WORKDIR}/${PN}"
 
 src_unpack() {
 	git_src_unpack
-	cd "${S}"
+}
+
+src_prepare() {
 	# ar doesn't really like ldflags
 	sed -e 's:ar rcs $$@ $$^ $(LDFLAGS) $$($(2)_LDFLAGS):ar rcs	$$@ $$^:' \
 		-i Makefile.template || die
+	sed -e 's/lv2cxx_common/lv2-c++-tools/' -i \
+		plugins/control2midi/control2midi.cpp \
+		plugins/arpeggiator/arpeggiator.cpp \
+		plugins/sineshaper/sineshaper.cpp \
+		plugins/beep/beep_gtk.cpp \
+		plugins/beep/beep.cpp \
+		plugins/klaviatur/klaviatur.cpp || die
 }
 
-src_compile(){
+src_configure(){
 	./configure \
 		--prefix=/usr \
 		--CFLAGS="${CFLAGS} `pkg-config --cflags slv2`" \
 		--LDFLAGS="${LDFLAGS} `pkg-config --libs slv2`" \
 		|| die "configure failed"
-	emake || die "make failed"
 }
 
 src_install(){
