@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI="2"
+
 inherit eutils
 
 MY_P="${PN/mini/Mini}V${PV}"
@@ -20,7 +22,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="media-sound/jack-audio-connection-kit
-	~x11-libs/fltk-1.1.7
+	>=x11-libs/fltk-1.1.7:1.1[threads]
 	media-libs/alsa-lib
 	media-libs/liblo"
 DEPEND="${RDEPEND}
