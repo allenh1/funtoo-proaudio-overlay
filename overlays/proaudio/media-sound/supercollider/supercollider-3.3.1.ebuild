@@ -53,8 +53,8 @@ src_prepare() {
 	fi
 
 	# remove strange rpath
-	sed -e "/LINKFLAGS = /s/'-Wl,-rpath,build -Wl/'-Wl/" -i "${S}/SConstruct" ||
-		die "fix rpath failed."
+#	sed -e "/LINKFLAGS = /s/'-Wl,-rpath,build -Wl/'-Wl, -rpath -Wl/" -i "${S}/SConstruct" ||
+#		die "fix rpath failed."
 }
 
 src_compile() {
