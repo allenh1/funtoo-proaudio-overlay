@@ -2,6 +2,11 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*yoshimi-0.058 (05 Jun 2010)
+
+  05 Jun 2010; Viktor Lazarev <taurus101v@gmail.com> +yoshimi-0.058.ebuild:
+  version bump
+
 *yoshimi-0.055.6 (28 Mar 2010)
 
   12 Apr 2010: Dominique Michel <dominique@tuxfamilly.org>
