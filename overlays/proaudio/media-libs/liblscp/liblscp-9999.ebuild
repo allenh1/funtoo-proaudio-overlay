@@ -27,7 +27,7 @@ src_unpack() {
 }
 
 src_compile() {
-	make -f Makefile.cvs
+	make -f Makefile.svn
 	econf || die "./configure failed"
 	emake -j1 || die "make failed"
 
