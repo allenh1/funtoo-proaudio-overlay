@@ -1,0 +1,49 @@
+--- SConstruct.old	2010-06-10 02:32:08.000000000 +0100
++++ SConstruct	2010-06-10 19:56:33.000000000 +0100
+@@ -2,6 +2,9 @@
+ print"Minicomputer-------------- "
+ print"-                     1/2:configuring"
+ 
++import os
++import SCons.Util
++
+ if ARGUMENTS.get('64bit', 0):
+ 	env = Environment(CCFLAGS = '-m64')
+ 	guienv = Environment(CPPFLAGS = '-m64')
+@@ -9,6 +12,18 @@
+ 	env = Environment(CCFLAGS = '')
+ 	guienv = Environment(CPPFLAGS = '')
+ 
++if os.environ.has_key('CC'):
++	env['CC'] = os.environ['CC']
++if os.environ.has_key('CFLAGS'):
++	env['CCFLAGS'] += SCons.Util.CLVar(os.environ['CFLAGS'])
++if os.environ.has_key('CXX'):
++	guienv['CXX'] = os.environ['CXX']
++if os.environ.has_key('CXXFLAGS'):
++	guienv['CPPFLAGS'] = SCons.Util.CLVar(os.environ['CXXFLAGS'])
++if os.environ.has_key('LDFLAGS'):
++	env['LINKFLAGS'] += SCons.Util.CLVar(os.environ['LDFLAGS'])
++	guienv['LINKFLAGS'] += SCons.Util.CLVar(os.environ['LDFLAGS'])
++
+ if ARGUMENTS.get('k8', 0):
+ 	env.Append(CCFLAGS = ['-march=k8','-mtune=k8','-m3dnow'])
+ 	guienv.Append(CPPFLAGS = ['-march=k8','-mtune=k8'])
+@@ -19,7 +34,7 @@
+ 
+ # env.Append(CCFLAGS = '  -O3 -mfpmath=sse -msse -msse2  -fverbose-asm  -ffast-math -funit-at-a-time -fpeel-loops -ftracer -funswitch-loops -Wall -fmessage-length=0')
+ 
+-env.Append(CCFLAGS = ['-g','-O3','-msse','-fwhole-program','-ftree-vectorize','-ffast-math', '-funit-at-a-time', '-fpeel-loops', '-ftracer','-funswitch-loops','-fprefetch-loop-arrays','-mfpmath=sse'])
++#env.Append(CCFLAGS = ['-g','-O3','-msse','-fwhole-program','-ftree-vectorize','-ffast-math', '-funit-at-a-time', '-fpeel-loops', '-ftracer','-funswitch-loops','-fprefetch-loop-arrays','-mfpmath=sse'])
+ 
+ if ARGUMENTS.get('native', 0):
+ 	env.Append(CCFLAGS = ['-march=native','-mtune=native'])
+@@ -66,7 +81,7 @@
+ 	print 'Did not find pthread library, exiting!'
+ 	Exit(1)
+ guienv = guiconf.Finish()
+-guienv.Append(CPPFLAGS = ['-O3','-Wall','-fmessage-length=0'])
++#guienv.Append(CPPFLAGS = ['-O3','-Wall','-fmessage-length=0'])
+ 
+ print"-                     2/2:compiling"
+ print"-                     building the engine:"

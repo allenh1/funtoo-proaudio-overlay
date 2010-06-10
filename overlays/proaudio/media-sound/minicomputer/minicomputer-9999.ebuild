@@ -1,41 +1,41 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils
+EAPI="2"
+
+inherit eutils toolchain-funcs subversion
 
 MY_P="${PN/mini/Mini}V${PV}"
 
 DESCRIPTION="Standalone Linux softwaresynthesizer"
 HOMEPAGE="http://minicomputer.sourceforge.net"
-SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.gz"
+#SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.gz"
+ESVN_REPO_URI="https://minicomputer.svn.sourceforge.net/svnroot/minicomputer/trunk"
 
-# poor gentoo mirrors
 RESTRICT="mirror"
-
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE=""
 
 RDEPEND="media-sound/jack-audio-connection-kit
-	x11-libs/fltk
+	>=x11-libs/fltk-1.1.7:1.1[threads]
 	media-libs/alsa-lib
 	media-libs/liblo"
 DEPEND="${RDEPEND}
 	dev-util/scons"
 
-S="${WORKDIR}/${MY_P}"
+S="${WORKDIR}"
 
-src_unpack() {
-	unpack ${A}
-	cd "${S}"
-	epatch "${FILESDIR}/${P}-gcc43.patch"
+src_prepare() {
 	epatch "${FILESDIR}/${P}-fltk.patch"
+	epatch "${FILESDIR}/${P}-respect-tc-flags.patch"
 }
 
 src_compile() {
+	tc-export CC CXX
 	scons PREFIX=/usr || die
 }
 
