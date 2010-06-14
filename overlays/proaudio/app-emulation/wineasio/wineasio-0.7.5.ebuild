@@ -4,12 +4,9 @@
 
 inherit multilib
 
-WINEASIOX="wineasio-x.3"
-
 DESCRIPTION="ASIO driver for WINE"
 HOMEPAGE="http://sourceforge.net/projects/wineasio"
-SRC_URI="x86? ( mirror://sourceforge/${PN}/${P}.tar.bz2 ) 
-amd64? ( http://people.jacklab.net/drumfix/${WINEASIOX}.tgz )"
+SRC_URI="mirror://sourceforge/${PN}/${P}.tar.bz2"
 RESTRICT="mirror"
 
 LICENSE="GPL-2"
@@ -21,10 +18,6 @@ DEPEND="media-libs/asio-sdk"
 RDEPEND=">=app-emulation/wine-0.9.35"
 
 S="${WORKDIR}/${PN}"
-
-if use amd64; then
-	S="${WORKDIR}/${WINEASIOX}"
-fi
 
 src_unpack() {
 	unpack ${A}
@@ -43,8 +36,7 @@ src_install() {
 
 	exeinto /usr/${mylibdir}/wine
 	doexe *.so
-	dodoc README.TXT readme.txt
-	use amd64 && dobin jackbridge
+	dodoc README.txt
 }
 
 pkg_postinst() {
@@ -56,12 +48,5 @@ pkg_postinst() {
 	elog "AS THE USER who uses wine!"
 	elog "Then open winecfg -> Audio -> and enable ONLY the ALSA driver!"
 	echo
-
-	if use amd64; then
-		elog "For amd64 users:"
-		elog "You need to start jackbridge and make jack connections"
-		elog "before starting any wineasio application!"
-		elog "The jackbridge bridges 32bit wineasio clients into 64bit jack"
-	fi
 }
 
