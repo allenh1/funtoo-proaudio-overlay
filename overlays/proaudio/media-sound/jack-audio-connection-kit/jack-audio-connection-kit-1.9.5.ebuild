@@ -11,7 +11,7 @@ SRC_URI="http://www.grame.fr/~letz/jack-${PV}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc debug freebob dbus"
+IUSE="doc debug freebob dbus 32bit"
 
 RDEPEND="dev-util/pkgconfig
 	>=media-libs/alsa-lib-0.9.1"
@@ -49,6 +49,7 @@ src_compile() {
 	!use dbus && myconf="${myconf} --classic"
 	use debug && myconf="${myconf} -d debug"
 	use doc && myconf="${myconf} --doxygen"
+	use 32bit && myconf="${myconf} --mixed"
 
 	einfo "Running \"./waf configure ${myconf}\" ..."
 	./waf configure ${myconf} || die "waf configure failed"
