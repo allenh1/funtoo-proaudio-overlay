@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI=2
+
 inherit multilib
 
 DESCRIPTION="ASIO driver for WINE"
@@ -15,7 +17,8 @@ IUSE=""
 SLOT="0"
 
 DEPEND="media-libs/asio-sdk"
-RDEPEND=">=app-emulation/wine-0.9.35"
+RDEPEND=">=app-emulation/wine-0.9.35
+	>=media-sound/jack-audio-connection-kit-1.9.5[32bit]"
 
 S="${WORKDIR}/${PN}"
 
