@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -12,7 +12,7 @@ MY_P="${MY_PN}-${PV}"
 DESCRIPTION="Multitrack guitar tablature editor and player with multitrack display, autoscroll while playing, various effects, import and export gp3 and gp4 files, and more."
 HOMEPAGE="http://www.tuxguitar.com.ar"
 SRC_URI="mirror://sourceforge/tuxguitar/${MY_P}.tar.gz"
-LICENSE="LGPL"
+LICENSE="LGPL-2.1"
 SLOT="0"
 
 KEYWORDS="~amd64 ~ppc ~sparc x86"
@@ -20,8 +20,8 @@ KEYWORDS="~amd64 ~ppc ~sparc x86"
 DEPEND=">=virtual/jre-1.4"
 
 src_unpack() {
-	 unpack ${A}
-	cd ${S}
+	unpack ${A}
+	cd "${S}"
 	for i in `find -iname 'CVS'`;do rm -rf ${i};done
 }
 

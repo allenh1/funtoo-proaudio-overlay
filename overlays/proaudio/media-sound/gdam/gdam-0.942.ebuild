@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -7,10 +7,10 @@ DESCRIPTION="This is a digital dj mixing software package, aimed towards live mu
 HOMEPAGE="http://gdam.ffem.org/"
 SRC_URI="mirror://sourceforge/gdam/${P}.tar.gz"
 
-LICENSE="LGPL"
+LICENSE="LGPL-2"
 SLOT="0"
 KEYWORDS="x86"
-
+IUSE=""
 
 RDEPEND=">=x11-libs/gtk+-2.2.0
 	=gnome-base/libglade-0.1*
@@ -22,7 +22,7 @@ src_compile() {
 }
 
 src_install() {
-	make DESTDIR=${D} install || die
+	make DESTDIR="${D}" install || die
 }
 
 pkg_postinst() {

@@ -1,4 +1,4 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -49,9 +49,9 @@ S="${WORKDIR}/${MY_P}"
 
 src_compile() {
 	# required for scons to "see" intermediate install location
-	mkdir -p ${D}/usr
+	mkdir -p "${D}"/usr
 
-	cd ${S}/scons/libs
+	cd "${S}"/scons/libs
 
 	local myconf
 
@@ -100,45 +100,45 @@ src_compile() {
 }
 
 src_install() {
-	cd ${S}/scons/libs
+	cd "${S}"/scons/libs
 	dodir /usr
 
 	scons install || die "scons install failed"
-	cd ${S}
+	cd "${S}"
 	dodoc CHANGES
 
 	if use doc; then
 		docinto examples/CLAMRemoteController
-		dodoc ${S}/examples/CLAMRemoteController/*
+		dodoc "${S}"/examples/CLAMRemoteController/*
 		docinto examples/CLT
-		dodoc ${S}/examples/CLT/*
+		dodoc "${S}"/examples/CLT/*
 		docinto examples/ControlArrayExamples
-		dodoc ${S}/examples/ControlArrayExamples/*
+		dodoc "${S}"/examples/ControlArrayExamples/*
 		docinto examples/MIDI_Synthesizer_example
-		dodoc ${S}/examples/MIDI_Synthesizer_example/*
+		dodoc "${S}"/examples/MIDI_Synthesizer_example/*
 		docinto examples/NetworkLADSPAPlugin
-		dodoc ${S}/examples/NetworkLADSPAPlugin/*
+		dodoc "${S}"/examples/NetworkLADSPAPlugin/*
 		docinto examples/PortsAndControlsUsageExample
-		dodoc ${S}/examples/PortsAndControlsUsageExample/*
+		dodoc "${S}"/examples/PortsAndControlsUsageExample/*
 		docinto examples/PortsExamples
-		dodoc ${S}/examples/PortsExamples/*
+		dodoc "${S}"/examples/PortsExamples/*
 #		docinto examples/QtDesignerPlugins
-#		dodoc ${S}/examples/QtDesignerPlugins/*
+#		dodoc "${S}"/examples/QtDesignerPlugins/*
 		docinto examples/QtPlots/BPFEditorExample
-		dodoc ${S}/examples/QtPlots/BPFEditorExample/*
+		dodoc "${S}"/examples/QtPlots/BPFEditorExample/*
 		docinto examples/QtPlots/DirectPlotsExamples
-		dodoc ${S}/examples/QtPlots/DirectPlotsExamples/*
+		dodoc "${S}"/examples/QtPlots/DirectPlotsExamples/*
 		docinto examples/QtPlots/ListPlotExample
-		dodoc ${S}/examples/QtPlots/ListPlotExample/*
+		dodoc "${S}"/examples/QtPlots/ListPlotExample/*
 		docinto examples/QtPlots/QtPlotsExamples
-		dodoc ${S}/examples/QtPlots/QtPlotsExamples/*
+		dodoc "${S}"/examples/QtPlots/QtPlotsExamples/*
 		docinto examples/QtPlots/SegmentEditorExample
-		dodoc ${S}/examples/QtPlots/SegmentEditorExample/*
+		dodoc "${S}"/examples/QtPlots/SegmentEditorExample/*
 		docinto examples/QtPlots/utils
-		dodoc ${S}/examples/QtPlots/utils/*
+		dodoc "${S}"/examples/QtPlots/utils/*
 		docinto examples/Tutorial
-		dodoc ${S}/examples/Tutorial/*
+		dodoc "${S}"/examples/Tutorial/*
 		docinto examples
-		dodoc ${S}/examples/*
+		dodoc "${S}"/examples/*
 	fi
 }

@@ -1,4 +1,4 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -26,14 +26,14 @@ DEPEND="app-arch/unzip
 #src_unpack() {
 #	unpack ${A}
 #
-#	cd ${S}
+#	cd "${S}"
 #
 #}
 
 src_compile() {
-	sed -i -e "s:/usr/local:/usr:" -e "s/mkdir bin/mkdir -p bin/g" ${S}/Makefile || die "sed failed"
+	sed -i -e "s:/usr/local:/usr:" -e "s/mkdir bin/mkdir -p bin/g" "${S}"/Makefile || die "sed failed"
 	if use ppc; then
-	    sed -i -e "s:ENDIANESS=OSC_HOST_LITTLE_ENDIAN:ENDIANESS=OSC_HOST_BIG_ENDIAN:" ${S}/Makefile || die "sed ppc failed"
+	    sed -i -e "s:ENDIANESS=OSC_HOST_LITTLE_ENDIAN:ENDIANESS=OSC_HOST_BIG_ENDIAN:" "${S}"/Makefile || die "sed ppc failed"
 	fi
 
 	emake || die "make failed"

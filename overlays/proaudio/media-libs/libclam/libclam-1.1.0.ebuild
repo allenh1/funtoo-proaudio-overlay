@@ -1,4 +1,4 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -50,9 +50,9 @@ S="${WORKDIR}/${MY_P}"
 
 src_compile() {
 	# required for scons to "see" intermediate install location
-	mkdir -p ${D}/usr
+	mkdir -p "${D}"/usr
 
-	cd ${S}
+	cd "${S}"
 
 	local myconf="DESTDIR=${D}/usr prefix=/usr prefix_for_packaging=${D}/usr"
 	if use double; then
@@ -109,18 +109,18 @@ src_install() {
 
 	if use doc; then
 		docinto examples/ControlArrayExamples
-		dodoc ${S}/examples/ControlArrayExamples/*
+		dodoc "${S}"/examples/ControlArrayExamples/*
 		docinto examples/LadspaOSCRemoteController
-		dodoc ${S}/examples/LadspaOSCRemoteController/*
+		dodoc "${S}"/examples/LadspaOSCRemoteController/*
 		docinto examples/NetworkLADSPAPlugin
-		dodoc ${S}/examples/NetworkLADSPAPlugin/*
+		dodoc "${S}"/examples/NetworkLADSPAPlugin/*
 		docinto examples/PortsAndControlsUsageExample
-		dodoc ${S}/examples/PortsAndControlsUsageExample/*
+		dodoc "${S}"/examples/PortsAndControlsUsageExample/*
 		docinto examples/ProcessingClass2Ladspa
-		dodoc ${S}/examples/ProcessingClass2Ladspa/*
+		dodoc "${S}"/examples/ProcessingClass2Ladspa/*
 		docinto examples/Tutorial
-		dodoc ${S}/examples/Tutorial/*
+		dodoc "${S}"/examples/Tutorial/*
 		docinto examples
-		dodoc ${S}/examples/*
+		dodoc "${S}"/examples/*
 	fi
 }

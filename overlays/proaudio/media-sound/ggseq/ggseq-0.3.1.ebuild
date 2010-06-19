@@ -1,4 +1,4 @@
-# Copyright 1999-2004 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /cvsroot/jacklab/gentoo/media-sound/ggseq/ggseq-0.3.1.ebuild,v 1.1.1.1 2006/04/10 10:35:21 gimpel Exp $
 
@@ -9,7 +9,7 @@ DESCRIPTION="Gungirl Sequencer is an easy to use Audiosequencer"
 HOMEPAGE="http://ggseq.sourceforge.net"
 SRC_URI="mirror://sourceforge/ggseq/${P}.tar.gz"
 
-LICENSE="GPL"
+LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86"
 
@@ -24,7 +24,7 @@ DEPEND="media-libs/portaudio
 
 src_unpack() {
 	unpack ${A} || die "Unpacking the source failed"
-	cd ${S} || die "Could not change directory."
+	cd "${S}" || die "Could not change directory."
 }
 
 src_compile() {
@@ -35,5 +35,3 @@ src_compile() {
 src_install() {
 	einstall || die "Install failed"
 }
-
-

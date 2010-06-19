@@ -4,7 +4,7 @@
 
 inherit exteutils toolchain-funcs multilib
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 DESCRIPTION="The JACK and ALSA Audio Analyser is an audio signal generator and spectrum analyser"
 HOMEPAGE="http://www.kokkinizita.net/linuxaudio"
 SRC_URI="http://www.kokkinizita.net/linuxaudio/downloads/${P}.tar.bz2"

@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="alsa jack pam"
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 DEPEND="alsa? ( media-libs/alsa-lib )
 	alsa? ( media-libs/libsamplerate )

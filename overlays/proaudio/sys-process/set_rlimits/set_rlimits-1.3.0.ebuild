@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -8,7 +8,7 @@ DESCRIPTION="Give unpriviledged users access to realtime scheduling"
 HOMEPAGE="http://www.physics.adelaide.edu.au/~jwoithe"
 SRC_URI="http://www.physics.adelaide.edu.au/~jwoithe/${P}.tgz"
 
-LICENSE="GPLv2"
+LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="x86 ppc amd64"
 IUSE=""
@@ -17,7 +17,7 @@ DEPEND=""
 RDEPEND=""
 
 src_unpack(){
-	unpack "${A}"
+	unpack ${A}
 	cd "${S}"
 	# patch DESTDIR and manpage location
 	sed -i -e 's:\(\$(PREFIX)\):\$(DESTDIR)\1:g' \
@@ -51,8 +51,7 @@ src_compile(){
 
 src_install(){
 	make PREFIX="/usr" DESTDIR="${D}" install || die "install failed"
-	dodoc COPYING AUTHORS README
+	dodoc AUTHORS README
 	prepall
 	prepalldocs
 }
-

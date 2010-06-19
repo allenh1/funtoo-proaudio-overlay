@@ -11,7 +11,7 @@ ESVN_REPO_URI="https://wired.svn.sourceforge.net/svnroot/wired/trunk"
 ESVN_PROJECT="wired"
 #ESVN_BOOTSTRAP="./autogen.sh"
 
-LICENSE="GPL2"
+LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 IUSE="nls pic static debug dssi plugins codecs oss alsa jack portaudio-internal"

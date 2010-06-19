@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -8,7 +8,7 @@ DESCRIPTION="watchdog to ensure a realtime process won't hang the machine"
 HOMEPAGE="http://www.notam02.no/~kjetism/src/"
 SRC_URI="http://www.notam02.no/~kjetism/src/${P}.tar"
 
-LICENSE="GPL2"
+LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="x86"
 IUSE=""

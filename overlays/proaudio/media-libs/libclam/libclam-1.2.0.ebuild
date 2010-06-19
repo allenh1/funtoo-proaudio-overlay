@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -50,9 +50,9 @@ S="${WORKDIR}/${MY_P}"
 
 src_compile() {
 	# required for scons to "see" intermediate install location
-	mkdir -p ${D}/usr
+	mkdir -p "${D}"/usr
 
-	cd ${S}
+	cd "${S}"
 
 	local myconf="DESTDIR=${D}/usr prefix=/usr prefix_for_packaging=${D}/usr"
 	if use double; then
@@ -111,36 +111,36 @@ src_install() {
 
 	if use doc; then
 		docinto examples/ConfiguratorExample
-		dodoc ${S}/examples/ConfiguratorExample/*
+		dodoc "${S}"/examples/ConfiguratorExample/*
 		docinto examples/ControlArrayExamples
-		dodoc ${S}/examples/ControlArrayExamples/*
+		dodoc "${S}"/examples/ControlArrayExamples/*
 		docinto examples/FormantTracking
-		dodoc ${S}/examples/FormantTracking/*
+		dodoc "${S}"/examples/FormantTracking/*
 		docinto examples/LadspaOSCRemoteController
-		dodoc ${S}/examples/LadspaOSCRemoteController/*
+		dodoc "${S}"/examples/LadspaOSCRemoteController/*
 		docinto examples/NetworkLADSPAPlugin
-		dodoc ${S}/examples/NetworkLADSPAPlugin/*
+		dodoc "${S}"/examples/NetworkLADSPAPlugin/*
 		docinto examples/PluginExample
-		dodoc ${S}/examples/PluginExample/*
+		dodoc "${S}"/examples/PluginExample/*
 		docinto examples/PortsAndControlsUsageExample
-		dodoc ${S}/examples/PortsAndControlsUsageExample/*
+		dodoc "${S}"/examples/PortsAndControlsUsageExample/*
 		docinto examples/ProcessingClass2Ladspa
-		dodoc ${S}/examples/ProcessingClass2Ladspa/*
+		dodoc "${S}"/examples/ProcessingClass2Ladspa/*
 		docinto examples/SDIF2Wav
-		dodoc ${S}/examples/SDIF2Wav/*
+		dodoc "${S}"/examples/SDIF2Wav/*
 		docinto examples/SDIF2WavStreaming
-		dodoc ${S}/examples/SDIF2WavStreaming/*
+		dodoc "${S}"/examples/SDIF2WavStreaming/*
 		docinto examples/SDIFToWavStreaming
-		dodoc ${S}/examples/SDIFToWavStreaming/*
+		dodoc "${S}"/examples/SDIFToWavStreaming/*
 		docinto examples/TickExtractor
-		dodoc ${S}/examples/TickExtractor/*
+		dodoc "${S}"/examples/TickExtractor/*
 		docinto examples/Tutorial
-		dodoc ${S}/examples/Tutorial/*
+		dodoc "${S}"/examples/Tutorial/*
 		docinto examples/Wav2SDIF
-		dodoc ${S}/examples/Wav2SDIF/*
+		dodoc "${S}"/examples/Wav2SDIF/*
 		docinto examples/loopMaker
-		dodoc ${S}/examples/loopMaker/*
+		dodoc "${S}"/examples/loopMaker/*
 		docinto examples
-		dodoc ${S}/examples/*
+		dodoc "${S}"/examples/*
 	fi
 }

@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -8,7 +8,7 @@ DESCRIPTION="GLASHCtl is a simple applet for controlling the LASH Audio Session 
 HOMEPAGE="http://dino.nongnu.org/glashctl"
 SRC_URI="http://download.savannah.nongnu.org/releases/dino/${P}.tar.bz2"
 
-LICENSE="GPL"
+LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE="wmaker"

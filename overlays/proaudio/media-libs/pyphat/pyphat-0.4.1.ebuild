@@ -1,8 +1,8 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils autotools
+inherit eutils
 
 DESCRIPTION="python binding for phat"
 HOMEPAGE="http://phat.berlios.de/"
@@ -11,13 +11,13 @@ SRC_URI="http://download.berlios.de/phat/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="x86 ~amd64"
+KEYWORDS="x86 amd64"
 
 IUSE=""
 DEPEND=">=media-libs/phat-0.4"
 
 src_unpack() {
-	unpack "${A}"
+	unpack ${A}
 	cd "${S}"
 }
 

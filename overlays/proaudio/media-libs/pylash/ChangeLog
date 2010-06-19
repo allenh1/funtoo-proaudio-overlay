@@ -1,6 +1,10 @@
 # ChangeLog for media-libs/pylash
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  19 Jun 2010; Frieder Buerzele <evermind@tuxfamily.org>
+  pylash-3_pre.ebuild:
+  cleanup the ebuild
 
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog

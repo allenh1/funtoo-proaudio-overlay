@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -20,7 +20,7 @@ DEPEND="=media-libs/phat-9999"
 
 src_unpack() {
 	subversion_src_unpack ${A}
-	cd ${S}
+	cd "${S}"
 	chmod +x autogen.sh
 	./autogen.sh
 }

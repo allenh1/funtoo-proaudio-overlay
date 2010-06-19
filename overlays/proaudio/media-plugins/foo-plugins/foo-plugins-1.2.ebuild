@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -7,7 +7,7 @@ IUSE=""
 DESCRIPTION="foo-plugins for ladspa"
 HOMEPAGE="http://www.studionumbersix.com/foo/"
 SRC_URI="http://www.studionumbersix.com/foo/${P}.tar.bz2"
-LICENSE="GPL"
+LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="x86"
 

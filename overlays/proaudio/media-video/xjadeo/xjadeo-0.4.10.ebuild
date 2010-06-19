@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -8,9 +8,9 @@ DESCRIPTION="xjadeo is a simple video player that is synchronized to jack transp
 HOMEPAGE="http://xjadeo.sourceforge.net/"
 SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.gz"
 
-LICENSE="gpl"
+LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="x86 ~amd64"
+KEYWORDS="x86 amd64"
 IUSE="xv sdl osd qt3 qt4 tools lash tiff"
 
 RDEPEND=">=media-sound/jack-audio-connection-kit-0.100
@@ -45,7 +45,7 @@ pkg_setup() {
 }
 
 src_unpack() {
-	unpack "${A}"
+	unpack ${A}
 	[ $enable_sws_scale ] && epatch "${FILESDIR}/xjadeo-0.4.1-use_sws_scale.patch"
 }
 
@@ -68,7 +68,6 @@ src_compile() {
 		$myconf --disable-imlib --enable-imlib2 || die "econf failed"
 	emake || die
 }
-
 
 src_install() {
 	einstall || die "einstall failed"
