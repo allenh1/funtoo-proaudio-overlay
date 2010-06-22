@@ -8,8 +8,7 @@ inherit base autotools flag-o-matic
 
 MY_P="${P}_Equinox"
 
-DESCRIPTION="Rakarrack is a richly featured multi-effects processor emulating a
-guitar effects pedalboard."
+DESCRIPTION="Rakarrack is a richly featured multi-effects processor emulating a uitar effects pedalboard."
 HOMEPAGE="http://rakarrack.sourceforge.net/"
 SRC_URI="mirror://sourceforge/rakarrack/${MY_P}.tar.bz2"
 RESTRICT="mirror"

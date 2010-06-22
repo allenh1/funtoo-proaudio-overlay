@@ -8,8 +8,7 @@ inherit base autotools git flag-o-matic
 
 #MY_P="${P}_Equinox"
 
-DESCRIPTION="Rakarrack is a richly featured multi-effects processor emulating a
-guitar effects pedalboard."
+DESCRIPTION="Rakarrack is a richly featured multi-effects processor emulating a uitar effects pedalboard."
 HOMEPAGE="http://rakarrack.sourceforge.net/"
 EGIT_REPO_URI="git://${PN}.git.sourceforge.net/gitroot/${PN}/${PN}"
 

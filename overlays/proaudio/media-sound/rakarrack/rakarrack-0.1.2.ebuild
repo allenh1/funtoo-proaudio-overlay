@@ -6,7 +6,7 @@ IUSE=""
 
 RESTRICT=mirror
 
-DESCRIPTION="Basic rack of 10 effects for guitar with presets, banks and MIDI control"
+DESCRIPTION="Rakarrack is a richly featured multi-effects processor emulating a uitar effects pedalboard."
 HOMEPAGE="http://rakarrack.sourceforge.net/"
 SRC_URI="mirror://sourceforge/rakarrack/${P}.tar.gz"
 
