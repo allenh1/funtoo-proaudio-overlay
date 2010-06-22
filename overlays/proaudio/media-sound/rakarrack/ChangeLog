@@ -1,6 +1,13 @@
 # ChangeLog for media-sound/rakarrack
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*rakarrack-9999 (22 Jun 2010)
+*rakarrack-0.5.8 (22 Jun 2010)
+
+  22 Jun 2010; Viktor Lazarev <taurus101v@gmail.com>
+  +rakarrack-0.5.8.ebuild, +rakarrack-9999.ebuild:
+  version bump
 
   01 Dec 2008; Thomas Kuther <gimpel@sonnenkinder.org>
   +rakarrack-0.3.0.ebuild:
