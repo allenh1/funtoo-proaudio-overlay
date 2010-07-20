@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -33,7 +33,7 @@ RDEPEND="osc? ( >=media-libs/liblo-0.22 )
 		>=net-libs/libsoup-2.4.0
 		>=x11-libs/flowcanvas-9999 )
 	ladspa? ( media-libs/ladspa-sdk )
-	jack? ( >=media-sound/jack-audio-connection-kit-0.109.0 )
+	>=media-sound/jack-audio-connection-kit-0.109.0
 	>=media-libs/slv2-9999"
 
 DEPEND="${RDEPEND}
