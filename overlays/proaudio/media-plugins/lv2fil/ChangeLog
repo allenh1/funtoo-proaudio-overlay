@@ -1,0 +1,10 @@
+# ChangeLog for media-plugins/lv2fil
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*lv2fil-2.0 (04 Aug 2010)
+
+  04 Aug 2010; Gavin Pryke <gavinlee303@googlemail.com> +lv2fil-2.0.ebuild,
+  +metadata.xml:
+  Add lv2fil to overlay.
+
