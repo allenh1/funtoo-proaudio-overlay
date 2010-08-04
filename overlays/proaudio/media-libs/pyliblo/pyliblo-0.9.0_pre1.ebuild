@@ -13,6 +13,8 @@ DESCRIPTION="pyliblo is a Python wrapper for the liblo OSC library"
 HOMEPAGE="http://das.nasophon.de/pyliblo/"
 SRC_URI="http://das.nasophon.de/download/${MY_P}.tar.gz"
 
+RESTRICT="mirror"
+
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~x86"
