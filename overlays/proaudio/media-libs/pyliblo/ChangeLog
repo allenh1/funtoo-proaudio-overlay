@@ -1,0 +1,11 @@
+# ChangeLog for media-libs/pyliblo
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*pyliblo-0.9.0_pre1 (04 Aug 2010)
+*pyliblo-0.8.1 (04 Aug 2010)
+
+  04 Aug 2010; Gavin Pryke <gavinlee303@googlemail.com>
+  +pyliblo-0.8.1.ebuild, +pyliblo-0.9.0_pre1.ebuild, +metadata.xml:
+  Addition of media-libs/pyliblo to overlay.
+
