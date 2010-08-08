@@ -17,11 +17,11 @@ IUSE=""
 
 RESTRICT="mirror"
 
-DEPEND=">=media-libs/pyliblo-0.8.1
-	>=media-libs/lv2core-3.0"
+DEPEND=">=media-libs/lv2core-3.0"
 RDEPEND="${DEPEND}
 	>=dev-python/pycairo-1.8.8
-	>=dev-python/pygtk-2.16.0-r1:2"
+	>=dev-python/pygtk-2.16.0-r1:2
+	>=media-libs/pyliblo-0.8.1"
 
 src_compile() {
 	tc-export CC CPP CXX AR RANLIB
