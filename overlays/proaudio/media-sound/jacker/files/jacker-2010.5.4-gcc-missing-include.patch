@@ -1,0 +1,10 @@
+--- jacker.old/songview.cpp	2010-04-17 02:00:03.000000000 +0100
++++ jacker/songview.cpp	2010-04-17 02:02:42.000000000 +0100
+@@ -4,6 +4,7 @@
+ #include <cassert>
+ #include <cmath>
+ #include <algorithm>
++#include <cstring>
+ 
+ namespace Jacker {
+ 

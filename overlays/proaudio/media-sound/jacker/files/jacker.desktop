@@ -1,0 +1,20 @@
+[Desktop Entry]
+Categories=AudioVideo;Audio;Sequencer;
+Comment[en_GB]=A MIDI tracker for JACK
+Comment=A MIDI tracker for JACK
+Exec=jacker
+GenericName[en_GB]=
+GenericName=
+Icon=jacker
+MimeType=
+Name[en_GB]=jacker
+Name=jacker
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=
