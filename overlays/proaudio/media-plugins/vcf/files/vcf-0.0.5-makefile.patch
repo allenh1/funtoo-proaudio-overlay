@@ -1,0 +1,18 @@
+--- vcf-0.0.5/Makefile.old	2010-08-10 04:51:27.000000000 +0100
++++ vcf-0.0.5/Makefile	2010-08-10 04:51:44.000000000 +0100
+@@ -1,9 +1,11 @@
++CC ?= gcc
++
+ all: vcf_cv_in.so vcf.so
+ vcf_cv_in.so: vcf_cv_in.o 
+-	gcc -shared -o vcf_cv_in.so vcf_cv_in.o -lm
++	$(CC) $(LDFLAGS) -shared -o vcf_cv_in.so vcf_cv_in.o -lm
+ vcf.so: vcf.o 
+-	gcc -shared -o vcf.so vcf.o -lm
++	$(CC) $(LDFLAGS) -shared -o vcf.so vcf.o -lm
+ vcf_cv_in.o: vcf.so.c                
+-	cc -c -fPIC -o vcf_cv_in.o vcf.so.c -DWITH_CV_IN
++	$(CC) $(CFLAGS) -c -fPIC -o vcf_cv_in.o vcf.so.c -DWITH_CV_IN
+ vcf.o: vcf.so.c                
+-	cc -c -fPIC -o vcf.o vcf.so.c
++	$(CC) $(CFLAGS) -c -fPIC -o vcf.o vcf.so.c
