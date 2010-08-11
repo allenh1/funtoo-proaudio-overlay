@@ -44,7 +44,7 @@ src_install() {
 
 	# a desktop entry for convenience
 	doicon jacker.png
-	domenu "${FILESDIR}/${PN}.desktop"
+	make_desktop_entry jacker Jacker jacker "AudioVideo;Audio;Sequencer;"
 
 	# put the glade file and image in suitable place
 	insinto /usr/share/jacker
