@@ -1,6 +1,10 @@
 # ChangeLog for media-sound/audacity
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  11 Aug 2010; Hakan Demiralp <keenblade@tuxfamily.org audacity-9999.ebuild:
+  media-libs/vamp-plugin-sdk is used in the ebuild instead of dev-lib
+  category. Thanks to audiodef
 
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog
