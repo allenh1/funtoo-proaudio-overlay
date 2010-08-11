@@ -6,4 +6,7 @@
 		<email>proaudio@tuxfamily.org</email>
 		<name>pro-audio overlay team</name>
 	</maintainer>
+	<use>
+		<flag name="wma">Enable Windows Media Audio support through ffmpeg</flag>
+	</use>
 </pkgmetadata>

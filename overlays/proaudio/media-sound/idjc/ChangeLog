@@ -1,6 +1,14 @@
 # ChangeLog for media-sound/idjc
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*idjc-0.8.3 (11 Aug 2010)
+
+  11 Aug 2010; Gavin Pryke <gavinlee303@googlemail.com> -idjc-0.6.10.ebuild,
+  -idjc-0.6.11_pre1.ebuild, -idjc-0.6.11.ebuild, -idjc-0.6.12.ebuild,
+  -idjc-0.7.0.ebuild, -idjc-0.7.2a.ebuild, +idjc-0.8.3.ebuild, metadata.xml:
+  remove ebuilds with non-existant SRC_URI, move HOMEPAGE and SRC_URI to
+  sourceforge based site. add wma USE flag to metadata. bump to 0.8.3.
 
   15 Apr 2008; Thomas Kuther <gimpel@sonnenkinder.org> +idjc-0.7.2a.ebuild:
   version bump
