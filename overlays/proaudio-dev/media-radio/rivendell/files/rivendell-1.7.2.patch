@@ -1,0 +1,61 @@
+diff -urN rivendell-1.7.2/install-init.sh rivendell-1.7.2.new/install-init.sh
+--- install-init.sh	2007-10-03 06:24:06.000000000 -0500
++++ rivendell-1.7.2.new/install-init.sh	2010-08-10 16:52:52.000000000 -0500
+@@ -23,13 +23,12 @@
+ #
+ 
+ if test ! -f ./building-debian ; then
+-  mkdir -p /etc/init.d
+-  cp rivendell /etc/init.d/rivendell
+-  mkdir -p /etc/sysconfig
+-  cp rivendell.sys /etc/sysconfig/rivendell
+-  mkdir -p /var/run/rivendell
+-  chmod 777 /var/run/rivendell
+-  ldconfig
++  mkdir -p ${DESTDIR}/etc/init.d
++  cp rivendell ${DESTDIR}/etc/init.d/rivendell
++  mkdir -p ${DESTDIR}/etc/sysconfig
++  cp rivendell.sys ${DESTDIR}/etc/sysconfig/rivendell
++  mkdir -p ${DESTDIR}/var/run/rivendell
++  chmod 777 ${DESTDIR}/var/run/rivendell
+ fi
+ 
+ chmod 4755 $1/bin/caed
+diff -urN rivendell-1.7.2/rlm/Makefile.am rivendell-1.7.2.new/rlm/Makefile.am
+--- utils/rlm/Makefile.am	2010-06-04 09:04:44.000000000 -0500
++++ rivendell-1.7.2.new/rlm/Makefile.am	2010-08-10 16:46:06.000000000 -0500
+@@ -35,8 +35,8 @@
+ install:	all
+ 	mkdir -p $(DESTDIR)$(prefix)/@RD_LIB_PATH@/rivendell
+ 	cp $(RLM_MODULES) $(DESTDIR)$(prefix)/@RD_LIB_PATH@/rivendell/
+-	mkdir -p $(headerdir)
+-	cp rlm.h $(headerdir)
++	mkdir -p $(DESTDIR)$(headerdir)
++	cp rlm.h $(DESTDIR)$(headerdir)
+ 
+ headerdir = $(includedir)/rlm
+ header_HEADERS = rlm.h
+diff -urN rivendell-1.7.2/utils/rmlsend/Makefile.am rivendell-1.7.2.new/utils/rmlsend/Makefile.am
+--- utils/rmlsend/Makefile.am	2010-01-21 11:11:48.000000000 -0600
++++ rivendell-1.7.2.new/utils/rmlsend/Makefile.am	2010-08-10 21:40:48.000000000 -0500
+@@ -46,7 +46,7 @@
+ 
+ dist_rmlsend_SOURCES = rmlsend.cpp rmlsend.h
+ nodist_rmlsend_SOURCES = moc_rmlsend.cpp
+-rmlsend_LDADD = -lqui -lid3 -lFLAC @LIBVORBIS@ -lrd
++rmlsend_LDADD = -lqui -lrd -lid3 -lFLAC @LIBVORBIS@
+ 
+ EXTRA_DIST = rmlsend.pro rmlsend_es.ts rmlsend_fr.ts rmlsend_de.ts\
+              rmlsend_nb.ts rmlsend_nn.ts
+diff -urN rivendell-1.7.2/utils/rmlsend/Makefile.in rivendell-1.7.2.new/utils/rmlsend/Makefile.in
+--- utils/rmlsend/Makefile.in	2010-06-04 09:16:02.000000000 -0500
++++ rivendell-1.7.2.new/utils/rmlsend/Makefile.in	2010-08-10 21:57:34.000000000 -0500
+@@ -220,7 +220,7 @@
+ MOC = @QT_MOC@
+ dist_rmlsend_SOURCES = rmlsend.cpp rmlsend.h
+ nodist_rmlsend_SOURCES = moc_rmlsend.cpp
+-rmlsend_LDADD = -lqui -lid3 -lFLAC @LIBVORBIS@ -lrd
++rmlsend_LDADD = -lqui -lrd -lid3 -lFLAC @LIBVORBIS@
+ EXTRA_DIST = rmlsend.pro rmlsend_es.ts rmlsend_fr.ts rmlsend_de.ts\
+              rmlsend_nb.ts rmlsend_nn.ts
+ 
