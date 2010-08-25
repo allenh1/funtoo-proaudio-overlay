@@ -3,21 +3,26 @@
 # $Header: $
 
 EAPI="2"
-inherit base cvs eutils
+inherit base eutils versionator
+
+MY_PV=$(delete_version_separator '_')
+MY_P="${PN}-${MY_PV}"
+MY_S="${WORKDIR}/${MY_P}"
 
 DESCRIPTION="An automated system for acquisition, management, scheduling and playout of audio content."
 HOMEPAGE="http://rivendellaudio.org/"
-SRC_URI=""
+SRC_URI="http://rivendellaudio.org/ftpdocs/${PN}/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="alsa jack pam"
+IUSE="alsa gpio jack mpeg mp2 mp3 pam"
 
 RESTRICT="nomirror"
 
 DEPEND="alsa? ( media-libs/alsa-lib )
 	jack? ( media-sound/jack-audio-connection-kit )
+	mpeg? ( media-sound/libmad )
 	media-libs/flac
 	media-libs/id3lib
 	media-libs/libogg
@@ -28,6 +33,8 @@ DEPEND="alsa? ( media-libs/alsa-lib )
 	virtual/mysql
 	x11-libs/qt:3[mysql]"
 RDEPEND="${DEPEND}
+	mp2? ( media-sound/twolame )
+	mp3? ( media-sound/lame )
 	pam? ( sys-libs/pam )
 	app-cdr/cdrkit
 	media-sound/cdparanoia
@@ -43,28 +50,21 @@ pkg_setup() {
 	enewuser ${PN} 150 -1 /var/lib/${PN} "${PN},audio"
 }
 
-src_unpack() {
-	ECVS_SERVER="cvs.rivendellaudio.org:/home/cvs/cvsroot"
-	ECVS_USER="cvs"
-	EVCS_PASS="cvs"
-	ECVS_MODULE="rivendell"
-	ECVS_CVS_OPTIONS="-d"
-	cvs_src_unpack
-}
-
-
-
 src_prepare() {
-	unpack ${A}
-	cd "${S}"
+	cd "${MY_S}"
 	epatch "${FILESDIR}/${PN}-init.patch"
 }
 
 src_configure() {
+	cd "${MY_S}"
 	local myconf="--libexecdir=/usr/libexec/rd-bin"
 
 	use alsa || myconf="${myconf} --disable-alsa"
+	use gpio || myconf="${myconf} --disable-gpio"
 	use jack || myconf="${myconf} --disable-jack"
+	use mpeg || myconf="${myconf} --disable-mad"
+	use mp2 || myconf="${myconf} --disable-twolame"
+	use mp3 || myconf="${myconf} --disable-lame"
 	use pam || myconf="${myconf} --disable-pam"
 
 	econf ${myconf}
