@@ -16,13 +16,13 @@ SRC_URI="http://rivendellaudio.org/ftpdocs/${PN}/${MY_P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="alsa gpio jack mpeg mp2 mp3 pam"
+IUSE="alsa gpio mpeg mp2 mp3 pam"
 
 RESTRICT="nomirror"
 
 DEPEND="alsa? ( media-libs/alsa-lib )
-	jack? ( media-sound/jack-audio-connection-kit )
-	mpeg? ( media-sound/libmad )
+	media-sound/jack-audio-connection-kit
+	mpeg? ( media-libs/libmad )
 	media-libs/flac
 	media-libs/id3lib
 	media-libs/libogg
@@ -42,7 +42,6 @@ RDEPEND="${DEPEND}
 	media-sound/mpg321
 	media-sound/vorbis-tools
 	net-misc/curl
-	sys-apps/ivman
 	sys-devel/bc"
 
 pkg_setup() {
@@ -52,7 +51,8 @@ pkg_setup() {
 
 src_prepare() {
 	cd "${MY_S}"
-	epatch "${FILESDIR}/${PN}-init.patch"
+	epatch "${FILESDIR}/initscript.patch"
+	epatch "${FILESDIR}/sandbox.patch"
 }
 
 src_configure() {
@@ -61,7 +61,6 @@ src_configure() {
 
 	use alsa || myconf="${myconf} --disable-alsa"
 	use gpio || myconf="${myconf} --disable-gpio"
-	use jack || myconf="${myconf} --disable-jack"
 	use mpeg || myconf="${myconf} --disable-mad"
 	use mp2 || myconf="${myconf} --disable-twolame"
 	use mp3 || myconf="${myconf} --disable-lame"
@@ -71,10 +70,12 @@ src_configure() {
 }
 
 src_compile () {
+	cd "${MY_S}"
 	emake || die "make failed"
 }
 
 src_install() {
+	cd "${MY_S}"
 	emake DESTDIR="${D}" install || die "install failed"
 
 	insinto /etc
@@ -85,13 +86,13 @@ src_install() {
 	fperms 0775 /var/snd
 	fperms 0664 /var/snd/*
 
-	dodoc AUTHORS ChangeLog INSTALL NEWS README SupportedCards docs/*.txt
+	dodoc AUTHORS ChangeLog NEWS README UPGRADING docs/*.txt
 	prepalldocs
 }
 
 pkg_postinst() {
-	elog "If you would like ASI or GPIO hardware support,"
-	elog "install their drivers and re-emerge this package."
+	einfo "If you would like ASI hardware support, install those drivers and"
+	einfo "re-emerge this package."
 	einfo
 	einfo "See http://rivendell.tryphon.org/wiki/index.php/Install_under_Gentoo"
 	einfo "for Gentoo specific instructions."
@@ -102,6 +103,6 @@ pkg_postinst() {
 	einfo "and active on the system. Any server that complies with CGI-1.1"
 	einfo "should work, although as of this writing only Apache 2.2 has been"
 	einfo "well tested."
-
-	ewarn "If ${P} is an update, it may use a new database schema, run rdadmin to ensure your schema is current."
+	einfo
+	ewarn "If this is an update, read /usr/share/doc/${P}/UPGRADING.bz2"
 }
