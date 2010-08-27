@@ -86,7 +86,7 @@ src_install() {
 	fperms 0775 /var/snd
 	fperms 0664 /var/snd/*
 
-	dodoc AUTHORS ChangeLog NEWS README UPGRADING docs/*.txt
+	dodoc AUTHORS ChangeLog NEWS README UPGRADING docs/*.txt conf/*.conf
 	prepalldocs
 }
 
@@ -103,6 +103,7 @@ pkg_postinst() {
 	einfo "and active on the system. Any server that complies with CGI-1.1"
 	einfo "should work, although as of this writing only Apache 2.2 has been"
 	einfo "well tested."
+	einfo "A configuration for apache is in /usr/share/doc/${P}/rd-bin.conf"
 	einfo
 	ewarn "If this is an update, read /usr/share/doc/${P}/UPGRADING.bz2"
 }
