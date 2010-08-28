@@ -1,0 +1,49 @@
+# This corrects what would cause sandbox errors in the install proccess.
+
+--- install-init.sh	2010-07-29 14:32:30.000000000 -0500
++++ install-init.sh.new	2010-08-27 00:58:42.173553662 -0500
+@@ -23,14 +23,10 @@
+ #
+ 
+ if test ! -f ./building-debian ; then
+-  mkdir -p /etc/init.d
+-  cp rivendell /etc/init.d/rivendell
+-  cp rdrepld-suse /etc/init.d/rdrepld
+-  mkdir -p /etc/sysconfig
+-  cp rivendell.sys /etc/sysconfig/rivendell
+-  mkdir -p /var/run/rivendell
+-  chmod 777 /var/run/rivendell
+-  ldconfig
++  mkdir -p ${DESTDIR}/etc/init.d
++  cp rivendell ${DESTDIR}/etc/init.d/rivendell
++  mkdir -p ${DESTDIR}/var/run/rivendell
++  chmod 777 ${DESTDIR}/var/run/rivendell
+ fi
+ 
+ chmod 4755 $1/bin/caed
+--- rlm/Makefile.in	2010-08-19 07:12:33.000000000 -0500
++++ rlm/Makefile.in.new	2010-08-26 23:52:01.158553625 -0500
+@@ -450,8 +450,8 @@
+ install:	all
+ 	mkdir -p $(DESTDIR)$(prefix)/@RD_LIB_PATH@/rivendell
+ 	cp $(RLM_MODULES) $(DESTDIR)$(prefix)/@RD_LIB_PATH@/rivendell/
+-	mkdir -p $(headerdir)
+-	cp rlm.h $(headerdir)
++	mkdir -p $(DESTDIR)$(headerdir)
++	cp rlm.h $(DESTDIR)$(headerdir)
+ # Tell versions [3.59,3.63) of GNU make to not export all variables.
+ # Otherwise a system limit (for SysV at least) may be exceeded.
+ .NOEXPORT:
+--- web/rdxport/Makefile.in	2010-08-19 07:12:35.000000000 -0500
++++ web/rdxport/Makefile.in.new	2010-08-27 00:27:13.106553053 -0500
+@@ -522,8 +522,8 @@
+ 
+ 
+ install-exec-hook:	
+-	chown root $(libexecdir)/rdxport.cgi
+-	chmod 4755 $(libexecdir)/rdxport.cgi
++	chown root $(DESTDIR)$(libexecdir)/rdxport.cgi
++	chmod 4755 $(DESTDIR)$(libexecdir)/rdxport.cgi
+ # Tell versions [3.59,3.63) of GNU make to not export all variables.
+ # Otherwise a system limit (for SysV at least) may be exceeded.
+ .NOEXPORT:
