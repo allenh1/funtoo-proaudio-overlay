@@ -1,6 +1,10 @@
 # ChangeLog for media-sound/aqualung
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  30 Aug 2010; Hakan Demiralp <keenblade@tuxfamily.org aqualung-9999.ebuild,
+  metadata.xml:
+  fixed invalid useflags. Ebuild is updated by referencing from portage one
 
   15 Jul 2008; Thomas Kuther <gimpel@sonnenkinder.org>
   +files/new-ffmpeg-headers.patch, aqualung-9999.ebuild:
