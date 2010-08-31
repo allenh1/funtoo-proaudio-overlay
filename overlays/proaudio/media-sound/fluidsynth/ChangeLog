@@ -1,0 +1,10 @@
+# ChangeLog for media-sound/fluidsynth
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*fluidsynth-9999 (31 Aug 2010)
+
+  31 Aug 2010; Viktor Lazarev <taurus101v@gmail.com>
+  +fluidsynth-9999.ebuild:
+  Initial commit. This ebuild is based on an ebuild from Portage tree.
+
