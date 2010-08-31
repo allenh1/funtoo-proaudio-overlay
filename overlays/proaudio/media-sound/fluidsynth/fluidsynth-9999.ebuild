@@ -13,7 +13,7 @@ ESVN_REPO_URI="https://${PN}.svn.sourceforge.net/svnroot/${PN}/trunk/${PN}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS=""
 
 RDEPEND="
 	>=dev-libs/glib-2.6.5
