@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -16,11 +16,12 @@ RDEPEND=">=dev-cpp/gtkmm-2.4
 	media-libs/libsndfile
 	dev-lang/perl
 	dev-perl/XML-Parser
-	>=media-sound/linuxsampler-0.5.1
-	nls? ( sys-devel/gettext 
-		dev-util/intltool )"
+	>=media-sound/linuxsampler-0.5.1"
+
 DEPEND="${DEPEND}
-	>=dev-util/pkgconfig-0.9"
+	>=dev-util/pkgconfig-0.9
+	nls? ( sys-devel/gettext
+		dev-util/intltool )"
 
 src_compile() {
 	econf || die

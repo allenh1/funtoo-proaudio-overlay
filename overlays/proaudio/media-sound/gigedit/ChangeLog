@@ -1,6 +1,11 @@
 # ChangeLog for media-sound/gigedit
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*gigedit-9999 (02 Sep 2010)
+
+  02 Sep 2010; Viktor Lazarev <taurus101v@gmail.com> +gigedit-9999.ebuild:
+  Ebuild was taken from http://download.linuxsampler.org/packages/gentoo/
 
   24 Jan 2008; Thomas Kuther <gimpel@sonnenkinder.org>
   +gigedit-0.1.1.ebuild:
