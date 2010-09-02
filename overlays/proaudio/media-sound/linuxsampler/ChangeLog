@@ -1,6 +1,11 @@
 # ChangeLog for media-sound/linuxsampler
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  02 Sep 2010; Viktor Lazarev <taurus101v@gmail.com>
+  linuxsampler-9999.ebuild, metadata.xml:
+  Added 'doc', 'dssi' & 'lv2' USE flags and removed 'arts' one. Corrected in
+  accordance to EAPI2
 
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog
