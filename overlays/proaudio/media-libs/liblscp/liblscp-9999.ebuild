@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI="2"
+
 inherit eutils cvs
 
 DESCRIPTION="liblscp is a C++ library for the Linux Sampler control protocol."
@@ -21,14 +23,12 @@ S=${WORKDIR}/${ECVS_MODULE}
 RDEPEND=""
 DEPEND=""
 
-src_unpack() {
-	cvs_src_unpack
-	cd "${S}"
+src_configure() {
+	make -f Makefile.svn
+	econf || die "./configure failed"
 }
 
 src_compile() {
-	make -f Makefile.svn
-	econf || die "./configure failed"
 	emake -j1 || die "make failed"
 
 }
