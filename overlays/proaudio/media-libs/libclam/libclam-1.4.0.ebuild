@@ -17,8 +17,7 @@ SRC_URI="http://clam-project.org/download/src/${MY_P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc double jack ladspa osc fftw fft alsa optimize +sndfile vorbis mad
-portaudio +xercesc xmlpp"
+IUSE="doc double jack ladspa osc fftw fft alsa optimize vorbis mad portaudio +xercesc xmlpp"
 # portmidi"
 
 RESTRICT="mirror"
@@ -43,7 +42,6 @@ RDEPEND="
 			  media-libs/libogg )
 	mad? ( media-libs/libmad
 		   media-libs/id3lib )
-	media-libs/libsndfile
 	portaudio? ( >=media-libs/portaudio-19 )
 	alsa? ( media-libs/alsa-lib )
 	osc? ( media-libs/oscpack )"
