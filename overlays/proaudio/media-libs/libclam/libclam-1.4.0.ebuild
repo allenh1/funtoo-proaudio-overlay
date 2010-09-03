@@ -84,9 +84,6 @@ src_compile() {
 	if ! use fft; then
 	    myconf="${myconf} with_nr_fft=no"
 	fi
-	if ! use sndfile; then
-	    myconf="${myconf} with_sndfile=no"
-	fi
 	if ! use vorbis; then
 	    myconf="${myconf} with_oggvorbis=no"
 	fi
