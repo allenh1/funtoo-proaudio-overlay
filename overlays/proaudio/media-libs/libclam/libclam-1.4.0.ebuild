@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=1
+EAPI="2"
 
-inherit eutils qt4
+inherit eutils qt4-r2
 
 DESCRIPTION="Framework for research and application development in the Audio and Music domain"
 HOMEPAGE="http://clam-project.org/"
@@ -17,37 +17,40 @@ SRC_URI="http://clam-project.org/download/src/${MY_P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc double jack ladspa osc fftw fft alsa optimize sndfile vorbis mad portaudio"
+IUSE="doc double jack ladspa osc fftw fft alsa optimize +sndfile vorbis mad
+portaudio +xercesc xmlpp"
 # portmidi"
 
 RESTRICT="mirror"
 
-DEPEND=">=dev-util/scons-0.96.92
-	ladspa? ( media-libs/ladspa-sdk )
-	=dev-libs/xerces-c-2.8*
-	fftw? ( =sci-libs/fftw-3* )
+RDEPEND="
+	dev-util/cppunit
+	media-libs/jpeg
+	media-libs/libpng
+	media-libs/libsndfile
 	virtual/opengl
 	x11-libs/fltk
-	jack? ( media-sound/jack-audio-connection-kit )
-	vorbis? ( media-libs/libvorbis
-	    media-libs/libogg )
-	mad? ( media-libs/libmad )
-	sndfile? ( media-libs/libsndfile )
-	mad? ( media-libs/id3lib )
-	portaudio? ( =media-libs/portaudio-19* )
-	media-libs/jpeg
-	alsa? ( media-libs/alsa-lib )
-	media-libs/libpng
 	x11-libs/libXext
 	x11-libs/libXft
 	x11-libs/libXi
-	|| ( ( x11-libs/qt-core x11-libs/qt-gui x11-libs/qt-opengl )
-			>=x11-libs/qt-4.4:4 )
-	app-doc/doxygen
-	dev-util/cppunit
+	x11-libs/qt-gui:4
+	ladspa? ( media-libs/ladspa-sdk )
+	xercesc? ( <dev-libs/xerces-c-3 )
+	xmlpp? ( dev-cpp/libxmlpp:2.6 )
+	fftw? ( sci-libs/fftw:3.0 )
+	jack? ( media-sound/jack-audio-connection-kit )
+	vorbis? ( media-libs/libvorbis
+			  media-libs/libogg )
+	mad? ( media-libs/libmad
+		   media-libs/id3lib )
+	media-libs/libsndfile
+	portaudio? ( >=media-libs/portaudio-19 )
+	alsa? ( media-libs/alsa-lib )
 	osc? ( media-libs/oscpack )"
 
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	dev-util/scons
+	app-doc/doxygen"
 
 S="${WORKDIR}/${MY_P}"
 
@@ -100,6 +103,19 @@ src_compile() {
 	fi
 	if ! use alsa; then
 	    myconf="${myconf} with_alsa=no"
+	fi
+	if use xercesc; then
+		if use xmlpp; then
+			myconf+=" xmlbackend=both"
+		else
+			myconf+=" xmlbackend=xercesc"
+		fi
+	else
+		if use xmlpp; then
+			myconf+=" xmlbackend=xmlpp"
+		else
+			myconf+=" xmlbackend=none"
+		fi
 	fi
 	scons configure ${myconf} || die "configuration failed"
 	scons --help
