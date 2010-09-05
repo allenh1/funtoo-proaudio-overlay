@@ -1,6 +1,10 @@
 # ChangeLog for media-sound/schism-tracker
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  05 Sep 2010; Viktor Lazarev <taurus101v@gmail.com>
+  schism-tracker-9999.ebuild:
+  Now source fetched from CVS-server (sf.net) instead of gzipped snapshot
 
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog
