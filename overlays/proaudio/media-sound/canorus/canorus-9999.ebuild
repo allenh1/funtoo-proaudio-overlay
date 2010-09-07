@@ -1,15 +1,16 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=1
+EAPI="2"
+CMAKE_IN_SOURCE_BUILD="1"
 
-inherit eutils multilib qt4 subversion
+inherit eutils qt4-r2 subversion cmake-utils
 
 ESVN_REPO_URI="svn://svn.berlios.de/canorus/trunk"
 ESVN_PROJECT="canorus"
 
-DESCRIPTION="Graphical Score-editor using Qt4"
+DESCRIPTION="a free extensible music score editor"
 HOMEPAGE="http://canorus.berlios.de"
 SRC_URI=""
 
@@ -17,34 +18,33 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 
-IUSE="python ruby"
+IUSE="ruby"
 
+RDEPEND=">=dev-lang/python-2.5
+	sys-libs/zlib
+	media-libs/alsa-lib
+	>=x11-libs/qt-svg-4.4:4
+	>=x11-libs/qt-core-4.4:4
+	ruby? ( dev-lang/ruby )"
+	#>=x11-libs/qt-assistant-4.4:4
 
-DEPEND="|| ( ( x11-libs/qt-core x11-libs/qt-gui
-		x11-libs/qt-xmlpatterns x11-libs/qt-svg )
-			=x11-libs/qt-4.2*:4 )
-        >=dev-util/cmake-2.4.2
-		dev-lang/swig
-        python? ( dev-lang/python )
-        ruby?   ( dev-lang/ruby )"
+DEPEND="${REDEND}
+	dev-lang/swig"
 
 pkg_setup() {
 	ewarn "if this ebuild fails have a look at"
 	ewarn "http://bugs.gentoo.org/show_bug.cgi?id=157501"
 	ewarn "hav no time to fix the ebuild"
-}
 
-src_compile() {
-	cmake \
-		-DCMAKE_INSTALL_PREFIX:PATH=/usr \
-		-DCANORUS_INSTALL_LIB_DIR=$(get_libdir) \
-		-DNO_PYTHON=$( use python && echo false || echo true ) \
+	mycmakeargs+=" -DCANORUS_INSTALL_LIB_DIR=$(get_libdir) \
 		-DNO_RUBY=$( use ruby && echo false || echo true ) \
-	. || die
-
-	emake || die
+		-DNO_PYTHON=false"
 }
 
-src_install() {
-		emake install DESTDIR=${D} || die
+src_prepare() {
+	epatch "${FILESDIR}/${P}-fix-MAKE_DIRECTORY.patch"
+}
+
+src_unpack() {
+	subversion_src_unpack
 }
