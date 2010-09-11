@@ -4,15 +4,15 @@
 
 EAPI="2"
 
-inherit multilib
+inherit multilib subversion
 
 DESCRIPTION="ASIO driver for WINE"
 HOMEPAGE="http://sourceforge.net/projects/wineasio"
-SRC_URI="mirror://sourceforge/${PN}/${PN}/${P}/${P}.tar.bz2"
+ESVN_REPO_URI="https://${PN}.svn.sourceforge.net/svnroot/${PN}/trunk/${PN}"
 RESTRICT="mirror"
 
 LICENSE="GPL-2"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS=""
 IUSE=""
 SLOT="0"
 
@@ -34,7 +34,6 @@ src_install() {
 	# need to be a bit tricky here
 	local mylibdir="lib"
 	use amd64 && mylibdir="lib32"
-
 	exeinto /usr/${mylibdir}/wine
 	doexe *.so
 	dodoc README.TXT

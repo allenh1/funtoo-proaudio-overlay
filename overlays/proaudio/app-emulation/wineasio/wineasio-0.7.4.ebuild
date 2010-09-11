@@ -1,6 +1,8 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
+
+EAPI="2"
 
 inherit multilib
 
@@ -8,8 +10,9 @@ WINEASIOX="wineasio-x.3"
 
 DESCRIPTION="ASIO driver for WINE"
 HOMEPAGE="http://sourceforge.net/projects/wineasio"
-SRC_URI="x86? ( mirror://sourceforge/${PN}/${P}.tar.bz2 ) 
-amd64? ( http://people.jacklab.net/drumfix/${WINEASIOX}.tgz )"
+SRC_URI="mirror://sourceforge/${PN}/${PN}/${P}/${P}.tar.bz2"
+# there's no needed file (jacklab has closed), and on sf.net too
+#amd64? ( http://people.jacklab.net/drumfix/${WINEASIOX}.tgz )"
 RESTRICT="mirror"
 
 LICENSE="GPL-2"
@@ -22,13 +25,11 @@ RDEPEND=">=app-emulation/wine-0.9.35"
 
 S="${WORKDIR}/${PN}"
 
-if use amd64; then
-	S="${WORKDIR}/${WINEASIOX}"
-fi
+#if use amd64; then
+#	S="${WORKDIR}/${WINEASIOX}"
+#fi
 
-src_unpack() {
-	unpack ${A}
-	cd "${S}"
+src_prepare() {
 	cp /opt/asiosdk2.2/common/asio.h .
 }
 
@@ -43,8 +44,8 @@ src_install() {
 
 	exeinto /usr/${mylibdir}/wine
 	doexe *.so
-	dodoc README.TXT readme.txt
-	use amd64 && dobin jackbridge
+	dodoc README.TXT
+#	use amd64 && dobin jackbridge
 }
 
 pkg_postinst() {
@@ -64,4 +65,3 @@ pkg_postinst() {
 		elog "The jackbridge bridges 32bit wineasio clients into 64bit jack"
 	fi
 }
-
