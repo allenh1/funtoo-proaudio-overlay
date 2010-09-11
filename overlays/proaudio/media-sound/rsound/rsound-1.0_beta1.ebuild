@@ -10,7 +10,7 @@ HOMEPAGE="http://www.rsound.org/"
 SRC_URI="http://github.com/downloads/Themaister/RSound/${PN}-1.0beta1.tar.gz"
 RESTRICT="mirror"
 
-LICENSE="GPL-2"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE="alsa ao openal portaudio pulseaudio" # muroar oss

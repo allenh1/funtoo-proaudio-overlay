@@ -11,7 +11,7 @@ transfer their audio data to a different computer."
 HOMEPAGE="http://www.rsound.org/"
 EGIT_REPO_URI="git://github.com/Themaister/RSound.git"
 
-LICENSE="GPL-2"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
 IUSE="alsa ao openal portaudio pulseaudio" # muroar oss
