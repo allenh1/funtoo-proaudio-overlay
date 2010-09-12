@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -10,7 +10,7 @@ HOMEPAGE="http://code-monkey.de/pages/xmms2-scrobbler"
 
 EGIT_REPO_URI="git://git.xmms.se/xmms2/xmms2-scrobbler.git"
 
-LICENSE="AS-IS"
+LICENSE="as-is"
 SLOT="0"
 KEYWORDS=""
 IUSE=""
