@@ -1,6 +1,13 @@
 # ChangeLog for media-libs/bml
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*bml-9999 (17 Sep 2010)
+*bml-0.5.0 (17 Sep 2010)
+
+  17 Sep 2010; Viktor Lazarev <taurus101v@gmail.com> bml-0.3.0.ebuild,
+  bml-0.4.0.ebuild, +bml-0.5.0.ebuild, +bml-9999.ebuild, +metadata.xml:
+  bump & cleanup
 
   27 Nov 2008; Thomas Kuther <gimpel@sonnenkinder.org> +bml-0.4.0.ebuild:
   version bump

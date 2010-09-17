@@ -19,7 +19,7 @@ RDEPEND="${DEPEND}"
 
 src_prepare() {
 	# Removed 'static' due to a gcc4 new
-	sed -e "s/static int vsscanf/int vsscanf/" -i "${S}/dllwrapper1/wine/win32.c"
+	sed -e "s/static int vsscanf/int vsscanf/" -i "${S}/dllwrapper/wine/win32.c"
 }
 
 src_configure() {
