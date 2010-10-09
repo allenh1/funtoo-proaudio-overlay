@@ -2,6 +2,9 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  09 Oct 2010; Viktor Lazarev <taurus101v@gmail.com> libclam-1.4.0.ebuild:
+  Set xmlpp as default XML backend
+
   03 Sep 2010; Viktor Lazarev <taurus101v@gmail.com> libclam-1.4.0.ebuild:
   Added 'xercesc' & 'xmlpp' USE-flags and removed 'sndfile' one. Libsndfile
   is hard-depend now, otherwise compile fails.
