@@ -1,0 +1,18 @@
+# ChangeLog for media-sound/composite
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header$
+
+*composite-9999 (10 Oct 2010)
+
+  10 Oct 2010; Viktor Lazarev <taurus101v@gmail.com>
+  +composite-0.006.ebuild, +composite-9999.ebuild, +metadata.xml:
+  Bump to git-version
+
+*composite-0.006 (08 Apr 2010)
+
+  08 Apr 2010; Viktor Lazarev <taurus101v@gmail.com>
+  +composite-0.006.ebuild, +metadata.xml:
+  initial ebuild
+  TODO: add `doc` use-flag & handler,
+		find lv2-plugin,
+		correct desktop-file
