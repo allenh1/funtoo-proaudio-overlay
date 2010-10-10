@@ -4,18 +4,19 @@
 
 EAPI=2
 
-inherit eutils gnome2
+inherit eutils git gnome2
 
 IUSE=""
 RESTRICT="mirror"
 
 DESCRIPTION="JACK audio mixer using GTK2 interface."
 HOMEPAGE="http://home.gna.org/jackmixer/"
-SRC_URI="http://download.gna.org/jackmixer/${P}.tar.gz"
+EGIT_REPO_URI="git://repo.or.cz/jack_mixer.git"
+SRC_URI=""
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 
 # Not sure about the required swig version, report if 1.3.25 doesn't work
 DEPEND="media-sound/jack-audio-connection-kit
@@ -27,6 +28,15 @@ DEPEND="media-sound/jack-audio-connection-kit
 	# 1. only needed for non tarballs aka svn checkouts >=dev-lang/swig-1.3.25
 RDEPEND="${DEPEND}
 	|| ( media-sound/lash[python] >=media-libs/pylash-3_pre )"
+
+src_unpack() {
+	git_src_unpack
+}
+
+src_prepare() {
+	"${S}/autogen.sh" || die
+	gnome2_src_prepare
+}
 
 src_install() {
 	gnome2_src_install

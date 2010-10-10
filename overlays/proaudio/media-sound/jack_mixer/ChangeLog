@@ -2,6 +2,13 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*jack_mixer-9999 (10 Oct 2010)
+*jack_mixer-9 (10 Oct 2010)
+
+  10 Oct 2010; Viktor Lazarev <taurus101v@gmail.com> jack_mixer-8.ebuild,
+  +jack_mixer-9.ebuild, +jack_mixer-9999.ebuild:
+  Bumped
+
 *jack_mixer-8 (23 Apr 2010)
 
   23 Apr 2010; Frieder Buerzele <evermind@tuxfamily.org>
