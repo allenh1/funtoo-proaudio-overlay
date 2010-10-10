@@ -1,17 +1,15 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=1
+EAPI=2
 
-inherit eutils qt4 cvs
+inherit flag-o-matic qt4-r2 subversion
 
 DESCRIPTION="Qtractor is an Audio/MIDI multi-track sequencer."
 HOMEPAGE="http://qtractor.sourceforge.net/"
 
-ECVS_SERVER="qtractor.cvs.sourceforge.net:/cvsroot/qtractor"
-ECVS_MODULE="qtractor"
-S="${WORKDIR}/${PN}"
+ESVN_REPO_URI="https://${PN}.svn.sourceforge.net/svnroot/${PN}/trunk"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -19,10 +17,11 @@ KEYWORDS=""
 
 IUSE="debug dssi ladspa libsamplerate mad osc rubberband vorbis sse vst"
 
-DEPEND="|| ( ( x11-libs/qt-core x11-libs/qt-gui x11-libs/qt-xmlpatterns )
-			>=x11-libs/qt-4.1:4 )
+RDEPEND=">=x11-libs/qt-core-4.2:4
+	>=x11-libs/qt-gui-4.2:4
 	media-libs/alsa-lib
 	media-libs/libsndfile
+	media-libs/slv2
 	media-sound/jack-audio-connection-kit
 	ladspa? ( media-libs/ladspa-sdk )
 	dssi? ( media-libs/dssi )
@@ -32,9 +31,11 @@ DEPEND="|| ( ( x11-libs/qt-core x11-libs/qt-gui x11-libs/qt-xmlpatterns )
 	rubberband? ( media-libs/rubberband )
 	vorbis? ( media-libs/libvorbis )
 	vst? ( >=media-libs/vst-sdk-2.3 )"
+DEPEND="${RDEPEND}"
 
-src_compile() {
-	make -f Makefile.cvs
+src_configure() {
+	append-flags "-DQT_STYLE_GTK"
+	emake -f Makefile.svn
 
 	local myconf
 	use vst && myconf="--with-vst=/usr/include/vst"
@@ -52,10 +53,9 @@ src_compile() {
 		${myconf} \
 		|| die "econf failed"
 	eqmake4 qtractor.pro -o qtractor.mak
-	emake || die "emake failed"
 }
 
 src_install() {
-	emake -j1 DESTDIR="${D}" install || die "make install failed"
+	emake DESTDIR="${D}" install || die "make install failed"
 	dodoc README ChangeLog TODO AUTHORS
 }

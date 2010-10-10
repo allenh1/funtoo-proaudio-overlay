@@ -1,6 +1,12 @@
 # ChangeLog for media-sound/qtractor
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*qtractor-9999 (10 Oct 2010)
+
+  10 Oct 2010; Viktor Lazarev <taurus101v@gmail.com> +qtractor-9999.ebuild,
+  -qtractor-9999-r1.ebuild:
+  Content of the ebuild synced with one from the official tree
 
   04 Aug 2009; Dominique Michel <dominique@tuxfamily.org>
   Removed alsa-lib midi USE check
