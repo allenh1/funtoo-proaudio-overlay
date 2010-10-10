@@ -1,0 +1,11 @@
+# ChangeLog for media-sound/jackbeat
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*jackbeat-9999 (10 Oct 2010)
+*jackbeat-0.7.6 (10 Oct 2010)
+
+  10 Oct 2010; Viktor Lazarev <taurus101v@gmail.com> +jackbeat-0.7.6.ebuild,
+  +jackbeat-9999.ebuild, +metadata.xml:
+  Initial commit. Bumped from the official portage tree
+
