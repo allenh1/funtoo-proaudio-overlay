@@ -1,6 +1,13 @@
 # ChangeLog for media-sound/boodler
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*boodler-2.0.3 (15 Oct 2010)
+
+  15 Oct 2010; Gavin Pryke <gavinlee303@googlemail.com>
+  +boodler-2.0.3.ebuild, +files/boodler:
+  bump to 2.0.3, add bash-completion script and USE flag, add jack USE flag
+  that requires =media-libs/bio2jack-0.9 (thx to Tim Harder for Gentoo bump)
 
 *boodler-2.0.2 (15 Sep 2009)
 
