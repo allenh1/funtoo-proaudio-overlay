@@ -6,7 +6,7 @@ EAPI=2
 
 inherit eutils gnome2
 
-IUSE=""
+IUSE="lash phat"
 RESTRICT="mirror"
 
 DESCRIPTION="JACK audio mixer using GTK2 interface."
@@ -26,7 +26,8 @@ DEPEND="media-sound/jack-audio-connection-kit
 	media-libs/pyphat"
 	# 1. only needed for non tarballs aka svn checkouts >=dev-lang/swig-1.3.25
 RDEPEND="${DEPEND}
-	|| ( media-sound/lash[python] >=media-libs/pylash-3_pre )"
+	phat? ( media-libs/pyphat )
+	lash? ( || ( media-sound/lash[python] >=media-libs/pylash-3_pre ) )"
 
 src_install() {
 	gnome2_src_install
