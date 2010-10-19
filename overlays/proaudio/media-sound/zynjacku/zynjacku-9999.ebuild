@@ -45,12 +45,6 @@ src_compile() {
 
 src_install() {
 	make DESTDIR="${D}" install || die "Install failed"
-	insinto /usr/lib/zynjacku
-	doins zynjacku.so zynjacku.py zynjacku.glade
-	fperms +x /usr/lib/zynjacku/zynjacku.py
-	dosym /usr/share/zynjacku/gpl.txt /usr/lib/zynjacku/gpl.txt
-	dosym /usr/bin/midi_led.py /usr/lib/zynjacku/midi_led.py
-	make_wrapper "zynjacku" "/usr/lib/zynjacku/zynjacku.py" "/usr/lib/zynjacku"
 }
 
 pkg_postinst() {
