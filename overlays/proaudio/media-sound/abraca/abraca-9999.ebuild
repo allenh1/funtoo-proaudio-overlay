@@ -1,8 +1,8 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# Header: $
+# $Header: $
 
-inherit exteutils multilib git
+inherit exteutils multilib git scons-utils
 
 DESCRIPTION="Abraca is a GTK2 client for the XMMS2 music player."
 HOMEPAGE="http://abraca.xmms.se"
@@ -29,5 +29,5 @@ src_compile() {
 
 src_install() {
 	escons DESTDIR="${D}" install || die
-	dodoc AUTHORS README 
+	dodoc AUTHORS README
 }
