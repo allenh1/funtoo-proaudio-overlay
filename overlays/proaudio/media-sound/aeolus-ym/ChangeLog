@@ -1,6 +1,10 @@
 # ChangeLog for media-sound/aeolus-ym
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  23 Oct 2010; Gavin Pryke <gavinlee303@googlemail.com>
+  aeolus-ym-0.7.0.ebuild:
+  fix small typo in DESCRIPTION, misc repoman fixes. not tested.
 
   18 Feb 2008; Dominique Michel <dominique.michel@citycable.ch> 
     unmasked: moved the fetch restricted files in media/libs/aeolus-ym-files

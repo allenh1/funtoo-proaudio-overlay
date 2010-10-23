@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -10,7 +10,7 @@ IUSE=""
 inherit eutils multilib toolchain-funcs
 RESTRICT="mirror"
 
-DESCRIPTION="Aeolus with conbolution reverb using Ambiosonic impulse responses by Fons Adriaensen"
+DESCRIPTION="Aeolus with convolution reverb using Ambiosonic impulse responses by Fons Adriaensen"
 HOMEPAGE="http://www.kokkinizita.net/linuxaudio/aeolus"
 SRC_URI="http://www.kokkinizita.net/linuxaudio/downloads/${P}.tar.bz2
 	${At1}
@@ -30,7 +30,7 @@ DEPEND="|| ( x11-libs/libX11 virtual/x11 )
 
 src_unpack() {
 	unpack ${A}
-	cd ${S}
+	cd "${S}"
 	epatch "${FILESDIR}/${P}-makefile.patch"
 }
 
@@ -43,8 +43,8 @@ src_compile() {
 src_install() {
 	make DESTDIR="${D}" install || die "installation failed"
 	insinto /etc
-	doins ${FILESDIR}/aeolus.conf
-	dodoc AUTHORS README ${FILESDIR}/README4gentoo
+	doins "${FILESDIR}/aeolus.conf"
+	dodoc AUTHORS README "${FILESDIR}/README4gentoo"
 	insinto /usr/share/stops
 	doins *.amb
 }
