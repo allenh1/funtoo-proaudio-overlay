@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -6,9 +6,12 @@ DESCRIPTION="Simple waveform viewer for JACK"
 HOMEPAGE="http://das.nasophon.de/jack_oscrolloscope/"
 SRC_URI="http://das.nasophon.de/download/${P}.tar.gz"
 
+RESTRICT="mirror"
+
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
+IUSE=""
 
 DEPEND=">=media-sound/jack-audio-connection-kit-0.109.0
 	>=media-libs/mesa-7.3
@@ -16,6 +19,6 @@ DEPEND=">=media-sound/jack-audio-connection-kit-0.109.0
 RDEPEND="${DEPEND}"
 
 src_install() {
-	dobin "${PN}"
+	dobin "${PN}" || die
 	dodoc README NEWS
 }
