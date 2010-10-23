@@ -4,11 +4,13 @@
 
 EAPI=1
 
-inherit exteutils toolchain-funcs
+inherit eutils toolchain-funcs
 
 DESCRIPTION="Recording tool which default operation is to capture what goes out to the soundcard from JACK"
 HOMEPAGE="http://www.notam02.no/arkiv/src"
 SRC_URI="http://www.notam02.no/arkiv/src/${P}.tar.gz"
+
+RESTRICT="mirror"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -34,7 +36,9 @@ src_compile() {
 }
 
 src_install() {
-	dobin jack_capture
-	use gtk && dobin jack_capture_gui2
+	dobin jack_capture || die "dobin jack_capture failed"
+	if use gtk ; then
+		dobin jack_capture_gui2 || die "dobin jack_capture_gui2 failed"
+	fi
 	dodoc README
 }

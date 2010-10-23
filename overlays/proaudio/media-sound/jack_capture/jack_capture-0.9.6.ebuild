@@ -6,6 +6,8 @@ DESCRIPTION="Recording tool which default operation is to capture what goes out 
 HOMEPAGE="http://www.notam02.no/arkiv/src"
 SRC_URI="http://www.notam02.no/arkiv/src/${P}.tar.gz"
 
+RESTRICT="mirror"
+
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="x86 ~amd64"
@@ -19,6 +21,6 @@ src_compile() {
 }
 
 src_install() {
-	dobin jack_capture
+	dobin jack_capture || die "dobin jack_capture failed"
 	dodoc README
 }
