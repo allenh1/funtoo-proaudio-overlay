@@ -2,6 +2,12 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*jacker-2010.9.21 (25 Oct 2010)
+
+  25 Oct 2010; Gavin Pryke <gavinlee303@googlemail.com>
+  +jacker-2010.9.21.ebuild, +files/jacker-2010.9.21-sconstruct.patch:
+  version bump. update sconstruct patch. other patches dropped; not needed.
+
 *jacker-2010.5.4 (09 Aug 2010)
 
   09 Aug 2010; Gavin Pryke <gavinlee303@googlemail.com>
