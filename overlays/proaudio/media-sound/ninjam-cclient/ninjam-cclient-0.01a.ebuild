@@ -1,8 +1,8 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils
+inherit eutils toolchain-funcs
 
 MY_P="cclient_src_v${PV}"
 
@@ -22,12 +22,19 @@ DEPEND=">=media-sound/jack-audio-connection-kit-0.100
 		sys-libs/ncurses
 		media-libs/libogg
 		media-libs/libvorbis"
+RDEPEND="${DEPEND}"
 
 src_compile() {
-	epatch ${FILESDIR}/add-jack-with-fixes.patch
-	emake || die "make failed"
+	epatch "${FILESDIR}/${P}-add-jack-with-fixes.patch"
+	epatch "${FILESDIR}/${P}-Makefile.patch"
+
+	cd ninjam/cursesclient || die "cd ninjam/cursesclient failed"
+
+	tc-export CC CXX
+	OPTFLAGS="${CXXFLAGS}" emake || die "make failed"
 }
 
 src_install() {
-	dobin cninjam
+	cd ninjam/cursesclient || die "cd ninjam/cursesclient failed"
+	dobin cninjam || die
 }
