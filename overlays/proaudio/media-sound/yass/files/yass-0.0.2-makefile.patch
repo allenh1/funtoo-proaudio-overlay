@@ -1,0 +1,39 @@
+--- yass/Makefile.old	2010-10-22 15:39:33.000000000 +0100
++++ yass/Makefile	2010-10-22 15:46:24.000000000 +0100
+@@ -14,14 +14,15 @@
+ #  along with this program; if not, write to the Free Software
+ #  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ 
+-
+-PREFIX = /usr
++CXX ?= g++
++PREFIX ?= /usr
+ SUFFIX := $(shell uname -m | sed -e 's/^unknown/$//' -e 's/^i.86/$//' -e 's/^x86_64/$/64/')
+-LIBDIR = lib$(SUFFIX)
++LIBDIR ?= lib$(SUFFIX)
+ VERSION = 0.0.2
+ DISTDIR = yass-$(VERSION)
+-CPPFLAGS += -O3 -Wall -DVERSION=\"$(VERSION)\" -DPREFIX=\"$(PREFIX)\" -I/usr/include/freetype2
++#CPPFLAGS += -O3 -Wall -DVERSION=\"$(VERSION)\" -DPREFIX=\"$(PREFIX)\" -I/usr/include/freetype2
+ #CPPFLAGS += -march=pentium4
++CXXFLAGS += -Wall -DVERSION=\"$(VERSION)\" -DPREFIX=\"$(PREFIX)\" -I/usr/include/freetype2
+ 
+ 
+ LDFLAGS += -L$(PREFIX)/$(LIBDIR) -L/usr/X11R6/$(LIBDIR)
+@@ -33,13 +34,14 @@
+ 
+ 
+ yass:	$(YASS_O)
+-	g++ $(LDFLAGS) -o yass $(YASS_O) $(LDLIBS)
++	$(CXX) $(LDFLAGS) -o yass $(YASS_O) $(LDLIBS)
+ 
+ $(YASS_O):	$(YASS_H)
+ 
+ 
+ install:	yass
+-	/usr/bin/install -m 755 yass $(PREFIX)/bin
++	install -d $(DESTDIR)$(PREFIX)/bin
++	install -m 755 yass $(DESTDIR)$(PREFIX)/bin
+ 
+ clean:
+ 	/bin/rm -f *~ *.o *.a *.so yass
