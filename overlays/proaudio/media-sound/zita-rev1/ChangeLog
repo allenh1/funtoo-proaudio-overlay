@@ -1,0 +1,11 @@
+# ChangeLog for media-sound/zita-rev1
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*zita-rev1-0.1.1 (27 Oct 2010)
+
+  27 Oct 2010; Gavin Pryke <gavinlee303@googlemail.com>
+  +zita-rev1-0.1.1.ebuild, +files/zita-rev1-0.1.1-makefile.patch,
+  +metadata.xml:
+  Initial import.
+
