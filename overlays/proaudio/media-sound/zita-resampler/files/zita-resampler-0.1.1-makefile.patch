@@ -1,0 +1,32 @@
+--- zita-resampler-0.1.1/apps/Makefile.old	2010-10-22 11:24:04.000000000 +0100
++++ zita-resampler-0.1.1/apps/Makefile	2010-10-22 11:41:07.000000000 +0100
+@@ -18,15 +18,16 @@
+ #
+ # --------------------------------------------------------------------------
+ 
+-
+-PREFIX = /usr/local
++CXX ?= g++
++PREFIX ?= /usr/local
+ SUFFIX := $(shell uname -m | sed -e 's/^unknown/$//' -e 's/^i.86/$//' -e 's/^x86_64/$/64/')
+-LIBDIR = lib$(SUFFIX)
++LIBDIR ?= lib$(SUFFIX)
+ DISTDIR = resample-$(VERSION)
+ VERSION = 0.4.0
+ LDFLAGS += -L$(PREFIX)/$(LIBDIR)
+-CPPFLAGS += -O3 -ffast-math -Wall -MMD -MP -DVERSION=\"$(VERSION)\"
++#CPPFLAGS += -O3 -ffast-math -Wall -MMD -MP -DVERSION=\"$(VERSION)\"
+ #CPPFLAGS += -march=native
++CXXFLAGS += -ffast-math -Wall -MMD -MP -DVERSION=\"$(VERSION)\"
+ 
+ 
+ all:	resample
+@@ -35,7 +36,7 @@
+ RESAMPLE_O = resample.o audiofile.o dither.o
+ resample:	LDLIBS += -lzita-resampler -lsndfile -lpthread -lrt
+ resample:	$(RESAMPLE_O)
+-	g++ $(LDFLAGS) -o $@ $(RESAMPLE_O) $(LDLIBS)
++	$(CXX) $(LDFLAGS) -o $@ $(RESAMPLE_O) $(LDLIBS)
+ $(RESAMPLE_O):
+ -include $(RESAMPLE_O:%.o=%.d)
+ 
