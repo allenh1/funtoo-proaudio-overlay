@@ -1,0 +1,39 @@
+--- zita-at1-0.1.1/source/Makefile.old	2010-10-22 13:17:37.000000000 +0100
++++ zita-at1-0.1.1/source/Makefile	2010-10-22 13:47:21.000000000 +0100
+@@ -18,14 +18,15 @@
+ #
+ # --------------------------------------------------------------------------
+ 
+-
+-PREFIX = /usr/local
++CXX ?= g++
++PREFIX ?= /usr/local
+ SUFFIX := $(shell uname -m | sed -e 's/^unknown/$//' -e 's/^i.86/$//' -e 's/^x86_64/$/64/')
+-LIBDIR = lib$(SUFFIX)
++LIBDIR ?= lib$(SUFFIX)
+ SHARED = $(PREFIX)/share/zita-at1
+ VERSION = 0.1.1
+-CPPFLAGS += -O2 -ffast-math -Wall -MMD -MP -DVERSION=\"$(VERSION)\" -DSHARED=\"$(SHARED)\"
+-CPPFLAGS += -march=native
++#CPPFLAGS += -O2 -ffast-math -Wall -MMD -MP -DVERSION=\"$(VERSION)\" -DSHARED=\"$(SHARED)\"
++#CPPFLAGS += -march=native
++CXXFLAGS += -ffast-math -Wall -MMD -MP -DVERSION=\"$(VERSION)\" -DSHARED=\"$(SHARED)\"
+ 
+ 
+ all:	zita-at1
+@@ -36,13 +37,14 @@
+ zita-at1:	LDLIBS += -lcairo -lclxclient -lclthreads -lzita-resampler -lfftw3f -ljack -lpng -lXft -lX11 -lrt
+ zita-at1:	LDFLAGS += -L/usr/X11R6/lib
+ zita-at1:	$(ZITA-AT1_O) 
+-	g++ $(LDFLAGS) -o $@ $(ZITA-AT1_O) $(LDLIBS)
++	$(CXX) $(LDFLAGS) -o $@ $(ZITA-AT1_O) $(LDLIBS)
+ $(ZITA-AT1_O):
+ -include $(ZITA-AT1_O:%.o=%.d)
+ 
+ 
+ 
+ install:	all
++	install -d $(DESTDIR)$(PREFIX)/bin
+ 	install -m 755 zita-at1 $(DESTDIR)$(PREFIX)/bin
+ 	install -d $(DESTDIR)$(SHARED)
+ 	rm -rf $(DESTDIR)$(SHARED)/*
