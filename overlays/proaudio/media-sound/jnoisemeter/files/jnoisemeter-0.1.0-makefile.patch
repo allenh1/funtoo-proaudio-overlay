@@ -1,0 +1,33 @@
+--- jnoisemeter-0.1.0/source/Makefile.old	2010-10-28 10:50:24.000000000 +0100
++++ jnoisemeter-0.1.0/source/Makefile	2010-10-28 11:00:45.000000000 +0100
+@@ -18,15 +18,17 @@
+ #
+ #  --------------------------------------------------------------------------
+ 
+-
+-PREFIX = /usr/local
++CXX ?= g++
++PREFIX ?= /usr/local
+ SHARED = $(PREFIX)/share/jnoisemeter
+ SUFFIX := $(shell uname -m | sed -e 's/^unknown/$//' -e 's/^i.86/$//' -e 's/^x86_64/$/64/')
+-LIBDIR = lib$(SUFFIX)
++LIBDIR ?= lib$(SUFFIX)
+ VERSION = 0.1.0
++#CPPFLAGS += -O2 -Wall -MMD -MP -I/usr/include/freetype2
+ CPPFLAGS += -O2 -Wall -MMD -MP -I/usr/include/freetype2
++
+ CPPFLAGS += -DVERSION=\"$(VERSION)\" -DPREFIX=\"$(PREFIX)\" -DSHARED=\"$(SHARED)\"
+-CPPFLAGS += -march=native
++#CPPFLAGS += -march=native
+ LDFLAGS += -L$(PREFIX)/$(LIBDIR) -L/usr/X11R6/$(LIBDIR)
+ 
+ 
+@@ -35,7 +37,7 @@
+ jnoisemeter:	LDLIBS += -lclthreads -lclxclient -lpthread -ljack -lXft -lpng -lX11 -lrt
+ jnoisemeter:	LDFLAGS += -L$(PREFIX)/$(LIBDIR) -L/usr/X11R6/$(LIBDIR)
+ jnoisemeter:	$(JNOISEMETER_O)
+-	g++ $(LDFLAGS) -o $@ $(JNOISEMETER_O) $(LDLIBS)
++	$(CXX) $(LDFLAGS) -o $@ $(JNOISEMETER_O) $(LDLIBS)
+ 
+ $(JNOISEMETER_O):
+ -include $(JNOISEMETER_O:%.o=%.d)
