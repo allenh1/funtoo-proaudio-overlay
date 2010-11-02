@@ -1,6 +1,11 @@
 # ChangeLog for media-sound/swami
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: /var/cvsroot/gentoo-x86/media-sound/swami/ChangeLog,v 1.2 2005/10/05 16:27:34 matsuu Exp $
+
+*swami-2.0.0 (02 Nov 2010)
+
+  02 Nov 2010; Gavin Pryke <gavinlee303@googlemail.com> +swami-2.0.0.ebuild:
+  bump
 
   30 Mar 2010; Stephane Angot <sa@hydre.org>; swami-1.0.0-pre1-r1.ebuild:
   Name of the package changed to remove download error
