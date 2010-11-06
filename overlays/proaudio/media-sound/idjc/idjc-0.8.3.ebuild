@@ -19,6 +19,7 @@ RDEPEND=">=media-sound/jack-audio-connection-kit-0.100.7
 		dev-python/pygtk
 		media-libs/libsamplerate
 		media-libs/libsndfile
+		media-libs/mutagen
 		>=media-libs/libshout-2.1
 		wma? ( media-video/ffmpeg )
 		flac? ( media-libs/flac )
