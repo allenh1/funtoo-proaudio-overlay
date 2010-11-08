@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit multilib subversion
+inherit multilib subversion toolchain-funcs
 
 RESTRICT="mirror"
 IUSE="debug"
@@ -22,9 +22,10 @@ DEPEND=">=dev-util/pkgconfig-0.9.0
 	${RDEPEND}"
 
 src_compile() {
+	tc-export CC CXX CPP AR RANLIB
 	cd "${S}/${PN}" || die "cd to ${S}/${PN} failed"
 
-	local myconf="--prefix=/usr"
+	local myconf="--prefix=/usr --libdir=/usr/$(get_libdir)"
 
 	use doc && myconf="${myconf} --build-docs --htmldir=/usr/share/doc/${P}/html"
 	use debug && myconf="${myconf} --debug"
