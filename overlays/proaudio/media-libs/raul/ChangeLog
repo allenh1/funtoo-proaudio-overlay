@@ -2,6 +2,11 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  08 Nov 2010; Gavin Pryke <gavinlee303@googlemail.com> -raul-0.6.0.ebuild,
+  raul-9999.ebuild:
+  rm old version, sync 9999 from portage 0.7.0 ebuild, add
+  dev-python/rdflib build dependency.
+
   09 Apr 2010; Gavin Pryke <gavinlee303@googlemail.com> raul-9999.ebuild:
   Don't utilise ${S} in this ebuild...
 
