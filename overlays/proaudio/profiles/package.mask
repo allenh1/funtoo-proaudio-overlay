@@ -1,5 +1,5 @@
 # broken upstream at least on amd64
-=media-plugins/alsaplayer-tta
+media-plugins/alsaplayer-tta
 # waf seems broken
 =media-sound/jack-audio-connection-kit-1.9.1
 =media-sound/jack-audio-connection-kit-1.9.2
