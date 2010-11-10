@@ -2,6 +2,8 @@
 # Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  10 Nov 2010; Dominique Michel: Added DEPEND on glib-1.2*
+  
   18 Feb 2008; Dominique Michel <dominique.michel@citycable.ch> Oops:
   changed the descrition to the correct one.
   

@@ -17,7 +17,8 @@ ESVN_REPO_URI="https://alsaplayer.svn.sourceforge.net/svnroot/alsaplayer/trunk/f
 
 S=${WORKDIR}/${PN}
 
-DEPEND="media-sound/alsaplayer"
+DEPEND="media-sound/alsaplayer
+	=dev-libs/glib-1.2*"
 
 src_unpack() {
 	subversion_src_unpack
