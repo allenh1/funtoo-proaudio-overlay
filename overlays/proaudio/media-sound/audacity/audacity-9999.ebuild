@@ -2,98 +2,99 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-WANT_AUTOCONF=latest
-WANT_AUTOMAKE=latest
+EAPI="2"
+WX_GTK_VER="2.8"
 
-inherit eutils autotools wxwidgets cvs subversion
+inherit eutils wxwidgets autotools versionator subversion
 
-IUSE="flac ladspa libsamplerate mp3 unicode vamp vorbis pa-devel"
+IUSE="alsa ffmpeg flac id3tag jack ladspa libsamplerate midi mp3 +nyquist sbsms soundtouch twolame unicode vamp vorbis"
 
-MY_P="${PN}-src-${PV}"
+MY_PV=$(replace_version_separator 3 -)
+MY_P="${PN}-src-${MY_PV}-beta"
+MY_T="${PN}-minsrc-${MY_PV}-beta"
 DESCRIPTION="Free crossplatform audio editor"
 HOMEPAGE="http://audacity.sourceforge.net/"
-
-ECVS_SERVER="audacity.cvs.sourceforge.net:/cvsroot/audacity"
-ECVS_MODULE="${PN}"
-
-ESVN_REPO_URI="https://www.portaudio.com/repos/portaudio/branches/v19-devel"
+ESVN_REPO_URI="http://${PN}.googlecode.com/svn/${PN}-src/trunk/"
+SRC_URI=""
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 RESTRICT="test"
 
-DEPEND=">=x11-libs/wxGTK-2.6
+COMMON_DEPEND="x11-libs/wxGTK:2.8[X]
 	>=app-arch/zip-2.3
-	dev-libs/expat
 	>=media-libs/libsndfile-1.0.0
-	>=media-libs/libsoundtouch-1.3.1
-	vorbis? ( >=media-libs/libvorbis-1.0 )
-	mp3? ( >=media-libs/libmad-0.14.2b
-		media-libs/libid3tag )
-	flac? ( media-libs/flac )
+	dev-libs/expat
 	libsamplerate? ( >=media-libs/libsamplerate-0.1.2 )
-	vamp? ( media-libs/vamp-plugin-sdk )"
-RDEPEND="${DEPEND}
+	vorbis? ( >=media-libs/libvorbis-1.0 )
+	mp3? ( >=media-libs/libmad-0.14.2b )
+	flac? ( >=media-libs/flac-1.2.0[cxx] )
+	id3tag? ( media-libs/libid3tag )
+	soundtouch? ( >=media-libs/libsoundtouch-1.3.1 )
+	vamp? ( >=media-libs/vamp-plugin-sdk-2.0 )
+	twolame? ( media-sound/twolame )
+	ffmpeg? ( >=media-video/ffmpeg-0.4.9_p20080617 )
+	alsa? ( media-libs/alsa-lib )
+	jack? ( >=media-sound/jack-audio-connection-kit-0.103.0 )"
+
+RDEPEND="${COMMON_DEPEND}
 	mp3? ( >=media-sound/lame-3.70 )"
+DEPEND="${COMMON_DEPEND}
+	dev-util/pkgconfig"
 
-S="${WORKDIR}/${ECVS_MODULE}"
-
-pkg_setup() {
-	if use pa-devel; then
-		ewarn "You enabled the pa-devel useflag. This will fetch the portaudio"
-		ewarn "v19-devel from SVN and replace the one shipped with ${PN} SVN"
-		ewarn "Note: this might lead to horrible compile and/or runtime errors!"
-	fi
-}
+S=${WORKDIR}/${MY_P}
 
 src_unpack() {
-	cvs_src_unpack
-
-	cd "${S}"
-	#epatch "${FILESDIR}/${P}-gentoo.patch"
-	#epatch "${FILESDIR}/${P}+flac-1.1.3.patch"
-
-	#eautoreconf || die
-
-	if use pa-devel; then
-		subversion_src_unpack
-		cd lib-src
-		rm -r portaudio-v19
-		cp -R "${ESVN_STORE_DIR}/${PN}/v19-devel" portaudio-v19
-	fi
+	echo "${ESVN_REPO_URI}"
+	subversion_src_unpack
+	cd "${ESVN_STORE_DIR}"
 }
 
-src_compile() {
+src_prepare() {
+	epatch "${FILESDIR}/${PN}-9999-ffmpeg.patch"
+	AT_M4DIR="${S}/m4" eautoreconf
+}
+
+src_configure() {
+	need-wxwidgets unicode
 	local myconf
 
-	if has_version "=x11-libs/wxGTK-2.8*"; then
-		myconf="--with-wx-version=2.8"
+	if use sbsms && use soundtouch ; then
+		echo
+		einfo "You have USE='soundtouch sbsms' It is not possible to use both, so"
+		einfo "SOUNDTOUCH has been selected by default."
+		echo
+		myconf="${myconf}"
+	elif use sbsms && ! use soundtouch ; then
+		myconf="${myconf} --with-sbsms"
 	else
-		myconf="--with-wx-version=2.6"
+		myconf="${myconf}"
 	fi
 
-	myconf="${myconf} --with-libsndfile=system"
-	myconf="${myconf} --with-libexpat=system"
-	myconf="${myconf} --with-libsoundtouch=system"
-
-	if use libsamplerate ; then
-		myconf="${myconf} --with-libsamplerate=system --without-libresample"
-	else
-		myconf="${myconf} --without-libsamplerate" # --with-libresample=local
-	fi
-
+	# * always use system libraries if possible
+	# * options listed in the order that configure --help lists them
+	# * if libsamplerate not requested, use libresample instead.
 	econf \
+		--with-libsndfile=system \
+		--with-expat=system \
 		$(use_enable unicode) \
+		$(use_enable nyquist) \
 		$(use_enable ladspa) \
-		$(use_enable vamp) \
-		$(use_with vorbis vorbis system) \
-		$(use_with mp3 libmad system) \
-		$(use_with mp3 id3tag system) \
-		$(use_with flac flac system) \
-		${myconf} || die
-
-	emake || die
+		$(use_with libsamplerate) \
+		$(use_with !libsamplerate libresample) \
+		$(use_with vorbis libvorbis) \
+		$(use_with mp3 libmad) \
+		$(use_with flac libflac) \
+		$(use_with id3tag libid3tag) \
+		$(use_with soundtouch) \
+		$(use_with vamp libvamp) \
+		$(use_with twolame libtwolame) \
+		$(use_with ffmpeg) \
+		$(use_with midi) \
+		$(use_with alsa) \
+		$(use_with jack) \
+		${myconf}
 }
 
 src_install() {
@@ -104,7 +105,4 @@ src_install() {
 
 	# Install our docs
 	dodoc README.txt
-
-	insinto /usr/share/audacity/
-	newins images/AudacityLogo48x48.xpm audacity.xpm
 }
