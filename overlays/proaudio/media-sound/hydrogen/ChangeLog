@@ -6,11 +6,11 @@
   hydrogen-0.9.3-r1.ebuild, -hydrogen-0.9.4_beta.ebuild:
   cleanup
 
-  13 Sep 2008; Frieder Buerzele <evermind@tuxfamily.org;
+  13 Sep 2008; Frieder Buerzele <evermind@tuxfamily.org>
   +hydrogen-0.9.4_beta.ebuild:
   bumped (thx harald)
 
-  27 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  27 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>
   hydrogen-9999.ebuild:
   new buildsystem (thx Daniel_J) closes bug #53
 

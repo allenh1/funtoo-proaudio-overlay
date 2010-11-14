@@ -4,7 +4,7 @@
 
 *paulstretch-2.0 (21 Jul 2010)
 
-  21 Jul 2010; Hakan Demiralp <keenblade@tuxfamily.org
+  21 Jul 2010; Hakan Demiralp <keenblade@tuxfamily.org>
   +files/fix-mp3inputs.patch, +paulstretch-2.0.ebuild:
   Version bump. Added a patch for fixing a compile issue
 

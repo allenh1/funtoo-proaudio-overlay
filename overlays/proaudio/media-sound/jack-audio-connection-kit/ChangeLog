@@ -8,15 +8,15 @@
   +jack-audio-connection-kit-1.9.6.ebuild:
   Version bump.
 
-  02 Apr 2010; Hakan Demiralp <keenblade@tuxfamily.org
+  02 Apr 2010; Hakan Demiralp <keenblade@tuxfamily.org>
   jack-audio-connection-kit-2.9999.ebuild:
   ieee1394 useflag added.
 
-  01 Apr 2010; Hakan Demiralp <keenblade@tuxfamily.org
+  01 Apr 2010; Hakan Demiralp <keenblade@tuxfamily.org>
   jack-audio-connection-kit-2.9999.ebuild:
   freebob useflag fixed. It was missing in the src_compile function
 
-  01 Apr 2010; Hakan Demiralp <keenblade@tuxfamily.org
+  01 Apr 2010; Hakan Demiralp <keenblade@tuxfamily.org>
   jack-audio-connection-kit-2.9999.ebuild:
   alsa useflag added. Without it jack does not support alsa driver
 
