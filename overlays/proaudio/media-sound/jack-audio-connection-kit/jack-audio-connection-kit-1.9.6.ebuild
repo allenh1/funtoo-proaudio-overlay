@@ -11,11 +11,12 @@ SRC_URI="http://www.grame.fr/~letz/jack-${PV}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc debug freebob dbus 32bit"
+IUSE="alsa doc debug freebob dbus 32bit"
 
-RDEPEND="dev-util/pkgconfig
-	>=media-libs/alsa-lib-0.9.1"
+RDEPEND="dev-util/pkgconfig"
+
 DEPEND="${RDEPEND}
+	alsa? ( >=media-libs/alsa-lib-0.9.1 )
 	freebob? ( sys-libs/libfreebob )
 	doc? ( app-doc/doxygen )
 	dbus? ( sys-apps/dbus )"
@@ -45,6 +46,7 @@ pkg_setup() {
 
 src_compile() {
 	local myconf="--prefix=/usr --destdir=${D}"
+	use alsa && myconf="${myconf} --alsa"
 	use dbus && myconf="${myconf} --dbus"
 	!use dbus && myconf="${myconf} --classic"
 	use debug && myconf="${myconf} -d debug"
