@@ -2,6 +2,10 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  17 Nov 2010; Hakan Demiralp <keenblade@tuxfamily.org>
+  ardour-3.9999.ebuild:
+  ardour-3.9999: added curl useflag to a dep, wrt #102 by denysonique.
+
   30 Mar 2010; Viktor Lazarev <taurus101v@gmail.com>  ardour-3.9999.ebuild:
   added creating libs/ardour/svn_revision.cc file;
   cleanup

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=2
+EAPI="2"
 
 inherit eutils toolchain-funcs fdo-mime flag-o-matic subversion versionator
 
@@ -20,7 +20,7 @@ RDEPEND="media-libs/liblo
 	>=media-libs/taglib-1.5
 	media-libs/aubio
 	>=media-libs/liblrdf-0.4.0
-	>=media-libs/raptor-1.4.2
+	>=media-libs/raptor-1.4.2[curl]
 	>=media-sound/jack-audio-connection-kit-0.116.2
 	>=dev-libs/glib-2.2
 	x11-libs/pango
