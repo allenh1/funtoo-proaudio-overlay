@@ -11,15 +11,16 @@ SRC_URI="http://www.grame.fr/~letz/jack-${PV}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="alsa doc debug freebob dbus 32bit"
+IUSE="alsa dbus debug doc freebob ieee1394 32bit"
 
 RDEPEND="dev-util/pkgconfig"
 
 DEPEND="${RDEPEND}
 	alsa? ( >=media-libs/alsa-lib-0.9.1 )
-	freebob? ( sys-libs/libfreebob )
+	freebob? ( sys-libs/libfreebob !media-libs/libffado )
 	doc? ( app-doc/doxygen )
-	dbus? ( sys-apps/dbus )"
+	dbus? ( sys-apps/dbus )
+	ieee1394? ( media-libs/libffado !sys-libs/libfreebob )"
 
 S="${WORKDIR}/jack-${PV}"
 
@@ -51,6 +52,8 @@ src_compile() {
 	!use dbus && myconf="${myconf} --classic"
 	use debug && myconf="${myconf} -d debug"
 	use doc && myconf="${myconf} --doxygen"
+	use freebob && myconf="${myconf} --freebob"
+	use ieee1394 && myconf="${myconf} --firewire"
 	use 32bit && myconf="${myconf} --mixed"
 
 	einfo "Running \"./waf configure ${myconf}\" ..."

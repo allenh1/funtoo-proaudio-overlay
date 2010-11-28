@@ -2,6 +2,11 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 Nov 2010; Hakan Demiralp <keenblade@tuxfamily.org>
+  jack-audio-connection-kit-1.9.6.ebuild:
+  jack-audio-connection-kit-1.9.6: fix for missing freebob support and
+  ieee1394 useflag
+
   16 Nov 2010; Hakan Demiralp <keenblade@tuxfamily.org>
   jack-audio-connection-kit-1.9.6.ebuild:
   jack-audio-connection-kit: fixed alsa support. wrt #106 by nilekurt.
