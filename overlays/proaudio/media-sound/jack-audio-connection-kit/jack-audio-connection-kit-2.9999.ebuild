@@ -20,7 +20,8 @@ DEPEND="${RDEPEND}
 	freebob? ( sys-libs/libfreebob !media-libs/libffado )
 	doc? ( app-doc/doxygen )
 	dbus? ( sys-apps/dbus )
-	ieee1394? ( media-libs/libffado !sys-libs/libfreebob )"
+	ieee1394? ( media-libs/libffado !sys-libs/libfreebob )
+	media-libs/libsamplerate"
 
 pkg_setup() {
 	# sandbox-1.6 breaks, on amd64 at least

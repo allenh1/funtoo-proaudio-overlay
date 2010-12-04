@@ -2,6 +2,10 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  04 Dec 2010; Hakan Demiralp <keenblade@tuxfamily.org>
+  jack-audio-connection-kit-2.9999.ebuild:
+  missing dependency libsamplerate is added wrt bug #97 by mif86 at proaudio
+
   28 Nov 2010; Hakan Demiralp <keenblade@tuxfamily.org>
   jack-audio-connection-kit-1.9.6.ebuild:
   jack-audio-connection-kit-1.9.6: fix for missing freebob support and
