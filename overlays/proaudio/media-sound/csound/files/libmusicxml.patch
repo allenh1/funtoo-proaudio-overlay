@@ -1,0 +1,10 @@
+--- Csound5.12.1.orig/custom.py	2008-12-17 17:15:21.000000000 +0200
++++ Csound5.12.1/custom.py	2010-09-14 22:33:01.000000000 +0300
+@@ -17,6 +17,7 @@
+
+ if sys.platform[:5] == 'linux':
+     platform = 'linux'
++    customCPPPATH.append('/usr/include/libmusicxml')
+     customCPPPATH.append('/usr/include/fltk-1.1')
+     customLIBPATH.append('/usr/lib/fltk-1.1')
+ elif sys.platform == 'darwin':

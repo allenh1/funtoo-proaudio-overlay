@@ -2,6 +2,14 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*csound-5.12.1-r1 (04 Dec 2010)
+
+  04 Dec 2010; Hakan Demiralp <keenblade@tuxfamily.org>
+  +csound-5.12.1-r1.ebuild, +files/install-stk.patch, +files/javaVM.patch,
+  +files/libmusicxml.patch:
+  csound-5.12.1-r1: lots of changes in ebuild referenced from csound-wii
+  overlay
+
 *csound-5.12.1 (07 Mar 2010)
 
   07 Mar 2010; Frieder Buerzele <evermind@tuxfamily.org>

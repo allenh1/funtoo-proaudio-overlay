@@ -1,0 +1,22 @@
+--- Csound5.12.1.orig/SConstruct	2010-01-16 01:27:37.000000000 +0200
++++ Csound5.12.1/SConstruct	2010-09-14 22:06:36.000000000 +0300
+@@ -798,15 +798,10 @@
+ if getPlatform() == 'linux' and not javaFound:
+     if commonEnvironment['buildInterfaces'] != '0':
+         if commonEnvironment['buildJavaWrapper'] != '0':
+-            baseDir = '/usr/lib'
+-            if commonEnvironment['Lib64'] == '1':
+-                baseDir += '64'
+-            for i in ['java', 'jvm/java', 'jvm/java-1.5.0']:
+-                javaIncludePath = '%s/%s/include' % (baseDir, i)
+-                tmp = '%s/linux/jni_md.h' % javaIncludePath
+-                if configure.CheckHeader(tmp, language = "C++"):
+-                    javaFound = 1
+-                    break
++            javaIncludePath = '/etc/java-config-2/current-system-vm/include'
++            tmp = '%s/linux/jni_md.h' % javaIncludePath
++            if configure.CheckHeader(tmp, language = "C++"):
++                javaFound = 1
+     if javaFound:
+         commonEnvironment.Append(CPPPATH = [javaIncludePath])
+         commonEnvironment.Append(CPPPATH = [javaIncludePath + '/linux'])

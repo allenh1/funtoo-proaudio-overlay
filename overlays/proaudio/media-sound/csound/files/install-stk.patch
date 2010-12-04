@@ -1,0 +1,38 @@
+--- Csound5.12.1.orig/install.py	2009-10-05 09:30:30.000000000 +0300
++++ Csound5.12.1/install.py	2010-09-09 19:07:25.000000000 +0300
+@@ -116,7 +116,7 @@
+ # LISP interface
+ lispDir     = concatPath([libDir, '/csound/lisp'])
+ # STK raw wave files
+-rawWaveDir  = concatPath([prefix, '/share/csound/rawwaves'])
++rawWaveDir  = concatPath([prefix, '/share/stk/rawwaves'])
+
+ # csnd.py
+ pythonDir   = '/usr/lib%s/python%s/site-packages' % (word64Suffix, pyVersion)
+@@ -335,7 +335,7 @@
+   for i in xmgList:
+     makeDir(concatPath([xmgDir, i, 'LC_MESSAGES']))
+     src = 'po/' + i + '/LC_MESSAGES/csound5.mo'
+-    fileName = concatPath([xmgDir, i, 'LC_MESSAGES/csound5.mo'])
++    fileName = concatPath([instDir,xmgDir, i, 'LC_MESSAGES/csound5.mo'])
+     err = runCmd(['install', '-p', '-m', '0644', src, fileName])
+     if err == 0:
+         addMD5(fileName, fileName)
+@@ -363,17 +363,6 @@
+ err = installXFile('', 'matrix.tk', binDir)
+ installErrors = installErrors or err
+
+-# copy STK raw wave files
+-
+-if '%s/libstk.so' % pluginDir in fileList:
+-    print ' === Installing STK raw wave files ==='
+-    rawWaveFiles = []
+-    for fName in os.listdir('./Opcodes/stk/rawwaves'):
+-        if re.match('^.*\.raw$', fName) != None:
+-            rawWaveFiles += ['./Opcodes/stk/rawwaves/' + fName]
+-    err = installFiles(rawWaveFiles, rawWaveDir)
+-    installErrors = installErrors or err
+-
+ # copy PD object
+ pdDir = '/usr/local/lib' + word64Suffix + '/pd/extra'
+ try:
