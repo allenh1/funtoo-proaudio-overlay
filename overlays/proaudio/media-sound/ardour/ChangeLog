@@ -2,6 +2,10 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  05 Dec 2010; Hakan Demiralp <keenblade@tuxfamily.org> ardour-2.9999.ebuild:
+  missing dep libgnomecanvas added and FREESOUND support is fixed wrt bug no#95
+  by darkbasic
+
   17 Nov 2010; Hakan Demiralp <keenblade@tuxfamily.org>
   ardour-3.9999.ebuild:
   ardour-3.9999: added curl useflag to a dep, wrt #102 by denysonique.

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=2
+EAPI="2"
 
 inherit eutils toolchain-funcs fdo-mime flag-o-matic subversion versionator
 
@@ -40,6 +40,7 @@ RDEPEND=">=media-libs/liblrdf-0.4.0
 		>=dev-libs/atk-1.6
 		>=x11-libs/pango-1.4
 		>=dev-cpp/libgnomecanvasmm-2.12.0
+		gnome-base/libgnomecanvas
 		>=media-libs/libsndfile-1.0.16
 		>=media-libs/libsoundtouch-1.0 )"
 		# currently internal rubberband is used
@@ -104,6 +105,7 @@ src_compile() {
 	(use sse || use altivec) && myconf="FPU_OPTIMIZATION=1"
 	! use altivec; myconf="${myconf} ALTIVEC=$?"
 	! use debug; myconf="${myconf} ARDOUR_DEBUG=$?"
+	! use freesound; myconf="${myconf} FREESOUND=$?"
 	! use nls; myconf="${myconf} NLS=$?"
 	! use vst; myconf="${myconf} VST=$?"
 	! use sys-libs; myconf="${myconf} SYSLIBS=$?"
