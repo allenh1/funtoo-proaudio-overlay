@@ -2,7 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit subversion
+EAPI=2
+
+inherit toolchain-funcs multilib eutils subversion
 
 DESCRIPTION="Gtkmm/Gnomecanvasmm widget for boxes and lines environments"
 HOMEPAGE="http://wiki.drobilla.net/FlowCanvas"
@@ -23,20 +25,25 @@ DEPEND="${RDEPEND}
 	dev-util/pkgconfig
 	doc? ( app-doc/doxygen )"
 
+src_configure() {
+	cd "${S}/${PN}"
+	tc-export CC CXX CPP AR RANLIB
+	./waf configure \
+		--prefix=/usr \
+		--libdir=/usr/$(get_libdir) \
+		--htmldir=/usr/share/doc/${PF}/html \
+		$(use debug && echo "--debug") \
+		$(use doc && echo "--docs") \
+		|| die
+}
+
 src_compile() {
-	cd "${S}/${PN}" || die "cd to ${S}/${PN} failed"
-
-	local myconf="--prefix=/usr"
-
-	use doc && myconf="${myconf} --build-docs --htmldir=/usr/share/doc/${P}/html"
-	use debug && myconf="${myconf} --debug"
-
-	./waf configure ${myconf} || die
-	./waf build ${MAKEOPTS} || die
+	cd "${S}/${PN}"
+	./waf || die
 }
 
 src_install() {
-	cd "${S}/${PN}" || die "cd to ${S}/${PN} failed"
+	cd "${S}/${PN}"
 	# addpredict for the ldconfig
 	addpredict /etc/ld.so.cache
 	./waf install --destdir="${D}" || die
