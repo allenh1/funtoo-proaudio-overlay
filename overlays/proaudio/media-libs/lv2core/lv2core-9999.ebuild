@@ -1,14 +1,13 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit multilib subversion
+EAPI=2
+inherit multilib toolchain-funcs subversion
 
 DESCRIPTION="LV2 is a simple but extensible successor of LADSPA"
 HOMEPAGE="http://lv2plug.in/"
-
-ESVN_REPO_URI="http://svn.drobilla.net/lad/trunk"
-ESVN_PROJECT="svn.drobilla.net"
+ESVN_REPO_URI="http://lv2plug.in/repo/trunk"
 
 LICENSE="LGPL-2.1 MIT"
 SLOT="0"
@@ -18,23 +17,26 @@ IUSE=""
 DEPEND=""
 RDEPEND="!<media-libs/slv2-0.4.2"
 
+S="${WORKDIR}"
+
+src_configure() {
+	tc-export CC CXX CPP AR RANLIB
+	./waf configure --prefix=/usr \
+		--libdir=/usr/$(get_libdir) || die
+}
+
 src_compile() {
-	cd ${PN}
-
-	# fix .pc/header install...
-	sed -i -e 's:bundle_only != False:bundle_only != True:' wscript || die
-
-	local myconf="--prefix=/usr --libdir=/usr/$(get_libdir)/"
-
-	use doc && myconf="${myconf} --build-docs --htmldir=/usr/share/doc/${P}/html"
-	use debug && myconf="${myconf} --debug"
-
-	./waf configure ${myconf} || die "configure failed"
-	./waf build ${MAKEOPTS} || die "waf failed"
+	./waf || die
 }
 
 src_install() {
-	cd ${PN}
-	./waf install --destdir="${D}" || die "install failed"
-	dodoc AUTHORS README
+	./waf install --destdir="${D}" || die
+	dodoc README
+	docinto core.lv2
+	dodoc core.lv2/{ChangeLog,README}
+}
+
+pkg_postinst() {
+	# required to create the structure of symlinks to the lv2 extension headers
+	lv2config || die
 }
