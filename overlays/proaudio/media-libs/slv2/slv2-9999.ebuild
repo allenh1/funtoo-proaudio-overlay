@@ -6,7 +6,7 @@ EAPI=2
 inherit multilib subversion
 
 RESTRICT="mirror"
-DESCRIPTION="SLV2 is a library for LV2 hosts "
+DESCRIPTION="SLV2 is a library for LV2 hosts"
 HOMEPAGE="http://drobilla.net/software"
 
 ESVN_REPO_URI="http://svn.drobilla.net/lad/trunk"
@@ -26,14 +26,12 @@ DEPEND="${RDEPEND}
 	dev-util/pkgconfig"
 
 src_prepare() {
-	cd "${S}/${PN}" || die
-	# not sure about this but works around compile failure
-	sed -i -e "s|lv2/http/lv2plug.in/ns/ext/event/||" \
-		hosts/event.lv2/event-helpers.h || die
+	# work around ldconfig call causing sandbox violation
+	sed -i -e "s/bld.add_post_fun(autowaf.run_ldconfig)//" ${PN}/wscript || die
 }
 
 src_configure() {
-	cd "${S}/${PN}" || die
+	cd ${PN}
 	tc-export CC CXX CPP AR RANLIB
 	./waf configure --prefix=/usr --libdir=/usr/$(get_libdir) \
 		$(use doc && echo " --build-docs --htmldir=/usr/share/doc/${P}/html") \
@@ -41,14 +39,12 @@ src_configure() {
 }
 
 src_compile() {
-	cd "${S}/${PN}" || die
+	cd ${PN}
 	./waf build || die
 }
 
 src_install() {
-	cd "${S}/${PN}" || die
-	# addpredict for the ldconfig
-	addpredict /etc/ld.so.cache
+	cd ${PN}
 	./waf install --destdir="${D}" || die
 	dodoc AUTHORS ChangeLog
 }
