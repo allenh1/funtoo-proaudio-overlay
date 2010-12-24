@@ -1,6 +1,11 @@
 # broken upstream at least on amd64
 media-plugins/alsaplayer-tta
 
+# Gavin Pryke <gavinlee303@googlemail.com> (24 Dec 2010)
+# request removal by Willy Wolff of pd-overlay, package is now in pd-overlay as
+# puredata-externals/hid
+media-plugins/pd-hid
+
 # <gavinlee303@googlemail.com> (23 Nov 2010)
 # Depends on Qt3 which is not in portage any more and apparently doesn't
 # build with Qt3 from the kde-sunset overlay.
