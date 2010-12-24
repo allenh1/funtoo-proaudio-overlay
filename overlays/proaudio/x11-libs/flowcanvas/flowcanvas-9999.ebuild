@@ -25,8 +25,13 @@ DEPEND="${RDEPEND}
 	dev-util/pkgconfig
 	doc? ( app-doc/doxygen )"
 
+src_prepare() {
+	# work around ldconfig call causing sandbox violation
+	sed -i -e "s/bld.add_post_fun(autowaf.run_ldconfig)//" ${PN}/wscript || die
+}
+
 src_configure() {
-	cd "${S}/${PN}"
+	cd ${PN}
 	tc-export CC CXX CPP AR RANLIB
 	./waf configure \
 		--prefix=/usr \
@@ -38,14 +43,12 @@ src_configure() {
 }
 
 src_compile() {
-	cd "${S}/${PN}"
+	cd ${PN}
 	./waf || die
 }
 
 src_install() {
-	cd "${S}/${PN}"
-	# addpredict for the ldconfig
-	addpredict /etc/ld.so.cache
+	cd ${PN}
 	./waf install --destdir="${D}" || die
 	dodoc AUTHORS README ChangeLog
 }
