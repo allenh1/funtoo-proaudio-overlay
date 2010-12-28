@@ -7,6 +7,6 @@
 		<name>pro-audio overlay team</name>
 	</maintainer>
 	<use>
-		<flag name="midi">Enable midi support</flag>
+		<flag name="soup">Enable support for HTTP via net-libs/libsoup</flag>
 	</use>
 </pkgmetadata>
