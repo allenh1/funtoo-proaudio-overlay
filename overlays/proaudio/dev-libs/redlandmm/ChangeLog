@@ -2,6 +2,10 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 Dec 2010; Gavin Pryke <gavinlee303@googlemail.com>
+  redlandmm-9999.ebuild:
+  update, work around link failure with ingen
+
   08 Nov 2010; Gavin Pryke <gavinlee303@googlemail.com>
   redlandmm-9999.ebuild, metadata.xml:
   respect toolchain environment. add --libdir option to fix building on amd64
