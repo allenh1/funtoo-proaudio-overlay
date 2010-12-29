@@ -35,7 +35,7 @@ RDEPEND="
 
 DEPEND="${RDEPEND}
 	sys-devel/gettext
-	dev-util/pkgconfg"
+	dev-util/pkgconfig"
 
 S="${WORKDIR}/${ECVS_MODULE}"
 

@@ -2,6 +2,9 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  29 Dec 2010; Hakan Demiralp <keenblade@tuxfamily.org> gigedit-9999.ebuild:
+  media-sound/gigedit-9999: fixed a typo. wrt #109 by distrozapper
+
 *gigedit-9999 (02 Sep 2010)
 
   02 Sep 2010; Viktor Lazarev <taurus101v@gmail.com> +gigedit-9999.ebuild:
