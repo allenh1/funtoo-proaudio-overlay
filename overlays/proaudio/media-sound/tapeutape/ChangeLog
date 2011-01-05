@@ -1,0 +1,10 @@
+# ChangeLog for media-sound/tapeutape
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*tapeutape-0.1.1 (05 Jan 2011)
+
+  05 Jan 2011; Willy <willy@tuxfamily.org> +tapeutape-0.1.1.ebuild,
+  +files/tapeutape-0.1.1-install.patch:
+  Add tapeutape-0.1.1
+
