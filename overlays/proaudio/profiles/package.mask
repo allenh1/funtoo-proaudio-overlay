@@ -18,4 +18,4 @@ media-sound/fmit
 # Hakan Demiralp <keenblade@tuxfamily.org> (10 Jan 2011)
 # Masking this versions until we can make the
 # the ebuild properly, since it fails to emerge
-= media-sound/csound-5.12.1-r1
+=media-sound/csound-5.12.1-r1
