@@ -91,13 +91,12 @@ src_compile() {
 
 	cd "${S}"
 	escons DESTDIR="${D}" PREFIX=/usr \
-		$(use_scons aubio) $(use_scons austate) $(use_scons dmalloc) \
-		$(use_scons fft_analysis) $(use_scons freesound) $(use_scons fpu_optimization) \
-		$(use_scons oldfonts) $(use_scons liblo) $(use_scons surfaces) \
-		$(use_scons wiimote) $(use_scons tranzport) \
-		$(use_scons debug) $(use_scons nls) \
-		$(use_scons vst) $(use_scons lv2) \
-		 $(use_scons sys-libs) || die "compilation failed"
+		$(use_scons aubio AUBIO) $(use_scons austate AUSTATE) $(use_scons dmalloc DMALLOC) \
+		$(use_scons fft_analysis FFT_ANALYSIS) $(use_scons freesound FREESOUND) \
+		$(use_scons fpu_optimization FPU_OPTIMIZATION) $(use_scons oldfonts OLDFONTS) \
+		$(use_scons liblo LIBLIO) $(use_scons surfaces SURFACES) $(use_scons wiimote WIIMOTE) \
+		$(use_scons tranzport TRANZPORT) $(use_scons debug DEBUG) $(use_scons nls NLS) \
+		$(use_scons vst VST) $(use_scons lv2 LV2) $(use_scons sys-libs SYS-LIBS) || die "compilation failed"
 }
 
 src_install() {
