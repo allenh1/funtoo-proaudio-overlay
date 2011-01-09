@@ -81,12 +81,6 @@ DEVELOPER: evermind
 DESCR: frontend to lilypond
 HOMEPAGE: https://canorus.berlios.de
 
-# NAME: Tapeutape
-EBUID_STATE: none
-DEVELOPER: none
-DESCR:
-HOMEPAGE:http://www.hitmuri.com/Tapeutape/
-
 # NAME: G. JACK Transport
 EBUID_STATE: none
 DEVELOPER: none
