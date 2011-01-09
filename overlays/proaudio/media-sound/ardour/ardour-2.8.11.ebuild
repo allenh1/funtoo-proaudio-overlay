@@ -1,10 +1,10 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI=2
 
-inherit eutils toolchain-funcs fdo-mime flag-o-matic versionator
+inherit eutils toolchain-funcs fdo-mime flag-o-matic versionator scons-utils
 
 DESCRIPTION="multi-track hard disk recording software"
 HOMEPAGE="http://ardour.org/"
@@ -13,8 +13,8 @@ SRC_URI="http://ardour.org/files/releases/${P/_p/-}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
-IUSE="altivec debug freesound nls sse lv2 vst sys-libs"
+KEYWORDS="~amd64 ~x86"
+IUSE="aubio austate oldfonts debug dmalloc fft_analysis freesound fpu_optimization liblo nls surfaces wiimote lv2 vst sys-libs  tranzport"
 
 RDEPEND=">=media-libs/liblrdf-0.4.0
 	media-libs/aubio
@@ -22,9 +22,8 @@ RDEPEND=">=media-libs/liblrdf-0.4.0
 	>=media-sound/jack-audio-connection-kit-0.116.2
 	>=dev-libs/glib-2.10.3
 	>=x11-libs/gtk+-2.8.8
-	media-libs/flac
 	>=media-libs/alsa-lib-1.0.14a-r1
-	>=media-libs/libsamplerate-0.1.1-r1
+	>=media-libs/libsamplerate-0.1.2
 	media-libs/liblo
 	>=dev-libs/libxml2-2.6.0
 	dev-libs/libxslt
@@ -32,6 +31,8 @@ RDEPEND=">=media-libs/liblrdf-0.4.0
 	=sci-libs/fftw-3*
 	freesound? ( net-misc/curl )
 	lv2? ( >=media-libs/slv2-0.6.1 )
+	liblo? ( media-libs/liblo )
+	tranzport? ( dev-libs/libusb )
 	sys-libs? ( >=dev-libs/libsigc++-2.0
 		>=dev-cpp/glibmm-2.4
 		>=dev-cpp/cairomm-1.0
@@ -88,22 +89,15 @@ src_compile() {
 	# Required for scons to "see" intermediate install location
 	mkdir -p "${D}"
 
-	local myconf=""
-	(use sse || use altivec) && myconf="FPU_OPTIMIZATION=1"
-	! use altivec; myconf="${myconf} ALTIVEC=$?"
-	! use debug; myconf="${myconf} ARDOUR_DEBUG=$?"
-	! use nls; myconf="${myconf} NLS=$?"
-	! use vst; myconf="${myconf} VST=$?"
-	! use sys-libs; myconf="${myconf} SYSLIBS=$?"
-	! use sse; myconf="${myconf} USE_SSE_EVERYWHERE=$? BUILD_SSE_OPTIMIZATIONS=$?"
-	! use lv2; myconf="${myconf} LV2=$?"
-
-	# static settings
-	myconf="${myconf} DESTDIR=${D} PREFIX=/usr KSI=0"
-	einfo "scons configure options : \"${myconf}\""
-
 	cd "${S}"
-	scons ${myconf}	${MAKEOPTS} || die "compilation failed"
+	escons DESTDIR="${D}" PREFIX=/usr \
+		$(use_scons aubio) $(use_scons austate) $(use_scons dmalloc) \
+		$(use_scons fft_analysis) $(use_scons freesound) $(use_scons fpu_optimization) \
+		$(use_scons oldfonts) $(use_scons liblo) $(use_scons surfaces) \
+		$(use_scons wiimote) $(use_scons tranzport) \
+		$(use_scons debug) $(use_scons nls) \
+		$(use_scons vst) $(use_scons lv2) \
+		 $(use_scons sys-libs) || die "compilation failed"
 }
 
 src_install() {
