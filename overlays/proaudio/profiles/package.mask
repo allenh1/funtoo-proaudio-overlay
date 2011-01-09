@@ -14,3 +14,8 @@ media-sound/fmit
 # waf seems broken
 =media-sound/jack-audio-connection-kit-1.9.1
 =media-sound/jack-audio-connection-kit-1.9.2
+
+# Hakan Demiralp <keenblade@tuxfamily.org> (10 Jan 2011)
+# Masking this versions until we can make the
+# the ebuild properly, since it fails to emerge
+= media-sound/csound-5.12.1-r1
