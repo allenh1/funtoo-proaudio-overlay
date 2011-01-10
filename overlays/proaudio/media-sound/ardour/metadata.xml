@@ -17,5 +17,7 @@
 	  <flag name="fpu_optimization">Build runtime checked assembler code (sse, 3dnow, altivec, mmx)</flag>
 	  <flag name="liblo">Compile with support for liblo library</flag>
 	  <flag name="surfaces">Build support for control surfaces</flag>
+	  <flag name="lv2">Use slv2 effect"</flag>
+	  <flag name="wiimote">Use Nintendo Wiimote</flag>
 	</use>
 </pkgmetadata>

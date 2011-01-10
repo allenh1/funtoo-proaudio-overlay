@@ -2,6 +2,9 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  10 Jan 2011; Willy <willy@tuxfamily.org> ardour-2.8.11.ebuild:
+  Missing dependencies for use wiimote
+
   09 Jan 2011; Willy <willy@tuxfamily.org> ChangeLog:
   Oups, active upercase in useflag to scons
 

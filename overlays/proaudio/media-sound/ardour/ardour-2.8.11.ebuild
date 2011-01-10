@@ -14,7 +14,7 @@ SRC_URI="http://ardour.org/files/releases/${P/_p/-}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="aubio austate oldfonts debug dmalloc fft_analysis freesound fpu_optimization liblo nls surfaces wiimote lv2 vst sys-libs  tranzport"
+IUSE="aubio austate oldfonts debug dmalloc fft_analysis freesound fpu_optimization liblo nls surfaces wiimote lv2 vst sys-libs tranzport"
 
 RDEPEND=">=media-libs/liblrdf-0.4.0
 	media-libs/aubio
@@ -33,6 +33,7 @@ RDEPEND=">=media-libs/liblrdf-0.4.0
 	lv2? ( >=media-libs/slv2-0.6.1 )
 	liblo? ( media-libs/liblo )
 	tranzport? ( dev-libs/libusb )
+	wiimote? ( app-misc/cwiid )
 	sys-libs? ( >=dev-libs/libsigc++-2.0
 		>=dev-cpp/glibmm-2.4
 		>=dev-cpp/cairomm-1.0
