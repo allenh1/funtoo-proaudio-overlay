@@ -18,7 +18,7 @@ IUSE="aubio austate oldfonts debug dmalloc fft_analysis freesound fpu_optimizati
 
 RDEPEND=">=media-libs/liblrdf-0.4.0
 	media-libs/aubio
-	>=media-libs/libgnomecanvas-2.0
+	>=gnome-base/libgnomecanvas-2.0
 	>=media-libs/raptor-1.4.2
 	>=media-sound/jack-audio-connection-kit-0.116.2
 	>=dev-libs/glib-2.10.3
