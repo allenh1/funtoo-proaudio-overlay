@@ -1,9 +1,8 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
-
+EAPI=2
 inherit eutils toolchain-funcs
 
 DESCRIPTION="An autotuner, normally used to correct the pitch of a voice singing (slightly) out of tune"
@@ -14,7 +13,7 @@ RESTRICT="mirror"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="doc"
 
 DEPEND=">=media-libs/libclthreads-2.4.0
@@ -27,21 +26,20 @@ RDEPEND="${RDEPEND}"
 S="${WORKDIR}/${P}/source"
 
 src_prepare() {
-	epatch "${FILESDIR}/${P}-makefile.patch"
+	epatch "${FILESDIR}/${P}-Makefile.patch"
 }
 
 src_compile() {
-	tc-export CXX
-	emake PREFIX=/usr || die "emake failed"
+	CXX="$(tc-getCXX)" emake PREFIX=/usr || die
 }
 
 src_install() {
-	make DESTDIR="${D}" PREFIX=/usr install || die "make install failed"
+	make DESTDIR="${D}" PREFIX=/usr install || die
 
 	dodoc ../AUTHORS
 
 	if use doc ; then
-		cd ../doc || die "cd ../doc failed"
+		cd ../doc
 		dohtml -r *
 	fi
 }

@@ -1,6 +1,13 @@
 # ChangeLog for media-sound/zita-at1
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*zita-at1-0.2.1 (12 Jan 2011)
+
+  12 Jan 2011; Gavin Pryke <gavinlee303@googlemail.com>
+  -zita-at1-0.1.1.ebuild, -files/zita-at1-0.1.1-makefile.patch,
+  +zita-at1-0.2.1.ebuild, +files/zita-at1-0.2.1-Makefile.patch:
+  Remove build with non-existant SRC_URI, bump to 0.2.1. 
 
 *zita-at1-0.1.1 (27 Oct 2010)
 
