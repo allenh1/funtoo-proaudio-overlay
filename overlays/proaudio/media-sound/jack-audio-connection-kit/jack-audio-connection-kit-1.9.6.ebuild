@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -49,7 +49,7 @@ src_compile() {
 	local myconf="--prefix=/usr --destdir=${D}"
 	use alsa && myconf="${myconf} --alsa"
 	use dbus && myconf="${myconf} --dbus"
-	!use dbus && myconf="${myconf} --classic"
+	! use dbus && myconf="${myconf} --classic"
 	use debug && myconf="${myconf} -d debug"
 	use doc && myconf="${myconf} --doxygen"
 	use freebob && myconf="${myconf} --freebob"
