@@ -1,6 +1,11 @@
 # ChangeLog for media-sound/freqtweak
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  19 Jan 2011; Hakan Demiralp <keenblade@tuxfamily.org> freqtweak-0.7.2.ebuild,
+  +files/freqtweak_wxGTK-2.8.patch:
+  freqtweak-0.7.2: new patch to compile with wxGTK-2.8 by Torben Hohn. wrt
+  #336160 at b.g.o by Reuben Martin. And some clean up for the ebuild
 
   29 Apr 2010; Viktor Lazarev <taurus101v@gmail.com>
   +files/10_configure-fixes.patch, freqtweak-0.7.0_pre20070214-r1.ebuild,

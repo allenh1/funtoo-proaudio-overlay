@@ -1,0 +1,796 @@
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/configure.ac freqtweak-update/configure.ac
+--- freqtweak-0.7.2/configure.ac	2009-07-11 16:17:53.000000000 -0500
++++ freqtweak-update/configure.ac	2010-03-20 14:37:03.000000000 -0500
+@@ -62,7 +62,7 @@
+ 
+ 
+ dnl sigc++
+-PKG_CHECK_MODULES(SIGCPP, sigc++-1.2 >= 0.14, have_sigc12=yes, have_sigc12=no)
++PKG_CHECK_MODULES(SIGCPP, sigc++-2.0 >= 2.0, have_sigc=yes, have_sigc=no)
+ 
+     
+ 
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/FTmainwin.cpp freqtweak-update/src/FTmainwin.cpp
+--- freqtweak-0.7.2/src/FTmainwin.cpp	2009-07-11 15:40:12.000000000 -0500
++++ freqtweak-update/src/FTmainwin.cpp	2010-03-20 14:37:03.000000000 -0500
+@@ -585,7 +585,7 @@
+ 	pixbutt = _inspecSpecTypeAllButton = new PixButton(_inspecPanel, FT_InSpecTypeId, false, wxDefaultPosition, wxSize(_bwidth, _bheight));
+ 	_inspecSpecTypeAllButton->SetFont(_buttFont);
+ 	_inspecSpecTypeAllButton->SetToolTip (wxT("Spectrogram Plot"));
+-	pixbutt->clicked.connect (bind (slot (*this, &FTmainwin::plot_clicked_events), pixbutt));
++	pixbutt->clicked.connect (sigc::bind (sigc::mem_fun (*this, &FTmainwin::plot_clicked_events), pixbutt));
+ 	pixbutt->set_normal_bitmap (wxBitmap(specplot_normal_xpm));
+ 	pixbutt->set_selected_bitmap (wxBitmap(specplot_selected_xpm));
+ 	pixbutt->set_focus_bitmap (wxBitmap(specplot_focus_xpm));
+@@ -596,7 +596,7 @@
+ 	pixbutt = _inspecPlotSolidTypeAllButton = new PixButton(_inspecPanel, FT_InSpecTypeId, false, wxDefaultPosition, wxSize(_bwidth, _bheight));
+ 	_inspecPlotSolidTypeAllButton->SetFont(_buttFont);
+ 	_inspecPlotSolidTypeAllButton->SetToolTip (wxT("Filled Plot"));
+-	pixbutt->clicked.connect (bind (slot (*this, &FTmainwin::plot_clicked_events), pixbutt));
++	pixbutt->clicked.connect (bind (mem_fun (*this, &FTmainwin::plot_clicked_events), pixbutt));
+ 	pixbutt->set_normal_bitmap (wxBitmap(barplot_normal_xpm));
+ 	pixbutt->set_selected_bitmap (wxBitmap(barplot_selected_xpm));
+ 	pixbutt->set_focus_bitmap (wxBitmap(barplot_focus_xpm));
+@@ -606,7 +606,7 @@
+ 	pixbutt = _inspecPlotLineTypeAllButton = new PixButton(_inspecPanel, FT_InSpecTypeId, false, wxDefaultPosition, wxSize(_bwidth, _bheight));
+ 	_inspecPlotLineTypeAllButton->SetFont(_buttFont);
+ 	_inspecPlotLineTypeAllButton->SetToolTip (wxT("Line Plot"));
+-	pixbutt->clicked.connect (bind (slot (*this, &FTmainwin::plot_clicked_events), pixbutt));
++	pixbutt->clicked.connect (bind (mem_fun (*this, &FTmainwin::plot_clicked_events), pixbutt));
+ 	pixbutt->set_normal_bitmap (wxBitmap(lineplot_normal_xpm));
+ 	pixbutt->set_selected_bitmap (wxBitmap(lineplot_selected_xpm));
+ 	pixbutt->set_focus_bitmap (wxBitmap(lineplot_focus_xpm));
+@@ -732,7 +732,7 @@
+ 	pixbutt = _outspecSpecTypeAllButton = new PixButton(_outspecPanel, FT_OutSpecTypeId, false, wxDefaultPosition, wxSize(_bwidth, _bheight));
+ 	_outspecSpecTypeAllButton->SetFont(_buttFont);
+ 	_outspecSpecTypeAllButton->SetToolTip (wxT("Spectrogram Plot"));
+-	pixbutt->clicked.connect (bind (slot (*this, &FTmainwin::plot_clicked_events), pixbutt));
++	pixbutt->clicked.connect (bind (mem_fun (*this, &FTmainwin::plot_clicked_events), pixbutt));
+ 	pixbutt->set_normal_bitmap (wxBitmap(specplot_normal_xpm));
+ 	pixbutt->set_selected_bitmap (wxBitmap(specplot_selected_xpm));
+ 	pixbutt->set_focus_bitmap (wxBitmap(specplot_focus_xpm));
+@@ -742,7 +742,7 @@
+ 	pixbutt = _outspecPlotSolidTypeAllButton = new PixButton(_outspecPanel, FT_OutSpecTypeId, false, wxDefaultPosition, wxSize(_bwidth, _bheight));
+ 	_outspecPlotSolidTypeAllButton->SetFont(_buttFont);
+ 	_outspecPlotSolidTypeAllButton->SetToolTip (wxT("Filled Plot"));
+-	pixbutt->clicked.connect (bind (slot (*this, &FTmainwin::plot_clicked_events), pixbutt));
++	pixbutt->clicked.connect (bind (mem_fun (*this, &FTmainwin::plot_clicked_events), pixbutt));
+ 	pixbutt->set_normal_bitmap (wxBitmap(barplot_normal_xpm));
+ 	pixbutt->set_selected_bitmap (wxBitmap(barplot_selected_xpm));
+ 	pixbutt->set_focus_bitmap (wxBitmap(barplot_focus_xpm));
+@@ -752,7 +752,7 @@
+ 	pixbutt = _outspecPlotLineTypeAllButton = new PixButton(_outspecPanel, FT_OutSpecTypeId, false, wxDefaultPosition, wxSize(_bwidth, _bheight));
+ 	_outspecPlotLineTypeAllButton->SetFont(_buttFont);
+ 	_outspecPlotLineTypeAllButton->SetToolTip (wxT("Line Plot"));
+-	pixbutt->clicked.connect (bind (slot (*this, &FTmainwin::plot_clicked_events), pixbutt));
++	pixbutt->clicked.connect (bind (mem_fun (*this, &FTmainwin::plot_clicked_events), pixbutt));
+ 	pixbutt->set_normal_bitmap (wxBitmap(lineplot_normal_xpm));
+ 	pixbutt->set_selected_bitmap (wxBitmap(lineplot_selected_xpm));
+ 	pixbutt->set_focus_bitmap (wxBitmap(lineplot_focus_xpm));
+@@ -931,7 +931,7 @@
+ 	PixButton * linkallbutt = pixbutt = new PixButton(rpanel, FT_LinkBase, false, wxDefaultPosition, wxSize(_bwidth,_bheight));
+ 	linkallbutt->SetFont(_buttFont);
+ 	linkallbutt->SetToolTip (wxT("Link All"));
+-	pixbutt->clicked.connect (bind (slot (*this, &FTmainwin::link_clicked_events), pixbutt));
++	pixbutt->clicked.connect (bind (mem_fun (*this, &FTmainwin::link_clicked_events), pixbutt));
+ 	pixbutt->set_normal_bitmap (wxBitmap(link_normal_xpm));
+ 	pixbutt->set_selected_bitmap (wxBitmap(link_selected_xpm));
+ 	pixbutt->set_focus_bitmap (wxBitmap(link_focus_xpm));
+@@ -943,7 +943,7 @@
+ 	PixButton * bypallbutt = pixbutt = new PixButton(rpanel, FT_BypassBase, false, wxDefaultPosition, wxSize(_bwidth,_bheight));
+ 	bypallbutt->SetFont(_buttFont);
+ 	bypallbutt->SetToolTip (wxT("Bypass All"));
+-	pixbutt->clicked.connect (bind (slot (*this, &FTmainwin::bypass_clicked_events), pixbutt));
++	pixbutt->clicked.connect (bind (mem_fun (*this, &FTmainwin::bypass_clicked_events), pixbutt));
+ 	pixbutt->set_normal_bitmap (wxBitmap(bypass_normal_xpm));
+ 	pixbutt->set_selected_bitmap (wxBitmap(bypass_selected_xpm));
+ 	pixbutt->set_focus_bitmap (wxBitmap(bypass_focus_xpm));
+@@ -956,8 +956,8 @@
+ 	PixButton * gridbutt = pixbutt = new PixButton (rpanel, FT_GridBase, false, wxDefaultPosition,  wxSize(_bwidth,_bheight));
+ 	gridbutt->SetFont(_buttFont);
+ 	gridbutt->SetToolTip (wxT("Toggle Grid\nRight-click to Adjust"));
+-	pixbutt->clicked.connect (bind (slot (*this, &FTmainwin::grid_clicked_events), pixbutt));
+-	pixbutt->pressed.connect (bind (slot (*this, &FTmainwin::grid_pressed_events), pixbutt));
++	pixbutt->clicked.connect (bind (mem_fun (*this, &FTmainwin::grid_clicked_events), pixbutt));
++	pixbutt->pressed.connect (bind (mem_fun (*this, &FTmainwin::grid_pressed_events), pixbutt));
+ 	pixbutt->set_normal_bitmap (wxBitmap(grid_normal_xpm));
+ 	pixbutt->set_selected_bitmap (wxBitmap(grid_selected_xpm));
+ 	pixbutt->set_focus_bitmap (wxBitmap(grid_focus_xpm));
+@@ -970,7 +970,7 @@
+ 	PixButton * gridsnbutt = pixbutt = new PixButton (rpanel, FT_GridSnapBase, false, wxDefaultPosition,  wxSize(_bwidth,_bheight));
+ 	gridsnbutt->SetFont(_buttFont);
+ 	gridsnbutt->SetToolTip (wxT("Toggle Grid Snap"));
+-	pixbutt->clicked.connect (bind (slot (*this, &FTmainwin::grid_clicked_events), pixbutt));
++	pixbutt->clicked.connect (bind (mem_fun (*this, &FTmainwin::grid_clicked_events), pixbutt));
+ 	pixbutt->set_normal_bitmap (wxBitmap(gridsnap_normal_xpm));
+ 	pixbutt->set_selected_bitmap (wxBitmap(gridsnap_selected_xpm));
+ 	pixbutt->set_focus_bitmap (wxBitmap(gridsnap_focus_xpm));
+@@ -1249,7 +1249,7 @@
+ 			_bypassButtons[rowcnt][i] = pixbutt;
+ 			//buttsizer->Add ( _bypassButtons[rowcnt][i] = new wxButton(rowpanels[i], FT_BypassBase, wxT("B"),
+ 			//							  wxDefaultPosition, wxSize(_bwidth,-1)), 1, 0,0);
+-			pixbutt->clicked.connect (bind (slot (*this, &FTmainwin::bypass_clicked_events), pixbutt));
++			pixbutt->clicked.connect (bind (mem_fun (*this, &FTmainwin::bypass_clicked_events), pixbutt));
+ 			
+ 			buttsizer->Add (pixbutt, 0, 0, 0);
+ 
+@@ -1259,7 +1259,7 @@
+ 			_bypassButtons[rowcnt][i]->SetToolTip(wxT("Toggle Bypass"));		
+ 
+ 			pixbutt = new PixButton(rowpanels[i], FT_LinkBase, false, wxDefaultPosition, wxSize(_bwidth, -1));
+-			pixbutt->clicked.connect (bind (slot (*this, &FTmainwin::link_clicked_events), pixbutt));
++			pixbutt->clicked.connect (bind (mem_fun (*this, &FTmainwin::link_clicked_events), pixbutt));
+ 			
+ 			pixbutt->set_normal_bitmap (wxBitmap(link_normal_xpm));
+ 			pixbutt->set_selected_bitmap (wxBitmap(link_selected_xpm));
+@@ -1350,7 +1350,7 @@
+ 		pixbutt = _inspecSpecTypeButton[i] = new PixButton(_inspecPanels[i], FT_InSpecTypeId, false, wxDefaultPosition, wxSize(_bwidth, _bheight));
+ 		_inspecSpecTypeButton[i]->SetFont(_buttFont);
+ 		_inspecSpecTypeButton[i]->SetToolTip(wxT("Spectrogram Plot"));
+-		pixbutt->clicked.connect (bind (slot (*this, &FTmainwin::plot_clicked_events), pixbutt));
++		pixbutt->clicked.connect (bind (mem_fun (*this, &FTmainwin::plot_clicked_events), pixbutt));
+ 		pixbutt->set_normal_bitmap (wxBitmap(specplot_normal_xpm));
+ 		pixbutt->set_selected_bitmap (wxBitmap(specplot_selected_xpm));
+ 		pixbutt->set_focus_bitmap (wxBitmap(specplot_focus_xpm));
+@@ -1361,7 +1361,7 @@
+ 		pixbutt = _inspecPlotLineTypeButton[i] = new PixButton(_inspecPanels[i], FT_InSpecTypeId, false, wxDefaultPosition, wxSize(_bwidth, _bheight));
+ 		_inspecPlotLineTypeButton[i]->SetFont(_buttFont);
+ 		_inspecPlotLineTypeButton[i]->SetToolTip(wxT("Line Plot"));
+-		pixbutt->clicked.connect (bind (slot (*this, &FTmainwin::plot_clicked_events), pixbutt));
++		pixbutt->clicked.connect (bind (mem_fun (*this, &FTmainwin::plot_clicked_events), pixbutt));
+ 		pixbutt->set_normal_bitmap (wxBitmap(lineplot_normal_xpm));
+ 		pixbutt->set_selected_bitmap (wxBitmap(lineplot_selected_xpm));
+ 		pixbutt->set_focus_bitmap (wxBitmap(lineplot_focus_xpm));
+@@ -1372,7 +1372,7 @@
+ 		pixbutt = _inspecPlotSolidTypeButton[i] = new PixButton(_inspecPanels[i], FT_InSpecTypeId, false, wxDefaultPosition, wxSize(_bwidth, _bheight));
+ 		_inspecPlotSolidTypeButton[i]->SetFont(_buttFont);
+ 		_inspecPlotSolidTypeButton[i]->SetToolTip(wxT("Filled Plot"));
+-		pixbutt->clicked.connect (bind (slot (*this, &FTmainwin::plot_clicked_events), pixbutt));
++		pixbutt->clicked.connect (bind (mem_fun (*this, &FTmainwin::plot_clicked_events), pixbutt));
+ 		pixbutt->set_normal_bitmap (wxBitmap(barplot_normal_xpm));
+ 		pixbutt->set_selected_bitmap (wxBitmap(barplot_selected_xpm));
+ 		pixbutt->set_focus_bitmap (wxBitmap(barplot_focus_xpm));
+@@ -1401,7 +1401,7 @@
+ 		pixbutt = _outspecSpecTypeButton[i] = new PixButton(_outspecPanels[i], FT_OutSpecTypeId, false, wxDefaultPosition, wxSize(_bwidth, _bheight));
+ 		_outspecSpecTypeButton[i]->SetFont(_buttFont);
+ 		_outspecSpecTypeButton[i]->SetToolTip(wxT("Spectrogram Plot"));
+-		pixbutt->clicked.connect (bind (slot (*this, &FTmainwin::plot_clicked_events), pixbutt));
++		pixbutt->clicked.connect (bind (mem_fun (*this, &FTmainwin::plot_clicked_events), pixbutt));
+ 		pixbutt->set_normal_bitmap (wxBitmap(specplot_normal_xpm));
+ 		pixbutt->set_selected_bitmap (wxBitmap(specplot_selected_xpm));
+ 		pixbutt->set_focus_bitmap (wxBitmap(specplot_focus_xpm));
+@@ -1412,7 +1412,7 @@
+ 		pixbutt = _outspecPlotLineTypeButton[i] = new PixButton(_outspecPanels[i], FT_OutSpecTypeId, false, wxDefaultPosition, wxSize(_bwidth, _bheight));
+ 		_outspecPlotLineTypeButton[i]->SetFont(_buttFont);
+ 		_outspecPlotLineTypeButton[i]->SetToolTip(wxT("Line Plot"));
+-		pixbutt->clicked.connect (bind (slot (*this, &FTmainwin::plot_clicked_events), pixbutt));
++		pixbutt->clicked.connect (bind (mem_fun (*this, &FTmainwin::plot_clicked_events), pixbutt));
+ 		pixbutt->set_normal_bitmap (wxBitmap(lineplot_normal_xpm));
+ 		pixbutt->set_selected_bitmap (wxBitmap(lineplot_selected_xpm));
+ 		pixbutt->set_focus_bitmap (wxBitmap(lineplot_focus_xpm));
+@@ -1423,7 +1423,7 @@
+ 		pixbutt = _outspecPlotSolidTypeButton[i] = new PixButton(_outspecPanels[i], FT_OutSpecTypeId, false, wxDefaultPosition, wxSize(_bwidth, _bheight));
+ 		_outspecPlotSolidTypeButton[i]->SetFont(_buttFont);
+ 		_outspecPlotSolidTypeButton[i]->SetToolTip(wxT("Filled Plot"));
+-		pixbutt->clicked.connect (bind (slot (*this, &FTmainwin::plot_clicked_events), pixbutt));
++		pixbutt->clicked.connect (bind (mem_fun (*this, &FTmainwin::plot_clicked_events), pixbutt));
+ 		pixbutt->set_normal_bitmap (wxBitmap(barplot_normal_xpm));
+ 		pixbutt->set_selected_bitmap (wxBitmap(barplot_selected_xpm));
+ 		pixbutt->set_focus_bitmap (wxBitmap(barplot_focus_xpm));
+@@ -2963,7 +2963,7 @@
+ 					_bypassButtons[rowcnt][i] = pixbutt;
+ 					//buttsizer->Add ( _bypassButtons[rowcnt][i] = new wxButton(rowpanels[i], FT_BypassBase, wxT("B"),
+ 					//							  wxDefaultPosition, wxSize(_bwidth,-1)), 1, 0,0);
+-					pixbutt->clicked.connect (bind (slot (*this, &FTmainwin::bypass_clicked_events), pixbutt));
++					pixbutt->clicked.connect (bind (mem_fun (*this, &FTmainwin::bypass_clicked_events), pixbutt));
+ 					
+ 					buttsizer->Add (pixbutt, 0, 0, 0);
+ 					_bypassButtons[rowcnt][i]->SetFont(_buttFont);
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/FTmainwin.hpp freqtweak-update/src/FTmainwin.hpp
+--- freqtweak-0.7.2/src/FTmainwin.hpp	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/FTmainwin.hpp	2010-03-20 14:37:03.000000000 -0500
+@@ -114,7 +114,7 @@
+  *
+  */
+ 
+-class FTmainwin : public wxFrame, public SigC::Object
++class FTmainwin : public wxFrame, public sigc::trackable
+ {
+   public:
+ 	// ctor(s)
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/FTmodulatorDialog.cpp freqtweak-update/src/FTmodulatorDialog.cpp
+--- freqtweak-0.7.2/src/FTmodulatorDialog.cpp	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/FTmodulatorDialog.cpp	2010-03-20 14:37:03.000000000 -0500
+@@ -39,7 +39,7 @@
+ #include "FTmodulatorGui.hpp"
+ 
+ #include <sigc++/sigc++.h>
+-using namespace SigC;
++using namespace sigc;
+ 
+ enum {
+ 	ID_AddButton=8000,
+@@ -206,7 +206,7 @@
+ 			
+ 			FTspectralEngine *engine = procpath->getSpectralEngine();
+ 
+-			engine->ModulatorAdded.connect( bind (slot (*this, &FTmodulatorDialog::onModulatorAdded), i));
++			engine->ModulatorAdded.connect( bind (mem_fun (*this, &FTmodulatorDialog::onModulatorAdded), i));
+ 			
+  			vector<FTmodulatorI*> modlist;
+ 			modlist.clear();
+@@ -238,8 +238,8 @@
+ 
+ 	FTmodulatorGui *modgui = new FTmodulatorGui(FTioSupport::instance(), mod, _channelScroller, -1);
+ 	
+-	modgui->RemovalRequest.connect (bind (slot (*this, &FTmodulatorDialog::onModulatorDeath), mod));
+-	mod->GoingAway.connect ( slot (*this, &FTmodulatorDialog::onModulatorDeath));
++	modgui->RemovalRequest.connect (bind (mem_fun (*this, &FTmodulatorDialog::onModulatorDeath), mod));
++	mod->GoingAway.connect ( mem_fun (*this, &FTmodulatorDialog::onModulatorDeath));
+ 	
+ 	_modulatorGuis[mod] = modgui;
+ 	
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/FTmodulatorDialog.hpp freqtweak-update/src/FTmodulatorDialog.hpp
+--- freqtweak-0.7.2/src/FTmodulatorDialog.hpp	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/FTmodulatorDialog.hpp	2010-03-20 14:37:03.000000000 -0500
+@@ -34,7 +34,7 @@
+ class FTmodulatorI;
+ class FTmodulatorGui;
+ 
+-class FTmodulatorDialog : public wxFrame, public SigC::Object
++class FTmodulatorDialog : public wxFrame, public sigc::trackable
+ {
+   public:
+ 	// ctor(s)
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/FTmodulatorGui.cpp freqtweak-update/src/FTmodulatorGui.cpp
+--- freqtweak-0.7.2/src/FTmodulatorGui.cpp	2009-07-11 15:45:39.000000000 -0500
++++ freqtweak-update/src/FTmodulatorGui.cpp	2010-03-20 14:37:03.000000000 -0500
+@@ -26,7 +26,7 @@
+ #include "FTprocessPath.hpp"
+ #include "FTprocI.hpp"
+ 
+-using namespace SigC;
++using namespace sigc;
+ 
+ enum
+ {
+@@ -333,7 +333,7 @@
+ 	//		  1, wxEXPAND|wxALL, 2);
+ 
+ 
+-	_modulator->GoingAway.connect ( slot (*this, &FTmodulatorGui::onModulatorDeath));
++	_modulator->GoingAway.connect ( mem_fun (*this, &FTmodulatorGui::onModulatorDeath));
+ 	
+ 	mainSizer->Add (controlSizer, 1, wxEXPAND|wxALL, 2);
+ 	
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/FTmodulatorGui.hpp freqtweak-update/src/FTmodulatorGui.hpp
+--- freqtweak-0.7.2/src/FTmodulatorGui.hpp	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/FTmodulatorGui.hpp	2010-03-20 14:37:03.000000000 -0500
+@@ -37,7 +37,7 @@
+ class FTspectralEngine;
+ 
+ class FTmodulatorGui
+-	: public wxPanel, public SigC::Object
++	: public wxPanel, public sigc::trackable
+ {
+    public:
+ 	FTmodulatorGui(FTioSupport * iosup, FTmodulatorI * mod,
+@@ -50,7 +50,7 @@
+ 	virtual ~FTmodulatorGui();
+ 
+ 
+-	SigC::Signal0<void> RemovalRequest;
++	sigc::signal0<void> RemovalRequest;
+ 	
+    protected:
+ 
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/FTmodulatorI.hpp freqtweak-update/src/FTmodulatorI.hpp
+--- freqtweak-0.7.2/src/FTmodulatorI.hpp	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/FTmodulatorI.hpp	2010-03-20 14:37:03.000000000 -0500
+@@ -71,7 +71,7 @@
+ 	virtual bool getBypassed() { return _bypassed; }
+ 	virtual void setBypassed(bool byp) { _bypassed = byp; }
+ 
+-	SigC::Signal1<void, FTmodulatorI *> GoingAway;
++	sigc::signal1<void, FTmodulatorI *> GoingAway;
+ 
+ 
+ 	
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/FTpresetBlender.cpp freqtweak-update/src/FTpresetBlender.cpp
+--- freqtweak-0.7.2/src/FTpresetBlender.cpp	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/FTpresetBlender.cpp	2010-03-20 14:37:03.000000000 -0500
+@@ -102,7 +102,7 @@
+ 			// compare the proctype
+ 
+ 			if (pvec.size() <= n ||  pm->getName() != pvec[n]->getName()) {
+-				fprintf (stderr, "mismatch at %d %d: %s   %u\n", i, n, pm->getName().c_str(), pvec.size());
++				fprintf (stderr, "mismatch at %d %d: %s   %u\n", i, n, pm->getName().c_str(), (unsigned int) pvec.size());
+ 				delete procvec;
+ 				return false;
+ 			}
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/FTprocOrderDialog.cpp freqtweak-update/src/FTprocOrderDialog.cpp
+--- freqtweak-0.7.2/src/FTprocOrderDialog.cpp	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/FTprocOrderDialog.cpp	2010-03-20 14:37:03.000000000 -0500
+@@ -210,7 +210,7 @@
+ 	for (; mod != mlist.end(); ++mod)
+ 	{
+ 		item.SetText (wxString::FromAscii ((*mod)->getName().c_str()));
+-		item.SetData ((unsigned) (*mod));
++		item.SetData ((*mod));
+ 		item.SetId(pos++);
+ 		
+ 		_sourceList->InsertItem(item);
+@@ -230,7 +230,7 @@
+ 		for (unsigned int n=0; n < procmods.size(); ++n)
+ 		{
+ 			item.SetText (wxString::FromAscii (procmods[n]->getName().c_str()));
+-			item.SetData ((unsigned) procmods[n]);
++			item.SetData ( procmods[n]);
+ 			item.SetId (n);
+ 			
+ 			_targetList->InsertItem(item);
+@@ -441,7 +441,7 @@
+ 
+ 		if (proc) {
+ 			item.SetText (wxString::FromAscii (proc->getName().c_str()));
+-			item.SetData ((unsigned)proc);
++			item.SetData (proc);
+ 			item.SetId (_targetList->GetItemCount());
+ 			
+ 			_targetList->InsertItem(item);
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/FTspectralEngine.hpp freqtweak-update/src/FTspectralEngine.hpp
+--- freqtweak-0.7.2/src/FTspectralEngine.hpp	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/FTspectralEngine.hpp	2010-03-20 14:37:03.000000000 -0500
+@@ -169,7 +169,7 @@
+ 	FTmodulatorI * getModulator ( unsigned int num);
+ 	bool hasModulator (FTmodulatorI * procmod);
+ 
+-	SigC::Signal1<void, FTmodulatorI *> ModulatorAdded;
++	sigc::signal1<void, FTmodulatorI *> ModulatorAdded;
+ 
+ 
+ 	
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/FTutils.hpp freqtweak-update/src/FTutils.hpp
+--- freqtweak-0.7.2/src/FTutils.hpp	2009-07-11 16:15:00.000000000 -0500
++++ freqtweak-update/src/FTutils.hpp	2010-03-20 14:42:59.000000000 -0500
+@@ -23,6 +23,7 @@
+ #include <iostream>
+ #include <sstream>
+ #include <cmath>
++#include <stdint.h>
+ 
+ //#include <wx/string.h>
+ 
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/RingBuffer.hpp freqtweak-update/src/RingBuffer.hpp
+--- freqtweak-0.7.2/src/RingBuffer.hpp	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/RingBuffer.hpp	2010-03-20 14:37:03.000000000 -0500
+@@ -15,7 +15,7 @@
+     along with this program; if not, write to the Free Software
+     Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ 
+-    $Id: RingBuffer.hpp,v 1.1.1.1 2002/10/13 04:13:34 essej Exp $
++    $Id: RingBuffer.hpp,v 1.1 2002/10/13 04:13:34 essej Exp $
+ */
+ 
+ #ifndef __pbd_ringbuffer_h__
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/ftlogo.xpm freqtweak-update/src/ftlogo.xpm
+--- freqtweak-0.7.2/src/ftlogo.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/ftlogo.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * ftlogo_xpm[] = {
++static const char * ftlogo_xpm[] = {
+ "70 40 752 2",
+ "  	c None",
+ ". 	c #D6D6D6",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pix_button.hpp freqtweak-update/src/pix_button.hpp
+--- freqtweak-0.7.2/src/pix_button.hpp	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pix_button.hpp	2010-03-20 14:37:03.000000000 -0500
+@@ -66,14 +66,14 @@
+ 	};
+ 
+ 	// int argument is mouse button as above
+-	SigC::Signal1<void,int> pressed;
+-	SigC::Signal1<void,int> released;
+-	SigC::Signal1<void,int> clicked;
++	sigc::signal1<void,int> pressed;
++	sigc::signal1<void,int> released;
++	sigc::signal1<void,int> clicked;
+ 	
+-	SigC::Signal0<void> enter;
+-	SigC::Signal0<void> leave;
++	sigc::signal0<void> enter;
++	sigc::signal0<void> leave;
+ 
+-	SigC::Signal0<void> bind_request;
++	sigc::signal0<void> bind_request;
+ 	
+   protected:
+ 
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/barplot_active.xpm freqtweak-update/src/pixmaps/barplot_active.xpm
+--- freqtweak-0.7.2/src/pixmaps/barplot_active.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/barplot_active.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * barplot_active_xpm[] = {
++static const char * barplot_active_xpm[] = {
+ "20 20 4 1",
+ " 	c None",
+ ".	c #DDCD7C",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/barplot_disabled.xpm freqtweak-update/src/pixmaps/barplot_disabled.xpm
+--- freqtweak-0.7.2/src/pixmaps/barplot_disabled.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/barplot_disabled.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * barplot_disabled_xpm[] = {
++static const char * barplot_disabled_xpm[] = {
+ "20 20 4 1",
+ " 	c None",
+ ".	c #2D3D4E",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/barplot_focus.xpm freqtweak-update/src/pixmaps/barplot_focus.xpm
+--- freqtweak-0.7.2/src/pixmaps/barplot_focus.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/barplot_focus.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * barplot_focus_xpm[] = {
++static const char * barplot_focus_xpm[] = {
+ "20 20 4 1",
+ " 	c None",
+ ".	c #5A80AA",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/barplot_normal.xpm freqtweak-update/src/pixmaps/barplot_normal.xpm
+--- freqtweak-0.7.2/src/pixmaps/barplot_normal.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/barplot_normal.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * barplot_normal_xpm[] = {
++static const char * barplot_normal_xpm[] = {
+ "20 20 4 1",
+ " 	c None",
+ ".	c #3C5572",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/barplot_selected.xpm freqtweak-update/src/pixmaps/barplot_selected.xpm
+--- freqtweak-0.7.2/src/pixmaps/barplot_selected.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/barplot_selected.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * barplot_selected_xpm[] = {
++static const char * barplot_selected_xpm[] = {
+ "20 20 4 1",
+ " 	c None",
+ ".	c #7A9BBD",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/bypass_active.xpm freqtweak-update/src/pixmaps/bypass_active.xpm
+--- freqtweak-0.7.2/src/pixmaps/bypass_active.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/bypass_active.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * bypass_active_xpm[] = {
++static const char * bypass_active_xpm[] = {
+ "20 20 44 1",
+ " 	c None",
+ ".	c #DDCD7C",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/bypass_disabled.xpm freqtweak-update/src/pixmaps/bypass_disabled.xpm
+--- freqtweak-0.7.2/src/pixmaps/bypass_disabled.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/bypass_disabled.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * bypass_disabled_xpm[] = {
++static const char * bypass_disabled_xpm[] = {
+ "20 20 39 1",
+ " 	c None",
+ ".	c #485461",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/bypass_focus.xpm freqtweak-update/src/pixmaps/bypass_focus.xpm
+--- freqtweak-0.7.2/src/pixmaps/bypass_focus.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/bypass_focus.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * bypass_focus_xpm[] = {
++static const char * bypass_focus_xpm[] = {
+ "20 20 46 1",
+ " 	c None",
+ ".	c #5A80AA",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/bypass_normal.xpm freqtweak-update/src/pixmaps/bypass_normal.xpm
+--- freqtweak-0.7.2/src/pixmaps/bypass_normal.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/bypass_normal.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * bypass_normal_xpm[] = {
++static const char * bypass_normal_xpm[] = {
+ "20 20 42 1",
+ " 	c None",
+ ".	c #3C5572",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/bypass_selected.xpm freqtweak-update/src/pixmaps/bypass_selected.xpm
+--- freqtweak-0.7.2/src/pixmaps/bypass_selected.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/bypass_selected.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * bypass_selected_xpm[] = {
++static const char * bypass_selected_xpm[] = {
+ "20 20 46 1",
+ " 	c None",
+ ".	c #7A9BBD",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/grid_active.xpm freqtweak-update/src/pixmaps/grid_active.xpm
+--- freqtweak-0.7.2/src/pixmaps/grid_active.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/grid_active.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * grid_active_xpm[] = {
++static const char * grid_active_xpm[] = {
+ "20 20 3 1",
+ " 	c None",
+ ".	c #DDCD7C",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/grid_disabled.xpm freqtweak-update/src/pixmaps/grid_disabled.xpm
+--- freqtweak-0.7.2/src/pixmaps/grid_disabled.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/grid_disabled.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * grid_disabled_xpm[] = {
++static const char * grid_disabled_xpm[] = {
+ "20 20 3 1",
+ " 	c None",
+ ".	c #3B4754",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/grid_focus.xpm freqtweak-update/src/pixmaps/grid_focus.xpm
+--- freqtweak-0.7.2/src/pixmaps/grid_focus.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/grid_focus.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * grid_focus_xpm[] = {
++static const char * grid_focus_xpm[] = {
+ "20 20 3 1",
+ " 	c None",
+ ".	c #5A80AA",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/grid_normal.xpm freqtweak-update/src/pixmaps/grid_normal.xpm
+--- freqtweak-0.7.2/src/pixmaps/grid_normal.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/grid_normal.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * grid_normal_xpm[] = {
++static const char * grid_normal_xpm[] = {
+ "20 20 3 1",
+ " 	c None",
+ ".	c #3C5572",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/grid_selected.xpm freqtweak-update/src/pixmaps/grid_selected.xpm
+--- freqtweak-0.7.2/src/pixmaps/grid_selected.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/grid_selected.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * grid_selected_xpm[] = {
++static const char * grid_selected_xpm[] = {
+ "20 20 3 1",
+ " 	c None",
+ ".	c #7A9BBD",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/gridsnap_active.xpm freqtweak-update/src/pixmaps/gridsnap_active.xpm
+--- freqtweak-0.7.2/src/pixmaps/gridsnap_active.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/gridsnap_active.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * gridsnap_active_xpm[] = {
++static const char * gridsnap_active_xpm[] = {
+ "20 20 4 1",
+ " 	c None",
+ ".	c #DDCD7C",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/gridsnap_disabled.xpm freqtweak-update/src/pixmaps/gridsnap_disabled.xpm
+--- freqtweak-0.7.2/src/pixmaps/gridsnap_disabled.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/gridsnap_disabled.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * gridsnap_disabled_xpm[] = {
++static const char * gridsnap_disabled_xpm[] = {
+ "20 20 4 1",
+ " 	c None",
+ ".	c #414C58",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/gridsnap_focus.xpm freqtweak-update/src/pixmaps/gridsnap_focus.xpm
+--- freqtweak-0.7.2/src/pixmaps/gridsnap_focus.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/gridsnap_focus.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * gridsnap_focus_xpm[] = {
++static const char * gridsnap_focus_xpm[] = {
+ "20 20 4 1",
+ " 	c None",
+ ".	c #5A80AA",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/gridsnap_normal.xpm freqtweak-update/src/pixmaps/gridsnap_normal.xpm
+--- freqtweak-0.7.2/src/pixmaps/gridsnap_normal.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/gridsnap_normal.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * gridsnap_normal_xpm[] = {
++static const char * gridsnap_normal_xpm[] = {
+ "20 20 4 1",
+ " 	c None",
+ ".	c #3C5572",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/gridsnap_selected.xpm freqtweak-update/src/pixmaps/gridsnap_selected.xpm
+--- freqtweak-0.7.2/src/pixmaps/gridsnap_selected.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/gridsnap_selected.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * gridsnap_selected_xpm[] = {
++static const char * gridsnap_selected_xpm[] = {
+ "20 20 4 1",
+ " 	c None",
+ ".	c #7A9BBD",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/lineplot_active.xpm freqtweak-update/src/pixmaps/lineplot_active.xpm
+--- freqtweak-0.7.2/src/pixmaps/lineplot_active.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/lineplot_active.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * lineplot_active_xpm[] = {
++static const char * lineplot_active_xpm[] = {
+ "20 20 5 1",
+ " 	c None",
+ ".	c #DDCD7C",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/lineplot_disabled.xpm freqtweak-update/src/pixmaps/lineplot_disabled.xpm
+--- freqtweak-0.7.2/src/pixmaps/lineplot_disabled.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/lineplot_disabled.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * lineplot_disabled_xpm[] = {
++static const char * lineplot_disabled_xpm[] = {
+ "20 20 5 1",
+ " 	c None",
+ ".	c #495664",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/lineplot_focus.xpm freqtweak-update/src/pixmaps/lineplot_focus.xpm
+--- freqtweak-0.7.2/src/pixmaps/lineplot_focus.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/lineplot_focus.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * lineplot_focus_xpm[] = {
++static const char * lineplot_focus_xpm[] = {
+ "20 20 5 1",
+ " 	c None",
+ ".	c #5A80AA",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/lineplot_normal.xpm freqtweak-update/src/pixmaps/lineplot_normal.xpm
+--- freqtweak-0.7.2/src/pixmaps/lineplot_normal.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/lineplot_normal.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * lineplot_normal_xpm[] = {
++static const char * lineplot_normal_xpm[] = {
+ "20 20 5 1",
+ " 	c None",
+ ".	c #3C5572",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/lineplot_selected.xpm freqtweak-update/src/pixmaps/lineplot_selected.xpm
+--- freqtweak-0.7.2/src/pixmaps/lineplot_selected.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/lineplot_selected.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * lineplot_selected_xpm[] = {
++static const char * lineplot_selected_xpm[] = {
+ "20 20 5 1",
+ " 	c None",
+ ".	c #7A9BBD",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/link_active.xpm freqtweak-update/src/pixmaps/link_active.xpm
+--- freqtweak-0.7.2/src/pixmaps/link_active.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/link_active.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * link_active_xpm[] = {
++static const char * link_active_xpm[] = {
+ "20 20 68 1",
+ " 	c None",
+ ".	c #DDCD7C",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/link_disabled.xpm freqtweak-update/src/pixmaps/link_disabled.xpm
+--- freqtweak-0.7.2/src/pixmaps/link_disabled.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/link_disabled.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * link_disabled_xpm[] = {
++static const char * link_disabled_xpm[] = {
+ "20 20 58 1",
+ " 	c None",
+ ".	c #444D57",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/link_focus.xpm freqtweak-update/src/pixmaps/link_focus.xpm
+--- freqtweak-0.7.2/src/pixmaps/link_focus.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/link_focus.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * link_focus_xpm[] = {
++static const char * link_focus_xpm[] = {
+ "20 20 70 1",
+ " 	c None",
+ ".	c #5A80AA",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/link_normal.xpm freqtweak-update/src/pixmaps/link_normal.xpm
+--- freqtweak-0.7.2/src/pixmaps/link_normal.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/link_normal.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * link_normal_xpm[] = {
++static const char * link_normal_xpm[] = {
+ "20 20 69 1",
+ " 	c None",
+ ".	c #3C5572",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/link_selected.xpm freqtweak-update/src/pixmaps/link_selected.xpm
+--- freqtweak-0.7.2/src/pixmaps/link_selected.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/link_selected.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * link_selected_xpm[] = {
++static const char * link_selected_xpm[] = {
+ "20 20 68 1",
+ " 	c None",
+ ".	c #7A9BBD",
+Binary files freqtweak-0.7.2/src/pixmaps/plot_buttons.xcf and freqtweak-update/src/pixmaps/plot_buttons.xcf differ
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/specplot_active.xpm freqtweak-update/src/pixmaps/specplot_active.xpm
+--- freqtweak-0.7.2/src/pixmaps/specplot_active.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/specplot_active.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * specplot_active_xpm[] = {
++static const char * specplot_active_xpm[] = {
+ "20 20 59 1",
+ " 	c None",
+ ".	c #DDCD7C",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/specplot_disabled.xpm freqtweak-update/src/pixmaps/specplot_disabled.xpm
+--- freqtweak-0.7.2/src/pixmaps/specplot_disabled.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/specplot_disabled.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * specplot_disabled_xpm[] = {
++static const char * specplot_disabled_xpm[] = {
+ "20 20 59 1",
+ " 	c None",
+ ".	c #495664",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/specplot_focus.xpm freqtweak-update/src/pixmaps/specplot_focus.xpm
+--- freqtweak-0.7.2/src/pixmaps/specplot_focus.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/specplot_focus.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * specplot_focus_xpm[] = {
++static const char * specplot_focus_xpm[] = {
+ "20 20 59 1",
+ " 	c None",
+ ".	c #5A80AA",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/specplot_normal.xpm freqtweak-update/src/pixmaps/specplot_normal.xpm
+--- freqtweak-0.7.2/src/pixmaps/specplot_normal.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/specplot_normal.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * specplot_normal_xpm[] = {
++static const char * specplot_normal_xpm[] = {
+ "20 20 59 1",
+ " 	c None",
+ ".	c #3C5572",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/pixmaps/specplot_selected.xpm freqtweak-update/src/pixmaps/specplot_selected.xpm
+--- freqtweak-0.7.2/src/pixmaps/specplot_selected.xpm	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/pixmaps/specplot_selected.xpm	2010-03-20 14:37:03.000000000 -0500
+@@ -1,5 +1,5 @@
+ /* XPM */
+-static char * specplot_selected_xpm[] = {
++static const char * specplot_selected_xpm[] = {
+ "20 20 59 1",
+ " 	c None",
+ ".	c #7A9BBD",
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/slider_bar.hpp freqtweak-update/src/slider_bar.hpp
+--- freqtweak-0.7.2/src/slider_bar.hpp	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/slider_bar.hpp	2010-03-20 14:37:03.000000000 -0500
+@@ -120,10 +120,10 @@
+ 	int get_decimal_digits () { return _decimal_digits; }
+ 	
+ 	
+-	SigC::Signal0<void> pressed;
+-	SigC::Signal0<void> released;
+-	SigC::Signal1<void, float> value_changed;
+-	SigC::Signal0<void> bind_request;
++	sigc::signal0<void> pressed;
++	sigc::signal0<void> released;
++	sigc::signal1<void, float> value_changed;
++	sigc::signal0<void> bind_request;
+ 	
+   protected:
+ 
+diff -U 3 -H -d -r -N -- freqtweak-0.7.2/src/spin_box.hpp freqtweak-update/src/spin_box.hpp
+--- freqtweak-0.7.2/src/spin_box.hpp	2009-07-11 15:36:49.000000000 -0500
++++ freqtweak-update/src/spin_box.hpp	2010-03-20 14:37:03.000000000 -0500
+@@ -101,10 +101,10 @@
+ 	float get_increment () { return _increment; }
+ 	void set_increment (float val) { _increment = val; }
+ 	
+-	SigC::Signal0<void> pressed;
+-	SigC::Signal0<void> released;
+-	SigC::Signal1<void, float> value_changed;
+-	SigC::Signal0<void> bind_request;
++	sigc::signal0<void> pressed;
++	sigc::signal0<void> released;
++	sigc::signal1<void, float> value_changed;
++	sigc::signal0<void> bind_request;
+ 	
+   protected:
+ 
