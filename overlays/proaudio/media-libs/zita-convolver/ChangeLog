@@ -1,6 +1,15 @@
-# ChangeLog for media-sound/zita-convolver
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# ChangeLog for media-libs/zita-convolver
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*zita-convolver-2.0.0 (19 Jan 2011)
+
+  19 Jan 2011; Gavin Pryke <gavinlee303@googlemail.com>
+  -files/digest-zita-convolver-0.1.0, -zita-convolver-1.0.0.ebuild,
+  -files/zita-convolver-1.0.0-makefile.patch, +zita-convolver-2.0.0.ebuild,
+  +files/zita-convolver-2.0.0-Makefile.patch:
+  update makefile patch and bump to 2.0.0. remove 1.0.0 that is not available
+  in official upstream repo.
 
   08 Jan 2008; Dominique Michel <dominique.michel@citycable.ch> zita-convolver-
   0.1.0: Initial ebuild
