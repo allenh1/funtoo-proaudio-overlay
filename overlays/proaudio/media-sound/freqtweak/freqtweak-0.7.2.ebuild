@@ -18,7 +18,7 @@ IUSE=""
 
 DEPEND="=x11-libs/wxGTK-2.8*
 	>=sci-libs/fftw-3.0
-	=dev-libs/libsigc++-1.2*
+	dev-libs/libsigc++:2
 	dev-libs/libxml2
 	media-sound/jack-audio-connection-kit"
 RDEPEND="${DEPEND}"
