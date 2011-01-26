@@ -4,15 +4,16 @@
 
 EAPI="2"
 
-inherit base git multilib autotools
+inherit base multilib
 
 DESCRIPTION="Calf is a set of open source instruments and effects for digital audio workstations"
 HOMEPAGE="http://calf.sf.net/"
-EGIT_REPO_URI="git://repo.or.cz/calf.git"
+SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
+RESTRICT="mirror"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="debug dssi +jack +lash +lv2 -ladspa"
 
 RDEPEND="dev-libs/glib:2
@@ -30,11 +31,10 @@ DOCS="AUTHORS ChangeLog NEWS README TODO"
 
 src_prepare() {
 	# CXXFLAGS contains -O3
-	sed -i -e "s/-O3//" configure.ac || die
+	sed -i -e "s/-O3//" configure || die
 }
 
 src_configure() {
-	NOCONFIGURE=1 ./autogen.sh
 	econf --with-ladspa-dir="/usr/$(get_libdir)/ladspa" \
 		--with-dssi-dir="/usr/$(get_libdir)/dssi" \
 		--with-lv2-dir="/usr/$(get_libdir)/lv2" \
@@ -45,10 +45,7 @@ src_configure() {
 }
 
 src_install() {
-	# work around sandbox violation of
-	# /etc/gconf/gconf.xml.defaults/.testing.writeability due to gconf makefile
-	# schema install
-	export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL="1"
 	make DESTDIR="${D}" install || die
-	unset GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL
+	# workaround sandbox violation
+	rm -f "${D}/usr/share/icons/hicolor/icon-theme.cache"
 }
