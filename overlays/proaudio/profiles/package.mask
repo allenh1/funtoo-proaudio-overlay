@@ -6,11 +6,6 @@ media-plugins/alsaplayer-tta
 # puredata-externals/hid
 media-plugins/pd-hid
 
-# <gavinlee303@googlemail.com> (23 Nov 2010)
-# Depends on Qt3 which is not in portage any more and apparently doesn't
-# build with Qt3 from the kde-sunset overlay.
-media-sound/fmit
-
 # waf seems broken
 =media-sound/jack-audio-connection-kit-1.9.1
 =media-sound/jack-audio-connection-kit-1.9.2
