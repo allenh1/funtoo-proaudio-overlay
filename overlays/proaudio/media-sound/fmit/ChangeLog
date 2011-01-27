@@ -1,6 +1,12 @@
 # ChangeLog for media-sound/fmit
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*fmit-9999 (27 Jan 2011)
+
+  27 Jan 2011; Gavin Pryke <gavinlee303@googlemail.com> -fmit-0.97.6.ebuild,
+  +fmit-9999.ebuild:
+  remove older Qt3 ebuild and add cmake based live cvs version for Qt4
 
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog
