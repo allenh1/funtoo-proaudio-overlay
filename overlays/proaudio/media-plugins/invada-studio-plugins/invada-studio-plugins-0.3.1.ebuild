@@ -1,10 +1,10 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 #Thanks to ssuominen for his assistance with the creation of this ebuild
 EAPI=2
-inherit eutils toolchain-funcs
+inherit eutils toolchain-funcs multilib
 
 DESCRIPTION="Invada ladspa package, contains: Compressor, Filters, Reverb, Input Processor, Tube Simulator"
 HOMEPAGE="http://www.invadarecords.com/Downloads.php?ID=00000263"
@@ -13,12 +13,15 @@ LICENSE="GPL-2"
 
 SLOT=0
 KEYWORDS="~amd64 ~x86"
+IUSE=""
 
 DEPEND=">=media-libs/ladspa-sdk-1.13"
 RDEPEND="${DEPEND}"
 
 src_prepare() {
 	epatch "${FILESDIR}"/0.3.1-ladspa.patch
+	# multilib-strict workaround
+	sed -i -e "s|/lib/|/$(get_libdir)/|" Makefile || die
 }
 
 src_compile() {
@@ -28,5 +31,5 @@ src_compile() {
 
 src_install() {
 	emake DESTDIR="${D}" install || die
-	dodoc COPYING CREDITS README
+	dodoc CREDITS README
 }
