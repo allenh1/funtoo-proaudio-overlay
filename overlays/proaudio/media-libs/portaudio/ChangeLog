@@ -1,6 +1,10 @@
 # ChangeLog for media-libs/portaudio
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  07 Feb 2011; Hakan Demiralp <keenblade@tuxfamily.org> portaudio-9999.ebuild:
+  upstream changed svn repo uri, so ebuild is adjusted accordingly wrt msg03826
+  by yermandu
 
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> -portaudio-19.ebuild,
   -portaudio-19-r1.ebuild, -portaudio-19-r2.ebuild,

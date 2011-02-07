@@ -1,9 +1,10 @@
-# Copyright 1999-2004 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /cvsroot/jacklab/gentoo/media-libs/portaudio/portaudio-19.ebuild,v 1.1.1.1 2006/04/10 11:22:11 gimpel Exp $
 
 inherit eutils subversion #fetch-tools
-ESVN_REPO_URI="https://www.portaudio.com/repos/portaudio/branches/v19-devel"
+
+ESVN_REPO_URI="https://www.portaudio.com/repos/portaudio/trunk"
 DESCRIPTION="An open-source cross platform audio API."
 HOMEPAGE="http://www.portaudio.com"
 SRC_URI=""
@@ -12,7 +13,6 @@ url="http://portaudio.com/archives/pa_snapshot_v19.tar.gz"
 SLOT="19"
 LICENSE="GPL-2"
 KEYWORDS=""
-
 IUSE="jack alsa oss doc"
 
 RDEPEND="virtual/libc"
@@ -30,7 +30,7 @@ src_unpack() {
 
 src_compile() {
 	scons_compile(){
-		mkdir -p ${D}/usr
+		mkdir -p "${D}"/usr
 		local myconf="enableShared=1 prefix=${D}/usr enableStatic=0 enableAsserts=0 enableCxx=1"
 		! use jack;	myconf="${myconf} useJACK=$?"
 		! use alsa; myconf="${myconf} useALSA=$?"
@@ -86,4 +86,3 @@ pkg_postinst(){
 	einfo
 	einfo "to fix apps which linked against portaudio-19"
 }
-
