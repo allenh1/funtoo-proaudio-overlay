@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils qt3
+inherit eutils
 
 DESCRIPTION="A Qt application to control the JACK Audio Connection Kit and ALSA sequencer connections."
 HOMEPAGE="http://qjackctl.sourceforge.net/"

@@ -1,6 +1,10 @@
 # ChangeLog for media-sound/qjackctl
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  09 Feb 2011; Frieder Buerzele <evermind@tuxfamily.org>;
+  qjackctl-0.2.23.ebuild:
+  removed missing inheritance: qt3
 
   09 Mar 2010; Hakan Demiralp <keenblade@tuxfamily.org>
   qjackctl-9999.ebuild:
