@@ -1,6 +1,13 @@
 # ChangeLog for media-sound/kguitar
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*kguitar-0.6_pre1 (10 Feb 2011)
+
+  10 Feb 2011; Hakan Demiralp <keenblade@tuxfamily.org> -kguitar-0.5.ebuild,
+  +kguitar-0.6_pre1.ebuild:
+  kguitar-0.6_pre1: added kde4 port of kguitar, removing old kde3 version, wrt
+  msg03834 by Alexandros Diamantidis
 
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog
