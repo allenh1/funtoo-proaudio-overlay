@@ -4,6 +4,7 @@
 
   20 Feb 2011; Dominique Michel <dominique_libreæsourceforge.net>
   The Makefile respect DESTDIR now. Changed the ebuild accordingly.
+  Fixed the Python shebangs. Fixed fvwm depend on USE=png.
   
   23 Jun 2008; Dominique Michel <dominique.michel@citycable.ch> The posix bug
   is fixed into the svn, removed the warning and added info about what is needed

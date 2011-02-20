@@ -2,9 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/x11-themes/fvwm-crystal/fvwm-crystal-3.0.4.ebuild,v 1.6 2007/02/04 19:20:09 beandog Exp $
 
-inherit subversion eutils
+PYTHON_DEPEND="2"
 
-EAPI="1"
+inherit subversion eutils python
+
+EAPI="2"
 
 DESCRIPTION="Configurable and full featured theme for FVWM, with lots of transparency. This version add a freedesktop compatible menu"
 HOMEPAGE="http://fvwm-crystal.org/"
@@ -20,7 +22,7 @@ ESVN_REPO_URI="https://fvwm-crystal.svn.sourceforge.net/svnroot/fvwm-crystal"
 # Should work with fvwm-2.5.13, but like portage use the correct fvwm exec name
 # only from 2.5.26 and that I am using this version to develop fvwm-crystal, it
 # is best to use 2.5.26 as dependency.
-RDEPEND=">=x11-wm/fvwm-2.5.26
+RDEPEND=">=x11-wm/fvwm-2.5.26[png]
 	media-gfx/imagemagick
 	|| ( >=x11-misc/stalonetray-0.6.2-r2 x11-misc/trayer )
 	|| ( >=x11-misc/habak-0.2.4.1 x11-misc/hsetroot )
@@ -29,8 +31,16 @@ RDEPEND=">=x11-wm/fvwm-2.5.26
 
 S="${WORKDIR}/${PN}"
 
+pkg_setup() {
+	python_set_active_version 2
+}
+
 src_unpack() {
 	subversion_src_unpack
+}
+
+src_prepare() {
+	python_convert_shebangs -r 2 .
 }
 
 src_compile() {
