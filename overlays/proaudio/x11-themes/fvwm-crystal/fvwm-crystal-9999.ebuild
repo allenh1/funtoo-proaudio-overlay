@@ -23,7 +23,7 @@ ESVN_REPO_URI="https://fvwm-crystal.svn.sourceforge.net/svnroot/fvwm-crystal"
 # only from 2.5.26 and that I am using this version to develop fvwm-crystal, it
 # is best to use 2.5.26 as dependency.
 RDEPEND=">=x11-wm/fvwm-2.5.26[png]
-	media-gfx/imagemagick
+	|| ( media-gfx/imagemagick media-gfx/graphicsmagick[imagemagick] )
 	|| ( >=x11-misc/stalonetray-0.6.2-r2 x11-misc/trayer )
 	|| ( >=x11-misc/habak-0.2.4.1 x11-misc/hsetroot )
 	sys-devel/bc
