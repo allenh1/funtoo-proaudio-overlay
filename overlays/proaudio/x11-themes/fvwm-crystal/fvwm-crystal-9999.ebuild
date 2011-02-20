@@ -31,16 +31,8 @@ RDEPEND=">=x11-wm/fvwm-2.5.26[png]
 
 S="${WORKDIR}/${PN}"
 
-pkg_setup() {
-	python_set_active_version 2
-}
-
 src_unpack() {
 	subversion_src_unpack
-}
-
-src_prepare() {
-	python_convert_shebangs -r 2 .
 }
 
 src_compile() {
