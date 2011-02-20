@@ -2,6 +2,9 @@
 # Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  20 Feb 2011; Dominique Michel <dominique_libreæsourceforge.net>
+  The Makefile respect DESTDIR now. Changed the ebuild accordingly.
+  
   23 Jun 2008; Dominique Michel <dominique.michel@citycable.ch> The posix bug
   is fixed into the svn, removed the warning and added info about what is needed
   to do to the user config.

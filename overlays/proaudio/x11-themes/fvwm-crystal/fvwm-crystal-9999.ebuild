@@ -4,6 +4,8 @@
 
 inherit subversion eutils
 
+EAPI="1"
+
 DESCRIPTION="Configurable and full featured theme for FVWM, with lots of transparency. This version add a freedesktop compatible menu"
 HOMEPAGE="http://fvwm-crystal.org/"
 SRC_URI=""
@@ -34,6 +36,7 @@ src_unpack() {
 src_compile() {
 	sed -i 's/correctpermissions correctpath/correctpermissions/' Makefile || die "sed Makefile failed"
 
+
 	if use session; then
 	    sed -i 's/Exec=fvwm/#Exec=fvwm/' addons/fvwm-crystal.desktop || die "sed failed"
 	    sed -i 's/#Exec=gnome/Exec=gnome/' addons/fvwm-crystal.desktop || die "sed failed"
@@ -48,7 +51,7 @@ src_install() {
 	    rm -f fvwm/recipes/*ACPI
 	fi
 
-	einstall || die "einstall failed"
+	emake DESTDIR="${D}" prefix="/usr" install || die install failed
 
 	dodoc AUTHORS COPYING README INSTALL NEWS ChangeLog doc/*
 	cp -r addons ${D}/usr/share/doc/${PF}/
