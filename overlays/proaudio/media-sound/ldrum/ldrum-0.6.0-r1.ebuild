@@ -1,11 +1,13 @@
-# Copyright 2004 Peter Eschler
+# Copyright 2004-2011 Peter Eschler
 # Copyright 2006 evermind
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 IUSE=""
-inherit kde-functions
-need-qt 3
+# inherit kde-functions
+#need-qt 3
+
+# TODO: this ebuild needs some kde/qt3 eclass work -- will not function
 
 DESCRIPTION="The LDrum is an open-source drummachine that offers ten sample channels, realtime control, a simple pattern sequencer, MIDI support and a Qt-GUI"
 HOMEPAGE="http://ldrum.sf.net/"
@@ -14,7 +16,8 @@ RESTRICT="mirror"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="x86 ~amd64"
+#KEYWORDS="x86 ~amd64"
+KEYWORDS="-*"
 MAKEOPTS="-j1"
 
 DEPEND=">=x11-libs/qt-3.1.1

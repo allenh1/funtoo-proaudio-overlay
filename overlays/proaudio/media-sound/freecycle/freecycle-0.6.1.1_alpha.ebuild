@@ -1,8 +1,9 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils qt3
+# TODO: this ebuild needs some kde/qt3 eclass work -- will not function
+inherit eutils # qt3
 
 MY_P="${P/_alpha/alpha}"
 
@@ -13,7 +14,7 @@ SRC_URI="http://download.savannah.gnu.org/releases/freecycle/${MY_P}.tar.bz2
 		doc? ( http://download.savannah.gnu.org/releases/freecycle/freecycle-manual-1.0.0.tar.gz )"
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="-*"
 
 IUSE="doc oss jack portaudio"
 

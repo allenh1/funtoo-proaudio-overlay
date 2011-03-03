@@ -1,9 +1,10 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 RESTRICT="mirror"
-inherit kde
+# TODO: this ebuild needs some kde eclass work -- will not function
+#inherit kde
 
 MY_PV=${PV/b/-b}
 
@@ -12,14 +13,14 @@ DESCRIPTION_FR="Editeur de tablature."
 HOMEPAGE="http://ktabedit.sourceforge.net/"
 SRC_URI="mirror://sourceforge/ktabedit/${PN}-${MY_PV}.tar.bz2"
 LICENSE="GPL-2"
-KEYWORDS="x86 ~amd64"
+KEYWORDS="-*"
 
 IUSE="arts debug xinerama"
 SLOT="0"
 S=${WORKDIR}/${PN}
 
 DEPEND="media-libs/tse3"
-need-kde 3.2
+#need-kde 3.2
 
 src_compile() {
 	econf $(use_with arts) \

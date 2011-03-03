@@ -1,6 +1,10 @@
 # ChangeLog for media-sound/simsam
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  03 Mar 2011; Frieder Buerzele <evermind@tuxfamily.org>
+  simsam-0.1.7.ebuild:
+  TODO:kde3/qt3 app
 
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog

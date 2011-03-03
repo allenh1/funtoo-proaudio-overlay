@@ -1,6 +1,10 @@
 # ChangeLog for media-sound/openoctave-midi
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  03 Mar 2011; Frieder Buerzele <evermind@tuxfamily.org>
+  openoctave-midi-9999.ebuild:
+  TODO:kde3/qt3 app
 
   10 Jul 2009; Florian Faber <faber@faberman.de>;
   first version

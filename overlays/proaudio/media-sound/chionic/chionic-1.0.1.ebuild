@@ -1,8 +1,10 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit kde-functions exteutils scons-ccache
+inherit exteutils scons-ccache #kde-functions
+
+# TODO: this ebuild needs some kde/qt3 eclass work -- will not function
 
 DESCRIPTION="advanced sampler for linux"
 HOMEPAGE="http://www.reduz.com.ar/chionic"
@@ -10,7 +12,7 @@ SRC_URI="mirror://sourceforge/cheesetronic/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="-*"
 IUSE="alsa jack"
 
 DEPEND="alsa? ( >=media-libs/alsa-lib-0.9 )
@@ -21,11 +23,11 @@ DEPEND="alsa? ( >=media-libs/alsa-lib-0.9 )
 RDEPEND=">=dev-lang/python-2.4
 		dev-util/pkgconfig"
 
-need-qt 3
+#need-qt 3
 
 src_unpack(){
 	unpack ${A}
-	cd ${S}
+	cd "${S}"
 	epatch $FILESDIR/gcc4.1-fix.patch
 	add_ccache_to_scons_v2
 }

@@ -1,8 +1,10 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header:$
 
-inherit cmake-utils eutils exteutils git kde qt3 
+inherit cmake-utils eutils exteutils git #kde qt3
+
+# TODO: this ebuild needs some kde/qt3 eclass work -- will not function
 
 DESCRIPTION="OpenOctave MIDI sequencer"
 HOMEPAGE="http://www.openoctave.org"
@@ -11,7 +13,7 @@ SRC_URI=""
 EGIT_REPO_URI="git://68.150.160.199:9418/var/git/openoctave.git"
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="-*"
 IUSE="debug lilypond export kde gnome"
 
 RDEPEND="lilypond? ( media-sound/lilypond
@@ -30,8 +32,8 @@ DEPEND="${RDEPEND}
 	>=dev-util/pkgconfig-0.15
 	>=dev-util/cmake-2.4.2"
 
-need-kde 3.1
-need-qt 3
+#need-kde 3.1
+#need-qt 3
 
 S="${WORKDIR}/${PN}"
 

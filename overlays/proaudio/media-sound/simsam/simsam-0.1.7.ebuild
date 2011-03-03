@@ -1,9 +1,11 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit kde-functions eutils
-need-qt 3
+inherit eutils #kde-functions
+#need-qt 3
+
+# TODO: this ebuild needs some kde/qt3 eclass work -- will not function
 
 RESTRICT="mirror"
 IUSE=""
@@ -13,7 +15,7 @@ SRC_URI="mirror://sourceforge/simsam/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="-*"
 
 DEPEND=">=media-libs/alsa-lib-0.9.0
 	>=media-sound/jack-audio-connection-kit-0.99
@@ -25,7 +27,7 @@ RDEPEND="${DEPEND}"
 src_unpack(){
 	unpack "${A}"
 	# gcc4-fix
-	cd ${S}
+	cd "${S}"
 	sed -i -e 's/SampleMap\:\://g' lib/instrument.h || die "sed failed"
 	sed -i -e 's/InstrumentMap\:\://g' lib/midi.h  || die "sed failed"
 	# compile and link fix

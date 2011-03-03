@@ -1,17 +1,19 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit kde
+#inherit kde
 
 IUSE=""
+
+# TODO: this ebuild needs some kde/qt3 eclass work -- will not function
 
 DESCRIPTION="MIDI monitor using ALSA sequencer and KDE user interface."
 HOMEPAGE="http://kmetronome.sourceforge.net/kmidimon/"
 SRC_URI="mirror://sourceforge/kmetronome/${P}.tar.bz2"
 
 LICENSE="GPL-2"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="-*"
 SLOT="0"
 RESTRICT="mirror"
 
@@ -23,7 +25,7 @@ DEPEND="${RDEPEND}
 	sys-devel/gettext
 	dev-util/pkgconfig"
 
-need-kde 3
+#need-kde 3
 
 src_compile() {
 	cmake . -DCMAKE_INSTALL_PREFIX=`kde-config --prefix`
