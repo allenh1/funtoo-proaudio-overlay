@@ -2,6 +2,7 @@
 	wineasio-0.7.3	arch: ~x86 ~amd64
 	wineasio-0.7.4	arch: ~x86 ~amd64
 	wineasio-0.7.5	arch: ~x86 ~amd64
+	wineasio-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: ASIO driver for WINE
 	Homepage:    http://sourceforge.net/projects/wineasio
 
@@ -21,20 +22,6 @@
 	Homepage:    http://faudiostream.sourceforge.net
 
 
-#------- dev-libs/xerces-c --------
-	xerces-c-2.8.0-r1	arch: ~alpha ~amd64 ~hppa ppc ~ppc64 ~sparc ~x86 ~x86-fbsd
-	Description: A validating XML parser written in a portable
-		 subset of C++.
-	Homepage:    http://xerces.apache.org/xerces-c/
-
-
-#------- dev-libs/libinstpatch --------
-	libinstpatch-1.0.0_pre1	arch: ~amd64 x86 ~ppc
-	libinstpatch-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: sound font editor library ?
-	Homepage:    http://swami.sourceforge.net/
-
-
 #------- dev-libs/redlandmm --------
 	redlandmm-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: An STL-style C++ wrapper for the Redland
@@ -42,19 +29,33 @@
 	Homepage:    http://drobilla.net/software
 
 
+#------- dev-libs/libinstpatch --------
+	libinstpatch-1.0.0	arch: ~amd64 ~ppc ~x86
+	libinstpatch-1.0.0_pre1	arch: ~amd64 x86 ~ppc
+	libinstpatch-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: sound font editor library ?
+	Homepage:    http://swami.sourceforge.net/
+
+
+#------- dev-libs/icu --------
+	icu-3.6-r2	arch: alpha amd64 arm hppa ia64 ~mips ppc ppc64 s390 sh sparc x86 ~x86-fbsd
+	Description: IBM Internationalization Components for Unicode
+		
+	Homepage:    http://ibm.com/software/globalization/icu/
+
+
+#------- dev-libs/xerces-c --------
+	xerces-c-2.8.0-r1	arch: ~alpha ~amd64 ~hppa ppc ~ppc64 ~sparc ~x86 ~x86-fbsd
+	Description: A validating XML parser written in a portable
+		 subset of C++.
+	Homepage:    http://xerces.apache.org/xerces-c/
+
+
 #------- dev-ruby/event-loop --------
 	event-loop-0.3	arch: ~x86 ~amd64
 	event-loop-0.3-r1	arch: ~x86 ~amd64
 	Description: Event loop construct for Ruby
 	Homepage:    http://www.brockman.se/software/ruby-event-loop/
-
-
-#------- dev-util/lv2-c++-tools --------
-	lv2-c++-tools-1.0.2	arch: ~amd64 ~x86
-	lv2-c++-tools-1.0.3	arch: ~amd64 ~x86
-	Description: some tools and libraries that may come in
-		 handy when writing LV2 plugins
-	Homepage:    http://ll-plugins.nongnu.org/hacking.html
 
 
 #------- dev-util/premake --------
@@ -65,242 +66,18 @@
 	Homepage:    http://industriousone.com/premake
 
 
-#------- media-libs/libclam --------
-	libclam-1.0.0-r1	arch: ~amd64 x86
-	libclam-1.1.0	arch: ~amd64 x86
-	libclam-1.2.0	arch: ~amd64 x86
-	libclam-1.3.0	arch: ~amd64 x86
-	libclam-1.4.0	arch: ~amd64 ~x86
-	libclam-9999-r1	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Framework for research and application development
-		 in the Audio and Music domain
-	Homepage:    http://clam.iua.upf.edu/index.html
-
-
-#------- media-libs/celt --------
-	celt-0.5.0	arch: ~amd64 ~x86
-	Description: The CELT ultra-low delay audio codec
-	Homepage:    http://www.celt-codec.org/
-
-
-#------- media-libs/hydrogen-drumkits --------
-	hydrogen-drumkits-0.3	arch: amd64 x86
-	Description: free drumkits for hydrogen
-	Homepage:    http://www.hydrogen-music.org
-
-
-#------- media-libs/aeolus-ym-files --------
-	aeolus-ym-files-0.7.0	arch: ~x86 ~amd64
-	Description: Files used by Aeolus-ym to generate the convolution
-		 reverb using Ambiosonic impulse responses
-	Homepage:    http://space-net.org.uk/node/54
-
-
-#------- media-libs/libzzub --------
-	libzzub-0.2.5	arch: ~x86 ~amd64
-	Description: buzz compatibility lib for aldrin
-	Homepage:    http://code.google.com/p/aldrin-sequencer/
-
-
-#------- media-libs/pylash --------
-	pylash-3_pre	arch: ~x86 ~amd64
-	Description: Python bindings for LASH.
-	Homepage:    http://nedko.arnaudov.name/soft/pylash/
-
-
-#------- media-libs/raul --------
-	raul-0.6.0	arch: ~amd64 ~x86
-	raul-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Realtime Audio Utility Library: lightweight
-		 header-only C++
-	Homepage:    http://wiki.drobilla.net/Raul
-
-
-#------- media-libs/joss --------
-	joss-0.3	arch: x86 ~amd64
-	Description: JACK sound wrapper for OSS applications
-	Homepage:    http://www.craknet.net/joss
-
-
-#------- media-libs/zynaddsubfx-extras --------
-	zynaddsubfx-extras-20060419	arch: amd64 ppc x86
-	zynaddsubfx-extras-20060615	arch: amd64 ppc x86
-	zynaddsubfx-extras-99999999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: unsorted bank/instruments and parameters
-		 for zynaddsubfx
-	Homepage:    http://zynaddsubfx.sourceforge.net
-
-
-#------- media-libs/aften --------
-	aften-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: An A/52 (AC-3) audio encoder
-	Homepage:    http://aften.sourceforge.net/
-
-
-#------- media-libs/phat --------
-	phat-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Collection of GTK+ widgets geared toward
-		 pro-audio apps.
-	Homepage:    https://developper.berlios.de/projects/phat/
-
-
-#------- media-libs/libconvolve --------
-	libconvolve-0.0.8	arch: x86
-	Description: A simple C library for partitioned convolution
-		
-	Homepage:    http://tapas.affenbande.org/?page_id=9
-
-
-#------- media-libs/libsoundtouch --------
-	libsoundtouch-1.3.1	arch: ~amd64 ~ppc ~x86 ~ppc-macos
-	Description: Audio processing library for changing tempo,
-		 pitch and playback rates.
-	Homepage:    http://www.surina.net/soundtouch/
-
-
-#------- media-libs/libffado --------
-	libffado-2.0.0	arch: ~amd64 ~x86
-	libffado-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Successor for freebob: Library for accessing
-		 BeBoB IEEE1394 devices
-	Homepage:    http://www.ffado.org
+#------- dev-util/lv2-c++-tools --------
+	lv2-c++-tools-1.0.2	arch: ~amd64 ~x86
+	lv2-c++-tools-1.0.4	arch: amd64 ~x86
+	Description: some tools and libraries that may come in
+		 handy when writing LV2 plugins
+	Homepage:    http://ll-plugins.nongnu.org/hacking.html
 
 
 #------- media-libs/alsaplayer-python --------
 	alsaplayer-python-0.3.1-r1	arch: x86
 	Description: New Python bindings for Alsaplayer.
 	Homepage:    http://alsaplayer.sourceforge.net/
-
-
-#------- media-libs/bsl --------
-	bsl-0.4.0	arch: ~amd64
-	Description: Buzz Song Loader for Buzztard
-	Homepage:    http://www.buzztard.org
-
-
-#------- media-libs/asio-sdk --------
-	asio-sdk-2.2	arch: x86 ~amd64
-	Description: Steinberg ASIO SDK 2.2 - win32
-	Homepage:    http://www.steinberg.net/329+M52087573ab0.html
-
-
-#------- media-libs/ld10k1 --------
-	ld10k1-0.1.8	arch: x86 ~amd64
-	Description: EMU10K1 (EMU10K2) effect loader for ALSA
-	Homepage:    http://ld10k1.sourceforge.net/
-
-
-#------- media-libs/libgig --------
-	libgig-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: libgig is a C++ library for loading Gigasampler
-		 files and DLS (Downloadable Sounds) Level 1/2 files.
-		
-	Homepage:    http://stud.fh-heilbronn.de/~cschoene/projects/libgig/
-
-
-#------- media-libs/vst-sdk --------
-	vst-sdk-2.3-r3	arch: amd64 x86
-	Description: Steinberg VST Plug-Ins SDK 2.3 - win32
-	Homepage:    http://ygrabit.steinberg.de/~ygrabit/public_html
-
-
-#------- media-libs/zita-convolver --------
-	zita-convolver-1.0.0	arch: amd64 ~x86
-	Description: An audio library by Fons Adriaensen <fons.adriaensen@skynet.be>
-		
-	Homepage:    http://www.kokkinizita.net/linuxaudio
-
-
-#------- media-libs/libflashsupport-jack --------
-	libflashsupport-jack-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: libflashsupport.so for Adobe Flash with jack
-		 support
-	Homepage:    http://repo.or.cz/w/libflashsupport-jack.git
-
-
-#------- media-libs/portaudio --------
-	portaudio-19.20071207	arch: ~amd64 ~x86
-	portaudio-19-r3	arch: x86 sparc amd64 ~ppc ~ppc-macos ~mips
-	portaudio-19-r4	arch: x86 sparc amd64 ~ppc ~ppc-macos ~mips
-	portaudio-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: An open-source cross platform audio API.
-	Homepage:    http://www.portaudio.com
-
-
-#------- media-libs/gmerlin-avdecoder --------
-	gmerlin-avdecoder-0.1.8	arch: ~amd64
-	gmerlin-avdecoder-1.0.2	arch: ~amd64
-	Description: Gmerlin A/V decoder library
-	Homepage:    http://gmerlin.sourceforge.net/
-
-
-#------- media-libs/slv2 --------
-	slv2-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: SLV2 is a library for LV2 hosts
-	Homepage:    http://drobilla.net/software
-
-
-#------- media-libs/lv2dynparam1 --------
-	lv2dynparam1-1	arch: ~x86 ~amd64
-	lv2dynparam1-2	arch: ~x86 ~amd64
-	lv2dynparam1-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: LV2 dynparam extension
-	Homepage:    http://home.gna.org/lv2dynparam/
-
-
-#------- media-libs/stk --------
-	stk-4.3.1	arch: ~x86 ~amd64
-	stk-4.4.2	arch: ~amd64 ~x86
-	Description: Synthesis ToolKit in C++
-	Homepage:    http://ccrma.stanford.edu/software/stk/
-
-
-#------- media-libs/liblscp --------
-	liblscp-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: liblscp is a C++ library for the Linux Sampler
-		 control protocol.
-	Homepage:    http://www.linuxsampler.org/
-
-
-#------- media-libs/zynaddsubfx-collection --------
-	zynaddsubfx-collection-0.1	arch: amd64 ppc x86
-	zynaddsubfx-collection-0.2	arch: amd64 ppc x86
-	zynaddsubfx-collection-0.3	arch: amd64 ppc x86
-	zynaddsubfx-collection-0.4	arch: amd64 ppc x86
-	zynaddsubfx-collection-0.5	arch: amd64 ppc x86
-	zynaddsubfx-collection-0.6	arch: amd64 ppc x86
-	zynaddsubfx-collection-0.7	arch: amd64 ppc x86
-	Description: user contributed instruments for zynaddsubfx
-		
-	Homepage:    http://proaudio.tuxfamily.org/files
-
-
-#------- media-libs/bse-alsa --------
-	bse-alsa-0.7.1	arch: x86
-	Description: BEAST - the Bedevilled Sound Engine (ALSA
-		 plugin)
-	Homepage:    http://beast.gtk.org
-
-
-#------- media-libs/librdf --------
-	librdf-1.0.6	arch: ~x86
-	Description: libraries that provide support for the Resource
-		 Description Framework (RDF)
-	Homepage:    http://librdf.org/
-
-
-#------- media-libs/gavl --------
-	gavl-1.1.2	arch: amd64 ~ppc ~ppc64 x86
-	Description: library for handling uncompressed audio and
-		 video data
-	Homepage:    http://gmerlin.sourceforge.net
-
-
-#------- media-libs/bml --------
-	bml-0.3.0	arch: ~amd64
-	bml-0.4.0	arch: ~amd64
-	Description: Buzz Machines Loader for Buzztard
-	Homepage:    http://www.buzztard.org
 
 
 #------- media-libs/juce --------
@@ -318,20 +95,6 @@
 	Homepage:     http://www.rawmaterialsoftware.com/juce
 
 
-#------- media-libs/lv2core --------
-	lv2core-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: LV2 is a simple but extensible successor
-		 of LADSPA
-	Homepage:    http://lv2plug.in/
-
-
-#------- media-libs/libclalsadrv --------
-	libclalsadrv-2.0.0	arch: amd64 ~ppc ~sparc x86
-	Description: An audio library by Fons Adriaensen <fons.adriaensen@skynet.be>
-		
-	Homepage:    http://www.kokkinizita.net/linuxaudio/
-
-
 #------- media-libs/armstrong --------
 	armstrong-0.2.6	arch: ~x86 ~amd64
 	armstrong-9999	arch: -> live ebuild: [svn|cvs|...]<-
@@ -340,14 +103,12 @@
 	Homepage:    http://www.bitbucket.org/paniq/armstrong
 
 
-#------- media-libs/zynaddsubfx-banks --------
-	zynaddsubfx-banks-20060419	arch: amd64 ppc x86
-	zynaddsubfx-banks-20061031	arch: amd64 ppc x86
-	zynaddsubfx-banks-20090520	arch: amd64 ppc x86
-	zynaddsubfx-banks-2.2.1	arch: amd64 ppc x86
-	zynaddsubfx-banks-99999999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: ZynAddSubFX banks/instruments
-	Homepage:    http://zynaddsubfx.sourceforge.net/doc/instruments/
+#------- media-libs/pyliblo --------
+	pyliblo-0.8.1	arch: amd64 ~x86
+	pyliblo-0.9.0_pre1	arch: ~x86
+	Description: pyliblo is a Python wrapper for the liblo
+		 OSC library
+	Homepage:    http://das.nasophon.de/pyliblo/
 
 
 #------- media-libs/fst --------
@@ -364,6 +125,157 @@
 	Homepage:    http://joebutton.co.uk/fst/
 
 
+#------- media-libs/lv2core --------
+	lv2core-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: LV2 is a simple but extensible successor
+		 of LADSPA
+	Homepage:    http://lv2plug.in/
+
+
+#------- media-libs/zita-convolver --------
+	zita-convolver-2.0.0	arch: amd64 ~x86
+	Description: A high performance audio signal convolver
+		 library
+	Homepage:    http://www.kokkinizita.net/linuxaudio/
+
+
+#------- media-libs/gavl --------
+	gavl-1.1.2	arch: amd64 ~ppc ~ppc64 x86
+	Description: library for handling uncompressed audio and
+		 video data
+	Homepage:    http://gmerlin.sourceforge.net
+
+
+#------- media-libs/pyphat --------
+	pyphat-0.4.1	arch: x86 amd64
+	pyphat-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: python binding for phat
+	Homepage:    http://phat.berlios.de/
+
+
+#------- media-libs/phat --------
+	phat-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Collection of GTK+ widgets geared toward
+		 pro-audio apps.
+	Homepage:    https://developper.berlios.de/projects/phat/
+
+
+#------- media-libs/libgig --------
+	libgig-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: libgig is a C++ library for loading Gigasampler
+		 files and DLS (Downloadable Sounds) Level 1/2 files.
+		
+	Homepage:    http://www.linuxsampler.org/libgig/
+
+
+#------- media-libs/bsl --------
+	bsl-0.4.0	arch: ~amd64
+	Description: Buzz Song Loader for Buzztard
+	Homepage:    http://www.buzztard.org
+
+
+#------- media-libs/portaudio --------
+	portaudio-19.20071207	arch: ~amd64 ~x86
+	portaudio-19-r3	arch: x86 sparc amd64 ~ppc ~ppc-macos ~mips
+	portaudio-19-r4	arch: x86 sparc amd64 ~ppc ~ppc-macos ~mips
+	portaudio-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: An open-source cross platform audio API.
+	Homepage:    http://www.portaudio.com
+
+
+#------- media-libs/libdsp --------
+	libdsp-5.0.2	arch: x86 ~amd64 -sparc
+	Description: C++ class library of common digital signal
+		 processing functions.
+	Homepage:    http://libdsp.sf.net
+
+
+#------- media-libs/libsoundtouch --------
+	libsoundtouch-1.3.1	arch: ~amd64 ~ppc ~x86 ~ppc-macos
+	Description: Audio processing library for changing tempo,
+		 pitch and playback rates.
+	Homepage:    http://www.surina.net/soundtouch/
+
+
+#------- media-libs/gmerlin-avdecoder --------
+	gmerlin-avdecoder-0.1.8	arch: ~amd64
+	gmerlin-avdecoder-1.0.2	arch: ~amd64
+	Description: Gmerlin A/V decoder library
+	Homepage:    http://gmerlin.sourceforge.net/
+
+
+#------- media-libs/libflashsupport-jack --------
+	libflashsupport-jack-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: libflashsupport.so for Adobe Flash with jack
+		 support
+	Homepage:    http://repo.or.cz/w/libflashsupport-jack.git
+
+
+#------- media-libs/lv2dynparam1 --------
+	lv2dynparam1-1	arch: ~x86 ~amd64
+	lv2dynparam1-2	arch: ~x86 ~amd64
+	lv2dynparam1-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: LV2 dynparam extension
+	Homepage:    http://home.gna.org/lv2dynparam/
+
+
+#------- media-libs/bse-alsa --------
+	bse-alsa-0.7.1	arch: x86
+	Description: BEAST - the Bedevilled Sound Engine (ALSA
+		 plugin)
+	Homepage:    http://beast.gtk.org
+
+
+#------- media-libs/libffado --------
+	libffado-2.0.0	arch: ~amd64 ~x86
+	libffado-2.0.1	arch: ~amd64 ~x86
+	libffado-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Successor for freebob: Library for accessing
+		 BeBoB IEEE1394 devices
+	Homepage:    http://www.ffado.org
+
+
+#------- media-libs/libclalsadrv --------
+	libclalsadrv-2.0.0	arch: amd64 ~ppc ~sparc x86
+	Description: An audio library by Fons Adriaensen <fons.adriaensen@skynet.be>
+		
+	Homepage:    http://www.kokkinizita.net/linuxaudio/
+
+
+#------- media-libs/libconvolve --------
+	libconvolve-0.0.8	arch: x86
+	Description: A simple C library for partitioned convolution
+		
+	Homepage:    http://tapas.affenbande.org/?page_id=9
+
+
+#------- media-libs/hydrogen-drumkits --------
+	hydrogen-drumkits-0.3	arch: amd64 x86
+	Description: free drumkits for hydrogen
+	Homepage:    http://www.hydrogen-music.org
+
+
+#------- media-libs/celt --------
+	celt-0.5.0	arch: ~amd64 ~x86
+	Description: The CELT ultra-low delay audio codec
+	Homepage:    http://www.celt-codec.org/
+
+
+#------- media-libs/bml --------
+	bml-0.3.0	arch: ~amd64 ~x86
+	bml-0.4.0	arch: ~amd64 ~x86
+	bml-0.5.0	arch: ~amd64 ~x86
+	bml-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Buzz Machines Loader for Buzztard
+	Homepage:    http://www.buzztard.org
+
+
+#------- media-libs/slv2 --------
+	slv2-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: SLV2 is a library for LV2 hosts
+	Homepage:    http://drobilla.net/software
+
+
 #------- media-libs/gmerlin --------
 	gmerlin-0.3.8	arch: ~amd64
 	gmerlin-0.4.2	arch: ~amd64
@@ -371,11 +283,121 @@
 	Homepage:    http://gmerlin.sourceforge.net/
 
 
-#------- media-libs/pyphat --------
-	pyphat-0.4.1	arch: x86 ~amd64
-	pyphat-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: python binding for phat
-	Homepage:    http://phat.berlios.de/
+#------- media-libs/stk --------
+	stk-4.3.1	arch: ~x86 ~amd64
+	stk-4.4.2	arch: ~amd64 ~x86
+	Description: Synthesis ToolKit in C++
+	Homepage:    http://ccrma.stanford.edu/software/stk/
+
+
+#------- media-libs/zynaddsubfx-collection --------
+	zynaddsubfx-collection-0.1	arch: amd64 ppc x86
+	zynaddsubfx-collection-0.2	arch: amd64 ppc x86
+	zynaddsubfx-collection-0.3	arch: amd64 ppc x86
+	zynaddsubfx-collection-0.4	arch: amd64 ppc x86
+	zynaddsubfx-collection-0.5	arch: amd64 ppc x86
+	zynaddsubfx-collection-0.6	arch: amd64 ppc x86
+	zynaddsubfx-collection-0.7	arch: amd64 ppc x86
+	Description: user contributed instruments for zynaddsubfx
+		
+	Homepage:    http://proaudio.tuxfamily.org/files
+
+
+#------- media-libs/libclam --------
+	libclam-1.0.0-r1	arch: ~amd64 x86
+	libclam-1.1.0	arch: ~amd64 x86
+	libclam-1.2.0	arch: ~amd64 x86
+	libclam-1.3.0	arch: ~amd64 x86
+	libclam-1.4.0	arch: ~amd64 ~x86
+	libclam-9999-r1	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Framework for research and application development
+		 in the Audio and Music domain
+	Homepage:    http://clam.iua.upf.edu/index.html
+
+
+#------- media-libs/zynaddsubfx-extras --------
+	zynaddsubfx-extras-20060419	arch: amd64 ppc x86
+	zynaddsubfx-extras-20060615	arch: amd64 ppc x86
+	zynaddsubfx-extras-99999999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: unsorted bank/instruments and parameters
+		 for zynaddsubfx
+	Homepage:    http://zynaddsubfx.sourceforge.net
+
+
+#------- media-libs/raul --------
+	raul-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: C++ utility library primarily aimed at audio/musical
+		 applications.
+	Homepage:    http://wiki.drobilla.net/Raul
+
+
+#------- media-libs/librdf --------
+	librdf-1.0.6	arch: ~x86
+	Description: libraries that provide support for the Resource
+		 Description Framework (RDF)
+	Homepage:    http://librdf.org/
+
+
+#------- media-libs/aeolus-ym-files --------
+	aeolus-ym-files-0.7.0	arch: ~x86 ~amd64
+	Description: Files used by Aeolus-ym to generate the convolution
+		 reverb using Ambiosonic impulse responses
+	Homepage:    http://space-net.org.uk/node/54
+
+
+#------- media-libs/vst-sdk --------
+	vst-sdk-2.3-r3	arch: amd64 x86
+	Description: Steinberg VST Plug-Ins SDK 2.3 - win32
+	Homepage:    http://ygrabit.steinberg.de/~ygrabit/public_html
+
+
+#------- media-libs/joss --------
+	joss-0.3	arch: x86 ~amd64
+	Description: JACK sound wrapper for OSS applications
+	Homepage:    http://www.craknet.net/joss
+
+
+#------- media-libs/pylash --------
+	pylash-3_pre	arch: ~x86 ~amd64
+	Description: Python bindings for LASH.
+	Homepage:    http://nedko.arnaudov.name/soft/pylash/
+
+
+#------- media-libs/liblscp --------
+	liblscp-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: liblscp is a C++ library for the Linux Sampler
+		 control protocol.
+	Homepage:    http://www.linuxsampler.org/
+
+
+#------- media-libs/zita-resampler --------
+	zita-resampler-0.1.1	arch: ~x86
+	zita-resampler-0.1.1-r1	arch: ~amd64 ~x86
+	Description: C++ library for real-time resampling of audio
+		 signals
+	Homepage:    http://www.kokkinizita.net/linuxaudio/
+
+
+#------- media-libs/aften --------
+	aften-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: An A/52 (AC-3) audio encoder
+	Homepage:    http://aften.sourceforge.net/
+
+
+#------- media-libs/zynaddsubfx-banks --------
+	zynaddsubfx-banks-20060419	arch: amd64 ppc x86
+	zynaddsubfx-banks-20061031	arch: amd64 ppc x86
+	zynaddsubfx-banks-20090520	arch: amd64 ppc x86
+	zynaddsubfx-banks-2.2.1	arch: amd64 ppc x86
+	zynaddsubfx-banks-99999999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: ZynAddSubFX banks/instruments
+	Homepage:    http://zynaddsubfx.sourceforge.net/doc/instruments/
+
+
+#------- media-libs/asio-sdk --------
+	asio-sdk-2.2	arch: x86 ~amd64
+	Description: Steinberg ASIO SDK 2.2 - win32
+	Homepage:    http://www.steinberg.net/329+M52087573ab0.html
 
 
 #------- media-libs/oscpack --------
@@ -387,137 +409,29 @@
 	Homepage:    http://www.audiomulch.com/~rossb/code/oscpack
 
 
-#------- media-libs/libdsp --------
-	libdsp-5.0.2	arch: x86 ~amd64 -sparc
-	Description: C++ class library of common digital signal
-		 processing functions.
-	Homepage:    http://libdsp.sf.net
+#------- media-libs/libzzub --------
+	libzzub-0.2.5	arch: ~x86 ~amd64
+	Description: buzz compatibility lib for aldrin
+	Homepage:    http://code.google.com/p/aldrin-sequencer/
 
 
-#------- media-plugins/wasp --------
-	wasp-0.1.4	arch: amd64 x86
-	Description: Wave Sculpting LADSPA audio plugins/effects
+#------- media-libs/ld10k1 --------
+	ld10k1-0.1.8	arch: x86 ~amd64
+	Description: EMU10K1 (EMU10K2) effect loader for ALSA
+	Homepage:    http://ld10k1.sourceforge.net/
+
+
+#------- media-plugins/vcf --------
+	vcf-0.0.5	arch: ~x86
+	Description: VCF LADSPA plugin filters
+	Homepage:    http://www.suse.de/~mana/ladspa.html
+
+
+#------- media-plugins/lv2 --------
+	lv2-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Collection of lv2 plugins for modular synthesizers.
 		
-	Homepage:    http://linux01.gwdg.de/~nlissne/wasp/
-
-
-#------- media-plugins/gst-buzztard --------
-	gst-buzztard-0.3.0	arch: ~amd64 ~x86
-	gst-buzztard-0.4.0	arch: ~amd64 ~x86
-	gst-buzztard-0.5.0	arch: ~amd64 ~x86
-	Description: GStreamer plugin used by buzztard
-	Homepage:    http://www.buzztard.org
-
-
-#------- media-plugins/tap-plugins32 --------
-	tap-plugins32-0.7.0	arch: ~amd64 -*
-	Description: TAP LADSPA plugins package. Contains DeEsser,
-		 Dynamics, Equalizer, Reverb, Stereo Echo, Tremolo
-		
-	Homepage:    http://tap-plugins.sourceforge.net
-
-
-#------- media-plugins/alsaplayer-ape --------
-	alsaplayer-ape-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: ape experimental input plugin for the alsaplayer.
-		
-	Homepage:    http://www.alsaplayer.org/
-
-
-#------- media-plugins/invada-studio-plugins-lv2 --------
-	invada-studio-plugins-lv2-1.2.0.0	arch: ~amd64
-	Description: Invada lv2 package, contains: Delay, Dynamics,
-		 Filters, Reverb, Utility
-	Homepage:    http://www.invadarecords.com/Downloads.php?ID=00000264
-
-
-#------- media-plugins/lv2vocoder --------
-	lv2vocoder-1	arch: ~x86 ~amd64
-	Description: An lv2 vocoder plugin
-	Homepage:    https://gna.org/projects/lv2vocoder
-
-
-#------- media-plugins/omins --------
-	omins-0.2.0	arch: ~x86
-	omins-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Collection of LADSPA plugins for modular
-		 synthesizers.
 	Homepage:    http://drobilla.net/software
-
-
-#------- media-plugins/calf --------
-	calf-0.0.17	arch: ~amd64
-	calf-0.0.18.5	arch: ~amd64
-	calf-9999	arch: ~amd64
-	Description: Calf is a set of open source instruments
-		 and effects for digital audio workstations
-		
-	Homepage:    http://calf.sf.net/
-
-
-#------- media-plugins/amb-plugins --------
-	amb-plugins-0.6.1	arch: amd64 x86
-	Description: AMB-plugins ladspa plugin package. Filters
-		 by Fons Adriaensen
-	Homepage:    http://www.kokkinizita.net/linuxaudio/
-
-
-#------- media-plugins/vocoder-ladspa --------
-	vocoder-ladspa-0.3	arch: amd64 ppc x86
-	Description: A vocoder is a sound effect that can make
-		 a human voice sound synthetic
-	Homepage:    http://www.sirlab.de/linux/descr_vocoder.html
-
-
-#------- media-plugins/sineshaper --------
-	sineshaper-0.4.2	arch: x86 ~amd64
-	Description: A monophonic synth plugin that sends the
-		 sound from two sine oscillators through
-		 two sine waveshapers in series (DSSI-Plugin)
-		
-	Homepage:    http://www.student.nada.kth.se/~d00-llu/music_dssi.php?lang=en
-
-
-#------- media-plugins/pd-hid --------
-	pd-hid-0.6	arch: ~x86 ~amd64
-	Description: The hid external for pure data.
-	Homepage:    http://at.or.at/hans/pd/hid.html
-
-
-#------- media-plugins/alsaplayer-tta --------
-	alsaplayer-tta-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: wavpack experimental input plugin for the
-		 alsaplayer.
-	Homepage:    http://www.alsaplayer.org/
-
-
-#------- media-plugins/xsynth-dssi --------
-	xsynth-dssi-0.9.0	arch: amd64 x86
-	Description: Wsynth-DSSI, a wavetable synthesizer plugin
-		
-	Homepage:    http://dssi.sourceforge.net/download.html#Xsynth-DSSI
-
-
-#------- media-plugins/zynadd --------
-	zynadd-1	arch: ~x86 ~amd64
-	zynadd-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: synth engines from ZynAddSubFX and pack them
-		 in LV2 plugin format
-	Homepage:    http://home.gna.org/zyn
-
-
-#------- media-plugins/dssi-vst --------
-	dssi-vst-0.6	arch: ~amd64 x86
-	dssi-vst-0.8	arch: ~amd64 x86
-	Description: DSSI wrapper plugin for Windows VSTs
-	Homepage:    http://dssi.sourceforge.net/
-
-
-#------- media-plugins/njl-plugins --------
-	njl-plugins-0.2.1	arch: ~x86
-	njl-plugins-0.2.1-r1	arch: amd64 x86
-	Description: NJL LADSPA audio plugins/effects
-	Homepage:    http://devel.tlrmx.org/audio
 
 
 #------- media-plugins/nekobee --------
@@ -528,61 +442,35 @@
 	Homepage:    http://www.nekosynth.co.uk/wiki/nekobee
 
 
-#------- media-plugins/hexter --------
-	hexter-0.5.9	arch: amd64 x86
-	hexter-0.6.0	arch: amd64 x86
-	Description: Yamaha DX7 modeling DSSI plugin
-	Homepage:    http://dssi.sourceforge.net/hexter.html
-
-
-#------- media-plugins/azr3-lv2 --------
-	azr3-lv2-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: AZR3
-	Homepage:    
-
-
-#------- media-plugins/alsaplayer-wv --------
-	alsaplayer-wv-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: wavpack experimental input plugin for the
-		 alsaplayer.
-	Homepage:    http://www.alsaplayer.org/
-
-
 #------- media-plugins/whysynth --------
 	whysynth-20060122	arch: amd64 x86
 	whysynth-20060122-r1	arch: -*
 	whysynth-20070418	arch: x86
-	whysynth-20090608	arch: x86
+	whysynth-20100922	arch: amd64 x86
 	Description: WhySynth is a versatile softsynth using (DSSI)
 		
 	Homepage:    http://www.smbolton.com/whysynth.html
 
 
-#------- media-plugins/preamp --------
-	preamp-2.0	arch: x86 ~amd64
-	Description: preamp LADSPA plugins
-	Homepage:    http://quitte.de/dsp/preamp.html
+#------- media-plugins/alsaplayer-ape --------
+	alsaplayer-ape-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: ape experimental input plugin for the alsaplayer.
+		
+	Homepage:    http://www.alsaplayer.org/
 
 
-#------- media-plugins/ll-plugins --------
-	ll-plugins-0.2.8	arch: ~amd64
-	ll-plugins-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: collection of LV2 plugins, LV2 extension
-		 definitions, and LV2 related tools
-	Homepage:    http://ll-plugins.nongnu.org
+#------- media-plugins/xsynth-dssi --------
+	xsynth-dssi-0.9.0	arch: amd64 x86
+	Description: Wsynth-DSSI, a wavetable synthesizer plugin
+		
+	Homepage:    http://dssi.sourceforge.net/download.html#Xsynth-DSSI
 
 
-#------- media-plugins/buzzmachines --------
-	buzzmachines-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Machines for Buzztard
-	Homepage:    http://www.buzztard.org
-
-
-#------- media-plugins/foo-plugins --------
-	foo-plugins-0.9	arch: x86
-	foo-plugins-1.0	arch: x86
-	Description: foo-plugins for ladspa
-	Homepage:    http://www.studionumbersix.com/foo/
+#------- media-plugins/csa --------
+	csa-0.5.100810	arch: ~amd64
+	Description: Control Signal Audio. A group of LADSPA Audio
+		 plugins for FM broadcast and more
+	Homepage:    http://csa.sourceforge.net/index/index_en.html
 
 
 #------- media-plugins/wah-plugins --------
@@ -591,12 +479,18 @@
 	Homepage:    http://www.kokkinizita.net/linuxaudio/ladspa/index.html
 
 
-#------- media-plugins/invada-studio-plugins --------
-	invada-studio-plugins-0.3.1	arch: ~amd64 ~x86
-	Description: Invada ladspa package, contains: Compressor,
-		 Filters, Reverb, Input Processor, Tube Simulator
-		
-	Homepage:    http://www.invadarecords.com/Downloads.php?ID=00000263
+#------- media-plugins/foo-plugins --------
+	foo-plugins-1.0	arch: x86
+	foo-plugins-1.2	arch: amd64 x86
+	Description: foo-plugins for ladspa
+	Homepage:    http://www.studionumbersix.com/foo/
+
+
+#------- media-plugins/vocoder-ladspa --------
+	vocoder-ladspa-0.3	arch: amd64 ppc x86
+	Description: A vocoder is a sound effect that can make
+		 a human voice sound synthetic
+	Homepage:    http://www.sirlab.de/linux/descr_vocoder.html
 
 
 #------- media-plugins/oscilloscope --------
@@ -614,11 +508,36 @@
 	Homepage:    http://www.piksel.org/frei0r
 
 
-#------- media-plugins/lv2 --------
-	lv2-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Collection of lv2 plugins for modular synthesizers.
+#------- media-plugins/invada-studio-plugins --------
+	invada-studio-plugins-0.3.1	arch: amd64 ~x86
+	Description: Invada ladspa package, contains: Compressor,
+		 Filters, Reverb, Input Processor, Tube Simulator
 		
-	Homepage:    http://drobilla.net/software
+	Homepage:    http://www.invadarecords.com/Downloads.php?ID=00000263
+
+
+#------- media-plugins/sineshaper --------
+	sineshaper-0.4.2	arch: x86 ~amd64
+	Description: A monophonic synth plugin that sends the
+		 sound from two sine oscillators through
+		 two sine waveshapers in series (DSSI-Plugin)
+		
+	Homepage:    http://www.student.nada.kth.se/~d00-llu/music_dssi.php?lang=en
+
+
+#------- media-plugins/eq10q --------
+	eq10q-1.2	arch: ~amd64
+	Description: An LV2 audio plugin implementing a powerful
+		 and flexible parametric equalizer
+	Homepage:    http://eq10q.sourceforge.net/
+
+
+#------- media-plugins/vocproc --------
+	vocproc-0.2	arch: amd64
+	Description: LV2 plugin for pitch shifting, vocoding,
+		 automatic pitch correction and harmonization
+		
+	Homepage:    http://hyperglitch.com/dev/VocProc
 
 
 #------- media-plugins/wsynth-dssi --------
@@ -628,155 +547,232 @@
 	Homepage:    http://www.nekosynth.co.uk/wiki/wsynth
 
 
+#------- media-plugins/ir-lv2 --------
+	ir-lv2-1.1	arch: ~x86
+	ir-lv2-1.2	arch: amd64 ~x86
+	Description: IR is a zero-latency, realtime, high performance
+		 signal convolver especially for creating reverb
+		 effects.
+	Homepage:    http://factorial.hu/plugins/lv2/ir
+
+
+#------- media-plugins/lv2vocoder --------
+	lv2vocoder-1	arch: amd64 ~x86
+	Description: An lv2 vocoder plugin
+	Homepage:    http://gna.org/projects/lv2vocoder
+
+
+#------- media-plugins/tap-plugins32 --------
+	tap-plugins32-0.7.0	arch: ~amd64 -*
+	Description: TAP LADSPA plugins package. Contains DeEsser,
+		 Dynamics, Equalizer, Reverb, Stereo Echo, Tremolo
+		
+	Homepage:    http://tap-plugins.sourceforge.net
+
+
+#------- media-plugins/njl-plugins --------
+	njl-plugins-0.2.1	arch: ~x86
+	njl-plugins-0.2.1-r1	arch: amd64 x86
+	Description: NJL LADSPA audio plugins/effects
+	Homepage:    http://devel.tlrmx.org/audio
+
+
+#------- media-plugins/wasp --------
+	wasp-0.1.4	arch: amd64 x86
+	Description: Wave Sculpting LADSPA audio plugins/effects
+		
+	Homepage:    http://linux01.gwdg.de/~nlissne/wasp/
+
+
+#------- media-plugins/hexter --------
+	hexter-0.5.9	arch: amd64 x86
+	hexter-0.6.0	arch: amd64 x86
+	Description: Yamaha DX7 modeling DSSI plugin
+	Homepage:    http://dssi.sourceforge.net/hexter.html
+
+
+#------- media-plugins/buzzmachines --------
+	buzzmachines-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Machines for Buzztard
+	Homepage:    http://www.buzztard.org
+
+
+#------- media-plugins/azr3-lv2 --------
+	azr3-lv2-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: AZR3
+	Homepage:    
+
+
+#------- media-plugins/preamp --------
+	preamp-2.0	arch: x86 amd64
+	Description: preamp LADSPA plugins
+	Homepage:    http://quitte.de/dsp/preamp.html
+
+
+#------- media-plugins/alsaplayer-wv --------
+	alsaplayer-wv-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: wavpack experimental input plugin for the
+		 alsaplayer.
+	Homepage:    http://www.alsaplayer.org/
+
+
+#------- media-plugins/ll-plugins --------
+	ll-plugins-0.2.8	arch: amd64
+	ll-plugins-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: collection of LV2 plugins, LV2 extension
+		 definitions, and LV2 related tools
+	Homepage:    http://ll-plugins.nongnu.org
+
+
+#------- media-plugins/lv2fil --------
+	lv2fil-2.0	arch: ~x86 amd64
+	Description: Four-band parametric equaliser LV2 plugin
+		
+	Homepage:    http://nedko.arnaudov.name/soft/lv2fil/trac/
+
+
 #------- media-plugins/uli-plugins --------
 	uli-plugins-0.2	arch: ~x86 ~amd64
-	Description: Ulis LV2 Inserts. A series of LV2 plugins.
-		 There is already a AND NAND OR NOR XOR XNOR
-		 NOT and SR, JK, D, T FlipFlops and Latches
+	Description: Ulis LV2 Insert series plugins. AND NAND
+		 OR NOR XOR XNOR NOT and SR, JK, D, T FlipFlops
+		 and Latches
 	Homepage:    http://sourceforge.net/projects/uli-plugins/
+
+
+#------- media-plugins/invada-studio-plugins-lv2 --------
+	invada-studio-plugins-lv2-1.2.0.0	arch: amd64
+	Description: Invada lv2 package, contains: Delay, Dynamics,
+		 Filters, Reverb, Utility
+	Homepage:    http://www.invadarecords.com/Downloads.php?ID=00000264
+
+
+#------- media-plugins/omins --------
+	omins-0.2.0	arch: ~x86
+	omins-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Collection of LADSPA plugins for modular
+		 synthesizers.
+	Homepage:    http://drobilla.net/software
+
+
+#------- media-plugins/gst-buzztard --------
+	gst-buzztard-0.3.0	arch: ~amd64 ~x86
+	gst-buzztard-0.4.0	arch: ~amd64 ~x86
+	gst-buzztard-0.5.0	arch: ~amd64 ~x86
+	Description: GStreamer plugin used by buzztard
+	Homepage:    http://www.buzztard.org
+
+
+#------- media-plugins/zynadd --------
+	zynadd-1	arch: ~x86 ~amd64
+	zynadd-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: synth engines from ZynAddSubFX and pack them
+		 in LV2 plugin format
+	Homepage:    http://home.gna.org/zyn
+
+
+#------- media-plugins/alsaplayer-tta --------
+	alsaplayer-tta-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: wavpack experimental input plugin for the
+		 alsaplayer.
+	Homepage:    http://www.alsaplayer.org/
+
+
+#------- media-plugins/calf --------
+	calf-0.0.17	arch: ~amd64 ~x86
+	calf-0.0.18.5	arch: ~amd64 ~x86
+	calf-0.0.18.6	arch: ~amd64 ~x86
+	calf-0.0.18.6-r1	arch: ~amd64 ~x86
+	calf-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Calf is a set of open source instruments
+		 and effects for digital audio workstations
+		
+	Homepage:    http://calf.sf.net/
+
+
+#------- media-plugins/dssi-vst --------
+	dssi-vst-0.8	arch: ~amd64 x86
+	dssi-vst-0.9.2	arch: ~amd64 ~x86
+	Description: DSSI wrapper plugin for Windows VSTs
+	Homepage:    http://breakfastquay.com/dssi-vst/
+
+
+#------- media-plugins/amb-plugins --------
+	amb-plugins-0.8.1	arch: amd64 x86
+	Description: AMB-plugins ladspa plugin package. Filters
+		 by Fons Adriaensen
+	Homepage:    http://www.kokkinizita.net/linuxaudio/
 
 
 #------- media-radio/rivendell --------
 	rivendell-1.6.0	arch: ~amd64 ~x86
 	rivendell-1.7.0	arch: ~amd64 ~x86
+	rivendell-1.7.0-r1	arch: ~amd64 ~x86
+	rivendell-1.7.1	arch: ~amd64 ~x86
+	rivendell-2.0.0_beta0	arch: ~amd64 ~x86
+	rivendell-2.0.0_beta1	arch: ~amd64 ~x86
+	rivendell-2.0.0_rc0	arch: ~amd64 ~x86
 	Description: An automated system for acquisition, management,
 		 scheduling and playout of audio content.
 	Homepage:    http://rivendellaudio.org/
 
 
-#------- media-sound/stygmorgan --------
-	stygmorgan-0.27	arch: amd64 sparc x86
-	Description: stygmorgan is an Interactive Musical Workstation
-		 software emulator
-	Homepage:    http://stygmorgan.berlios.de
+#------- media-sound/qlo10k1 --------
+	qlo10k1-0.1.2	arch: x86 ~amd64
+	Description: Gui for ld10k1 (EMU10K1 (EMU10K2) effect
+		 loader for ALSA)
+	Homepage:    http://ld10k1.sourceforge.net/
 
 
-#------- media-sound/tapiir --------
-	tapiir-0.7.1-r1	arch: x86 ~amd64
-	tapiir-0.7.2	arch: amd64 ~ppc ~sparc x86
-	Description: a flexible audio effects processor, inspired
-		 on the classical magnetic tape delay systems
-		
-	Homepage:    http://www.iua.upf.es/~mdeboer/projects/tapiir/
+#------- media-sound/jackmeter --------
+	jackmeter-0.3	arch: ~x86 ~amd64
+	Description: Jack Meter is a basic console based DPM (Digital
+		 Peak Meter) for JACK
+	Homepage:    http://www.aelius.com/njh/jackmeter
 
 
-#------- media-sound/jack_capture --------
-	jack_capture-0.3.7	arch: ~x86 ~amd64
-	jack_capture-0.3.9	arch: x86 ~amd64
-	jack_capture-0.9.19	arch: x86 ~amd64
-	jack_capture-0.9.3	arch: x86 ~amd64
-	jack_capture-0.9.5	arch: x86 ~amd64
-	jack_capture-0.9.6	arch: x86 ~amd64
-	Description: Recording tool which default operation is
-		 to capture what goes out to the soundcard
-		 from JACK
-	Homepage:    http://www.notam02.no/arkiv/src
+#------- media-sound/ktabedit --------
+	ktabedit-0.0.8	arch: x86 ~amd64
+	Description: KTabEdit is basically a guitar tabulature
+		 editor for K Desktop Environment.
+	Homepage:    http://ktabedit.sourceforge.net/
 
 
-#------- media-sound/minicomputer --------
-	minicomputer-1.2	arch: ~amd64 ~x86
-	minicomputer-1.3	arch: ~amd64 ~x86
-	Description: Standalone Linux softwaresynthesizer
-	Homepage:    http://minicomputer.sourceforge.net
+#------- media-sound/paulstretch --------
+	paulstretch-1.000	arch: x86 ~amd64
+	paulstretch-1.024	arch: x86 ~amd64
+	paulstretch-2.0	arch: x86 ~amd64
+	Description: extreme sound stretching of the audio
+	Homepage:    http://hypermammut.sourceforge.net/paulstretch
 
 
-#------- media-sound/ninjam-server --------
-	ninjam-server-0.02	arch: ~x86 ~amd64
-	Description: NINJAM is a program to allow people to make
-		 real music together via the Internet
-	Homepage:    http://www.ninjam.com
+#------- media-sound/hydrogen --------
+	hydrogen-0.9.3-r1	arch: ~amd64 ~ppc ~ppc64 ~sparc ~x86
+	hydrogen-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Linux Drum Machine
+	Homepage:    http://hydrogen.sourceforge.net/
 
 
-#------- media-sound/psychosynth --------
-	psychosynth-0.1.1	arch: ~x86 ~amd64
-	psychosynth-0.1.5	arch: ~x86 ~amd64
-	psychosynth-9999	arch: ~x86 ~amd64
-	Description: Free software synthesizer inspired by the
-		 ideas of the Reactable
-	Homepage:    http://www.psychosynth.com/
+#------- media-sound/rsound --------
+	rsound-1.0_beta1	arch: ~x86 ~amd64
+	rsound-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: RSound is a networked audio system. It allows
+		 applications to transfer their audio data to
+		 a different computer.
+	Homepage:    http://www.rsound.org/
 
 
-#------- media-sound/denemo --------
-	denemo-0.7.5	arch: ~amd64 x86
-	denemo-0.8.6	arch: ~amd64 x86
-	Description: GTK+ graphical music notation editor
-	Homepage:    http://denemo.sourceforge.net/
+#------- media-sound/jamin --------
+	jamin-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: JAMin is the JACK Audio Connection Kit (JACK)
+		 Audio Mastering interface
+	Homepage:    http://jamin.sourceforge.net
 
 
-#------- media-sound/kontroll --------
-	kontroll-20060925	arch: x86 ~amd64
-	Description: A small utility that generates midi cc messages
-		 from the mouse position
-	Homepage:    http://tapas.affenbande.org/?page_id=42
-
-
-#------- media-sound/aqualung --------
-	aqualung-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Aqualung is a music player capable of gapless
-		 playback. Not very suitable for eye candy seekers.
-		
-	Homepage:    http://aqualung.sourceforge.net
-
-
-#------- media-sound/ardour --------
-	ardour-2.7.1	arch: ~amd64 ~ppc ~x86
-	ardour-2.8	arch: -> live ebuild: [svn|cvs|...]<-
-	ardour-2.9999	arch: -> live ebuild: [svn|cvs|...]<-
-	ardour-3.9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: multi-track hard disk recording software
-	Homepage:    http://ardour.org/
-
-
-#------- media-sound/bpmdj --------
-	bpmdj-3.6	arch: ~amd64 ~x86 ~ppc
-	bpmdj-4.1	arch: ~amd64 ~x86 ~ppc
-	Description: Bpmdj, software for measuring the BPM of
-		 music and mixing
-	Homepage:    http://bpmdj.sourceforge.net/
-
-
-#------- media-sound/swami --------
-	swami-0.9.4	arch: ~amd64 ~ppc ~x86
-	swami-1.0.0_pre1-r1	arch: ~amd64 ~ppc ~x86
-	swami-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: an instrument editor for MIDI music composition
-		 and a sampler frontend
-	Homepage:    http://swami.sourceforge.net
-
-
-#------- media-sound/tuneroid --------
-	tuneroid-0.9.5	arch: ~x86
-	Description: tuneroid is a tuner for variety of musical
-		 instruments
-	Homepage:    http://zyzstar.kosoru.com/?tuneroid
-
-
-#------- media-sound/vkeybd --------
-	vkeybd-0.1.17a	arch: ~amd64 ~sparc ~x86
-	Description: A virtual MIDI keyboard for X
-	Homepage:    http://www.alsa-project.org/~iwai/alsa.html
-
-
-#------- media-sound/bristol --------
-	bristol-0.10.11	arch: ~amd64 ~ppc ~sparc ~x86
-	bristol-0.30.9	arch: ~amd64 ~ppc ~sparc ~x86
-	Description: synthesiser emulation package for Moog, Sequential
-		 Circuits, Hammond and several other keyboards.
-	Homepage:    http://sourceforge.net/projects/bristol
-
-
-#------- media-sound/csound --------
-	csound-5.01	arch: -* ~amd64 ~ppc ~ppc64 x86
-	csound-5.02.1	arch: -* ~amd64 ~ppc ~ppc64 x86
-	csound-5.02	arch: -* ~amd64 ~ppc ~ppc64 x86
-	csound-5.07.0	arch: ~amd64 ~x86 ~ppc
-	csound-5.08.0	arch: ~amd64 ~x86 ~ppc
-	csound-5.09.0-r1	arch: ~amd64 ~x86 ~ppc
-	csound-5.12.1	arch: ~amd64 ~x86 ~ppc
-	Description: Csound is a sound and music synthesis system,
-		 providing facilities for composition and performance
-		 over a wide range of platforms.
-	Homepage:    http://csounds.com
+#------- media-sound/tutka --------
+	tutka-0.12.4	arch: ~amd64 ~ppc x86
+	Description: A free (as in freedom) tracker style MIDI
+		 sequencer for GNU/Linux
+	Homepage:    http://www.nongnu.org/tutka
 
 
 #------- media-sound/sweep --------
@@ -790,29 +786,50 @@
 	Homepage:    http://www.metadecks.org/software/sweep/
 
 
-#------- media-sound/openbeatbox --------
-	openbeatbox-0.7.1	arch: -*
-	Description: Drum sequencing software with impressive
-		 UI. Not in development anymore
-	Homepage:    http://openbeatbox.org/
+#------- media-sound/aeolus-ym --------
+	aeolus-ym-0.7.0	arch: ~x86 ~amd64
+	Description: Aeolus with convolution reverb using Ambiosonic
+		 impulse responses by Fons Adriaensen
+	Homepage:    http://www.kokkinizita.net/linuxaudio/aeolus
 
 
-#------- media-sound/kluppe --------
-	kluppe-0.5.4	arch: ~amd64 ~x86
-	kluppe-0.6.14	arch: amd64 x86
-	Description: live looping sequencer
-	Homepage:    http://kluppe.klingt.org
+#------- media-sound/audacity --------
+	audacity-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Free crossplatform audio editor
+	Homepage:    http://audacity.sourceforge.net/
 
 
-#------- media-sound/zynaddsubfx --------
-	zynaddsubfx-20070707	arch: ~amd64 ~ppc x86
-	zynaddsubfx-20070707-r1	arch: ~amd64 ~ppc ~x86
-	zynaddsubfx-2.2.1-r8	arch: ~amd64 ~ppc ~x86
-	zynaddsubfx-2.4.0	arch: ~amd64 ~ppc ~x86
-	zynaddsubfx-99999999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: ZynAddSubFX is an opensource software synthesizer.
+#------- media-sound/kontroll --------
+	kontroll-20060925	arch: x86 ~amd64
+	Description: A small utility that generates midi cc messages
+		 from the mouse position
+	Homepage:    http://tapas.affenbande.org/?page_id=42
+
+
+#------- media-sound/ghostess --------
+	ghostess-20050916	arch: amd64 x86
+	ghostess-20061127	arch: amd64 x86
+	ghostess-20081213	arch: amd64 x86
+	Description: graphical DSSI host, based on jack-dssi-host
 		
-	Homepage:    http://zynaddsubfx.sourceforge.net/
+	Homepage:    http://www.smbolton.com/linux.html
+
+
+#------- media-sound/meterbridge --------
+	meterbridge-0.9.2-r2	arch: amd64 ppc sparc x86
+	Description: Software meterbridge for the UNIX based JACK
+		 audio system.
+	Homepage:    http://plugin.org.uk/meterbridge/
+
+
+#------- media-sound/jace --------
+	jace-0.0.2	arch: x86
+	jace-0.0.3	arch: x86
+	jace-0.1.0	arch: x86 ~amd64
+	jace-0.2.0	arch: x86 ~amd64
+	Description: JACE is a Convolution Engine for JACK and
+		 ALSA
+	Homepage:    http://www.audiodef.com/gentoo/proaudio/
 
 
 #------- media-sound/ninjam-cclient --------
@@ -822,155 +839,73 @@
 	Homepage:    http://www.ninjam.com/
 
 
-#------- media-sound/gwc --------
-	gwc-0.21.05-r1	arch: amd64 ~ppc x86
-	gwc-0.21.07	arch: amd64 ~ppc x86
-	Description: Gnome Wave Cleaner
-	Homepage:    http://gwc.sourceforge.net/
+#------- media-sound/freecycle --------
+	freecycle-0.6.1.1_alpha	arch: ~amd64 ~x86
+	Description: Freecycle is a beat slicer
+	Homepage:    http://www.redsteamrecords.com/freecycle/
 
 
-#------- media-sound/jkmeter --------
-	jkmeter-0.4.0	arch: ~x86 ~amd64
-	Description: Jkmeter is a combined RMS/digital peak meter
-		 based on the ideas of mastering guru Bob Katz
+#------- media-sound/jack_convolve --------
+	jack_convolve-0.0.13	arch: x86
+	Description: jack_convolve - a simple commandline convolution
+		 engine for jackd
+	Homepage:    http://tapas.affenbande.org/?page_id=5
+
+
+#------- media-sound/freqtweak --------
+	freqtweak-0.7.0_pre20070214-r1	arch: amd64 ppc sparc x86
+	freqtweak-0.7.2	arch: amd64 ppc sparc x86
+	freqtweak-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: FFT-based realtime audio spectral manipulation
+		 and display
+	Homepage:    http://freqtweak.sourceforge.net
+
+
+#------- media-sound/jack_oscrolloscope --------
+	jack_oscrolloscope-0.6	arch: ~amd64 ~x86
+	Description: Simple waveform viewer for JACK
+	Homepage:    http://das.nasophon.de/jack_oscrolloscope/
+
+
+#------- media-sound/non-daw --------
+	non-daw-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: The Non DAW is a powerful, reliable and fast
+		 modular Digital Audio Workstation system
+	Homepage:    http://non-daw.tuxfamily.org/
+
+
+#------- media-sound/qtractor --------
+	qtractor-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Qtractor is an Audio/MIDI multi-track sequencer.
 		
-	Homepage:    http://www.kokkinizita.net/linuxaudio
+	Homepage:    http://qtractor.sourceforge.net/
 
 
-#------- media-sound/zynaddsubfx-converter --------
-	zynaddsubfx-converter-2.0.0_pre2	arch: amd64 ~ppc x86
-	Description: ZynAddSubFX-converter: use ONLY to convert
-		 old *.ins_zyn instruments to *.xiz
-	Homepage:    http://zynaddsubfx.sourceforge.net/
+#------- media-sound/fluidsynth --------
+	fluidsynth-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Fluidsynth is a software real-time synthesizer
+		 based on the Soundfont 2 specifications.
+	Homepage:    http://www.fluidsynth.org/
 
 
-#------- media-sound/rezound --------
-	rezound-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Sound editor and recorder
-	Homepage:    http://rezound.sourceforge.net
+#------- media-sound/lash --------
+	lash-0.5.4	arch: amd64 ppc sparc x86
+	lash-0.6.0_rc2	arch: ~amd64
+	Description: LASH Audio Session Handler
+	Homepage:    http://www.nongnu.org/lash/
 
 
-#------- media-sound/fmit --------
-	fmit-0.97.6	arch: ~amd64 ~sparc x86
-	Description: Free Music Instrument Tuner
-	Homepage:    http://home.gna.org/fmit/
+#------- media-sound/lmms --------
+	lmms-9999-r1	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: free alternative to popular programs such
+		 as FruityLoops, Cubase and Logic
+	Homepage:    http://lmms.sourceforge.net
 
 
-#------- media-sound/non-sequencer --------
-	non-sequencer-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: The Non Sequencer is a powerful real-time,
-		 pattern-based MIDI sequencer for Linux.
-	Homepage:    http://non-sequencer.tuxfamily.org/
-
-
-#------- media-sound/buzztard --------
-	buzztard-0.3.0	arch: ~amd64 ~x86
-	buzztard-0.4.0	arch: ~amd64 ~x86
-	Description: free, open source music studio that is conceptionally
-		 based on Buzz
-	Homepage:    http://www.buzztard.org
-
-
-#------- media-sound/xwax --------
-	xwax-0.2	arch: x86 amd64
-	xwax-0.3	arch: x86 amd64
-	Description: open source vinyl emulation
-	Homepage:    http://www.pogo.org.uk/xwax/
-
-
-#------- media-sound/abraca --------
-	abraca-0.2-r1	arch: ~x86 ~amd64
-	abraca-0.3	arch: ~x86 ~amd64
-	abraca-0.4.3	arch: ~x86 ~amd64
-	abraca-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Abraca is a GTK2 client for the XMMS2 music
-		 player.
-	Homepage:    http://abraca.xmms.se
-
-
-#------- media-sound/jokosher --------
-	jokosher-0.9	arch: ~x86 ~amd64
-	jokosher-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: A simple yet powerful multi-track studio
-	Homepage:    http://www.jokosher.org/
-
-
-#------- media-sound/qsampler --------
-	qsampler-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: QSampler is a graphical frontend to the LinuxSampler
-		 engine.
-	Homepage:    http://qsampler.sourceforge.net
-
-
-#------- media-sound/machina --------
-	machina-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: A MIDI sequencer based on probabilistic finite-state
-		 automata
-	Homepage:    http://drobilla.net/software
-
-
-#------- media-sound/dssi_convolve --------
-	dssi_convolve-0.0.4	arch: x86
-	Description: A convolution plugin for linux/DSSI
-	Homepage:    http://tapas.affenbande.org/wordpress/?page_id=36
-
-
-#------- media-sound/yoshimi --------
-	yoshimi-0.056	arch: ~amd64 ~x86
-	Description: A software synthesizer for Linux, based on
-		 ZynAddSubFX
-	Homepage:    http://yoshimi.sourceforge.net
-
-
-#------- media-sound/gnuitar --------
-	gnuitar-0.3.2	arch: ~amd64 ~x86
-	Description: a program for real-time guitar sound effect
-		 processing
-	Homepage:    http//www.gnuitar.com
-
-
-#------- media-sound/san-dysth --------
-	san-dysth-0.1.0-r1	arch: ~x86 ~amd64
-	san-dysth-0.1.1	arch: ~x86 ~amd64
-	Description: A softsynth to generate organ-like, organic-like,
-		 alien-like and water-like sounds, plus various kinds
-		 of noise
-	Homepage:    http://www.notam02.no/~kjetism/sandysth/
-
-
-#------- media-sound/frinika --------
-	frinika-0.1.7	arch: ~amd64 ~x86
-	frinika-0.2.1	arch: ~amd64 ~x86
-	frinika-0.3.0	arch: ~amd64 ~x86
-	frinika-20100328	arch: ~amd64 ~x86
-	Description: Frinika is a free, complete music workstation
-		 software
-	Homepage:    http://www.frinika.com
-
-
-#------- media-sound/tuxguitar --------
-	tuxguitar-0.5	arch: ~amd64 ~ppc ~sparc x86
-	tuxguitar-0.6	arch: ~amd64 ~ppc ~sparc x86
-	tuxguitar-0.8	arch: ~amd64 ~ppc x86
-	tuxguitar-1.0	arch: ~amd64 ~ppc ~x86
-	tuxguitar-1.2	arch: ~amd64 ~x86 ~ppc
-	Description: TuxGuitar is a multitrack guitar tablature
-		 editor and player written in Java-SWT
-	Homepage:    http://www.tuxguitar.com.ar/
-
-
-#------- media-sound/smack --------
-	smack-0.2.1	arch: amd64 x86
-	smack-0.3	arch: amd64 x86
-	smack-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Smack is a drum synth, 100% sample free
-	Homepage:    http://smack.berlios.de/
-
-
-#------- media-sound/alsaplayer --------
-	alsaplayer-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Media player primarily utilising ALSA
-	Homepage:    http://www.alsaplayer.org/
+#------- media-sound/chionic --------
+	chionic-1.0.1	arch: ~amd64 ~x86
+	Description: advanced sampler for linux
+	Homepage:    http://www.reduz.com.ar/chionic
 
 
 #------- media-sound/aseqjoy --------
@@ -980,394 +915,22 @@
 	Homepage:    http://terminatorx.org/aseqjoy.html
 
 
-#------- media-sound/breakage --------
-	breakage-23	arch: ~x86
-	Description: Intelligent drum machine.
-	Homepage:    http://ollieglass.com/breakage/index.html
+#------- media-sound/abraca --------
+	abraca-0.4.3	arch: ~x86 ~amd64
+	abraca-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Abraca is a GTK2 client for the XMMS2 music
+		 player.
+	Homepage:    http://abraca.xmms.se
 
 
-#------- media-sound/tkeca --------
-	tkeca-4.0.2	arch: amd64 x86
-	Description: A Tcl/Tk front end for Ecasound, with almost
-		 all of Ecasound features.
-	Homepage:    http://tkeca.sourceforge.net
-
-
-#------- media-sound/azr3-jack --------
-	azr3-jack-0.1.666	arch: ~amd64 ~x86
-	azr3-jack-1.0.3	arch: ~amd64 ~x86
-	azr3-jack-1.2.3	arch: ~amd64 ~x86
-	Description: Rumpelrausch Taips AZR3 standalone Linux
-		 port
-	Homepage:    http://ll-plugins.nongnu.org/azr3
-
-
-#------- media-sound/aliki --------
-	aliki-0.0.3	arch: ~x86 ~amd64
-	Description: Aliki is an integrated system for Impulse
-		 Response measurements
-	Homepage:    http://www.kokkinizita.net/linuxaudio
-
-
-#------- media-sound/khagan --------
-	khagan-0.1.2	arch: ~x86 ~amd64
-	Description: Live user interface builder for controlling
-		 parameters via OSC.
-	Homepage:    http://khagan.berlios.de/
-
-
-#------- media-sound/boodler --------
-	boodler-2.0.2	arch: ~x86
-	Description: Tool for creating soundscapes -- continuous,
-		 infinitely varying streams of sound
-	Homepage:    http://boodler.org/
-
-
-#------- media-sound/jack-tools --------
-	jack-tools-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: a collection of jack tools
-	Homepage:    http://slavepianos.org/rd/f/207983/
-
-
-#------- media-sound/mjoo --------
-	mjoo-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: mjoo is a live sequencer with ZUI interface
-		 using jack
-	Homepage:    http://mjoo.org
-
-
-#------- media-sound/schism-tracker --------
-	schism-tracker-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Schism Tracker cvs
-	Homepage:    http://rigelseven.org/schism
-
-
-#------- media-sound/simplesysexxer --------
-	simplesysexxer-0.1.1	arch: ~x86 ~amd64
-	Description: a small tool to load, send, receive, save
-		 and request sysex data on MIDI devices
-	Homepage:    http://www.christeck.de/pages/simplesysexxer.html
-
-
-#------- media-sound/bpmdetect --------
-	bpmdetect-0.5	arch: ~amd64 ~x86
-	Description: Simple BPM detection utility
-	Homepage:    http://kde-apps.org/content/show.php/BPM+Detect?content=43147
-
-
-#------- media-sound/louderbox --------
-	louderbox-0.1.0	arch: -> live ebuild: [svn|cvs|...]<-
-	louderbox-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Louderbox is a complete 8 band audio processor
-		 intended to be used with software stereo and R[B]DS
-		 generators (but perfectly usable for other things (such
-		 as web "radio")
-	Homepage:    http://www.spamblock.demon.co.uk/louderbox.html
-
-
-#------- media-sound/jconvolver --------
-	jconvolver-0.8.7	arch: x86 amd64
-	Description: Command line convolution reverb by Fons Adriaensen
+#------- media-sound/museseq --------
+	museseq-1.0.1	arch: ~amd64 ~x86
+	museseq-1.0_rc1	arch: ~amd64 ~x86
+	museseq-1.9999	arch: -> live ebuild: [svn|cvs|...]<-
+	museseq-2.9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: The Linux (midi) MUSic Editor (a sequencer)
 		
-	Homepage:    http://www.kokkinizita.net/linuxaudio/index.html
-
-
-#------- media-sound/qlo10k1 --------
-	qlo10k1-0.1.2	arch: x86 ~amd64
-	Description: Gui for ld10k1 (EMU10K1 (EMU10K2) effect
-		 loader for ALSA)
-	Homepage:    http://ld10k1.sourceforge.net/
-
-
-#------- media-sound/ceres --------
-	ceres-0.45	arch: x86
-	ceres-0.47	arch: x86 ~amd64
-	Description: A program for displaying sonograms and doing
-		 sound effects in the frequency domain
-	Homepage:    http://www.notam02.no/arkiv/src/
-
-
-#------- media-sound/midicontroller --------
-	midicontroller-041011	arch: ~x86 ~amd64
-	Description: Set MIDI controller values using sliders
-		 and buttons.
-	Homepage:    http://sourceforge.net/projects/midicontrol/
-
-
-#------- media-sound/rtsynth --------
-	rtsynth-1.9.2	arch: amd64 x86
-	Description: reproduce sounds of strings, organs, flutes
-		 and drums in real time
-	Homepage:    http://www.linux-sound.org/rtsynth/
-
-
-#------- media-sound/wired --------
-	wired-0.4	arch: ~x86 ~amd64
-	wired-0.5	arch: ~x86 ~amd64
-	wired-0.6	arch: ~x86 ~amd64
-	wired-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Wired aims to be a professional music production
-		 and creation software running on the Linux operating
-		 system.
-	Homepage:    http://wired.sourceforge.net
-
-
-#------- media-sound/mammut --------
-	mammut-0.59	arch: ~x86 ~amd64
-	mammut-0.60	arch: ~x86 ~amd64
-	Description: A program for doing sound effects using one
-		 gigantic fft analysis (no windows).
-	Homepage:    http://www.notam02.no/arkiv/doc/mammut/
-
-
-#------- media-sound/SMSTools --------
-	SMSTools-0.4.10	arch: ~amd64 x86
-	SMSTools-0.4.7-r1	arch: ~amd64 x86
-	SMSTools-0.4.8	arch: ~amd64 x86
-	SMSTools-0.4.9	arch: ~amd64 x86
-	SMSTools-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Analyzes, transforms and synthesizes back
-		 a given sound using the SMS model.
-	Homepage:    http://clam.iua.upf.edu/index.html
-
-
-#------- media-sound/madjack --------
-	madjack-0.4	arch: ~x86 ~amd64
-	Description: MadJACK is a MPEG Audio Deck for the Jack
-		 Audio Connection Kit with an OSC based control
-		 interface
-	Homepage:    http://www.ecs.soton.ac.uk/~njh/madjack/
-
-
-#------- media-sound/stretchplayer --------
-	stretchplayer-0.500	arch: ~x86 ~amd64
-	stretchplayer-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Audio player with time stretch and pitch
-		 shift
-	Homepage:    http://www.teuton.org/~gabriel/stretchplayer/
-
-
-#------- media-sound/mx44 --------
-	mx44-1	arch: x86 ~amd64
-	Description: Mx44 is a polyphonic midi realtime software
-		 synthesizer
-	Homepage:    http://hem.passagen.se/ja_linux/
-
-
-#------- media-sound/jackminimix --------
-	jackminimix-0.1	arch: ~x86 ~amd64
-	Description: a simple mixer for the Jack Audio Connection
-		 Kit with an OSC based control interface
-	Homepage:    http://www.ecs.soton.ac.uk/~njh/jackminimix
-
-
-#------- media-sound/reshaked --------
-	reshaked-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: ReShaked is a next generation tracker/sequencer
-		
-	Homepage:    http://reshaked.berlios.de
-
-
-#------- media-sound/freecycle --------
-	freecycle-0.6.1.1_alpha	arch: ~amd64 ~x86
-	Description: Freecycle is a beat slicer
-	Homepage:    http://www.redsteamrecords.com/freecycle/
-
-
-#------- media-sound/jackEQ --------
-	jackEQ-0.4.1	arch: ~amd64 ~x86
-	Description: jackEQ is a tool for routing and manipulating
-		 audio from/to multiple input/output sources
-	Homepage:    http://jackeq.sourceforge.net
-
-
-#------- media-sound/patchage --------
-	patchage-0.2.3	arch: amd64 x86
-	patchage-0.4.0	arch: ~amd64 ~x86
-	patchage-0.4.1	arch: ~amd64 ~x86
-	patchage-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Patchage is a modular patchbay for Jack audio
-		 and Alsa sequencer.
-	Homepage:    http://drobilla.net/software/patchage
-
-
-#------- media-sound/supercollider --------
-	supercollider-99999999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: An environment and a programming language
-		 for real time audio synthesis.
-	Homepage:    http://www.audiosynth.com http://supercollider.sourceforge.net
-
-
-#------- media-sound/om --------
-	om-0.2.0	arch: amd64 x86
-	om-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Om is a modular synthesizer for GNU/Linux
-		 audio systems using the Jack audio server
-		 and LADSPA or DSSI plugins.
-	Homepage:    http://www.nongnu.org/om-synth/
-
-
-#------- media-sound/ordrumbox --------
-	ordrumbox-0.7.05	arch: ~amd64 ~x86
-	Description: The orDrumbox is a software drum machine,
-		 designed to a creative pattern based way
-		 of drum programming with automatic music
-		 composition capabilities.
-	Homepage:    http://www.ordrumbox.com/
-
-
-#------- media-sound/Voice2MIDI --------
-	Voice2MIDI-0.3.6-r1	arch: ~amd64 x86
-	Voice2MIDI-0.3.7	arch: ~amd64 x86
-	Voice2MIDI-0.3.8	arch: ~amd64 x86
-	Voice2MIDI-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: CLAM Voice2MIDI extracts the melody as a
-		 MIDI or XML file from monophonic audio files
-		
-	Homepage:    http://clam.iua.upf.edu/index.html
-
-
-#------- media-sound/qamix --------
-	qamix-0.0.7e	arch: ~x86 ~amd64
-	Description: Configurable mixer for ALSA, with MIDI connectivity.
-		
-	Homepage:    http://alsamodular.sourceforge.net/
-
-
-#------- media-sound/alsaplayer-midi --------
-	alsaplayer-midi-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Midi input plugin for the alsaplayer. It
-		 use timidity++ for the output
-	Homepage:    http://www.alsaplayer.org/
-
-
-#------- media-sound/jost --------
-	jost-0.4.6	arch: ~x86 ~amd64
-	jost-0.5.2	arch: ~x86 ~amd64
-	jost-0.5.4	arch: ~x86 ~amd64
-	Description: JACK host for native linux VST, DSSI and
-		 LADSPA plugins with sequencer capabilities
-		
-	Homepage:    http://www.anticore.org/jucetice/?page_id=4
-
-
-#------- media-sound/iannix --------
-	iannix-0.640_beta	arch: ~x86 ~amd64
-	Description: IanniX is a graphical score editor based
-		 on the previous UPIC developed by Iannis
-		 Xenakis
-	Homepage:    http://sourceforge.net/projects/iannix/
-
-
-#------- media-sound/sooperlooper --------
-	sooperlooper-1.6.11	arch: ~amd64 ~ppc ~x86
-	Description: Live looping sampler with immediate loop
-		 recording
-	Homepage:    http://essej.net/sooperlooper/index.html
-
-
-#------- media-sound/rosegarden --------
-	rosegarden-1.0-r2	arch: amd64 ppc ~sparc x86
-	rosegarden-1.2.3-r2	arch: ~amd64 ~ppc ~sparc x86
-	rosegarden-1.2.4	arch: ~amd64 ~ppc ~sparc x86
-	rosegarden-1.4.0	arch: ~amd64 ~ppc ~sparc x86
-	rosegarden-1.5.0-r1	arch: ~amd64 ~ppc ~sparc x86
-	rosegarden-1.5.1	arch: amd64 ~ppc ~sparc x86
-	rosegarden-1.6.0	arch: amd64 ~ppc ~sparc x86
-	rosegarden-1.6.1	arch: amd64 ~ppc ~sparc x86
-	rosegarden-1.7.0	arch: ~amd64 ~ppc ~x86
-	rosegarden-2.9999	arch: -> live ebuild: [svn|cvs|...]<-
-	rosegarden-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: MIDI and audio sequencer and notation editor.
-		
-	Homepage:    http://www.rosegardenmusic.com/
-
-
-#------- media-sound/yatm --------
-	yatm-0.4	arch: amd64 ~ppc sparc x86
-	Description: adjust the playback speed without changing
-		 the pitch of the recording
-	Homepage:    http://delysid.org/yatm.html
-
-
-#------- media-sound/jack-audio-connection-kit --------
-	jack-audio-connection-kit-0.116.2	arch: ~amd64 ~x86
-	jack-audio-connection-kit-0.118.0	arch: ~amd64 ~x86
-	jack-audio-connection-kit-1.9.2	arch: ~amd64 ~x86
-	jack-audio-connection-kit-1.9.3	arch: ~amd64 ~x86
-	jack-audio-connection-kit-1.9.4	arch: ~amd64 ~x86
-	jack-audio-connection-kit-1.9.5	arch: ~amd64 ~x86
-	jack-audio-connection-kit-1.9999	arch: -> live ebuild: [svn|cvs|...]<-
-	jack-audio-connection-kit-2.9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Jackdmp jack implemention for multi-processor
-		 machine
-	Homepage:    http://www.grame.fr/~letz/jackdmp.html
-
-
-#------- media-sound/hydrogen --------
-	hydrogen-0.9.3-r1	arch: ~amd64 ~ppc ~ppc64 ~sparc ~x86
-	hydrogen-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Linux Drum Machine
-	Homepage:    http://hydrogen.sourceforge.net/
-
-
-#------- media-sound/ac3jack --------
-	ac3jack-0.1.2	arch: x86 ~amd64
-	ac3jack-2.0.3	arch: ~x86 ~amd64
-	Description: Tool for creating an AC-3 (Dolby Digital)
-		 multichannel stream from its JACK input ports
-		
-	Homepage:    http://essej.net/ac3jack/
-
-
-#------- media-sound/soma --------
-	soma-2.3	arch: ~x86 ~amd64
-	Description: soma is a complete audio broadcasting solution
-		
-	Homepage:    http://www.somasuite.org
-
-
-#------- media-sound/ambdec --------
-	ambdec-0.4.2	arch: ~x86 ~amd64
-	Description: An Ambisonic decoder for first and second
-		 order
-	Homepage:    http://www.kokkinizita.net/linuxaudio
-
-
-#------- media-sound/idjc --------
-	idjc-0.6.10	arch: ~x86 ~amd64
-	idjc-0.6.11	arch: ~x86 ~amd64
-	idjc-0.6.11_pre1	arch: ~x86 ~amd64
-	idjc-0.6.12	arch: ~x86 ~amd64
-	idjc-0.7.0	arch: ~x86 ~amd64
-	idjc-0.7.2a	arch: ~x86 ~amd64
-	Description: Internet DJ Console
-	Homepage:    http://www.onlymeok.nildram.co.uk
-
-
-#------- media-sound/ldrum --------
-	ldrum-0.6.0-r1	arch: x86 ~amd64
-	Description: The LDrum is an open-source drummachine that
-		 offers ten sample channels, realtime control,
-		 a simple pattern sequencer, MIDI support and a
-		 Qt-GUI
-	Homepage:    http://ldrum.sf.net/
-
-
-#------- media-sound/glashctl --------
-	glashctl-0.2.0	arch: x86 ~amd64
-	glashctl-0.4.2	arch: ~x86 ~amd64
-	glashctl-0.4.3	arch: ~x86 ~amd64
-	Description: GLASHCtl is a simple applet for controlling
-		 the LASH Audio Session Handler
-	Homepage:    http://dino.nongnu.org/glashctl
-
-
-#------- media-sound/kmidimon --------
-	kmidimon-0.5.0	arch: ~x86 ~amd64
-	Description: MIDI monitor using ALSA sequencer and KDE
-		 user interface.
-	Homepage:    http://kmetronome.sourceforge.net/kmidimon/
+	Homepage:    http://www.muse-sequencer.org/
 
 
 #------- media-sound/NetworkEditor --------
@@ -1381,6 +944,286 @@
 	Homepage:    http://clam.iua.upf.edu/index.html
 
 
+#------- media-sound/jackminimix --------
+	jackminimix-0.2	arch: ~x86 ~amd64
+	jackminimix-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: a simple mixer for the Jack Audio Connection
+		 Kit with an OSC based control interface
+	Homepage:    http://www.aelius.com/njh/jackminimix/
+
+
+#------- media-sound/alsaplayer --------
+	alsaplayer-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Media player primarily utilising ALSA
+	Homepage:    http://www.alsaplayer.org/
+
+
+#------- media-sound/ambdec --------
+	ambdec-0.4.2	arch: ~x86 ~amd64
+	Description: An Ambisonic decoder for first and second
+		 order
+	Homepage:    http://www.kokkinizita.net/linuxaudio
+
+
+#------- media-sound/simsam --------
+	simsam-0.1.7	arch: amd64 x86
+	Description: Simsam is a simple MIDI sample playback program.
+		 You can use it to play drum samples and loops from
+		 a MIDI keyboard or sequencer
+	Homepage:    http://simsam.sourceforge.net
+
+
+#------- media-sound/soma --------
+	soma-2.3	arch: ~x86 ~amd64
+	Description: soma is a complete audio broadcasting solution
+		
+	Homepage:    http://www.somasuite.org
+
+
+#------- media-sound/epichord --------
+	epichord-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: a classical multi-track midi sequencer
+	Homepage:    http://repo.or.cz/w/epichord.git
+
+
+#------- media-sound/xmms2 --------
+	xmms2-0.2.8	arch: ~x86 ~amd64 ~sparc
+	xmms2-0.4_rc1	arch: ~x86 ~amd64 ~sparc
+	xmms2-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: X(cross)platform Music Multiplexing System.
+		 The new generation of the XMMS player.
+	Homepage:    http://xmms2.xmms.org
+
+
+#------- media-sound/ardour --------
+	ardour-2.8.11	arch: ~amd64 ~x86
+	ardour-2.9999	arch: -> live ebuild: [svn|cvs|...]<-
+	ardour-3.9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: multi-track hard disk recording software
+	Homepage:    http://ardour.org/
+
+
+#------- media-sound/xmms2tray --------
+	xmms2tray-0.5.1	arch: ~x86 ~amd64
+	xmms2tray-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: XMMS2tray - systray integration for XMMS2
+		
+	Homepage:    http://code.jollybox.de/wiki/Software/Xmms2tray
+
+
+#------- media-sound/rtsynth --------
+	rtsynth-1.9.2	arch: amd64 x86
+	Description: reproduce sounds of strings, organs, flutes
+		 and drums in real time
+	Homepage:    http://www.linux-sound.org/rtsynth/
+
+
+#------- media-sound/qjackctl --------
+	qjackctl-0.2.23	arch: ~amd64 ~ppc ~sparc ~x86
+	qjackctl-0.3.3	arch: amd64 ppc sparc x86
+	qjackctl-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: A Qt application to control the JACK Audio
+		 Connection Kit and ALSA sequencer connections.
+		
+	Homepage:    http://qjackctl.sourceforge.net/
+
+
+#------- media-sound/jackmixdesk --------
+	jackmixdesk-0.3_p2	arch: ~amd64 ~ppc ~x86
+	jackmixdesk-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Audio mixer for JACK with OSC control, LASH
+		 support and GTK GUI
+	Homepage:    http://sourceforge.net/projects/jackmixdesk
+
+
+#------- media-sound/fastbreeder --------
+	fastbreeder-1.0.1	arch: ~x86
+	fastbreeder-1.0.1-r1	arch: ~x86
+	Description: An experimental genetic programming synthesiser.
+		
+	Homepage:    http://www.pawfal.org/Software/fastbreeder/
+
+
+#------- media-sound/gigedit --------
+	gigedit-0.1.1	arch: ~amd64 ~x86
+	gigedit-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Gigedit is an instrument editor for Gigasampler
+		 files.
+	Homepage:    http://www.linuxsampler.org
+
+
+#------- media-sound/alsaplayer-fftscope --------
+	alsaplayer-fftscope-9999-r3	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: FftScope external visualization scope for
+		 AlsaPlayer. It is a good starting point for
+		 others.
+	Homepage:    http://www.alsaplayer.org/
+
+
+#------- media-sound/ceres --------
+	ceres-0.45	arch: x86
+	ceres-0.47	arch: x86 ~amd64
+	Description: A program for displaying sonograms and doing
+		 sound effects in the frequency domain
+	Homepage:    http://www.notam02.no/arkiv/src/
+
+
+#------- media-sound/zynaddsubfx --------
+	zynaddsubfx-20070707	arch: ~amd64 ~ppc x86
+	zynaddsubfx-20070707-r1	arch: ~amd64 ~ppc ~x86
+	zynaddsubfx-2.2.1-r8	arch: ~amd64 ~ppc ~x86
+	zynaddsubfx-2.4.0	arch: ~amd64 ~ppc ~x86
+	zynaddsubfx-99999999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: ZynAddSubFX is an opensource software synthesizer.
+		
+	Homepage:    http://zynaddsubfx.sourceforge.net/
+
+
+#------- media-sound/jackbeat --------
+	jackbeat-0.7.6	arch: ~amd64 ~x86
+	jackbeat-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: An audio sequencer for Linux
+	Homepage:    http://www.samalyse.com/jackbeat/
+
+
+#------- media-sound/jnoisemeter --------
+	jnoisemeter-0.1.0	arch: ~x86
+	Description: Jnoisemeter is a small app designed to measure
+		 audio test signals and in particular noise signals
+		
+	Homepage:    http://www.kokkinizita.net/linuxaudio/
+
+
+#------- media-sound/zita-at1 --------
+	zita-at1-0.2.1	arch: ~amd64 ~x86
+	Description: An autotuner, normally used to correct the
+		 pitch of a voice singing (slightly) out of
+		 tune
+	Homepage:    http://www.kokkinizita.net/linuxaudio/
+
+
+#------- media-sound/yass --------
+	yass-0.0.2	arch: ~x86
+	Description: Yet Another Scrolling Scope features jack
+		 input, variable scrolling speed and automatic
+		 gain control
+	Homepage:    http://www.kokkinizita.net/linuxaudio/
+
+
+#------- media-sound/ices --------
+	ices-2.0.60a	arch: x86 sparc amd64 ppc64
+	Description: icecast OGG streaming client. supports on
+		 the fly re-encoding, and the jack-audio-connection-kit
+		
+	Homepage:    http://www.icecast.org/ices.php
+
+
+#------- media-sound/qarecord --------
+	qarecord-0.0.9b	arch: ~x86 ~amd64
+	Description: Multithreaded stereo recording tool.
+	Homepage:    http://alsamodular.sourceforge.net/
+
+
+#------- media-sound/zita-rev1 --------
+	zita-rev1-0.1.1	arch: ~x86
+	Description: Zita-rev1 is a reworked version of the reverb
+		 originally developed for Aeolus
+	Homepage:    http://www.kokkinizita.net/linuxaudio/
+
+
+#------- media-sound/supercollider --------
+	supercollider-3.3.1	arch: ~x86 ~amd64
+	supercollider-99999999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: An environment and a programming language
+		 for real time audio synthesis.
+	Homepage:    http://www.audiosynth.com http://supercollider.sourceforge.net
+
+
+#------- media-sound/AudioCutter --------
+	AudioCutter-1.2	arch: ~x86 ~amd64
+	Description: Advanced surround sound file editor
+	Homepage:    http://www.virtualworlds.de/AudioCutter/
+
+
+#------- media-sound/jackEQ --------
+	jackEQ-0.4.1	arch: ~amd64 ~x86
+	Description: jackEQ is a tool for routing and manipulating
+		 audio from/to multiple input/output sources
+	Homepage:    http://jackeq.sourceforge.net
+
+
+#------- media-sound/smack --------
+	smack-0.2.1	arch: amd64 x86
+	smack-0.3	arch: amd64 x86
+	smack-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Smack is a drum synth, 100% sample free
+	Homepage:    http://smack.berlios.de/
+
+
+#------- media-sound/tapiir --------
+	tapiir-0.7.1-r1	arch: x86 ~amd64
+	tapiir-0.7.2	arch: amd64 ~ppc ~sparc x86
+	Description: a flexible audio effects processor, inspired
+		 on the classical magnetic tape delay systems
+		
+	Homepage:    http://www.iua.upf.es/~mdeboer/projects/tapiir/
+
+
+#------- media-sound/swami --------
+	swami-0.9.4	arch: ~amd64 ~ppc ~x86
+	swami-1.0.0_pre1-r1	arch: ~amd64 ~ppc ~x86
+	swami-2.0.0	arch: ~amd64 ~ppc ~x86
+	swami-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: an instrument editor for MIDI music composition
+		 and a sampler frontend
+	Homepage:    http://swami.sourceforge.net
+
+
+#------- media-sound/qamix --------
+	qamix-0.0.7e	arch: ~x86 ~amd64
+	Description: Configurable mixer for ALSA, with MIDI connectivity.
+		
+	Homepage:    http://alsamodular.sourceforge.net/
+
+
+#------- media-sound/gnusound --------
+	gnusound-0.7.4-r2	arch: ~amd64 ~x86 -sparc
+	Description: GNUsound is a sound editor for Linux/x86
+	Homepage:    http://gnusound.sourceforge.net/
+
+
+#------- media-sound/jkmeter --------
+	jkmeter-0.4.0	arch: ~x86 ~amd64
+	Description: Jkmeter is a combined RMS/digital peak meter
+		 based on the ideas of mastering guru Bob Katz
+		
+	Homepage:    http://www.kokkinizita.net/linuxaudio
+
+
+#------- media-sound/jaaa --------
+	jaaa-0.6.0	arch: amd64 ~ppc ~sparc x86
+	Description: The JACK and ALSA Audio Analyser is an audio
+		 signal generator and spectrum analyser
+	Homepage:    http://www.kokkinizita.net/linuxaudio
+
+
+#------- media-sound/patchage --------
+	patchage-0.2.3	arch: amd64 x86
+	patchage-0.4.0	arch: ~amd64 ~x86
+	patchage-0.4.1	arch: ~amd64 ~x86
+	patchage-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Patchage is a modular patchbay for Jack audio
+		 and Alsa sequencer.
+	Homepage:    http://drobilla.net/software/patchage
+
+
+#------- media-sound/simplesysexxer --------
+	simplesysexxer-0.3	arch: ~x86 ~amd64
+	Description: a small tool to load, send, receive, save
+		 and request sysex data on MIDI devices
+	Homepage:    http://sourceforge.net/projects/sysexxer/
+
+
 #------- media-sound/gneutronica --------
 	gneutronica-0.28	arch: ~x86
 	gneutronica-0.29	arch: ~x86
@@ -1391,11 +1234,25 @@
 	Homepage:    http://gneutronica.sourceforge.net/
 
 
-#------- media-sound/xmms2tray --------
-	xmms2tray-0.4-r2	arch: ~x86 ~amd64
-	Description: XMMS2tray - systray integration for XMMS2
-		
-	Homepage:    http://zombiehq.jollybox.de/zhq/static/view/projects/xmms2tray
+#------- media-sound/machina --------
+	machina-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: A polyphonic MIDI sequencer based on probabilistic
+		 finite-state automata
+	Homepage:    http://drobilla.net/software/machina/
+
+
+#------- media-sound/kguitar --------
+	kguitar-0.6_pre1	arch: ~amd64 ~x86
+	Description: An efficient and easy-to-use environment
+		 for a guitarist.
+	Homepage:    http://kguitar.sourceforge.net/
+
+
+#------- media-sound/gnuitar --------
+	gnuitar-0.3.2	arch: ~amd64 ~x86
+	Description: a program for real-time guitar sound effect
+		 processing
+	Homepage:    http//www.gnuitar.com
 
 
 #------- media-sound/tetraproc --------
@@ -1405,12 +1262,360 @@
 	Homepage:    http://www.kokkinizita.net/linuxaudio
 
 
-#------- media-sound/ices --------
-	ices-2.0.60a	arch: x86 sparc amd64 ppc64
-	Description: icecast OGG streaming client. supports on
-		 the fly re-encoding, and the jack-audio-connection-kit
+#------- media-sound/ac3jack --------
+	ac3jack-0.1.2	arch: x86 ~amd64
+	ac3jack-2.0.3	arch: ~x86 ~amd64
+	Description: Tool for creating an AC-3 (Dolby Digital)
+		 multichannel stream from its JACK input ports
 		
-	Homepage:    http://www.icecast.org/ices.php
+	Homepage:    http://essej.net/ac3jack/
+
+
+#------- media-sound/qmidicontrol --------
+	qmidicontrol-0.0.1b	arch: amd64 ppc sparc x86
+	Description: Virtual Midi Fader Box QMidiControl
+	Homepage:    http://alsamodular.sourceforge.net/
+
+
+#------- media-sound/qmidiarp --------
+	qmidiarp-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: MIDI Arpeggiator QMidiArp
+	Homepage:    http://alsamodular.sourceforge.net/
+
+
+#------- media-sound/soundmosaic --------
+	soundmosaic-1.2	arch: ~x86
+	Description: Constructs an approximation of one sound
+		 out of small pieces of other sounds
+	Homepage:    http://awesame.org/soundmosaic/
+
+
+#------- media-sound/somax --------
+	somax-1.1	arch: ~x86 ~amd64
+	Description: soma is a complete audio broadcasting solution
+		
+	Homepage:    http://www.somasuite.org
+
+
+#------- media-sound/ggseq --------
+	ggseq-0.3.0	arch: ~x86
+	ggseq-0.3.1	arch: ~x86
+	Description: Gungirl Sequencer is an easy to use Audiosequencer
+		
+	Homepage:    http://ggseq.sourceforge.net
+
+
+#------- media-sound/lash_wrap --------
+	lash_wrap-1.0.2	arch: ~amd64 ~x86
+	Description: A small helper application that serves as
+		 a proxy between an un-LASHified app and the
+		 LASH system
+	Homepage:    http://tapas.affenbande.org/lash_wrap/
+
+
+#------- media-sound/ingen --------
+	ingen-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Ingen is a modular synthesizer using the
+		 Jack audio server and LV2 or LADSPA plugins.
+		
+	Homepage:    http://drobilla.net/software/ingen
+
+
+#------- media-sound/mammut --------
+	mammut-0.59	arch: ~x86 ~amd64
+	mammut-0.60	arch: ~x86 ~amd64
+	Description: A program for doing sound effects using one
+		 gigantic fft analysis (no windows).
+	Homepage:    http://www.notam02.no/arkiv/doc/mammut/
+
+
+#------- media-sound/sooperlooper --------
+	sooperlooper-1.6.11	arch: ~amd64 ~ppc ~x86
+	Description: Live looping sampler with immediate loop
+		 recording
+	Homepage:    http://essej.net/sooperlooper/index.html
+
+
+#------- media-sound/psindustrializer --------
+	psindustrializer-0.2.5	arch: ~x86 ~amd64
+	Description: Industrializer is a program for generating
+		 percussion sounds for musical purposes
+	Homepage:    http://sourceforge.net/projects/industrializer
+
+
+#------- media-sound/rezound --------
+	rezound-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Sound editor and recorder
+	Homepage:    http://rezound.sourceforge.net
+
+
+#------- media-sound/qloud --------
+	qloud-0.22	arch: x86 amd64
+	Description: Tool to measure loudspeaker frequency and
+		 step responses and distortions
+	Homepage:    http://gaydenko.com/qloud/
+
+
+#------- media-sound/louderbox --------
+	louderbox-0.1.0	arch: -> live ebuild: [svn|cvs|...]<-
+	louderbox-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Louderbox is a complete 8 band audio processor
+		 intended to be used with software stereo and R[B]DS
+		 generators (but perfectly usable for other things (such
+		 as web "radio")
+	Homepage:    http://www.spamblock.demon.co.uk/louderbox.html
+
+
+#------- media-sound/jack-tools --------
+	jack-tools-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: a collection of jack tools
+	Homepage:    http://slavepianos.org/rd/f/207983/
+
+
+#------- media-sound/esperanza --------
+	esperanza-0.4.0	arch: ~x86 ~amd64 ~sparc
+	esperanza-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Esperanza - a QT4 client for xmms2.
+	Homepage:    http://xmms2.xmms.org
+
+
+#------- media-sound/madjack --------
+	madjack-0.4	arch: ~x86 ~amd64
+	Description: MadJACK is a MPEG Audio Deck for the Jack
+		 Audio Connection Kit with an OSC based control
+		 interface
+	Homepage:    http://www.ecs.soton.ac.uk/~njh/madjack/
+
+
+#------- media-sound/mixxx --------
+	mixxx-1.6.1	arch: ~amd64 ~ppc ~sparc ~x86
+	mixxx-1.6.1-r1	arch: ~amd64 ~ppc ~sparc ~x86
+	mixxx-1.7.0_beta1	arch: ~amd64 ~ppc ~sparc ~x86
+	mixxx-1.7.0	arch: ~amd64 ~ppc ~sparc ~x86
+	mixxx-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Digital DJ tool using QT 4.x
+	Homepage:    http://mixxx.sourceforge.net
+
+
+#------- media-sound/raton --------
+	raton-0.22	arch: ~x86 ~amd64
+	Description: Mouse driven MIDI controller.
+	Homepage:    http://home.earthlink.net/~gmoonlit/raton/raton.html
+
+
+#------- media-sound/jost --------
+	jost-0.4.6	arch: ~x86 ~amd64
+	jost-0.5.2	arch: ~x86 ~amd64
+	jost-0.5.4	arch: ~x86 ~amd64
+	Description: JACK host for native linux VST, DSSI and
+		 LADSPA plugins with sequencer capabilities
+		
+	Homepage:    http://www.anticore.org/jucetice/?page_id=4
+
+
+#------- media-sound/tapeutape --------
+	tapeutape-0.1.1	arch: ~amd64 ~x86
+	Description: Tapeutape is a midi-controlled virtual sampler.
+		
+	Homepage:    http://tardigrade-inc.com/index.php/En/Tapeutape
+
+
+#------- media-sound/japa --------
+	japa-0.1.8	arch: x86 ~amd64
+	japa-0.6.0	arch: x86 ~amd64
+	Description: JAPA is a perceptual analyzer for JACK and
+		 ALSA
+	Homepage:    http://www.kokkinizita.net/linuxaudio/
+
+
+#------- media-sound/yoshimi --------
+	yoshimi-0.056	arch: ~amd64 ~x86
+	yoshimi-0.058.1	arch: ~amd64 ~x86
+	yoshimi-0.058	arch: ~amd64 ~x86
+	Description: A software synthesizer for Linux, based on
+		 ZynAddSubFX
+	Homepage:    http://yoshimi.sourceforge.net
+
+
+#------- media-sound/san-dysth --------
+	san-dysth-0.1.0-r1	arch: ~x86 ~amd64
+	san-dysth-0.1.1	arch: ~x86 ~amd64
+	Description: A softsynth to generate organ-like, organic-like,
+		 alien-like and water-like sounds, plus various kinds
+		 of noise
+	Homepage:    http://www.notam02.no/~kjetism/sandysth/
+
+
+#------- media-sound/stygmorgan --------
+	stygmorgan-0.27	arch: amd64 sparc x86
+	Description: stygmorgan is an Interactive Musical Workstation
+		 software emulator
+	Homepage:    http://stygmorgan.berlios.de
+
+
+#------- media-sound/frinika --------
+	frinika-0.1.7	arch: ~amd64 ~x86
+	frinika-0.2.1	arch: ~amd64 ~x86
+	frinika-0.3.0	arch: ~amd64 ~x86
+	frinika-20100328	arch: ~amd64 ~x86
+	Description: Frinika is a free, complete music workstation
+		 software
+	Homepage:    http://www.frinika.com
+
+
+#------- media-sound/zynaddsubfx-converter --------
+	zynaddsubfx-converter-2.0.0_pre2	arch: amd64 ~ppc x86
+	Description: ZynAddSubFX-converter: use ONLY to convert
+		 old *.ins_zyn instruments to *.xiz
+	Homepage:    http://zynaddsubfx.sourceforge.net/
+
+
+#------- media-sound/lilypond --------
+	lilypond-2.10.20	arch: ~amd64 ~sparc ~x86
+	lilypond-2.10.4	arch: x86 amd64 ~sparc
+	lilypond-2.8.8	arch: amd64 ~sparc x86
+	Description: GNU Music Typesetter
+	Homepage:    http://lilypond.org/
+
+
+#------- media-sound/amidimap --------
+	amidimap-0.1.1	arch: ~x86 ~amd64
+	Description: Read in, process and output MIDI events.
+	Homepage:    http://www.cowlark.com/amidimap.html
+
+
+#------- media-sound/breakage --------
+	breakage-23	arch: ~x86
+	Description: Intelligent drum machine.
+	Homepage:    http://ollieglass.com/breakage/index.html
+
+
+#------- media-sound/qoscc --------
+	qoscc-0.3.1	arch: ~x86 ~amd64
+	Description: Highly flexible and configurable software
+		 oscilloscope.
+	Homepage:    http://flup.homelinux.org/qoscc.html
+
+
+#------- media-sound/buzztard --------
+	buzztard-0.3.0	arch: ~amd64 ~x86
+	buzztard-0.4.0	arch: ~amd64 ~x86
+	buzztard-0.5.0	arch: ~amd64 ~x86
+	Description: free, open source music studio that is conceptionally
+		 based on Buzz
+	Homepage:    http://www.buzztard.org
+
+
+#------- media-sound/minicomputer --------
+	minicomputer-1.3	arch: ~amd64 ~x86
+	minicomputer-1.41	arch: ~amd64 ~x86
+	minicomputer-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Standalone Linux softwaresynthesizer
+	Homepage:    http://minicomputer.sourceforge.net
+
+
+#------- media-sound/guitarix --------
+	guitarix-0.08.0	arch: ~amd64 ~x86
+	guitarix-0.09.0	arch: ~amd64 ~x86
+	guitarix-0.11.1	arch: ~amd64 ~x86
+	Description: A simple Linux Guitar Amplifier for jack
+		 with one input and two outputs
+	Homepage:    http://guitarix.sourceforge.net/
+
+
+#------- media-sound/midicontroller --------
+	midicontroller-041011	arch: ~x86 ~amd64
+	Description: Set MIDI controller values using sliders
+		 and buttons.
+	Homepage:    http://sourceforge.net/projects/midicontrol/
+
+
+#------- media-sound/zynjacku --------
+	zynjacku-1	arch: ~x86 ~amd64
+	zynjacku-4	arch: ~x86 ~amd64
+	zynjacku-5	arch: ~x86 ~amd64
+	zynjacku-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: JACK based, GTK (2.x) host for LV2 synths
+		
+	Homepage:    http://home.gna.org/zynjacku/
+
+
+#------- media-sound/afsp --------
+	afsp-8.2	arch: x86 amd64
+	Description: audio file utility programs and library of
+		 routines for reading and writing audio files
+		
+	Homepage:    http://www-mmsp.ece.mcgill.ca/Documents/Software/Packages/AFsp/AFsp.html
+
+
+#------- media-sound/waon --------
+	waon-0.9	arch: ~amd64
+	Description: A wave to notes transcriber, able to transcribe
+		 wav to midi
+	Homepage:    http://waon.sourceforge.net/
+
+
+#------- media-sound/jmeters --------
+	jmeters-0.2.0	arch: ~x86
+	Description: A jack multichannel audio level meter app
+		 featuring correct ballistics for both the
+		 VU and the PPM
+	Homepage:    http://www.kokkinizita.net/linuxaudio/
+
+
+#------- media-sound/jack_capture --------
+	jack_capture-0.9.44	arch: ~x86 ~amd64
+	jack_capture-0.9.56	arch: ~x86 ~amd64
+	jack_capture-0.9.6	arch: x86 ~amd64
+	Description: Recording tool which default operation is
+		 to capture what goes out to the soundcard
+		 from JACK
+	Homepage:    http://www.notam02.no/arkiv/src
+
+
+#------- media-sound/drc --------
+	drc-2.6.2	arch: ~x86 ~amd64
+	Description: DRC generates digital room correction FIR
+		 filters to be used within HiFi systems in
+		 conjunction with real time convolution engines
+		 like BruteFIR.
+	Homepage:    http://drc-fir.sourceforge.net
+
+
+#------- media-sound/alsaplayer-midi --------
+	alsaplayer-midi-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Midi input plugin for the alsaplayer. It
+		 use timidity++ for the output
+	Homepage:    http://www.alsaplayer.org/
+
+
+#------- media-sound/mpadec --------
+	mpadec-9999	arch: ~amd64 ~x86
+	Description: MPEG audio decoder.
+	Homepage:    http://mpadec.sourceforge.net/
+
+
+#------- media-sound/csound --------
+	csound-5.01	arch: -* ~amd64 ~ppc ~ppc64 x86
+	csound-5.02.1	arch: -* ~amd64 ~ppc ~ppc64 x86
+	csound-5.02	arch: -* ~amd64 ~ppc ~ppc64 x86
+	csound-5.07.0	arch: ~amd64 ~x86 ~ppc
+	csound-5.08.0	arch: ~amd64 ~x86 ~ppc
+	csound-5.09.0-r1	arch: ~amd64 ~x86 ~ppc
+	csound-5.12.1	arch: ~amd64 ~x86 ~ppc
+	csound-5.12.1-r1	arch: ~amd64 ~x86 ~ppc
+	Description: Csound is a sound and music synthesis system,
+		 providing facilities for composition and performance
+		
+	Homepage:    http://csound.sourceforge.net
+
+
+#------- media-sound/linuxsampler --------
+	linuxsampler-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: LinuxSampler is a software audio sampler
+		 engine with professional grade features.
+		
+	Homepage:    http://www.linuxsampler.org/
 
 
 #------- media-sound/snd-ls --------
@@ -1424,277 +1629,116 @@
 	Homepage:    http://www.notam02.no/arkiv/src/snd/
 
 
-#------- media-sound/chordata --------
-	chordata-1.0.0	arch: ~x86 ~amd64
-	chordata-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Chordata is a tool for tonal analysis of
-		 audio files.
-	Homepage:    http://clam-project.org/
+#------- media-sound/tuxguitar --------
+	tuxguitar-0.5	arch: ~amd64 ~ppc ~sparc x86
+	tuxguitar-0.6	arch: ~amd64 ~ppc ~sparc x86
+	tuxguitar-0.8	arch: ~amd64 ~ppc x86
+	tuxguitar-1.0	arch: ~amd64 ~ppc ~x86
+	tuxguitar-1.2	arch: ~amd64 ~x86 ~ppc
+	Description: TuxGuitar is a multitrack guitar tablature
+		 editor and player written in Java-SWT
+	Homepage:    http://www.tuxguitar.com.ar/
 
 
-#------- media-sound/jaaa --------
-	jaaa-0.6.0	arch: amd64 ~ppc ~sparc x86
-	Description: The JACK and ALSA Audio Analyser is an audio
-		 signal generator and spectrum analyser
+#------- media-sound/bpmdj --------
+	bpmdj-3.6	arch: ~amd64 ~x86 ~ppc
+	bpmdj-4.1	arch: ~amd64 ~x86 ~ppc
+	bpmdj-4.1-r1	arch: ~amd64 ~x86 ~ppc
+	Description: Bpmdj, software for measuring the BPM of
+		 music and mixing
+	Homepage:    http://bpmdj.sourceforge.net/
+
+
+#------- media-sound/fmit --------
+	fmit-0.98.1	arch: ~amd64 ~sparc x86
+	fmit-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Free Music Instrument Tuner
+	Homepage:    http://home.gna.org/fmit/
+
+
+#------- media-sound/aqualung --------
+	aqualung-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Aqualung is a music player capable of gapless
+		 playback. Not very suitable for eye candy seekers.
+		
+	Homepage:    http://aqualung.sourceforge.net
+
+
+#------- media-sound/aliki --------
+	aliki-0.0.3	arch: ~x86 ~amd64
+	Description: Aliki is an integrated system for Impulse
+		 Response measurements
 	Homepage:    http://www.kokkinizita.net/linuxaudio
 
 
-#------- media-sound/arpage --------
-	arpage-0.2	arch: ~amd64 ~x86
-	arpage-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: MIDI Arpeggiator w/ JACK Tempo Sync, includes
-		 Zonage MIDI splitter/manipulator
-	Homepage:    http://sourceforge.net/projects/arpage/
-
-
-#------- media-sound/linuxsampler --------
-	linuxsampler-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: LinuxSampler is a software audio sampler
-		 engine with professional grade features.
-		
-	Homepage:    http://www.linuxsampler.org/
-
-
-#------- media-sound/jsampler --------
-	jsampler-0.8a	arch: ~amd64 ~x86
-	Description: JSampler is a frontend for LinuxSampler written
-		 in Java
-	Homepage:    http://jsampler.sourceforge.net/
-
-
-#------- media-sound/jace --------
-	jace-0.0.2	arch: x86
-	jace-0.0.3	arch: x86
-	jace-0.1.0	arch: x86 ~amd64
-	jace-0.2.0	arch: x86 ~amd64
-	Description: JACE is a Convolution Engine for JACK and
-		 ALSA
-	Homepage:    http://www.audiodef.com/gentoo/proaudio/
-
-
-#------- media-sound/lmms --------
-	lmms-9999-r1	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: free alternative to popular programs such
-		 as FruityLoops, Cubase and Logic
-	Homepage:    http://lmms.sourceforge.net
-
-
-#------- media-sound/qjackctl --------
-	qjackctl-0.2.23	arch: ~amd64 ~ppc ~sparc ~x86
-	qjackctl-0.3.3	arch: amd64 ppc sparc x86
-	qjackctl-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: A Qt application to control the JACK Audio
-		 Connection Kit and ALSA sequencer connections.
-		
-	Homepage:    http://qjackctl.sourceforge.net/
-
-
-#------- media-sound/seq24 --------
-	seq24-0.8.7	arch: amd64 ~ppc x86
-	Description: Seq24 is a loop based MIDI sequencer with
-		 focus on live performances.
-	Homepage:    http://www.filter24.org/seq24/
-
-
-#------- media-sound/zynjacku --------
-	zynjacku-1	arch: ~x86 ~amd64
-	zynjacku-4	arch: ~x86 ~amd64
-	zynjacku-5	arch: ~x86 ~amd64
-	zynjacku-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: JACK based, GTK (2.x) host for LV2 synths
-		
-	Homepage:    http://home.gna.org/zynjacku/
-
-
-#------- media-sound/xmp --------
-	xmp-3.1.0	arch: ~x86
-	Description: Extended Module Player
-	Homepage:    http://xmp.sf.net
-
-
-#------- media-sound/jack_oscrolloscope --------
-	jack_oscrolloscope-0.6	arch: ~x86 ~amd64
-	Description: Simple waveform viewer for JACK
-	Homepage:    http://das.nasophon.de/jack_oscrolloscope/
-
-
-#------- media-sound/drc --------
-	drc-2.6.2	arch: ~x86 ~amd64
-	Description: DRC generates digital room correction FIR
-		 filters to be used within HiFi systems in
-		 conjunction with real time convolution engines
-		 like BruteFIR.
-	Homepage:    http://drc-fir.sourceforge.net
-
-
-#------- media-sound/soundmosaic --------
-	soundmosaic-1.2	arch: ~x86
-	Description: Constructs an approximation of one sound
-		 out of small pieces of other sounds
-	Homepage:    http://awesame.org/soundmosaic/
-
-
-#------- media-sound/meterbridge --------
-	meterbridge-0.9.2-r2	arch: amd64 ppc sparc x86
-	Description: Software meterbridge for the UNIX based JACK
-		 audio system.
-	Homepage:    http://plugin.org.uk/meterbridge/
-
-
-#------- media-sound/jackmix --------
-	jackmix-0.2	arch: ~amd64 ~x86
-	jackmix-0.3.1	arch: ~amd64 ~x86
-	jackmix-0.4	arch: ~amd64 ~x86
-	Description: A mixer app for jack
-	Homepage:    http://www.arnoldarts.de/drupal/?q=JackMix%3Aintro
-
-
-#------- media-sound/psindustrializer --------
-	psindustrializer-0.2.5	arch: ~x86 ~amd64
-	Description: Industrializer is a program for generating
-		 percussion sounds for musical purposes
-	Homepage:    http://sourceforge.net/projects/industrializer
-
-
-#------- media-sound/japa --------
-	japa-0.1.8	arch: x86 ~amd64
-	japa-0.6.0	arch: x86 ~amd64
-	Description: JAPA is a perceptual analyzer for JACK and
-		 ALSA
-	Homepage:    http://www.kokkinizita.net/linuxaudio/
-
-
-#------- media-sound/qloud --------
-	qloud-0.22	arch: x86 amd64
-	Description: Tool to measure loudspeaker frequency and
-		 step responses and distortions
-	Homepage:    http://gaydenko.com/qloud/
-
-
-#------- media-sound/somax --------
-	somax-1.1	arch: ~x86 ~amd64
-	Description: soma is a complete audio broadcasting solution
-		
-	Homepage:    http://www.somasuite.org
-
-
-#------- media-sound/audacity --------
-	audacity-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Free crossplatform audio editor
-	Homepage:    http://audacity.sourceforge.net/
-
-
-#------- media-sound/non-daw --------
-	non-daw-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: The Non DAW is a powerful, reliable and fast
-		 modular Digital Audio Workstation system
-	Homepage:    http://non-daw.tuxfamily.org/
-
-
-#------- media-sound/qarecord --------
-	qarecord-0.0.9b	arch: ~x86 ~amd64
-	Description: Multithreaded stereo recording tool.
-	Homepage:    http://alsamodular.sourceforge.net/
-
-
-#------- media-sound/aeolus-ym --------
-	aeolus-ym-0.7.0	arch: ~x86 ~amd64
-	Description: Aeolus with conbolution reverb using Ambiosonic
-		 impulse responses by Fons Adriaensen
-	Homepage:    http://www.kokkinizita.net/linuxaudio/aeolus
-
-
-#------- media-sound/lash --------
-	lash-0.5.4	arch: amd64 ppc sparc x86
-	lash-0.6.0_rc2	arch: ~amd64
-	Description: LASH Audio Session Handler
-	Homepage:    http://www.nongnu.org/lash/
-
-
-#------- media-sound/jackmeter --------
-	jackmeter-0.3	arch: ~x86 ~amd64
-	Description: Jack Meter is a basic console based DPM (Digital
-		 Peak Meter) for JACK
-	Homepage:    http://www.ecs.soton.ac.uk/~njh/jackmeter
-
-
-#------- media-sound/lilypond --------
-	lilypond-2.10.20	arch: ~amd64 ~sparc ~x86
-	lilypond-2.10.4	arch: x86 amd64 ~sparc
-	lilypond-2.8.8	arch: amd64 ~sparc x86
-	Description: GNU Music Typesetter
-	Homepage:    http://lilypond.org/
-
-
-#------- media-sound/gigedit --------
-	gigedit-0.1.1	arch: ~amd64 ~x86
-	Description: Instrument editor for the Gigasampler format
-		
-	Homepage:    http://www.linuxsampler.org
-
-
-#------- media-sound/freqtweak --------
-	freqtweak-0.7.0_pre20070214-r1	arch: amd64 ppc sparc x86
-	freqtweak-0.7.2	arch: amd64 ppc sparc x86
-	freqtweak-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: FFT-based realtime audio spectral manipulation
-		 and display
-	Homepage:    http://freqtweak.sourceforge.net
-
-
-#------- media-sound/jack_convolve --------
-	jack_convolve-0.0.13	arch: x86
-	Description: jack_convolve - a simple commandline convolution
-		 engine for jackd
-	Homepage:    http://tapas.affenbande.org/?page_id=5
-
-
-#------- media-sound/jamin-presets --------
-	jamin-presets-4.0	arch: ~amd64 ~ppc ~x86
-	Description: A collection of presets for Jamin made by
-		 Gilberto Andre Borges
-	Homepage:    http://musix.codigolivre.org.br/
-
-
-#------- media-sound/xmms2 --------
-	xmms2-0.2.8	arch: ~x86 ~amd64 ~sparc
-	xmms2-0.4_rc1	arch: ~x86 ~amd64 ~sparc
-	xmms2-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: X(cross)platform Music Multiplexing System.
-		 The new generation of the XMMS player.
-	Homepage:    http://xmms2.xmms.org
-
-
-#------- media-sound/qmidicontrol --------
-	qmidicontrol-0.0.1b	arch: amd64 ppc sparc x86
-	Description: Virtual Midi Fader Box QMidiControl
-	Homepage:    http://alsamodular.sourceforge.net/
-
-
-#------- media-sound/gnusound --------
-	gnusound-0.7.4-r2	arch: ~amd64 ~x86 -sparc
-	Description: GNUsound is a sound editor for Linux/x86
-	Homepage:    http://gnusound.sourceforge.net/
-
-
-#------- media-sound/raton --------
-	raton-0.22	arch: ~x86 ~amd64
-	Description: Mouse driven MIDI controller.
-	Homepage:    http://home.earthlink.net/~gmoonlit/raton/raton.html
-
-
-#------- media-sound/ingen --------
-	ingen-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Ingen is a modular synthesizer using the
-		 Jack audio server and LV2 or LADSPA plugins.
-		
-	Homepage:    http://drobilla.net/software/ingen
-
-
-#------- media-sound/chionic --------
-	chionic-1.0.1	arch: ~amd64 ~x86
-	Description: advanced sampler for linux
-	Homepage:    http://www.reduz.com.ar/chionic
+#------- media-sound/openbeatbox --------
+	openbeatbox-0.7.1	arch: -*
+	Description: Drum sequencing software with impressive
+		 UI. Not in development anymore
+	Homepage:    http://openbeatbox.org/
+
+
+#------- media-sound/azr3-jack --------
+	azr3-jack-0.1.666	arch: ~amd64 ~x86
+	azr3-jack-1.0.3	arch: ~amd64 ~x86
+	azr3-jack-1.2.3	arch: ~amd64 ~x86
+	Description: Rumpelrausch Taips AZR3 standalone Linux
+		 port
+	Homepage:    http://ll-plugins.nongnu.org/azr3
+
+
+#------- media-sound/iannix --------
+	iannix-0.640_beta	arch: ~x86 ~amd64
+	Description: IanniX is a graphical score editor based
+		 on the previous UPIC developed by Iannis
+		 Xenakis
+	Homepage:    http://sourceforge.net/projects/iannix/
+
+
+#------- media-sound/boodler --------
+	boodler-2.0.2	arch: ~x86
+	boodler-2.0.3	arch: ~x86
+	boodler-2.0.3-r1	arch: ~amd64 ~x86
+	Description: Tool for creating soundscapes -- continuous,
+		 infinitely varying streams of sound
+	Homepage:    http://boodler.org/
+
+
+#------- media-sound/non-sequencer --------
+	non-sequencer-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: The Non Sequencer is a powerful real-time,
+		 pattern-based MIDI sequencer for Linux.
+	Homepage:    http://non-sequencer.tuxfamily.org/
+
+
+#------- media-sound/jack-audio-connection-kit --------
+	jack-audio-connection-kit-0.116.2	arch: ~amd64 ~x86
+	jack-audio-connection-kit-0.118.0	arch: ~amd64 ~x86
+	jack-audio-connection-kit-1.9.2	arch: ~amd64 ~x86
+	jack-audio-connection-kit-1.9.3	arch: ~amd64 ~x86
+	jack-audio-connection-kit-1.9.4	arch: ~amd64 ~x86
+	jack-audio-connection-kit-1.9.5	arch: ~amd64 ~x86
+	jack-audio-connection-kit-1.9.6	arch: ~amd64 ~x86
+	jack-audio-connection-kit-1.9999	arch: -> live ebuild: [svn|cvs|...]<-
+	jack-audio-connection-kit-2.9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Jackdmp jack implemention for multi-processor
+		 machine
+	Homepage:    http://www.grame.fr/~letz/jackdmp.html
+
+
+#------- media-sound/khagan --------
+	khagan-0.1.2	arch: ~x86 ~amd64
+	Description: Live user interface builder for controlling
+		 parameters via OSC.
+	Homepage:    http://khagan.berlios.de/
+
+
+#------- media-sound/jacker --------
+	jacker-2010.5.4	arch: ~x86
+	jacker-2010.9.21	arch: ~x86
+	Description: A MIDI tracker for the Jack Audio Connection
+		 Kit
+	Homepage:    http://www.bitbucket.org/paniq/jacker
 
 
 #------- media-sound/openoctave-midi --------
@@ -1703,136 +1747,63 @@
 	Homepage:    http://www.openoctave.org
 
 
-#------- media-sound/alsaplayer-fftscope --------
-	alsaplayer-fftscope-9999-r2	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: FftScope external visualization scope for
-		 AlsaPlayer. It is a good starting point for
-		 others.
-	Homepage:    http://www.alsaplayer.org/
+#------- media-sound/stretchplayer --------
+	stretchplayer-0.500	arch: ~x86 ~amd64
+	stretchplayer-0.501	arch: ~x86 ~amd64
+	stretchplayer-0.502	arch: ~x86 ~amd64
+	stretchplayer-0.503	arch: ~x86 ~amd64
+	stretchplayer-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Audio player with time stretch and pitch
+		 shift
+	Homepage:    http://www.teuton.org/~gabriel/stretchplayer/
 
 
-#------- media-sound/epichord --------
-	epichord-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: a classical multi-track midi sequencer
-	Homepage:    http://repo.or.cz/w/epichord.git
+#------- media-sound/bristol --------
+	bristol-0.60.7	arch: ~amd64 ~x86
+	Description: Synthesizer keyboard emulation package: Moog,
+		 Hammond and others
+	Homepage:    http://sourceforge.net/projects/bristol
 
 
-#------- media-sound/ggseq --------
-	ggseq-0.3.0	arch: ~x86
-	ggseq-0.3.1	arch: ~x86
-	Description: Gungirl Sequencer is an easy to use Audiosequencer
+#------- media-sound/Voice2MIDI --------
+	Voice2MIDI-0.3.10	arch: ~amd64 x86
+	Voice2MIDI-0.3.6-r1	arch: ~amd64 x86
+	Voice2MIDI-0.3.7	arch: ~amd64 x86
+	Voice2MIDI-0.3.8	arch: ~amd64 x86
+	Voice2MIDI-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: CLAM Voice2MIDI extracts the melody as a
+		 MIDI or XML file from monophonic audio files
 		
-	Homepage:    http://ggseq.sourceforge.net
-
-
-#------- media-sound/kguitar --------
-	kguitar-0.5	arch: x86 ~amd64
-	Description: An efficient and easy-to-use environment
-		 for a guitarist
-	Homepage:    http://kguitar.sourceforge.net/
-
-
-#------- media-sound/AudioCutter --------
-	AudioCutter-1.2	arch: ~x86 ~amd64
-	Description: Advanced surround sound file editor
-	Homepage:    http://www.virtualworlds.de/AudioCutter/
-
-
-#------- media-sound/specimen --------
-	specimen-0.5.2_rc3	arch: ~amd64 ~ppc sparc x86
-	Description: A Midi Controllable Audio Sampler
-	Homepage:    http://zhevny.com/specimen
-
-
-#------- media-sound/phasex --------
-	phasex-0.11.1	arch: ~x86 ~amd64
-	Description: PHASEX is an experimental software synthesizer
-		 for use with Linux/ALSA/JACK
-	Homepage:    http://sysex.net/phasex/
-
-
-#------- media-sound/xmms2-scrobbler --------
-	xmms2-scrobbler-0.2.2	arch: ~x86 ~amd64
-	xmms2-scrobbler-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: XMMS2 AudioScrobbler client
-	Homepage:    http://code-monkey.de/pages/xmms2-scrobbler
-
-
-#------- media-sound/amidimap --------
-	amidimap-0.1.1	arch: ~x86 ~amd64
-	Description: Read in, process and output MIDI events.
-	Homepage:    http://www.cowlark.com/amidimap.html
-
-
-#------- media-sound/aldrin --------
-	aldrin-0.12	arch: ~x86 ~amd64
-	aldrin-0.13	arch: ~x86 ~amd64
-	aldrin-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Aldrin is an open source modular sequencer/tracker,
-		 compatible to Buzz
-	Homepage:    http://code.google.com/p/aldrin-sequencer/
-
-
-#------- media-sound/afsp --------
-	afsp-8.2	arch: x86 amd64
-	Description: audio file utility programs and library of
-		 routines for reading and writing audio files
-		
-	Homepage:    http://www-mmsp.ece.mcgill.ca/Documents/Software/Packages/AFsp/AFsp.html
-
-
-#------- media-sound/qoscc --------
-	qoscc-0.3.1	arch: ~x86 ~amd64
-	Description: Highly flexible and configurable software
-		 oscilloscope.
-	Homepage:    http://flup.homelinux.org/qoscc.html
-
-
-#------- media-sound/Annotator --------
-	Annotator-0.3.10	arch: ~amd64 x86
-	Annotator-0.3.8-r1	arch: ~amd64 x86
-	Annotator-0.3.9	arch: ~amd64 x86
-	Annotator-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: CLAM Music Annotator can visualize, check
-		 and modify music information extracted from
-		 audio
 	Homepage:    http://clam.iua.upf.edu/index.html
 
 
-#------- media-sound/traverso --------
-	traverso-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Professional Audio Tools for GNU/Linux
-	Homepage:    http://traverso-daw.org/
-
-
-#------- media-sound/ghostess --------
-	ghostess-20050916	arch: amd64 x86
-	ghostess-20061127	arch: amd64 x86
-	ghostess-20081213	arch: amd64 x86
-	Description: graphical DSSI host, based on jack-dssi-host
+#------- media-sound/idjc --------
+	idjc-0.8.3	arch: ~x86 ~amd64
+	idjc-0.8.4	arch: ~x86 ~amd64
+	Description: Internet DJ Console has two media players,
+		 jingles player, crossfader, VoIP and streaming
 		
-	Homepage:    http://www.smbolton.com/linux.html
+	Homepage:    http://idjc.sourceforge.net/
 
 
-#------- media-sound/promoe --------
-	promoe-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: WinAmp2 skinnable frontend for XMMS2
-	Homepage:    http://wiki.xmms2.xmms.se/wiki/Client:Promoe
-
-
-#------- media-sound/somaplayer --------
-	somaplayer-0.5.2	arch: ~x86 ~amd64
-	Description: soma is a complete audio broadcasting solution
+#------- media-sound/jconvolver --------
+	jconvolver-0.8.7	arch: x86 amd64
+	Description: Command line convolution reverb by Fons Adriaensen
 		
-	Homepage:    http://www.somasuite.org
+	Homepage:    http://www.kokkinizita.net/linuxaudio/index.html
 
 
-#------- media-sound/rakarrack --------
-	rakarrack-0.1.2	arch: ~amd64 ~ppc ~sparc x86
-	rakarrack-0.3.0	arch: ~amd64
-	Description: Basic rack of 10 effects for guitar with
-		 presets, banks and MIDI control
-	Homepage:    http://rakarrack.sourceforge.net/
+#------- media-sound/dssi_convolve --------
+	dssi_convolve-0.0.4	arch: x86
+	Description: A convolution plugin for linux/DSSI
+	Homepage:    http://tapas.affenbande.org/wordpress/?page_id=36
+
+
+#------- media-sound/reshaked --------
+	reshaked-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: ReShaked is a next generation tracker/sequencer
+		
+	Homepage:    http://reshaked.berlios.de
 
 
 #------- media-sound/jdelay --------
@@ -1842,63 +1813,119 @@
 	Homepage:    http://www.kokkinizita.net/linuxaudio
 
 
-#------- media-sound/jamin --------
-	jamin-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: JAMin is the JACK Audio Connection Kit (JACK)
-		 Audio Mastering interface
-	Homepage:    http://jamin.sourceforge.net
+#------- media-sound/jokosher --------
+	jokosher-0.9	arch: ~x86 ~amd64
+	jokosher-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: A simple yet powerful multi-track studio
+	Homepage:    http://www.jokosher.org/
 
 
-#------- media-sound/simsam --------
-	simsam-0.1.7	arch: amd64 x86
-	Description: Simsam is a simple MIDI sample playback program.
-		 You can use it to play drum samples and loops from
-		 a MIDI keyboard or sequencer
-	Homepage:    http://simsam.sourceforge.net
+#------- media-sound/jsampler --------
+	jsampler-0.8a	arch: ~amd64 ~x86
+	jsampler-0.9	arch: ~amd64 ~x86
+	Description: JSampler is a frontend for LinuxSampler written
+		 in Java
+	Homepage:    http://jsampler.sourceforge.net/
 
 
-#------- media-sound/ktabedit --------
-	ktabedit-0.0.8	arch: x86 ~amd64
-	Description: KTabEdit is basically a guitar tabulature
-		 editor for K Desktop Environment.
-	Homepage:    http://ktabedit.sourceforge.net/
+#------- media-sound/jmess --------
+	jmess-1	arch: ~amd64 ~x86
+	Description: JMess can save/load an XML file with all
+		 the current jack connections
+	Homepage:    https://ccrma.stanford.edu/groups/soundwire/software/jmess/
 
 
-#------- media-sound/kaconnect --------
-	kaconnect-1.1.1-r1	arch: amd64 ~ppc sparc x86
-	Description: Part of Kalsatools - QT based frontend to
-		 aconnect
-	Homepage:    http://www.suse.de/~mana/kalsatools.html
+#------- media-sound/bpmdetect --------
+	bpmdetect-0.5	arch: ~amd64 ~x86
+	Description: Simple BPM detection utility
+	Homepage:    http://kde-apps.org/content/show.php/BPM+Detect?content=43147
 
 
-#------- media-sound/qmidiarp --------
-	qmidiarp-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: MIDI Arpeggiator QMidiArp
-	Homepage:    http://alsamodular.sourceforge.net/
+#------- media-sound/ldrum --------
+	ldrum-0.6.0-r1	arch: x86 ~amd64
+	Description: The LDrum is an open-source drummachine that
+		 offers ten sample channels, realtime control,
+		 a simple pattern sequencer, MIDI support and a
+		 Qt-GUI
+	Homepage:    http://ldrum.sf.net/
 
 
-#------- media-sound/paulstretch --------
-	paulstretch-1.000	arch: x86 ~amd64
-	paulstretch-1.024	arch: x86 ~amd64
-	Description: extreme sound stretching of the audio
-	Homepage:    http://hypermammut.sourceforge.net/paulstretch
+#------- media-sound/canorus --------
+	canorus-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: a free extensible music score editor
+	Homepage:    http://canorus.berlios.de
 
 
-#------- media-sound/museseq --------
-	museseq-0.9_pre3	arch: ~amd64 ~sparc x86
-	museseq-1.0_rc1	arch: ~amd64 ~x86
-	museseq-1.9999	arch: -> live ebuild: [svn|cvs|...]<-
-	museseq-2.9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: The Linux (midi) MUSic Editor (a sequencer)
-		
-	Homepage:    http://www.muse-sequencer.org/
+#------- media-sound/composite --------
+	composite-0.006	arch: ~x86 ~amd64
+	composite-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Composite is a software application/system
+		 for real-time, in-performance sequencing,
+		 sampling, and looping.
+	Homepage:    http://gabe.is-a-geek.org/composite/
 
 
-#------- media-sound/tutka --------
-	tutka-0.12.4	arch: ~amd64 ~ppc x86
-	Description: A free (as in freedom) tracker style MIDI
-		 sequencer for GNU/Linux
-	Homepage:    http://www.nongnu.org/tutka
+#------- media-sound/SMSTools --------
+	SMSTools-0.4.10	arch: ~amd64 x86
+	SMSTools-0.4.12	arch: ~amd64 x86
+	SMSTools-0.4.7-r1	arch: ~amd64 x86
+	SMSTools-0.4.8	arch: ~amd64 x86
+	SMSTools-0.4.9	arch: ~amd64 x86
+	SMSTools-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Analyzes, transforms and synthesizes back
+		 a given sound using the SMS model.
+	Homepage:    http://clam.iua.upf.edu/index.html
+
+
+#------- media-sound/mjoo --------
+	mjoo-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: mjoo is a live sequencer with ZUI interface
+		 using jack
+	Homepage:    http://mjoo.org
+
+
+#------- media-sound/denemo --------
+	denemo-0.7.5	arch: ~amd64 x86
+	denemo-0.8.6	arch: ~amd64 x86
+	Description: GTK+ graphical music notation editor
+	Homepage:    http://denemo.sourceforge.net/
+
+
+#------- media-sound/jack_mixer --------
+	jack_mixer-8	arch: ~amd64 ~x86
+	jack_mixer-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	jack_mixer-9	arch: ~amd64 ~x86
+	Description: JACK audio mixer using GTK2 interface.
+	Homepage:    http://home.gna.org/jackmixer/
+
+
+#------- media-sound/a2jmidid --------
+	a2jmidid-9999	arch: ~amd64 ~x86
+	Description: Daemon for exposing legacy ALSA sequencer
+		 applications in JACK MIDI system.
+	Homepage:    http://home.gna.org/a2jmidid/
+
+
+#------- media-sound/xwax --------
+	xwax-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Digital vinyl emulation software
+	Homepage:    http://www.xwax.co.uk/
+
+
+#------- media-sound/glashctl --------
+	glashctl-0.2.0	arch: x86 ~amd64
+	glashctl-0.4.2	arch: ~x86 ~amd64
+	glashctl-0.4.3	arch: ~x86 ~amd64
+	Description: GLASHCtl is a simple applet for controlling
+		 the LASH Audio Session Handler
+	Homepage:    http://dino.nongnu.org/glashctl
+
+
+#------- media-sound/tkeca --------
+	tkeca-4.0.2	arch: amd64 x86
+	Description: A Tcl/Tk front end for Ecasound, with almost
+		 all of Ecasound features.
+	Homepage:    http://tkeca.sourceforge.net
 
 
 #------- media-sound/jnoise --------
@@ -1908,57 +1935,85 @@
 	Homepage:    http://www.kokkinizita.net/linuxaudio
 
 
-#------- media-sound/jackmixdesk --------
-	jackmixdesk-0.3_p2	arch: ~amd64 ~ppc ~x86
-	jackmixdesk-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Audio mixer for JACK with OSC control, LASH
-		 support and GTK GUI
-	Homepage:    http://sourceforge.net/projects/jackmixdesk
+#------- media-sound/specimen --------
+	specimen-0.5.2_rc3	arch: ~amd64 ~ppc sparc x86
+	Description: A Midi Controllable Audio Sampler
+	Homepage:    http://zhevny.com/specimen
 
 
-#------- media-sound/mixxx --------
-	mixxx-1.6.1	arch: ~amd64 ~ppc ~sparc ~x86
-	mixxx-1.6.1-r1	arch: ~amd64 ~ppc ~sparc ~x86
-	mixxx-1.7.0_beta1	arch: ~amd64 ~ppc ~sparc ~x86
-	mixxx-1.7.0	arch: ~amd64 ~ppc ~sparc ~x86
-	mixxx-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Digital DJ tool using QT 4.x
-	Homepage:    http://mixxx.sourceforge.net
+#------- media-sound/jamin-presets --------
+	jamin-presets-4.0	arch: ~amd64 ~ppc ~x86
+	Description: A collection of presets for Jamin made by
+		 Gilberto Andre Borges
+	Homepage:    http://musix.codigolivre.org.br/
 
 
-#------- media-sound/dino --------
-	dino-0.2.2	arch: ~amd64 ~ppc x86
-	dino-0.2.4	arch: ~amd64 ~ppc ~x86
-	dino-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Dino is a pattern-based MIDI sequencer.
-	Homepage:    http://dino.nongnu.org
+#------- media-sound/vkeybd --------
+	vkeybd-0.1.17a	arch: ~amd64 ~sparc ~x86
+	Description: A virtual MIDI keyboard for X
+	Homepage:    http://www.alsa-project.org/~iwai/alsa.html
 
 
-#------- media-sound/ecamegapedal --------
-	ecamegapedal-0.4.4	arch: amd64 ~ppc sparc x86
-	Description: Ecamegapedal is a real-time effect processor.
+#------- media-sound/seq24 --------
+	seq24-0.8.7	arch: amd64 ~ppc x86
+	Description: Seq24 is a loop based MIDI sequencer with
+		 focus on live performances.
+	Homepage:    http://www.filter24.org/seq24/
+
+
+#------- media-sound/kaconnect --------
+	kaconnect-1.1.1-r1	arch: amd64 ~ppc sparc x86
+	Description: Part of Kalsatools - QT based frontend to
+		 aconnect
+	Homepage:    http://www.suse.de/~mana/kalsatools.html
+
+
+#------- media-sound/psychosynth --------
+	psychosynth-0.1.1	arch: ~x86 ~amd64
+	psychosynth-0.1.5	arch: ~x86 ~amd64
+	psychosynth-9999	arch: ~x86 ~amd64
+	Description: Free software synthesizer inspired by the
+		 ideas of the Reactable
+	Homepage:    http://www.psychosynth.com/
+
+
+#------- media-sound/kluppe --------
+	kluppe-0.5.4	arch: ~amd64 ~x86
+	kluppe-0.6.14	arch: amd64 x86
+	Description: live looping sequencer
+	Homepage:    http://kluppe.klingt.org
+
+
+#------- media-sound/schism-tracker --------
+	schism-tracker-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Schism Tracker cvs
+	Homepage:    http://rigelseven.org/schism
+
+
+#------- media-sound/rosegarden --------
+	rosegarden-11.02	arch: ~amd64 ~ppc ~x86
+	rosegarden-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: MIDI and audio sequencer and notation editor.
 		
-	Homepage:    http://www.wakkanet.fi/~kaiv/ecamegapedal/
+	Homepage:    http://www.rosegardenmusic.com/
 
 
-#------- media-sound/canorus --------
-	canorus-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Graphical Score-editor using Qt4
-	Homepage:    http://canorus.berlios.de
+#------- media-sound/ordrumbox --------
+	ordrumbox-0.7.05	arch: ~amd64 ~x86
+	ordrumbox-0.9.02	arch: ~amd64 ~x86
+	ordrumbox-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: The orDrumbox is a software drum machine,
+		 designed to a creative pattern based way
+		 of drum programming with automatic music
+		 composition capabilities.
+	Homepage:    http://www.ordrumbox.com/
 
 
-#------- media-sound/fastbreeder --------
-	fastbreeder-1.0.1	arch: ~x86
-	Description: An experimental genetic programming synthesiser.
-		
-	Homepage:    http://www.pawfal.org/Software/fastbreeder/
-
-
-#------- media-sound/esperanza --------
-	esperanza-0.4.0	arch: ~x86 ~amd64 ~sparc
-	esperanza-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Esperanza - a QT4 client for xmms2.
-	Homepage:    http://xmms2.xmms.org
+#------- media-sound/ninjam-server --------
+	ninjam-server-0.02	arch: ~x86 ~amd64
+	Description: NINJAM is a program to allow people to make
+		 real music together via the Internet
+	Homepage:    http://www.ninjam.com
 
 
 #------- media-sound/gdam --------
@@ -1970,6 +2025,84 @@
 	Homepage:    http://gdam.ffem.org/
 
 
+#------- media-sound/rakarrack --------
+	rakarrack-0.1.2	arch: ~amd64 ~ppc ~sparc x86
+	rakarrack-0.3.0	arch: ~amd64
+	rakarrack-0.5.8	arch: ~amd64 ~x86
+	rakarrack-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Rakarrack is a richly featured multi-effects
+		 processor emulating a uitar effects pedalboard.
+		
+	Homepage:    http://rakarrack.sourceforge.net/
+
+
+#------- media-sound/kmidimon --------
+	kmidimon-0.5.0	arch: ~x86 ~amd64
+	Description: MIDI monitor using ALSA sequencer and KDE
+		 user interface.
+	Homepage:    http://kmetronome.sourceforge.net/kmidimon/
+
+
+#------- media-sound/tuneroid --------
+	tuneroid-0.9.5	arch: ~x86
+	Description: tuneroid is a tuner for variety of musical
+		 instruments
+	Homepage:    http://zyzstar.kosoru.com/?tuneroid
+
+
+#------- media-sound/traverso --------
+	traverso-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Professional Audio Tools for GNU/Linux
+	Homepage:    http://traverso-daw.org/
+
+
+#------- media-sound/promoe --------
+	promoe-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: WinAmp2 skinnable frontend for XMMS2
+	Homepage:    http://wiki.xmms2.xmms.se/wiki/Client:Promoe
+
+
+#------- media-sound/dino --------
+	dino-0.2.2	arch: ~amd64 ~ppc x86
+	dino-0.2.4	arch: ~amd64 ~ppc ~x86
+	dino-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Dino is a pattern-based MIDI sequencer.
+	Homepage:    http://dino.nongnu.org
+
+
+#------- media-sound/Annotator --------
+	Annotator-0.3.10	arch: ~amd64 x86
+	Annotator-0.3.8-r1	arch: ~amd64 x86
+	Annotator-0.3.9	arch: ~amd64 x86
+	Annotator-0.5.0	arch: ~amd64 x86
+	Annotator-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: CLAM Music Annotator can visualize, check
+		 and modify music information extracted from
+		 audio
+	Homepage:    http://clam.iua.upf.edu/index.html
+
+
+#------- media-sound/somaplayer --------
+	somaplayer-0.5.2	arch: ~x86 ~amd64
+	Description: soma is a complete audio broadcasting solution
+		
+	Homepage:    http://www.somasuite.org
+
+
+#------- media-sound/phasex --------
+	phasex-0.11.1	arch: ~x86 ~amd64
+	Description: PHASEX is an experimental software synthesizer
+		 for use with Linux/ALSA/JACK
+	Homepage:    http://sysex.net/phasex/
+
+
+#------- media-sound/gwc --------
+	gwc-0.21.05-r1	arch: amd64 ~ppc x86
+	gwc-0.21.07	arch: amd64 ~ppc x86
+	Description: Gnome Wave Cleaner
+	Homepage:    http://gwc.sourceforge.net/
+
+
 #------- media-sound/pitchtune --------
 	pitchtune-0.0.4	arch: ~x86 ~amd64
 	Description: A GPL'ed GTK oscilloscope-style musical instrument
@@ -1978,17 +2111,92 @@
 	Homepage:    http://pitchtune.sourceforge.net
 
 
-#------- media-sound/jack_mixer --------
-	jack_mixer-8	arch: ~amd64 ~x86
-	Description: JACK audio mixer using GTK2 interface.
-	Homepage:    http://home.gna.org/jackmixer/
+#------- media-sound/arpage --------
+	arpage-0.2	arch: ~amd64 ~x86
+	arpage-0.3	arch: ~amd64 ~x86
+	arpage-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: MIDI Arpeggiator w/ JACK Tempo Sync, includes
+		 Zonage MIDI splitter/manipulator
+	Homepage:    http://sourceforge.net/projects/arpage/
 
 
-#------- media-sound/qtractor --------
-	qtractor-9999-r1	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Qtractor is an Audio/MIDI multi-track sequencer.
+#------- media-sound/om --------
+	om-0.2.0	arch: amd64 x86
+	om-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Om is a modular synthesizer for GNU/Linux
+		 audio systems using the Jack audio server
+		 and LADSPA or DSSI plugins.
+	Homepage:    http://www.nongnu.org/om-synth/
+
+
+#------- media-sound/aldrin --------
+	aldrin-0.12	arch: ~x86 ~amd64
+	aldrin-0.13	arch: ~x86 ~amd64
+	aldrin-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Aldrin is an open source modular sequencer/tracker,
+		 compatible to Buzz
+	Homepage:    http://code.google.com/p/aldrin-sequencer/
+
+
+#------- media-sound/wired --------
+	wired-0.4	arch: ~x86 ~amd64
+	wired-0.5	arch: ~x86 ~amd64
+	wired-0.6	arch: ~x86 ~amd64
+	wired-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Wired aims to be a professional music production
+		 and creation software running on the Linux operating
+		 system.
+	Homepage:    http://wired.sourceforge.net
+
+
+#------- media-sound/mx44 --------
+	mx44-1	arch: x86 ~amd64
+	Description: Mx44 is a polyphonic midi realtime software
+		 synthesizer
+	Homepage:    http://hem.passagen.se/ja_linux/
+
+
+#------- media-sound/jackmix --------
+	jackmix-0.2	arch: ~amd64 ~x86
+	jackmix-0.3.1	arch: ~amd64 ~x86
+	jackmix-0.4	arch: ~amd64 ~x86
+	Description: A mixer app for jack
+	Homepage:    http://www.arnoldarts.de/drupal/?q=JackMix%3Aintro
+
+
+#------- media-sound/yatm --------
+	yatm-0.4	arch: amd64 ~ppc sparc x86
+	Description: adjust the playback speed without changing
+		 the pitch of the recording
+	Homepage:    http://delysid.org/yatm.html
+
+
+#------- media-sound/xmms2-scrobbler --------
+	xmms2-scrobbler-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: XMMS2 AudioScrobbler client
+	Homepage:    http://code-monkey.de/pages/xmms2-scrobbler
+
+
+#------- media-sound/chordata --------
+	chordata-1.0.0	arch: ~x86 ~amd64
+	chordata-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Chordata is a tool for tonal analysis of
+		 audio files.
+	Homepage:    http://clam-project.org/
+
+
+#------- media-sound/qsampler --------
+	qsampler-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: QSampler is a graphical frontend to the LinuxSampler
+		 engine.
+	Homepage:    http://qsampler.sourceforge.net
+
+
+#------- media-sound/ecamegapedal --------
+	ecamegapedal-0.4.4	arch: amd64 ~ppc sparc x86
+	Description: Ecamegapedal is a real-time effect processor.
 		
-	Homepage:    http://qtractor.sourceforge.net/
+	Homepage:    http://www.wakkanet.fi/~kaiv/ecamegapedal/
 
 
 #------- media-video/openmovieeditor --------
@@ -2006,7 +2214,7 @@
 
 
 #------- media-video/xjadeo --------
-	xjadeo-0.4.1	arch: x86 ~amd64
+	xjadeo-0.4.10	arch: x86 amd64
 	Description: xjadeo is a simple video player that is synchronized
 		 to jack transport.
 	Homepage:    http://xjadeo.sourceforge.net/
@@ -2036,16 +2244,25 @@
 	rt-sources-2.6.31.12-r21	arch: ~amd64 ~x86
 	rt-sources-2.6.31.6-r19	arch: ~amd64 ~x86
 	rt-sources-2.6.33.2-r13	arch: ~amd64 ~x86
-	Description: Realtimne Preemption patched low latency
-		 Linux kernel
+	rt-sources-2.6.33.3-r16	arch: ~amd64 ~x86
+	rt-sources-2.6.33.3-r17	arch: ~amd64 ~x86
+	rt-sources-2.6.33.3-r19	arch: ~amd64 ~x86
+	rt-sources-2.6.33.5-r22	arch: ~amd64 ~x86
+	rt-sources-2.6.33.5-r23	arch: ~amd64 ~x86
+	rt-sources-2.6.33.6-r26	arch: ~amd64 ~x86
+	rt-sources-2.6.33.6-r27	arch: ~amd64 ~x86
+	rt-sources-2.6.33.7-r29	arch: ~amd64 ~x86
+	rt-sources-2.6.33.7-r30	arch: ~amd64 ~x86
+	Description: Realtime Preemption patched low latency Linux
+		 kernel
 	Homepage:    unknown
 
 
-#------- sys-libs/pam --------
-	pam-1.0.1	arch: alpha amd64 ~arm hppa ia64 ~m68k ~mips ppc ppc64 ~s390 ~sh sparc x86
-	Description: Linux-PAM (Pluggable Authentication Modules)
-		
-	Homepage:    http://www.kernel.org/pub/linux/libs/pam/
+#------- sys-libs/libraw1394 --------
+	libraw1394-2.0.0	arch: ~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sh ~sparc ~x86
+	Description: library that provides direct access to the
+		 IEEE 1394 bus
+	Homepage:    http://www.linux1394.org/
 
 
 #------- sys-libs/libfreebob --------
@@ -2057,11 +2274,18 @@
 	Homepage:    http://freebob.sf.net
 
 
-#------- sys-libs/libraw1394 --------
-	libraw1394-2.0.0	arch: ~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sh ~sparc ~x86
-	Description: library that provides direct access to the
-		 IEEE 1394 bus
-	Homepage:    http://www.linux1394.org/
+#------- sys-libs/pam --------
+	pam-1.0.1	arch: alpha amd64 ~arm hppa ia64 ~m68k ~mips ppc ppc64 ~s390 ~sh sparc x86
+	Description: Linux-PAM (Pluggable Authentication Modules)
+		
+	Homepage:    http://www.kernel.org/pub/linux/libs/pam/
+
+
+#------- sys-process/set_rlimits --------
+	set_rlimits-1.3.0	arch: x86 ppc amd64
+	Description: Give unpriviledged users access to realtime
+		 scheduling
+	Homepage:    http://www.physics.adelaide.edu.au/~jwoithe
 
 
 #------- sys-process/rt-exec --------
@@ -2072,23 +2296,11 @@
 
 
 #------- sys-process/rtirq --------
-	rtirq-20050914-r2	arch: amd64 ppc x86
-	rtirq-20060218-r1	arch: amd64 ppc x86
-	rtirq-20060819-r1	arch: amd64 ppc x86
-	rtirq-20070101	arch: amd64 ppc x86
-	rtirq-20071012	arch: amd64 ppc x86
-	rtirq-20090131	arch: amd64 ppc x86
+	rtirq-20090920	arch: ~amd64 ~ppc ~x86
 	Description: Change the realtime scheduling policy and
 		 priority of relevant system driver IRQ handlers
 		
 	Homepage:    http://www.rncbc.org/jack/
-
-
-#------- sys-process/set_rlimits --------
-	set_rlimits-1.3.0	arch: x86 ppc amd64
-	Description: Give unpriviledged users access to realtime
-		 scheduling
-	Homepage:    http://www.physics.adelaide.edu.au/~jwoithe
 
 
 #------- x11-libs/flowcanvas --------
@@ -2111,18 +2323,18 @@
 	Homepage:    http://arvin.schnell-web.net/xanalyser/
 
 
+#------- x11-themes/crystal-artwork --------
+	crystal-artwork-0.5	arch: amd64 x86
+	Description: Crystal-Audio artwork compilation for FVWM-Crystal
+		
+	Homepage:    http://fvwm-crystal.sourceforge.net/
+
+
 #------- x11-themes/fvwm-crystal --------
 	fvwm-crystal-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: Configurable and full featured theme for
 		 FVWM, with lots of transparency. This version
 		 add a freedesktop compatible menu
 	Homepage:    http://fvwm-crystal.org/
-
-
-#------- x11-themes/crystal-artwork --------
-	crystal-artwork-0.5	arch: amd64 x86
-	Description: Crystal-Audio artwork compilation for FVWM-Crystal
-		
-	Homepage:    http://fvwm-crystal.sourceforge.net/
 
 

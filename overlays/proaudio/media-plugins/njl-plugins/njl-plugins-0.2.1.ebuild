@@ -1,6 +1,8 @@
-# Copyright 1999-2005 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
+
+inherit multilib
 
 IUSE=""
 DESCRIPTION="NJL LADSPA audio plugins/effects"
@@ -17,7 +19,7 @@ S="${WORKDIR}/${PN}"
 
 src_install() {
 	dodoc COPYING PLUGINS README
-	insinto /usr/lib/ladspa
+	insinto /usr/$(get_libdir)/ladspa
 	insopts -m0755
 	doins *.so
 }

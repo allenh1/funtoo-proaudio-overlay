@@ -10,7 +10,7 @@ SRC_URI="http://download.savannah.nongnu.org/releases/${PN}/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 IUSE=""
 
 DEPEND=">=media-sound/jack-audio-connection-kit-0.109.0

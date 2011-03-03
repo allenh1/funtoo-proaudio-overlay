@@ -1,8 +1,8 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit versionator toolchain-funcs
+inherit versionator toolchain-funcs multilib
 
 DESCRIPTION="Invada lv2 package, contains: Delay, Dynamics, Filters, Reverb, Utility"
 HOMEPAGE="http://www.invadarecords.com/Downloads.php?ID=00000264"
@@ -11,7 +11,7 @@ SRC_URI="http://www.invadarecords.com/downloads/${PN}_${MY_PV}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="amd64"
 IUSE=""
 
 DEPEND=">=x11-libs/gtk+-2
@@ -26,6 +26,6 @@ src_compile() {
 	emake || die
 }
 src_install() {
-	emake INSTALL_SYS_PLUGINS_DIR="/usr/lib/lv2" DESTDIR="${D}" install-sys || die
+	emake INSTALL_SYS_PLUGINS_DIR="/usr/$(get_libdir)/lv2" DESTDIR="${D}" install-sys || die
 	dodoc COPYING CREDITS README
 }

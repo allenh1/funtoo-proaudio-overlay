@@ -2,6 +2,10 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  03 Mar 2011; Frieder Buerzele <evermind@tuxfamily.org>
+  zita-convolver-2.0.0.ebuild:
+  added amd64 keyword
+
 *zita-convolver-2.0.0 (19 Jan 2011)
 
   19 Jan 2011; Gavin Pryke <gavinlee303@googlemail.com>

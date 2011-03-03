@@ -1,8 +1,8 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils autotools
+inherit eutils autotools multilib
 
 DESCRIPTION="synth engines from ZynAddSubFX packed in LV2 plugin format"
 HOMEPAGE="http://home.gna.org/zyn"
@@ -30,7 +30,7 @@ pkg_setup() {
 
 src_unpack() {
 	unpack ${A}
-	cd ${S}
+#	cd "${S}"
 #	export WANT_AUTOMAKE="1.10"
 #	./bootstrap
 }
@@ -41,8 +41,8 @@ src_compile() {
 }
 
 src_install() {
-	dodir /usr/lib/lv2
-	LV2_PATH="${D}/usr/lib/lv2" make DESTDIR="${D}" install || die "Install failed"
+	dodir /usr/$(get_libdir)/lv2
+	LV2_PATH="${D}/usr/$(get_libdir)/lv2" make DESTDIR="${D}" install || die "Install failed"
 #	dodoc README AUTHORS NEWS
 }
 

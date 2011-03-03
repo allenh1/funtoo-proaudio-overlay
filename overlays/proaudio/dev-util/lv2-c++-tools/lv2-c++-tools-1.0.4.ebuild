@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -10,9 +10,10 @@ DESCRIPTION="some tools and libraries that may come in handy when writing LV2 pl
 HOMEPAGE="http://ll-plugins.nongnu.org/hacking.html"
 SRC_URI="http://download.savannah.nongnu.org/releases/ll-plugins/${P}.tar.bz2"
 
+RESTRICT="mirror"
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 ~x86"
 IUSE="doc"
 
 RDEPEND=">=dev-cpp/gtkmm-2.8.8:2.4"

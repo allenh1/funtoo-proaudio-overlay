@@ -1,6 +1,10 @@
 # ChangeLog for media-plugins/alsaplayer-wv
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  03 Mar 2011; Frieder Buerzele <evermind@tuxfamily.org>
+  alsaplayer-wv-9999.ebuild:
+  fixup libdir
 
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog

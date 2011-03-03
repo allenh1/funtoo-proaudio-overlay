@@ -1,6 +1,8 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
+
+inherit multilib
 
 RESTRICT="mirror"
 IUSE=""
@@ -9,13 +11,13 @@ HOMEPAGE="http://www.studionumbersix.com/foo/"
 SRC_URI="http://www.studionumbersix.com/foo/${P}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="x86"
+KEYWORDS="amd64 x86"
 
 DEPEND="media-libs/ladspa-sdk"
 
 src_install() {
 	dodoc AUTHORS README
-	insinto /usr/lib/ladspa
+	insinto /usr/$(get_libdir)/ladspa
 	insopts -m0755
 	doins *.so
 }

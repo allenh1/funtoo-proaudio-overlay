@@ -1,8 +1,9 @@
-# Copyright 1999-2004 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils
+inherit eutils multilib
+
 RESTRICT=mirror
 DESCRIPTION="A vocoder is a sound effect that can make a human voice sound
 synthetic"
@@ -28,7 +29,7 @@ src_compile() {
 
 src_install() {
 	dodoc COPYRIGHT README
-	insinto /usr/lib/ladspa
+	insinto /usr/$(get_libdir)/ladspa
 	insopts -m0755
 	doins *.so
 }

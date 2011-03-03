@@ -1,6 +1,8 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
+
+inherit multilib
 
 RESTRICT="mirror"
 IUSE="doc"
@@ -18,7 +20,7 @@ DEPEND="media-libs/ladspa-sdk"
 src_install() {
 	dodoc  AUTHORS ChangeLog
 	use doc && dohtml -r "${WORKDIR}/${PN}-docs-${PV}/"
-	insinto /usr/lib/ladspa
+	insinto /usr/$(get_libdir)/ladspa
 	insopts -m0755
 	doins  "${S}"/plugins/wasp-*.so
 }
