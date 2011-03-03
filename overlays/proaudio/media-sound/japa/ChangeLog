@@ -1,6 +1,9 @@
 # ChangeLog for media-sound/japa
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  03 Mar 2011; Hakan Demiralp <keenblade@tuxfamily.org> japa-0.6.0.ebuild:
+  japa-0.6.0: src uri is updated. Thx to audiodef at f.g.o.
 
 *japa-0.6.0 (08 Apr 2010)
 

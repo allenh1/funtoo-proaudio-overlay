@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -8,7 +8,8 @@ RESTRICT="mirror"
 IUSE=""
 DESCRIPTION="JAPA is a perceptual analyzer for JACK and ALSA"
 HOMEPAGE="http://www.kokkinizita.net/linuxaudio/"
-SRC_URI="http://www.kokkinizita.net/linuxaudio/downloads/${P}.tar.bz2"
+#SRC_URI="http://www.kokkinizita.net/linuxaudio/downloads/${P}.tar.bz2"
+SRC_URI="http://audiodef.com/gentoo/proaudio/src/japa/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -19,6 +20,7 @@ DEPEND=">=media-libs/libclalsadrv-2.0.0
 	>=media-libs/libclxclient-3.6.1
 	=sci-libs/fftw-3*
 	=media-libs/freetype-2*"
+RDEPEND="${DEPEND}"
 
 src_unpack(){
 	unpack ${A}
