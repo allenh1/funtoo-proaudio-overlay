@@ -1,0 +1,10 @@
+# ChangeLog for media-sound/earcandy
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*earcandy-9999 (04 Mar 2011)
+
+  04 Mar 2011; Frieder Buerzele <evermind@tuxfamily.org>
+  +earcandy-9999.ebuild:
+  initial ebuild fixes bug #105
+
