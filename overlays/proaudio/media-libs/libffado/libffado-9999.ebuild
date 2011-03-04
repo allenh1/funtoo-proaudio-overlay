@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -14,7 +14,7 @@ ESVN_REPO_URI="http://subversion.ffado.org/ffado/trunk/libffado"
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="0"
-IUSE="debug qt4"
+IUSE="debug qt4 dbus-server"
 
 RDEPEND=">=media-libs/alsa-lib-1.0.0
 	>=dev-cpp/libxmlpp-2.13.0
@@ -22,6 +22,8 @@ RDEPEND=">=media-libs/alsa-lib-1.0.0
 	>=media-libs/libiec61883-1.1.0
 	>=sys-libs/libavc1394-0.5.3
 	>=sys-apps/dbus-1.0
+	dbus-server? ( dev-libs/dbus-c++ )
+	dev-libs/libconfig
 	qt4? (
 		|| ( ( x11-libs/qt-core x11-libs/qt-gui )
 				>=x11-libs/qt-4.0:4 )
