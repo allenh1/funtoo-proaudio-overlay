@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -16,7 +16,7 @@ KEYWORDS=""
 IUSE=""
 DEPEND="${RDEPEND}
 	app-arch/unzip"
-RDEPEND=">=media-sound/zynaddsubfx-2.2.1-r4"
+RDEPEND="|| ( >=media-sound/zynaddsubfx-2.2.1-r4 media-sound/yoshimi )"
 
 S="${WORKDIR}/"*zynaddsubfx*
 src_unpack(){
@@ -50,7 +50,7 @@ src_install(){
 	examples="/usr/share/${MY_PN}/examples"
 	dodir   "${unsorted}" "${examples}"
 	for dir in `find -maxdepth 1 -type d`;do
-		mv  ${dir}/*.xiz	"${D}${unsorted}" &>/dev/null
+		mv "${dir}"/*.xiz "${D}${unsorted}" &>/dev/null
 	done
 	fowners -R root:root  "${unsorted}"
 	fperms -R 644 "${unsorted}"
