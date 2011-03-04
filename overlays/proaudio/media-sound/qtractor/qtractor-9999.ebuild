@@ -1,10 +1,10 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI=2
 
-inherit flag-o-matic qt4-r2 subversion
+inherit flag-o-matic qt4-r2 subversion multilib exteutils
 
 DESCRIPTION="Qtractor is an Audio/MIDI multi-track sequencer."
 HOMEPAGE="http://qtractor.sourceforge.net/"
@@ -19,6 +19,7 @@ IUSE="debug dssi ladspa libsamplerate mad osc rubberband vorbis sse vst"
 
 RDEPEND=">=x11-libs/qt-core-4.2:4
 	>=x11-libs/qt-gui-4.2:4
+	x11-themes/qgtkstyle
 	media-libs/alsa-lib
 	media-libs/libsndfile
 	media-libs/slv2
@@ -32,6 +33,11 @@ RDEPEND=">=x11-libs/qt-core-4.2:4
 	vorbis? ( media-libs/libvorbis )
 	vst? ( >=media-libs/vst-sdk-2.3 )"
 DEPEND="${RDEPEND}"
+
+src_prepare() {
+	local regex='s!$! -L/usr/'$(get_libdir)'/qt4/plugins/styles -lgtkstyle!'
+	esed_check -i "/^\s*LIBS\s*[+=]/ ${regex}" "${S}"/src/src.pri.in
+}
 
 src_configure() {
 	append-flags "-DQT_STYLE_GTK"
@@ -52,6 +58,8 @@ src_configure() {
 		$(use_enable debug) \
 		${myconf} \
 		|| die "econf failed"
+
+	append-ldflags "-Wl,-R,/usr/$(get_libdir)/qt4/plugins/styles"
 	eqmake4 qtractor.pro -o qtractor.mak
 }
 
