@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="amd64 ppc x86"
 
 IUSE=""
-RDEPEND=">=media-sound/zynaddsubfx-2.2.1-r4"
+RDEPEND="|| ( >=media-sound/zynaddsubfx-2.2.1-r4 media-sound/yoshimi )"
 DEPEND="${RDEPEND}"
 
 src_unpack(){

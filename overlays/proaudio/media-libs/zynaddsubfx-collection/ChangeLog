@@ -1,6 +1,13 @@
 # ChangeLog for media-libs/zynaddsubfx-collection
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  04 Mar 2011; Frieder Buerzele <evermind@tuxfamily.org>
+  zynaddsubfx-collection-0.1.ebuild, zynaddsubfx-collection-0.2.ebuild,
+  zynaddsubfx-collection-0.3.ebuild, zynaddsubfx-collection-0.4.ebuild,
+  zynaddsubfx-collection-0.5.ebuild, zynaddsubfx-collection-0.6.ebuild,
+  zynaddsubfx-collection-0.7.ebuild:
+  updated alternatvie dependency on yoshimi
 
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog
