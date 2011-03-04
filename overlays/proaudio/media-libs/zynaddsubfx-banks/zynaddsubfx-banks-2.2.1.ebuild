@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -14,8 +14,8 @@ KEYWORDS="amd64 ppc x86"
 
 IUSE=""
 
-DEPEND="|| ( !<media-sound/zynaddsubfx-2.2.1-r4 !<media-sound/zynaddsubfx-cvs-2.2.2-r4 )"
-
+DEPEND="app-arch/unzip"
+RDEPEND="|| ( !<media-sound/zynaddsubfx-2.2.1-r4 !<media-sound/zynaddsubfx-cvs-2.2.2-r4 media-sound/yoshimi )"
 
 S="${WORKDIR}/banks"
 src_unpack(){
