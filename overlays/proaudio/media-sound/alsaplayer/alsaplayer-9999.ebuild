@@ -11,7 +11,7 @@ SRC_URI=""
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE="alsa audiofile doc esd flac gtk jack mad mikmod nas nls ogg opengl oss vorbis
+IUSE="alsa doc esd flac gtk jack mad mikmod nas nls ogg opengl oss vorbis
 systray xosd"
 
 ESVN_REPO_URI="https://alsaplayer.svn.sourceforge.net/svnroot/alsaplayer/trunk/alsaplayer"
@@ -21,7 +21,6 @@ S=${WORKDIR}/${PN}
 RDEPEND="media-libs/libsndfile
 	alsa? ( media-libs/alsa-lib )
 	mad? ( media-libs/libmad )
-	audiofile? ( media-libs/audiofile )
 	esd? ( media-sound/esound )
 	flac? ( media-libs/flac )
 	jack? ( >=media-sound/jack-audio-connection-kit-0.80.0 )
@@ -69,7 +68,6 @@ src_compile() {
 #	myconf="${myconf} --prefix=/usr"
 #	./configure \
 	econf \
-		$(use_enable audiofile) \
 		$(use_enable esd) \
 		$(use_enable flac) \
 		$(use_enable jack) \
