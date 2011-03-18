@@ -3,6 +3,9 @@
 # $Header: /var/cvsroot/gentoo-x86/media-sound/alsaplayer/ChangeLog,v 1.59 2007/06/12 02:59:47 dirtyepic Exp $
 
 *alsaplayer-9999.ebuild (16 Jun 2007)
+  18 Mar 2011: Dominique Michel <dominique@tuxfamily.org>
+  - Removed outdated econf option
+
   13 Mar 2011: Dominique Michel <dominique@tuxfamily.org>
   - Removed outdated audiofile dependency and associated options
 

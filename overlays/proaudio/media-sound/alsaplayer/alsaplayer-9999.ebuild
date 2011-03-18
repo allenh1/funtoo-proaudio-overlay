@@ -61,12 +61,6 @@ src_compile() {
 	use doc ||
 		export ac_cv_prog_HAVE_DOXYGEN="false"
 
-	if use ogg && use flac; then
-		myconf="${myconf} --enable-oggflac"
-	fi
-
-#	myconf="${myconf} --prefix=/usr"
-#	./configure \
 	econf \
 		$(use_enable esd) \
 		$(use_enable flac) \
