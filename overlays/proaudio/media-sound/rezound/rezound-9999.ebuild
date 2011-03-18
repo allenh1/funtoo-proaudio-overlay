@@ -1,10 +1,10 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=1
+EAPI="1"
 
-inherit eutils autotools flag-o-matic subversion 
+inherit eutils autotools flag-o-matic subversion
 
 PATCHLEVEL="5"
 
@@ -40,7 +40,7 @@ DEPEND="${RDEPEND}
 src_unpack() {
 	unpack ${A}
 	subversion_src_unpack
-	
+
 	EPATCH_EXCLUDE="010_all_flac-1.1.3.patch
 		030_all_dont-ignore-cxxflags.patch
 		090_all_gcc_4.3.patch
@@ -49,6 +49,7 @@ src_unpack() {
 
 	epatch "${FILESDIR}/${P}-gcc43.patch"
 	epatch "${FILESDIR}/${P}-qt44.patch"
+	epatch "${FILESDIR}/${P}-missing_includes.patch"
 	#AT_M4DIR="config/m4" eautoreconf
 	./bootstrap || die
 }
@@ -88,6 +89,6 @@ src_install() {
 
 	docinto code
 	dodoc docs/code/*
-	newicon shared/images/icon_logo_32.png rezound.png
+	newicon share/images/icon_logo_32.png rezound.png
 	make_desktop_entry "rezound" "Rezound" "rezound" "AudioVideo;Audio;Recorder"
 }
