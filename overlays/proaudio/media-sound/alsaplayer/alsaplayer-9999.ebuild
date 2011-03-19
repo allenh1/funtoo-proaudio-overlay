@@ -2,19 +2,17 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils subversion flag-o-matic autotools
+EAPI=2
+inherit eutils git flag-o-matic autotools
 
 DESCRIPTION="Media player primarily utilising ALSA"
 HOMEPAGE="http://www.alsaplayer.org/"
-SRC_URI=""
+EGIT_REPO_URI="git://github.com/alsaplayer/alsaplayer.git"
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE="alsa doc esd flac gtk jack mad mikmod nas nls ogg opengl oss vorbis
-systray xosd"
-
-ESVN_REPO_URI="https://alsaplayer.svn.sourceforge.net/svnroot/alsaplayer/trunk/alsaplayer"
+IUSE="alsa doc esd flac gtk jack mad mikmod nas nls ogg opengl oss vorbis systray xosd"
 
 S=${WORKDIR}/${PN}
 
@@ -39,22 +37,14 @@ DEPEND="${RDEPEND}
 	gtk? ( >=x11-libs/gtk+-2.8 )
 	systray? ( >=x11-libs/gtk+-2.10 )"
 
-src_unpack() {
-	subversion_src_unpack
-
+src_prepare() {
 	cd ${S}
-
-#	if ! use custom-cflags; then
-#		epatch "${FILESDIR}/${P}-cxxflags.patch" || die "patching failed"
-#	fi
 
 	./bootstrap || die "bootstrap failed"
 	eautoreconf || die "eautoreconf failed"
 }
 
 src_compile() {
-#	export CPPFLAGS="${CPPFLAGS} -I/usr/X11R6/include"
-
 	use xosd ||
 		export ac_cv_lib_xosd_xosd_create="no"
 
