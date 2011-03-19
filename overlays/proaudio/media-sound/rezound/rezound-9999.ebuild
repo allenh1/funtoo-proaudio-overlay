@@ -50,6 +50,7 @@ src_unpack() {
 	epatch "${FILESDIR}/${P}-gcc43.patch"
 	epatch "${FILESDIR}/${P}-qt44.patch"
 	epatch "${FILESDIR}/${P}-missing_includes.patch"
+	epatch "${FILESDIR}/${P}-O2.patch"
 	#AT_M4DIR="config/m4" eautoreconf
 	./bootstrap || die
 }

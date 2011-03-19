@@ -2,6 +2,10 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  19 Mar 2011; Hakan Demiralp <keenblade@tuxfamily.org> rezound-9999.ebuild,
+  +files/rezound-9999-O2.patch:
+  rezound-9999: added O2.patch at b.g.o 334797 by John 
+
   18 Mar 2011; Hakan Demiralp <keenblade@tuxfamily.org> rezound-9999.ebuild,
   +files/rezound-9999-missing_includes.patch:
   rezound-9999: fixed missing includes, wrt msg03879 by alex
