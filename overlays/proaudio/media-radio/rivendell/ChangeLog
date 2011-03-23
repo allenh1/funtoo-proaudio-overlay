@@ -2,6 +2,12 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*rivendell-2.0.0_rc1-r1 (23 Mar 2011)
+
+  23 Mar 2011; Emery Hemingway <emery@icmlf.net>
+  +rivendell-2.0.0_rc1-r1.ebuild:
+  XDG menu entries now installed.
+
   23 Mar 2011; Emery Hemingway <emery@icmlf.net>
   -rivendell-2.0.0_beta0.ebuild, -rivendell-2.0.0_beta1.ebuild,
   -rivendell-2.0.0_rc0.ebuild:
