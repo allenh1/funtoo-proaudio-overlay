@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -20,7 +20,7 @@ IUSE=""
 
 S="${WORKDIR}/${MY_P}"
 
-RDEPEND="x11-libs/fltk:1.1
+RDEPEND="x11-libs/fltk:1
 	x11-libs/libXpm
 	>=media-libs/alsa-lib-0.9
 	media-libs/libsamplerate
