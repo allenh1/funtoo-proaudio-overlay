@@ -1,6 +1,10 @@
 # ChangeLog for media-sound/csound
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  25 Mar 2011; Hakan Demiralp <keenblade@tuxfamily.org>
+  csound-5.12.1-r1.ebuild:
+  csound-5.12.1-r1: fltk slot changed from 1.1 to 1
 
 *csound-5.12.1-r1 (04 Dec 2010)
 

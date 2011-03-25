@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -23,19 +23,19 @@ RESTRICT="mirror"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~ppc"
-IUSE="+alsa altivec amd64 ppc64 csoundac -doc +double-precision +nodebug dssi editor examples fluidsynth gui jack java lua mp3 musicxml newparser osc p5glove pd +python -portaudio +static stk tcl vst wiimote"
+IUSE="+alsa altivec amd64 ppc64 csoundac -doc +double-precision +nodebug dssi editor examples fluidsynth gui jack java lua mp3 musicxml newparser osc p5glove pd +python -portaudio +static stk tcl vst -vst-host wiimote"
 
 RDEPEND="media-libs/ladspa-sdk
 	alsa? ( media-libs/alsa-lib )
-	csoundac? ( x11-libs/fltk:1.1[threads]
+	csoundac? ( x11-libs/fltk:1[threads]
 		dev-libs/boost
 		dev-lang/swig )
 	dssi? ( media-libs/dssi
 		media-libs/ladspa-sdk )
 	>=media-libs/libsndfile-1.0.16
-	editor? ( x11-libs/fltk:1.1[threads] )
+	editor? ( x11-libs/fltk:1[threads] )
 	fluidsynth? ( media-sound/fluidsynth )
-	gui? ( x11-libs/fltk:1.1[threads] )
+	gui? ( x11-libs/fltk:1[threads] )
 	jack? ( media-sound/jack-audio-connection-kit )
 	java? ( || ( virtual/jre virtual/jdk ) )
 	lua? ( dev-lang/lua )

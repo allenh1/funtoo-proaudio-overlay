@@ -1,6 +1,9 @@
 # ChangeLog for media-sound/yoshimi
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  25 Mar 2011; Hakan Demiralp <keenblade@tuxfamily.org> yoshimi-0.058.1.ebuild:
+  yoshimi-0.058.1: fltk slot changed from 1.1 to 1
 
 *yoshimi-0.058.1 (08 Aug 2010)
 
