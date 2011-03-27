@@ -44,7 +44,7 @@ src_prepare() {
 	eautoreconf || die "eautoreconf failed"
 }
 
-src_compile() {
+src_configure() {
 	use xosd ||
 		export ac_cv_lib_xosd_xosd_create="no"
 
@@ -69,7 +69,9 @@ src_compile() {
 		--disable-sgi \
 		--disable-dependency-tracking \
 		|| die "econf failed"
+}
 
+src_compile() {
 	emake || die "make failed"
 }
 
