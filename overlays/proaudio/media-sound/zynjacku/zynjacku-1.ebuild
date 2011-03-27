@@ -1,8 +1,8 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils autotools
+inherit eutils
 
 DESCRIPTION="JACK based, GTK (2.x) host for LV2 synths"
 HOMEPAGE="http://home.gna.org/zynjacku/"
@@ -35,10 +35,9 @@ pkg_setup() {
 	ewarn "emerge -O media-libs/slv2 =media-libs/lv2dynparaml-9999"
 }
 
-
 src_unpack() {
 	unpack ${A}
-	cd ${S}
+	cd "${S}"
 }
 
 src_compile() {
