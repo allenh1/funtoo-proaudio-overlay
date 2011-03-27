@@ -16,12 +16,12 @@ S="${WORKDIR}/zyn-1"
 
 IUSE=""
 RDEPEND="=sci-libs/fftw-3*
-	=media-libs/lv2dynparam1-1
-	=media-sound/zynjacku-1"
+	media-libs/lv2dynparam1
+	media-sound/zynjacku"
 
 DEPEND="=sci-libs/fftw-3*
-	=media-libs/lv2dynparam1-1
-	media-libs/slv2"
+	media-libs/lv2dynparam1
+	media-libs/lv2core"
 
 pkg_setup() {
 	ewarn "if building fails try the following:"
