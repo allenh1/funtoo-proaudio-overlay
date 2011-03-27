@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -19,6 +19,7 @@ S="${WORKDIR}/${PN}"
 IUSE=""
 DEPEND=">=media-libs/lv2core-1
 	!media-libs/lv2dynparam"
+RDEPEND=""
 
 src_unpack() {
 	git_src_unpack

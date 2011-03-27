@@ -1,8 +1,8 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils autotools
+inherit eutils
 
 DESCRIPTION="LV2 dynparam extension"
 HOMEPAGE="http://home.gna.org/lv2dynparam/"
@@ -15,10 +15,11 @@ KEYWORDS="~x86 ~amd64"
 IUSE=""
 DEPEND=">=media-libs/lv2core-1
 	!media-libs/lv2dynparam"
+RDEPEND=""
 
 src_unpack() {
 	unpack ${A}
-	cd ${S}
+	cd "${S}"
 }
 
 src_compile() {
