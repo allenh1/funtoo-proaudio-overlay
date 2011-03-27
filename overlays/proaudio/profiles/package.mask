@@ -1,6 +1,3 @@
-# broken upstream at least on amd64
-media-plugins/alsaplayer-tta
-
 # Gavin Pryke <gavinlee303@googlemail.com> (24 Dec 2010)
 # request removal by Willy Wolff of pd-overlay, package is now in pd-overlay as
 # puredata-externals/hid
