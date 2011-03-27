@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils autotools multilib
+inherit eutils multilib
 
 DESCRIPTION="synth engines from ZynAddSubFX packed in LV2 plugin format"
 HOMEPAGE="http://home.gna.org/zyn"
@@ -10,7 +10,7 @@ SRC_URI="http://download.gna.org/zyn/zyn-1.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~x86 amd64"
 
 S="${WORKDIR}/zyn-1"
 
@@ -51,4 +51,3 @@ pkg_postinst() {
 	elog "zynjacku http://home.gna.org/zyn/zynadd/1"
 	elog "(zynjacku is provided by media-sound/zynjacku)"
 }
-
