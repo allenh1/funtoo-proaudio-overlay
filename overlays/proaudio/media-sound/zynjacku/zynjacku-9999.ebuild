@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI=1
+
 inherit eutils git autotools
 
 DESCRIPTION="JACK based, GTK (2.x) host for LV2 synths"
