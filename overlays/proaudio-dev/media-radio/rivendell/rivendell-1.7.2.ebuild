@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -37,45 +37,50 @@ RDEPEND="${DEPEND}
 	net-misc/wget"
 
 pkg_setup() {
-	enewgroup ${PN}
-	enewuser ${PN} -1 -1 /var/lib/${PN} "${PN},audio"
+	enewgroup ${PN} 150
+	enewuser ${PN} 150 -1 /var/lib/${PN} "${PN},audio"
 }
 
 src_prepare() {
 	unpack ${A}
 	cd "${S}"
-	epatch "${FILESDIR}/${PN}-init.patch"
-	epatch "${FILESDIR}/${PN}-sandbox.patch"
+	epatch "${FILESDIR}/init.patch"
+	epatch "${FILESDIR}/sandbox.patch"
 }
 
-src_compile() {
-	local myconf=""
+src_configure() {
+	local myconf="--libexecdir=/usr/libexec/${PN}"
 
 	use alsa || myconf="${myconf} --disable-alsa"
 	use jack || myconf="${myconf} --disable-jack"
 	use pam || myconf="${myconf} --disable-pam"
 
 	econf ${myconf}
-	emake || die "make failed. If you received an error about missing libogg.la,\
-	  run emerge lafilefixer ; lafilefixer --justfixit"
+}
+
+src_compile () {
+	emake || die "make failed"
 }
 
 src_install() {
 	emake DESTDIR="${D}" install || die "install failed"
 
 	insinto /etc
-	doins conf/rd.conf-sample || die "install /etc/rd.conf failed"
+	doins conf/rd.conf-sample
 
-	keepdir /var/snd || die "keepdir failed"
-	fowners ${PN}:${PN} /var/snd || die "fowners failed"
+	keepdir /var/snd
+	fowners ${PN}:${PN} /var/snd
+	fperms 775 /var/snd
+	fperms 0664 /var/snd/*
+	
+	newicon icons/rivendell-48x48.xpm ${PN}.xpm
+	domenu xdg/${PN}-*.desktop
 
-	dodoc AUTHORS ChangeLog INSTALL NEWS README SupportedCards docs/*.txt || die "install doc failed"
-	prepalldocs || die "prepalldocs failed"
+	dodoc AUTHORS ChangeLog INSTALL NEWS README SupportedCardm docs/*.txt
+	prepalldocs
 }
 
 pkg_postinst() {
-	elog "If you would like ASI or GPIO hardware support,"
-	elog "install their drivers and re-emerge this package."
 	einfo
 	einfo "See http://rivendell.tryphon.org/wiki/index.php/Install_under_Gentoo"
 	einfo "for Gentoo specific instructions."

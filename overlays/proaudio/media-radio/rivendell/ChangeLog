@@ -2,6 +2,12 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 Mar 2011; Emery Hemingway <emery@icmlf.net> -rivendell-1.6.0.ebuild,
+  -rivendell-1.7.0.ebuild, -rivendell-1.7.0-r1.ebuild,
+  -rivendell-1.7.1.ebuild, -rivendell-2.0.0_rc1.ebuild,
+  -files/rivendell-init.patch, -files/rivendell-sandbox.patch:
+  Purge non-fuctional and old ebuilds
+
 *rivendell-2.0.0_rc1-r1 (23 Mar 2011)
 
   23 Mar 2011; Emery Hemingway <emery@icmlf.net>
