@@ -5,13 +5,9 @@
 EAPI="2"
 inherit base eutils versionator
 
-MY_PV="$(delete_version_separator '_')"
-MY_P="${PN}-${MY_PV}"
-MY_S="${WORKDIR}/${MY_P}"
-
 DESCRIPTION="An automated system for acquisition, management, scheduling and playout of audio content."
 HOMEPAGE="http://rivendellaudio.org/"
-SRC_URI="http://rivendellaudio.org/ftpdocs/${PN}/${MY_P}.tar.gz"
+SRC_URI="http://rivendellaudio.org/ftpdocs/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -47,13 +43,13 @@ pkg_setup() {
 }
 
 src_prepare() {
-	cd "${MY_S}"
+	cd "${S}"
 	epatch "${FILESDIR}/initscript.patch"
 	epatch "${FILESDIR}/sandbox.patch"
 }
 
 src_configure() {
-	cd "${MY_S}"
+	cd "${S}"
 	local myconf="--libexecdir=/usr/libexec/${PN}"
 
 	use alsa || myconf="${myconf} --disable-alsa"
@@ -68,12 +64,12 @@ src_configure() {
 }
 
 src_compile () {
-	cd "${MY_S}"
+	cd "${S}"
 	emake || die "make failed"
 }
 
 src_install() {
-	cd "${MY_S}"
+	cd "${S}"
 	emake DESTDIR="${D}" install || die "install failed"
 
 	insinto /etc
@@ -81,8 +77,6 @@ src_install() {
 
 	keepdir /var/snd
 	fowners ${PN}:${PN} /var/snd
-	fperms 0775 /var/snd
-	fperms 0664 /var/snd/*
 
 	newicon icons/rivendell-48x48.xpm ${PN}.xpm
 	domenu xdg/${PN}-*.desktop
@@ -92,8 +86,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	einfo "If you would like ASI hardware support, install those drivers and"
-	einfo "re-emerge this package."
+
 	einfo
 	einfo "See http://rivendell.tryphon.org/wiki/index.php/Install_under_Gentoo"
 	einfo "for Gentoo specific instructions."
