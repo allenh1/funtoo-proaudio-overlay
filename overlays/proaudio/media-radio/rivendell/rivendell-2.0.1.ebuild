@@ -55,6 +55,7 @@ src_configure() {
 	use alsa || myconf="${myconf} --disable-alsa"
 	use gpio || myconf="${myconf} --disable-gpio"
 	use hpi || myconf="${myconf} --disable-hpi"
+	use jack || myconf="${myconf} --disable-jack"
 	use mad || myconf="${myconf} --disable-mad"
 	use twolame || myconf="${myconf} --disable-twolame"
 	use lame || myconf="${myconf} --disable-lame"
