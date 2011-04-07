@@ -21,7 +21,7 @@ RDEPEND="media-libs/liblo
 	media-libs/aubio
 	>=media-libs/liblrdf-0.4.0
 	>=media-libs/raptor-1.4.2[curl]
-	>=media-sound/jack-audio-connection-kit-0.116.2
+	>=media-sound/jack-audio-connection-kit-0.120.1
 	>=dev-libs/glib-2.2
 	x11-libs/pango
 	>=x11-libs/gtk+-2.8.8
@@ -74,7 +74,7 @@ src_unpack() {
 
 src_compile() {
 
-	local myconf="--freedesktop --prefix=/usr"
+	local myconf="--freedesktop --noconfirm --prefix=/usr"
 		use debug     && myconf="$myconf --debug"
 		use nls       && myconf="$myconf --nls"
 		use lv2       && myconf="$myconf --lv2"
@@ -87,7 +87,7 @@ src_compile() {
 		myconf="$myconf --fpu-optimization"
 	fi
 
-	einfo "./waf $myconf" # show configure options
+	einfo "./waf configure $myconf" # show configure options
 	./waf configure $myconf || die "failed to configure"
 	./waf build ${MAKEOPTS/-s/} || die "failed to build"
 }
