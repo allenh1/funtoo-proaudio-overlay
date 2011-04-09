@@ -3,7 +3,10 @@
 <pkgmetadata>
 	<herd>no-herd</herd>
 	<maintainer>
-		<email>proaudio@tuxfamily.org</email>
-		<name>pro-audio overlay team</name>
+	  <email>proaudio@tuxfamily.org</email>
+	  <name>pro-audio overlay team</name>
 	</maintainer>
+	<use>
+	  <flag name="tse3">Use tse3 sequencer library</flag>
+	</use>
 </pkgmetadata>

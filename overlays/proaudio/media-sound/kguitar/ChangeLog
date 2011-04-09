@@ -2,6 +2,10 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  09 Apr 2011; Hakan Demiralp <keenblade@tuxfamily.org>
+  kguitar-0.6_pre1.ebuild, metadata.xml:
+  kguitar-0.6_pre1.ebuild: now using EAPI=3
+
 *kguitar-0.6_pre1 (10 Feb 2011)
 
   10 Feb 2011; Hakan Demiralp <keenblade@tuxfamily.org> -kguitar-0.5.ebuild,
