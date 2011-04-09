@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI="2"
-inherit base eutils versionator
+inherit base eutils
 
 DESCRIPTION="An automated system for acquisition, management, scheduling and playout of audio content."
 HOMEPAGE="http://rivendellaudio.org/"
@@ -25,17 +25,14 @@ DEPEND="alsa? ( media-libs/alsa-lib )
 	media-libs/libsndfile
 	media-libs/libsoundtouch
 	virtual/mysql
-	x11-libs/qt:3[mysql]"
+	x11-libs/qt-meta:3[mysql]"
 RDEPEND="${DEPEND}
 	lame? ( media-sound/lame )
 	twolame? ( media-sound/twolame )
 	pam? ( sys-libs/pam )
 	app-cdr/cdrkit
 	media-sound/cdparanoia
-	media-sound/mpg321
-	media-sound/vorbis-tools
-	net-misc/curl
-	sys-devel/bc"
+	net-misc/curl"
 
 pkg_setup() {
 	enewgroup ${PN} 150
@@ -43,13 +40,11 @@ pkg_setup() {
 }
 
 src_prepare() {
-	cd "${S}"
 	epatch "${FILESDIR}/initscript.patch"
 	epatch "${FILESDIR}/sandbox.patch"
 }
 
 src_configure() {
-	cd "${S}"
 	local myconf="--libexecdir=/usr/libexec/${PN}"
 
 	use alsa || myconf="${myconf} --disable-alsa"
@@ -65,12 +60,10 @@ src_configure() {
 }
 
 src_compile () {
-	cd "${S}"
 	emake || die "make failed"
 }
 
 src_install() {
-	cd "${S}"
 	emake DESTDIR="${D}" install || die "install failed"
 
 	insinto /etc
@@ -83,7 +76,6 @@ src_install() {
 	domenu xdg/${PN}-*.desktop
 
 	dodoc AUTHORS ChangeLog NEWS README UPGRADING docs/*.txt conf/*.conf
-	prepalldocs
 }
 
 pkg_postinst() {
@@ -98,7 +90,7 @@ pkg_postinst() {
 	einfo "and active on the system. Any server that complies with CGI-1.1"
 	einfo "should work, although as of this writing only Apache 2.2 has been"
 	einfo "well tested."
-	einfo "A configuration for apache is in /usr/share/doc/${P}/rd-bin.conf"
+	einfo "A configuration for apache is in /usr/share/doc/${P}/rd-bin.conf.bz2"
 	einfo
 	ewarn "If this is an update, read /usr/share/doc/${P}/UPGRADING.bz2"
 }
