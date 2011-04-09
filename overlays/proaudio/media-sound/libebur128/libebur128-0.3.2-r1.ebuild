@@ -35,3 +35,8 @@ S="${WORKDIR}/${MY_P}"
 src_compile() {
 	cmake-utils_src_compile
 }
+
+src_install() {
+	cd ${CMAKE_BUILD_DIR}
+	dobin r128-*
+}
