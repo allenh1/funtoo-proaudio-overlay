@@ -1,11 +1,10 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=2
+EAPI=3
 
 PYTHON_DEPEND="2:2.4"
-
 inherit distutils bash-completion
 
 MY_P="Boodler-${PV}"
@@ -82,14 +81,16 @@ src_prepare() {
 	EOF
 
 	# workaround for default-driver in setup.cfg not functioning
-	$(PYTHON) setup.py build_scripts \
+	$(PYTHON -a) setup.py build_scripts \
 		--default-driver ${defdriver} \
 		|| die "$(PYTHON) setup.py build_scripts failed"
 
-	# fix boodle-ui-qt.py shebang
 	if use qt4 ; then
-		cp "${FILESDIR}/boodle-ui-qt.py" "${T}/boodle-ui-qt.py" \
-			|| die "cp ${FILESDIR}/boodle-ui-qt.py ${T}/boodle-ui-qt.py failed"
+		cp "${FILESDIR}/boodle-ui-qt.py" "${T}/boodle-ui-qt.py" || die
+
+		# fix up the command name for use in new boodler-2.0.4
+		sed -i -e "s/\"boodler.py\"/\"boodler\"/" "${T}/boodle-ui-qt.py" || die
+
 		python_convert_shebangs $(python_get_version) "${T}/boodle-ui-qt.py"
 	fi
 }
@@ -104,7 +105,8 @@ src_install() {
 	# a pyqt4 gui addon for boodler downloaded from the official site
 	# http://boodler.org/dl/etc/boodle-ui-qt.py
 	if use qt4 ; then
-		dobin "${T}/boodle-ui-qt.py" || die "boodle-ui-qt.py not found"
+		newbin "${T}/boodle-ui-qt.py" boodle-ui-qt || \
+		die "boodle-ui-qt.py not found"
 	fi
 
 	# docs, better include them as boodler is not the most intuitive to use for
