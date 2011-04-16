@@ -11,6 +11,7 @@ media-sound/rosegarden:lilypond - enables lilypond preview functionality
 media-sound/jack-audio-connection-kit:classic - force enable standard JACK (jackd) even if D_Bus JACK (jackdbus) is enabled too
 media-sound/jack-audio-connection-kit:freebob - enables support for 'BeBoB'
 media-sound/jack-audio-connection-kit:ieee1394 - enables support FFADO - 'BeBoB'
+media-sound/jack-audio-connection-kit:mixed - build with 32/64 bits mixed mode
 media-sound/museseq:zynaddsubfx - integrate ZynAddSubFX into museseq
 x11-themes/crystal-audio:laptop - Add recipes for laptop (can hang a rt kernel)
 media-libs/librdf:postgresql - Enable use of the Redland PostgreSQL triple store backend
