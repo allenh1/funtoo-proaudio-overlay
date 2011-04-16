@@ -2,6 +2,8 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  17 Aor 2011; Dominique Michel <dominique@tuxfamily.org> Fixed merge with kde eclass
+
 *fmit-9999 (27 Jan 2011)
 
   27 Jan 2011; Gavin Pryke <gavinlee303@googlemail.com> -fmit-0.97.6.ebuild,

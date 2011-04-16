@@ -2,22 +2,33 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+inherit kde
+
+EAPI=2
+
 RESTRICT="mirror"
 DESCRIPTION="Ecamegapedal is a real-time effect processor."
 HOMEPAGE="http://www.wakkanet.fi/~kaiv/ecamegapedal/"
 SRC_URI="http://ecasound.seul.org/download/${P}.tar.gz"
 LICENSE="GPL-2"
-SLOT="0"
+SLOT="3.5"
 KEYWORDS="amd64 ~ppc sparc x86"
 
 IUSE="jack"
+need-kde 3.5
 
-DEPEND="=x11-libs/qt-3*
-	jack? ( media-sound/jack-audio-connection-kit )
+DEPEND="jack? ( media-sound/jack-audio-connection-kit )
 	>=media-sound/ecasound-2.2.0"
 
-src_compile() {
+src_unpack() {
+	unpack ${A}
+}
+
+src_configure() {
 	econf `use_enable jack` || die
+}
+
+src_compile() {
 	emake || die
 }
 

@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=3
-inherit cmake-utils cvs
+inherit cmake-utils cvs kde
 
 DESCRIPTION="Free Music Instrument Tuner"
 HOMEPAGE="http://home.gna.org/fmit/"
@@ -12,13 +12,12 @@ ECVS_SERVER="cvs.gna.org:/cvs/fmit"
 ECVS_MODULE="${PN}"
 
 LICENSE="GPL-2"
-SLOT="0"
+SLOT="3.5"
 KEYWORDS=""
 IUSE="alsa jack oss portaudio"
+need-kde 3.5
 
 DEPEND=">=sci-libs/fftw-3.2.2:3.0
-	x11-libs/qt-core
-	x11-libs/qt-gui
 	x11-libs/qt-opengl
 	alsa? ( >=media-libs/alsa-lib-1.0.23 )
 	jack? ( media-sound/jack-audio-connection-kit )
@@ -26,6 +25,10 @@ DEPEND=">=sci-libs/fftw-3.2.2:3.0
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${PN}"
+
+src_unpack() {
+	cvs_src_unpack
+}
 
 src_configure() {
 	local mycmakeargs=(
