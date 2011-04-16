@@ -2,26 +2,35 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils
+inherit eutils kde
+EAPI=2
 
 DESCRIPTION="Analyzes, transforms and synthesizes back a given sound using the SMS model."
-HOMEPAGE="http://clam.iua.upf.edu/index.html"
+HOMEPAGE="http://clam.project.org/index.html"
 
-SRC_URI="http://clam.iua.upf.edu/download/src/${P}.tar.gz"
+SRC_URI="http://clam.project.org/download/src/${P}.tar.gz"
 
 LICENSE="GPL-2"
-SLOT="0"
+SLOT="3.5"
 KEYWORDS="~amd64 x86"
 IUSE=""
 RESTRICT="mirror"
+need-kde 3.5
 
 DEPEND="dev-util/scons
 	>=media-libs/libclam-1.0.0
-	<media-libs/libclam-9999
-	=x11-libs/qt-3*"
+	<media-libs/libclam-9999"
 
 RDEPEND="${DEPEND}
 	media-gfx/imagemagick"
+
+src_unpack() {
+	unpack ${A}
+}
+
+src_configure() {
+	einfo "Mo configure script"
+}
 
 src_compile() {
 	# required for scons to "see" intermediate install location

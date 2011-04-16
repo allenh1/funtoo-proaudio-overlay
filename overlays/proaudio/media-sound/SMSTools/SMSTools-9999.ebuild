@@ -2,29 +2,38 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit subversion
+inherit subversion kde
 
 DESCRIPTION="Analyzes, transforms and synthesizes back a given sound using the SMS model."
-HOMEPAGE="http://clam.iua.upf.edu/index.html"
+HOMEPAGE="http://clam.project.org/index.html"
 
 SRC_URI=""
-ESVN_REPO_URI="http://iua-share.upf.edu/svn/clam/trunk/${PN}"
+ESVN_REPO_URI="http://clam.project.org/svn/clam/trunk/${PN}"
 
 LICENSE="GPL-2"
-SLOT="0"
+SLOT="3.5"
 KEYWORDS=""
 IUSE=""
 RESTRICT="mirror"
 
 DEPEND="dev-util/scons
 	dev-util/subversion
-	=media-libs/libclam-9999
-	=x11-libs/qt-3*"
+	=media-libs/libclam-9999"
+
+need-kde 3.5
 
 DEPEND="${DEPEND}
 	media-gfx/imagemagick"
 
 S="${WORKDIR}/${PN}"
+
+src_unpack() {
+	unpack ${A}
+}
+
+src_configure() {
+	einfo "No configure script"
+}
 
 src_compile() {
 	# required for scons to "see" intermediate install location

@@ -2,6 +2,9 @@
 # Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  17 Apr 2011; Dominique Michel <dominique@tuxfamily.org> fixed merge with kde eclass,
+	fixed urls
+
   09 May 2010; Dominique Michel <dominique@tuxfamily.org> oops, Bump to 0.4.12
 
   18 Jan 2009; Dominique Michel <dominique@tuxfamily.org> oops, fixed DEPEND
