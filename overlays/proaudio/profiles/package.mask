@@ -1,7 +1,18 @@
+# Gavin Pryke <gavinlee303@googlemail.com> (18 Apr 2011)
+# compile fails on gcc-4.4. after patching there were too many problems with
+# scons (doesn't honour CC/CFLAGS/LDFLAGS) to warrant keeping in the tree as
+# it's unmaintained, masked for removal
+media-libs/armstrong
+
 # Gavin Pryke <gavinlee303@googlemail.com> (24 Dec 2010)
 # request removal by Willy Wolff of pd-overlay, package is now in pd-overlay as
 # puredata-externals/hid
 media-plugins/pd-hid
+
+# Gavin Pryke <gavinlee303@googlemail.com> (18 Apr 2011)
+# requires media-libs/armstrong which is masked for removal due to being
+# unmaintained upstream. build fails and doesn't honour CC/CFLAGS/LDFLAGS
+media-sound/aldrin
 
 # waf seems broken
 =media-sound/jack-audio-connection-kit-1.9.1
