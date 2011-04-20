@@ -1,0 +1,66 @@
+## Submitted to upstream - http://mantis.rivendellaudio.org/view.php?id=10
+
+--- /usr/src/rivendell-2.0.1/rivendell-gentoo	2007-10-05 09:31:21.000000000 -0500
++++ /etc/init.d/rivendell	2011-04-19 19:48:44.734040835 -0500
+@@ -10,6 +10,8 @@
+ ##    Adapted from the Gentoo init script for Rivendell 
+ ##    by Andres Toomsalu <andres@active.ee>
+ ##
++##    Modified 2011 by Emery Hemingway <emery@icmlf.net>
++##
+ ##    This program is free software; you can redistribute it and/or modify
+ ##    it under the terms of version 2 of the GNU General Public License as
+ ##    published by the Free Software Foundation;
+@@ -25,26 +27,43 @@
+ ##    Boston, MA  02111-1307  USA
+ ##
+ 
++description="Rivendell system daemons"
++
++user="rivendell"
++group="rivendell"
++pid_dir="/var/run/rivendell"
++
++daemons="caed ripcd rdcatchd"
++
+ depend() {
+-        need jackd
+-        use mysql
++        use alsasound apache2 jackd mysql
+ }
+ 
+ start() {
+         ebegin "Starting Rivendell"
++
++        checkpath --directory --mode 0775 --owner $user:$group /var/snd
++        checkpath --file --mode 0664 --owner $user:$group /var/snd/*
++        
+         ipcrm -M 0x5005 2> /dev/null
+-        start-stop-daemon --start --quiet --exec /usr/bin/caed
+-        start-stop-daemon --start --quiet --exec /usr/bin/ripcd
+-        sleep 1
+-        start-stop-daemon --start --quiet --exec /usr/bin/rdcatchd
++
++        for daemon in $daemons
++            do 
++                veinfo "Starting $daemon"
++                start-stop-daemon --start --pidfile $pid_dir/$daemon.pid \
++			--user $user:$group --umask 0113 \
++                        	--exec /usr/bin/$daemon
++            done
+         eend $?
+ }
+ 
+ stop() {
+         ebegin "Stopping Rivendell"
+         killall rdimport > /dev/null 2> /dev/null
+-        start-stop-daemon --stop --quiet --pidfile /var/run/rivendell/caed.pid
+-        start-stop-daemon --stop --quiet --pidfile /var/run/rivendell/ripcd.pid
+-        start-stop-daemon --stop --quiet --pidfile /var/run/rivendell/rdcatchd.pid
++
++        for daemon in $daemons
++            do 
++                start-stop-daemon --stop --pidfile $pid_dir/$daemon.pid
++            done
+         eend $?
+ }
