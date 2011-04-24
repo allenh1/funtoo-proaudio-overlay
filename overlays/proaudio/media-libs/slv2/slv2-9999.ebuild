@@ -1,28 +1,33 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=2
-inherit multilib subversion
+EAPI=3
+inherit waf-utils subversion
 
 RESTRICT="mirror"
-DESCRIPTION="SLV2 is a library for LV2 hosts"
+DESCRIPTION="A library to make the use of LV2 plugins as simple as possible for applications"
 HOMEPAGE="http://drobilla.net/software"
 
 ESVN_REPO_URI="http://svn.drobilla.net/lad/trunk"
 ESVN_PROJECT="svn.drobilla.net"
+ESVN_UP_FREQ="1"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="debug doc jack"
+IUSE="bash-completion debug doc jack swig"
 
-RDEPEND="jack? ( >=media-sound/jack-audio-connection-kit-0.107.0 )
-	>=media-libs/raptor-1.4.0
-	>=dev-libs/redland-1.0.6
-	>=media-libs/lv2core-2.0"
+RDEPEND=">=dev-libs/glib-2.26.1-r1:2
+	>=media-libs/lv2core-4.0
+	>=media-libs/serd-0.1.0
+	>=media-libs/sord-0.1.0
+	>=media-libs/suil-0.1.0
+	jack? ( >=media-sound/jack-audio-connection-kit-0.120.1 )"
 DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )
+	swig? ( dev-lang/swig )
+	dev-lang/python
 	dev-util/pkgconfig"
 
 src_prepare() {
@@ -33,18 +38,21 @@ src_prepare() {
 src_configure() {
 	cd ${PN}
 	tc-export CC CXX CPP AR RANLIB
-	./waf configure --prefix=/usr --libdir=/usr/$(get_libdir) \
+	waf-utils_src_configure \
+		$(use bash-completion || echo "--no-bash-completion") \
 		$(use doc && echo " --build-docs --htmldir=/usr/share/doc/${P}/html") \
-		$(use debug && echo "--debug") || die
+		$(use debug && echo "--debug") \
+		$(use jack || echo "--no-jack --no-jack-session") \
+		$(use swig || echo "--no-swig")
 }
 
 src_compile() {
 	cd ${PN}
-	./waf build || die
+	waf-utils_src_compile
 }
 
 src_install() {
 	cd ${PN}
-	./waf install --destdir="${D}" || die
-	dodoc AUTHORS ChangeLog
+	waf-utils_src_install
+	dodoc AUTHORS ChangeLog README
 }

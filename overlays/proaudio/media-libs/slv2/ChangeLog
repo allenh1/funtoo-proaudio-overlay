@@ -1,6 +1,11 @@
 # ChangeLog for media-libs/slv2
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  24 Apr 2011; Gavin Pryke <gavinlee303@googlemail.com> slv2-9999.ebuild,
+  metadata.xml:
+  update for new sord,serd,suil deps. utilise waf-utils eclass.
+  deps for python bindings still need work
 
   24 Dec 2010; Gavin Pryke <gavinlee303@googlemail.com> slv2-9999.ebuild:
   remove bad header workaround, use sed to remove ldconfig call from wscript,
