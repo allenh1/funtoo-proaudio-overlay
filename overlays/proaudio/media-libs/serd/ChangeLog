@@ -1,0 +1,10 @@
+# ChangeLog for media-libs/serd
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*serd-9999 (24 Apr 2011)
+
+  24 Apr 2011; Gavin Pryke <gavinlee303@googlemail.com> +serd-9999.ebuild,
+  +metadata.xml:
+  import media-libs/serd for media-sound/ingen
+
