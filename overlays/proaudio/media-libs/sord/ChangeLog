@@ -1,0 +1,10 @@
+# ChangeLog for media-libs/sord
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*sord-9999 (24 Apr 2011)
+
+  24 Apr 2011; Gavin Pryke <gavinlee303@googlemail.com> +sord-9999.ebuild,
+  +metadata.xml:
+  import media-libs/sord for media-sound/ingen
+
