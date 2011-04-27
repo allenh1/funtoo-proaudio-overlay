@@ -19,7 +19,8 @@ SLOT="0"
 DEPEND="media-libs/asio-sdk"
 RDEPEND=">=app-emulation/wine-0.9.35
 	amd64? ( || ( >=media-sound/jack-audio-connection-kit-1.9.5[32bit] \
-		    >=media-sound/jack-audio-connection-kit-1.9.5[mixed] ) )"
+		    >=media-sound/jack-audio-connection-kit-1.9.5[mixed] ) )
+	!amd64? ( >=media-sound/jack-audio-connection-kit-1.9.5 )"
 
 S="${WORKDIR}/${PN}"
 
