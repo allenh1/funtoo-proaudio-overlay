@@ -1,33 +1,33 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=2
-inherit subversion autotools toolchain-funcs multilib
+EAPI=3
+inherit waf-utils subversion
 
-DESCRIPTION="Ingen is a modular synthesizer using the Jack audio server and LV2 or LADSPA plugins."
+DESCRIPTION="Ingen is a modular synthesizer using the Jack audio server and LV2 plugins"
 HOMEPAGE="http://drobilla.net/software/ingen"
 
 ESVN_REPO_URI="http://svn.drobilla.net/lad/trunk"
 ESVN_PROJECT="svn.drobilla.net"
+ESVN_UP_FREQ="1"
 
 LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="0"
-IUSE="debug doc ladspa osc soup"
+IUSE="debug doc osc soup"
 
 RDEPEND=">=dev-cpp/libglademm-2.6.0
-	>=dev-libs/libxml2-2.6
-	>=dev-libs/redlandmm-9999
 	>=media-libs/alsa-lib-1.0.0
 	>=media-libs/raul-9999
 	>=media-libs/slv2-9999
-	>=media-sound/jack-audio-connection-kit-0.109.0
+	>=media-libs/sord-0.1.0
+	>=media-libs/suil-0.1.0
+	|| ( >=media-sound/jack-audio-connection-kit-0.120.1
+		 >=media-sound/jack-audio-connection-kit-1.9.7 )
 	>=x11-libs/flowcanvas-9999
-	ladspa? ( media-libs/ladspa-sdk )
 	osc? ( >=media-libs/liblo-0.22 )
 	soup? ( >=net-libs/libsoup-2.4.0 )"
-
 DEPEND="${RDEPEND}
 	>=dev-libs/boost-1.33.1
 	dev-util/pkgconfig"
@@ -40,24 +40,21 @@ src_prepare() {
 src_configure() {
 	cd ${PN}
 	tc-export CC CXX CPP AR RANLIB
-	CCFLAGS="${CFLAGS}" LINKFLAGS="${LDFLAGS}" \
-		./waf configure --prefix=/usr --libdir=/usr/$(get_libdir)/ \
+	waf-utils_src_configure \
 		--module-dir=/usr/$(get_libdir)/ingen \
-		$(! use ladspa && echo " --no-ladspa") \
 		$(! use osc && echo " --no-osc") \
 		$(! use soup && echo " --no-http") \
 		$(use debug && echo " --debug") \
-		$(use doc && echo " --docs --htmldir=/usr/share/doc/${P}/html") \
-		|| die "waf configure failed"
+		$(use doc && echo " --docs --htmldir=/usr/share/doc/${P}/html")
 }
 
 src_compile() {
 	cd ${PN}
-	./waf build || die
+	waf-utils_src_compile
 }
 
 src_install() {
 	cd ${PN}
-	./waf install --destdir="${D}" || die "install failed"
+	waf-utils_src_install
 	dodoc AUTHORS README THANKS
 }
