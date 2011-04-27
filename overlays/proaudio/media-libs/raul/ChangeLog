@@ -1,6 +1,9 @@
 # ChangeLog for media-libs/raul
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  27 Apr 2011; Gavin Pryke <gavinlee303@googlemail.com> raul-9999.ebuild:
+  make use of waf-utils eclass, attempt cleaning up a little
 
   08 Nov 2010; Gavin Pryke <gavinlee303@googlemail.com> -raul-0.6.0.ebuild,
   raul-9999.ebuild:
