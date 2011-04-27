@@ -2,6 +2,9 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  23 Apr 2011: Dominique Michel <dominique@tuxfamily.org> 0.7.5 + 0.9.0 +
+  .9999: conditional depend for jack1 or jack2 on amd64
+
 *wineasio-9999 (11 Sep 2010)
 
   11 Sep 2010; Viktor Lazarev <taurus101v@gmail.com> wineasio-0.7.3.ebuild,
