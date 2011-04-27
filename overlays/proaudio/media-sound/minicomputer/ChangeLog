@@ -1,6 +1,11 @@
 # ChangeLog for media-sound/minicomputer
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  27 Apr 2011; Gavin Pryke <gavinlee303@googlemail.com>
+  minicomputer-1.3.ebuild, minicomputer-1.41.ebuild,
+  minicomputer-9999.ebuild:
+  change fltk slot deps from 1.1 to 1, repoman payment
 
 *minicomputer-9999 (10 Jun 2010)
 *minicomputer-1.41 (10 Jun 2010)

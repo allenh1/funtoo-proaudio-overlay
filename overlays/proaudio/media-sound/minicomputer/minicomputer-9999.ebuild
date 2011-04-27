@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -21,7 +21,7 @@ KEYWORDS=""
 IUSE=""
 
 RDEPEND="media-sound/jack-audio-connection-kit
-	>=x11-libs/fltk-1.1.7:1.1[threads]
+	>=x11-libs/fltk-1.1.7:1[threads]
 	media-libs/alsa-lib
 	media-libs/liblo"
 DEPEND="${RDEPEND}
