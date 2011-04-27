@@ -1,6 +1,10 @@
 # ChangeLog for x11-libs/flowcanvas
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  27 Apr 2011; Gavin Pryke <gavinlee303@googlemail.com>
+  flowcanvas-9999.ebuild:
+  use waf-utils eclass, add ESVN_UP_FREQ
 
   27 Nov 2010; Gavin Pryke <gavinlee303@googlemail.com>
   flowcanvas-9999.ebuild:

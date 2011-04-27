@@ -1,16 +1,16 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=2
-
-inherit toolchain-funcs multilib eutils subversion
+EAPI=3
+inherit waf-utils subversion
 
 DESCRIPTION="Gtkmm/Gnomecanvasmm widget for boxes and lines environments"
 HOMEPAGE="http://wiki.drobilla.net/FlowCanvas"
 
 ESVN_REPO_URI="http://svn.drobilla.net/lad/trunk"
 ESVN_PROJECT="svn.drobilla.net"
+ESVN_UP_FREQ="1"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -33,22 +33,19 @@ src_prepare() {
 src_configure() {
 	cd ${PN}
 	tc-export CC CXX CPP AR RANLIB
-	./waf configure \
-		--prefix=/usr \
-		--libdir=/usr/$(get_libdir) \
+	waf-utils_src_configure \
 		--htmldir=/usr/share/doc/${PF}/html \
 		$(use debug && echo "--debug") \
-		$(use doc && echo "--docs") \
-		|| die
+		$(use doc && echo "--docs")
 }
 
 src_compile() {
 	cd ${PN}
-	./waf || die
+	waf-utils_src_compile
 }
 
 src_install() {
 	cd ${PN}
-	./waf install --destdir="${D}" || die
+	waf-utils_src_install
 	dodoc AUTHORS README ChangeLog
 }
