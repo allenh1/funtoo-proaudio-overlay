@@ -35,7 +35,7 @@ src_configure() {
 	cd ${PN}
 	tc-export CC CXX CPP AR RANLIB
 	waf-utils_src_configure \
-		$(use doc && echo " --build-docs --htmldir=/usr/share/doc/${P}/html") \
+		$(use doc && echo "--docs") \
 		$(use debug && echo "--debug") || die
 }
 
@@ -48,4 +48,10 @@ src_install() {
 	cd ${PN}
 	waf-utils_src_install
 	dodoc AUTHORS ChangeLog README
+
+	if use doc; then
+		mv "${D}/usr/share/doc/${PN}/html" "${D}/usr/share/doc/${PF}"
+		rmdir "${D}/usr/share/doc/${PN}"
+		find "${D}/usr/share/doc/" -name '*.md5' -delete
+	fi
 }

@@ -42,10 +42,10 @@ src_configure() {
 	tc-export CC CXX CPP AR RANLIB
 	waf-utils_src_configure \
 		--module-dir=/usr/$(get_libdir)/ingen \
-		$(! use osc && echo " --no-osc") \
-		$(! use soup && echo " --no-http") \
-		$(use debug && echo " --debug") \
-		$(use doc && echo " --docs --htmldir=/usr/share/doc/${P}/html")
+		$(! use osc && echo "--no-osc") \
+		$(! use soup && echo "--no-http") \
+		$(use debug && echo "--debug") \
+		$(use doc && echo "--docs")
 }
 
 src_compile() {
@@ -57,4 +57,10 @@ src_install() {
 	cd ${PN}
 	waf-utils_src_install
 	dodoc AUTHORS README THANKS
+
+	if use doc; then
+		mv "${D}/usr/share/doc/${PN}/html" "${D}/usr/share/doc/${PF}"
+		rmdir "${D}/usr/share/doc/${PN}"
+		find "${D}/usr/share/doc/" -name '*.md5' -delete
+	fi
 }

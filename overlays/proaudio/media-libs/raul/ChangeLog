@@ -2,6 +2,9 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 Apr 2011; Gavin Pryke <gavinlee303@googlemail.com> raul-9999.ebuild:
+  fix doc
+
   27 Apr 2011; Gavin Pryke <gavinlee303@googlemail.com> raul-9999.ebuild:
   make use of waf-utils eclass, attempt cleaning up a little
 
