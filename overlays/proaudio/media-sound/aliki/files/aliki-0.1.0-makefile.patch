@@ -1,19 +1,22 @@
---- aliki/Makefile.old	2010-04-12 14:40:41.000000000 +0100
-+++ aliki/Makefile	2010-04-12 14:53:03.000000000 +0100
-@@ -22,9 +22,10 @@
+--- aliki/source/Makefile.old	2011-04-28 11:52:56.910832167 +0100
++++ aliki/source/Makefile	2011-04-28 12:11:42.353832987 +0100
+@@ -21,12 +21,12 @@
+ 
  # Modify as required.
  #
- #PREFIX = /usr/local
--PREFIX = /usr
-+CXX ?= g++
-+PREFIX ?= /usr
+-PREFIX = /usr/local
++PREFIX ?= /usr/local
  SUFFIX := $(shell uname -m | sed -e 's/^unknown/$//' -e 's/^i.86/$//' -e 's/^x86_64/$/64/')
 -LIBDIR = lib$(SUFFIX)
 +LIBDIR ?= lib$(SUFFIX)
- VERSION = 0.0.3
+ VERSION = 0.1.0
  DISTDIR = aliki-$(VERSION)
- CPPFLAGS += -O3 -Wall -MMD -MP -DVERSION=\"$(VERSION)\" -DPREFIX=\"$(PREFIX)\" -I/usr/include/freetype2
-@@ -44,7 +45,7 @@
+-CPPFLAGS += -O3 -Wall -MMD -MP -DVERSION=\"$(VERSION)\" -DPREFIX=\"$(PREFIX)\" -I/usr/include/freetype2
++CPPFLAGS += -Wall -MMD -MP -DVERSION=\"$(VERSION)\" -DPREFIX=\"$(PREFIX)\" -I/usr/include/freetype2
+ CPPFLAGS += -march=native
+ 
+ # Uncomment if you use a libsndfile version without support for setting/getting the Ambisonic flags.
+@@ -43,7 +43,7 @@
  aliki:	LDLIBS += -lclxclient -lclthreads -lpthread -lsndfile -lfftw3f -lXft -lX11 -lrt
  aliki:	LDFLAGS += -L$(PREFIX)/$(LIBDIR) -L/usr/X11R6/$(LIBDIR)
  aliki:	$(ALIKI_O)
@@ -22,7 +25,7 @@
  $(ALIKI_O):
  -include $(ALIKI_O:%.o=%.d)
  
-@@ -54,15 +55,15 @@
+@@ -53,15 +53,15 @@
  aliki-rt:	LDLIBS += -lclalsadrv -lclthreads -lsndfile -ljack -lasound -lpthread -lrt
  aliki-rt:	LDFLAGS += -L$(PREFIX)/$(LIBDIR)
  aliki-rt:	 $(ALIKI_RT_O) $(LIBCLX)
@@ -34,10 +37,10 @@
  
  
  install:	aliki aliki-rt
--	/usr/bin/install -m 755 aliki    $(PREFIX)/bin
--	/usr/bin/install -m 755 aliki-rt $(PREFIX)/bin
-+	/usr/bin/install -D -m 755 aliki    $(DESTDIR)$(PREFIX)/bin/aliki
-+	/usr/bin/install -D -m 755 aliki-rt $(DESTDIR)$(PREFIX)/bin/aliki-rt
+-	install -m 755 aliki    $(DESTDIR)$(PREFIX)/bin
+-	install -m 755 aliki-rt $(DESTDIR)$(PREFIX)/bin
++	install -m 755 -D aliki    $(DESTDIR)$(PREFIX)/bin/aliki
++	install -m 755 -D aliki-rt $(DESTDIR)$(PREFIX)/bin/aliki-rt
  
  clean:
  	/bin/rm -f *~ *.o *.a *.d *.so
