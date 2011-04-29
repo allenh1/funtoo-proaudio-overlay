@@ -1,0 +1,37 @@
+--- tetraproc-0.8.2/source/Makefile.old	2011-04-29 07:59:18.266002344 +0100
++++ tetraproc-0.8.2/source/Makefile	2011-04-29 08:00:10.895002420 +0100
+@@ -18,13 +18,13 @@
+ # ----------------------------------------------------------------------------
+ 
+ 
+-PREFIX = /usr/local
++PREFIX ?= /usr/local
+ SUFFIX := $(shell uname -m | sed -e 's/^unknown/$//' -e 's/^i.86/$//' -e 's/^x86_64/$/64/')
+ SHARED = $(PREFIX)/share/tetraproc
+-LIBDIR = lib$(SUFFIX)
++LIBDIR ?= lib$(SUFFIX)
+ VERSION = 0.8.2
+ DISTDIR = tetraproc-$(VERSION)
+-CPPFLAGS += -O3 -Wall -MMD -MP -DVERSION=\"$(VERSION)\" -DSHARED=\"$(SHARED)\"
++CPPFLAGS += -Wall -MMD -MP -DVERSION=\"$(VERSION)\" -DSHARED=\"$(SHARED)\"
+ CPPFLAGS += -march=native
+ 
+ 
+@@ -39,7 +39,7 @@
+ tetraproc:	LDLIBS += -lsndfile -lfftw3f -lclxclient -lclthreads -ljack -lpng -lXft -lX11 -lrt 
+ tetraproc:	LDFLAGS += -L/usr/X11R6/lib
+ tetraproc:	$(TETRAPROC_O)
+-	g++ $(LDFLAGS) -o $@ $(TETRAPROC_O) $(LDLIBS)
++	$(CXX) $(LDFLAGS) -o $@ $(TETRAPROC_O) $(LDLIBS)
+ 
+ $(TETRAPROC_O):
+ -include $(TETRAPROC_O:%.o=%.d)
+@@ -50,7 +50,7 @@
+ 
+ tetrafile:	LDLIBS += -lsndfile -lfftw3f -lrt 
+ tetrafile:	$(TETRAFILE_O)
+-	g++ $(LDFLAGS) -o $@ $(TETRAFILE_O) $(LDLIBS)
++	$(CXX) $(LDFLAGS) -o $@ $(TETRAFILE_O) $(LDLIBS)
+ 
+ $(TETRAFILE_O):
+ -include $(TETRAFILE_O:%.o=%.d)

@@ -1,6 +1,13 @@
 # ChangeLog for media-sound/tetraproc
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*tetraproc-0.8.2 (29 Apr 2011)
+
+  29 Apr 2011; Gavin Pryke <gavinlee303@googlemail.com>
+  -tetraproc-0.6.2.ebuild, -files/tetraproc-0.6.2-makefile.patch,
+  +tetraproc-0.8.2.ebuild, +files/tetraproc-0.8.2-makefile.patch:
+  changed download location, update makefile patch, dep tweaks, bump
 
   12 Apr 2010; Gavin Pryke <gavinlee303@googlemail.com>
   tetraproc-0.6.2.ebuild, +files/tetraproc-0.6.2-makefile.patch:
