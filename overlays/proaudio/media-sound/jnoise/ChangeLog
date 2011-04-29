@@ -1,6 +1,13 @@
 # ChangeLog for media-sound/jnoise
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*jnoise-0.6.0 (29 Apr 2011)
+
+  29 Apr 2011; Gavin Pryke <gavinlee303@googlemail.com>
+  -jnoise-0.4.0.ebuild, -files/jnoise-0.4.0-makefile.patch,
+  +jnoise-0.6.0.ebuild, +files/jnoise-0.6.0-makefile.patch:
+  changed download location, update makefile patch, bump
 
   11 Apr 2010; Gavin Pryke <gavinlee303@googlemail.com> jnoise-0.4.0.ebuild,
   files/jnoise-0.4.0-makefile.patch:

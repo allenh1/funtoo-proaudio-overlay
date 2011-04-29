@@ -1,0 +1,28 @@
+--- jnoise-0.6.0/source/Makefile.old	2011-04-29 09:10:20.829004441 +0100
++++ jnoise-0.6.0/source/Makefile	2011-04-29 09:10:48.200004534 +0100
+@@ -19,13 +19,13 @@
+ # ---------------------------------------------------------------------------
+ 
+ 
+-PREFIX = /usr/local
++PREFIX ?= /usr/local
+ SUFFIX := $(shell uname -m | sed -e 's/^unknown/$//' -e 's/^i.86/$//' -e 's/^x86_64/$/64/')
+-LIBDIR = lib$(SUFFIX)
++LIBDIR ?= lib$(SUFFIX)
+ SHARED = $(PREFIX)/share
+ PROGRAM = jnoise
+ VERSION = 0.6.0
+-CPPFLAGS += -O3 -ffast-math -Wall -MMD -MP -DPROGRAM=\"$(PROGRAM)\" -DVERSION=\"$(VERSION)\" -DSHARED=\"$(SHARED)\"
++CPPFLAGS += -ffast-math -Wall -MMD -MP -DPROGRAM=\"$(PROGRAM)\" -DVERSION=\"$(VERSION)\" -DSHARED=\"$(SHARED)\"
+ #CPPFLAGS += -march=native
+ 
+ 
+@@ -37,7 +37,7 @@
+ jnoise:	CPPFLAGS += -ffast-math
+ jnoise:	LDLIBS += -ljack -lrt
+ jnoise:	$(JNOISE_O)
+-	g++ $(LDFLAGS) -o $@ $(JNOISE_O) $(LDLIBS)
++	$(CXX) $(LDFLAGS) -o $@ $(JNOISE_O) $(LDLIBS)
+ 
+ $(JNOISE_O):
+ -include $(JNOISE_O:%.o=%.d)
