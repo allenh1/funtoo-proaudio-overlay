@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-inherit base autotools flag-o-matic
+inherit base autotools flag-o-matic eutils
 
 MY_P="${P}_Equinox"
 
@@ -31,8 +31,12 @@ DEPEND="${RDEPEND}"
 
 #DOCS="AUTHORS ChangeLog NEWS README TODO"
 
-src_configure() {
-	append-ldflags -L/usr/lib/fltk-1.1
-	"${S}/configure"
+src_prepare() {
+	epatch "${FILESDIR}/${P}_configure.patch" || die "conf patch failed"
 }
+
+#src_configure() {
+#	append-ldflags -L/usr/lib/fltk-1.1
+#	"${S}/configure"
+#}
 

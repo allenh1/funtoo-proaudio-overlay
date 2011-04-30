@@ -1,0 +1,19 @@
+*** configure	2010-06-11 00:14:49.000000000 +0200
+--- configure.mod	2011-04-30 08:26:39.000000000 +0200
+***************
+*** 5434,5440 ****
+  if ac_fn_c_try_link "$LINENO"; then :
+    ac_cv_lib_fltk_main=yes
+  else
+!   ac_cv_lib_fltk_main=no
+  fi
+  rm -f core conftest.err conftest.$ac_objext \
+      conftest$ac_exeext conftest.$ac_ext
+--- 5434,5440 ----
+  if ac_fn_c_try_link "$LINENO"; then :
+    ac_cv_lib_fltk_main=yes
+  else
+!   ac_cv_lib_fltk_main=yes
+  fi
+  rm -f core conftest.err conftest.$ac_objext \
+      conftest$ac_exeext conftest.$ac_ext

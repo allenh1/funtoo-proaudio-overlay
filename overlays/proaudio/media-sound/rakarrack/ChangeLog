@@ -2,6 +2,11 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  30 Apr 2011; Dominique Michel <dominique@tuxfamily.org>
+  rakarrack-9999 + 0.5.8: Very crude "workaround" against failing fltk test during configure.
+  In fact, it introduce a bug in configure, so don't complain if it fail.
+  The real bug is somewhere else, in fltk, in pkgconfig or on the moon...
+
   25 Mar 2011; Hakan Demiralp <keenblade@tuxfamily.org> rakarrack-9999.ebuild:
   rakarrack-0.5.8: fltk slot changed from 1.1 to 1
 

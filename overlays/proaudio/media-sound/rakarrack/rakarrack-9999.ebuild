@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-inherit base autotools git flag-o-matic
+inherit base autotools git flag-o-matic eutils
 
 #MY_P="${P}_Equinox"
 
@@ -33,10 +33,11 @@ DOCS="AUTHORS ChangeLog NEWS README TODO"
 
 src_prepare() {
 	"${S}/autogen.sh"
+	epatch "${FILESDIR}/${PN}-0.5.8_configure.patch" || die "conf patch failed"
 }
 
-src_configure() {
-	append-ldflags -L/usr/lib/fltk-1.1
-	"${S}/configure"
-}
+#src_configure() {
+#	append-ldflags -L/usr/lib/fltk-1.1
+#	"${S}/configure"
+#}
 
