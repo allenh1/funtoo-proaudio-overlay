@@ -1,0 +1,11 @@
+# ChangeLog for media-libs/lilv
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*lilv-9999 (01 May 2011)
+
+  01 May 2011; Gavin Pryke <gavinlee303@googlemail.com> +lilv-9999.ebuild,
+  +metadata.xml:
+  copied media-libs/slv2-9999 to new package media-libs/lilv. ingen now
+  requires this instead of slv2 which is apparently now dead in svn
+
