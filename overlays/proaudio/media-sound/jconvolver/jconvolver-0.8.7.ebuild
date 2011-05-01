@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -8,9 +8,9 @@ inherit exteutils multilib toolchain-funcs
 RESTRICT="mirror"
 
 DESCRIPTION="Command line convolution reverb by Fons Adriaensen"
-HOMEPAGE="http://www.kokkinizita.net/linuxaudio/index.html"
-SRC_URI="http://www.kokkinizita.net/linuxaudio/downloads/${P}.tar.bz2
-	examples? ( http://www.kokkinizita.net/linuxaudio/downloads/${PN}-reverbs.tar.bz2 )"
+HOMEPAGE="http://kokkinizita.linuxaudio.org/linuxaudio/index.html"
+SRC_URI="http://kokkinizita.linuxaudio.org/linuxaudio/downloads/${P}.tar.bz2
+	examples? ( http://kokkinizita.linuxaudio.org/linuxaudio/downloads/${PN}-reverbs.tar.bz2 )"
 
 LICENSE="GPL-2"
 SLOT="0"

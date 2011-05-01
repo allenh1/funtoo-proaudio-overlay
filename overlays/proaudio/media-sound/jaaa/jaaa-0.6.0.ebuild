@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -6,8 +6,8 @@ inherit exteutils toolchain-funcs multilib
 
 RESTRICT="mirror"
 DESCRIPTION="The JACK and ALSA Audio Analyser is an audio signal generator and spectrum analyser"
-HOMEPAGE="http://www.kokkinizita.net/linuxaudio"
-SRC_URI="http://www.kokkinizita.net/linuxaudio/downloads/${P}.tar.bz2"
+HOMEPAGE="http://kokkinizita.linuxaudio.org/linuxaudio"
+SRC_URI="http://kokkinizita.linuxaudio.org/linuxaudio/downloads/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"

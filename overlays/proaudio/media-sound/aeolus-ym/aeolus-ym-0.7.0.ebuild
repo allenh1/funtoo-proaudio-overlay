@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -11,8 +11,8 @@ inherit eutils multilib toolchain-funcs
 RESTRICT="mirror"
 
 DESCRIPTION="Aeolus with convolution reverb using Ambiosonic impulse responses by Fons Adriaensen"
-HOMEPAGE="http://www.kokkinizita.net/linuxaudio/aeolus"
-SRC_URI="http://www.kokkinizita.net/linuxaudio/downloads/${P}.tar.bz2
+HOMEPAGE="http://kokkinizita.linuxaudio.org/linuxaudio/aeolus"
+SRC_URI="http://kokkinizita.linuxaudio.org/linuxaudio/downloads/${P}.tar.bz2
 	${At1}
 	${At2}"
 

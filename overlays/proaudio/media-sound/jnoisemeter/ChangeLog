@@ -1,6 +1,10 @@
 # ChangeLog for media-sound/jnoisemeter
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  01 May 2011; Gavin Pryke <gavinlee303@googlemail.com>
+  jnoisemeter-0.1.0.ebuild:
+  update HOMEPAGE and SRC_URI
 
 *jnoisemeter-0.1.0 (28 Oct 2010)
 

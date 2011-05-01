@@ -6,8 +6,8 @@ EAPI=2
 inherit eutils toolchain-funcs multilib
 
 DESCRIPTION="A high performance audio signal convolver library"
-HOMEPAGE="http://www.kokkinizita.net/linuxaudio/"
-SRC_URI="http://www.kokkinizita.net/linuxaudio/downloads/${P}.tar.bz2"
+HOMEPAGE="http://kokkinizita.linuxaudio.org/linuxaudio/"
+SRC_URI="http://kokkinizita.linuxaudio.org/linuxaudio/downloads/${P}.tar.bz2"
 
 RESTRICT="mirror"
 

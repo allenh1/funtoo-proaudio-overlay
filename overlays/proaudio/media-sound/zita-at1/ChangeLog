@@ -2,6 +2,10 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  01 May 2011; Gavin Pryke <gavinlee303@googlemail.com>
+  zita-at1-0.2.1.ebuild:
+  update HOMEPAGE and SRC_URI
+
 *zita-at1-0.2.1 (12 Jan 2011)
 
   12 Jan 2011; Gavin Pryke <gavinlee303@googlemail.com>

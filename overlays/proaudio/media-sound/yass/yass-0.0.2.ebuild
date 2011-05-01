@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -7,8 +7,8 @@ EAPI=3
 inherit eutils toolchain-funcs
 
 DESCRIPTION="Yet Another Scrolling Scope features jack input, variable scrolling speed and automatic gain control"
-HOMEPAGE="http://www.kokkinizita.net/linuxaudio/"
-SRC_URI="http://www.kokkinizita.net/linuxaudio/downloads/${P}.tar.bz2"
+HOMEPAGE="http://kokkinizita.linuxaudio.org/linuxaudio/"
+SRC_URI="http://kokkinizita.linuxaudio.org/linuxaudio/downloads/${P}.tar.bz2"
 
 RESTRICT="mirror"
 

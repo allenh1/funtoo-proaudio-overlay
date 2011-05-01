@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -6,8 +6,8 @@ inherit exteutils
 
 RESTRICT="mirror"
 DESCRIPTION="Jkmeter is a combined RMS/digital peak meter based on the ideas of mastering guru Bob Katz"
-HOMEPAGE="http://www.kokkinizita.net/linuxaudio"
-SRC_URI="http://www.kokkinizita.net/linuxaudio/downloads/${P}.tar.bz2"
+HOMEPAGE="http://kokkinizita.linuxaudio.org/linuxaudio"
+SRC_URI="http://kokkinizita.linuxaudio.org/linuxaudio/downloads/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
