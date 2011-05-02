@@ -1,0 +1,15 @@
+# ChangeLog for media-sound/jack_delay
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*jack_delay-0.4.0 (02 May 2011)
+
+  02 May 2011; Gavin Pryke <gavinlee303@googlemail.com>
+  +jack_delay-0.4.0.ebuild, +metadata.xml:
+  move media-sound/jdelay to media-sound/jack_delay, update HOMEPAGE and
+  SRC_URI, cleanup and bump to 0.4.0
+
+  18 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  +jdelay-0.1.ebuild, +metadata.xml:
+  initial ebuild (thx Flo)
+
