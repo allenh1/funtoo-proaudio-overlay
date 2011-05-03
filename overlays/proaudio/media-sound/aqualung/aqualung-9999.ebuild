@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -29,7 +29,7 @@ RDEPEND="vorbis? ( >=media-libs/libvorbis-1.0 )
 	mac? ( media-sound/mac )
 	mp3? ( media-libs/libmad )
 	musepack? ( media-libs/libmpcdec )
-	ffmpeg? ( media-video/ffmpeg )
+	ffmpeg? ( virtual/ffmpeg )
 	ifp? ( media-libs/libifp )
 	pulseaudio? ( media-sound/pulseaudio )
 	speex? ( media-libs/speex media-libs/liboggz )

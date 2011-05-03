@@ -1,6 +1,9 @@
 # ChangeLog for media-sound/aqualung
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  03 May 2011; Hakan Demiralp <keenblade@tuxfamily.org aqualung-9999.ebuild:
+  aqualung also works with libav, so switching to virtual/ffmpeg
 
   30 Aug 2010; Hakan Demiralp <keenblade@tuxfamily.org aqualung-9999.ebuild,
   metadata.xml:
