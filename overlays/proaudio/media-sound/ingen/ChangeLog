@@ -2,6 +2,9 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  04 May 2011; Gavin Pryke <gavinlee303@googlemail.com> ingen-9999.ebuild:
+  change dep from media-libs/slv2 to media-libs/lilv
+
   28 Apr 2011; Gavin Pryke <gavinlee303@googlemail.com> ingen-9999.ebuild:
   fix doc
 

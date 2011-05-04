@@ -19,8 +19,8 @@ IUSE="debug doc osc soup"
 
 RDEPEND=">=dev-cpp/libglademm-2.6.0
 	>=media-libs/alsa-lib-1.0.0
+	>=media-libs/lilv-9999
 	>=media-libs/raul-9999
-	>=media-libs/slv2-9999
 	>=media-libs/sord-0.1.0
 	>=media-libs/suil-0.1.0
 	|| ( >=media-sound/jack-audio-connection-kit-0.120.1
