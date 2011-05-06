@@ -1,0 +1,10 @@
+# ChangeLog for media-plugins/lolep-lv2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*lolep-lv2-9999 (06 May 2011)
+
+  06 May 2011; Gavin Pryke <gavinlee303@googlemail.com> +lolep-lv2-9999.ebuild,
+  +metadata.xml:
+  import
+
