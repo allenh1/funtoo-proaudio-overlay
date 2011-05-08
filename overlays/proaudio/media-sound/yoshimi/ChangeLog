@@ -2,6 +2,12 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*yoshimi-0.060.10 (08 May 2011)
+
+  08 May 2011; <willy@gentoo.org> -yoshimi-0.056.ebuild, -yoshimi-0.058.ebuild,
+  yoshimi-0.058.1.ebuild, +yoshimi-0.060.10.ebuild:
+  remove older 0.056 0.058, update to new 0.060.10
+
   25 Mar 2011; Hakan Demiralp <keenblade@tuxfamily.org> yoshimi-0.058.1.ebuild:
   yoshimi-0.058.1: fltk slot changed from 1.1 to 1
 

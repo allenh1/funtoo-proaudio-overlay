@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -14,9 +14,10 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
-DEPEND=">=x11-libs/fltk-1.1.2:1.1
+DEPEND=">=x11-libs/fltk-1.1.2:1[opengl]
 	=sci-libs/fftw-3*
-	 media-sound/jack-audio-connection-kit
+	>=media-sound/jack-audio-connection-kit-0.115.6
+	media-libs/libsndfile
 	>=dev-libs/mini-xml-2.5"
 
 RDEPEND="${DEPEND}"
