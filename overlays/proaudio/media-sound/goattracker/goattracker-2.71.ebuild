@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI=2
 inherit eutils toolchain-funcs
 
 MY_P=GoatTracker_${PV}
@@ -15,7 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="examples"
 
-RDEPEND=">=media-libs/libsdl-1.2.14"
+RDEPEND=">=media-libs/libsdl-1.2.14[audio,video]"
 DEPEND="${DEPEND}
 	app-arch/unzip"
 # resid seems to be bundled in the source tree
@@ -24,9 +25,7 @@ DEPEND="${DEPEND}
 S=${WORKDIR}
 RESTRICT="mirror"
 
-src_unpack() {
-	unpack ${A}
-	cd "${S}"
+src_prepare() {
 	epatch "${FILESDIR}/${P}-makefiles.patch"
 	# don't strip binaries
 	sed -i -e "s/strip/#strip/g" src/bme/makefile src/makefile.common || die
