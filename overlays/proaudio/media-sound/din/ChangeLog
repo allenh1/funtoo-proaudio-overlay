@@ -2,6 +2,11 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*din-1.7 (14 May 2011)
+
+14 May 2011; NedkoArnaudov <nedko@arnaudov.name> din-1.6.ebuild :
+Ebuild for 1.6
+
 *din-1.4.2 (14 May 2011)
 
 14 May 2011; NedkoArnaudov <nedko@arnaudov.name> din-1.4.2.ebuild :
