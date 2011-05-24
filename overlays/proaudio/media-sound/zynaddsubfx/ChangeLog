@@ -2,6 +2,10 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  24 May 2011: Dominique Michel <dominique@tuxfamily.org>
+  * version 9999... removed patch that doesn't apply anymore
+  * added portage patch for build with fltk-1.3
+
   13 Jan 2010; Marc-Olivier Barre <marco@marcochapeau.org>
   * Fixed jack dependency on jack-audio-connection-kit for version 20070707
   * Removed the une of unipatch from version 20070707-r1 which doesn't even work anymore

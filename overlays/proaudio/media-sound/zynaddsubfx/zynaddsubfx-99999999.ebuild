@@ -45,10 +45,9 @@ pkg_setup() {
 src_unpack() {
 	cvs_src_unpack
 	cd "${S}"
+	patcher "${FILESDIR}/zynaddsubfx-2.4.1-fltk13.patch" -a -f
 	patcher "${FILESDIR}/01-mutex-split.patch" -a -f
 	patcher "${FILESDIR}/02-ifdef-jackmidi.patch" -a -f
-	patcher "${FILESDIR}/03-fix_jackmidi.patch" -a -f
-	patcher "${FILESDIR}/fix_jack_midi_api.patch" -a -f
 
 	#fixup 01-mutex-split patch
 	esed_check -i -e 's@\(applyparameters(\)true@\1@g' src/Params/PADnoteParameters.C
