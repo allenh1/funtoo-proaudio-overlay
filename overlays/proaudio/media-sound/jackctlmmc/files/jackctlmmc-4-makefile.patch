@@ -1,0 +1,11 @@
+--- jackctlmmc/GNUmakefile.in.original	2011-05-16 17:05:39.374068417 +0100
++++ jackctlmmc/GNUmakefile.in	2011-05-18 19:13:22.873157332 +0100
+@@ -37,7 +37,7 @@
+ 	$(CC) $(CFLAGS) $(PKG_CFLAGS) -c $<
+ 
+ jackctlmmc: $(OBJECTS)
+-	$(CC) $(CFLAGS) $(PKG_CFLAGS) $(LIBS) -o $@ $(OBJECTS)
++	$(CC) $(LDFLAGS) $(CFLAGS) $(PKG_CFLAGS) -o $@ $(OBJECTS) $(LIBS)
+ 
+ qjackmmc:
+ 	cd qt && $(QMAKE) -o Makefile qjackmmc.pro && $(MAKE)
