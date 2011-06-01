@@ -2,8 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
-inherit base eutils
+EAPI="4"
+inherit base eutils depend.apache
 
 DESCRIPTION="An automated system for acquisition, management, scheduling and playout of audio content."
 HOMEPAGE="http://rivendellaudio.org/"
@@ -33,6 +33,7 @@ RDEPEND="${DEPEND}
 	app-cdr/cdrkit
 	media-sound/cdparanoia
 	net-misc/curl"
+need_apache2
 
 pkg_setup() {
 	enewgroup ${PN} 150
@@ -40,7 +41,6 @@ pkg_setup() {
 }
 
 src_prepare() {
-	epatch "${FILESDIR}/initscript.patch"
 	epatch "${FILESDIR}/sandbox.patch"
 }
 
@@ -72,6 +72,13 @@ src_install() {
 	keepdir /var/snd
 	fowners ${PN}:${PN} /var/snd
 
+	echo "<IfDefine RIVENDELL>" > 50_${PN}.conf
+	sed '/^\#/d' conf/rd-bin.conf >> 50_${PN}.conf
+	echo "</IfDefine>" >> 50_${PN}.conf
+
+	insinto ${APACHE_MODULES_CONFDIR}
+	doins 50_${PN}.conf
+
 	newicon icons/rivendell-48x48.xpm ${PN}.xpm
 	domenu xdg/${PN}-*.desktop
 
@@ -84,13 +91,8 @@ pkg_postinst() {
 	einfo "See http://rivendell.tryphon.org/wiki/index.php/Install_under_Gentoo"
 	einfo "for Gentoo specific instructions."
 	einfo
-	einfo "This version of Rivendell makes use of a web services protocol to"
-	einfo "accomplish many functions (audio import, export, ripping, etc)."
-	einfo "These services require that a CGI-compliant web server be installed"
-	einfo "and active on the system. Any server that complies with CGI-1.1"
-	einfo "should work, although as of this writing only Apache 2.2 has been"
-	einfo "well tested."
-	einfo "A configuration for apache is in /usr/share/doc/${P}/rd-bin.conf.bz2"
+	einfo "To enable web services, add '-D RIVENDELL'"
+	einfo "to APACHE2_OPTS in /etc/conf.d/apache"
 	einfo
 	ewarn "If this is an update, read /usr/share/doc/${P}/UPGRADING.bz2"
 }
