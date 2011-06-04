@@ -23,7 +23,7 @@ RESTRICT="mirror"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~ppc"
-IUSE="+alsa altivec amd64 ppc64 csoundac -doc +double-precision +nodebug dssi editor examples fluidsynth gui jack java lua mp3 musicxml newparser osc p5glove pd +python -portaudio +static stk tcl vst -vst-host wiimote"
+IUSE="+alsa altivec amd64 ppc64 csoundac -doc +double-precision +nodebug dssi editor examples fluidsynth gui jack java loris lua mp3 musicxml newparser osc p5glove pd +python -portaudio +static stk tcl vst -vst-host wiimote"
 
 RDEPEND="media-libs/ladspa-sdk
 	alsa? ( media-libs/alsa-lib )
@@ -38,6 +38,7 @@ RDEPEND="media-libs/ladspa-sdk
 	gui? ( x11-libs/fltk:1[threads] )
 	jack? ( media-sound/jack-audio-connection-kit )
 	java? ( || ( virtual/jre virtual/jdk ) )
+	loris? ( media-libs/loris[csound,fftw] )
 	lua? ( dev-lang/lua )
 	mp3? ( media-sound/mpadec )
 	musicxml? ( media-libs/libmusicxml:2 )
@@ -221,9 +222,4 @@ src_install() {
 		insinto /usr/share/doc/${PR}
 		doins -r examples
 	fi
-}
-
-pkg_postinst() {
-	elog "If you are interested in 'Loris Opcodes for Csound',"
-	elog "please install media-libs/loris with USE=\"csound\"."
 }
