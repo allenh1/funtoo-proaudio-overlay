@@ -2,6 +2,12 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  04 Jun 2011; Dominique Michel dominique@tuxfamily.org>
+  csound-5.12.1-r1.ebuild:
+  * removed commented line that prevented csound to configure correctly
+  * USE csoundac depend on USE lua
+  * custom.py-5.12.1.patch fix the fltk PATH
+
   25 Mar 2011; Hakan Demiralp <keenblade@tuxfamily.org>
   csound-5.12.1-r1.ebuild:
   csound-5.12.1-r1: fltk slot changed from 1.1 to 1

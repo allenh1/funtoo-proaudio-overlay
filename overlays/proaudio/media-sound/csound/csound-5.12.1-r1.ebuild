@@ -83,7 +83,12 @@ src_prepare() {
 	epatch "${FILESDIR}"/install-stk.patch
 	epatch "${FILESDIR}"/javaVM.patch
 	epatch "${FILESDIR}"/libmusicxml.patch
-
+	epatch "${FILESDIR}"/custom.py-${PV}.patch
+	
+	if use csoundac && ! use lua ; then
+		die "You have enables the USE csoundac, you must emerge ${P} with USE=\"lua\" for this to work"
+	fi
+	 
 	if use stk; then
 		ebegin "Copying Perry Cook's Synthesis ToolKit to the tree"
 		cp -r "${WORKDIR}"/stk-"${STK_VERSION}"/* "${S}"/Opcodes/stk/
@@ -159,7 +164,6 @@ src_compile() {
 	einfo "You enabled following scons options: ${myconf}"
 
 	escons \
-#		prefix=/usr \
 		CC="$(tc-getCC)" \
 		CXX="$(tc-getCXX)" \
 		customCCFLAGS="$CFLAGS -fno-strict-aliasing" \

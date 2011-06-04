@@ -1,0 +1,13 @@
+--- custom.py.orig	2011-06-04 00:13:49.000000000 +0200
++++ custom.py	2011-06-04 00:09:34.000000000 +0200
+@@ -18,8 +18,8 @@
+ if sys.platform[:5] == 'linux':
+     platform = 'linux'
+     customCPPPATH.append('/usr/include/libmusicxml')
+-    customCPPPATH.append('/usr/include/fltk-1.1')
+-    customLIBPATH.append('/usr/lib/fltk-1.1')
++    customCPPPATH.append('/usr/include/fltk-1')
++    customLIBPATH.append('/usr/lib/fltk-1')
+ elif sys.platform == 'darwin':
+     platform = 'darwin'
+     customCPPPATH.append('/usr/include/malloc')
