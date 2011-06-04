@@ -16,7 +16,9 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND=""
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	dev-util/scons"
+
 S="${WORKDIR}/${P}-src/cmake"
 
 src_configure() {

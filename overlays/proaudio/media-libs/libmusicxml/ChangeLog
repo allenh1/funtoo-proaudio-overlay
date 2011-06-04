@@ -4,3 +4,5 @@
 
   23 Apr 2011: Dominique Michel <dominique@tuxfamily.org>
   + initial libmusicxml-2.00.ebuild
+  added depend to dev-util/scons
+
