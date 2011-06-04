@@ -6,9 +6,11 @@
   csound-5.12.1-r1.ebuild:
   * removed commented line that prevented csound to configure correctly
   * USE csoundac depend on USE lua
-  * custom.py-5.12.1.patch fix the fltk PATH
-  csound-5.12.1-r2.ebuild:
+  + custom.py-5.12.1.patch fix the fltk PATH
+  + csound-5.12.1-r2.ebuild:
   * media-libs/loris depend on conditional use flag
+  + csound-5.12.1-r3.ebuild:
+  * install htmldoc with use htmldoc
 
   25 Mar 2011; Hakan Demiralp <keenblade@tuxfamily.org>
   csound-5.12.1-r1.ebuild:

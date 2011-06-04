@@ -23,7 +23,7 @@ RESTRICT="mirror"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~ppc"
-IUSE="+alsa altivec amd64 ppc64 csoundac -doc +double-precision +nodebug dssi editor examples fluidsynth gui jack java loris lua mp3 musicxml newparser osc p5glove pd +python -portaudio +static stk tcl vst -vst-host wiimote"
+IUSE="+alsa altivec amd64 ppc64 csoundac -doc +double-precision +nodebug dssi editor examples fluidsynth gui htmldoc jack java loris lua mp3 musicxml newparser osc p5glove pd +python -portaudio +static stk tcl vst -vst-host wiimote"
 
 RDEPEND="media-libs/ladspa-sdk
 	alsa? ( media-libs/alsa-lib )
@@ -36,6 +36,7 @@ RDEPEND="media-libs/ladspa-sdk
 	editor? ( x11-libs/fltk:1[threads] )
 	fluidsynth? ( media-sound/fluidsynth )
 	gui? ( x11-libs/fltk:1[threads] )
+	htmldoc? ( =app-doc/csound-htmldoc-meta-5.12 )
 	jack? ( media-sound/jack-audio-connection-kit )
 	java? ( || ( virtual/jre virtual/jdk ) )
 	loris? ( media-libs/loris[csound,fftw] )
