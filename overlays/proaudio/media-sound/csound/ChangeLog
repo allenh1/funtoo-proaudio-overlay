@@ -7,6 +7,7 @@
   * removed commented line that prevented csound to configure correctly
   * USE csoundac depend on USE lua
   * custom.py-5.12.1.patch fix the fltk PATH
+  csound-5.12.1-r2.ebuild:
   * media-libs/loris depend on conditional use flag
 
   25 Mar 2011; Hakan Demiralp <keenblade@tuxfamily.org>
