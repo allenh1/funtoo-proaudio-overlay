@@ -5,10 +5,10 @@
 EAPI="4"
 inherit eutils
 
-DESCRIPTION="GNU Image Manipulation Program help files"
-HOMEPAGE="http://docs.gimp.org/"
+DESCRIPTION="Html documentation for csound"
+HOMEPAGE="http://csound.sourceforge.net/"
 
-LICENSE="FDL-1.2"
+LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
