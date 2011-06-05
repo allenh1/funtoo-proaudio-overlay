@@ -2,6 +2,11 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*bristol-0.60.8 (05 Jun 2011)
+
+  Dominique Michel <dominique@tuxfamily.org>
+  version bump to 0.60.8
+
 *bristol-0.60.7 (18 Nov 2010)
 
   18 Nov 2010; Hakan Demiralp <keenblade@tuxfamily.org>
