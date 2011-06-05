@@ -1,0 +1,8 @@
+# ChangeLog for media-sound/beast
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*beast-0.7.4
+
+  05 Jun 2011; Dominique Michel <dominique@tuxfamily.org> +beast-0.7.4.ebuild
+  with 4 patches from Debian.
