@@ -6,6 +6,7 @@
   bump to faust-0.9.30.eduild:
   removed unneded sed patches
   fixed doc USE flag use
+  added examples
 
   16 Sep 2008; Frieder Buerzele <evermind@tuxfamily.org;
   faust-0.9.9.4.ebuild:

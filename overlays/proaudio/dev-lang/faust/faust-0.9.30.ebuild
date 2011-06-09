@@ -4,7 +4,7 @@
 
 inherit exteutils
 
-IUSE="doc"
+IUSE="doc examples"
 
 SLOT="0"
 LICENSE="GPL-2"
@@ -31,10 +31,12 @@ src_compile() {
 
 src_install() {
 	make install DESTDIR="${D}"
-	dodoc README 
+	dodoc README
 	if use doc ; then
-	    dodoc WHATSNEW
-	    insinto /usr/share/doc/"${P}"
-	    doins documentation/*.pdf "documentation/additional documentation" || die "install doc failed"
+	    dodoc WHATSNEW documentation/*.pdf "documentation/additional documentation" || die "install doc failed"
+	fi
+	if use examples ; then
+	    insinto /usr/share/"${P}"/examples
+	    doins examples/* || die "install examples failed"
 	fi
 }
