@@ -2,6 +2,11 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  09 Jun 2011; Dominique Michel <dominique@tuyfamily.org>
+  bump to faust-0.9.30.eduild:
+  removed unneded sed patches
+  fixed doc USE flag use
+
   16 Sep 2008; Frieder Buerzele <evermind@tuxfamily.org;
   faust-0.9.9.4.ebuild:
   fixup sandboxing
