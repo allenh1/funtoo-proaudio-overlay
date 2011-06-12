@@ -62,5 +62,6 @@ src_compile() {
 }
 
 src_install() {
+	ln -s ../../html build/default/html
 	./waf --destdir="${D}" install || die "waf install failed"
 }
