@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-inherit elisp-common toolchain-funcs
+inherit elisp-common toolchain-funcs scons-utils
 
 DESCRIPTION="An environment and a programming language for real time audio synthesis."
 HOMEPAGE="http://www.audiosynth.com http://supercollider.sourceforge.net"
@@ -19,14 +19,14 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64"
 
 # lid means linux input device support.
-IUSE="alsa debug devel emacs lid sse wii"
-#IUSE="alsa debug devel emacs gedit lid sse vim wii"
+IUSE="alsa altivec curl debug devel emacs fftw gedit jack lang lid portaudio readline rendezvous sse sse2 strip vim wii X"
 
 RDEPEND=">=media-sound/jack-audio-connection-kit-0.100.0
 	media-libs/alsa-lib
 	>=media-libs/libsndfile-1.0.16
-	>=sci-libs/fftw-3.0"
-	#>=sys-libs/readline-5.0
+	fftw? ( >=sci-libs/fftw-3.0 )
+	readline? ( >=sys-libs/readline-5.0 )
+	portaudio? ( media-libs/portaudio )"
 
 DEPEND="${RDEPEND}
 	sys-apps/sed
@@ -34,66 +34,47 @@ DEPEND="${RDEPEND}
 	dev-util/scons
 	emacs? ( virtual/emacs )
 	dev-util/pkgconfig
-	dev-util/scons"
-#	gedit? ( app-editors/gedit )
-#	vim? ( app-editors/vim )
+	dev-util/scons
+	gedit? ( app-editors/gedit )
+	vim? ( app-editors/vim )"
 
-S="${WORKDIR}/${MY_PN}-Source"
+S="${WORKDIR}/${MY_PN}-Source/common"
 
-src_prepare() {
+#src_prepare() {
 	# Uncommenting a line per linux/examples/sclang.cfg.in
-	if ! use emacs; then
-		sed -ie "/#-@SC_LIB_DIR@\/Common\/GUI\/Document.sc/s/^#//" \
-			"${S}/linux/examples/sclang.cfg.in" ||
-			die "sed failed."
-	else
-		sed -e "/elisp_dir = os.path.join(INSTALL_PREFIX/s/site-lisp')/site-lisp','scel')/" \
-		-i "${S}/SConstruct" ||
-		die "modifying elisp installdir failed."
-	fi
+#	if ! use emacs; then
+#		sed -ie "/#-@SC_LIB_DIR@\/Common\/GUI\/Document.sc/s/^#//" \
+#			"${S}/linux/examples/sclang.cfg.in" ||
+#			die "sed failed."
+#	else
+#		sed -e "/elisp_dir = os.path.join(INSTALL_PREFIX/s/site-lisp')/site-lisp','scel')/" \
+#		-i "${S}/SConstruct" ||
+#		die "modifying elisp installdir failed."
+#	fi
 
 	# remove strange rpath
 #	sed -e "/LINKFLAGS = /s/'-Wl,-rpath,build -Wl/'-Wl, -rpath -Wl/" -i "${S}/SConstruct" ||
 #		die "fix rpath failed."
-}
+#}
 
 src_compile() {
-	myconf=""
-	! use alsa; myconf="${myconf} ALSA=$?"
-	! use debug; myconf="${myconf} DEBUG=$?"
-	! use devel; myconf="${myconf} DEVELOPMENT=$?"
-#	! use gedit; myconf="${myconf} SCED=$?"
-	! use emacs; myconf="${myconf} SCEL=$?"
-	! use lid;  myconf="${myconf} LID=$?"
-	! use sse; myconf="${myconf} SSE=$?"
-#	! use vim; myconf="${myconf} SCVIM=$?"
-	! use wii; myconf="${myconf} WII=$?"
-#	if use sse ;then
-#		myconf="${myconf} SSE=yes \
-#			CUSTOMCCFLAGS=-I$(dirname $(gcc-config -X)) \
-#			CUSTOMCXXFLAGS=-I$(dirname $(gcc-config -X))"
-#	fi
-#	if use pentium4 ;then
-#		myconf="${myconf} OPT_ARCH=pentium4"
-#	fi
-
-	myconf="${myconf} CROSSCOMPILE="1" READLINE="0""
-	myconf="${myconf} AUDIOAPI="jack""
-
 	tc-export CC CXX
-	myconf="${myconf} CC="${CC}" CXX="${CXX}""
-
 	mkdir -p "${D}"
-	einfo "${myconf}"
-	#CCFLAGS="${CFLAGS}" CXXFLAGS="${CXXFLAGS}" \
-	scons CUSTOMCCFLAGS="${CFLAGS}" CUSTOMCXXFLAGS="${CXXFLAGS}" \
+
+	escons CUSTOMCCFLAGS="${CFLAGS}" CUSTOMCXXFLAGS="${CXXFLAGS}" \
 		PREFIX="/usr" DESTDIR="${D}" \
-	 	${myconf} || die "scons failed."
+		$(use_scons alsa ALSA) $(use_scons altivec ALTIVEC) $(use_scons curl CURL) \
+		$(use_scons jack AUDIOAPI jack) $(use_scons readline READLINE) \
+		$(use_scons debug DEBUG) $(use_scons devel DEVELOPMENT) $(use_scons fftw FFTW) \
+		$(use_scons lang LANG) $(use_scons lid LID) $(use_scons wii WII) \
+		$(use_scons rendezvous RENDEZVOUS) $(use_scons emacs SCEL) $(use_scons vim SCVIM) \
+		$(use_scons gedit SCED) $(use_scons sse SSE) $(use_scons sse2 SSE2) \
+		$(use_scons X X11) $(use_scons strip STRIP) || die "compilation failed"
 }
 
 src_install() {
 	# Main install
-	scons  install
+	escons install || die "instal failed"
 
 	# Install our config file
 	insinto /etc/supercollider
