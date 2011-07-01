@@ -1,6 +1,9 @@
 # ChangeLog for media-sound/jack_mixer
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  01 Jul 2011; Hakan Demiralp <keenblade@tuxfamily.org jack_mixer-9.ebuild:
+  jack_mixer-9: gnome-python dep is adjusted to be a runtime dep
 
 *jack_mixer-9999 (10 Oct 2010)
 *jack_mixer-9 (10 Oct 2010)

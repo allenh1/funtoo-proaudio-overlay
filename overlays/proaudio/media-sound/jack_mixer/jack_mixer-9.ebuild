@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -21,12 +21,12 @@ KEYWORDS="~amd64 ~x86"
 DEPEND="media-sound/jack-audio-connection-kit
 	dev-python/pygtk
 	dev-python/fpconst
-	>=dev-python/pyxml-0.8.4
-	dev-python/gnome-python"
+	>=dev-python/pyxml-0.8.4"
 	# 1. only needed for non tarballs aka svn checkouts >=dev-lang/swig-1.3.25
 RDEPEND="${DEPEND}
 	phat? ( media-libs/pyphat )
-	lash? ( || ( media-sound/lash[python] >=media-libs/pylash-3_pre ) )"
+	lash? ( || ( media-sound/lash[python] >=media-libs/pylash-3_pre ) )
+	dev-python/gnome-python"
 
 src_install() {
 	gnome2_src_install
