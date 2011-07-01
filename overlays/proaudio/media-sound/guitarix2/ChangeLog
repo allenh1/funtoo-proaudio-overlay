@@ -1,0 +1,11 @@
+# ChangeLog for media-sound/guitarix2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*guitarix2-0.16.0 (01 Jul 2011)
+
+  01 Jul 2011; Hakan Demiralp <keenblade@tuxfamily.org
+  +guitarix2-0.16.0.ebuild, +metadata.xml:
+  initial ebuild. Ebuild is converted from guitarix ebuild wrt audiodef at
+  b.g.o
+
