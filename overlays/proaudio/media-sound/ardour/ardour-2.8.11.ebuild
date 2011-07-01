@@ -9,7 +9,7 @@ inherit eutils toolchain-funcs fdo-mime flag-o-matic versionator scons-utils
 DESCRIPTION="multi-track hard disk recording software"
 HOMEPAGE="http://ardour.org/"
 
-SRC_URI="http://ardour.org/files/releases/${P/_p/-}.tar.bz2"
+SRC_URI="mirror://gentoo/${P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
