@@ -33,6 +33,7 @@ DEPEND="${RDEPEND}
 	sys-devel/automake
 	dev-util/scons
 	emacs? ( virtual/emacs )
+	lang? ( dev-libs/icu )
 	dev-util/pkgconfig
 	dev-util/scons
 	gedit? ( app-editors/gedit )
