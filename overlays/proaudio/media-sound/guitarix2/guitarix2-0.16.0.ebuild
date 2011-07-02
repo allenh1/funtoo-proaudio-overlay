@@ -29,7 +29,8 @@ RDEPEND="
 	capture? ( media-sound/jack_capture )
 	convolver? ( media-libs/zita-convolver )
 	faust? ( dev-lang/faust )
-	meterbridge? ( media-sound/meterbridge )"
+	meterbridge? ( media-sound/meterbridge )
+	!media-sound/guitarix"
 
 DEPEND="${RDEPEND}
 	dev-util/pkgconfig"
