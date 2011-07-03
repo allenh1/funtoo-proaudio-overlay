@@ -2,6 +2,9 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  03 Jul 2011; Hakan Demiralp <keenblade@tuxfamily.org portaudio-9999.ebuild:
+  portaudio-9999: now using autotools instead of unmaintained scons
+
 *portaudio-19_pre20071207 (01 Jul 2011)
 
   01 Jul 2011; Hakan Demiralp <keenblade@tuxfamily.org
