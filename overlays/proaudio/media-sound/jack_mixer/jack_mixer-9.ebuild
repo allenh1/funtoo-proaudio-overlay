@@ -6,7 +6,7 @@ EAPI=2
 
 inherit eutils gnome2
 
-IUSE="lash phat"
+IUSE="gnome lash phat"
 RESTRICT="mirror"
 
 DESCRIPTION="JACK audio mixer using GTK2 interface."
@@ -26,7 +26,7 @@ DEPEND="media-sound/jack-audio-connection-kit
 RDEPEND="${DEPEND}
 	phat? ( media-libs/pyphat )
 	lash? ( || ( media-sound/lash[python] >=media-libs/pylash-3_pre ) )
-	dev-python/gnome-python"
+	gnome? ( dev-python/gnome-python )"
 
 src_install() {
 	gnome2_src_install
