@@ -1,3 +1,13 @@
+####################################################################
+#
+# NOTE: Please add your entry at the top!
+#
+
+# Hakan Demiralp <keenblade@tuxfamily.org> (06 Jul 2011)
+# portaudio-19-r4.ebuild is old and v19_pre20110326 is newer.
+# So masking older, since it gets priority while emerging because of naming
+=media-libs/portaudio-19-r4
+
 # Gavin Pryke <gavinlee303@googlemail.com> (18 Apr 2011)
 # compile fails on gcc-4.4. after patching there were too many problems with
 # scons (doesn't honour CC/CFLAGS/LDFLAGS) to warrant keeping in the tree as

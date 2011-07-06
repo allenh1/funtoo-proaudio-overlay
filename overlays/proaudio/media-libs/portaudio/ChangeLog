@@ -2,18 +2,18 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  06 Jul 2011; Hakan Demiralp <keenblade@tuxfamily.org portaudio-19-r4.ebuild:
+  06 Jul 2011; Hakan Demiralp <keenblade@tuxfamily.org> portaudio-19-r4.ebuild:
   portaudio: updated v19-r4 and changed slot 19 to 0. removed old ebuilds
 
-  06 Jul 2011; Hakan Demiralp <keenblade@tuxfamily.org portaudio-9999.ebuild:
+  06 Jul 2011; Hakan Demiralp <keenblade@tuxfamily.org> portaudio-9999.ebuild:
   portaudio-9999: changed slot 19 to 0
 
-  03 Jul 2011; Hakan Demiralp <keenblade@tuxfamily.org portaudio-9999.ebuild:
+  03 Jul 2011; Hakan Demiralp <keenblade@tuxfamily.org> portaudio-9999.ebuild:
   portaudio-9999: now using autotools instead of unmaintained scons
 
 *portaudio-19_pre20071207 (01 Jul 2011)
 
-  01 Jul 2011; Hakan Demiralp <keenblade@tuxfamily.org
+  01 Jul 2011; Hakan Demiralp <keenblade@tuxfamily.org>
   +portaudio-19_pre20071207.ebuild, -portaudio-19.20071207.ebuild:
   portaudio-19_pre20071207: ebuild renamed and updated to be compatible with
   portage tree wrt bug#116 at proaudio bug tracker
