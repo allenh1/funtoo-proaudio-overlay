@@ -12,7 +12,7 @@ ESVN_REPO_URI="https://www.portaudio.com/repos/portaudio/trunk"
 SRC_URI=""
 
 LICENSE="as-is"
-SLOT="19"
+SLOT="0"
 KEYWORDS=""
 IUSE="alsa +cxx debug jack oss static-libs"
 
