@@ -18,8 +18,10 @@ SRC_URI="${KERNEL_URI}
 http://www.kernel.org/pub/linux/kernel/projects/rt/${RT_PATCH}
 http://www.kernel.org/pub/linux/kernel/projects/rt/older/${RT_PATCH}"
 
-
-KEYWORDS="" #This version doesn't work well now.
+#This version doesn't work well now.
+#especially: no HIGHMEM
+#still watching RT users mailing list
+KEYWORDS=""
 #KEYWORDS="~amd64 ~x86"
 IUSE=""
 
