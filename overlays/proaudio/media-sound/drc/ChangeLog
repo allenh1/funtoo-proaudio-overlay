@@ -6,6 +6,8 @@
   Removed 2.5.2 ebuild (doesn't compile anymore)
   Added 3.1.1 ebuild
   Added double-precision USE flag
+  Added installation of the contrib and config files. Messy,
+    but it work.
 
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog

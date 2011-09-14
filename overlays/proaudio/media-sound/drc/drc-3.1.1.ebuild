@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI="4"
+
 IUSE="doc double-precision" # oourafft"
 
 RESTRICT="mirror"
@@ -49,10 +51,36 @@ src_install() {
 	cd ${S}/sample
 	insinto /usr/share/${PN}/sample
 	doins *.txt *.drc *.pcm
+
+	cd ${S}/source/config/"44.1 KHz"
+	insinto /usr/share/${PN}/config/44.1kHz
+	doins *
+	cd ${S}/source/config/"48.0 KHz"
+	insinto /usr/share/${PN}/config/48.0kHz
+	doins *
+	cd ${S}/source/config/"88.2 KHz"
+	insinto /usr/share/${PN}/config/88.2kHz
+	doins *
+	cd ${S}/source/config/"96.0 KHz"
+	insinto /usr/share/${PN}/config/96.0kHz
+	doins *
+
+	cd ${S}/source/contrib
+	insinto /usr/share/${PN}/contrib
+	doins *
+	cd ${S}/source/contrib/Measure
+	insinto /usr/share/${PN}/contrib/Measure
+	doins *
+	cd ${S}/source/contrib/MeasureJack
+	insinto /usr/share/${PN}/contrib/MeasureJack
+	doins *
+	cd ${S}/source/contrib/"NSIS Installer Script"
+	insinto /usr/share/${PN}/contrib/NSISInstallerScript
+	doins *
 }
 
 pkg_postinst() {
-	einfo "Example config files are in /usr/share/drc/sample"
+	einfo "Example sample, config and contrib files are in /usr/share/${PN}/*"
 	einfo "Documentation is in /usr/share/doc/${P}/readme.txt.gz or"
 	einfo "/usr/share/doc/${P}/html/drc.html"
 	einfo "To use this package emerge media-sound/brutefir"
