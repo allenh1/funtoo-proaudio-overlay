@@ -2,6 +2,11 @@
 # Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  14 Sep 2011; Dominique Michel <dominique_libre@sourceforge.net>
+  Removed 2.5.2 ebuild (doesn't compile anymore)
+  Added 3.1.1 ebuild
+  Added double-precision USE flag
+
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog
 

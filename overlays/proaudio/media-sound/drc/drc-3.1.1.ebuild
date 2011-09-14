@@ -2,14 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-IUSE="doc"
+IUSE="doc double-precision" # oourafft"
 
 RESTRICT="mirror"
 
 DESCRIPTION="DRC generates digital room correction FIR filters to be used within HiFi systems in conjunction with real time convolution engines like BruteFIR."
 HOMEPAGE="http://drc-fir.sourceforge.net"
-SRC_URI="mirror://sourceforge/drc-fir/${P}-src.tar.gz
-	doc? ( mirror://sourceforge/drc-fir/${P}-doc.tar.gz )"
+SRC_URI="mirror://sourceforge/drc-fir/${PV}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -23,11 +22,20 @@ src_unpack() {
 	# remove specific CFLAGS
 	sed -i -e "s:^\(CFLAGS.*\):CFLAGS +=  -I. -I./getopt:" ${S}/source/makefile\
 		|| die "cflags removal failed"
+	if use double-precision ; then
+		sed -i -e 's:^\(CFLAGS.*\):\1 -DUseDouble:' ${S}/source/makefile\
+		|| die "douvle precision setting failed"
+	fi
+	# fail to compile here
+#	if use oourafft ; then
+#		sed -i -e 's:define UseGSLFft:define UseOouraFft:' ${S}/source/drc.h\
+#		|| die "Enabling OouraFft failed"
+#	fi
 }
 
 src_compile() {
 	cd source
-	emake || die
+	emake || die "compilation failed"
 }
 
 src_install() {
@@ -40,8 +48,7 @@ src_install() {
 
 	cd ${S}/sample
 	insinto /usr/share/${PN}/sample
-	doins *.txt *.drc
-	#doins bk-2-sub.txt bk.txt dx32bit.pcm flat.txt optimized.drc strong.drc ultra.txt bk-2.txt ecm8000.txt normal.drc soft.drc subultra.txt wm-61a.txt
+	doins *.txt *.drc *.pcm
 }
 
 pkg_postinst() {
