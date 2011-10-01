@@ -19,20 +19,20 @@ DEPEND="app-emulation/wine
 VSTSDK_DIR="/opt/VST_Plug-Ins_SDK_2.3"
 
 src_unpack() {
-	unpack ${P}.tar.gz || die
-	epatch ${FILESDIR}/fst-1.6-wineliblocfix.patch
-	cd ${WORKDIR}/${P}
-	mkdir ${WORKDIR}/${P}/vst
-	cp "${VSTSDK_DIR}/vstsdk2.3/source/common/AEffect.h" \
-	   "${VSTSDK_DIR}/vstsdk2.3/source/common/aeffectx.h" \
+	unpack "${P}".tar.gz || die
+	epatch "${FILESDIR}"/fst-1.6-wineliblocfix.patch
+	cd "${WORKDIR}/${P}"
+	mkdir "${WORKDIR}/${P}"/vst
+	cp "${VSTSDK_DIR}"/vstsdk2.3/source/common/AEffect.h \
+	   "${VSTSDK_DIR}"/vstsdk2.3/source/common/aeffectx.h \
 		vst/
-	cd ${WORKDIR}/${P}/vst
+	cd "${WORKDIR}/${P}"/vst
 	../fixheaders
-	epatch ${FILESDIR}/vsthcompilerhack_fix.patch
+	epatch "${FILESDIR}"/vsthcompilerhack_fix.patch
 }
 
 src_compile() {
-	cd ${WORKDIR}/${P}
+	cd "${WORKDIR}/${P}"
 	aclocal $ACLOCAL_FLAGS || die
 	autoconf || die
 	automake -a -c
@@ -48,7 +48,7 @@ src_compile() {
 
 
 src_install() {
-	cd ${WORKDIR}/${P}
+	cd "${WORKDIR}/${P}"
 
 	# /usr/include/fst.h
 	dodir /usr/include
@@ -73,4 +73,3 @@ src_install() {
 
 	dodoc README AUTHORS COPYING ChangeLog
 }
-

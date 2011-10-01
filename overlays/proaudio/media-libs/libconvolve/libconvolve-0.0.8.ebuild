@@ -22,8 +22,8 @@ DEPEND=">=media-libs/libdsp-5.0.1
 	dev-util/pkgconfig"
 
 src_unpack(){
-	unpack "${A}"
-	cd ${S}
+	unpack ${A}
+	cd "${S}"
 	epatch "${FILESDIR}/Makefile-destdir.patch"
 	sed -e "s:^PREFIX.*:PREFIX = /usr:" -i Makefile
 }

@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI=3
+
 inherit eutils multilib flag-o-matic
 
 MY_P="${P/-/_}"
@@ -35,18 +37,8 @@ DEPEND="${RDEPEND}
 		virtual/x11 )
 	opengl? ( virtual/opengl || ( media-libs/freeglut media-libs/glut ) )"
 
-pkg_setup() {
-	if has_version "<= sys-libs/glibc-2.5"; then
-		if ! built_with_use sys-libs/glibc nptl ; then
-			eerror "JUCE needs POSIX threads in order to work."
-			eerror "You will have to compile glibc with USE=\"nptl\"."
-			die
-		fi
-	fi
-}
-
 src_unpack() {
-	unpack "${A}"
+	unpack ${A}
 	cd "${S}"
 	epatch "${FILESDIR}"/"${PN}"-1.31-vorbis_header.patch
 }
@@ -126,4 +118,3 @@ src_install() {
 		rm -f $i
 	done
 }
-

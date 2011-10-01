@@ -29,7 +29,7 @@ pkg_setup(){
 src_unpack(){
 	unpack ${A}
 	mv banks* banks
-	cd ${S}
+	cd "${S}"
 	find -name 'CVS' -exec rm -rf {} \; &>/dev/null
 }
 
@@ -55,4 +55,3 @@ pkg_postinst() {
 	einfo "you can also emerge the ~${ARCH} version of this ebuild"
 	einfo "which tries to fetch the latest tarball"
 }
-

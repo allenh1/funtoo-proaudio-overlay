@@ -90,28 +90,28 @@ src_compile() {
 	myconf=""
 	use x86 && myconf=""
 	use amd64 && myconf="-f Makefile.x86-64"
-	cd ${S}/DynThreads
+	cd "${S}"/DynThreads
 	emake ${myconf} || die "DynThreads make failed!"
 
-	cd ${S}/libDSP
+	cd "${S}"/libDSP
 	emake ${myconf} || die "libDSP make failed!"
 }
 
 src_install() {
 
-	mkdir -p ${D}/usr/include
-	cd ${S}/Inlines
+	mkdir -p "${D}"/usr/include
+	cd "${S}"/Inlines
 	make install || die "Inlines install failed!"
 
-	cd ${S}/DynThreads
+	cd "${S}"/DynThreads
 	make ${myconf} install || die "DynThreads install failed!"
 
-	cd ${S}/libDSP
+	cd "${S}"/libDSP
 	make ${myconf} install || die "libDSP install failed!"
 
 	if use doc; then
-		dohtml ${WORKDIR}/${PN}-doc-html/*
+		dohtml "${WORKDIR}"/${PN}-doc-html/*
 		docinto samples
-		dodoc ${S}/libDSP/work/*
+		dodoc "${S}"/libDSP/work/*
 	fi
 }

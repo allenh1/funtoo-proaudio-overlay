@@ -25,7 +25,7 @@ pkg_setup(){
 
 src_unpack(){
 	unpack ${A}
-	cd ${S}
+	cd "${S}"
 	find -name 'CVS' -exec rm -rf {} \; &>/dev/null
 }
 
@@ -34,7 +34,6 @@ src_compile(){
 }
 
 src_install(){
-	cd ${S}
 	unsorted="/usr/share/${MY_PN}/banks/unsorted"
 	examples="/usr/share/${MY_PN}/examples"
 	dodir   "${unsorted}" "${examples}"

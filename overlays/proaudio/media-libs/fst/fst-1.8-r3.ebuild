@@ -15,7 +15,6 @@ IUSE=""
 SRC_URI="http://galan.sf.net/${P}.tar.gz"
 VST_SDK_VER="2.3"
 
-
 KEYWORDS="x86"
 DEPEND="media-sound/lash
 	>=app-emulation/wine-0.9.5
@@ -32,9 +31,9 @@ pkg_setup() {
 }
 
 src_unpack() {
-	unpack "${A}" || die
+	unpack ${A} || die
 
-	cd ${S}
+	cd "${S}"
 	einfo "Patch Makefile 0-5"
 	sed -i  /test\ -n\ \$\(SDKDIR\)\ \&\&\ \$\(RM\)\ -rf\ \$\(SDKDIR\)/d "${S}"/Makefile || die
 
@@ -67,7 +66,6 @@ src_compile() {
 	#sed -i -e "s:fst.exe.so:libfst.so:"  "${S}"/fst || die
 	#sed -i '/dirname/d' "${S}"/fst || die
 }
-
 
 src_install() {
 	exeinto /usr/bin

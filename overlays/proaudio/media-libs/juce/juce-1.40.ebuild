@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI=3
+
 inherit eutils
 
 MY_P="${P/-/_}"
@@ -26,6 +28,7 @@ RDEPEND="=media-libs/freetype-2*
 	flac? ( media-libs/flac )
 	opengl? ( virtual/opengl media-libs/freeglut )
 	vorbis? ( media-libs/libvorbis )
+	sys-libs/glibc[nptl]
 	|| ( >=x11-libs/libX11-1.0.1-r1 virtual/x11 )"
 DEPEND="${RDEPEND}
 	app-arch/unzip
@@ -34,16 +37,8 @@ DEPEND="${RDEPEND}
 			x11-proto/xproto )
 		virtual/x11 )"
 
-pkg_setup() {
-	if ! built_with_use sys-libs/glibc nptl; then
-		eerror "JUCE needs POSIX threads in order to work."
-		eerror "You will have to compile glibc with USE=\"nptl\"."
-		die
-	fi
-}
-
 src_unpack() {
-	unpack "${A}"
+	unpack ${A}
 	cd "${S}"
 	#	epatch "${FILESDIR}"/"${P}"-gcc-4.1.patch
 	# fix typo (see here:
@@ -88,4 +83,3 @@ src_install() {
 		rm -f $i
 	done
 }
-

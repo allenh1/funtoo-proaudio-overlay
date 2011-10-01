@@ -25,7 +25,7 @@ SRC_URI="mirror://sourceforge/hydrogen/3355606kit.h2drumkit
 	 mirror://sourceforge/hydrogen/Techno-1.h2drumkit
 	 mirror://sourceforge/hydrogen/TR808909.h2drumkit
 	 mirror://sourceforge/hydrogen/VariBreaks.h2drumkit
-	 mirror://sourceforge/hydrogen/circAfrique.h2drumkit 
+	 mirror://sourceforge/hydrogen/circAfrique.h2drumkit
 	 mirror://sourceforge/hydrogen/YamahaVintageKit.h2drumkit
 	 mirror://sourceforge/hydrogen/BJA_Pacific.h2drumkit"
 RESTRICT="mirror"
@@ -40,7 +40,7 @@ RDEPEND="media-sound/hydrogen"
 S="${WORKDIR}"
 
 src_unpack(){
-	cp ${DISTDIR}/*.h2drumkit "${S}"
+	cp "${DISTDIR}"/*.h2drumkit "${S}"
 }
 
 src_compile(){

@@ -39,7 +39,7 @@ RDEPEND="media-sound/hydrogen"
 S="${WORKDIR}"
 
 src_unpack(){
-	cp ${DISTDIR}/*.h2drumkit "${S}"
+	cp "${DISTDIR}"/*.h2drumkit "${S}"
 }
 
 src_compile(){

@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI=3
+
 inherit eutils
 
 MY_P="${P/-/_}"
@@ -25,6 +27,7 @@ RDEPEND="=media-libs/freetype-2*
 	>=media-libs/alsa-lib-0.9
 	flac? ( media-libs/flac )
 	vorbis? ( media-libs/libvorbis )
+	sys-libs/glibc[nptl]
 	|| ( >=x11-libs/libX11-1.0.1-r1 virtual/x11 )"
 DEPEND="${RDEPEND}
 	app-arch/unzip
@@ -34,16 +37,8 @@ DEPEND="${RDEPEND}
 		virtual/x11 )
 	opengl? ( virtual/opengl || ( media-libs/freeglut media-libs/glut ) )"
 
-pkg_setup() {
-	if ! built_with_use sys-libs/glibc nptl; then
-		eerror "JUCE needs POSIX threads in order to work."
-		eerror "You will have to compile glibc with USE=\"nptl\"."
-		die
-	fi
-}
-
 src_unpack() {
-	unpack "${A}"
+	unpack ${A}
 	cd "${S}"
 	epatch "${FILESDIR}"/"${PN}"-1.31-vorbis_header.patch
 }
@@ -84,4 +79,3 @@ src_install() {
 		rm -f $i
 	done
 }
-

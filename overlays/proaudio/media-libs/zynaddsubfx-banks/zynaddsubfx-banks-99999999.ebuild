@@ -40,7 +40,7 @@ src_unpack(){
 	fi
 	unzip "${PORTAGE_ACTUAL_DISTDIR}/${url##*/}" &>/dev/null
 	mv $(ls |tail -n1) banks
-	cd ${S}
+	cd "${S}"
 	find -name 'CVS' -exec rm -rf {} \; &>/dev/null
 }
 
@@ -63,4 +63,3 @@ pkg_postinst() {
 	einfo "share. Send it to zynaddsubfx-user@lists.sourceforge.net or"
 	einfo "stamm@flashmail.com"
 }
-

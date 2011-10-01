@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI=3
+
 inherit eutils multilib flag-o-matic
 
 MY_P="${P/-/_}"
@@ -25,6 +27,7 @@ RDEPEND="=media-libs/freetype-2*
 	>=media-libs/alsa-lib-0.9
 	flac? ( media-libs/flac )
 	vorbis? ( media-libs/libvorbis )
+	sys-libs/glibc[nptl]
 	|| ( >=x11-libs/libX11-1.0.1-r1 virtual/x11 )
 	amd64? ( app-emulation/emul-linux-x86-xlibs )"
 DEPEND="${RDEPEND}
@@ -34,16 +37,6 @@ DEPEND="${RDEPEND}
 			x11-proto/xproto )
 		virtual/x11 )
 	opengl? ( virtual/opengl || ( media-libs/freeglut media-libs/glut ) )"
-
-pkg_setup() {
-	if has_version "<=sys-libs/glibc-2.5"; then
-		if ! built_with_use sys-libs/glibc nptl ; then
-			eerror "JUCE needs POSIX threads in order to work."
-			eerror "You will have to compile glibc with USE=\"nptl\"."
-			die
-		fi
-	fi
-}
 
 src_compile() {
 	# demo fails with --as-needed
@@ -120,4 +113,3 @@ src_install() {
 		rm -f $i
 	done
 }
-

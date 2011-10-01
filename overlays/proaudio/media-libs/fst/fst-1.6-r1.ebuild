@@ -19,19 +19,19 @@ VSTSDK_DIR="/opt/VST_Plug-Ins_SDK_2.3"
 
 src_unpack() {
 	unpack ${P}.tar.gz || die
-	epatch ${FILESDIR}/fst-1.6-wineliblocfix.patch
-	cd ${WORKDIR}/${P}
-	mkdir ${WORKDIR}/${P}/vst
-	cp "${VSTSDK_DIR}/vstsdk2.3/source/common/AEffect.h" \
-	   "${VSTSDK_DIR}/vstsdk2.3/source/common/aeffectx.h" \
+	epatch "${FILESDIR}"/fst-1.6-wineliblocfix.patch
+	cd "${WORKDIR}/${P}"
+	mkdir "${WORKDIR}/${P}"/vst
+	cp "${VSTSDK_DIR}"/vstsdk2.3/source/common/AEffect.h \
+	   "${VSTSDK_DIR}"/vstsdk2.3/source/common/aeffectx.h \
 		vst/
-	cd ${WORKDIR}/${P}/vst
+	cd "${WORKDIR}/${P}"/vst
 	../fixheaders
-	epatch ${FILESDIR}/vsthcompilerhack_fix.patch
+	epatch "${FILESDIR}"/vsthcompilerhack_fix.patch
 }
 
 src_compile() {
-	cd ${WORKDIR}/${P}
+	cd "${WORKDIR}/${P}"
 	aclocal $ACLOCAL_FLAGS || die
 	autoconf || die
 	automake -a -c
@@ -43,18 +43,17 @@ src_compile() {
 		--with-wine-libraries=/usr/lib/wine/lib \
 		--with-wine-tools=/usr/lib/wine/bin"
 
-    ./configure \
-         --prefix=/usr \
-         --host=${CHOST} \
-         --mandir=/usr/share/man \
-         --infodir=/usr/share/info \
-         --datadir=/usr/share \
-         --sysconfdir=/etc \
-         --localstatedir=/var/lib \
-         ${EXTRA_ECONF}
+	./configure \
+		--prefix=/usr \
+		--host=${CHOST} \
+		--mandir=/usr/share/man \
+		--infodir=/usr/share/info \
+		--datadir=/usr/share \
+		--sysconfdir=/etc \
+		--localstatedir=/var/lib \
+		${EXTRA_ECONF}
 	emake
 }
-
 
 src_install() {
 	cd ${WORKDIR}/${P}
@@ -82,4 +81,3 @@ src_install() {
 
 	dodoc README AUTHORS COPYING ChangeLog
 }
-

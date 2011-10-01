@@ -14,13 +14,11 @@ IUSE="lash"
 
 SRC_URI=""
 
-
 KEYWORDS=""
 DEPEND="lash? ( media-sound/lash )
 	>=x11-libs/gtk+-2.0
 	>=app-emulation/wine-0.9.5
 	>=media-sound/jack-audio-connection-kit-0.98.1"
-
 
 src_unpack() {
 	git_src_unpack

@@ -36,7 +36,7 @@ src_unpack(){
 	fi
 	unpacker "${PORTAGE_ACTUAL_DISTDIR}/${url##*/}" &>/dev/null || die
 
-	cd ${S}
+	cd "${S}"
 	find -name 'CVS' -exec rm -rf {} \; &>/dev/null
 }
 
@@ -45,7 +45,6 @@ src_compile(){
 }
 
 src_install(){
-	cd ${S}
 	unsorted="/usr/share/${MY_PN}/banks/unsorted"
 	examples="/usr/share/${MY_PN}/examples"
 	dodir   "${unsorted}" "${examples}"

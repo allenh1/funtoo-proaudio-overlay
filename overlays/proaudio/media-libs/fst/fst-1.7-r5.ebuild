@@ -29,7 +29,7 @@ pkg_setup() {
 }
 
 src_unpack() {
-	unpack "${A}" || die
+	unpack ${A} || die
 	einfo "Patch Makefile 0-5"
 	sed -i  /test\ -n\ \$\(SDKDIR\)\ \&\&\ \$\(RM\)\ -rf\ \$\(SDKDIR\)/d "${S}"/Makefile || die
 
@@ -57,7 +57,6 @@ src_compile() {
 	sed -i '/dirname/d' "${S}"/fst || die
 
 }
-
 
 src_install() {
 	exeinto /usr/bin

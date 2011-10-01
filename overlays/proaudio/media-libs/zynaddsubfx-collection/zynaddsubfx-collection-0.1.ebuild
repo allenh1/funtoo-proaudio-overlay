@@ -2,7 +2,6 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-
 inherit unpacker
 RESTRICT="mirror"
 #MY_P="unsorted_${PN/-extras/}Parameters_${PV}"
@@ -21,7 +20,7 @@ DEPEND="${RDEPEND}"
 src_unpack(){
 	unpack ${A}
 	UNPACK_DESTDIR="$S" unpacker *.tar.*
-	cd ${S}
+	cd "${S}"
 	find -name 'CVS' -exec rm -rf {} \; &>/dev/null
 }
 
@@ -37,7 +36,7 @@ src_install(){
 	fperms 755 "${banks_collection}"
 
 	insinto "${banks_collection}"
-	doins -r ${S}/*
+	doins -r "${S}"/*
 }
 
 pkg_postinst() {
