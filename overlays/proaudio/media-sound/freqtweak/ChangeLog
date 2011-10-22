@@ -2,6 +2,10 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  22 Oct 2011: Dominique Michel <dominique_libre@sourceforge.net>
+  freqtweak-0.7.2-r1.ebuild: fixed autotools, added a desktop file
+  freqtweak-9999.ebuild: updated DEPEND to wkgtk-2.8, added a desktop file
+
   03 Mar 2011; keenblade <keenblade@tuxfamily.org> freqtweak-0.7.2.ebuild:
   freqtweak-0.7.2: libsigc++ dependency reverted to slot 1.2
 

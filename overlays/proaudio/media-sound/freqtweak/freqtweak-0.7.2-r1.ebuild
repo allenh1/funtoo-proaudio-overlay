@@ -5,7 +5,7 @@
 EAPI="2"
 WX_GTK_VER="2.8"
 
-inherit eutils wxwidgets flag-o-matic
+inherit autotools eutils wxwidgets flag-o-matic
 
 DESCRIPTION="FFT-based realtime audio spectral manipulation and display"
 HOMEPAGE="http://freqtweak.sourceforge.net"
@@ -25,6 +25,7 @@ RDEPEND="${DEPEND}"
 
 src_prepare() {
 	epatch "${FILESDIR}/freqtweak_wxGTK-2.8.patch"
+	eautoreconf
 }
 
 src_configure() {
@@ -42,4 +43,5 @@ src_compile() {
 src_install() {
 	make DESTDIR="${D}" install || die "make install failed"
 	dodoc AUTHORS ChangeLog NEWS README THANKS
+	make_desktop_entry "${PN}" FreqTweak "${PN}"
 }

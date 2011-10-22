@@ -18,7 +18,7 @@ IUSE=""
 
 S=${WORKDIR}/${ECVS_MODULE}
 
-DEPEND="=x11-libs/wxGTK-2.6*
+DEPEND="=x11-libs/wxGTK-2.8*
 	>=sci-libs/fftw-3.0
 	=dev-libs/libsigc++-1.2*
 	dev-libs/libxml2
@@ -30,7 +30,7 @@ DEPEND="=x11-libs/wxGTK-2.6*
 #}
 
 src_compile() {
-	WX_GTK_VER="2.6"
+	WX_GTK_VER="2.8"
 	need-wxwidgets gtk2
 
 	./autogen.sh
@@ -44,4 +44,5 @@ src_compile() {
 src_install() {
 	make DESTDIR="${D}" install || die "make install failed"
 	dodoc AUTHORS ChangeLog NEWS README THANKS
+	make_desktop_entry "${PN}" FreqTweak "${PN}"
 }
