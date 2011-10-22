@@ -14,9 +14,6 @@ EGIT_MASTER="master"
 
 IUSE=""
 
-#SRC_URI=""
-
-
 KEYWORDS=""
 DEPEND="media-libs/libsamplerate
 	dev-libs/openssl
@@ -26,8 +23,18 @@ S="${WORKDIR}/${PN}"
 EGIT_BOOTSTRAP="./bootstrap.sh"
 
 src_unpack() {
+	einfo "${PN} is no longer maintained."
+	einfo "Please use the JACK loopback instead:"
+	einfo "http://alsa.opensrc.org/Jack_and_Loopback_device_as_Alsa-to-Jack_bridge"
+	einfo ""
+	einfo "Press Ctrl-C to abort ${PN} installation"
+	epause 10
+
 	git_src_unpack || die "unpack failed"
-#	cd ${S} || die "cd failed"
+
+	# v4l1 is outdated and no longer into the linux kernel
+	cd ${S}
+	epatch "${FILESDIR}/remove-v4l1.patch" || die "epatch failed"
 }
 
 src_install() {
