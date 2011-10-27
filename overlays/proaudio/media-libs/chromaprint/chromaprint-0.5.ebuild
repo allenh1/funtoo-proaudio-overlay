@@ -12,7 +12,7 @@ HOMEPAGE="http://acoustid.org/chromaprint"
 SRC_URI="https://github.com/downloads/lalinsky/${PN}/${P}.tar.gz"
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~amd64"
 
 IUSE="fftw"
 DEPEND="fftw? ( sci-libs/fftw:3.0 )
