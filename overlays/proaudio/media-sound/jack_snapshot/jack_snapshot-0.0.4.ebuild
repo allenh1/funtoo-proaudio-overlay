@@ -17,13 +17,8 @@ RDEPEND="$DEPEND"
 PREFIX="${D}"/usr
 
 src_prepare() {
-	sed -i -e 's/$(CXX)/$(CXX) $(CXXFLAGS)/' Makefile || die "sed Makefile failed"
-	sed -i -e '/^install:/ a\
-	mkdir -p $(PREFIX)/bin' Makefile || die "sed2 Makefile failed"
-}
-
-src_configure() {
-	echo "nothing to configure" || die "econf failed"
+	sed -i -e 's/$(CXX)/$(CXX) $(CXXFLAGS)/' -e '/^install:/ a\
+	mkdir -p $(PREFIX)/bin' Makefile || die "sed Makefile failed"
 }
 
 src_compile() {
@@ -31,7 +26,6 @@ src_compile() {
 }
 
 src_install() {
-#	mkdir -p "${D}"/bin || die "mkdir failed"
 	emake PREFIX="${PREFIX}" install || die "stop"
 	dodoc README TODO || die
 }
