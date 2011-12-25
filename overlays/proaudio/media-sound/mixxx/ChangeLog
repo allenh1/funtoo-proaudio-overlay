@@ -1,6 +1,11 @@
 # ChangeLog for media-sound/mixxx
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*mixxx-1.10.0 (25 Dec 2011)
+
+  25 Dec 2011; Hakan Demiralp <keenblade@tuxfamily.org> +mixxx-1.10.0.ebuild:
+  media-sound/mixxx: version bump to 1.10.0, removed older ebuilds
 
 *mixxx-1.7.0 (28 Aug 2009)
 
