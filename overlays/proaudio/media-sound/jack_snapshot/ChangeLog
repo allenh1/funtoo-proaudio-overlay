@@ -1,0 +1,6 @@
+# ChangeLog for media-sound/jack_snapshot
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  25 Dec 2011; Dominique Michel dominique@tuxfamily.org>
+  + Initial jack_snapshot-0.0.4.ebuild
