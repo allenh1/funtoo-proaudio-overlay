@@ -2,6 +2,11 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*rivendell-2.1.2 (30 Dec 2011)
+
+  30 Dec 2011; Emery Hemingway <emery@icmlf.net> +rivendell-2.1.2.ebuild:
+  bump
+
 *rivendell-2.1.1 (03 Nov 2011)
 
   03 Nov 2011; Emery Hemingway <emery@vfemail.net> -rivendell-2.1.0.ebuild,
