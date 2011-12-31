@@ -1,6 +1,16 @@
 # ChangeLog for media-sound/swami
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: /var/cvsroot/gentoo-x86/media-sound/swami/ChangeLog,v 1.2 2005/10/05 16:27:34 matsuu Exp $
+
+*swami-2.0.0-r1 (31 Dec 2011)
+
+  31 Dec 2011; Gavin Pryke <gavinlee303@googlemail.com> -swami-0.9.4.ebuild,
+  -swami-1.0.0_pre1-r1.ebuild, +swami-2.0.0-r1.ebuild,
+  +files/swami-2.0.0-qsort-args.patch, swami-9999.ebuild, metadata.xml:
+  Fix deps and crash on execution wrt msg #4249 thx to Ede Wolf.
+  Workaround intermittent failures on install with parallel jobs forcing -j1.
+  Upstream recommended python be disabled for now.
+  Updated svn ebuild for newer cmake scripts.
 
 *swami-2.0.0 (02 Nov 2010)
 
