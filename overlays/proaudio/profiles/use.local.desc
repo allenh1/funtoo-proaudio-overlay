@@ -1,20 +1,93 @@
-media-libs/libclam:doc - Install the examples
+# This file is deprecated as per GLEP 56 in favor of metadata.xml. Please add
+# your descriptions to your package's metadata.xml ONLY.
+# * generated automatically using egencache *
+
 media-libs/libclam:double - CLAM TData type will be double (and not float)
 media-libs/libclam:fft - Selects whether to use Numerical Recipes fft algorithm implementation or not; if yes, use fft3
 media-libs/libclam:id3 - Support accessing ID3 tags on mpeg audio streams
 media-libs/libclam:optimize - Optimize for speed instead of precision
-media-sound/Annotator:doc - Install the examples
-media-sound/alsaplayer:custom-cflags - Enables custom cflags (not supported)
-media-sound/alsaplayer:systray - Enables systray support (very experimental...)
-media-sound/rosegarden:export - enables project export functionality
-media-sound/rosegarden:lilypond - enables lilypond preview functionality
-media-sound/jack-audio-connection-kit:classic - force enable standard JACK (jackd) even if D_Bus JACK (jackdbus) is enabled too
-media-sound/jack-audio-connection-kit:freebob - enables support for 'BeBoB'
-media-sound/jack-audio-connection-kit:ieee1394 - enables support FFADO - 'BeBoB'
+media-libs/libclam:qt3 - Build qt3 GUI
+media-libs/libclam:xercesc - Use dev-libs/xerces-c for xmlbackend
+media-libs/libclam:xmlpp - Use dev-cpp/libxmlpp for xmlbackend
+media-libs/lilv:swig - Use dev-lang/swig to generate python bindings
+media-plugins/calf:lv2 - Add support for Ladspa V2
+media-plugins/gst-buzztard:bml - Enable the buzz machine loader through media-libs/bml
+media-plugins/gst-buzztard:fluidsynth - Enable fluidsynth support
+media-radio/rivendell:gpio - Adds suport for General Purpose Input/Output
+media-radio/rivendell:hpi - Adds support for AudioScience HPI hardware
+media-radio/rivendell:lame - Enable MPEG Layer 3 encoding
+media-radio/rivendell:mad - Enable MPEG decoding support
+media-radio/rivendell:twolame - Enable MPEG Layer 2 encoding
+media-sound/alsaplayer:systray - Enables systray support with gtk
+media-sound/aqualung:ifp - Enable support for iRiver iFP portable audio players
+media-sound/aqualung:loop-playback - Enable support for loop playback
+media-sound/aqualung:lua - Enable support for programmable title formatting with dev-lang/lua
+media-sound/aqualung:mac - Enable support for decoding Monkey's Audio files
+media-sound/aqualung:podcast - Enable podcast support
+media-sound/aqualung:systray - Enable system tray support
+media-sound/ardour:aubio - Use Paul Brossier's aubio library for feature detection
+media-sound/ardour:austate - Build with support for AU settings and presets
+media-sound/ardour:dmalloc - Compile and link using the dmalloc library
+media-sound/ardour:fft_analysis - Include FFT analysis window
+media-sound/ardour:fpu_optimization - Build runtime checked assembler code (sse, 3dnow, altivec, mmx)
+media-sound/ardour:liblo - Compile with support for liblo library
+media-sound/ardour:lv2 - Use slv2 effect"
+media-sound/ardour:oldfonts - Old school font sizes
+media-sound/ardour:surfaces - Build support for control surfaces
+media-sound/ardour:sys-libs - Use system libs instead of provided. No upstream support!!!
+media-sound/ardour:tranzport - Compile with support for Frontier Designs
+media-sound/ardour:wiimote - Use Nintendo Wiimote
+media-sound/audacity:id3tag - use libid3tag for mp3 id3 tag support
+media-sound/audacity:midi - use portSMF for Midi support
+media-sound/audacity:nyquist - enable Nyquist plug-in support
+media-sound/audacity:sbsms - use libsbsms for pitch and tempo changing
+media-sound/audacity:soundtouch - use libSoundTouch for pitch and tempo changing
+media-sound/audacity:twolame - use libtwolame for MP2 export support
+media-sound/audacity:vamp - use libvamp for Vamp plug-in support
+media-sound/boodler:intmath - reduces the number of floating-point operations at the cost of less accurate volume fading
+media-sound/boodler:shout - Enable shoutcast support
+media-sound/fluidsynth:floats - Enable type float instead of double for DSP samples
+media-sound/idjc:wma - Enable Windows Media Audio support through ffmpeg
+media-sound/ingen:soup - Enable support for HTTP via net-libs/libsoup
+media-sound/jack-audio-connection-kit:freebob - enables support for older 'BeBoB' ieee1394
+media-sound/jack-audio-connection-kit:ieee1394 - enables support for FFADO - 'BeBoB'
 media-sound/jack-audio-connection-kit:mixed - build with 32/64 bits mixed mode
-media-sound/museseq:zynaddsubfx - integrate ZynAddSubFX into museseq
-x11-themes/crystal-audio:laptop - Add recipes for laptop (can hang a rt kernel)
-media-libs/librdf:postgresql - Enable use of the Redland PostgreSQL triple store backend
-media-sound/ardour:sys-libs - use system libs instead of provided. No upstream support!!!
+media-sound/jsampler:classic - Build with a standart GUI"
+media-sound/kguitar:tse3 - Use tse3 sequencer library
+media-sound/linuxsampler:lv2 - Add support for Ladspa V2
+media-sound/mixxx:djconsole - Enable djconsole support
+media-sound/mixxx:hifieq - Enable hifi equalizer support
+media-sound/mixxx:recording - Enable experimental recording support
+media-sound/mixxx:shout - Enable shoutcast support
+media-sound/mixxx:tonal - Enable tonal analysis feature
+media-sound/mixxx:vinylcontrol - Enable vinylcontrol feature
+media-sound/museseq:fluidsynth - Enable fluidsynth support
+media-sound/museseq:zynaddsubfx - Enable zynaddsubfx support
 media-sound/psychosynth:psynth3d - Build the 3D client
+media-sound/rosegarden:export - 
+media-sound/rosegarden:lilypond - Enable lilypond support
+media-sound/supercollider:devel - Build and install the development files
+media-sound/supercollider:emacs - Enable the SCEL user interface
+media-sound/supercollider:gedit - Enable the SCED user interface
+media-sound/supercollider:lang - Build the sclang interpreter
+media-sound/supercollider:lid - Build with Linux Input Device support
+media-sound/supercollider:rendezvous - Enable Zeroconf/Rendezvous
+media-sound/supercollider:strip - Strip symbols from binaries
+media-sound/supercollider:vim - Enable the SCVIM user interface
+media-sound/supercollider:wii - Build with Linux WII support
+media-sound/swami:fluidsynth - build support for media-sound/fluidsynth
+media-sound/tapeutape:fr - Enable french in the app
+media-sound/tapeutape:gui - Enable gui, with fltk
+media-sound/tranches:fr - Add french interface
+media-sound/tranches:gui - Add gui (fltk)
+media-sound/traverso:lv2 - Add support for Ladspa V2
 media-sound/tuxguitar:fluidsynth - Enable fluidsynth support
+media-sound/waon:pv - Build and install the phase vocoder pv binary
+media-sound/xwax:alsa - Adds support for ALSA audio input/output.
+media-sound/xwax:xwax_decoders_aac - Sets runtime dependencies to support decoding AAC audio.
+media-sound/xwax:xwax_decoders_cd - Sets runtime dependencies to support decoding audio from a compact disc.
+media-sound/xwax:xwax_decoders_flac - Sets runtime dependencies to support decoding FLAC audio.
+media-sound/xwax:xwax_decoders_misc - Sets runtime dependencies to support decoding "other" audio files.
+media-sound/xwax:xwax_decoders_mp3 - Sets runtime dependencies to support decoding MP3 audio.
+media-sound/xwax:xwax_decoders_ogg - Sets runtime dependencies to support decoding Ogg Vorbis audio.
+media-sound/zynjacku:lv2dynparam - Enables support for dynparam LV2 plugins (lv2zynadd)
