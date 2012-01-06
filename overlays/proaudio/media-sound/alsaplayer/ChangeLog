@@ -1,6 +1,9 @@
 # ChangeLog for media-sound/alsaplayer
-# Copyright 2002-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: /var/cvsroot/gentoo-x86/media-sound/alsaplayer/ChangeLog,v 1.59 2007/06/12 02:59:47 dirtyepic Exp $
+
+  06 Jan 2012; Gavin Pryke <gavinlee303@googlemail.com> metadata.xml:
+  copy USE description from use.local.desc to metadata.xml
 
 *alsaplayer-9999.ebuild (16 Jun 2007)
   27 Mar 2011: Dominique Michel <dominique@tuxfamily.org>
