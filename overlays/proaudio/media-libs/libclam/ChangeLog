@@ -1,6 +1,9 @@
 # ChangeLog for media-libs/libclam
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  06 Jan 2012; Gavin Pryke <gavinlee303@googlemail.com> metadata.xml:
+  copy USE descriptions from use.local.desc into metadata.xml
 
   09 Oct 2010; Viktor Lazarev <taurus101v@gmail.com> libclam-1.4.0.ebuild:
   Set xmlpp as default XML backend
