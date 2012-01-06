@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd>no-herd</herd>
 	<maintainer>
 		<email>proaudio@tuxfamily.org</email>
 		<name>pro-audio overlay team</name>
 	</maintainer>
+	<use>
+		<flag name="freebob">enables support for older 'BeBoB' ieee1394</flag>
+		<flag name="ieee1394">enables support for FFADO - 'BeBoB'</flag>
+		<flag name="mixed">build with 32/64 bits mixed mode</flag>
+	</use>
 </pkgmetadata>
