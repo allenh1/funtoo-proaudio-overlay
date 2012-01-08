@@ -1,6 +1,13 @@
 # ChangeLog for media-sound/yoshimi
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*yoshimi-0.060.12 (08 Jan 2012)
+
+  08 Jan 2012; Gavin Pryke <gavinlee303@googlemail.com>
+  -yoshimi-0.058.1.ebuild, -yoshimi-0.060.10.ebuild, +yoshimi-0.060.12.ebuild,
+  metadata.xml:
+  bump. remove older ebuilds that fail to compile.
 
 *yoshimi-0.060.10 (08 May 2011)
 
