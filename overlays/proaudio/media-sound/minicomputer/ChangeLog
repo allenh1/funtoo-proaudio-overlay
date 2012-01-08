@@ -1,6 +1,17 @@
 # ChangeLog for media-sound/minicomputer
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  08 Jan 2012; Gavin Pryke <gavinlee303@googlemail.com>
+  -minicomputer-1.3.ebuild, -files/minicomputer-1.3-fltk.patch,
+  -files/minicomputer-1.3-respect-tc-flags.patch, minicomputer-1.41.ebuild,
+  -files/minicomputer-1.41-fltk.patch,
+  -files/minicomputer-1.41-respect-tc-flags.patch, minicomputer-9999.ebuild,
+  -files/minicomputer-9999-fltk.patch,
+  -files/minicomputer-9999-respect-tc-flags.patch,
+  +files/minicomputer-fltk.patch, +files/minicomputer-respect-tc-flags.patch,
+  metadata.xml:
+  edit patch to compile with fltk-1.3, rename it and clean the mess up
 
   27 Apr 2011; Gavin Pryke <gavinlee303@googlemail.com>
   minicomputer-1.3.ebuild, minicomputer-1.41.ebuild,

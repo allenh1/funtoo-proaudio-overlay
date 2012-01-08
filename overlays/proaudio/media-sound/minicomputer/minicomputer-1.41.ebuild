@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -29,8 +29,8 @@ DEPEND="${RDEPEND}
 S="${WORKDIR}/${MY_P}"
 
 src_prepare() {
-	epatch "${FILESDIR}/${P}-fltk.patch"
-	epatch "${FILESDIR}/${P}-respect-tc-flags.patch"
+	epatch "${FILESDIR}/${PN}-fltk.patch"
+	epatch "${FILESDIR}/${PN}-respect-tc-flags.patch"
 }
 
 src_compile() {
