@@ -1,6 +1,14 @@
 # ChangeLog for media-libs/zita-convolver
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*zita-convolver-3.1.0 (10 Jan 2012)
+
+  10 Jan 2012; Gavin Pryke <gavinlee303@googlemail.com>
+  +zita-convolver-3.1.0.ebuild, +files/zita-convolver-3.1.0-Makefile.patch,
+  metadata.xml:
+  bump. SRC_URI for 2.0.0 is 404 but leaving it in tree for now as there are
+  dependents.
 
   01 May 2011; Gavin Pryke <gavinlee303@googlemail.com>
   zita-convolver-2.0.0.ebuild:
