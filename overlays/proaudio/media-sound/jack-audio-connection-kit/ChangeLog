@@ -2,6 +2,12 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*jack-audio-connection-kit-1.9.8 (14 Jan 2012)
+
+  14 Jan 2012; Hakan Demiralp <keenblade@tuxfamily.org>
+  +jack-audio-connection-kit-1.9.8.ebuild:
+  jack-audio-connection-kit: version bump to 1.9.8. wrt #124 by realnc
+
   06 Jan 2012; Gavin Pryke <gavinlee303@googlemail.com> metadata.xml:
   copy USE descriptions from use.local.desc to metadata.xml
 
