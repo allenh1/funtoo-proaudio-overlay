@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -6,7 +6,7 @@ EAPI=2
 
 inherit eutils gnome2
 
-IUSE="gnome lash phat"
+IUSE="lash phat"
 RESTRICT="mirror"
 
 DESCRIPTION="JACK audio mixer using GTK2 interface."
@@ -25,8 +25,7 @@ DEPEND="media-sound/jack-audio-connection-kit
 	# 1. only needed for non tarballs aka svn checkouts >=dev-lang/swig-1.3.25
 RDEPEND="${DEPEND}
 	phat? ( media-libs/pyphat )
-	lash? ( || ( media-sound/lash[python] >=media-libs/pylash-3_pre ) )
-	gnome? ( dev-python/gnome-python )"
+	lash? ( || ( media-sound/lash[python] >=media-libs/pylash-3_pre ) )"
 
 src_install() {
 	gnome2_src_install
