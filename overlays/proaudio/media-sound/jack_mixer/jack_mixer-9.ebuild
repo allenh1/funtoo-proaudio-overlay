@@ -27,6 +27,10 @@ RDEPEND="${DEPEND}
 	phat? ( media-libs/pyphat )
 	lash? ( || ( media-sound/lash[python] >=media-libs/pylash-3_pre ) )"
 
+src_prepare() {
+	epatch "${FILESDIR}/empty_name_on_rename.patch"
+}
+
 src_install() {
 	gnome2_src_install
 	dosym /usr/bin/jack_mixer.py /usr/bin/jack_mixer
