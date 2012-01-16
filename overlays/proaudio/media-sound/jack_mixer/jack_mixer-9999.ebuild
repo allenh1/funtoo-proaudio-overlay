@@ -22,9 +22,7 @@ KEYWORDS=""
 DEPEND="media-sound/jack-audio-connection-kit
 	dev-python/pygtk
 	dev-python/fpconst
-	>=dev-python/pyxml-0.8.4
-	dev-python/gnome-python
-	media-libs/pyphat"
+	>=dev-python/pyxml-0.8.4"
 	# 1. only needed for non tarballs aka svn checkouts >=dev-lang/swig-1.3.25
 RDEPEND="${DEPEND}
 	phat? ( media-libs/pyphat )
