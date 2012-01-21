@@ -1,8 +1,8 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="1"
+EAPI="2"
 
 inherit eutils autotools flag-o-matic subversion
 
@@ -18,16 +18,16 @@ ESVN_REPO_URI="https://rezound.svn.sourceforge.net/svnroot/rezound/branches/rezo
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="16bittmp alsa audiofile doc flac jack ladspa nls oss portaudio soundtouch vorbis"
+IUSE="16bittmp alsa doc flac jack ladspa nls oss portaudio soundtouch vorbis"
 
 RDEPEND="|| ( ( x11-libs/qt-core x11-libs/qt-gui )
 				x11-libs/qt:4 )
-	sci-libs/fftw:2.1
+	sci-libs/fftw:3.0
 	ladspa? ( >=media-libs/ladspa-sdk-1.12
 			>=media-libs/ladspa-cmt-1.15 )
-	audiofile? ( >=media-libs/audiofile-0.2.2 )
+	>=media-libs/audiofile-0.2.2
 	alsa? ( >=media-libs/alsa-lib-1.0 )
-	flac? ( >=media-libs/flac-1.1.0 )
+	flac? ( >=media-libs/flac-1.1.2[cxx] )
 	jack? ( media-sound/jack-audio-connection-kit )
 	portaudio? ( >=media-libs/portaudio-18 )
 	soundtouch? ( >=media-libs/libsoundtouch-1.3.1 )
@@ -35,12 +35,15 @@ RDEPEND="|| ( ( x11-libs/qt-core x11-libs/qt-gui )
 
 DEPEND="${RDEPEND}
 	doc? ( sys-devel/gettext
-		virtual/libintl )"
+		virtual/libintl )
+	dev-util/pkgconfig"
 
 src_unpack() {
 	unpack ${A}
 	subversion_src_unpack
+}
 
+src_prepare() {
 	EPATCH_EXCLUDE="010_all_flac-1.1.3.patch
 		030_all_dont-ignore-cxxflags.patch
 		090_all_gcc_4.3.patch
@@ -51,15 +54,23 @@ src_unpack() {
 	epatch "${FILESDIR}/${P}-qt44.patch"
 	epatch "${FILESDIR}/${P}-missing_includes.patch"
 	epatch "${FILESDIR}/${P}-O2.patch"
+	epatch "${FILESDIR}/0001-fix-ladspa-path.patch"
+	epatch "${FILESDIR}/0002-add-support-for-fftw3.patch"
+	epatch "${FILESDIR}/0003-autotools-patch.patch"
+	epatch "${FILESDIR}/0004-pkg-config-and-the-audiofile-library.patch"
+
 	#AT_M4DIR="config/m4" eautoreconf
 	./bootstrap || die
 }
 
-src_compile() {
+src_configure() {
 	# following features can't be disabled if already installed:
 	# -> flac, oggvorbis, soundtouch <-- why not? I've added missing flags
 	local sampletype="--enable-internal-sample-type=float"
 	use 16bittmp && sampletype="--enable-internal-sample-type=int16"
+
+	# -O3 isn't safe wrt #275437
+	replace-flags -O[3-9] -O2
 
 	econf \
 		$(use_enable alsa) \
@@ -74,7 +85,9 @@ src_compile() {
 		${sampletype} \
 		--enable-largefile \
 		|| die "configure failed"
+}
 
+src_compile() {
 	emake -j1 || die "make failed"
 }
 
