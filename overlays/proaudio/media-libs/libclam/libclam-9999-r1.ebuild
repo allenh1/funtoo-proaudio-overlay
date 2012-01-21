@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -6,7 +6,7 @@ inherit subversion
 #scons-ccache
 
 DESCRIPTION="Framework for research and application development in the Audio and Music domain"
-HOMEPAGE="http://clam.iua.upf.edu/index.html"
+HOMEPAGE="http://clam-project.org/index.html"
 
 MY_PN="CLAM"
 
