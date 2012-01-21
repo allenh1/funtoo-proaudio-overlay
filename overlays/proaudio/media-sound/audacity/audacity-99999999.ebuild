@@ -1,13 +1,12 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
-WX_GTK_VER="2.8"
+EAPI="4"
 
 inherit eutils wxwidgets autotools versionator subversion
 
-IUSE="alsa ffmpeg flac id3tag jack ladspa libsamplerate midi mp3 +nyquist sbsms soundtouch twolame unicode vamp vorbis"
+IUSE="alsa ffmpeg flac id3tag jack ladspa libsamplerate midi mp3 sbsms soundtouch twolame vamp vorbis"
 
 MY_PV=$(replace_version_separator 3 -)
 MY_P="${PN}-src-${MY_PV}-beta"
@@ -34,7 +33,7 @@ COMMON_DEPEND="x11-libs/wxGTK:2.8[X]
 	soundtouch? ( >=media-libs/libsoundtouch-1.3.1 )
 	vamp? ( >=media-libs/vamp-plugin-sdk-2.0 )
 	twolame? ( media-sound/twolame )
-	ffmpeg? ( >=media-video/ffmpeg-0.4.9_p20080617 )
+	ffmpeg? ( virtual/ffmpeg )
 	alsa? ( media-libs/alsa-lib )
 	jack? ( >=media-sound/jack-audio-connection-kit-0.103.0 )"
 
@@ -42,6 +41,8 @@ RDEPEND="${COMMON_DEPEND}
 	mp3? ( >=media-sound/lame-3.70 )"
 DEPEND="${COMMON_DEPEND}
 	dev-util/pkgconfig"
+
+REQUIRED_USE="soundtouch? ( midi )"
 
 S=${WORKDIR}/${MY_P}
 
@@ -52,11 +53,11 @@ src_unpack() {
 }
 
 src_prepare() {
-	epatch "${FILESDIR}/${PN}-9999-ffmpeg.patch"
 	AT_M4DIR="${S}/m4" eautoreconf
 }
 
 src_configure() {
+	WX_GTK_VER="2.8"
 	need-wxwidgets unicode
 	local myconf
 
@@ -78,8 +79,8 @@ src_configure() {
 	econf \
 		--with-libsndfile=system \
 		--with-expat=system \
-		$(use_enable unicode) \
-		$(use_enable nyquist) \
+		--enable-unicode \
+		--enable-nyquist \
 		$(use_enable ladspa) \
 		$(use_with libsamplerate) \
 		$(use_with !libsamplerate libresample) \
