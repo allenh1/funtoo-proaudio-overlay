@@ -3,6 +3,14 @@
 # NOTE: Please add your entry at the top!
 #
 
+# Frieder Buerzele <evermind@tuxfamily.org> (21 Jan 2012)
+# they are old ebuild, but they separate the banks into another ebuild.
+# so there needs to be a review  later on those ebuilds. But for now masked
+=media-sound/zynaddsubfx-20070707
+=media-sound/zynaddsubfx-20070707-r1
+=media-sound/zynaddsubfx-2.2.1-r8
+=media-sound/zynaddsubfx-2.4.0
+
 # Hakan Demiralp <keenblade@tuxfamily.org> (06 Jul 2011)
 # portaudio-19-r4.ebuild is old and v19_pre20110326 is newer.
 # So masking older, since it gets priority while emerging because of naming
