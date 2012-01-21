@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -11,9 +11,9 @@ SRC_URI="mirror://sourceforge/${PN%%-*}/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="a52 aac cdio debug doc dts ffmpeg flac mad mjpeg mpeg musepack nls plugins png samba speex theora tiff vorbis"
+IUSE="a52 aac cdio debug doc dts dvd ffmpeg flac mad mjpeg mpeg musepack plugins png samba speex theora tiff vorbis"
 
-DEPEND=">=media-libs/gavl-1.1.0
+DEPEND=">=media-libs/gavl-1.2.0
 		a52? ( media-libs/a52dec )
 		aac? ( media-libs/faad2 )
 		cdio? ( dev-libs/libcdio )
