@@ -1,6 +1,11 @@
 # ChangeLog for media-sound/Annotator
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  20 Jan 2012; Gavin Pryke <gavinlee303@googlemail.com>
+  Annotator-0.3.8-r1.ebuild, Annotator-0.3.9.ebuild, Annotator-0.3.10.ebuild,
+  Annotator-0.5.0.ebuild, Annotator-9999.ebuild:
+  update HOMEPAGE and SRC_URI thanks to chris.c.hogan on forums.gentoo.org
 
   09 Nay 2010; Dominique Michel <dominique@tuxfamily.org>;
   Bump to Annotator-0.5.0
