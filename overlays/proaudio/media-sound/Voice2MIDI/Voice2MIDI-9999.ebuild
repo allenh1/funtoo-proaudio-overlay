@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -7,7 +7,7 @@ EAPI=1
 inherit eutils subversion
 
 DESCRIPTION="CLAM Voice2MIDI extracts the melody as a MIDI or XML file from monophonic audio files"
-HOMEPAGE="http://clam.iua.upf.edu/index.html"
+HOMEPAGE="http://clam-project.org/index.html"
 
 SRC_URI=""
 ESVN_REPO_URI="http://iua-share.upf.edu/svn/clam/trunk/Voice2MIDI"

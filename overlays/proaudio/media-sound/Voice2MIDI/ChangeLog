@@ -1,6 +1,11 @@
 # ChangeLog for media-sound/Voice2MIDI
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  20 Jan 2012; Gavin Pryke <gavinlee303@googlemail.com>
+  Voice2MIDI-0.3.6-r1.ebuild, Voice2MIDI-0.3.7.ebuild, Voice2MIDI-0.3.8.ebuild,
+  Voice2MIDI-0.3.10.ebuild, Voice2MIDI-9999.ebuild:
+  update HOMEPAGE and SRC_URI thanks to chris.c.hogan on forums.gentoo.org
 
   09 Nay 2010; Dominique Michel <dominique@tuxfamily.org> Version
   bump to 0.3.10
