@@ -4,7 +4,7 @@
 
 EAPI=2
 
-inherit exteutils cvs autotools
+inherit git-2 autotools
 
 DESCRIPTION="MIDI Arpeggiator QMidiArp"
 HOMEPAGE="http://alsamodular.sourceforge.net/"
@@ -14,8 +14,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-ECVS_SERVER="alsamodular.cvs.sourceforge.net:/cvsroot/alsamodular"
-ECVS_MODULE="qmidiarp"
+EGIT_REPO_URI="git://qmidiarp.git.sourceforge.net/gitroot/qmidiarp/qmidiarp"
 
 DEPEND=">=x11-libs/qt-core-4.2:4[qt3support]
 	>=x11-libs/qt-gui-4.2:4[qt3support]
@@ -26,11 +25,8 @@ RDEPEND="${DEPEND}"
 S="${WORKDIR}/${PN}"
 
 src_unpack() {
-	cvs_src_unpack
+	git-2_src_unpack
 	cd "$S"
-	# workaround: remove qtcore/qtgui checks
-	esed_check -i -e '/AC_CHECK_LIB(\[QtGui/, /QtGui is required)\])/ s@.*@@g' \
-		-e '/AC_CHECK_LIB(\[QtCore/, /QtCore is required)\])/ s@.*@@g' configure.ac 
 	eautoreconf
 }
 
