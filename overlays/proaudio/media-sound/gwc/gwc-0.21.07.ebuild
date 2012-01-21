@@ -1,4 +1,4 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -18,6 +18,8 @@ KEYWORDS="amd64 ~ppc x86"
 DEPEND=">=media-libs/libsndfile-1.0.1
 	>=dev-util/pkgconfig-0.9
 	=sci-libs/fftw-3*
+	x11-proto/glproto
+	x11-proto/dri2proto
 	>=gnome-base/libgnomeui-2.0
 	alsa? ( >=media-libs/alsa-lib-0.9 )"
 
