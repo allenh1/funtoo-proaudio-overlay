@@ -1,0 +1,55 @@
+Index: linthesia/src/libmidi/Midi.cpp
+===================================================================
+--- linthesia.orig/src/libmidi/Midi.cpp	2011-06-07 23:29:40.731882380 +0200
++++ linthesia/src/libmidi/Midi.cpp	2011-06-07 23:31:34.196263533 +0200
+@@ -13,6 +13,7 @@
+ 
+ #include <fstream>
+ #include <map>
++#include <stdint.h>
+ 
+ using namespace std;
+ 
+@@ -50,7 +51,7 @@
+   // defined and will always have a 4-byte header.  We use 5 so we get
+   // free null termination.
+   char           header_id[5] = { 0, 0, 0, 0, 0 };
+-  unsigned long  header_length;
++  uint32_t header_length;
+   unsigned short format;
+   unsigned short track_count;
+   unsigned short time_division;
+@@ -74,7 +75,7 @@
+     }
+   }
+ 
+-  stream.read(reinterpret_cast<char*>(&header_length), sizeof(unsigned long));
++  stream.read(reinterpret_cast<char*>(&header_length), sizeof(uint32_t));
+   stream.read(reinterpret_cast<char*>(&format),        sizeof(unsigned short));
+   stream.read(reinterpret_cast<char*>(&track_count),   sizeof(unsigned short));
+   stream.read(reinterpret_cast<char*>(&time_division), sizeof(unsigned short));
+Index: linthesia/src/libmidi/MidiTrack.cpp
+===================================================================
+--- linthesia.orig/src/libmidi/MidiTrack.cpp	2011-06-07 23:31:59.436348321 +0200
++++ linthesia/src/libmidi/MidiTrack.cpp	2011-06-07 23:32:39.252481736 +0200
+@@ -11,6 +11,7 @@
+ #include "MidiUtil.h"
+ #include "Midi.h"
+ 
++#include <stdint.h>
+ #include <sstream>
+ #include <string>
+ #include <map>
+@@ -26,10 +27,10 @@
+   // defined and will always have a 4-byte header.  We use 5 so we get
+   // free null termination.
+   char header_id[5] = { 0, 0, 0, 0, 0 };
+-  unsigned long track_length;
++  uint32_t track_length;
+ 
+   stream.read(header_id, static_cast<streamsize>(MidiTrackHeader.length()));
+-  stream.read(reinterpret_cast<char*>(&track_length), sizeof(unsigned long));
++  stream.read(reinterpret_cast<char*>(&track_length), sizeof(uint32_t));
+ 
+   if (stream.fail())
+     throw MidiError(MidiError_TrackHeaderTooShort);

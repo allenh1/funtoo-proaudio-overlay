@@ -1,0 +1,11 @@
+--- src/TextWriter.cpp.orig
++++ src/TextWriter.cpp
+@@ -47,7 +47,7 @@
+ 
+       // Or set it if there is no default
+       if (fontname.empty()) {
+-        fontname = "Arial";
++        fontname = "Sans";
+         UserSetting::Set(key, fontname);
+       }
+     }
