@@ -20,7 +20,7 @@ IUSE="debug doc"
 RDEPEND=">=dev-cpp/glibmm-2.14.0:2
 	>=dev-cpp/gtkmm-2.14.0:2
 	>=dev-cpp/libglademm-2.6.0:2
-	>=media-lib/sord-9999
+	>=dev-libs/sord-0.5
 	>=media-libs/raul-9999
 	>=x11-libs/flowcanvas-9999
 	>=media-sound/jack-audio-connection-kit-0.109.0"
