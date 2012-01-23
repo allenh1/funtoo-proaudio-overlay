@@ -1,6 +1,13 @@
 # ChangeLog for media-sound/goattracker
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*goattracker-2.72 (23 Jan 2012)
+
+  23 Jan 2012; Gavin Pryke <gavinlee303@googlemail.com>
+  files/goattracker-2.71-makefiles.patch, +files/goattrk2.xpm,
+  +goattracker-2.72.ebuild, metadata.xml:
+  edit patch for more CFLAGS. add xpm icon. bump
 
   13 May 2011; Gavin Pryke <gavinlee303@googlemail.com>
   goattracker-2.71.ebuild:

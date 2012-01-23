@@ -16,12 +16,12 @@
  
  datafile: datafile.c bme_end.c
 -	gcc -o datafile datafile.c bme_end.c
-+	$(CC) -o datafile datafile.c bme_end.c
++	$(CC) $(CFLAGS) -o datafile datafile.c bme_end.c
  	strip datafile
  
  dat2inc: dat2inc.c
 -	gcc -o dat2inc dat2inc.c
-+	$(CC) -o dat2inc dat2inc.c
++	$(CC) $(CFLAGS) -o dat2inc dat2inc.c
  	strip dat2inc
  
 --- src/makefile.common.original	2011-05-06 17:50:20.645013802 +0100
