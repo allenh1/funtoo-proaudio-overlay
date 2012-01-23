@@ -18,9 +18,9 @@ KEYWORDS=""
 IUSE="bash-completion debug doc jack swig"
 
 RDEPEND=">=dev-libs/glib-2.26.1-r1:2
-	>=media-libs/lv2core-4.0
-	>=media-libs/serd-0.2.0
-	>=media-libs/sord-0.2.0
+	>=media-libs/lv2core-6
+	>=dev-libs/serd-0.5
+	>=dev-libs/sord-0.5
 	jack? ( >=media-sound/jack-audio-connection-kit-0.120.1 )"
 DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )
