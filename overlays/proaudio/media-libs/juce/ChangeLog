@@ -1,6 +1,14 @@
 # ChangeLog for media-libs/juce
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*juce-1.53 (24 Jan 2012)
+
+  24 Jan 2012; Willy <willy@tuxfamily.org> -juce-1.31.ebuild,
+  -files/juce-1.31-gcc-4.1.patch, -files/juce-1.31-vorbis_header.patch,
+  -juce-1.35.ebuild, -juce-1.40.ebuild, -juce-1.41.ebuild, -juce-1.44.ebuild,
+  -juce-1.45.ebuild, -juce-1.46.ebuild, +juce-1.53.ebuild, metadata.xml:
+  remover old, add new ebuild
 
   16 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> juce-1.45.ebuild:
   make jucer and demo optional, remove unneeded headers
