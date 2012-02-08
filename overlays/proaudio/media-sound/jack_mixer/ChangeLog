@@ -1,6 +1,16 @@
 # ChangeLog for media-sound/jack_mixer
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*jack_mixer-9-r1 (08 Feb 2012)
+
+  08 Feb 2012; Gavin Pryke <gavinlee303@googlemail.com>
+  +files/missing-gconf-2.m4.patch, -jack_mixer-8.ebuild,
+  +jack_mixer-9-r1.ebuild, jack_mixer-9999.ebuild, metadata.xml:
+  add patch to fix live ebuild without gconf. bump to EAPI=3. utilise
+  python.eclass. add gconf USE flag. tidy up ebuild a bit wrt deps.
+  remove older ebuild as repoman payment.
+  Thanks to Ede Wolf and Nedko Arnaudov
 
   05 Jul 2011; Hakan Demiralp <keenblade@tuxfamily.org jack_mixer-9.ebuild:
   jack_mixer-9: gnome-python is now USE-Conditional Dependency

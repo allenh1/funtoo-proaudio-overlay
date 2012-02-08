@@ -5,18 +5,17 @@
 EAPI=3
 PYTHON_DEPEND="2:2.4"
 RESTRICT_PYTHON_ABIS="3.*"
-inherit eutils gnome2 python git-2 autotools
+inherit eutils gnome2 python
 
 DESCRIPTION="JACK audio mixer using GTK2 interface."
 HOMEPAGE="http://home.gna.org/jackmixer/"
-EGIT_REPO_URI="git://repo.or.cz/jack_mixer.git"
-SRC_URI=""
+SRC_URI="http://download.gna.org/jackmixer/${P}.tar.gz"
 
 RESTRICT="mirror"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="gconf lash phat"
 
 DEPEND="dev-python/fpconst
@@ -38,8 +37,7 @@ pkg_setup() {
 }
 
 src_prepare() {
-	epatch "${FILESDIR}"/missing-gconf-2.m4.patch
-	AT_M4DIR="m4" eautoreconf
+	epatch "${FILESDIR}/empty_name_on_rename.patch"
 	gnome2_src_prepare
 }
 
