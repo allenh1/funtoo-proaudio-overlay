@@ -2,6 +2,8 @@
 # your descriptions to your package's metadata.xml ONLY.
 # * generated automatically using egencache *
 
+media-libs/juce:demo - Build the demo examples
+media-libs/juce:jucer - Build the jucer IDE
 media-libs/libclam:double - CLAM TData type will be double (and not float)
 media-libs/libclam:fft - Selects whether to use Numerical Recipes fft algorithm implementation or not; if yes, use fft3
 media-libs/libclam:id3 - Support accessing ID3 tags on mpeg audio streams
@@ -52,6 +54,9 @@ media-sound/ingen:soup - Enable support for HTTP via net-libs/libsoup
 media-sound/jack-audio-connection-kit:freebob - enables support for older 'BeBoB' ieee1394
 media-sound/jack-audio-connection-kit:ieee1394 - enables support for FFADO - 'BeBoB'
 media-sound/jack-audio-connection-kit:mixed - build with 32/64 bits mixed mode
+media-sound/jack_mixer:gconf - Use dev-python/gconf-python to store preferences with gconf
+media-sound/jack_mixer:lash - Enable LASH Audio Session Handler support with media-libs/pylash
+media-sound/jack_mixer:phat - Use fanslider widget for pan/balance from media-libs/pyphat
 media-sound/jsampler:classic - Build with a standart GUI"
 media-sound/kguitar:tse3 - Use tse3 sequencer library
 media-sound/linuxsampler:lv2 - Add support for Ladspa V2
