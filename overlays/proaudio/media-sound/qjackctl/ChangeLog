@@ -2,6 +2,10 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  14 Feb 2012: Dominique Michel <dominique@tuxfamily.org>
+  qjackctl-9999.ebuild:
+  replaced "emake" by "make -j1" in src_install
+  
   09 Feb 2011; Frieder Buerzele <evermind@tuxfamily.org>;
   qjackctl-0.2.23.ebuild:
   removed missing inheritance: qt3

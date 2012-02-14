@@ -48,7 +48,7 @@ src_compile() {
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die "make install failed"
+	make -j1 DESTDIR="${D}" install || die "make install failed"
 
 	rm "${D}/usr/share/applications/qjackctl.desktop"
 
