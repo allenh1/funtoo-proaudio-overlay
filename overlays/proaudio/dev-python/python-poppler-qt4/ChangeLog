@@ -1,0 +1,11 @@
+# ChangeLog for dev-python/python-poppler-qt4
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*python-poppler-qt4-0.16.2 (01 Mar 2012)
+
+  01 Mar 2012; Hakan Demiralp <keenblade@tuxfamily.org>
+  +python-poppler-qt4-0.16.2.ebuild, +metadata.xml:
+  python-poppler-qt4-0.16.2.ebuild: Initial ebuild as a dependency needed for
+  frescobaldi-2.0.3
+
