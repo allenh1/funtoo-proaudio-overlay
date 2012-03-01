@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -34,7 +34,7 @@ pkg_setup() {
 	fi
 
 	# portage
-	if use amd64 && hasq "sandbox" ${FEATURES} && ! hasq "-sandbox" ${FEATURES} && has_version "=sys-apps/sandbox-1.6"; then
+	if use amd64 && has "sandbox" ${FEATURES} && ! has "-sandbox" ${FEATURES} && has_version "=sys-apps/sandbox-1.6"; then
 		eerror "The compile will hang with =sandbox-1.6. Please use:"
 		echo
 		eerror "FEATURES=\"-sandbox\" emerge ${PN}"

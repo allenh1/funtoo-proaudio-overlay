@@ -2,6 +2,11 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  29 Feb 2012; Hakan Demiralp <keenblade@tuxfamily.org>
+  jack-audio-connection-kit-2.9999.ebuild:
+  jack-audio-connection-kit-2.9999.ebuild: Fixed QA Notice: The hasq function
+  is deprecated
+
 *jack-audio-connection-kit-1.9.8 (14 Jan 2012)
 
   14 Jan 2012; Hakan Demiralp <keenblade@tuxfamily.org>
