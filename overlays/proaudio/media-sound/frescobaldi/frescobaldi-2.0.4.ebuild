@@ -8,19 +8,18 @@ inherit eutils python
 
 DESCRIPTION="a LilyPond sheet music text editor"
 HOMEPAGE="http://www.frescobaldi.org"
-SRC_URI="http://github.com/downloads/wbsoft/${PN}/${P}.tar.gz"
+SRC_URI="mirror://github/wbsoft/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
-IUSE=""
+IUSE="portmidi"
 
-DEPEND="dev-python/PyQt4[examples]
-	media-sound/lilypond"
+DEPEND="dev-python/PyQt4[X]"
 RDEPEND="${DEPEND}
 	dev-python/python-poppler-qt4
-	media-libs/portmidi
-	!media-sound/frescobaldi:4"
+	media-sound/lilypond
+	portmidi? ( media-libs/portmidi )"
 
 pkg_setup() {
 	python_set_active_version 2
