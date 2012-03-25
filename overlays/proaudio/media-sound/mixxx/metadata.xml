@@ -10,6 +10,7 @@
 		<flag name="djconsole">Enable djconsole support</flag>
 		<flag name="hifieq">Enable hifi equalizer support</flag>
 		<flag name="recording">Enable experimental recording support</flag>
+		<flag name="pulseaudio">Disables <pkg>media-sound/pulseaudio</pkg> support for mixxx with pasuspender</flag>
 		<flag name="shout">Enable shoutcast support</flag>
 		<flag name="tonal">Enable tonal analysis feature</flag>
 		<flag name="vinylcontrol">Enable vinylcontrol feature</flag>

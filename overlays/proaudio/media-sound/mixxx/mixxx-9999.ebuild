@@ -1,94 +1,85 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=1
+EAPI=4
 
-inherit exteutils qt4 bzr toolchain-funcs
+inherit bzr eutils multilib scons-utils toolchain-funcs
 
-DESCRIPTION="Digital DJ tool using QT 4.x"
+DESCRIPTION="A Qt based Digital DJ tool"
 HOMEPAGE="http://mixxx.sourceforge.net"
-
 EBZR_REPO_URI="lp:mixxx"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
+IUSE="aac debug doc mp3 mp4 pulseaudio shout wavpack"
 
-RDEPEND=">=x11-libs/qt-core-4.3:4
-		x11-libs/qt-gui:4
-		x11-libs/qt-svg:4
-		x11-libs/qt-opengl:4
-		x11-libs/qt-qt3support:4
-		media-libs/libmad
-		media-libs/libvorbis
-		media-libs/libsndfile
-		media-libs/libid3tag
-		>=media-libs/portaudio-19_pre
-		virtual/glu
-		alsa? ( media-libs/alsa-lib )
-		jack? ( media-sound/jack-audio-connection-kit )
-		djconsole? ( media-libs/libdjconsole )
-		ffmpeg? ( media-video/ffmpeg
-				  media-sound/gsm
-				  media-libs/libdc1394
-				  sys-libs/libraw1394
-				  media-libs/libdca
-				  media-libs/a52dec )
-		ladspa? ( media-libs/ladspa-sdk )
-		shout? ( media-libs/libshout )"
-
+RDEPEND="media-libs/fidlib
+	media-libs/flac
+	media-libs/libid3tag
+	media-libs/libogg
+	media-libs/libsndfile
+	>=media-libs/libsoundtouch-1.5
+	media-libs/libvorbis
+	>=media-libs/portaudio-19_pre
+	media-libs/portmidi
+	media-libs/taglib
+	virtual/glu
+	virtual/opengl
+	>=x11-libs/qt-gui-4.6:4
+	>=x11-libs/qt-opengl-4.6:4
+	>=x11-libs/qt-qt3support-4.6:4
+	>=x11-libs/qt-svg-4.6:4
+	>=x11-libs/qt-webkit-4.6:4
+	>=x11-libs/qt-xmlpatterns-4.6:4
+	aac? ( media-libs/faad2 )
+	mp3? ( media-libs/libmad )
+	mp4? ( media-libs/libmp4v2 )
+	pulseaudio? ( media-sound/pulseaudio )
+	shout? ( media-libs/libshout )
+	wavpack? ( media-sound/wavpack )"
 DEPEND="${RDEPEND}
-	sys-apps/sed
-	dev-util/scons
-	dev-lang/perl
 	dev-util/pkgconfig"
 
-IUSE="alsa jack ladspa djconsole hifieq shout tonal +vinylcontrol"
+S=${S}/${PN}
 
-S="${WORKDIR}/${P}/mixxx"
+src_prepare() {
+	epatch "${FILESDIR}"/${P}-cflags.patch
+	epatch "${FILESDIR}"/${P}-system-libs.patch
+	epatch "${FILESDIR}"/${P}-docs.patch
+	epatch "${FILESDIR}"/${P}-no-bzr.patch
 
-pkg_setup() {
-	if use jack; then
-		if ! built_with_use media-libs/portaudio jack; then
-			eerror "To have jack support, you need to compile portaudio"
-			eerror "with USE=\"jack\"!"
-			die
-		fi
+	# use multilib compatible directory for plugins
+	sed -i -e "/unix_lib_path =/s/'lib'/'$(get_libdir)'/" src/SConscript || die
+
+	# alter startup command when pulseaudio support is disabled
+	if ! use pulseaudio ; then
+		sed -i -e 's:pasuspender ::' src/mixxx.desktop || die
 	fi
 }
 
-src_unpack() {
-	bzr_fetch
-	# use our own CXXFLAGS/CFLAGS
-	esed_check -i \
-		-e "0,/\(^env.Append.*\)/s//\1\nenv.Append(CCFLAGS = Split(\"\"\" \
-		${CFLAGS} \"\"\"))/" \
-		-e "0,/\(^env.Append.*\)/s//\1\nenv.Append(CXXFLAGS = ' ${CXXFLAGS} ')/" \
-		"${S}/src/SConscript"
-}
-
 src_compile() {
-	myconf=""
-	! use ladspa; myconf="ladspa=$?"
-	# disable ffmpeg for now
-	#! use ffmpeg; myconf="${myconf} ffmpeg=$?"
-	myconf="${myconf} ffmpeg=0"
-	! use djconsole; myconf="${myconf} djconsole=$?"
-	! use hifieq; myconf="${myconf} hifieq=$?"
-	! use shout; myconf="${myconf} shoutcast=$?"
-	! use tonal; myconf="${myconf} tonal=$?"
-	myconf="${myconf} prefix=/usr"
-	myconf="${myconf} qtdir=/usr/share/qt4"
-
-	mkdir -p "${D}/usr"
-	einfo "selected options: ${myconf}"
-	tc-export CC CXX
-	scons ${myconf} || die "scons failed"
+	CC="$(tc-getCC)" CXX="$(tc-getCXX)" LINKFLAGS="${LDFLAGS}" \
+	LIBPATH="/usr/$(get_libdir)" escons \
+		prefix=/usr \
+		qtdir=/usr/$(get_libdir)/qt4 \
+		hifieq=1 \
+		vinylcontrol=1 \
+		optimize=0 \
+		$(use_scons aac faad) \
+		$(use_scons debug qdebug) \
+		$(use_scons mp3 mad) \
+		$(use_scons mp4 m4a) \
+		$(use_scons shout shoutcast) \
+		$(use_scons wavpack wv)
 }
 
 src_install() {
-	mkdir -p "${D}/usr"
-	scons ${myconf} install_root="${D}/usr" install || die
+	CC="$(tc-getCC)" CXX="$(tc-getCXX)" LINKFLAGS="${LDFLAGS}" \
+	LIBPATH="/usr/$(get_libdir)" escons install \
+		prefix=/usr \
+		install_root="${D}"/usr
+
 	dodoc README Mixxx-Manual.pdf
 }

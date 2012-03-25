@@ -1,6 +1,12 @@
 # ChangeLog for media-sound/mixxx
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  25 Mar 2012; Hakan Demiralp <keenblade@tuxfamily.org> mixxx-9999.ebuild,
+  +files/mixxx-9999-cflags.patch, +files/mixxx-9999-docs.patch,
+  +files/mixxx-9999-no-bzr.patch, -files/mixxx-9999-qt4_paths.patch,
+  +files/mixxx-9999-system-libs.patch, metadata.xml:
+  mixxx-9999.ebuild: ebuild and patches are updated. Thanks to Alex Barker
 
 *mixxx-1.10.0 (25 Dec 2011)
 
