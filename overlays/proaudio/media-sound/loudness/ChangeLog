@@ -1,6 +1,11 @@
-# ChangeLog for media-sound/r128-scanner
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# ChangeLog for media-sound/loudness
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*loudness-9999 (25 Mar 2012)
+
+  25 Mar 2012; Emery Hemingway <emery@vfemail.net> +loudness-9999.ebuild:
+  r128-scanner is now loudness
 
 *r128-scanner-0.4.0 (11 May 2011)
 
