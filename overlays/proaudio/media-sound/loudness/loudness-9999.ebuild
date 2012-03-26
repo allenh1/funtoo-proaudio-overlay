@@ -18,14 +18,15 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 
-IUSE="ffmpeg gstreamer musepack mp3 qt4 sndfile speex taglib"
+IUSE="ffmpeg gstreamer musepack mp3 sndfile speex taglib"
 
 DEPEND="dev-libs/glib:2
+	x11-libs/qt-gui
+	x11-libs/qt-svg
 	ffmpeg? ( virtual/ffmpeg )
 	gstreamer? ( media-libs/gstreamer )
 	musepack? ( media-sound/musepack-tools )
 	mp3? ( media-sound/mpg123 )
-	qt4? ( x11-libs/qt-gui )
 	sndfile? ( media-libs/libsndfile )
 	speex? ( media-libs/speex )
 	taglib? ( media-libs/taglib )"
