@@ -2,6 +2,9 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  21 Apr 2012; Hakan Demiralp <keenblade@tuxfamily.org> -mixxx-1.7.0.ebuild:
+  mixxx: update v1.10.0 and remove v1.7.0 wrt #125 by kwhat
+
   25 Mar 2012; Hakan Demiralp <keenblade@tuxfamily.org> mixxx-9999.ebuild,
   +files/mixxx-9999-cflags.patch, +files/mixxx-9999-docs.patch,
   +files/mixxx-9999-no-bzr.patch, -files/mixxx-9999-qt4_paths.patch,
