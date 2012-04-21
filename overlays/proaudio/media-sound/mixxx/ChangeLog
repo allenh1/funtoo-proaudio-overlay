@@ -2,6 +2,13 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  21 Apr 2012; Hakan Demiralp <keenblade@tuxfamily.org> mixxx-1.10.0.ebuild,
+  +files/mixxx-1.10.0-cflags.patch, +files/mixxx-1.10.0-docs.patch,
+  +files/mixxx-1.10.0-libmp4v2_r479_compat.patch,
+  +files/mixxx-1.10.0-m4a.patch, +files/mixxx-1.10.0-no-bzr.patch,
+  +files/mixxx-1.10.0-system-libs.patch, +files/mixxx-1.10.0-wavpack.patch:
+  mixxx-1.10.0.ebuild: ebuild updated and added new patches
+
   21 Apr 2012; Hakan Demiralp <keenblade@tuxfamily.org> -mixxx-1.7.0.ebuild:
   mixxx: update v1.10.0 and remove v1.7.0 wrt #125 by kwhat
 

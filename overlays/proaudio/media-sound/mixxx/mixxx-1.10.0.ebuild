@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -9,87 +9,84 @@ inherit eutils multilib scons-utils toolchain-funcs
 DESCRIPTION="a QT based Digital DJ tool"
 HOMEPAGE="http://mixxx.sourceforge.net"
 SRC_URI="http://downloads.mixxx.org/${P}/${P}-src.tar.gz"
+
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="debug mp4 pulseaudio"
+IUSE="aac debug doc mp3 mp4 pulseaudio shout wavpack"
 
-RDEPEND="media-libs/libmad
+RDEPEND="media-libs/flac
 	media-libs/libid3tag
-	media-libs/libmad
 	media-libs/libogg
-	media-libs/libvorbis
 	media-libs/libsndfile
-	media-libs/portmidi
 	>=media-libs/libsoundtouch-1.5
+	media-libs/libvorbis
 	>=media-libs/portaudio-19_pre
-	virtual/opengl
+	media-libs/portmidi
+	media-libs/taglib
 	virtual/glu
+	virtual/opengl
 	x11-libs/qt-gui:4
-	x11-libs/qt-svg:4
 	x11-libs/qt-opengl:4
 	x11-libs/qt-qt3support:4
+	x11-libs/qt-svg:4
 	x11-libs/qt-webkit:4
 	x11-libs/qt-xmlpatterns:4
+	aac? ( media-libs/faad2 )
+	mp3? ( media-libs/libmad )
 	mp4? ( media-libs/libmp4v2 )
-	pulseaudio? ( media-sound/pulseaudio )"
+	pulseaudio? ( media-sound/pulseaudio )
+	shout? ( media-libs/libshout )
+	wavpack? ( media-sound/wavpack )"
 DEPEND="${RDEPEND}
-	dev-util/scons
 	dev-util/pkgconfig"
 
-pkg_setup() {
-	mysconsargs="prefix=/usr
-		qtdir=/usr/$(get_libdir)/qt4
-		install_root=${D}/usr
-		hifieq=1
-		vinylcontrol=1"
-
-	use debug && mysconsargs+=" qdebug=1" || mysconsargs+=" qdebug=0"
-	use mp4 && mysconsargs+=" m4a=1" || mysconsargs+=" m4a=0"
-}
-
 src_prepare() {
+	epatch "${FILESDIR}"/${P}-system-libs.patch
+	epatch "${FILESDIR}"/${P}-cflags.patch
+	epatch "${FILESDIR}"/${P}-docs.patch
+	epatch "${FILESDIR}"/${P}-no-bzr.patch
+	epatch "${FILESDIR}"/${P}-libmp4v2_r479_compat.patch
+	epatch "${FILESDIR}"/${P}-wavpack.patch
+
+	# patch external libsoundtouch
+#	epatch "${FILESDIR}"/${P}-libsoundtouch.patch
 
 	# patch bzr revisoon issue.
-	sed -i -e 's:return os.popen("bzr revno").readline().strip():return "gentoo":' \
-		src/SConscript.env || die "sed revno failed"
+#	sed -i -e 's:return os.popen("bzr revno").readline().strip():return "gentoo":' \
+#		src/SConscript.env || die "sed revno failed"
 
-	# fix issues with cxxflags
-	sed -i -e "s:-pipe -Wall -W -g::" \
-		src/SConscript.env || die "sed failed"
+	# use multilib compatible directory for plugins
+	sed -i -e "/unix_lib_path =/s/'lib'/'$(get_libdir)'/" src/SConscript || die
 
-	# Patch startup command if not using pulse audio
-	use pulseaudio || sed -i -e 's:pasuspender:nice -n 0:' src/mixxx.desktop
-
-	# add addtional flags for debugging.
-	local extraflags=""
-	use debug && extraflags="${extraflags} -g"
-
-	#Export paths for SConscript
-	#Respect {C,CXX,LD}FLAGS. Bug #317519
-	unset CFLAGS
-	export CXXFLAGS="${CXXFLAGS} ${extraflags}"
-	#export LINKFLAGS="${LDFLAGS}"
-	export LIBPATH="/usr/$(get_libdir)"
+	# alter startup command when pulseaudio support is disabled
+	if ! use pulseaudio ; then
+		sed -i -e 's:pasuspender ::' src/mixxx.desktop || die
+	fi
 }
 
 src_compile() {
-
-	# chicanery to use the correct compiler
-	local cxx=$(type -P $(tc-getCXX))
-	mkdir -p "${T}/bin"
-	ln -s "${cxx}" "${T}/bin/g++" && \
-	export PATH="${T}/bin:${PATH}"
-
-	scons ${MAKEOPTS} ${mysconsargs} || die
+	CC="$(tc-getCC)" CXX="$(tc-getCXX)" LINKFLAGS="${LDFLAGS}" \
+	LIBPATH="/usr/$(get_libdir)" escons \
+		prefix=/usr \
+		qtdir=/usr/$(get_libdir)/qt4 \
+		$(use_scons aac faad) \
+		$(use_scons debug qdebug) \
+		$(use_scons mp3 mad) \
+		$(use_scons mp4 m4a) \
+		$(use_scons shout shoutcast) \
+		$(use_scons wavpack wv) \
+		hifieq=1 \
+		vinylcontrol=1 \
+		tuned=1 \
+		optimize=0 \
+		|| die
 }
 
 src_install() {
-
-	scons ${MAKEOPTS} ${mysconsargs} install || die
-
-	dodoc README*
-
-	insinto /usr/share/doc/${PF}/pdf
-	doins Mixxx-Manual.pdf
+	CC="$(tc-getCC)" CXX="$(tc-getCXX)" LINKFLAGS="${LDFLAGS}" \
+	LIBPATH="/usr/$(get_libdir)" escons install \
+		prefix=/usr \
+		install_root="${D}"/usr || die
+	dodoc README Mixxx-Manual.pdf
 }
