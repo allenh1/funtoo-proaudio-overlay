@@ -15,7 +15,8 @@ SLOT="0"
 KEYWORDS=""
 IUSE="aac debug doc mp3 mp4 pulseaudio shout wavpack"
 
-RDEPEND="media-libs/fidlib
+RDEPEND="dev-libs/protobuf
+	media-libs/fidlib
 	media-libs/flac
 	media-libs/libid3tag
 	media-libs/libogg
@@ -25,6 +26,7 @@ RDEPEND="media-libs/fidlib
 	>=media-libs/portaudio-19_pre
 	media-libs/portmidi
 	media-libs/taglib
+	media-libs/vamp-plugin-sdk
 	virtual/glu
 	virtual/opengl
 	>=x11-libs/qt-gui-4.6:4
@@ -49,6 +51,12 @@ src_prepare() {
 	epatch "${FILESDIR}"/${P}-system-libs.patch
 	epatch "${FILESDIR}"/${P}-docs.patch
 	epatch "${FILESDIR}"/${P}-no-bzr.patch
+
+	# Fixed by Bug #976730
+	epatch "${FILESDIR}"/${P}-m4a.patch
+
+	# Fix by Bug #970339
+	epatch "${FILESDIR}"/${P}-wavpack.patch
 
 	# use multilib compatible directory for plugins
 	sed -i -e "/unix_lib_path =/s/'lib'/'$(get_libdir)'/" src/SConscript || die

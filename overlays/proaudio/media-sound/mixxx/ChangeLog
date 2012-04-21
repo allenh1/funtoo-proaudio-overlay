@@ -2,6 +2,10 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  21 Apr 2012; Hakan Demiralp <keenblade@tuxfamily.org> mixxx-9999.ebuild,
+  +files/mixxx-9999-m4a.patch, +files/mixxx-9999-wavpack.patch:
+  mixxx-9999.ebuild: ebuild updated and new patches. Thanks to Alex Barker
+
   21 Apr 2012; Hakan Demiralp <keenblade@tuxfamily.org> mixxx-1.10.0.ebuild,
   +files/mixxx-1.10.0-cflags.patch, +files/mixxx-1.10.0-docs.patch,
   +files/mixxx-1.10.0-libmp4v2_r479_compat.patch,
