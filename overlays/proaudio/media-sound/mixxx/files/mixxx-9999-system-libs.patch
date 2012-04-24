@@ -1,14 +1,6 @@
---- mixxx-9999/build/depends.py	2012-03-12 05:23:47 +0000
-+++ mixxx-9999/build/depends.py	2012-03-21 20:41:47 +0000
-@@ -21,7 +21,7 @@
- 
-     def configure(self, build, conf):
-         #Check for PortTime
--        if not conf.CheckLib(['porttime', 'libporttime']) and \
-+        if not conf.CheckLib(['porttime', 'libportmidi']) and \
-                 not conf.CheckHeader(['porttime.h']):
-             raise Exception("Did not find PortTime or its development headers.")
-         if not conf.CheckLib(['portmidi', 'libportmidi']) and \
+=== modified file 'mixxx/build/depends.py'
+--- mixxx-9999/build/depends.py	2012-04-22 17:33:25 +0000
++++ mixxx-9999/build/depends.py	2012-04-23 23:49:03 +0000
 @@ -189,25 +189,10 @@
  
  class FidLib(Dependence):
@@ -38,11 +30,16 @@
  
  class ReplayGain(Dependence):
  
-@@ -218,34 +203,15 @@
+@@ -218,7 +203,6 @@
          build.env.Append(CPPPATH="#lib/replaygain")
  
  class SoundTouch(Dependence):
 -    SOUNDTOUCH_PATH = 'soundtouch-1.6.0'
+ 
+     def sse_enabled(self, build):
+         optimize = int(util.get_flags(build.env, 'optimize', 1))
+@@ -227,42 +211,13 @@
+                 (build.toolchain_is_gnu and optimize > 1))
  
      def sources(self, build):
 -        sources = ['engine/enginebufferscalest.cpp',
@@ -53,16 +50,21 @@
 -                   '#lib/%s/FIFOSampleBuffer.cpp' % self.SOUNDTOUCH_PATH,
 -                   '#lib/%s/FIRFilter.cpp' % self.SOUNDTOUCH_PATH,
 -                   '#lib/%s/PeakFinder.cpp' % self.SOUNDTOUCH_PATH,
--                   '#lib/%s/BPMDetect.cpp' % self.SOUNDTOUCH_PATH,
--                   '#lib/%s/mmx_optimized.cpp' % self.SOUNDTOUCH_PATH,
--                   '#lib/%s/sse_optimized.cpp' % self.SOUNDTOUCH_PATH,]
+-                   '#lib/%s/BPMDetect.cpp' % self.SOUNDTOUCH_PATH]
 -
 -        # SoundTouch CPU optimizations are only for x86
 -        # architectures. SoundTouch automatically ignores these files when it is
 -        # not being built for an architecture that supports them.
 -        cpu_detection = '#lib/%s/cpu_detect_x86_win.cpp' if build.toolchain_is_msvs else \
--                '#lib/%s/cpu_detect_x86_gcc.cpp'
+-            '#lib/%s/cpu_detect_x86_gcc.cpp'
 -        sources.append(cpu_detection % self.SOUNDTOUCH_PATH)
+-
+-        # Check if the compiler has SSE extention enabled
+-        # Allways the case on x64 (core instructions)
+-        if self.sse_enabled(build):
+-            sources.extend(
+-                ['#lib/%s/mmx_optimized.cpp' % self.SOUNDTOUCH_PATH,
+-                 '#lib/%s/sse_optimized.cpp' % self.SOUNDTOUCH_PATH,])
 -        return sources
 +        return ['engine/enginebufferscalest.cpp']
  
@@ -71,6 +73,12 @@
 -            # Regardless of the bitwidth, ST checks for WIN32
 -            build.env.Append(CPPDEFINES = 'WIN32')
 -        build.env.Append(CPPPATH=['#lib/%s' % self.SOUNDTOUCH_PATH])
+-
+-        # Check if the compiler has SSE extention enabled
+-        # Allways the case on x64 (core instructions)
+-        optimize = int(util.get_flags(build.env, 'optimize', 1))
+-        if self.sse_enabled(build):
+-            build.env.Append(CPPDEFINES='SOUNDTOUCH_ALLOW_X86_OPTIMIZATIONS')
 +        if not conf.CheckLib(['SoundTouch','libSoundTouch']):
 +            raise Exception('Did not find SoundTouch library, exiting!')
 +        build.env.Append(CPPPATH=[SCons.ARGUMENTS.get('prefix') + '/include/soundtouch'])
