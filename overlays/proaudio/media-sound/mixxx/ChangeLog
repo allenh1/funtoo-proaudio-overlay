@@ -2,6 +2,10 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  27 Apr 2012; Hakan Demiralp <keenblade@tuxfamily.org>
+  files/mixxx-9999-docs.patch:
+  mixxx-9999.ebuild: docs.patch is updated. Thanks to Alex Barker
+
   24 Apr 2012; Hakan Demiralp <keenblade@tuxfamily.org>
   files/mixxx-9999-system-libs.patch:
   mixxx-9999.ebuild: system-libs.patch is updated. Thanks to Alex Barker
