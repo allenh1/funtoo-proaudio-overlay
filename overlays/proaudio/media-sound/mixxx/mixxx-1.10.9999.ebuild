@@ -12,7 +12,7 @@ EBZR_REPO_URI="lp:mixxx/1.10"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE="aac debug doc mp3 mp4 pulseaudio shout wavpack"
 
 RDEPEND="media-libs/fidlib
