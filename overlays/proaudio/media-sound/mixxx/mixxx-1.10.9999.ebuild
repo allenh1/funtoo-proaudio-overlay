@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/mixxx/mixxx-1.10.0.ebuild,v 1.3 2012/05/01 16:32:12 radhermit Exp $
 
 EAPI=4
 
@@ -8,15 +8,14 @@ inherit bzr eutils multilib scons-utils toolchain-funcs
 
 DESCRIPTION="A Qt based Digital DJ tool"
 HOMEPAGE="http://mixxx.sourceforge.net"
-EBZR_REPO_URI="lp:mixxx"
+EBZR_REPO_URI="lp:mixxx/1.10"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="aac debug doc mp3 mp4 pulseaudio shout wavpack"
 
-RDEPEND="dev-libs/protobuf
-	media-libs/fidlib
+RDEPEND="media-libs/fidlib
 	media-libs/flac
 	media-libs/libid3tag
 	media-libs/libogg
@@ -26,16 +25,17 @@ RDEPEND="dev-libs/protobuf
 	>=media-libs/portaudio-19_pre
 	media-libs/portmidi
 	media-libs/taglib
-	media-libs/vamp-plugin-sdk
 	virtual/glu
 	virtual/opengl
-	>=x11-libs/qt-gui-4.6:4
-	>=x11-libs/qt-opengl-4.6:4
-	>=x11-libs/qt-qt3support-4.6:4
-	>=x11-libs/qt-svg-4.6:4
-	>=x11-libs/qt-webkit-4.6:4
-	>=x11-libs/qt-xmlpatterns-4.6:4
-	aac? ( media-libs/faad2 )
+	x11-libs/qt-gui:4
+	x11-libs/qt-opengl:4
+	x11-libs/qt-svg:4
+	x11-libs/qt-webkit:4
+	x11-libs/qt-xmlpatterns:4
+	aac? (
+		media-libs/faad2
+		media-libs/libmp4v2
+	)
 	mp3? ( media-libs/libmad )
 	mp4? ( media-libs/libmp4v2 )
 	pulseaudio? ( media-sound/pulseaudio )
@@ -47,8 +47,8 @@ DEPEND="${RDEPEND}
 S=${S}/${PN}
 
 src_prepare() {
-	epatch "${FILESDIR}"/${P}-cflags.patch
 	epatch "${FILESDIR}"/${P}-system-libs.patch
+	epatch "${FILESDIR}"/${P}-cflags.patch
 	epatch "${FILESDIR}"/${P}-docs.patch
 	epatch "${FILESDIR}"/${P}-no-bzr.patch
 

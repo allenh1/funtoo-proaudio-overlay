@@ -2,6 +2,16 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*mixxx-1.10.9999 (05 May 2012)
+
+  05 May 2012; Hakan Demiralp <keenblade@tuxfamily.org>
+  +mixxx-1.10.9999.ebuild, +files/mixxx-1.10.9999-cflags.patch,
+  +files/mixxx-1.10.9999-docs.patch, +files/mixxx-1.10.9999-no-bzr.patch,
+  +files/mixxx-1.10.9999-system-libs.patch, mixxx-9999.ebuild,
+  -files/mixxx-9999-m4a.patch, -files/mixxx-9999-wavpack.patch:
+  mixxx ebuilds: new ebuild mixxx-1.10.9999. Also m4a and wavpack patch
+  removed. Thanks to Alex Barker
+
   27 Apr 2012; Hakan Demiralp <keenblade@tuxfamily.org>
   files/mixxx-9999-docs.patch:
   mixxx-9999.ebuild: docs.patch is updated. Thanks to Alex Barker
