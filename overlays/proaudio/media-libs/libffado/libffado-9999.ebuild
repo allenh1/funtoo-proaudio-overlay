@@ -1,10 +1,10 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=1
+EAPI=4
 
-inherit eutils multilib subversion
+inherit eutils multilib scons-utils subversion
 
 DESCRIPTION="Successor for freebob: Library for accessing BeBoB IEEE1394 devices"
 HOMEPAGE="http://www.ffado.org"
@@ -33,21 +33,25 @@ RDEPEND=">=media-libs/alsa-lib-1.0.0
 DEPEND="${RDEPEND}
 	dev-util/scons"
 
-src_compile () {
+src_configure () {
 	local myconf=""
 
 	use debug \
 		&& myconf="${myconf} DEBUG=True ENABLE_OPTIMIZATIONS=False" \
 		|| myconf="${myconf} DEBUG=False ENABLE_OPTIMIZATIONS=True"
+}
 
-	scons \
+src_compile () {
+	addpredict /dev/snd # workaround because jackd --version is called after
+						# compilation, that tries to use /dev/snd/control*
+	escons \
 		PREFIX=/usr \
 		LIBDIR=/usr/$(get_libdir) \
 		${myconf} || die
 }
 
 src_install () {
-	scons DESTDIR="${D}" WILL_DEAL_WITH_XDG_MYSELF="True" install || die
+	escons DESTDIR="${D}" WILL_DEAL_WITH_XDG_MYSELF="True" install || die
 	dodoc AUTHORS ChangeLog NEWS README TODO
 
 	if use qt4; then
