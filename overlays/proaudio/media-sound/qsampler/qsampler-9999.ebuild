@@ -1,17 +1,14 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI="4"
 
-inherit eutils qt4-r2 cvs
+inherit eutils subversion
 
 DESCRIPTION="QSampler is a graphical frontend to the LinuxSampler engine."
 HOMEPAGE="http://qsampler.sourceforge.net"
-
-ECVS_SERVER="qsampler.cvs.sourceforge.net:/cvsroot/qsampler"
-ECVS_MODULE="${PN}"
-S="${WORKDIR}/${PN}"
+ESVN_REPO_URI="https://svn.linuxsampler.org/svn/qsampler/trunk"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -26,12 +23,8 @@ RDEPEND="x11-libs/qt-gui:4
 DEPEND="${RDEPEND}"
 
 src_configure() {
-	make -f Makefile.cvs
+	make -f Makefile.svn
 	econf || die "configure failed"
-}
-
-src_compile() {
-	emake || die "make failed"
 }
 
 src_install() {

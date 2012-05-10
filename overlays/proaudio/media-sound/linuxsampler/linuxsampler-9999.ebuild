@@ -1,24 +1,19 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI="4"
 
-inherit eutils toolchain-funcs cvs
+inherit eutils toolchain-funcs subversion
 
 DESCRIPTION="LinuxSampler is a software audio sampler engine with professional grade features."
 HOMEPAGE="http://www.linuxsampler.org/"
-#SRC_URI="http://download.linuxsampler.org/packages/${P}.tar.bz2"
-
-ECVS_SERVER="cvs.linuxsampler.org:/var/cvs/linuxsampler"
-ECVS_MODULE="linuxsampler"
+ESVN_REPO_URI="https://svn.linuxsampler.org/svn/linuxsampler/trunk"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 IUSE="alsa doc dssi jack lv2 sqlite"
-
-S=${WORKDIR}/${ECVS_MODULE}
 
 RDEPEND="
 	>=media-libs/liblscp-9999
@@ -26,7 +21,7 @@ RDEPEND="
 	alsa? ( media-libs/alsa-lib )
 	dssi? ( media-libs/dssi )
 	jack? ( media-sound/jack-audio-connection-kit )
-	lv2? ( media-libs/lv2core )
+	lv2? ( media-libs/lv2 )
 	sqlite? ( dev-db/sqlite:3 )"
 
 DEPEND="${RDEPEND}

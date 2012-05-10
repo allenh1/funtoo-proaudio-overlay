@@ -1,17 +1,14 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI="4"
 
-inherit eutils cvs
+inherit eutils subversion
 
 DESCRIPTION="libgig is a C++ library for loading Gigasampler files and DLS (Downloadable Sounds) Level 1/2 files."
 HOMEPAGE="http://www.linuxsampler.org/libgig/"
-# SRC_URI="http://stud.fh-heilbronn.de/~cschoene/projects/libgig/${P}.tar.bz2"
-
-ECVS_SERVER="cvs.linuxsampler.org:/var/cvs/linuxsampler"
-ECVS_MODULE="libgig"
+ESVN_REPO_URI="https://svn.linuxsampler.org/svn/libgig/trunk"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -22,8 +19,6 @@ RDEPEND=">=media-libs/libsndfile-1.0.2
 
 DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )"
-
-S=${WORKDIR}/${ECVS_MODULE}
 
 src_configure() {
 	make -f Makefile.cvs

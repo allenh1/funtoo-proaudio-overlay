@@ -1,6 +1,9 @@
 # ChangeLog for media-libs/liblscp
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  10 May 2012; Hakan Demiralp <keenblade@tuxfamily.org> liblscp-9999.ebuild:
+  liblscp-9999: ebuild updated. Thanks to Natanael
 
   02 Sep 2010; Viktor Lazarev <taurus101v@gmail.com> liblscp-9999.ebuild:
   brushed up

@@ -1,6 +1,9 @@
 # ChangeLog for media-libs/libgig
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  10 May 2012; Hakan Demiralp <keenblade@tuxfamily.org> libgig-9999.ebuild:
+  libgig-9999: ebuild updated. Thanks to Natanael
 
   02 Sep 2010; Viktor Lazarev <taurus101v@gmail.com> libgig-9999.ebuild:
   brushed up

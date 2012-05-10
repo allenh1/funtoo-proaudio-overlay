@@ -1,17 +1,14 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI="4"
 
-inherit cvs
-
-ECVS_SERVER="cvs.linuxsampler.org:/var/cvs/linuxsampler"
-ECVS_MODULE="gigedit"
+inherit subversion
 
 DESCRIPTION="Gigedit is an instrument editor for Gigasampler files."
 HOMEPAGE="http://www.linuxsampler.org"
-SRC_URI=""
+ESVN_REPO_URI="https://svn.linuxsampler.org/svn/gigedit/trunk"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
@@ -36,8 +33,6 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	sys-devel/gettext
 	dev-util/pkgconfig"
-
-S="${WORKDIR}/${ECVS_MODULE}"
 
 src_configure() {
 	make -f Makefile.cvs
