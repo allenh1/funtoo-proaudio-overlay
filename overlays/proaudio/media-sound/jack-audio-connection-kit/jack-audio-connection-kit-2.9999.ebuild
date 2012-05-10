@@ -2,12 +2,14 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit subversion flag-o-matic
+EAPI=4
+
+inherit git-2 waf-utils
 
 DESCRIPTION="Jackdmp jack implemention for multi-processor machine"
 HOMEPAGE="http://www.grame.fr/~letz/jackdmp.html"
 
-ESVN_REPO_URI="http://subversion.jackaudio.org/jack/jack2/trunk/jackmp"
+EGIT_REPO_URI="git://github.com/jackaudio/jack2.git"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -22,6 +24,10 @@ DEPEND="${RDEPEND}
 	dbus? ( sys-apps/dbus )
 	ieee1394? ( media-libs/libffado !sys-libs/libfreebob )
 	media-libs/libsamplerate"
+
+src_unpack() {
+	git-2_src_unpack
+}
 
 pkg_setup() {
 	# sandbox-1.6 breaks, on amd64 at least
@@ -44,7 +50,12 @@ pkg_setup() {
 	fi
 }
 
-src_compile() {
+src_prepare()
+{
+	epatch "${FILESDIR}"/jack-audio-connection-kit-2.9999-link-fix.patch
+}
+
+src_configure() {
 	local myconf="--prefix=/usr --destdir=${D}"
 	use alsa && myconf="${myconf} --alsa"
 	if use classic && use dbus ; then
@@ -54,16 +65,16 @@ src_compile() {
 		myconf="${myconf} --mixed"
 	fi
 	use dbus && myconf="${myconf} --dbus"
-	use debug && myconf="${myconf} -d debug"
+	use debug && myconf="${myconf} --debug"
 	use doc && myconf="${myconf} --doxygen"
 	use freebob && myconf="${myconf} --freebob"
 	use ieee1394 && myconf="${myconf} --firewire"
 
 	einfo "Running \"./waf configure ${myconf}\" ..."
-	./waf configure ${myconf} || die "waf configure failed"
-	./waf build ${MAKEOPTS} || die "waf build failed"
+	waf-utils_src_configure  ${myconf}
 }
 
-src_install() {
-	./waf --destdir="${D}" install || die "waf install failed"
+src_compile()
+{
+	waf-utils_src_compile
 }
