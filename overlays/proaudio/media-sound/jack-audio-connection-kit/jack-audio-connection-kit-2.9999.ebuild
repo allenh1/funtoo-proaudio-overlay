@@ -14,10 +14,11 @@ EGIT_REPO_URI="git://github.com/jackaudio/jack2.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="alsa classic doc debug freebob dbus ieee1394 mixed"
+IUSE="alsa classic doc debug freebob dbus ieee1394 mixed pam"
 
 RDEPEND="dev-util/pkgconfig
-	>=media-libs/alsa-lib-0.9.1"
+	>=media-libs/alsa-lib-1.0.24
+	pam? ( sys-auth/realtime-base )"
 DEPEND="${RDEPEND}
 	freebob? ( sys-libs/libfreebob !media-libs/libffado )
 	doc? ( app-doc/doxygen )
