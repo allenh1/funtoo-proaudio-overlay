@@ -1,6 +1,10 @@
 # ChangeLog for media-sound/boodler
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  20 May 2012; Hakan Demiralp <keenblade@tuxfamily.org> boodler-2.0.4.ebuild:
+  boodler-2.0.4: now ebuild selects python-2 even when Python-3 is set as
+  system python wrt bug #106 by 3rx9o
 
 *boodler-2.0.4 (15 Apr 2011)
 

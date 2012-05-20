@@ -1,11 +1,11 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=4
 
-PYTHON_DEPEND="2:2.4"
-inherit distutils bash-completion
+PYTHON_DEPEND="2:2.7"
+inherit distutils bash-completion-r1 python
 
 MY_P="Boodler-${PV}"
 
@@ -32,6 +32,9 @@ RDEPEND="${DEPEND}
 S="${WORKDIR}/${MY_P}"
 
 pkg_setup() {
+# Since boodler does not work with python3, we use python2
+	python_set_active_version 2
+
 	if use shout && ! use vorbis ; then
 		eerror "To have shout support, you also need to build boodler with"
 		eerror "USE=\"vorbis\"!"
