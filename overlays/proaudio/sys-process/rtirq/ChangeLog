@@ -6,7 +6,7 @@
 
   22 May 2012; Hakan Demiralp <keenblade@tuxfamily.org> -rtirq-20111007.ebuild,
   +rtirq-20120505.ebuild, metadata.xml:
-  rtirq-20120505.ebuild: version bump to 20111007. Thanks to naelolaiz wrt bug
+  rtirq-20120505.ebuild: version bump. Thanks to naelolaiz wrt bug
   #127
 
 *rtirq-20111007 (21 Jan 2012)
