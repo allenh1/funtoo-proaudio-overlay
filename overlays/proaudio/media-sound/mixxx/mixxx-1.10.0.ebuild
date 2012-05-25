@@ -15,7 +15,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="aac debug doc mp3 mp4 pulseaudio shout wavpack"
 
-RDEPEND="media-libs/flac
+RDEPEND="media-libs/fidlib
+	media-libs/flac
 	media-libs/libid3tag
 	media-libs/libogg
 	media-libs/libsndfile
@@ -39,7 +40,7 @@ RDEPEND="media-libs/flac
 	shout? ( media-libs/libshout )
 	wavpack? ( media-sound/wavpack )"
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig"
+	virtual/pkgconfig"
 
 src_prepare() {
 	epatch "${FILESDIR}"/${P}-system-libs.patch

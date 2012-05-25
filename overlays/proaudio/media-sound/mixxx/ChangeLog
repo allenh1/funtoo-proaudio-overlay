@@ -2,6 +2,10 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  25 May 2012; Hakan Demiralp <keenblade@tuxfamily.org> mixxx-1.10.0.ebuild:
+  mixxx-1.10.0: missing fidlib dependency added wrt bug report at f.g.o. by
+  woelfl
+
   05 May 2012; Hakan Demiralp <keenblade@tuxfamily.org> mixxx-1.10.9999.ebuild:
   mixxx--1.10.9999: removed keywords. Live ebuilds shoud not define keywords
 
