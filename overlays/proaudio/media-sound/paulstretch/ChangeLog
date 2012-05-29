@@ -4,6 +4,10 @@
 
 *paulstretch-2.0 (21 Jul 2010)
 
+  29 May 2012; Dominique Michel <dominique_libre@sourceforge.met>
+  +paulstretch-2.2-r2.ebuild for the 2.2-2 version;
+  Added a jack USE flag.
+
   21 Jul 2010; Hakan Demiralp <keenblade@tuxfamily.org>
   +files/fix-mp3inputs.patch, +paulstretch-2.0.ebuild:
   Version bump. Added a patch for fixing a compile issue
