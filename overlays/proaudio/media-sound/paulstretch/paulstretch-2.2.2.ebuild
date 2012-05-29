@@ -10,7 +10,7 @@ RESTRICT="mirror"
 DESCRIPTION="extreme sound stretching of the audio"
 HOMEPAGE="http://hypermammut.sourceforge.net/paulstretch"
 
-MY_P="${P}-2"
+MY_P="${PN}-2.2-2"
 SRC_URI="mirror://sourceforge/hypermammut/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"
@@ -28,7 +28,7 @@ DEPEND="media-libs/portaudio
 			)"
 RDEPEND="${DEPEND}"
 
-S="${WORKDIR}/${P}-2"
+S="${WORKDIR}/${PN}-2.2-2"
 
 src_prepare() {
 	epatch "${FILESDIR}/fix-mp3inputs.patch"
