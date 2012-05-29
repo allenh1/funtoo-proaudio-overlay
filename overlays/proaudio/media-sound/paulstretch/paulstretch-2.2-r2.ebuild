@@ -35,8 +35,20 @@ src_prepare() {
 }
 
 src_compile() {
-	outfile=paulstretch
-	fluid -c GUI.fl || die "generate gui failed"
+	if ! use jack; then
+		if use fftw; then
+			sed -i -e "s:g++ -ggdb:$(tc-getCXX) ${CFLAGS} ${LDFLAGS}:" \
+				compile_linux_fftw.sh || die "sed fix failed"
+		else
+			sed -i -e "s:g++ -ggdb:$(tc-getCXX) ${CFLAGS} ${LDFLAGS}:" \
+				compile_linux_kissfft.sh || die "sed fix failed"
+		fi
+	else
+		sed -i -e "s:g++ -ggdb:$(tc-getCXX) ${CFLAGS} ${LDFLAGS}:" \
+			compile_linux_fftw_jack.sh || die "sed fix failed"
+	fi
+#	outfile=paulstretch
+#	fluid -c GUI.fl || die "generate gui failed"
 	if ! use jack; then
 		if use fftw ;then
 			./compile_linux_fftw.sh || die "compilation failed"
