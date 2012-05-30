@@ -1,0 +1,10 @@
+# ChangeLog for dev-ml/ocaml-cry
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*ocaml-cry-0.2.2 (29 May 2012)
+
+  29 May 2012; Emery Hemingway <emery@vfemail.net> +ocaml-cry-0.2.2.ebuild,
+  +metadata.xml:
+  Initial packaging
+

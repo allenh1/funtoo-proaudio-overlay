@@ -1,0 +1,10 @@
+# ChangeLog for dev-ml/yojson
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*yojson-1.0.3 (29 May 2012)
+
+  29 May 2012; Emery Hemingway <emery@vfemail.net> +yojson-1.0.3.ebuild,
+  +metadata.xml:
+  Initial ebuild
+
