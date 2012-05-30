@@ -33,6 +33,10 @@ src_configure() {
 	USER="nobody" econf
 }
 
+src_compile() {
+	emake -j1
+}
+
 src_install() {
 	findlib_src_install
 	dodoc CHANGES README

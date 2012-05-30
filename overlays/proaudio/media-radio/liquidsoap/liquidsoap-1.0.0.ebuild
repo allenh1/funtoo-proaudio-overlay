@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-## Will not build with ocaml-gstreamer with gstreamer
+## Will not build with ocaml-gstreamer
 # File "io/gstreamer_io.ml", line 23, characters 0-14:
 # Error: Unbound module Gstreamer
 #
@@ -118,32 +118,31 @@ src_configure() {
 		$(liquidsoap_use aacplus) \
 		$(liquidsoap_use alsa) \
 		$(liquidsoap_use ao) \
-		$(liquidsoap_use_as dirac schroedinger ) \
-		$(liquidsoap_use dssi ) \
-		$(liquidsoap_use faad ) \
-		$(liquidsoap_use flac ) \
-		$(liquidsoap_use gavl ) \
-		$(liquidsoap_use_as graphics camlimages ) \
-		$(liquidsoap_use_as jack bjack ) \
-		$(liquidsoap_use json ) \
-		$(liquidsoap_use ladspa ) \
-		$(liquidsoap_use lame ) \
-		$(liquidsoap_use lastfm ) \
+		$(liquidsoap_use_as dirac schroedinger) \
+		$(liquidsoap_use dssi) \
+		$(liquidsoap_use faad) \
+		$(liquidsoap_use flac) \
+		$(liquidsoap_use gavl) \
+		$(liquidsoap_use_as graphics camlimages) \
+		$(liquidsoap_use_as jack bjack) \
+		$(liquidsoap_use ladspa) \
+		$(liquidsoap_use lame) \
+		$(liquidsoap_use lastfm) \
 		$(liquidsoap_use_as libsamplerate samplerate) \
-		$(liquidsoap_use mad ) \
-		$(liquidsoap_use_as osc lo ) \
-		$(liquidsoap_use portaudio ) \
-		$(liquidsoap_use pulseaudio ) \
-		$(use_enable graphics ) \
-		$(liquidsoap_use_as shout cry ) \
-		$(liquidsoap_use soundtouch ) \
-		$(liquidsoap_use speex ) \
-		$(liquidsoap_use taglib ) \
-		$(liquidsoap_use theora ) \
-		$(use_enable unicode camomile ) \
-		$(liquidsoap_use_as voaac voaacenc ) \
-		$(liquidsoap_use vorbis ) \
-		$(liquidsoap_use_as xml xmlplaylist )
+		$(liquidsoap_use mad) \
+		$(liquidsoap_use_as osc lo) \
+		$(liquidsoap_use portaudio) \
+		$(liquidsoap_use pulseaudio) \
+		$(use_enable graphics) \
+		$(liquidsoap_use_as shout cry) \
+		$(liquidsoap_use soundtouch) \
+		$(liquidsoap_use speex) \
+		$(liquidsoap_use taglib) \
+		$(liquidsoap_use theora) \
+		$(use_enable unicode camomile) \
+		$(liquidsoap_use_as voaac voaacenc) \
+		$(liquidsoap_use vorbis) \
+		$(liquidsoap_use_as xml xmlplaylist)
 	## checks for python and pygtk, but hopefully
 	## things wont  break if they're missing
 }

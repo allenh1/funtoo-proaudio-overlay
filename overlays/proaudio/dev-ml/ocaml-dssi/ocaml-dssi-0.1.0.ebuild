@@ -28,6 +28,10 @@ src_prepare() {
 	eautomake
 }
 
+src_compile() {
+	emake -j1
+}
+
 src_install() {
 	findlib_src_install
 	dodoc CHANGES

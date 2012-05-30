@@ -19,7 +19,7 @@ DEPEND="${RDEPEND}
 		dev-ml/easy-format"
 
 src_compile() {
-	make
+	emake -j1
 }
 
 src_install() {

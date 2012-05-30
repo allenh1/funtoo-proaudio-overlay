@@ -1,0 +1,7 @@
+# ChangeLog for media-radio/liquidsoap
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  30 May 2012; Emery Hemingway <emery@vfemail.net> liquidsoap-1.0.0.ebuild:
+  Moved to media-radio, minor configure changes
+

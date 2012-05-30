@@ -19,6 +19,10 @@ DEPEND="${RDEPEND}
 		dev-ml/findlib
 		virtual/pkgconfig"
 
+src_compile() {
+	emake -j1
+}
+
 src_install()
 {
 	findlib_src_install

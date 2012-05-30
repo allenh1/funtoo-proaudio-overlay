@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=4
-inherit eutils findlib
+inherit autotools eutils findlib
 
 DESCRIPTION="OCaml deamon tools library."
 HOMEPAGE="http://savonet.sourceforge.net"
@@ -19,9 +19,16 @@ DEPEND="dev-lang/ocaml
 
 RDEPEND="dev-lang/ocaml"
 
-src_configure() {
-	./configure \
-		--prefix=/usr || die "./configure failed!"
+src_prepare() {
+	einfo "Replacing strict tool checks with lazy ones..."
+	sed -i 's/AC_CHECK_TOOL_STRICT/AC_CHECK_TOOL/g' m4/ocaml.m4 \
+			|| die "Failed editing m4/ocaml.m4!"
+	AT_M4DIR="m4" eautoreconf
+	eautomake
+}
+
+src_compile() {
+	emake -j1
 }
 
 src_install() {
