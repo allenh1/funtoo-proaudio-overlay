@@ -42,7 +42,7 @@ RDEPEND="media-libs/liblo
 	dev-libs/libusb
 	=sci-libs/fftw-3*
 	freesound? ( net-misc/curl )
-	lv2? ( >=media-libs/lv2-1.0.0 )"
+	lv2? ( >=media-libs/lilv-0.14.0 )"
 
 DEPEND="${RDEPEND}
 	sys-devel/libtool

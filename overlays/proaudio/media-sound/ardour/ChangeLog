@@ -3,6 +3,9 @@
 # $Header: $
 
   30 May 2012; Hakan Demiralp <keenblade@tuxfamily.org> ardour-3.9999.ebuild:
+  ardour-3.9999: dependency change from lv2 to lilv
+
+  30 May 2012; Hakan Demiralp <keenblade@tuxfamily.org> ardour-3.9999.ebuild:
   ardour-3.9999: dependency change from slv2 to lv2 wrt bug #129 by rsevero
 
   01 Jul 2011; Hakan Demiralp <keenblade@tuxfamily.org ardour-2.8.11.ebuild:
