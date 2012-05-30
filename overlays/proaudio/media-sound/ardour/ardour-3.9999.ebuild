@@ -1,8 +1,8 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI="4"
 
 inherit eutils toolchain-funcs fdo-mime flag-o-matic subversion versionator
 
@@ -42,7 +42,7 @@ RDEPEND="media-libs/liblo
 	dev-libs/libusb
 	=sci-libs/fftw-3*
 	freesound? ( net-misc/curl )
-	lv2? ( >=media-libs/slv2-0.6.1 )"
+	lv2? ( >=media-libs/lv2-1.0.0 )"
 
 DEPEND="${RDEPEND}
 	sys-devel/libtool
@@ -98,7 +98,7 @@ src_install() {
 	#	mv "${D}"/usr/bin/ardourvst "${D}"/usr/bin/ardour2
 	#fi
 
-	dodoc DOCUMENTATION/*
+#	dodoc DOCUMENTATION/*
 
 	#newicon "icons/icon/ardour_icon_tango_48px_blue.png" "ardour3.png"
 	#make_desktop_entry "ardour3" "Ardour3" "ardour3" "AudioVideo;Audio"
