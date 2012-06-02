@@ -34,6 +34,7 @@ S="${WORKDIR}/${MY_P}"
 pkg_setup() {
 # Since boodler does not work with python3, we use python2
 	python_set_active_version 2
+		python_pkg_setup
 
 	if use shout && ! use vorbis ; then
 		eerror "To have shout support, you also need to build boodler with"
