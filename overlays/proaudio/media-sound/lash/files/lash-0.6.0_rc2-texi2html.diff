@@ -1,0 +1,46 @@
+*** docs/Makefile.am~	Tue Nov 20 00:00:28 2007
+--- docs/Makefile.am	Sun Jun  3 05:14:51 2012
+***************
+*** 18,26 ****
+  	  mkdir -lash-manual-html-split; \
+  	fi
+  	cd lash-manual-html-one-page && \
+! 	  texi2html --number ../$(top_srcdir)/docs/lash-manual.texi
+  	cd lash-manual-html-split && \
+! 	  texi2html --number --split=chapter ../$(top_srcdir)/docs/lash-manual.texi
+  	touch html-manual-stamp
+  
+  CLEANFILES = html-manual-stamp lash-manual.cps
+--- 18,26 ----
+  	  mkdir -lash-manual-html-split; \
+  	fi
+  	cd lash-manual-html-one-page && \
+! 	  texi2html ../$(top_srcdir)/docs/lash-manual.texi
+  	cd lash-manual-html-split && \
+! 	  texi2html --split=chapter ../$(top_srcdir)/docs/lash-manual.texi
+  	touch html-manual-stamp
+  
+  CLEANFILES = html-manual-stamp lash-manual.cps
+*** docs/Makefile.in	Sun Jun  3 05:17:46 2012
+--- docs/Makefile.in~	Sun Nov  9 23:45:28 2008
+***************
+*** 527,535 ****
+  @HAVE_TEXI2HTML_TRUE@	  mkdir -lash-manual-html-split; \
+  @HAVE_TEXI2HTML_TRUE@	fi
+  @HAVE_TEXI2HTML_TRUE@	cd lash-manual-html-one-page && \
+! @HAVE_TEXI2HTML_TRUE@	  texi2html --number ../$(top_srcdir)/docs/lash-manual.texi
+  @HAVE_TEXI2HTML_TRUE@	cd lash-manual-html-split && \
+! @HAVE_TEXI2HTML_TRUE@	  texi2html --number --split=chapter ../$(top_srcdir)/docs/lash-manual.texi
+  @HAVE_TEXI2HTML_TRUE@	touch html-manual-stamp
+  # Tell versions [3.59,3.63) of GNU make to not export all variables.
+  # Otherwise a system limit (for SysV at least) may be exceeded.
+--- 527,535 ----
+  @HAVE_TEXI2HTML_TRUE@	  mkdir -lash-manual-html-split; \
+  @HAVE_TEXI2HTML_TRUE@	fi
+  @HAVE_TEXI2HTML_TRUE@	cd lash-manual-html-one-page && \
+! @HAVE_TEXI2HTML_TRUE@	  texi2html ../$(top_srcdir)/docs/lash-manual.texi
+  @HAVE_TEXI2HTML_TRUE@	cd lash-manual-html-split && \
+! @HAVE_TEXI2HTML_TRUE@	  texi2html --split=chapter ../$(top_srcdir)/docs/lash-manual.texi
+  @HAVE_TEXI2HTML_TRUE@	touch html-manual-stamp
+  # Tell versions [3.59,3.63) of GNU make to not export all variables.
+  # Otherwise a system limit (for SysV at least) may be exceeded.

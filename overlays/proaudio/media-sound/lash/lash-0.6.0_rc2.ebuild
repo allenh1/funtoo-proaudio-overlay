@@ -1,10 +1,10 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI="4"
 
-inherit eutils libtool
+inherit eutils
 
 MY_P="${P/_/~}"
 
@@ -29,7 +29,11 @@ DEPEND="${RDEPEND}
 
 S="${WORKDIR}/${PN}-0.6.0.594"
 
-src_compile() {
+src_prepare() {
+	epatch "${FILESDIR}/${P}-texi2html.diff" || die "conf patch failed"
+}
+
+src_configure() {
 	local myconf
 
 	# Yet-another-broken-configure: --enable-pylash would disable it.
@@ -43,6 +47,9 @@ src_compile() {
 		--disable-serv-inst \
 		--disable-dependency-tracking \
 		|| die "econf failed"
+}
+
+src_compile() {
 	emake || die "emake failed"
 }
 

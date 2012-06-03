@@ -1,6 +1,11 @@
 # ChangeLog for media-sound/lash
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  03 Jun 2012; Hakan Demiralp (keenblade) <keenblade@tuxfamily.org>
+  lash-0.6.0_rc2.ebuild, +files/lash-0.6.0_rc2-texi2html.diff:
+  lash-0.6.0_rc2: added new patch lash-0.6.0_rc2-texi2html.diff wrt texi2htm
+  bug by wol. removed old ebuild and patch
 
   04 Aug 2009; Dominique Michel <dominique@tuxfamily.org>;
   Removed midi USE check from alsa-lib depend
