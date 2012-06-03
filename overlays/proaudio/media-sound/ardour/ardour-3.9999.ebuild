@@ -31,6 +31,7 @@ RDEPEND="media-libs/liblo
 	>=dev-libs/libxml2-2.6.0
 	dev-libs/libxslt
 	>=media-libs/libsndfile-1.0.18_pre24
+	>=media-libs/suil-0.6.2
 	gnome-base/libgnomecanvas
 	x11-themes/gtk-engines
 	>=dev-cpp/gtkmm-2.12.3

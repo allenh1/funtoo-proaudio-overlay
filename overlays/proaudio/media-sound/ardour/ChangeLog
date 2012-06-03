@@ -2,6 +2,10 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  03 Jun 2012; Hakan Demiralp (keenblade) <keenblade@tuxfamily.org>
+  ardour-3.9999.ebuild:
+  ardour-3.9999: suil dependency added wrt bug #129 by rsevero and mikkl
+
   30 May 2012; Hakan Demiralp <keenblade@tuxfamily.org> ardour-3.9999.ebuild:
   ardour-3.9999: dependency change from lv2 to lilv
 
