@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -23,6 +23,7 @@ S=${WORKDIR}/kde4
 PATCHES=(
 #	"${FILESDIR}"/${P}+gcc-4.3.patch
 #	"${FILESDIR}"/kguitar-0.5-desktop-file.diff
+	"${FILESDIR}"/${P}-gcc-songview.patch
 	)
 
 src_configure() {

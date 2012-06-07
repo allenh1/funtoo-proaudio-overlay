@@ -1,6 +1,11 @@
 # ChangeLog for media-sound/kguitar
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  07 Jun 2012; Hakan Demiralp (keenblade) <keenblade@tuxfamily.org>
+  kguitar-0.6_pre1.ebuild, +files/kguitar-0.6_pre1-gcc-songview.patch:
+  kguitar-0.6_pre1: fix to make modern compilers happy wrt bug #131 by
+  pavalliavonau
 
   25 May 2011: Dominique Michel <dominique|tuxfamily.org>
   introducing kguitar-9999.ebuild
