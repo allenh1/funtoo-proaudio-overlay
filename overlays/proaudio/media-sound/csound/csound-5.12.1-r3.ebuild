@@ -1,9 +1,9 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI="4"
 PYTHON_DEPEND="2"
-EAPI="2"
 
 inherit exteutils python eutils toolchain-funcs
 
@@ -86,11 +86,11 @@ src_prepare() {
 	epatch "${FILESDIR}"/javaVM.patch
 	epatch "${FILESDIR}"/libmusicxml.patch
 	epatch "${FILESDIR}"/custom.py-${PV}.patch
-	
+
 	if use csoundac && ! use lua ; then
 		die "You have enables the USE csoundac, you must emerge ${P} with USE=\"lua\" for this to work"
 	fi
-	 
+
 	if use stk; then
 		ebegin "Copying Perry Cook's Synthesis ToolKit to the tree"
 		cp -r "${WORKDIR}"/stk-"${STK_VERSION}"/* "${S}"/Opcodes/stk/

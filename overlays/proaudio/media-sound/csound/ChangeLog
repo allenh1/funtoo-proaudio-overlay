@@ -1,6 +1,11 @@
 # ChangeLog for media-sound/csound
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  10 Jun 2012; Hakan Demiralp (keenblade) <keenblade@tuxfamily.org>
+  csound-5.12.1-r3.ebuild:
+  csound-5.12.1-r3: EAPI assignment now occurs on right line wrt bug #132 by
+  sliwowitz
 
   04 Jun 2011; Dominique Michel dominique@tuxfamily.org>
   csound-5.12.1-r1.ebuild:
