@@ -19,7 +19,7 @@ IUSE=""
 RESTRICT="mirror"
 
 DEPEND="dev-util/scons
-	=media-libs/libclam-9999
+	>=media-libs/libclam-9999
  	|| ( ( x11-libs/qt-core x11-libs/qt-gui 
  		x11-libs/qt-qt3support x11-libs/qt-opengl )
  		>=x11-libs/qt-4:4 )"

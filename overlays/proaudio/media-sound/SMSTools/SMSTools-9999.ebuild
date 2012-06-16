@@ -19,7 +19,7 @@ RESTRICT="mirror"
 
 DEPEND="dev-util/scons
 	dev-util/subversion
-	=media-libs/libclam-9999"
+	>=media-libs/libclam-9999"
 
 need-kde 3.5
 
