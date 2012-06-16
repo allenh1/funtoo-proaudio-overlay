@@ -2,6 +2,9 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  17 Jun 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  Annotator-9999.ebuild: Removed non needed and wrong subversion DEPEND
+
   20 Jan 2012; Gavin Pryke <gavinlee303@googlemail.com>
   Annotator-0.3.8-r1.ebuild, Annotator-0.3.9.ebuild, Annotator-0.3.10.ebuild,
   Annotator-0.5.0.ebuild, Annotator-9999.ebuild:

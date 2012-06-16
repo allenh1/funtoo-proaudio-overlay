@@ -19,7 +19,6 @@ IUSE="doc"
 RESTRICT="mirror"
 
 DEPEND="dev-util/scons
-	dev-util/subversion
 	>=media-libs/libclam-9999
 	|| ( ( x11-libs/qt-core x11-libs/qt-gui x11-libs/qt-opengl )
 			>=x11-libs/qt-4.1:4 )"
