@@ -4,7 +4,6 @@
 
 EAPI=3
 
-#inherit subversion exteutils autotools
 inherit autotools eutils
 
 RESTRICT="mirror"
@@ -33,10 +32,9 @@ DEPEND="${RDEPEND}"
 S="${WORKDIR}/${P}.orig"
 
 src_prepare() {
-#	cd "${S}" \\ die "Failed cd ${S}"
 	epatch "${FILESDIR}"/fix_ftbfs_ld_as_needed.patch \
 		"${FILESDIR}"/fix_ftbfs_with_printf.patch
-	sh ./autogen.sh \\ die "Failed autogen"
+	sh ./autogen.sh || die "Failed autogen"
 }
 
 src_install() {
