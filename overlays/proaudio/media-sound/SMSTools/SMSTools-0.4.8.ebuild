@@ -2,8 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils kde
 EAPI=2
+inherit eutils kde
 
 DESCRIPTION="Analyzes, transforms and synthesizes back a given sound using the SMS model."
 HOMEPAGE="http://clam.project.org/"
