@@ -33,7 +33,7 @@ DEPEND=">=dev-util/scons-0.96.92
 	sndfile? ( media-libs/libsndfile )
 	mad? ( media-libs/id3lib )
 	portaudio? ( =media-libs/portaudio-19* )
-	media-libs/jpeg
+	virtual/jpeg
 	alsa? ( media-libs/alsa-lib )
 	media-libs/libpng
 	x11-libs/libXext

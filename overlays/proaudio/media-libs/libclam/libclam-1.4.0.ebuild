@@ -24,7 +24,7 @@ RESTRICT="mirror"
 
 RDEPEND="
 	dev-util/cppunit
-	media-libs/jpeg
+	virtual/jpeg
 	media-libs/libpng
 	media-libs/libsndfile
 	virtual/opengl
