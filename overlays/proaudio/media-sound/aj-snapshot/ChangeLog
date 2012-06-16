@@ -1,0 +1,6 @@
+# ChangeLog for media-sound/aj-snapshot
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  16 Jun 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  + Initial aj-snapshot-0.9.6.ebuild
