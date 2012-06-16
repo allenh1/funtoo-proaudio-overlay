@@ -1,0 +1,17 @@
+# ChangeLog for media-sound/jack-tools
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  ?? ?? ????; unknow <unknow@somewhere.org>
+  Initial jack-tools.9999.ebuild:
+  It doesn't work due to changed url.
+  The correct darcs URL is
+  http://slavepianos.org/rd/sw/rju/
+  but it doesn't work either due to missing files.
+
+  16 June 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  + ChangeLog
+  + jack-tools-20101210.ebuild
+  + html USE flag to install the individual documentations
+  as html files.
+  They want be installed as compressed text files otherwise.
