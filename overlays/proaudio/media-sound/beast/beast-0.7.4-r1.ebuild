@@ -40,6 +40,7 @@ src_unpack() {
 	epatch "${FILESDIR}/203_gcc45.patch"
 	epatch "${FILESDIR}/210_volatile.diff"
 	epatch "${FILESDIR}/300-desktop_file.patch"
+	epatch "${FILESDIR}/400-format-security.patch"
 
 	# Remove useless dist check that makes tests fail
 #	sed -i "s/\.PHONY:.*/.PHONY:/" Makefile.decl || die "sed failed"
