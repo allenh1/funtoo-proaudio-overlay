@@ -5,6 +5,9 @@
 *chordata-9999 (10 Apr 2010)
 *chordata-1.0.0 (10 Apr 2010)
 
+  17 Jun 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  chordata-9999.ebuild: Fixed libclam DEPEND
+
   10 Apr 2010; Viktor Lazarev <taurus101v@gmail.com> +chordata-1.0.0.ebuild,
   +chordata-9999.ebuild, +metadata.xml:
   initial ebuilds. Requested by Mark Knecht

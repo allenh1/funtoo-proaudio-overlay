@@ -15,8 +15,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND=">=media-libs/libclam-1.4.0
-	<media-libs/libclam-9999
+RDEPEND=">=media-libs/libclam-9999
 	>=media-sound/NetworkEditor-1.4.0
 	|| ( ( x11-libs/qt-core x11-libs/qt-gui x11-libs/qt-opengl )
 			>=x11-libs/qt-4.4:4 )"
