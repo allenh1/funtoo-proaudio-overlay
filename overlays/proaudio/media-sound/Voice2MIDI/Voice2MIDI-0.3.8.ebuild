@@ -4,7 +4,7 @@
 
 EAPI=1
 
-inherit eutils qt4
+inherit eutils python qt4
 
 DESCRIPTION="CLAM Voice2MIDI extracts the melody as a MIDI or XML file from monophonic audio files"
 HOMEPAGE="http://clam-project.org/index.html"
@@ -16,6 +16,8 @@ SLOT="0"
 KEYWORDS="~amd64 x86"
 IUSE=""
 RESTRICT="mirror"
+
+PYTHON_DEPEND="2:7"
 
 DEPEND="dev-util/scons
 	>=media-libs/libclam-1.2.0
@@ -37,6 +39,8 @@ pkg_setup() {
 		eerror "You need to build qt4 with qt3support support to have it in ${PN}"
 		die "Enabling qt3support for $PN requires qt4 to be built with qt3support support"
 	fi
+
+	python_set_active_version 2
 }
 
 src_compile() {
