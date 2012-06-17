@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-inherit eutils qt4-r2
+inherit eutils python qt4-r2
 
 DESCRIPTION="Framework for research and application development in the Audio and Music domain"
 HOMEPAGE="http://clam-project.org/"
@@ -21,6 +21,8 @@ IUSE="doc double jack ladspa osc fftw fft alsa optimize vorbis mad portaudio xer
 # portmidi"
 
 RESTRICT="mirror"
+
+PYTHON_DEPEND="2:7"
 
 RDEPEND="
 	dev-util/cppunit
@@ -51,6 +53,10 @@ DEPEND="${RDEPEND}
 	app-doc/doxygen"
 
 S="${WORKDIR}/${MY_P}"
+
+pkg_setup() {
+	python_set_active_version 2
+}
 
 src_compile() {
 	# required for scons to "see" intermediate install location

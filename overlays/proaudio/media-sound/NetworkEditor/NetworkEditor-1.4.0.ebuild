@@ -4,7 +4,7 @@
 
 EAPI=1
 
-inherit eutils qt4
+inherit eutils python qt4
 
 DESCRIPTION="CLAM's visual builder"
 HOMEPAGE="http://clam-project.org/"
@@ -16,6 +16,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 RESTRICT="mirror"
+
+PYTHON_DEPEND="2:7"
 
 DEPEND="dev-util/scons
 	>=media-libs/libclam-1.4.0
@@ -35,6 +37,8 @@ pkg_setup() {
 		eerror "You need to build qt4 with opengl support to have it in ${PN}"
 		die "Enabling opengl for $PN requires qt4 to be built with opengl support"
 	fi
+
+	set_python_active_version 2
 }
 
 src_compile() {

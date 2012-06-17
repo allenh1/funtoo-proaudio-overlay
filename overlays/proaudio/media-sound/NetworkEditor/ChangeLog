@@ -2,8 +2,9 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  17 Jun 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  17+18 Jun 2012; Dominique Michel <dominique_libre@sourceforge.net>
   NetworkEditor-9999.ebuild: Fixed depend to libclam
+  9999 + 1.4.0: FixedPythn setup
 
   20 Jan 2012; Gavin Pryke <gavinlee303@googlemail.com>
   NetworkEditor-1.0.0.ebuild, NetworkEditor-1.1.0.ebuild,
