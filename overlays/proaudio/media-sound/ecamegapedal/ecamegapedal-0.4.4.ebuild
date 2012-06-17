@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit kde
-
 EAPI=2
+
+inherit kde
 
 RESTRICT="mirror"
 DESCRIPTION="Ecamegapedal is a real-time effect processor."

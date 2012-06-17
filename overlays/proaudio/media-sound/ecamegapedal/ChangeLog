@@ -2,6 +2,8 @@
 # Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  17 Jun 2012; Dominique Michel <dominique@tuxfamily.org> Fixed EAPI usage
+
   17 Apr 2011; Dominique Michel <dominique@tuxfamily.org> Fixed merge with kde eclass
 
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
