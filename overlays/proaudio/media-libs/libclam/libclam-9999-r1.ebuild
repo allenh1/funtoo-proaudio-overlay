@@ -142,39 +142,39 @@ src_install() {
 	dodir /usr
 
 	scons install || die "scons install failed"
-	cd "${S}"
+	cd "${MY_S}"
 	dodoc CHANGES
 
 	if use doc; then
 		docinto examples/CLAMRemoteController
-		dodoc "${S}"/examples/CLAMRemoteController/*
+		dodoc "${MY_S}"/examples/CLAMRemoteController/*
 		docinto examples/CLT
-		dodoc "${S}"/examples/CLT/*
+		dodoc "${MY_S}"/examples/CLT/*
 		docinto examples/ControlArrayExamples
-		dodoc "${S}"/examples/ControlArrayExamples/*
+		dodoc "${MY_S}"/examples/ControlArrayExamples/*
 		docinto examples/MIDI_Synthesizer_example
-		dodoc "${S}"/examples/MIDI_Synthesizer_example/*
+		dodoc "${MY_S}"/examples/MIDI_Synthesizer_example/*
 		docinto examples/NetworkLADSPAPlugin
-		dodoc "${S}"/examples/NetworkLADSPAPlugin/*
+		dodoc "${MY_S}"/examples/NetworkLADSPAPlugin/*
 		docinto examples/PortsAndControlsUsageExample
-		dodoc "${S}"/examples/PortsAndControlsUsageExample/*
+		dodoc "${MY_S}"/examples/PortsAndControlsUsageExample/*
 		docinto examples/PortsExamples
-		dodoc "${S}"/examples/PortsExamples/*
+		dodoc "${MY_S}"/examples/PortsExamples/*
 #		docinto examples/QtDesignerPlugins
 #		dodoc "${S}"/examples/QtDesignerPlugins/*
 		docinto examples/QtPlots/BPFEditorExample
-		dodoc "${S}"/examples/QtPlots/BPFEditorExample/*
+		dodoc "${MY_S}"/examples/QtPlots/BPFEditorExample/*
 		docinto examples/QtPlots/DirectPlotsExamples
-		dodoc "${S}"/examples/QtPlots/DirectPlotsExamples/*
+		dodoc "${MY_S}"/examples/QtPlots/DirectPlotsExamples/*
 		docinto examples/QtPlots/ListPlotExample
-		dodoc "${S}"/examples/QtPlots/ListPlotExample/*
+		dodoc "${MY_S}"/examples/QtPlots/ListPlotExample/*
 		docinto examples/QtPlots/QtPlotsExamples
-		dodoc "${S}"/examples/QtPlots/QtPlotsExamples/*
+		dodoc "${MY_S}"/examples/QtPlots/QtPlotsExamples/*
 		docinto examples/QtPlots/SegmentEditorExample
-		dodoc "${S}"/examples/QtPlots/SegmentEditorExample/*
+		dodoc "${MY_S}"/examples/QtPlots/SegmentEditorExample/*
 		docinto examples/QtPlots/utils
-		dodoc "${S}"/examples/QtPlots/utils/*
+		dodoc "${MY_S}"/examples/QtPlots/utils/*
 		docinto examples/Tutorial
-		dodoc "${S}"/examples/Tutorial/*
+		dodoc "${MY_S}"/examples/Tutorial/*
 	fi
 }

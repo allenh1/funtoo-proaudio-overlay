@@ -4,7 +4,7 @@
 
 EAPI=1
 
-inherit exteutils
+inherit exteutils python
 
 DESCRIPTION="CLAM Music Annotator can visualize, check and modify music information extracted from audio"
 HOMEPAGE="http://clam-project.org/index.html"
@@ -17,6 +17,8 @@ KEYWORDS="~amd64 x86"
 IUSE="doc"
 RESTRICT="mirror"
 
+PYTHON_DEPEND="2:7"
+
 DEPEND="dev-util/scons
 	>=media-libs/libclam-1.4.0
 	<media-libs/libclam-9999
@@ -27,6 +29,10 @@ RDEPEND="${DEPEND}
 	media-gfx/imagemagick"
 
 QTDIR=""
+
+pkg_setup() {
+	python_set_active_version 2
+}
 
 src_compile() {
 	# required for scons to "see" intermediate install location

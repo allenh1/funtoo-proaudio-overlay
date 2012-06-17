@@ -4,19 +4,22 @@
 
 EAPI=1
 
-inherit subversion exteutils
+inherit subversion exteutils python
 
 DESCRIPTION="CLAM Music Annotator can visualize, check and modify music information extracted from audio"
 HOMEPAGE="http://clam-project.org/index.html"
 
 SRC_URI=""
-ESVN_REPO_URI="http://iua-share.upf.edu/svn/clam/trunk/${PN}"
+ESVN_REPO_URI="http://clam-project.org/clam/trunk"
+ESVN_PROJECT="clam"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 IUSE="doc"
 RESTRICT="mirror"
+
+PYTHON_DEPEND="2:7"
 
 DEPEND="dev-util/scons
 	>=media-libs/libclam-9999
@@ -27,22 +30,27 @@ RDEPEND="${DEPEND}
 	media-gfx/imagemagick"
 
 S="${WORKDIR}/${PN}"
+MY_S="${S}/${PN}"
 QTDIR=""
+
+pkg_setup() {
+	python_set_active_version 2
+}
 
 src_compile() {
 	# required for scons to "see" intermediate install location
 	mkdir -p ${D}/usr/vmqt
 	addpredict /usr/share/clam/sconstools
 
-	cd ${S}/vmqt
+	cd ${MY_S}/vmqt
 	escons clam_prefix=/usr DESTDIR="${D}/usr" release=yes || die "Building vmqt failed"
-	cd ${S}
-	escons clam_prefix=/usr DESTDIR="${D}/usr" install_prefix="${D}/usr" release=yes || die "Building Annotator failed"
+	cd ${MY_S}
+	escons clam_prefix=/usr DESTDIR="${D}/usr" prefix="${D}/usr" release=yes || die "Building Annotator failed"
 	convert -resize 48x48 -colors 24 src/images/annotator-icon1.png src/images/clam-annotator.xpm || die "convert icon failed"
 }
 
 src_install() {
-	cd ${S}
+	cd ${MY_S}
 	dodir /usr
 	addpredict /usr/share/clam/sconstools
 
@@ -52,14 +60,14 @@ src_install() {
 
 	if use doc; then
 		docinto examples/data
-		dodoc ${S}/vmqt/examples/data/*
+		dodoc ${MY_S}/vmqt/examples/data/*
 		docinto examples/src
-		dodoc ${S}/vmqt/examples/src/*
+		dodoc ${MY_S}/vmqt/examples/src/*
 		docinto examples/utils
-		dodoc ${S}/vmqt/examples/utils/*
+		dodoc ${MY_S}/vmqt/examples/utils/*
 		docinto examples
-		dodoc ${S}/vmqt/examples/README
+		dodoc ${MY_S}/vmqt/examples/README
 	fi
 	insinto /usr/share/pixmaps
-	doins ${S}/src/images/clam-annotator.xpm || die "install icon failed"
+	doins ${MY_S}/src/images/clam-annotator.xpm || die "install icon failed"
 }
