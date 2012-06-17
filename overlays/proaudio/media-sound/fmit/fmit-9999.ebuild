@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=3
-inherit cmake-utils cvs kde
+inherit cmake-utils cvs qt4
 
 DESCRIPTION="Free Music Instrument Tuner"
 HOMEPAGE="http://home.gna.org/fmit/"
@@ -15,7 +15,6 @@ LICENSE="GPL-2"
 SLOT="3.5"
 KEYWORDS=""
 IUSE="alsa jack oss portaudio"
-need-kde 3.5
 
 DEPEND=">=sci-libs/fftw-3.2.2:3.0
 	x11-libs/qt-opengl

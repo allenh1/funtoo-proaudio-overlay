@@ -2,6 +2,9 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  17 Jun 2012; Dominique Michel <dominique@tuxfamily.org> Oops:
+  qt4 eclass instead of kde eclass.
+
   17 Aor 2011; Dominique Michel <dominique@tuxfamily.org> Fixed merge with kde eclass
 
 *fmit-9999 (27 Jan 2011)
