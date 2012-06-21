@@ -21,7 +21,8 @@ DEPEND="dev-libs/rollendurchmesserzeitsammler
 	media-libs/liblrdf"
 
 RDEPEND="${DEPEND}
-        sci-libs/gsl
+	dev-libs/pcl
+	sci-libs/gsl
 	sci-libs/fftw
 	media-sound/jack-audio-connection-kit
 	media-libs/ladspa-sdk
