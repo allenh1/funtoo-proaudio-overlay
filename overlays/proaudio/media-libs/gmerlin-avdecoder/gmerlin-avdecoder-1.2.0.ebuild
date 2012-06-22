@@ -13,7 +13,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="a52 aac cdio debug doc dts dvd ffmpeg flac mad mjpeg mpeg musepack plugins png samba speex theora tiff vorbis"
 
-DEPEND=">=media-libs/gavl-1.2.0
+DEPEND=">=media-libs/gavl-1.4.0
 		a52? ( media-libs/a52dec )
 		aac? ( media-libs/faad2 )
 		cdio? ( dev-libs/libcdio )

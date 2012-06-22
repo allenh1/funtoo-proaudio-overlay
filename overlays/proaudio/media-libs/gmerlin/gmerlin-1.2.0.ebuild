@@ -15,7 +15,7 @@ IUSE="alsa cddb cdio doc debug esd jpeg libvisual mjpeg musicbrainz nls oss png
 pulseaudio quicktime tiff utils v4l"
 
 DEPEND=">=dev-libs/libxml2-2.4.0
-		>=media-libs/gavl-1.1.0
+		>=media-libs/gavl-1.4.0
 		>=media-libs/fontconfig-2.2.3
 		>=media-libs/freetype-2
 		>=x11-libs/gtk+-2.8.0
@@ -25,7 +25,7 @@ DEPEND=">=dev-libs/libxml2-2.4.0
 		cdio? ( >=dev-libs/libcdio-0.76 )
 		doc? ( app-doc/doxygen )
 		esd? ( >=media-sound/esound-0.2.19 )
-		jpeg? ( media-libs/jpeg )
+		jpeg? ( virtual/jpeg )
 		libvisual? ( >=media-libs/libvisual-0.4.0 )
 		mjpeg? ( media-video/mjpegtools )
 		musicbrainz? ( >=media-libs/musicbrainz-2.0.2 )
