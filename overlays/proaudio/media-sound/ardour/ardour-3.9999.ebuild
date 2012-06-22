@@ -14,7 +14,7 @@ ESVN_REPO_URI="http://subversion.ardour.org/svn/ardour2/branches/3.0"
 LICENSE="GPL-2"
 SLOT="3"
 KEYWORDS=""
-IUSE="altivec debug freesound nls sse lv2 vst sys-libs tranzport wiimote"
+IUSE="altivec debug freesound nls sse lv2 vst sys-libs wiimote"
 
 RDEPEND="media-libs/liblo
 	>=media-libs/taglib-1.5
@@ -80,7 +80,6 @@ src_compile() {
 		use nls       && myconf="$myconf --nls"
 		use lv2       && myconf="$myconf --lv2"
 		use sys-libs  && myconf="$myconf --syslibs"
-		use tranzport && myconf="$myconf --tranzport"
 		use freesound && myconf="$myconf --freesound"
 		use wiimote   && myconf="$myconf --wiimote"
 		use vst       && myconf="$myconf --vst"
