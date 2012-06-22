@@ -29,7 +29,7 @@ src_unpack(){
 	unpack ${A}
 	cd ${S}
 	# adjust to use our CFLAGS
-	sed -i -e "/^CFLAGS =/s/@CFLAGS@ -mcpu=@UNAME_MACHINE@ -march=@UNAME_MACHINE@//" -e "s/^\(CFLAGS\).*\(\=\)/\1 +=/"  Makefile.in
+	#sed -i -e "/^CFLAGS =/s/@CFLAGS@ -mcpu=@UNAME_MACHINE@ -march=@UNAME_MACHINE@//" -e "s/^\(CFLAGS\).*\(\=\)/\1 +=/"  Makefile.in
 	sed -i -e '/^CFLAGS =/cCFLAGS +='  meschach/makefile.in
 	# add DESTDIR to Makefile.in
 	MYDIRS='\$(BINDIR)\|\$(pixmapdir)\|\$(HELPDIRC)\|\$(DOCDIR)'
