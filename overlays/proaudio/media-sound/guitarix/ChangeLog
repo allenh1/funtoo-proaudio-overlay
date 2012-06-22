@@ -1,6 +1,13 @@
 # ChangeLog for media-sound/guitarix
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*guitarix-0.22.3 (22 Jun 2012)
+
+  22 Jun 2012; Frieder Buerzele <evermind@tuxfamily.org>
+  +guitarix-0.22.3.ebuild,
+  +files/guitarix2-0.22.3-no-update-desktop-database.patch:
+  bumped guitarix-0.22.3 fix bug #130
 
 *guitarix-0.11.1 (02 Sep 2010)
 

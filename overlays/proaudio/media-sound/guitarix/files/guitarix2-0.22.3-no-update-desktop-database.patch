@@ -1,0 +1,14 @@
+--- wscript	2012-06-03 10:08:59.346953513 +0200
++++ wscript-patched	2012-06-03 10:09:50.706953317 +0200
+@@ -674,11 +674,6 @@
+         task.scan = po_scanner
+         return task
+     gen_desktop.create_task = gen_desktop_add_scanner
+-    if Options.commands["install"]:  ## newer waf version: bld.cmd == 'install'
+-        try:
+-            bld.exec_command(["update-desktop-database", Utils.subst_vars("${DATADIR}/applications", bld.env)])
+-        except:
+-            pass
+ 
+     if bld.env["GX_LIB_SHARED"]:
+         bld.add_post_fun(post)
