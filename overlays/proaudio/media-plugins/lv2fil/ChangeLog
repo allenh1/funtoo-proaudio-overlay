@@ -1,6 +1,9 @@
 # ChangeLog for media-plugins/lv2fil
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  22 Jun 2012; Frieder Buerzele <evermind@tuxfamily.org> lv2fil-2.0.ebuild:
+  depend on lv2core or >=lv2-1.0.0
 
 *lv2fil-2.0 (04 Aug 2010)
 

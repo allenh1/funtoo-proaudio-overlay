@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -17,7 +17,7 @@ IUSE=""
 
 RESTRICT="mirror"
 
-DEPEND=">=media-libs/lv2core-3.0"
+DEPEND="|| ( >=media-libs/lv2core-3.0 >=media-libs/lv2-1.0.0 )"
 RDEPEND="${DEPEND}
 	>=dev-python/pycairo-1.8.8
 	>=dev-python/pygtk-2.16.0-r1:2
