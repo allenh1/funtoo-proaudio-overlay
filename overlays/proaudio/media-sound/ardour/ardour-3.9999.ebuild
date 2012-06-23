@@ -14,7 +14,7 @@ ESVN_REPO_URI="http://subversion.ardour.org/svn/ardour2/branches/3.0"
 LICENSE="GPL-2"
 SLOT="3"
 KEYWORDS=""
-IUSE="altivec debug freesound nls sse lv2 vst sys-libs wiimote"
+IUSE="altivec debug freesound nls sse lv2 vst wiimote lxvst"
 
 RDEPEND="media-libs/liblo
 	>=media-libs/taglib-1.5
@@ -78,11 +78,10 @@ src_compile() {
 	local myconf="--freedesktop --noconfirm --prefix=/usr"
 		use debug     && myconf="$myconf --debug"
 		use nls       && myconf="$myconf --nls"
-		use lv2       && myconf="$myconf --lv2"
-		use sys-libs  && myconf="$myconf --syslibs"
-		use freesound && myconf="$myconf --freesound"
+		use lv2       && myconf="$myconf --lv2" || myconf="$myconf --no-lv2"
+		use freesound || myconf="$myconf --no-freesound"
 		use wiimote   && myconf="$myconf --wiimote"
-		use vst       && myconf="$myconf --vst"
+		use vst       && myconf="$myconf --windows-vst"
 	if use sse || use altivec ;then
 		myconf="$myconf --fpu-optimization"
 	fi

@@ -3,6 +3,9 @@
 # $Header: $
 
   22 Jun 2012; Frieder Buerzele <evermind@tuxfamily.org> ardour-3.9999.ebuild:
+  fixed some USE flags
+
+  22 Jun 2012; Frieder Buerzele <evermind@tuxfamily.org> ardour-3.9999.ebuild:
   remove tranzport flag -- fixes bug #128
 
   03 Jun 2012; Hakan Demiralp (keenblade) <keenblade@tuxfamily.org>
