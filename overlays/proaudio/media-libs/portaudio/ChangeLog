@@ -1,6 +1,10 @@
 # ChangeLog for media-libs/portaudio
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  23 Jun 2012; Hakan Demiralp (keenblade) <keenblade@tuxfamily.org>
+  portaudio-9999.ebuild:
+  portaudio-9999: upstream repo address is changed
 
   06 Jul 2011; Hakan Demiralp <keenblade@tuxfamily.org> portaudio-19-r4.ebuild:
   portaudio: updated v19-r4 and changed slot 19 to 0. removed old ebuilds

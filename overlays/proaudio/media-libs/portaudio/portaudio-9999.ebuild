@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -8,7 +8,7 @@ inherit libtool subversion
 
 DESCRIPTION="An open-source cross platform audio API."
 HOMEPAGE="http://www.portaudio.com"
-ESVN_REPO_URI="https://www.portaudio.com/repos/portaudio/trunk"
+ESVN_REPO_URI="https://subversion.assembla.com/svn/portaudio/portaudio/trunk"
 SRC_URI=""
 
 LICENSE="as-is"
