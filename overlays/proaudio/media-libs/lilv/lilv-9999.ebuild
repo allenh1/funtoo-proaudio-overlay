@@ -18,7 +18,7 @@ KEYWORDS=""
 IUSE="bash-completion debug doc jack swig"
 
 RDEPEND=">=dev-libs/glib-2.26.1-r1:2
-	>=media-libs/lv2core-6
+	( || ( >=media-libs/lv2core-6 >=media-libs/lv2-1.0.0 ) )
 	>=dev-libs/serd-0.5
 	>=dev-libs/sord-0.5
 	jack? ( >=media-sound/jack-audio-connection-kit-0.120.1 )"

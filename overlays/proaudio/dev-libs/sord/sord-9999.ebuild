@@ -19,7 +19,7 @@ KEYWORDS=""
 IUSE="debug doc"
 
 RDEPEND=">=dev-libs/glib-2.26.1-r1:2
-	>=media-libs/serd-0.1.0"
+	>=dev-libs/serd-0.1.0"
 DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )
 	dev-util/pkgconfig
