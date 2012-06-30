@@ -2,6 +2,11 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*zita-resampler-1.1.0 (30 Jun 2012)
+
+  30 Jun 2012; Dominique Michel <dominique@tuxfamily.org>
+  + zita-resampler-1.1.0.ebuild: initial ebuild for the 1.1.0 version
+
 *zita-resampler-0.1.1-r2 (06 Jan 2012)
 
   06 Jan 2012; Gavin Pryke <gavinlee303@googlemail.com>
