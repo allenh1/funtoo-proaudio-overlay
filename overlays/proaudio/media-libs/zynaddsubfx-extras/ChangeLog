@@ -1,6 +1,10 @@
 # ChangeLog for media-libs/zynaddsubfx-extras
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  30 Jun 2012; Frieder Buerzele <evermind@tuxfamily.org>
+  zynaddsubfx-extras-99999999.ebuild:
+  use internal unpacker and fixup $S usage
 
 *zynaddsubfx-extras-20101203 (04 Mar 2011)
 

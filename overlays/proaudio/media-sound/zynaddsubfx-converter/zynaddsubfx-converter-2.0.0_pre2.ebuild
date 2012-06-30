@@ -1,11 +1,11 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 inherit eutils unpacker
 
 KEYWORDS="amd64 ~ppc x86"
-IUSE="oss alsa jack"
+IUSE="lash oss alsa jack"
 
 MY_P=ZynAddSubFX-${PV}
 DESCRIPTION="ZynAddSubFX-converter: use ONLY to convert old *.ins_zyn instruments to *.xiz"
@@ -25,6 +25,12 @@ S="${WORKDIR}/${MY_P}"
 src_unpack() {
 	unpack ${MY_P}.tar.bz2 || die
 	unpacker "${FILESDIR}/${PN}-patches.tar.gz"
+
+	# fixup patchlevel
+	sed -i -e \
+		's@/var/tmp/portage/media-sound/zynaddsubfx-converter-2.0.0_pre2/work/ZynAddSubFX-2.0.0_pre2/@@g' \
+		"$WORKDIR/03_add-warning.patch"
+
 	cd "${S}"
 	EPATCH_SOURCE="${WORKDIR}" EPATCH_SUFFIX="patch"\
 	EPATCH_FORCE="yes" epatch

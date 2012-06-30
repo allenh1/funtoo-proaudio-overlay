@@ -1,8 +1,8 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit zyn3  fetch-tools unpacker
+inherit zyn3 fetch-tools unpacker
 RESTRICT="mirror"
 MY_P="unsorted_${PN/-extras/}Parameters_${PV}"
 MY_PN="zynaddsubfx"
@@ -34,9 +34,13 @@ src_unpack(){
 			wget ${url} -P "${PORTAGE_ACTUAL_DISTDIR}" ||\
 		             die "cannot fetch  ${url##*/}"
 	fi
-	unpacker "${PORTAGE_ACTUAL_DISTDIR}/${url##*/}" &>/dev/null || die
+	echo here i am
 
-	cd "${S}"
+	# do a stupid workaround for unpacker
+	ln -s "${PORTAGE_ACTUAL_DISTDIR}/${url##*/}"  "../distdir/${url##*/}"
+	unpacker "${url##*/}"
+
+	cd "${WORKDIR}/"*zynaddsubfx*
 	find -name 'CVS' -exec rm -rf {} \; &>/dev/null
 }
 
@@ -45,14 +49,16 @@ src_compile(){
 }
 
 src_install(){
+	cd "${WORKDIR}/"*zynaddsubfx*
 	unsorted="/usr/share/${MY_PN}/banks/unsorted"
 	examples="/usr/share/${MY_PN}/examples"
 	dodir   "${unsorted}" "${examples}"
 	for dir in `find -maxdepth 1 -type d`;do
 		mv "${dir}"/*.xiz "${D}${unsorted}" &>/dev/null
+		echo mv "${dir}"/*.xiz "${D}${unsorted}"
 	done
-	fowners -R root:root  "${unsorted}"
-	fperms -R 644 "${unsorted}"
+	#fowners -R root:root  "${unsorted}"
+	#fperms -R 644 "${unsorted}"
 
 	insinto "${examples}"
 	doins -r ../*zynaddsubfx*

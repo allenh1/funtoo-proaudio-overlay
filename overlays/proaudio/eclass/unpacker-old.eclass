@@ -5,16 +5,17 @@
 #
 # Original Author: evermind
 # Purpose: unpack everything no matter where it comes from
+# Obsolete: 20120630  -- some cross compiler problems
 
 
 # adjusted unpack() version from ebuild.sh 4048 2006-07-29 18:20:13Z zmedico
 
 
 # syntax:
-# unpacker "archive_1" "archive_2" archive_n"
+# unpacker_old "archive_1" "archive_2" archive_n"
 # to set the location to where the unpack action should take place
 # specify UNPACK_DESTDIR in your ebuild (missing dirs will be created)
-unpacker() {
+unpacker_old() {
 	local x
 	local y
 	local myfail

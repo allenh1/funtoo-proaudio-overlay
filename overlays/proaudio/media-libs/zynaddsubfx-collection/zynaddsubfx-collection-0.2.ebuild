@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -19,8 +19,8 @@ DEPEND="${RDEPEND}"
 
 src_unpack(){
 	unpack ${A}
-	UNPACK_DESTDIR="$S" unpacker *.tar.*
-	cd "${S}"
+	mkdir -p "$S" ; cd "${S}"
+	unpacker "${WORKDIR}"/*.tar.*
 	find -name 'CVS' -exec rm -rf {} \; &>/dev/null
 }
 
