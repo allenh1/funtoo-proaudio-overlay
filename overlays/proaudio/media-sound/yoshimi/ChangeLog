@@ -2,6 +2,12 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*yoshimi-1.0.0 (15 Jul 2012)
+
+  15 Jul 2010; Dominique Michel <dominique@tuxfamily.org>
+  -yoshimi-0.060.12, it is in portage for now
+  +yoshimi-1.0.0.ebuild, version bump
+
 *yoshimi-0.060.12 (08 Jan 2012)
 
   08 Jan 2012; Gavin Pryke <gavinlee303@googlemail.com>
