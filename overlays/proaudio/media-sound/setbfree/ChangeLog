@@ -1,0 +1,6 @@
+# ChangeLog for media-sound/setbfree
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  16 Jul 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  +setbfree-0.5.3.ebuild: Initial ebuild for setbfree
