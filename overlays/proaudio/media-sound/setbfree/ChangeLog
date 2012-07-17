@@ -2,5 +2,8 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  17 Jul 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  +setbfree-9999.ebuild: live git ebuild for setbfree
+
   16 Jul 2012; Dominique Michel <dominique_libre@sourceforge.net>
   +setbfree-0.5.3.ebuild: Initial ebuild for setbfree
