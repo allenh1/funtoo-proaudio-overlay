@@ -4,6 +4,9 @@
 
   17 Jul 2012; Dominique Michel <dominique_libre@sourceforge.net>
   +setbfree-9999.ebuild: live git ebuild for setbfree
+  +setbfree-0.5.4.ebuild: version bump, removed outdated comment
+  about convolution
+  -setbfree-0.5.3.ebuild: removed old version
 
   16 Jul 2012; Dominique Michel <dominique_libre@sourceforge.net>
   +setbfree-0.5.3.ebuild: Initial ebuild for setbfree

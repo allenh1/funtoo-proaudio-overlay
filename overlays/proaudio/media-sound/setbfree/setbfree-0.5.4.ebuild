@@ -56,8 +56,4 @@ src_install() {
 
 pkg_postinst() {
 einfo "Use setBfree-start to run setBfree"
-
-if use convolution; then
-	einfo "If setBfree crash, considere to merge ${PN} with USE=\"-convolution\""
-fi
 }
