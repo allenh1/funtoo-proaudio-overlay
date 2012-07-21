@@ -43,11 +43,11 @@ pkg_setup() {
 	if ! use non-daw ; then
 		if ! use non-mixer ; then
 			if ! use non-session-manager ; then
-				einfo "You must set-up at least one of those 3 USE flags:"
-				einfo ""
-				einfo "USE=non-daw if you want the Digital Audio Workstation"
-				einfo "USE=mon-mixer if you want the Digital Audio Mixer"
-				einfo "USE=session-manager if you want the Non Session Manager"
+				eerror "You must set-up at least one of those 3 USE flags:"
+				eerror ""
+				eerror "USE=non-daw if you want the Digital Audio Workstation"
+				eerror "USE=mon-mixer if you want the Digital Audio Mixer"
+				eerror "USE=session-manager if you want the Non Session Manager"
 				die
 			fi
 		fi
