@@ -13,7 +13,6 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 IUSE="-debug non-daw non-mixer non-sequencer non-session-manager"
-RESTRICT="interactive"
 
 RDEPEND=">=media-sound/jack-audio-connection-kit-0.103.0
 	>=media-libs/liblrdf-0.1.0
