@@ -1,0 +1,11 @@
+--- scripts/Makefile.old	2012-07-19 21:10:40.000000000 +0200
++++ scripts/Makefile	2012-07-19 21:07:06.000000000 +0200
+@@ -64,7 +65,7 @@
+ 	-DDOCUMENT_PATH=\"$(DOCUMENT_PATH)\" \
+ 	-DPIXMAP_PATH=\"$(PIXMAP_PATH)\"
+ 
+-CXXFLAGS := $(CFLAGS) $(CXXFLAGS)
++CXXFLAGS := $(CFLAGS) $(CXXFLAGS) $(FLTK_CFLAGS)
+ 
+ INCLUDES := -I. -Iutil -IFL -Inonlib
+ 

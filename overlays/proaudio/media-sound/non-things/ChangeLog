@@ -1,6 +1,13 @@
-# ChangeLog for media-sound/non-daw
+# ChangeLog for media-sound/non-things
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  21 Jul 2012; Domiinque Michel <dominique@tuxfamily.org>
+  A lot changed into the build system -> rewrite from the scratch of the ebuild.
+  New USE flags esed to control which part of this suite are installed.
+  Rename non-daw -> non-things
+  -files/non-daw-9999-Makefiles.patch: obsolete
+  +files/non_makefile.patch: add missing fltk flags
 
   20 May 2010; Gavin Pryke <gavinlee303@googlemail.com> non-daw-9999.ebuild,
   +files/non-daw-9999-Makefiles.patch:
