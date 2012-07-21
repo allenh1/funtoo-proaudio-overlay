@@ -7,7 +7,7 @@ EAPI="4"
 inherit git-2
 
 DESCRIPTION="Realtime MIDI sequencer for JACK MIDI"
-HOMEPAGE="http://non-mixer.tuxfamily.org"
+HOMEPAGE="http://non-sequencer.tuxfamily.org"
 EGIT_REPO_URI="git://git.tuxfamily.org/gitroot/non/sequencer.git"
 
 LICENSE="GPL-2"
