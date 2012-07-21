@@ -8,6 +8,9 @@
   Rename non-daw -> non-things
   -files/non-daw-9999-Makefiles.patch: obsolete
   +files/non_makefile.patch: add missing fltk flags
+  +files/x-www-browser: srcipt to launch Help -> Manual
+  +files/61browser: set $BROWSER i the environement, used by x-www-browser
+  When doing this ebuild, I found how to launch firefox with portage. lol
 
   20 May 2010; Gavin Pryke <gavinlee303@googlemail.com> non-daw-9999.ebuild,
   +files/non-daw-9999-Makefiles.patch:

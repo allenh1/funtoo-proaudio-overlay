@@ -96,4 +96,19 @@ src_install() {
 		dobin "${S}/timeline/bin/import-external-sources"
 		dobin "${S}/timeline/bin/remove-unused-sources"
 	fi
+	# debian specific command, fake it with a little script,
+	# necessary to launch Help -> Manual
+	dobin "${FILESDIR}/x-www-browser"
+	doenvd "${FILESDIR}/61browser"
+}
+
+pkg_postinst() {
+	ewarn "If it is the first time you install ${PN},"
+	ewarn "You should review the value of BROWSER in /etc/env.d/61browser"
+	ewarn ""
+	ewarn "If running X, the best is to log-out and re-login."
+	ewarn "As alternative, you can run in a terminal"
+	ewarn "  env-update && source /etc-profile"
+	ewarn "and run the Non Things from the same terminal."
+	ewarn "Otherwise, Help -> Manual will do nothing."
 }

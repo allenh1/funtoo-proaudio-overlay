@@ -1,0 +1,19 @@
+#!/bin/sh
+
+if [ -z "$BROWSER" ]
+then
+	echo "Please, set-up the environmental varable BROWSER."
+	echo "Example: add the something like the following in ~/.bash_profile"
+	echo ""
+	echo "export BROWSER=\"/usr/bin/firefox\""
+	echo ""
+	exec firefox -new-window $* &
+else
+	if
+	[ "$BROWSER" == "/usr/bin/firefox" ]
+	then
+		exec $BROWSER -new-window $* &
+	else
+		exec $BROWSER $* &
+	fi
+fi
