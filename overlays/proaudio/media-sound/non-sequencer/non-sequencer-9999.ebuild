@@ -1,39 +1,40 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/bristol/bristol-0.60.10.ebuild,v 1.1 2012/06/30 05:54:41 radhermit Exp $
 
-EAPI=1
+EAPI="4"
 
-inherit git eutils
+inherit git-2
 
-DESCRIPTION="The Non Sequencer is a powerful real-time, pattern-based MIDI sequencer for Linux."
-HOMEPAGE="http://non-sequencer.tuxfamily.org/"
+DESCRIPTION="Realtime MIDI sequencer for JACK MIDI"
+HOMEPAGE="http://non-mixer.tuxfamily.org"
 EGIT_REPO_URI="git://git.tuxfamily.org/gitroot/non/sequencer.git"
+
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="lash"
+IUSE="-debug"
+RESTRICT="interactive"
 
-DEPEND=">=x11-libs/fltk-1.1.2:1.1
-	>=dev-libs/libsigc++-2.0
-	>=media-sound/jack-audio-connection-kit-0.103
-	lash? ( >=media-sound/lash-0.5.4 )"
-RDEPEND="${DEPEND}"
+RDEPEND=">=media-sound/jack-audio-connection-kit-0.103.0
+	>=media-libs/liblrdf-0.1.0
+	>=media-libs/liblo-0.26
+	>=dev-libs/libsigc++-2.2.0
+	>=x11-libs/fltk-1.1.7:1"
+DEPEND="${RDEPEND}"
 
-src_unpack(){
-	git_src_unpack || die "git clone failed."
-	cd "${S}"
-	# don't strip the binary
-	sed -i -e '/strip/d' "${S}/Makefile" || die "sed of Makefile failed"
+src_configure() {
+	local my_conf=""
+	if use debug; then
+		my_conf="--enable-debug"
+	fi
+	econf --prefix=/usr ${my_conf} || die "econf failed"
 }
 
 src_compile() {
-	# configure is a hand written shell script, thus econf will not work
-	./configure --prefix=/usr $(use_enable lash) || die "configure failed"
-	emake || die "emake failed"
+	make || die "make failed"
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die "install failed"
-	fowners root:audio  "${ROOT}"/usr/bin/non-sequencer || die "chown failed"
+	einstall DESTDIR=${D} prefix=/usr || die "install failed"
 }

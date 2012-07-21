@@ -2,6 +2,11 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  21 Jul 2012; Dominique Michel <dominique@tuxgamily.org>
+  non-sequencer-9999.ebuild:
+  A lot changed with the build system, so this is a new
+  ebuild from the scratch.
+
   21 Apr 2010; Gavin Pryke <gavinlee303@googlemail.com>
   non-sequencer-9999.ebuild:
   update call to configure as it is a custom shell script. dependency tweak.
