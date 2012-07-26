@@ -84,8 +84,10 @@ src_install() {
 	doins examples/midi/* || die "install examples/midi failed"
 	insinto /usr/share/doc/"${P}"/examples/musicxml
 	doins examples/musicxml/* || die "install examples/musicxml failed"
-	# install a desktop file
+	# install a desktop file with its icon
 	domenu canorus.desktop
+	insinto /usr/share/icons
+	newins doc/usersguide/images/canorushelpicon.png canorus.png
 	# install the user documentation
 	if use userdoc ; then
 		insinto "/usr/share/${PN}/doc/usersguide"
