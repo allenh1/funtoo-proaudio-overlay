@@ -4,7 +4,8 @@
 
 EAPI=2
 
-inherit git toolchain-funcs
+PYTHON_DEPEND="2:2.7"
+inherit git python toolchain-funcs
 
 DESCRIPTION="Daemon for exposing legacy ALSA sequencer applications in JACK MIDI system."
 HOMEPAGE="http://home.gna.org/a2jmidid/"
@@ -19,8 +20,12 @@ RDEPEND="media-libs/alsa-lib
 	media-sound/jack-audio-connection-kit
 	sys-apps/dbus"
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig
-	dev-lang/python"
+	dev-util/pkgconfig"
+
+pkg_setup() {
+	python_set_active_version 2
+	python_pkg_setup
+}
 
 src_compile() {
 	tc-export CC AR CPP LD RANLIB
