@@ -2,6 +2,9 @@
 # Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 Jul 2012; Dominique Michel <dominique@tuxfamily.org>
+  khafan-0.1.2-r1: fixed EAPI usage, fixed python version
+
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog
 
