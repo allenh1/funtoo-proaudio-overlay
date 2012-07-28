@@ -40,5 +40,6 @@ src_install() {
 		newdoc CHANGES.log ChangeLog
 		newdoc README.txt README
 		dodoc TODO
+		make_desktop_entry "${PN}" "Live Looping Sequencer" "${PN}" "AudioBideo;Audio;Sequencer"
 }
 

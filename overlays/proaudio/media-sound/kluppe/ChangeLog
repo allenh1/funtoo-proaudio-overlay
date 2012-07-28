@@ -4,6 +4,9 @@
 
 *kluppe-0.6.14 (25 Feb 2010)
 
+  27 Jul 2012; Dominique Michel <dominique@tuxfamily.org> kluppe-0.6.14:
+  Added make desktop file
+
   25 Feb 2010; Frieder Buerzele <evermind@tuxfamily.org> -kluppe-0.6.5.ebuild,
   -kluppe-0.6.8.ebuild, -kluppe-0.6.12.ebuild, +kluppe-0.6.14.ebuild:
   bumped and deleted
