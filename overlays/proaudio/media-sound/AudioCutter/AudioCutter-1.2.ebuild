@@ -6,8 +6,8 @@ inherit java-pkg-2 eutils
 
 DESCRIPTION="Advanced surround sound file editor"
 HOMEPAGE="http://www.virtualworlds.de/AudioCutter/"
-SRC_URI="mirror://sourceforge/audiocutter/${PN}.src.tar.gz
-	doc? ( mirror://sourceforge/audiocutter/${PN}_${PV}_x86.tar.gz )"
+SRC_URI="http://www.virtualworlds.de/AudioCutter//${PN}.src.tar.gz
+	doc? ( http://www.virtualworlds.de/AudioCutter/${PN}_${PV}_x86.tar.gz )"
 
 LICENSE="GPL-2"
 SLOT="0"
