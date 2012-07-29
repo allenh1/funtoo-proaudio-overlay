@@ -2,6 +2,10 @@
 # Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  29 Jul 2012; Dominique Michel <dominique@tuxfamily.org>
+  rtsynth-1.9.2.ebuild: cleanup; binary package => install in /opt;
+  added desktop entry
+
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog
 

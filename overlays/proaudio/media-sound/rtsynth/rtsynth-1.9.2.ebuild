@@ -4,12 +4,12 @@
 
 IUSE="jack"
 
-inherit rpm
+inherit eutils
 
 RESTRICT="mirror"
 DESCRIPTION="reproduce sounds of strings, organs, flutes and drums in real time"
 HOMEPAGE="http://www.linux-sound.org/rtsynth/"
-SRC_URI="http://www.audiodef.com/gentoo/proaudio/src/rtsynth/${P}.tar.bz2"
+SRC_URI="http://www.audiodef.com/gentoo/src/${P}.tar.bz2"
 
 LICENSE="unknown"
 SLOT="0"
@@ -39,25 +39,25 @@ echo -n
 }
 
 src_install() {
-	dodir /usr/share/pixmaps /usr/share/mimelnk/audio/
-	insinto /usr/share/pixmaps
-	doins rtsynth.png
+	dodir /opt/bin
 
-	insinto /usr/share/mimelnk/audio/
-	doins rtsynth*.desktop
-
-	insinto /usr/share/${PN}/examples
+	insinto /usr/share/doc/${P}/examples
 	for i in ${S}/${P}/Examples-v192/*;do doins "${i}";done
 
 	if use jack;then
-		dobin ${S}/${P}/RTSynth-jack
-		fperms 755 /usr/bin/RTSynth-jack
+		insinto /opt/bin
+		doins ${S}/${P}/RTSynth-jack
+		fperms 755 /opt/bin/RTSynth-jack
+		insinto /usr/share/doc/${P}
 		dodoc ${S}/${P}/README-jack
+		make_desktop_entry RTSynth-jack RTSynth-jack rtsynth "AudioVideo;Audio;Synthetizers"
 	else
 		dobin ${S}/${P}/RTSynth
-		fperms 755 /usr/bin/RTSynth
+		fperms 755 /opt/bin/RTSynth
+		make_desktop_entry RTSynth RTSynth rtsynth "AudioVideo;Audio;Synthetizers"
 	fi
 
+	insinto /usr/share/doc/${P}
 	dohtml -r ${S}/${P}/HtmlDocs/*
 	dodoc ${S}/${P}/Changelog ${S}/${P}/README
 }
