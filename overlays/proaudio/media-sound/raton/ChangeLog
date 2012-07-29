@@ -2,6 +2,9 @@
 # Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  27 Jul 2012; Dominique Michel <dominique@tuxfamily.org> raton-0.22.ebuild:
+  Added a make_desktop_entry
+
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog
 

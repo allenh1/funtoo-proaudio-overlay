@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+inherit eutils
+
 IUSE=""
 RESTRICT="mirror"
 
@@ -26,4 +28,5 @@ src_compile() {
 src_install() {
 	make DESTDIR="${D}" install || die
 	dodoc AUTHORS ChangeLog NEWS README
+	make_desktop_entry "${PN}" "${PN} mouse to MIDI" "${PN}" "AudioVideo;Audio;MIDI"
 }
