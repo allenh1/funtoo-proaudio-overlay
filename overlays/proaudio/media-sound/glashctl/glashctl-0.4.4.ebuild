@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit exteutils
+inherit eutils exteutils
 RESTRICT="mirror"
 DESCRIPTION="GLASHCtl is a simple applet for controlling the LASH Audio Session Handler"
 HOMEPAGE="http://dino.nongnu.org/glashctl"
@@ -30,12 +30,11 @@ src_compile(){
 	# those break ar, crappy build system
 	unset LDFLAGS
 	econf \
-		--prefix=/usr \
 		--CFLAGS="${CFLAGS}" \
 		|| die "econf failed"
 	# those break ar ...
 	#	--LDFLAGS="${LDFLAGS}" \
-	emake || die "emake failed"
+	emake -j1 || die "emake failed"
 }
 
 src_install(){
@@ -46,4 +45,7 @@ src_install(){
 	insinto /usr/share/${PN}
 	doins *.xpm *.png
 	dodoc README AUTHORS ChangeLog
+	insinto /usr/share/icons
+	newins lash_96px.png glashctl.png
+	make_desktop_entry "${PN}" GLASHCtl "${PN}" "AudioVideo;Audio;Engineering"
 }
