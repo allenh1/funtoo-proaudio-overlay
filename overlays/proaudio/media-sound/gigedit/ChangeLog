@@ -2,6 +2,9 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  27 Jul 2012; Dominique Michel <dominique@tuxfamily.org> gigedit-9999.ebuild:
+  gigedit-9999: Adding make_desktop_entry
+
   10 May 2012; Hakan Demiralp <keenblade@tuxfamily.org> gigedit-9999.ebuild:
   gigedit-9999: ebuild updated. Thanks to Natanael
 

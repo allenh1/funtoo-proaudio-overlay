@@ -4,7 +4,7 @@
 
 EAPI="4"
 
-inherit subversion
+inherit eutils subversion
 
 DESCRIPTION="Gigedit is an instrument editor for Gigasampler files."
 HOMEPAGE="http://www.linuxsampler.org"
@@ -52,6 +52,7 @@ src_compile() {
 src_install() {
 	einstall || die "einstall failed"
 	dodoc AUTHORS ChangeLog README NEWS
+	make_desktop_entry "${PN}" GigEdit "${PN}" "AudioVideo;Audio;Sampler"
 
 	#if use doc; then
 	#    mv ${S}/doc/html ${D}/usr/share/doc/${PF}/
