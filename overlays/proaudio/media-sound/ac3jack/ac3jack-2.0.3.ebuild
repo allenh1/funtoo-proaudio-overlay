@@ -32,4 +32,5 @@ src_unpack(){
 src_install(){
 	dodoc README NEWS
 	make DESTDIR="${D}" install || die "make install failed"
+	make_desktop_entry "${PN}" ac3jack "${PN}" "AudioVideo;Audio;SoundProcessing"
 }

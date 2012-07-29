@@ -2,6 +2,9 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  29 Jul 2012; Dominique Mochel <dominique@tuxfamily.org>
+  ac3jack-2.0.3.ebuild: + installation of a menu desktop file
+
   06 Apr 2010; Viktor Lazarev <taurus101v@gmail.com>
   files/ac3jack-2.0.3-compile-fix.patch:
   Changed patch, see bgo #238324
