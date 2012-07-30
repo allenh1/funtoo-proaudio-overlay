@@ -2,6 +2,10 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  30 Jul 2012; Dominique Michel <dominique@tuxfamily.org>
+  +a2jmidid-99999.ebuild: Fixed python shebangs and other changes from bug313931
+  -a2jmidid-9999.ebuild: Can fail with syntax error. See bug428462
+
   28 Jul 2012; Dominique Michel <dominique@tuxfamily.org> +ChangeLog:
   initial ChangeLog
   a2jmidid-9999.ebuild: Added python eclass and fixed compiling when python3 is installed.
