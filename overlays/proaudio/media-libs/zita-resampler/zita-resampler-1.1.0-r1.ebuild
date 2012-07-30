@@ -20,20 +20,18 @@ DEPEND="media-libs/libsndfile"
 RDEPEND="${DEPEND}"
 
 src_prepare() {
+	# drop arch suffux; pass DESTDIR; as a bonus
+	# fix dynamic linking consistency -:)
 	epatch "${FILESDIR}/${P}-Makefile.patch"
-	epatch "${FILESDIR}/${P}-apps-Makefile.patch"
-	# maybe there's a better way to do this. we need to find the library
-	# to link the resample app but it's not installed to the system yet
-	sed -i -e "s|-lzita-resampler|../libs/libzita-resampler.so.${PV}|" \
-		apps/Makefile || die
 }
 
 src_compile() {
 	cd libs
+	append-cppflags -Dlibs
 	CXX="$(tc-getCXX)" emake LIBDIR=$(get_libdir) || die "make libs failed"
 
 	cd ../apps
-	append-cppflags -I../libs
+	append-cppflags -Dlibs
 	CXX="$(tc-getCXX)" emake LIBDIR=$(get_libdir) || die "make apps failed"
 }
 
