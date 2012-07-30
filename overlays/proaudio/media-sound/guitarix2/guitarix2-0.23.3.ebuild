@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -32,11 +32,14 @@ RDEPEND="
 	meterbridge? ( media-sound/meterbridge )
 	!media-sound/guitarix"
 
+S="${WORKDIR}/guitarix-${PV}"
+
 DEPEND="${RDEPEND}
 	dev-util/pkgconfig"
 
 src_configure() {
-	./waf configure --prefix=/usr || die
+	./waf configure --prefix=/usr --ladspadir=/usr/share/ladspa \
+	|| die
 }
 
 src_compile() {
@@ -45,5 +48,4 @@ src_compile() {
 
 src_install() {
 	DESTDIR=${D} ./waf install
-
 }

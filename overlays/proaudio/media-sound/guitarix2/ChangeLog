@@ -2,7 +2,11 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-*guitarix2-0.16.0 (01 Jul 2011)
+*guitarix2-0.23.3 (30 Jul 2012)
+
+  30 Jul 2012; Dominique Michel <dominique@tuxfamily.org>
+  +guitarix2-0.23.3.ebuild, -guitarix2-0.16.0.ebuild, -huitarix-0-18.0.ebuild:
+  removing of the old ebuild, version bump, fixed ladspa path
 
   01 Jul 2011; Hakan Demiralp <keenblade@tuxfamily.org
   +guitarix2-0.16.0.ebuild, +metadata.xml:
