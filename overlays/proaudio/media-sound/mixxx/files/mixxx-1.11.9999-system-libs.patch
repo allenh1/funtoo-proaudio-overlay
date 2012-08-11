@@ -1,6 +1,6 @@
 === modified file 'mixxx/build/depends.py'
---- mixxx/build/depends.py	2011-12-23 22:09:30 +0000
-+++ mixxx/build/depends.py	2012-05-04 23:44:31 +0000
+--- mixxx-9999/build/depends.py	2012-04-22 17:33:25 +0000
++++ mixxx-9999/build/depends.py	2012-04-23 23:49:03 +0000
 @@ -189,25 +189,10 @@
  
  class FidLib(Dependence):
@@ -19,22 +19,27 @@
 -        else:
 -            symbol = 'T_LINUX'
 -
--        return [build.env.StaticObject('#lib/fidlib-0.9.9/fidlib.c',
+-        return [build.env.StaticObject('#lib/fidlib-0.9.10/fidlib.c',
 -                                       CPPDEFINES=symbol)]
 -
      def configure(self, build, conf):
--        build.env.Append(CPPPATH='#lib/fidlib-0.9.9/')
+-        build.env.Append(CPPPATH='#lib/fidlib-0.9.10/')
 +        if not conf.CheckLib('fidlib'):
 +            raise Exception('Did not find fidlib library, exiting!')
 +        build.env.Append(CPPPATH=[SCons.ARGUMENTS.get('prefix') + '/include/fidlib'])
  
- class KissFFT(Dependence):
+ class ReplayGain(Dependence):
  
-@@ -226,68 +211,15 @@
+@@ -218,7 +203,6 @@
          build.env.Append(CPPPATH="#lib/replaygain")
  
  class SoundTouch(Dependence):
--    SOUNDTOUCH_PATH = 'soundtouch-1.5.0'
+-    SOUNDTOUCH_PATH = 'soundtouch-1.6.0'
+ 
+     def sse_enabled(self, build):
+         optimize = int(util.get_flags(build.env, 'optimize', 1))
+@@ -227,42 +211,13 @@
+                 (build.toolchain_is_gnu and optimize > 1))
  
      def sources(self, build):
 -        sources = ['engine/enginebufferscalest.cpp',
@@ -46,57 +51,34 @@
 -                   '#lib/%s/FIRFilter.cpp' % self.SOUNDTOUCH_PATH,
 -                   '#lib/%s/PeakFinder.cpp' % self.SOUNDTOUCH_PATH,
 -                   '#lib/%s/BPMDetect.cpp' % self.SOUNDTOUCH_PATH]
--        if build.platform_is_windows and build.toolchain_is_msvs:
--            if build.machine_is_64bit:
--                sources.append(
--                    '#lib/%s/cpu_detect_x64_win.cpp' % self.SOUNDTOUCH_PATH)
--            elif build.machine == 'x86':
--                sources.append(
--                    '#lib/%s/cpu_detect_x86_win.cpp' % self.SOUNDTOUCH_PATH)
--            else:
--                raise Exception("Unhandled CPU configuration for SoundTouch")
--        elif build.toolchain_is_gnu:
--            if build.machine == 'x86_64':
--                sources.append(
--                    '#lib/%s/cpu_detect_x64_gcc.cpp' % self.SOUNDTOUCH_PATH)
--            else:
--                sources.append(
--                    '#lib/%s/cpu_detect_x86_gcc.cpp' % self.SOUNDTOUCH_PATH)
--        else:
--            raise Exception("Unhandled CPU configuration for SoundTouch")
 -
--        # TODO(XXX) when we figure out a better way to represent features, fix
--        # this.
--        optimize = int(util.get_flags(build.env, 'optimize', 1))
--        if build.machine_is_64bit or \
--                (build.toolchain_is_msvs and optimize > 1) or \
--                (build.toolchain_is_gnu and optimize > 2):
+-        # SoundTouch CPU optimizations are only for x86
+-        # architectures. SoundTouch automatically ignores these files when it is
+-        # not being built for an architecture that supports them.
+-        cpu_detection = '#lib/%s/cpu_detect_x86_win.cpp' if build.toolchain_is_msvs else \
+-            '#lib/%s/cpu_detect_x86_gcc.cpp'
+-        sources.append(cpu_detection % self.SOUNDTOUCH_PATH)
+-
+-        # Check if the compiler has SSE extention enabled
+-        # Allways the case on x64 (core instructions)
+-        if self.sse_enabled(build):
 -            sources.extend(
 -                ['#lib/%s/mmx_optimized.cpp' % self.SOUNDTOUCH_PATH,
--                 '#lib/%s/sse_optimized.cpp' % self.SOUNDTOUCH_PATH,
--                 ])
--        if build.toolchain_is_msvs and not build.machine_is_64bit:
--            sources.append('#lib/%s/3dnow_win.cpp' % self.SOUNDTOUCH_PATH)
--        else:
--            # TODO(XXX) the docs refer to a 3dnow_gcc, but we don't seem to have
--            # it.
--            pass
--
+-                 '#lib/%s/sse_optimized.cpp' % self.SOUNDTOUCH_PATH,])
 -        return sources
 +        return ['engine/enginebufferscalest.cpp']
  
      def configure(self, build, conf):
 -        if build.platform_is_windows:
--            build.env.Append(CPPDEFINES = 'WIN%s' % build.bitwidth)
+-            # Regardless of the bitwidth, ST checks for WIN32
+-            build.env.Append(CPPDEFINES = 'WIN32')
 -        build.env.Append(CPPPATH=['#lib/%s' % self.SOUNDTOUCH_PATH])
 -
--        # TODO(XXX) when we figure out a better way to represent features, fix
--        # this.
+-        # Check if the compiler has SSE extention enabled
+-        # Allways the case on x64 (core instructions)
 -        optimize = int(util.get_flags(build.env, 'optimize', 1))
--        if build.machine_is_64bit or \
--                (build.toolchain_is_msvs and optimize > 1) or \
--                (build.toolchain_is_gnu and optimize > 2):
--            build.env.Append(CPPDEFINES='ALLOW_X86_OPTIMIZATIONS')
+-        if self.sse_enabled(build):
+-            build.env.Append(CPPDEFINES='SOUNDTOUCH_ALLOW_X86_OPTIMIZATIONS')
 +        if not conf.CheckLib(['SoundTouch','libSoundTouch']):
 +            raise Exception('Did not find SoundTouch library, exiting!')
 +        build.env.Append(CPPPATH=[SCons.ARGUMENTS.get('prefix') + '/include/soundtouch'])
@@ -105,10 +87,9 @@
  class TagLib(Dependence):
      def configure(self, build, conf):
 
-=== modified file 'mixxx/build/features.py'
---- mixxx/build/features.py	2011-11-19 20:27:07 +0000
-+++ mixxx/build/features.py	2012-05-04 23:56:45 +0000
-@@ -665,25 +665,15 @@
+--- mixxx-9999/build/features.py	2011-12-08 11:47:54 +0000
++++ mixxx-9999/build/features.py	2012-03-21 20:41:47 +0000
+@@ -595,25 +595,15 @@
          test_env.Append(CCFLAGS = '-pthread')
          test_env.Append(LINKFLAGS = '-pthread')
  
@@ -144,37 +125,25 @@
  class Shoutcast(Feature):
      def description(self):
 
-=== modified file 'mixxx/src/engine/enginefilter.h'
---- mixxx/src/engine/enginefilter.h	2011-03-22 16:24:04 +0000
-+++ mixxx/src/engine/enginefilter.h	2012-05-04 23:57:03 +0000
-@@ -20,13 +20,13 @@
+--- mixxx-9999/src/engine/enginefilter.h	2011-07-24 21:50:31 +0000
++++ mixxx-9999/src/engine/enginefilter.h	2012-03-21 20:41:47 +0000
+@@ -20,7 +20,7 @@
  
  #define MIXXX
  #include "engine/engineobject.h"
--#include "../lib/fidlib-0.9.9/fidlib.h"
+-#include "../lib/fidlib-0.9.10/fidlib.h"
 +#include "fidlib.h"
  #include "defs.h"
  
--enum filterType{
--	FILTER_LOWPASS,
--	FILTER_BANDPASS,
--	FILTER_HIGHPASS
-+enum filterType{
-+	FILTER_LOWPASS,
-+	FILTER_BANDPASS,
-+	FILTER_HIGHPASS
- };
- 
- #define PREDEF_HP 1
+ enum filterType{
 
-=== modified file 'mixxx/src/engine/enginefilterbutterworth8.cpp'
---- mixxx/src/engine/enginefilterbutterworth8.cpp	2011-03-22 16:24:04 +0000
-+++ mixxx/src/engine/enginefilterbutterworth8.cpp	2012-05-04 23:57:29 +0000
+--- mixxx-9999/src/engine/enginefilterbutterworth8.cpp	2011-07-24 21:50:31 +0000
++++ mixxx-9999/src/engine/enginefilterbutterworth8.cpp	2012-03-21 20:41:47 +0000
 @@ -20,7 +20,6 @@
  #include "engine/enginefilterbutterworth8.h"
  #include "engine/enginefilter.h"
  #include "engine/engineobject.h"
--#include "../lib/fidlib-0.9.9/fidlib.h"
+-#include "../lib/fidlib-0.9.10/fidlib.h"
  
  /* Local Prototypes */
  inline double _processLowpass(double *coef, double *buf, register double val);

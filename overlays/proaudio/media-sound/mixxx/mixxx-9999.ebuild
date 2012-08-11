@@ -29,13 +29,16 @@ RDEPEND="dev-libs/protobuf
 	media-libs/vamp-plugin-sdk
 	virtual/glu
 	virtual/opengl
-	>=x11-libs/qt-gui-4.6:4
-	>=x11-libs/qt-opengl-4.6:4
-	>=x11-libs/qt-qt3support-4.6:4
-	>=x11-libs/qt-svg-4.6:4
-	>=x11-libs/qt-webkit-4.6:4
-	>=x11-libs/qt-xmlpatterns-4.6:4
-	aac? ( media-libs/faad2 )
+	x11-libs/qt-gui:4
+	x11-libs/qt-opengl:4
+	x11-libs/qt-sql:4
+	x11-libs/qt-svg:4
+	x11-libs/qt-webkit:4
+	x11-libs/qt-xmlpatterns:4
+	aac? (
+		media-libs/faad2                                                                                                                                   
+		media-libs/libmp4v2:0 
+	)
 	mp3? ( media-libs/libmad )
 	mp4? ( media-libs/libmp4v2 )
 	pulseaudio? ( media-sound/pulseaudio )

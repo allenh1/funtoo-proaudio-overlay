@@ -1,5 +1,5 @@
---- mixxx-1.10.0/src/SConscript.env
-+++ mixxx-1.10.0/src/SConscript.env
+--- mixxx-9999/src/SConscript.env
++++ mixxx-9999/src/SConscript.env
 @@ -19,21 +19,6 @@
      print "Deleting deprecated build file: %s" % defs
      os.remove(defs)
@@ -22,8 +22,9 @@
  #Check for dependencies if we're not doing a clean...
  #if not env.GetOption('clean') and not SCons.Util.containsAny(os.sys.argv, ['-h', '--help']):
  conf = Configure(env, custom_tests = { 'CheckForPKGConfig' : util.CheckForPKGConfig,
---- mixxx-1.10.0/src/SConscript
-+++ mixxx-1.10.0/src/SConscript
+
+--- mixxx-9999/src/SConscript
++++ mixxx-9999/src/SConscript
 @@ -12,8 +12,8 @@
  from build import util
  
