@@ -34,7 +34,7 @@ src_compile() {
 
 	econf $(use_with jack) || die
 	sed -i '/GCONF_CONFIG_SOURCE/d' ${S}/Makefile || die "patching Makefile"
-	emake || die "emake failed"
+	MAKEOPTS="-j1" emake || die "emake failed"
 }
 
 src_install() {
