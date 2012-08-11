@@ -8,6 +8,9 @@
   mixxx-9999.ebuild: dependencies fix
   Thanks to Alex Barker for those fixes
 
+  The reason to have to live ebuilds is than the 1.x.9999 is updated more often
+  and than it can contain updates that fix bugs in the last official release 
+
   25 May 2012; Hakan Demiralp <keenblade@tuxfamily.org> mixxx-1.10.0.ebuild:
   mixxx-1.10.0: missing fidlib dependency added wrt bug report at f.g.o. by
   woelfl
