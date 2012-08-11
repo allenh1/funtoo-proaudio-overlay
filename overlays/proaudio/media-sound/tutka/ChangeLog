@@ -3,8 +3,9 @@
 # $Header: $
 
   11 Aug 2012; Dominique Michel <dominique@tuxfamily.org>
-  Version bump to 0.12.5
-  tutka-0.12.5.ebuild: Added MAKEOPTS="-j1" because the build fail otherwise.
+  Version bump to 0.12.5, new live ebuild
+  +tutka-0.12.5.ebuild: Added MAKEOPTS="-j1" because the build fail otherwise.
+  +tutka-9999.ebuild, +files/Tutka.png
 
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog
