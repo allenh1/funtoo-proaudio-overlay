@@ -2,6 +2,11 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  11 Aug 2012; Dominique Michel <dominique@tuxfamily.org>
+  +psychosynth-0.3.0.ebuild
+  -psychosynth-0.2.0.ebuild
+  psychosynth.9999.ebuild: cleanup, added src_prepare with eautoreconf
+
 *psychosynth-0.2.0 (21 May 2011)
 *psychosynth-0.1.6 (21 May 2011)
 

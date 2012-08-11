@@ -30,9 +30,9 @@ RDEPEND=">=dev-libs/boost-1.39
 	alsa? ( >=media-libs/alsa-lib-1.0.14a-r1 )
 	jack? ( >=media-sound/jack-audio-connection-kit-0.103.0 )
 	osc? ( >=media-libs/liblo-0.24 )
-	psynth3d? ( >=dev-games/cegui-0.5.0b-r3
+	psynth3d? ( >=dev-games/cegui-0.7.7[ogre]
 				>=dev-games/ois-1.2.0
-				>=dev-games/ogre-1.4.7[cegui,devil] )
+				>=dev-games/ogre-1.8.0 )
 	sndfile? ( >=media-libs/libsndfile-1.0.17-r1 )
 	vorbis? ( >=media-libs/libvorbis-1.2.0 )
 	xml? ( >=dev-libs/libxml2-2.6.31 )"

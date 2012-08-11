@@ -3,18 +3,11 @@
 # $Header: $
 
 EAPI=2
-inherit autotools-utils
+inherit autotools-utils bzr
 
-if [ "${PV}" == "9999" ]; then
-	inherit bzr
-	EBZR_REPO_URI="bzr://bzr.savannah.gnu.org/psychosynth/trunk"
-	SRC_URI=""
-	KEYWORDS=""
-else
-	SRC_URI="ftp://ftp.gnu.org/gnu/psychosynth/${P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
-	RESTRICT="mirror"
-fi
+EBZR_REPO_URI="bzr://bzr.savannah.gnu.org/psychosynth/trunk"
+SRC_URI=""
+KEYWORDS=""
 
 DESCRIPTION="Free software synthesizer inspired by the ideas of the Reactable"
 HOMEPAGE="http://www.psychosynth.com/"
@@ -30,9 +23,9 @@ RDEPEND=">=dev-libs/boost-1.39
 	alsa? ( >=media-libs/alsa-lib-1.0.14a-r1 )
 	jack? ( >=media-sound/jack-audio-connection-kit-0.103.0 )
 	osc? ( >=media-libs/liblo-0.24 )
-	psynth3d? ( >=dev-games/cegui-0.5.0b-r3
+	psynth3d? ( >=dev-games/cegui-0.7.7[ogre]
 				>=dev-games/ois-1.2.0
-				>=dev-games/ogre-1.4.7[cegui,devil] )
+				>=dev-games/ogre-1.8.0 )
 	sndfile? ( >=media-libs/libsndfile-1.0.17-r1 )
 	vorbis? ( >=media-libs/libvorbis-1.2.0 )
 	xml? ( >=dev-libs/libxml2-2.6.31 )"
@@ -41,6 +34,10 @@ DEPEND="${RDEPEND}
 
 AUTOTOOLS_IN_SOURCE_BUILD=1
 DOCS=(AUTHORS ChangeLog)
+
+src_prepare() {
+	eautoreconf
+}
 
 src_configure() {
 	local myeconfargs=(
