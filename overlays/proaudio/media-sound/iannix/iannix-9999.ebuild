@@ -15,7 +15,7 @@ RESTRICT="mirror"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="doc examples"
+IUSE="examples"
 
 S="${WORKDIR}/IanniX"
 
@@ -50,6 +50,7 @@ src_install() {
 	dodoc Readme.txt
 	make_desktop_entry IanniX "iannix"
 	insinto /usr/share/${PN}
+	doins -r Documentation
 	doins -r Patches
 	doins -r Project
 	doins -r Tools
@@ -57,10 +58,6 @@ src_install() {
 	doins *.png *.ico
 	make_wrapper iannix "/usr/bin/IanniX" "/usr/share/${PN}" "/usr/share/${PN},/usr/share/${PN}/pixmaps"
 
-	if use doc; then
-		insinto /usr/share/doc/${P}
-		doins -r Documentation
-	fi
 	if use examples; then
 		insinto /usr/share/${PN}
 		doins -r Examples
