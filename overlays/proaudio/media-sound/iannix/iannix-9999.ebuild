@@ -73,8 +73,5 @@ pkg_postinst() {
 	if use examples; then
 		einfo "The examples have been installed to /usr/share/${PN}/examples"
 	fi
-
-	if use doc; then
-		einfo "For documentation read /usr/share/doc/${P}/Documentation"
-	fi
+	einfo "For documentation is avaivle by clicking on the ? button in IanniX"
 }
