@@ -55,7 +55,7 @@ src_install() {
 	doins -r Tools
 	insinto /usr/share/${PN}/pixmaps
 	doins *.png *.ico
-	make_wrapper iannix "/usr/bin/IanniX" "/usr/share/${PN} /usr/share/${PN}/pixmaps"
+	make_wrapper iannix "/usr/bin/IanniX" "/usr/share/${PN}" "/usr/share/${PN},/usr/share/${PN}/pixmaps"
 
 	if use doc; then
 		insinto /usr/share/doc/${P}
