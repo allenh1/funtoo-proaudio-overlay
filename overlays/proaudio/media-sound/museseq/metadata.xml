@@ -7,7 +7,15 @@
 		<name>pro-audio overlay team</name>
 	</maintainer>
 	<use>
+		<flag name="doc">Install the depends needed to build the doc</flag>
+		<flag name="dssi">Enable dssi and dssi-vst support</flag>
+		<flag name="experimental">Enable experimental features</flag>
 		<flag name="fluidsynth">Enable fluidsynth support</flag>
+		<flag name="lash">Enable lash support</flag>
+		<flag name="optimization">Enable Release build type</flag>
+		<flag name="osc">Enable OSC support</flag>
+		<flag name="python">Enable python control module build</flag>
+		<flag name="vst">Enable obsolated vst support trough fst/wine</flag>
 		<flag name="zynaddsubfx">Enable zynaddsubfx support</flag>
 	</use>
 </pkgmetadata>

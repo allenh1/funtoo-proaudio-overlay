@@ -3,6 +3,12 @@
 # NOTE: Please add your entry at the top!
 #
 
+# Dominique Michel <dominique@tuxfamily.ord> 12 Aug (2012)
+# Old ebuilds, they just don't work anymore. Fix or removing needed.
+=media-sound/museseq-1.0.1
+=media-sound/museseq-1.0_rc1
+=media-sound/museseq-1.9999
+
 # Frieder Buerzele <evermind@tuxfamily.org> (21 Jan 2012)
 # they are old ebuild, but they separate the banks into another ebuild.
 # so there needs to be a review  later on those ebuilds. But for now masked

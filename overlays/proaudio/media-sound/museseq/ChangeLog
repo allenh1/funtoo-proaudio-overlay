@@ -2,6 +2,10 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  12 Aug 2012; Dominique Michel <dominique@tuxfamily.org>
+  museseq-2.9999.ebuild: A lot of changes to make it to work.
+  masqued the other ebuilds: fix needed
+
 *museseq-1.0.1 (30 Apr 2010)
 
   30 Apr 2010; Viktor Lazarev <taurus101v@gmail.com>
