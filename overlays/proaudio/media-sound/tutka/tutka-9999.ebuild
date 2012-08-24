@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /cvsroot/jacklab/gentoo/media-sound/tutka/tutka-0.12.3.ebuild,v 1.1 2006/04/10 17:19:53 gimpel Exp $
 
@@ -32,6 +32,6 @@ src_configure() {
 
 src_install() {
 	qt4-r2_src_install
-	doicon -s 48 "${FILESDIR}"/Tutka.png
-	make_desktop_entry Tutka Tutka Tutka.png "AudioVideo;Audio;Sequencer"
+	doicon -s 48 "${FILESDIR}"/Tutka.xpm
+	make_desktop_entry Tutka Tutka Tutka.xpm "AudioVideo;Audio;Sequencer"
 }
