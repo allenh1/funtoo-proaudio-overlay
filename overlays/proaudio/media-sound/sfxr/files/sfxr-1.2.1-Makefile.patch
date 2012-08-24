@@ -1,0 +1,11 @@
+--- Makefile.orig	2012-05-14 19:55:15.015935266 +0100
++++ Makefile	2012-05-14 19:57:00.616675739 +0100
+@@ -1,7 +1,6 @@
+-CFLAGS=-ggdb
+ GTK=3.0
+ CXXFLAGS=$(CFLAGS) `sdl-config --cflags` `pkg-config gtk+-${GTK} --cflags`
+-LDFLAGS=`sdl-config --libs` `pkg-config gtk+-${GTK} --libs`
++LDFLAGS+=`sdl-config --libs` `pkg-config gtk+-${GTK} --libs`
+ 
+ sfxr: main.cpp tools.h sdlkit.h
+ 	$(CXX) $< $(CXXFLAGS) $(LDFLAGS) -o $@
