@@ -1,6 +1,11 @@
 # ChangeLog for media-sound/jost
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  24 Aug 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  jost-0.4.6.ebuild, jost-0.5.2.ebuild, jost-0.5.4.ebuild, +files/jost.xpm,
+  -files/jost.png:
+  replace png with xpm in FILESDIR
 
   16 Mar 2008; Thomas Kuther <gimpel@sonnenkinder.org>
   +files/jost-0.4.6-elf_i386.patch, +jost-0.4.6.ebuild:

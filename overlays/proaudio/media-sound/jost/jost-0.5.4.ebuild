@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -103,7 +103,7 @@ src_compile() {
 src_install() {
 	dobin bin/jost
 	dodoc readme.txt changelog.txt
-	doicon "resources/jost.png"
+	doicon "resources/jost.xpm"
 	make_desktop_entry "${PN}" "Jost" "${PN}" "AudioVideo;Audio;"
 }
 
