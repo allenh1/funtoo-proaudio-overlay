@@ -1,9 +1,8 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
-
+EAPI=4
 inherit eutils toolchain-funcs
 
 DESCRIPTION="A jack multichannel audio level meter app featuring correct ballistics for both the VU and the PPM"
@@ -14,7 +13,7 @@ RESTRICT="mirror"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND=">=media-libs/libclthreads-2.2.1
@@ -29,12 +28,12 @@ src_prepare() {
 }
 
 src_compile() {
-	tc-export CXX
-	emake PREFIX=/usr || die "emake failed"
+	CXX="$(tc-getCXX)" emake PREFIX="${EPREFIX}/usr" || die "emake failed"
 }
 
 src_install() {
-	make DESTDIR="${D}" PREFIX=/usr install || die "make install failed"
+	emake DESTDIR="${ED}" PREFIX="${EPREFIX}/usr" install || \
+		die "make install failed"
 	cd ..
 	dodoc AUTHORS README
 }
