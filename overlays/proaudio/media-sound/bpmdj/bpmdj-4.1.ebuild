@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -68,6 +68,6 @@ src_install () {
 	# install startup wrapper
 	dobin "${FILESDIR}/${PN}.sh"
 	# install logo and desktop entry
-	doicon "${FILESDIR}/${PN}.png"
+	doicon "${FILESDIR}/${PN}.xpm"
 	make_desktop_entry "bpmdj.sh" "BpmDj" ${PN} "AudioVideo;Audio"
 }

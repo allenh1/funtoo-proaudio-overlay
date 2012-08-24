@@ -1,6 +1,11 @@
 # ChangeLog for media-sound/bpmdj
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  24 Aug 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  bpmdj-3.6.ebuild, bpmdj-4.1.ebuild, bpmdj-4.1-r1.ebuild, +files/bpmdj.xpm,
+  -files/bpmdj.png:
+  replace png with xpm in FILESDIR
 
 *bpmdj-4.1-r1 (15 May 2010)
 
