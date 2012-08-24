@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -67,6 +67,6 @@ src_compile() {
 src_install() {
 	make install DESTDIR=${D} || die "Install failed"
 	dodoc AUTHORS BUGS INSTALL LICENSE NEWS README TODO CHANGELOG
-	doicon "${FILESDIR}/${PN}.png"
+	doicon "${FILESDIR}/${PN}.xpm"
 	make_desktop_entry ${PN} "Wired" ${PN} "AudioVideo;Audio;Sequencer;"
 }
