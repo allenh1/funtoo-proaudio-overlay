@@ -1,6 +1,13 @@
 # ChangeLog for media-sound/jmess
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*jmess-1.0.1 (25 Aug 2012)
+
+  25 Aug 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -jmess-1.ebuild, +jmess-1.0.1.ebuild:
+  make DOCS an array to fix build failure. cleanup and bump ebuild.
+  SRC_URI moved. LICENSE: GPL-2 -> MIT
 
 *jmess-1 (14 Nov 2010)
 
