@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -24,11 +24,11 @@ RDEPEND="vorbis? ( >=media-libs/libvorbis-1.0 )
 	sndfile? ( >=media-libs/libsndfile-1.0.12 )
 	flac? ( media-libs/flac )
 	modplug? ( media-libs/libmodplug )
-	alsa? ( virtual/alsa )
+	alsa? ( media-libs/alsa-lib )
 	lua? ( dev-lang/lua )
 	mac? ( media-sound/mac )
 	mp3? ( media-libs/libmad )
-	musepack? ( media-libs/libmpcdec )
+	musepack? ( >=media-sound/musepack-tools-444 )
 	ffmpeg? ( virtual/ffmpeg )
 	ifp? ( media-libs/libifp )
 	pulseaudio? ( media-sound/pulseaudio )
@@ -43,7 +43,7 @@ RDEPEND="vorbis? ( >=media-libs/libvorbis-1.0 )
 
 DEPEND="${RDEPEND}
 	ladspa? ( >=media-libs/liblrdf-0.4.0 )
-	>=dev-util/pkgconfig-0.9.0
+	virtual/pkgconfig
 	dev-libs/libxml2
 	media-libs/raptor"
 
