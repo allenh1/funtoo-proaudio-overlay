@@ -1,0 +1,22 @@
+# ChangeLog for media-plugins/ir_lv2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*ir_lv2-1.3.2 (24 Sep 2012)
+*ir_lv2-1.2.2 (24 Sep 2012)
+
+  24 Sep 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  +ir_lv2-1.2.2.ebuild, +ir_lv2-1.3.2.ebuild, +metadata.xml:
+  sync from portage. bumped. >=zita-convolver-3 required.
+
+*ir-lv2-1.2 (25 Jan 2011)
+
+  25 Jan 2011; Viktor Lazarev <taurus101v@gmail.com> +ir-lv2-1.2.ebuild:
+  Version bump
+
+*ir-lv2-1.1 (17 Jan 2011)
+
+  17 Jan 2011; Viktor Lazarev <taurus101v@gmail.com> +ir-lv2-1.1.ebuild,
+  +metadata.xml:
+  Initial import
+
