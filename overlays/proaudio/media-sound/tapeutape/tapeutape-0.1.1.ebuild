@@ -1,14 +1,15 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI=2
 
 inherit eutils scons-utils
 
 DESCRIPTION="Tapeutape is a midi-controlled virtual sampler."
 HOMEPAGE="http://tardigrade-inc.com/index.php/En/Tapeutape"
-SRC_URI="http://www.tardigrade-inc.com/uploads/${P}.tar.gz"
+SRC_URI="http://www.tardigrade-inc.com/uploads/${P}.tar.gz
+	http://hitmuri.net/uploads/Software/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -21,7 +22,7 @@ DEPEND="dev-libs/libxml2
 		media-libs/libsndfile"
 
 RDEPEND="lash? ( media-sound/lash )
-		   gui? ( =x11-libs/fltk-1.1.10* )"
+		   gui? ( x11-libs/fltk )"
 
 src_prepare(){
 
