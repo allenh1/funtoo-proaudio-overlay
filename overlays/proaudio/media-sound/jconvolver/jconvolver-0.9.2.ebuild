@@ -21,9 +21,7 @@ DEPEND=">=media-libs/libclthreads-2.4.0
 	>=media-libs/libsndfile-1.0.17
 	>=media-libs/zita-convolver-3.1.0
 	>=media-sound/jack-audio-connection-kit-0.121.3
-	>=sci-libs/fftw-3.2.2:3.0
-	|| ( x11-libs/libX11
-		 virtual/x11 )"
+	>=sci-libs/fftw-3.2.2:3.0"
 RDEPEND="${DEPEND}"
 
 S=${WORKDIR}/${P}/source
