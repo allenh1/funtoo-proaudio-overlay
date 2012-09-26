@@ -1,0 +1,30 @@
+--- source/Makefile.orig	2012-09-26 13:19:27.446578536 +0100
++++ source/Makefile	2012-09-26 13:21:18.821102819 +0100
+@@ -26,8 +26,7 @@
+ SHARED = $(PREFIX)/share/ebumeter
+ VERSION = 0.2.0
+ CPPFLAGS += -DVERSION=\"$(VERSION)\"
+-CXXFLAGS += -O2 -Wall -MMD -MP
+-CXXFLAGS += -march=native
++CXXFLAGS += -Wall -MMD -MP
+ LDFLAGS += -L$(PREFIX)/$(LIBDIR)
+ 
+ 
+@@ -37,7 +36,7 @@
+ EBUR128_O = ebur128.o ebu_r128_proc.o audiofile.o dither.o 
+ ebur128:	LDLIBS += -lsndfile
+ ebur128:	$(EBUR128_O)
+-	g++ $(LDFLAGS) -o $@ $(EBUR128_O) $(LDLIBS)
++	$(CXX) $(LDFLAGS) -o $@ $(EBUR128_O) $(LDLIBS)
+ $(EBUR128_O):
+ -include $(EBUR128_O:%.o=%.d)
+ 
+@@ -49,7 +48,7 @@
+ ebumeter:	LDFLAGS += -L/usr/X11R6/$(LIBDIR)
+ ebumeter:	LDLIBS += -lclthreads -lclxclient -lpthread -ljack -lpng -lXft -lpng -lX11 -lrt
+ ebumeter:	$(EBUMETER_O)
+-	g++ $(LDFLAGS) -o $@ $(EBUMETER_O) $(LDLIBS)
++	$(CXX) $(LDFLAGS) -o $@ $(EBUMETER_O) $(LDLIBS)
+ $(EBUMETER_O):
+ -include $(EBUMETER_O:%.o=%.d)
+ 
