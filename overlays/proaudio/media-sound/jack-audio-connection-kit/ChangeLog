@@ -2,6 +2,21 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*jack-audio-connection-kit-0.121.3 (27 Sep 2012)
+
+  27 Sep 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -files/jack-audio-connection-kit-0.116.1-dbus.patch,
+  -files/jack-audio-connection-kit-0.116.1-dbus_as-needed.patch,
+  -jack-audio-connection-kit-0.116.2.ebuild,
+  -jack-audio-connection-kit-0.118.0.ebuild,
+  +jack-audio-connection-kit-0.121.3.ebuild,
+  -jack-audio-connection-kit-1.9.6.ebuild,
+  -jack-audio-connection-kit-1.9.7.ebuild,
+  +files/jack-audio-connection-kit-freebsd.patch,
+  +files/jack-audio-connection-kit-sparc-cpuinfo.patch, metadata.xml:
+  sync from portage and add 0.121.3 with dbus patch. remove the unreferenced
+  patches and clean up old ebuilds. jack-1.9.x ideally should be a new package.
+
   11 May 2012; Hakan Demiralp <keenblade@tuxfamily.org>
   jack-audio-connection-kit-2.9999.ebuild:
   pam useflag added for realtime setup
