@@ -5,18 +5,16 @@
 EAPI=4
 PYTHON_DEPEND="2"
 RESTRICT_PYTHON_ABIS="3.*"
-inherit scons-utils eutils toolchain-funcs multilib python subversion
+inherit scons-utils eutils toolchain-funcs flag-o-matic multilib python
 
 DESCRIPTION="Successor for freebob: Library for accessing BeBoB IEEE1394 devices"
 HOMEPAGE="http://www.ffado.org"
-ESVN_REPO_URI="http://subversion.ffado.org/ffado/trunk/libffado"
+SRC_URI="http://www.ffado.org/files/${P}.tgz"
 
 LICENSE="GPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 SLOT="0"
 IUSE="debug qt4 +test-programs"
-
-RESTRICT="mirror"
 
 RDEPEND=">=dev-cpp/libxmlpp-2.6.13
 	>=dev-libs/dbus-c++-0.9.0
@@ -31,6 +29,8 @@ RDEPEND=">=dev-cpp/libxmlpp-2.6.13
 DEPEND="${RDEPEND}
 	dev-util/scons
 	virtual/pkgconfig"
+
+RESTRICT="mirror"
 
 pkg_setup() {
 	python_set_active_version 2

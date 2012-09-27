@@ -2,6 +2,20 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*libffado-2.1.0 (27 Sep 2012)
+
+  27 Sep 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -files/libffado-2.0_rc1-dbus_mainloop.patch, -libffado-2.0.0.ebuild,
+  -libffado-2.0.1.ebuild, +libffado-2.1.0.ebuild,
+  +files/libffado-2.1.0/0001-honour-toolchain-env.patch,
+  +files/libffado-2.1.0/0002-remove-O2.patch, libffado-9999.ebuild,
+  +files/libffado-9999/0001-honour-toolchain-env.patch,
+  +files/libffado-9999/0003-remove-O2.patch, metadata.xml:
+  bump to 2.1.0 and sync live ebuild. add patches for honouring flags from
+  portage environment. tweak deps. set python version 2 and make use of eclass
+  features. remove old ebuilds and patches. Thanks to all on list for info and 
+  Sebastian Rose, Nedko Arnaudov for help.
+
   10 May 2012; Hakan Demiralp <keenblade@tuxfamily.org> libffado-2.0.0.ebuild,
   libffado-2.0.1.ebuild, libffado-9999.ebuild:
   libffado: all ebuilds updated. Thanks to Natanael for fixing sandbox
