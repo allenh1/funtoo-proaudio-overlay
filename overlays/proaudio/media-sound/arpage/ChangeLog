@@ -1,6 +1,15 @@
 # ChangeLog for media-sound/arpage
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*arpage-0.3.3 (30 Sep 2012)
+
+  30 Sep 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -arpage-0.2.ebuild, -arpage-0.3.ebuild, +arpage-0.3.3.ebuild,
+  +files/arpage-0.3.3-doc.patch, arpage-9999.ebuild, metadata.xml:
+  bump. sync live ebuild and changed repo location to trunk, remove
+  $DISTDIR/svn-src/arpage if there are problems.
+  added patch for not installing duplicate docs in the wrong place under Gentoo.
 
 *arpage-0.3 (16 May 2010)
 
