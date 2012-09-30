@@ -2,6 +2,10 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  30 Sep 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  jack-audio-connection-kit-0.121.3.ebuild:
+  add back support for freebob and ffado. drop keywords as repoman payment.
+
 *jack-audio-connection-kit-0.121.3 (27 Sep 2012)
 
   27 Sep 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>

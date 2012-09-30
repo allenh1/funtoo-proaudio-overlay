@@ -13,13 +13,15 @@ SRC_URI="http://www.jackaudio.org/downloads/${P}.tar.gz
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sh ~sparc ~x86 ~amd64-fbsd"
-IUSE="3dnow alsa altivec coreaudio cpudetection dbus debug doc examples mmx oss pam sse"
+KEYWORDS="~amd64 ~x86"
+IUSE="3dnow alsa altivec coreaudio cpudetection dbus debug doc examples freebob ieee1394 mmx oss pam sse"
 
 RDEPEND=">=media-libs/libsndfile-1.0.0
 	sys-libs/ncurses
 	alsa? ( >=media-libs/alsa-lib-1.0.18 )
 	dbus? ( sys-apps/dbus )
+	freebob? ( sys-libs/libfreebob )
+	ieee1394? ( media-libs/libffado )
 	media-libs/libsamplerate
 	!media-sound/jack-cvs"
 DEPEND="${RDEPEND}
@@ -53,6 +55,8 @@ src_configure() {
 		$(use_enable coreaudio) \
 		$(use_enable dbus) \
 		$(use_enable debug) \
+		$(use_enable freebob) \
+		$(use_enable ieee1394 firewire) \
 		$(use_enable mmx) \
 		$(use_enable oss) \
 		--disable-portaudio \
