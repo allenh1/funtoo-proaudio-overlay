@@ -2,6 +2,11 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  01 Oct 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  files/mixxx-1.11.9999-no-bzr.patch, files/mixxx-9999-no-bzr.patch:
+  apply patches thanks to Alex Barker. small repoman payments.
+  dev-util/pkgconfig -> virtual/pkgconfig
+
   11 Aug 2012; Dominique Michel <dominique@tuxfamily.org>
   -mixxx-1.10.ebuild: removed outdated version
   +mixxx-1.11.9999.ebuild, -mixxx-1.10.9999.ebuild: bumped live ebuild

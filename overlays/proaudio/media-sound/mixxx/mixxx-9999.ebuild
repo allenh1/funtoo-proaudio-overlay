@@ -36,8 +36,8 @@ RDEPEND="dev-libs/protobuf
 	x11-libs/qt-webkit:4
 	x11-libs/qt-xmlpatterns:4
 	aac? (
-		media-libs/faad2                                                                                                                                   
-		media-libs/libmp4v2:0 
+		media-libs/faad2
+		media-libs/libmp4v2:0
 	)
 	mp3? ( media-libs/libmad )
 	mp4? ( media-libs/libmp4v2 )
@@ -45,7 +45,7 @@ RDEPEND="dev-libs/protobuf
 	shout? ( media-libs/libshout )
 	wavpack? ( media-sound/wavpack )"
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig"
+	virtual/pkgconfig"
 
 S=${S}/${PN}
 
