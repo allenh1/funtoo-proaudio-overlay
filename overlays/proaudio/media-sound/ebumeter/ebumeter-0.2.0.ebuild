@@ -31,7 +31,7 @@ HTML_DOCS=(../doc/)
 PATCHES=("${FILESDIR}"/${P}-Makefile.patch)
 
 src_compile() {
-	CXX="$(tc-getCXX)" base_src_make
+	CXX="$(tc-getCXX)" base_src_make PREFIX="${EPREFIX}/usr"
 }
 
 src_install() {
