@@ -1,0 +1,11 @@
+--- source/retuner.h.orig	2012-10-04 15:38:13.143326088 +0100
++++ source/retuner.h	2012-10-04 15:38:51.092127163 +0100
+@@ -24,7 +24,7 @@
+ 
+ 
+ #include <fftw3.h>
+-#include <zita-resampler.h>
++#include <zita-resampler/resampler.h>
+ 
+ 
+ class Retuner
