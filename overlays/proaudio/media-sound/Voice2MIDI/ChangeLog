@@ -2,6 +2,10 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  17 Oct 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  -Voice2;IDI-0.3.6-r1.ebuild, deprecated due to qt3 depend
+  All the remaining ebuilds: updated to qt4-r2 eclass
+
   17+18 Jun 2012; Dominique Michel <dominique_libre@sourceforge.net>
   Voice2MIDI-9999.ebuild: fixed libclam DEPEND + new URI
   9999 + 0.3.8: fixed python setup

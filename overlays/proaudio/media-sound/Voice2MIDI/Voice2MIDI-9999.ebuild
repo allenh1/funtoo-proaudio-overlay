@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=1
+EAPI=2
 
-inherit eutils python subversion qt4
+inherit eutils python subversion qt4-r2
 
 DESCRIPTION="CLAM Voice2MIDI extracts the melody as a MIDI or XML file from monophonic audio files"
 HOMEPAGE="http://clam-project.org/index.html"
