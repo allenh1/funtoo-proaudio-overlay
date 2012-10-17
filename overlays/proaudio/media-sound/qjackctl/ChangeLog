@@ -1,6 +1,13 @@
 # ChangeLog for media-sound/qjackctl
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  17 Oct 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -qjackctl-0.2.23.ebuild, -qjackctl-0.3.3.ebuild, qjackctl-9999.ebuild,
+  metadata.xml:
+  remove 0.2.23 because of no Qt3, 0.3.3 because it's old and uses qt4 eclass
+  which is no longer in tree and spews error.
+  sync live ebuild from 0.3.9 in portage also fixing qt4 eclass inherit.
 
   14 Feb 2012: Dominique Michel <dominique@tuxfamily.org>
   qjackctl-9999.ebuild:

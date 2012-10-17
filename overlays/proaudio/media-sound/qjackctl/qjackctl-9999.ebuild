@@ -1,59 +1,52 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/media-sound/qjackctl/qjackctl-0.3.9.ebuild,v 1.1 2012/05/21 15:24:00 aballier Exp $
 
-EAPI=1
+EAPI=4
 
-inherit eutils qt4 subversion
+inherit qt4-r2 autotools subversion
 
 DESCRIPTION="A Qt application to control the JACK Audio Connection Kit and ALSA sequencer connections."
 HOMEPAGE="http://qjackctl.sourceforge.net/"
-
 ESVN_REPO_URI="https://qjackctl.svn.sourceforge.net/svnroot/${PN}/trunk"
-#ESVN_PROJECT="qjackctl-svn"
-SRC_URI=""
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 
-IUSE="alsa debug dbus jackmidi portaudio"
+IUSE="alsa dbus debug portaudio"
 
-DEPEND="alsa? ( media-libs/alsa-lib )
-	|| ( (
-			x11-libs/qt-core:4
-			x11-libs/qt-gui:4
-		) >=x11-libs/qt-4.1:4 )
-	dbus? ( x11-libs/qt-dbus )
-	portaudio? ( media-libs/portaudio )
-	media-sound/jack-audio-connection-kit"
+RDEPEND="
+	>=media-sound/jack-audio-connection-kit-0.109.2
+	x11-libs/qt-core:4
+	x11-libs/qt-gui:4
+	alsa? ( media-libs/alsa-lib )
+	dbus? ( x11-libs/qt-dbus:4 )
+	portaudio? ( media-libs/portaudio )"
+DEPEND="${RDEPEND}"
 
-S="${WORKDIR}/${PN}"
+S=${WORKDIR}/${PN}
 
-src_compile() {
-	make -f Makefile.svn || die
+DOCS="AUTHORS ChangeLog README TODO TRANSLATORS"
+
+src_prepare() {
+	qt4-r2_src_prepare
+	eautoreconf
+}
+
+src_configure() {
 	econf \
-		$(use_enable jackmidi jack-midi) \
 		$(use_enable alsa alsa-seq) \
-		$(use_enable debug) \
 		$(use_enable dbus) \
-		$(use_enable portaudio) \
-		|| die "econf failed"
+		$(use_enable debug) \
+		$(use_enable portaudio)
 
 	# Emulate what the Makefile does, so that we can get the correct
 	# compiler used.
-	eqmake4 ${PN}.pro -o ${PN}.mak || die "eqmake4 failed"
-
-	emake -f ${PN}.mak || die "emake failed"
+	eqmake4 ${PN}.pro -o ${PN}.mak
 }
 
-src_install() {
-	make -j1 DESTDIR="${D}" install || die "make install failed"
-
-	rm "${D}/usr/share/applications/qjackctl.desktop"
-
-	# Upstream desktop file is invalid, better stick with our for now.
-	make_desktop_entry "${PN}" "QjackCtl" "${PN}"
-
-	dodoc README ChangeLog TODO AUTHORS
+src_compile() {
+	emake -f ${PN}.mak
+	lupdate ${PN}.pro || die "lupdate failed"
 }
