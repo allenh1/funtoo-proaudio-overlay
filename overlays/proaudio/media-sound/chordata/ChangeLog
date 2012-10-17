@@ -2,6 +2,9 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header$
 
+  17 Oct 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  Updated both ebuilds to qt4-r2 eclass
+
 *chordata-9999 (10 Apr 2010)
 *chordata-1.0.0 (10 Apr 2010)
 

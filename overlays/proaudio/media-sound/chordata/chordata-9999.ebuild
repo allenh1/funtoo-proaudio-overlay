@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=1
+EAPI=2
 
-inherit exteutils qt4 subversion
+inherit exteutils qt4-r2 subversion
 
 DESCRIPTION="Chordata is a tool for tonal analysis of audio files."
 HOMEPAGE="http://clam-project.org/"
