@@ -3,16 +3,17 @@
 # $Header: $
 
 EAPI=4
-inherit cmake-utils cvs
+inherit cmake-utils
+
+MY_P="${P}-Source"
 
 DESCRIPTION="Free Music Instrument Tuner"
 HOMEPAGE="http://home.gna.org/fmit/"
-ECVS_SERVER="cvs.gna.org:/cvs/fmit"
-ECVS_MODULE="${PN}"
+SRC_URI="http://download.gna.org/fmit/${MY_P}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="alsa debug jack oss portaudio"
 
 DEPEND=">=media-libs/freeglut-2.6.0
@@ -25,7 +26,7 @@ DEPEND=">=media-libs/freeglut-2.6.0
 	portaudio? ( media-libs/portaudio )"
 RDEPEND="${DEPEND}"
 
-S=${WORKDIR}/${PN}
+S=${WORKDIR}/${MY_P}
 
 DOCS=(ChangeLog README.txt TODO)
 
