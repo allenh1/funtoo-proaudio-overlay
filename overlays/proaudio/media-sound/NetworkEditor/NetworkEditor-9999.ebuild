@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=1
+EAPI=2
 
-inherit subversion python qt4
+inherit subversion python qt4-r2
 
 DESCRIPTION="CLAM's visual builder"
 HOMEPAGE="http://clam-project.org/index.html"
