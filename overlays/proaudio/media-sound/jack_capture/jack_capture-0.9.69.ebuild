@@ -24,7 +24,7 @@ DEPEND="${RDEPEND}
 	gtk? ( dev-util/pkgconfig )"
 
 src_compile() {
-	epatch "${FILESDIR}/${P}-Makefile.patch"
+#	epatch "${FILESDIR}/${P}-Makefile.patch"
 	tc-export CC CXX
 	make jack_capture prefix=/usr OPTIMIZE="${CFLAGS}" \
 		${MAKEOPTS} || die "make jack_capture failed"
