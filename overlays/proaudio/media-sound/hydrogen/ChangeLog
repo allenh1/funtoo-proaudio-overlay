@@ -4,7 +4,7 @@
 
 *hydrogen-0.9.5.1 (28 Oct 2012)
 
-  28 Oct 2012; Hakan Demiralp <keenblade@tuxfamily.org -files/0.9.1-OSS.patch,
+  28 Oct 2012; Hakan Demiralp <keenblade@tuxfamily.org> -files/0.9.1-OSS.patch,
   -files/hydrogen-0.9.2-configure.in.patch, -hydrogen-0.9.3-r1.ebuild,
   -files/hydrogen-0.9.3-flac113.patch, -files/hydrogen-0.9.3-segfault.patch,
   +hydrogen-0.9.5.1.ebuild, +files/hydrogen-0.9.5.1-use_lrdf_pkgconfig.patch,

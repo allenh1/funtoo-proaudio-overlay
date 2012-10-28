@@ -4,7 +4,7 @@
 
 EAPI=4
 
-inherit eutils subversion
+inherit eutils multilib subversion
 
 DESCRIPTION="Linux Drum Machine"
 HOMEPAGE="http://hydrogen.sourceforge.net/"
@@ -55,7 +55,7 @@ src_compile() {
 
 	tc-export CC CXX
 	myconf="${myconf} CC=${CC} CXX=${CXX}"
-	mkdir -p ${D}
+	mkdir -p "${D}"
 	einfo "${myconf}"
 	scons CUSTOMCCFLAGS="${CFLAGS}" CUSTOMCXXFLAGS="${CXXFLAGS}" \
 		MAKEOPTS="${MAKEOPTS}" \

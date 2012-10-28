@@ -1,12 +1,11 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/x11-themes/fvwm-crystal/fvwm-crystal-3.0.4.ebuild,v 1.6 2007/02/04 19:20:09 beandog Exp $
 
-PYTHON_DEPEND="2"
-
+EAPI="2"
 inherit subversion eutils python
 
-EAPI="2"
+PYTHON_DEPEND="2"
 
 DESCRIPTION="Configurable and full featured theme for FVWM, with lots of transparency. This version add a freedesktop compatible menu"
 HOMEPAGE="http://fvwm-crystal.org/"
@@ -40,8 +39,8 @@ src_compile() {
 
 
 	if use session; then
-	    sed -i 's/Exec=fvwm/#Exec=fvwm/' addons/fvwm-crystal.desktop || die "sed failed"
-	    sed -i 's/#Exec=gnome/Exec=gnome/' addons/fvwm-crystal.desktop || die "sed failed"
+		sed -i 's/Exec=fvwm/#Exec=fvwm/' addons/fvwm-crystal.desktop || die "sed failed"
+		sed -i 's/#Exec=gnome/Exec=gnome/' addons/fvwm-crystal.desktop || die "sed failed"
 	fi
 	einfo "There is nothing to compile."
 }
@@ -50,7 +49,7 @@ src_install() {
 	#I added this USE flag because such recipes cause problem with rt-sources
 	# when the appropriate support is not compiled into the kernel
 	if ! use laptop; then
-	    rm -f fvwm/recipes/*ACPI
+		rm -f fvwm/recipes/*ACPI
 	fi
 
 	emake DESTDIR="${D}" prefix="/usr" install || die install failed
@@ -87,4 +86,3 @@ pkg_postinst() {
 	einfo "the environment variable names with - in their name."
 	einfo
 }
-

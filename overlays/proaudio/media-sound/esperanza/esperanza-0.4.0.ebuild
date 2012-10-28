@@ -1,7 +1,6 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $
-# Nonofficial ebuild by dangertools
+# $Header: Nonofficial ebuild by dangertools $
 
 EAPI=1
 
@@ -49,4 +48,3 @@ src_install() {
 	doicon data/images/esperanza.png
 	make_desktop_entry ${PN} "Esperanza" ${PN} "Qt4;AudioVideo;Player"
 }
-

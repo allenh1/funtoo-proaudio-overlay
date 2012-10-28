@@ -1,10 +1,9 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # Header: $
 
-inherit eutils toolchain-funcs git
 EAPI=1
-
+inherit eutils toolchain-funcs git
 
 DESCRIPTION="Esperanza - a QT4 client for xmms2."
 HOMEPAGE="http://xmms2.xmms.org"
@@ -49,4 +48,3 @@ src_install() {
 	doicon data/images/esperanza.png
 	make_desktop_entry ${PN} "Esperanza" ${PN} "Qt4;AudioVideo;Player"
 }
-
