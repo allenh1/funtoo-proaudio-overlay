@@ -1,10 +1,10 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=1
+EAPI=4
 
-inherit eutils qt4 subversion
+inherit eutils subversion
 
 DESCRIPTION="Linux Drum Machine"
 HOMEPAGE="http://hydrogen.sourceforge.net/"
@@ -16,11 +16,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE="alsa debug flac jack ladspa lash portaudio"
 
-RDEPEND="
-	|| ( (
-         	x11-libs/qt-core:4
-			x11-libs/qt-gui:4 )
-			>=x11-libs/qt-4.1:4	)
+RDEPEND="x11-libs/qt-core:4 x11-libs/qt-gui:4
 	dev-libs/libxml2
 	media-libs/libsndfile
 	media-libs/audiofile
@@ -42,8 +38,8 @@ src_compile() {
 	export QMAKE_CXX=$(tc-getCXX)
 	export QMAKE_LINK=$(tc-getCXX)
 	export QMAKE_CFLAGS_RELEASE="${CFLAGS}"
-	export QMAKE_CFLAGS_DEBUG="${CFLAGS}" 
-	export QMAKE_CXXFLAGS_RELEASE="${CXXFLAGS}" 
+	export QMAKE_CFLAGS_DEBUG="${CFLAGS}"
+	export QMAKE_CXXFLAGS_RELEASE="${CXXFLAGS}"
 	export QMAKE_CXXFLAGS_DEBUG="${CXXFLAGS}"
 	export QMAKE_LFLAGS_RELEASE="${LDFLAGS}"
 	export QMAKE_LFLAGS_DEBUG="${LDFLAGS}"
