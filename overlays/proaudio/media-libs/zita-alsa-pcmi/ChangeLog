@@ -1,0 +1,12 @@
+# ChangeLog for media-libs/zita-alsa-pcmi
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*zita-alsa-pcmi-0.2.0 (01 Nov 2012)
+
+  01 Nov 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  +zita-alsa-pcmi-0.2.0.ebuild, +files/zita-alsa-pcmi-0.2.0-Makefile.patch,
+  +metadata.xml:
+  Import new ebuild thanks to Jannis Achstetter. Modified ebuild and added
+  another patch to install files from apps directory.
+
