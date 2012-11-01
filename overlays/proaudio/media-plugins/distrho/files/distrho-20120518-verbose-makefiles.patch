@@ -1,0 +1,13 @@
+--- scripts/premake-update.sh.orig	2012-10-28 19:27:50.847236231 +0000
++++ scripts/premake-update.sh	2012-10-28 19:34:23.801184788 +0000
+@@ -42,8 +42,8 @@
+ 
+   if [ $LINUX = 1 ]; then
+ 
+-    echo premake --os linux --target gnu --cc gcc
+-    premake --os linux --target gnu --cc gcc
++    echo premake --verbose --os linux --target gnu --cc gcc
++    premake --verbose --os linux --target gnu --cc gcc
+ 
+     echo sed \""s/\\\$(LDFLAGS)/\\\$(LDFLAGS) \\\$(LDFLAGS)/\"" -i `find . -name \*.make`
+     sed "s/\$(LDFLAGS)/\$(LDFLAGS) \$(LDFLAGS)/" -i `find . -name \*.make`
