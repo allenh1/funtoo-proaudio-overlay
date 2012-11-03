@@ -3,9 +3,9 @@
 # $Header: $
 
 EAPI="2"
-inherit cmake-utils subversion
+inherit autotools subversion
 
-IUSE="alsa dbus debug doc floats jack ladspa lash oss portaudio pulseaudio readline sndfile"
+IUSE="alsa dbus debug doc double jack ladspa lash oss portaudio pulseaudio readline sndfile"
 
 DESCRIPTION="Fluidsynth is a software real-time synthesizer based on the Soundfont 2 specifications."
 HOMEPAGE="http://www.fluidsynth.org/"
@@ -38,26 +38,44 @@ pkg_setup() {
 	fi
 }
 
+src_prepare() {
+	eautoreconf
+}
+
 src_configure() {
-	local mycmakeargs=""
+	local myopts=""
 
 	if use alsa; then
-		mycmakeargs="$(cmake-utils_use lash enable-lash)"
+		myopts="$(use_enable lash)"
 	else
-		mycmakeargs="-Denable-lash=OFF"
+		myopts="--disable-lash"
 	fi
 
-	mycmakeargs+="
-	$(cmake-utils_use floats enable-floats)
-	$(cmake-utils_use ladspa enable-ladspa)
-	$(cmake-utils_use debug enable-debug)
-	$(cmake-utils_use sndfile enable-libsndfile)
-	$(cmake-utils_use pulseaudio enable-pulsaudio)
-	$(cmake-utils_use alsa enable-alsa)
-	$(cmake-utils_use portaudio enable-portaudio)
-	$(cmake-utils_use jack enable-jack)
-	$(cmake-utils_use readline enable-readline)
-	$(cmake-utils_use dbus enable-dbus)"
+	myopts+="
+	$(use_enable double)
+	$(use_enable ladspa)
+	$(use_enable debug)
+	$(use_enable sndfile libsndfile-support)
+	$(use_enable pulseaudio pulse-support)
+	$(use_enable alsa alsa-support)
+	$(use_enable portaudio portaudio-support)
+	$(use_enable jack jack-support)
+	$(use_with readline)
+	$(use_enable dbus dbus-support)"
 
-	cmake-utils_src_configure
+	econf $myopts
+}
+
+src_install() {
+	emake DESTDIR="${D}" install || die "emake install"
+	dodoc AUTHORS NEWS README THANKS TODO doc/*.txt
+	insinto /usr/share/doc/${PF}/pdf
+	doins doc/*.pdf
+
+	if use doc; then
+		cd doc
+		make doxygen
+		insinto /usr/share/doc/${PF}/html
+		doins api/html/*
+	fi
 }
