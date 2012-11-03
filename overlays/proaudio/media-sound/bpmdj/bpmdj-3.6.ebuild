@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=1
+EAPI=2
 
-inherit eutils qt4
+inherit eutils qt4-r2
 
 DESCRIPTION="Bpmdj, software for measuring the BPM of music and mixing"
 HOMEPAGE="http://bpmdj.sourceforge.net/"

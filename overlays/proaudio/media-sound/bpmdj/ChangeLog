@@ -2,6 +2,10 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  04 Nov 2012; Dominique Michel <dominique_ibre@sourceforge.net>
+  + bpmdj-2.4.2.ebuild
+  bpmdj-3.6.ebuild, bpmdj-4.1.ebuild, bpmdj-4.1-r1.ebuild: fixed qt4-r2 eclass
+
   24 Aug 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
   bpmdj-3.6.ebuild, bpmdj-4.1.ebuild, bpmdj-4.1-r1.ebuild, +files/bpmdj.xpm,
   -files/bpmdj.png:

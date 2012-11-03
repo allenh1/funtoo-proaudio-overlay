@@ -4,48 +4,39 @@
 
 EAPI=2
 
-inherit eutils qt4-r2
+inherit eutils
+# qt4-r2
 
 DESCRIPTION="Bpmdj, software for measuring the BPM of music and mixing"
 HOMEPAGE="http://bpmdj.sourceforge.net/"
-SRC_URI="ftp://bpmdj.yellowcouch.org/${PN}/${P}.source.tgz"
+SRC_URI="ftp://bpmdj.yellowcouch.org/${PN}/${PN}-v4.2-pl4.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86 ~ppc"
-IUSE="alsa jack vorbis"
+IUSE="vorbis"
 
 DEPEND="${RDEPEND}
-	|| ( ( x11-libs/qt-core[qt3support] x11-libs/qt-gui[qt3support] )
+	|| ( ( x11-libs/qt-core x11-libs/qt-gui )
 			>=x11-libs/qt-4.2:4 )
 	dev-util/pkgconfig"
 
-RDEPEND="alsa? ( media-libs/alsa-lib )
+RDEPEND="media-libs/alsa-lib
 	 vorbis? ( media-sound/vorbis-tools )
-	 jack? ( media-sound/jack-audio-connection-kit )
+	 media-sound/jack-audio-connection-kit
 	 =sci-libs/fftw-3*"
+
+S="${WORKDIR}"
 
 src_unpack() {
 	unpack ${A}
-	cd "${S}"
+	cd "${S}" || die "cd failed"
 
-	# add our defines
-	cp "${FILESDIR}/${PN}-4-defines.gentoo" defines
+	# copy gentoo defines
+	cp defines.gentoo defines || die "defines failed"
 
-	# and now.. the useflags. What a giant PITA!
-	# Note: oss could be optional, but compile fails if disabled!
-	local flags=""
-	flags="CFLAGS         += -D QT_THREAD_SUPPORT"
-	use alsa && flags="${flags} -D COMPILE_ALSA"
-	use jack && flags="${flags} -D COMPILE_JACK"
-	echo "${flags} -D COMPILE_OSS -D NO_EMPTY_ARRAYS -fPIC" >> defines
-
-	# and the same for LDFLAGS..
-	local lflags=""
-	lflags="LDFLAGS        += -lpthread -lm -lrt -lfftw3"
-	use alsa && lflags="${lflags} -lasound"
-	use jack && lflags="${lflags} -ljack"
-	echo "${lflags}" >> defines
+	# add QtCore to QT_LIBS
+	echo "QT_LIBS = -lQtGui -lQtCore" >> defines
 
 	# not to forget our custom C(XX)FLAGS
 	echo "CPP             = g++ -g ${CXXFLAGS} -Wall" >> defines
@@ -70,11 +61,4 @@ src_install () {
 	# install logo and desktop entry
 	doicon "${FILESDIR}/${PN}.xpm"
 	make_desktop_entry "bpmdj.sh" "BpmDj" ${PN} "AudioVideo;Audio"
-}
-
-pkg_postinst() {
-	einfo
-	einfo "BpmDj looks for its music and index directory under ~/.bpmdj/,"
-	einfo "move or link your music directory to ~/.bpmdj/music."
-	einfo
 }
