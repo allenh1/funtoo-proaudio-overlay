@@ -2,7 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-PYTHON_DEPEND="2:2.6"
+EAPI=4
+
+PYTHON_DEPEND="2"
 
 inherit eutils python
 
@@ -22,13 +24,18 @@ RDEPEND=">=media-sound/jack-audio-connection-kit-0.100.7
 		media-libs/libsamplerate
 		media-libs/libsndfile
 		media-libs/mutagen
-		>=media-libs/libshout-2.1
+		media-libs/libshout-idjc
 		wma? ( media-video/ffmpeg )
 		flac? ( media-libs/flac )
 		mad? ( media-sound/lame )
 		vorbis? ( media-sound/vorbis-tools )
 		aac? ( media-libs/faad2 )"
 DEPEND="${RDEPEND}"
+
+pkg_setup() {
+        python_set_active_version 2
+        python_pkg_setup
+}
 
 src_unpack() {
 	unpack ${A}
@@ -42,12 +49,7 @@ src_unpack() {
 	fi
 }
 
-src_compile() {
-	econf || die "Configure failed"
-	emake || die "Make failed"
-}
-
 src_install() {
 	make DESTDIR="${D}" install || die "Install failed"
-	python_convert_shebangs $(python_get_version) "${D}/usr/bin/idjcctrl"
+#	python_convert_shebangs $(python_get_version) "${D}/usr/bin/idjcctrl"
 }
