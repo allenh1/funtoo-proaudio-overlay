@@ -2,6 +2,9 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  04 Nov 2012; Dominique Michel <dominique_libre@sourceforge.met>
+  New complete rewrite. Now, this ebuild will just install the complete non-suite.
+
   21 Jul 2012; Domiinque Michel <dominique@tuxfamily.org>
   A lot changed into the build system -> rewrite from the scratch of the ebuild.
   New USE flags esed to control which part of this suite are installed.

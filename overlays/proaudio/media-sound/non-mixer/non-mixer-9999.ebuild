@@ -33,9 +33,9 @@ DEPEND="${RDEPEND}
 "
 
 src_configure() {
-	if use debug ; then
-		econf --enable-debug=yes
-	else
+	if use debug
+		then econf --enable-debug=yes
+	else 
 		econf --enable-debug=no
 	fi
 }
@@ -46,26 +46,12 @@ src_compile() {
 	make -C nonlib
 	cd  ${S}/FL
 	make -C  FL
-	cd ${S}/sequencer 
-	make -C  sequencer
+	cd ${S}/mixer 
+	make -C  mixer
 }
 
 src_install() {
-	cd ${S}/sequencer
+	cd ${S}/mixer
 	emake DESTDIR="${D}" install
-	
-	# necessary to launch Help -> Manual
-	dobin "${FILESDIR}/x-www-browser"
-	doenvd "${FILESDIR}/61browser"
 }
 
-pkg_postinst() {
-	ewarn "If it is the first time you install ${PN},"
-	ewarn "You should review the value of BROWSER in /etc/env.d/61browser"
-	ewarn ""
-	ewarn "If running X, the best is to log-out and re-login."
-	ewarn "As alternative, you can run in a terminal"
-	ewarn "  env-update && source /etc-profile"
-	ewarn "and run the Non Things from the same terminal."
-	ewarn "Otherwise, Help -> Manual will do nothing."
-}

@@ -12,16 +12,15 @@ EGIT_REPO_URI="git://git.tuxfamily.org/gitroot/non/non.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="-debug "
+IUSE="-debug"
 
-RDEPEND=">=media-sound/jack-audio-connection-kit-0.103.0
+RDEPEND="x11-libs/ntk
+	>=media-sound/jack-audio-connection-kit-0.103.0
 	>=media-libs/liblrdf-0.1.0
 	>=media-libs/liblo-0.26
 	>=dev-libs/libsigc++-2.2.0
-	media-sound/non-session-manager
 	"
 DEPEND="${RDEPEND}
-	x11-libs/ntk
 	x11-libs/cairo 
 	x11-libs/libXft 
 	media-libs/libpng 
@@ -35,7 +34,7 @@ DEPEND="${RDEPEND}
 src_configure() {
 	if use debug ; then
 		econf --enable-debug=yes
-	else
+	else 
 		econf --enable-debug=no
 	fi
 }
@@ -46,26 +45,11 @@ src_compile() {
 	make -C nonlib
 	cd  ${S}/FL
 	make -C  FL
-	cd ${S}/sequencer 
-	make -C  sequencer
+	cd ${S}/session-manager 
+	make -C  session-manager
 }
 
 src_install() {
-	cd ${S}/sequencer
+	cd ${S}/session-manager 
 	emake DESTDIR="${D}" install
-	
-	# necessary to launch Help -> Manual
-	dobin "${FILESDIR}/x-www-browser"
-	doenvd "${FILESDIR}/61browser"
-}
-
-pkg_postinst() {
-	ewarn "If it is the first time you install ${PN},"
-	ewarn "You should review the value of BROWSER in /etc/env.d/61browser"
-	ewarn ""
-	ewarn "If running X, the best is to log-out and re-login."
-	ewarn "As alternative, you can run in a terminal"
-	ewarn "  env-update && source /etc-profile"
-	ewarn "and run the Non Things from the same terminal."
-	ewarn "Otherwise, Help -> Manual will do nothing."
 }
