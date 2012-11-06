@@ -7,7 +7,7 @@ inherit exteutils toolchain-funcs multilib
 
 RESTRICT="mirror"
 DESCRIPTION="An Ambisonic decoder for first and second order"
-HOMEPAGE="http://www.kokkinizita.net/linuxaudio"
+HOMEPAGE="http://kokkinizita.linuxaudio.org/linuxaudio"
 SRC_URI="http://kokkinizita.linuxaudio.org/linuxaudio/downloads/${P}.tar.bz2
 	http://kokkinizita.linuxaudio.org/linuxaudio/downloads/ambdec-manual.pdf"
 
