@@ -1046,7 +1046,7 @@
 	ambdec-0.4.2	arch: ~x86 ~amd64
 	Description: An Ambisonic decoder for first and second
 		 order
-	Homepage:    http://www.kokkinizita.net/linuxaudio
+	Homepage:    http://kokkinizita.linuxaudio.org/linuxaudio
 
 
 #------- media-sound/simsam --------
