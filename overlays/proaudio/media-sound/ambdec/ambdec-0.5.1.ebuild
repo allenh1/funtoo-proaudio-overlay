@@ -2,13 +2,14 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI=2
 inherit exteutils toolchain-funcs multilib
 
 RESTRICT="mirror"
 DESCRIPTION="An Ambisonic decoder for first and second order"
 HOMEPAGE="http://www.kokkinizita.net/linuxaudio"
-SRC_URI="http://www.kokkinizita.net/linuxaudio/downloads/${P}.tar.bz2
-	http://www.kokkinizita.net/linuxaudio/downloads/ambdec-manual.pdf"
+SRC_URI="http://kokkinizita.linuxaudio.org/linuxaudio/downloads/${P}.tar.bz2
+	http://kokkinizita.linuxaudio.org/linuxaudio/downloads/ambdec-manual.pdf"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -19,16 +20,19 @@ DEPEND=">=media-sound/jack-audio-connection-kit-0.100
 	>=media-libs/libclthreads-2.4.0
 	>=media-libs/libclxclient-3.6.1"
 
+S="${S}/source"
+
+src_prepare() {
+	epatch "${FILESDIR}/${P}-Makefile.patch"
+	esed_check -i -e "/^CPPFLAGS/ s/-O2//" Makefile
+}
+
 src_compile() {
 	tc-export CC CXX
-	cd "${S}/source"
-	epatch "${FILESDIR}/${P}-Makefile.patch"
-	esed_check -i -e "/^CPPFLAGS/ s/-O2//" "${S}/source/Makefile"
 	emake PREFIX="/usr" LIBDIR="$(get_libdir)" || die "make failed"
 }
 
 src_install() {
-	cd "${S}/source"
 	emake PREFIX="/usr" DESTDIR="${D}" install || die "install failed"
 	cd ..
 	dodoc AUTHORS README
