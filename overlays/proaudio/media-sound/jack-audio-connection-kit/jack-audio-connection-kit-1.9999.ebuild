@@ -2,13 +2,14 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit flag-o-matic eutils multilib subversion linux-info autotools
+inherit flag-o-matic eutils multilib git-2 linux-info autotools
 
 RESTRICT="nostrip mirror"
 DESCRIPTION="A low-latency audio server"
 HOMEPAGE="http://www.jackaudio.org"
 
-ESVN_REPO_URI="http://subversion.jackaudio.org/jack/trunk/jack"
+EGIT_REPO_URI="git://github.com/jackaudio/jack1.git"
+EGIT_HAS_SUBMODULES="example-clients"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
@@ -47,7 +48,7 @@ src_unpack() {
 		einfo "You requested to install jackdmp. Nothing to do"
 		return # no more to do
 	fi
-	subversion_src_unpack
+	git-2_src_unpack
 
 	cd "${S}"
 	

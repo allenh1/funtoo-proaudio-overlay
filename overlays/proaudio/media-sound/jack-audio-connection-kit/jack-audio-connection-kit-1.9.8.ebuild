@@ -4,11 +4,13 @@
 
 EAPI=4
 
-inherit multilib
+PYTHON_DEPEND="2"
+
+inherit multilib python
 
 DESCRIPTION="Jackdmp jack implemention for multi-processor machine"
 HOMEPAGE="http://www.jackaudio.org"
-SRC_URI="http://www.grame.fr/~letz/jack-${PV}.tgz"
+SRC_URI="https://dl.dropbox.com/u/28869550/jack-${PV}.tgz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -27,24 +29,8 @@ DEPEND="${RDEPEND}
 S="${WORKDIR}/jack-${PV}/jack-${PV}"
 
 pkg_setup() {
-	# sandbox-1.6 breaks, on amd64 at least
-
-	# paludis...
-	if has_version "=sys-apps/sandbox-1.6" && [[ -n $(echo `ps -fp $$`|grep paludis) ]]; then
-		eerror "The compile will hang with =sandbox-1.6. Either downgrade to sandbox-1.4, or use"
-		eerror "PALUDIS_DO_NOTHING_SANDBOXY=1 paludis -i ${PN}"
-		die
-	fi
-
-	# portage
-	if has "sandbox" ${FEATURES} && ! has "-sandbox" ${FEATURES} && has_version "=sys-apps/sandbox-1.6"; then
-		eerror "The compile will hang with =sandbox-1.6. Please use:"
-		echo
-		eerror "FEATURES=\"-sandbox\" emerge ${PN}"
-		echo
-		eerror "OR downgrade sandbox to 1.4 at least."
-		die
-	fi
+	python_set_active_version 2
+	python_pkg_setup
 }
 
 src_prepare() {

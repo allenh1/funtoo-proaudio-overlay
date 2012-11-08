@@ -2,6 +2,13 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  08 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  jack-audio-connection-kit-1.9.8.ebuild: changed SRC_URI (thanks to Jannis Achstetter
+  jack-audio-connection-kit-1.9999.ebuild: changed to GIT (Jannis)
+  jack-audio-connection-kit-2.9999.ebuild: fix building with python3 (Jannis);
+  removed outdated test for sandbox-1.6 (Jannis); make the ebuild to fail and issue
+  a warning with USE=doc as it fail to compile with it (reported upstream)
+
   30 Sep 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
   jack-audio-connection-kit-0.121.3.ebuild:
   add back support for freebob and ffado. drop keywords as repoman payment.

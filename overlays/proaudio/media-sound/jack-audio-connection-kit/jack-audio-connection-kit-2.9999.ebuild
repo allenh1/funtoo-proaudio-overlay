@@ -4,7 +4,9 @@
 
 EAPI=4
 
-inherit git-2 waf-utils
+PYTHON_DEPEND="2"
+
+inherit git-2 waf-utils python
 
 DESCRIPTION="Jackdmp jack implemention for multi-processor machine"
 HOMEPAGE="http://www.grame.fr/~letz/jackdmp.html"
@@ -31,32 +33,22 @@ src_unpack() {
 }
 
 pkg_setup() {
-	# sandbox-1.6 breaks, on amd64 at least
-
-	# paludis...
-	if has_version "=sys-apps/sandbox-1.6" && [[ -n $(echo `ps -fp $$`|grep paludis) ]]; then
-		eerror "The compile will hang with =sandbox-1.6. You are using paludis,"
-		eerror "so you'll have to downgrade sandbox."
-		die
+	if use doc; then
+		ewarn "${PN} will fail to compile with USE=doc"
+		die "Please merge ${PN} with USE=\"-doc\""
 	fi
-
-	# portage
-	if use amd64 && has "sandbox" ${FEATURES} && ! has "-sandbox" ${FEATURES} && has_version "=sys-apps/sandbox-1.6"; then
-		eerror "The compile will hang with =sandbox-1.6. Please use:"
-		echo
-		eerror "FEATURES=\"-sandbox\" emerge ${PN}"
-		echo
-		eerror "OR downgrade sandbox to 1.4 at least."
-		die
-	fi
+	python_set_active_version 2
+	python_pkg_setup
 }
 
-src_prepare()
-{
-	epatch "${FILESDIR}"/jack-audio-connection-kit-2.9999-link-fix.patch
-}
+#src_prepare()
+#{
+#	epatch "${FILESDIR}"/jack-audio-connection-kit-2.9999-link-fix.patch
+#}
 
 src_configure() {
+	cd ${S}
+
 	local myconf="--prefix=/usr --destdir=${D}"
 	use alsa && myconf="${myconf} --alsa"
 	if use classic && use dbus ; then
