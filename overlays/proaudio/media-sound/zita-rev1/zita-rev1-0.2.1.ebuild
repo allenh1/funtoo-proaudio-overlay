@@ -7,7 +7,8 @@ inherit base eutils toolchain-funcs
 
 DESCRIPTION="Zita-rev1 is a reworked version of the reverb originally developed for Aeolus"
 HOMEPAGE="http://kokkinizita.linuxaudio.org/linuxaudio/"
-SRC_URI="http://kokkinizita.linuxaudio.org/linuxaudio/downloads/${P}.tar.bz2"
+#SRC_URI="http://kokkinizita.linuxaudio.org/linuxaudio/downloads/${P}.tar.bz2"
+SRC_URI="http://download.tuxfamily.org/proaudio/distfiles/${P}.tar.bz2"
 
 RESTRICT="mirror"
 
