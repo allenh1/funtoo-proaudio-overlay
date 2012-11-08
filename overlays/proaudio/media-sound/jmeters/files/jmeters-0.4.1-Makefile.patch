@@ -1,0 +1,30 @@
+--- source/Makefile.orig	2012-11-08 10:32:18.160170187 +0000
++++ source/Makefile	2012-11-08 12:06:34.806214053 +0000
+@@ -18,7 +18,7 @@
+ #
+ # ----------------------------------------------------------------------
+ 
+-
++CXX ?= g++
+ PROGRAM = jmeters
+ PREFIX = /usr/local
+ SUFFIX := $(shell uname -m | sed -e 's/^unknown/$//' -e 's/^i.86/$//' -e 's/^x86_64/$/64/')
+@@ -27,8 +27,7 @@
+ SHARED = $(PREFIX)/share/$(PROGRAM)
+ VERSION = 0.4.1
+ CPPFLAGS += -DPROGRAM=\"$(PROGRAM)\" -DVERSION=\"$(VERSION)\" -DSHARED=\"$(SHARED)\"
+-CXXFLAGS += -O3 -Wall -MMD -MP
+-CXXFLAGS += -march=native
++CXXFLAGS += -Wall -MMD -MP
+ 
+ 
+ all:	jmeters
+@@ -41,7 +40,7 @@
+ jmeters:	LDLIBS += -lsndfile -lclxclient -lclthreads -ljack -lpthread -lcairo -lpng -lXft -lX11 -lrt
+ jmeters:	LDFLAGS += -L/usr/X11R6/lib
+ jmeters:	$(JMETERS_O)
+-	g++ $(LDFLAGS) -o $@ $(JMETERS_O) $(LDLIBS)
++	$(CXX) $(LDFLAGS) -o $@ $(JMETERS_O) $(LDLIBS)
+ 
+ $(JMETERS_O):
+ -include $(JMETERS_O:%.o=%.d)

@@ -2,6 +2,13 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*jmeters-0.4.1 (08 Nov 2012)
+
+  08 Nov 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -jmeters-0.2.1.ebuild, -files/jmeters-0.2.1-makefile.patch,
+  +jmeters-0.4.1.ebuild, +files/jmeters-0.4.1-Makefile.patch:
+  bump. thanks to Jannis Achstetter for notice.
+
 *jmeters-0.2.1 (24 Aug 2012)
 
   24 Aug 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
