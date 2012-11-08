@@ -46,6 +46,15 @@ USE=vst emerge ardour / ardour-cvs
 # museseq will fail to work correctly with fst-1.7 so up to now:
 USE=-vst emerge museseq
 
+# drobilla
+drobilla-9999 will install all the programs from the git of
+ http://drobila.net/software
+Those are:
+    dev-libs/serd dev-libs/sord media-libs/lilv media-libs/ratom
+    media-libs/ratom media-libs(raul media-libs/suil
+    media-sound/ingen media-sound/jalv media-sound/omins
+    media-sound/patchage x11-libs/flowcanvas
+You have to uninstall those programs before to install them with drobilla.9999
 
 # zynaddsubfx addons:
 -------------------

@@ -1,0 +1,20 @@
+# ChangeLog for media-sound/drobilla
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  08 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  +drobilla-9999.ebuild:
+  Initial ebuild. It will install everything from http://drobilla.net/software
+  By everything, I mean everything:
+    dev-libs/serd
+    dev-libs/sord
+    media-libs/lilv
+    media-libs/ratom
+    media-libs/raul
+    media-libs/suil
+    media-sound/ingen
+    media-sound/jalv
+    media-sound/omins
+    media-sound/patchage
+    x11-libs/flowcanvas
+  You will have to uninstall those packages to install the software with this ebuild.
