@@ -16,10 +16,12 @@ EGIT_REPO_URI="git://github.com/jackaudio/jack2.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="alsa classic doc debug freebob dbus ieee1394 mixed pam"
+# celt has been merged into opus and is obsolate -> no celt support
+IUSE="alsa classic debug doc dbus freebob ieee1394 mixed opus pam"
 
 RDEPEND="dev-util/pkgconfig
 	>=media-libs/alsa-lib-1.0.24
+	opus? ( media-libs/opus )
 	pam? ( sys-auth/realtime-base )"
 DEPEND="${RDEPEND}
 	freebob? ( sys-libs/libfreebob !media-libs/libffado )
@@ -33,10 +35,6 @@ src_unpack() {
 }
 
 pkg_setup() {
-	if use doc; then
-		ewarn "${PN} will fail to compile with USE=doc"
-		die "Please merge ${PN} with USE=\"-doc\""
-	fi
 	python_set_active_version 2
 	python_pkg_setup
 }
@@ -59,7 +57,6 @@ src_configure() {
 	fi
 	use dbus && myconf="${myconf} --dbus"
 	use debug && myconf="${myconf} --debug"
-	use doc && myconf="${myconf} --doxygen"
 	use freebob && myconf="${myconf} --freebob"
 	use ieee1394 && myconf="${myconf} --firewire"
 
@@ -67,7 +64,17 @@ src_configure() {
 	waf-utils_src_configure  ${myconf}
 }
 
-src_compile()
-{
+src_compile() {
 	waf-utils_src_compile
+	if use doc ; then
+		doxygen || die "doxygen failed"
+	fi
+}
+
+src_install() {
+	waf-utils_src_install
+	dodoc ChangeLog README README_NETJACK2 TODO || die "dodoc failed"
+	if use doc ; then
+		dohtml html/* || die "dohtml failed"
+	fi
 }

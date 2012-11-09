@@ -6,11 +6,14 @@
 		<name>pro-audio overlay team</name>
 	</maintainer>
 	<use>
+		<flag name="classic">Build jackd</flag>
 		<flag name="coreaudio">Build the CoreAudio driver on Mac OS X systems</flag>
 		<flag name="cpudetection">Enables runtime cpudetection</flag>
+		<flag name="dbus">Build jackdbus</flag>
 		<flag name="freebob">enables support for older 'BeBoB' ieee1394</flag>
 		<flag name="ieee1394">enables support for FFADO - 'BeBoB'</flag>
 		<flag name="mixed">build with 32/64 bits mixed mode</flag>
+		<flag name="opus">build with compression support using media-libs/opus in netjack</flag>
 		<flag name="pam">Add basic realime configuration via <pkg>sys-auth/realtime-base</pkg></flag>
 	</use>
 </pkgmetadata>

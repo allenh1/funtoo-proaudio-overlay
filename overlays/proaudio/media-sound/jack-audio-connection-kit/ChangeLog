@@ -2,6 +2,13 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  09 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  jack-audio-connection-kit-2.9999.ebuild: fix for the doxygen documenation;
+  added opus support in netjack, will be enabled if media-libs/opus is present;
+  added installation of the missing doc files (README, ...)
+
+  metadata.xml: added the missing USE descriptions for 2-9999
+
   08 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
   jack-audio-connection-kit-1.9.8.ebuild: changed SRC_URI (thanks to Jannis Achstetter
   jack-audio-connection-kit-1.9999.ebuild: changed to GIT (Jannis)
