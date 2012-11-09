@@ -15,9 +15,9 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="media-libs/alsa-lib
-	>=media-libs/naspro-core-${PV}
+	>=media-libs/naspro-core-0.4.0
 	>=media-libs/naspro-bridge-it-${PV}
-	>=media-libs/lv2core-4.0
+	>=media-libs/lv2-1.2.0
 	>=media-libs/ladspa-sdk-1.13
 	>=media-libs/dssi-1.0.0"
 DEPEND="${RDEPEND}

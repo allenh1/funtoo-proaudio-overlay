@@ -14,8 +14,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND=">=media-libs/naspro-core-${PV}
-	>=media-libs/lv2core-4.0"
+RDEPEND=">=media-libs/naspro-core-0.4.0
+	>=media-libs/lv2-1.2.0" #[plugins]"
 DEPEND="${RDEPEND}
 	dev-util/pkgconfig"
 
