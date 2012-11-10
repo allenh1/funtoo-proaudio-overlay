@@ -4,19 +4,34 @@
 
 EAPI=3
 
-inherit distutils
+PYTHON_DEPEND="2"
+inherit distutils python
 
 DESCRIPTION="jack audio client module for python"
 HOMEPAGE="http://py-jack.sourceforge.net/"
-SRC_URI="http://downloads.sourceforge.net/project/py-jack/py-jack/${PVR}/pyjack-${PVR}.tar.gz"
+SRC_URI="http://downloads.sourceforge.net/project/py-jack/py-jack/${PV}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
+IUSE="examples"
 
 DEPEND="
 		media-sound/jack-audio-connection-kit
 		dev-lang/python
 		"
 RDEPEND="${DEPEND}"
+
+pkg_setup() {
+	python_set_active_version 2
+	python_pkg_setup
+}
+
+
+if use "examples" ; then
+	src_install() {
+		distutils_src_install
+		insinto ${ROOT}/usr/share/doc/${PF}/examples
+		doins demos/*  || die "Cannot install demos"
+	}
+fi

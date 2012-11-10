@@ -1,0 +1,7 @@
+# ChangeLog for media-libs/pyjack
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  10 Nov 2012: Dominique Michel <dominique@tuxfamily.org>
+  pyjack-0.5.2.ebuild: add python eclass support;
+  add examples installation and USE flag
