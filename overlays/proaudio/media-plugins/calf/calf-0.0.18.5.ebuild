@@ -20,7 +20,7 @@ DEPEND=">=dev-libs/glib-2.10
 	dssi? ( media-libs/dssi )
 	lash? ( media-sound/lash )
 	jack? ( media-sound/jack-audio-connection-kit )
-	lv2? ( media-libs/lv2core )
+	lv2? ( || ( media-libs/lv2 media-libs/lv2core ) )
 	ladspa? ( media-libs/ladspa-sdk )"
 RDEPEND="${DEPEND}"
 
