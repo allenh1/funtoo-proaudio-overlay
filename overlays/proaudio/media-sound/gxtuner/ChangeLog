@@ -1,0 +1,8 @@
+# ChangeLog for media-sound/gxtuner
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  10 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  +ChangeLog: Initial ChangeLog
+  +gxtuner-2.0.ebuild: version bump; added include patch
+  +files/include.patch: fix include for recent zita-resampler

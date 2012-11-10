@@ -28,8 +28,10 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	dev-util/pkgconfig"
 
+S="${WORKDIR}/${PN}"
+
 src_prepare() {
-	epatch "${FILESDIR}/installdirs.patch"
+	epatch "${FILESDIR}/include.patch"
 }
 
 src_compile() {
