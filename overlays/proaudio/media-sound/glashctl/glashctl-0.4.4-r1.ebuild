@@ -21,6 +21,7 @@ RDEPEND="${DEPEND}"
 src_unpack() {
 	unpack ${A}
 	cd "${S}"
+	epatch ${FILESDIR}/glashctl-0.4.4_configure.patch
 	use wmaker || \
 	sed -i -e 's@PROGRAMS = glashctl wmglashctl@PROGRAMS = glashctl@' \
 		Makefile
