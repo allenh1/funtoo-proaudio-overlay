@@ -21,7 +21,7 @@ RDEPEND="=sci-libs/fftw-3*
 
 DEPEND="=sci-libs/fftw-3*
 	media-libs/lv2dynparam1
-	media-libs/lv2core"
+	|| ( media-libs/lv2 media-libs/lv2core )"
 
 pkg_setup() {
 	ewarn "if building fails try the following:"

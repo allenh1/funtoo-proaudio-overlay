@@ -17,7 +17,7 @@ KEYWORDS=""
 S="${WORKDIR}/${PN}"
 
 IUSE=""
-DEPEND=">=media-libs/lv2core-1
+DEPEND="|| ( >=media-libs/lv2-1.2.0 >=media-libs/lv2core-1 )
 	!media-libs/lv2dynparam"
 RDEPEND=""
 

@@ -14,7 +14,7 @@ KEYWORDS="~x86 amd64"
 
 IUSE="+lv2dynparam"
 DEPEND=">=media-sound/jack-audio-connection-kit-0.109.0
-	>=media-libs/lv2core-1.0
+	|| ( >=media-libs/lv2-1.2.0 >=media-libs/lv2core-1.0 )
 	>=dev-python/pygtk-2.0
 	>=dev-lang/python-2.4
 	>=dev-python/pycairo-1.8.2

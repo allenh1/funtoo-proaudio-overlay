@@ -19,7 +19,7 @@ RDEPEND="=sci-libs/fftw-3*
 	=media-sound/zynjacku-9999"
 DEPEND="=sci-libs/fftw-3*
 	=media-libs/lv2dynparam1-9999
-	media-libs/lv2core"
+	|| ( media-libs/lv2 media-libs/lv2core )"
 
 src_compile() {
 	./waf configure --lv2-dir=/usr/$(get_libdir)/lv2 || die

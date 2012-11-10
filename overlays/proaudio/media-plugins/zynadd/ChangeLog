@@ -2,6 +2,9 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  10 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>;
+  Added depennd to media-libs/lv2 to the ebuilds
+
   03 Mar 2011; Frieder Buerzele <evermind@tuxfamily.org> zynadd-1.ebuild:
   fixup libdir
 

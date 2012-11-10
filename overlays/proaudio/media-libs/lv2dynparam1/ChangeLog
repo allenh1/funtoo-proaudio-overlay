@@ -2,6 +2,9 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  10 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>;
+  All 3 ebuilds: added depend for media-libs/lv2
+
 *lv2dynparam1-2 (12 Jun 2009)
 
   12 Jun 2009; Frieder Buerzele <evermind@tuxfamily.org

@@ -12,7 +12,7 @@ KEYWORDS="~x86 ~amd64"
 
 IUSE="jackmidi"
 DEPEND=">=media-sound/jack-audio-connection-kit-0.109.0
-	>=media-libs/lv2core-1.0
+	|| ( >=media-libs/lv2-1.2.0 >=media-libs/lv2core-1.0 )
 	>=x11-libs/gtk+-2
 	>=dev-python/pygtk-2.0
 	>=media-libs/slv2-0.6.1
