@@ -2,6 +2,9 @@
 # Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  10 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  pitchtune-0.0.4.ebuild: Added icon and desktop files installation
+
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog
 

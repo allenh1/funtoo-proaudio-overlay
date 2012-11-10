@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+inherit eutils
+
 DESCRIPTION="A GPL'ed GTK oscilloscope-style musical instrument tuning program. It can also be used to find the frequency of sounds"
 HOMEPAGE="http://pitchtune.sourceforge.net"
 SRC_URI="mirror://sourceforge/pitchtune/${P}.tar.bz2"
@@ -18,6 +20,9 @@ DEPEND="=x11-libs/gtk+-2*
 src_install() {
 	make DESTDIR="${D}" install || die "install failed"
 	dodoc README AUTHORS ChangeLog TODO
+	insinto /usr/share/pixmaps
+	doins pixmaps/pitchtune.xpm
+	make_desktop_entry pitchtune PitchTune pitchtune.xpm "AudioVideo;Audio;Tuner;"
 }
 
 
