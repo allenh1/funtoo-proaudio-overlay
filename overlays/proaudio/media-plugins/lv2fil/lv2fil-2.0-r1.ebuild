@@ -2,9 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=1
+EAPI=3
 
-inherit multilib toolchain-funcs
+PYTHON_DEPEND="2"
+inherit multilib toolchain-funcs python
 
 DESCRIPTION="Four-band parametric equaliser LV2 plugin"
 HOMEPAGE="http://nedko.arnaudov.name/soft/lv2fil/trac/"
@@ -23,12 +24,18 @@ RDEPEND="${DEPEND}
 	>=dev-python/pygtk-2.16.0-r1:2
 	>=media-libs/pyliblo-0.8.1"
 
-src_compile() {
-	tc-export CC CPP CXX AR RANLIB
+pkg_setup() {
+	python_set_active_version 2
+	python_pkg_setup
+}
 
+src_configure() {
+	tc-export CC CPP CXX AR RANLIB
 	./waf configure --lv2-dir=/usr/$(get_libdir)/lv2 \
 		|| die "waf configure failed"
+}
 
+src_compile() {
 	./waf build || die "waf build failed"
 }
 
