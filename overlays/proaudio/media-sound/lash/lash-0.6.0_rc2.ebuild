@@ -4,7 +4,7 @@
 
 EAPI="4"
 
-inherit eutils
+inherit eutils python
 
 MY_P="${P/_/~}"
 
@@ -55,7 +55,7 @@ src_compile() {
 
 src_install() {
 	emake DESTDIR="${D}" install || die
-
+	python_convert_shebangs -r 2 "${ED}"
 	dodoc AUTHORS ChangeLog NEWS README TODO
 }
 

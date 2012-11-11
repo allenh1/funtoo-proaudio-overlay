@@ -2,6 +2,9 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  11 Nov 2012; Karl Lindén <spray.sucks@gmail.com>;
+  lash-0.6.0_rc2.ebuild: added python_convert_shebangs to ebuild
+
   03 Jun 2012; Hakan Demiralp (keenblade) <keenblade@tuxfamily.org>
   lash-0.6.0_rc2.ebuild, +files/lash-0.6.0_rc2-texi2html.diff:
   lash-0.6.0_rc2: added new patch lash-0.6.0_rc2-texi2html.diff wrt texi2htm
