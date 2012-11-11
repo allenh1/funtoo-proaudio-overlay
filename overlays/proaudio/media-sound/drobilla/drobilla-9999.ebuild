@@ -53,7 +53,7 @@ DEPEND="${RDEPEND}
 
 pkg_setup() {
 ewarn "${P} will install everything from http://drobilla.net/software"
-ewarn "This mean that ${P} will install dev-libs/serd dev-libs/sord media-libs/lilv media-libs/raul media-libs/ratom meida-libs/suil media-sound/ingen media-sound/jalv media-sound/omins media-sound/patchage x11-libs/flowcanvas"
+ewarn "This mean that ${P} will install dev-libs/serd dev-libs/sord media-libs/lilv media-libs/raul media-libs/sratom meida-libs/suil media-sound/ingen media-sound/jalv media-plugins/mda-kv2 media-plugins/omins media-sound/patchage x11-libs/flowcanvas"
 ewarn ""
 ewarn "To install ${P}. you must uninstall the above softwares before to process."
 
