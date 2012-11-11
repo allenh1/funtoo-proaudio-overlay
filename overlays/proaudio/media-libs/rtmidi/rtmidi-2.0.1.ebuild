@@ -25,7 +25,7 @@ src_prepare() {
 }
 
 src_configure() {
-	econf \
+	econf --libdir="/usr/$(get_libdir)" \
 	$(use_with alsa) \
 	$(use_with jack) || die "./configure failed"
 }
