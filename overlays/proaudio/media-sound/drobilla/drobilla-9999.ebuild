@@ -23,8 +23,9 @@ RDEPEND="!media-libs/raul
 	!dev-libs/serd
 	!dev-libs/sord
 	!media-libs/suil
-	!media-libs/ratom
+	!media-libs/sratom
 	!media-libs/lilv
+	!media-plugins/mda-lv2
 	!media-sound/ingen
 	!media-sound/jalv
 	!media-sound/omins
