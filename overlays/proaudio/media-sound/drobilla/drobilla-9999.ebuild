@@ -28,7 +28,7 @@ RDEPEND="!media-libs/raul
 	!media-plugins/mda-lv2
 	!media-sound/ingen
 	!media-sound/jalv
-	!media-sound/omins
+	!media-plugins/omins
 	!media-sound/patchage
 	>=dev-cpp/gtkmm-2.14.0:2.4
 	>=dev-cpp/glibmm-2.14:2
