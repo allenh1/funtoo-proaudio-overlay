@@ -14,7 +14,8 @@ SLOT="0"
 KEYWORDS="x86 amd64"
 
 IUSE=""
-DEPEND=">=media-libs/phat-0.4"
+DEPEND=">=media-libs/phat-0.4
+	>=dev-python/pygtk-2.4"
 
 src_unpack() {
 	unpack ${A}

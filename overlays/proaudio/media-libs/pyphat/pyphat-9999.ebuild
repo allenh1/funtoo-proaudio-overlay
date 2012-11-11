@@ -16,7 +16,8 @@ KEYWORDS=""
 S="${WORKDIR}/${PN}"
 
 IUSE=""
-DEPEND="=media-libs/phat-9999"
+DEPEND="=media-libs/phat-9999
+	>=dev-python/pygtk-2.4"
 
 src_unpack() {
 	subversion_src_unpack ${A}
