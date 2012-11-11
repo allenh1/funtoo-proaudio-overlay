@@ -3,6 +3,9 @@
 # $Header: $
 
   10 Nov 2012; Karl Lindén <spray.sucks@gmail.com>;
+  jack_mixer-9.ebuild: added inherit python
+
+  10 Nov 2012; Karl Lindén <spray.sucks@gmail.com>;
   jack_mixer-9.ebuild, jack_mixer-9-r1.ebuild, jack_mixer-9999.ebuild:
   added python_convert_shebangs to ebuild
 

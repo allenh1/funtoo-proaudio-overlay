@@ -4,7 +4,7 @@
 
 EAPI=2
 
-inherit eutils gnome2
+inherit eutils gnome2 python
 
 IUSE="lash phat"
 RESTRICT="mirror"
