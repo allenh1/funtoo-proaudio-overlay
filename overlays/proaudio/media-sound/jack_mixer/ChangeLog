@@ -2,6 +2,10 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  10 Nov 2012; Karl Lindén <spray.sucks@gmail.com>;
+  jack_mixer-9.ebuild, jack_mixer-9-r1.ebuild, jack_mixer-9999.ebuild:
+  added python_convert_shebangs to ebuild
+
 *jack_mixer-9-r1 (08 Feb 2012)
 
   08 Feb 2012; Gavin Pryke <gavinlee303@googlemail.com>

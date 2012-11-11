@@ -43,6 +43,7 @@ src_prepare() {
 
 src_install() {
 	gnome2_src_install
+	python_convert_shebangs -r 2 "${ED}"
 	dosym /usr/bin/jack_mixer.py /usr/bin/jack_mixer
 	dodoc AUTHORS NEWS README
 }
