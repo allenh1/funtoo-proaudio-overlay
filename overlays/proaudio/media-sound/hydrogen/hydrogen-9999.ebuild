@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=2
 
-inherit eutils multilib subversion
+inherit eutils qt4-r2 subversion cmake-utils
 
 DESCRIPTION="Linux Drum Machine"
 HOMEPAGE="http://hydrogen.sourceforge.net/"
@@ -14,59 +14,53 @@ ESVN_REPO_URI="http://svn.assembla.com/svn/hydrogen/trunk"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="alsa debug flac jack ladspa lash portaudio"
+IUSE="alsa debug jack jacksession ladspa lash lrdf portaudio portmidi rubberband"
 
-RDEPEND="x11-libs/qt-core:4 x11-libs/qt-gui:4
+RDEPEND="
+	|| ( (
+         	x11-libs/qt-core:4
+			x11-libs/qt-gui:4 )
+			>=x11-libs/qt-4.4:4	)
 	dev-libs/libxml2
 	media-libs/libsndfile
 	media-libs/audiofile
 	dev-libs/libtar
+	media-libs/rubberband
 	portaudio? ( >=media-libs/portaudio-18.1 )
+	portmidi? ( media-libs/portmidi )
 	alsa? ( media-libs/alsa-lib )
 	jack? ( media-sound/jack-audio-connection-kit )
 	ladspa? ( media-libs/liblrdf )
 	lash? ( media-sound/lash )
-	flac? ( media-libs/flac )"
+	lrdf? ( media-libs/liblrdf )"
 
 DEPEND="${RDEPEND}"
 
+src_configure() {
+	mkdir build
+	cd build
+	cmake -L \
+		-DCMAKE_INSTALL_PREFIX=${ROOT}usr DESTDIR=${D} \
+		$(cmake-utils_use_want alsa ALSA) \
+		$(cmake-utils_use_want debug DEBUG) \
+		$(cmake-utils_use_want jack JACK) \
+		$(cmake-utils_use_want jacksession JACKSESSION) \
+		$(cmake-utils_use_want ladspa LADSPA) \
+		$(cmake-utils_use_want lash LASH) \
+		$(cmake-utils_use_want lrdf LRDF) \
+		$(cmake-utils_use_want portaudio PORTAUDIO) \
+		$(cmake-utils_use_want portmidi PORTMIDI) \
+		$(cmake-utils_use_want rubberband RUBBERBAND) ..
+}
+
 src_compile() {
-	# export qt4 related environ (copy 'n paste fromt qt4.eclass)
-	export QTDIR=/usr/$(get_libdir)
-	export QMAKE=/usr/bin/qmake
-	export QMAKE_CC=$(tc-getCC)
-	export QMAKE_CXX=$(tc-getCXX)
-	export QMAKE_LINK=$(tc-getCXX)
-	export QMAKE_CFLAGS_RELEASE="${CFLAGS}"
-	export QMAKE_CFLAGS_DEBUG="${CFLAGS}"
-	export QMAKE_CXXFLAGS_RELEASE="${CXXFLAGS}"
-	export QMAKE_CXXFLAGS_DEBUG="${CXXFLAGS}"
-	export QMAKE_LFLAGS_RELEASE="${LDFLAGS}"
-	export QMAKE_LFLAGS_DEBUG="${LDFLAGS}"
-
-	local myconf="prefix=${ROOT}usr DESTDIR=${D}"
-	! use alsa; myconf="${myconf} alsa=$?"
-	! use debug; myconf="${myconf} debug=$?"
-	! use jack; myconf="${myconf} jack=$?"
-	! use ladspa; myconf="${myconf} lrdf=$?"
-	! use portaudio; myconf="${myconf} portaudio=$?"
-	! use lash; myconf="${myconf} lash=$?"
-	! use flac; myconf="${myconf} flac=$?"
-
-	tc-export CC CXX
-	myconf="${myconf} CC=${CC} CXX=${CXX}"
-	mkdir -p "${D}"
-	einfo "${myconf}"
-	scons CUSTOMCCFLAGS="${CFLAGS}" CUSTOMCXXFLAGS="${CXXFLAGS}" \
-		MAKEOPTS="${MAKEOPTS}" \
-		${myconf} || die "scons failed"
+	cd ${S}/build
+	emake 
 }
 
 src_install() {
-	scons install prefix="${ROOT}usr" DESTDIR="${D}" || die "scons install failed"
-
-	# install tools
-	for i in hydrogenSynth hydrogenPlayer; do
-		dobin extra/$i/$i
-	done
+	cd ${S}/build
+	emake DESTDIR=${D} install
+	cd ..
+	dodoc AUTHORS ChangeLog DEVELOPERS README.txt
 }

@@ -2,6 +2,13 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  11 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  hydrogen-9999.ebuild: Added qt4-r2 and cmake-utils eclass;
+  Replaced scons by cmake;
+  Added some missing USE flags: jacksession, lrdf, portmidi, rubberbamd;
+  Removed flac USE flag,flac and ogg are provided by sndfile.
+  May need some cleanup, but it work at least.
+
 *hydrogen-0.9.5.1 (28 Oct 2012)
 
   28 Oct 2012; Hakan Demiralp <keenblade@tuxfamily.org> -files/0.9.1-OSS.patch,
