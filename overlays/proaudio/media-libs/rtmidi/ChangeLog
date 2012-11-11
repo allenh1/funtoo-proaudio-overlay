@@ -1,0 +1,7 @@
+# ChangeLog for media-libs/rtmidi
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  11 Nov 2012: Dominique Michel <dominique_libre@sourceforge.net> Initial rtmidi ebuild:
+  +rtmidi-2.0.1.ebuild
+  +files/rtmidi-2.0.1_buildsystem.patch from Debian
