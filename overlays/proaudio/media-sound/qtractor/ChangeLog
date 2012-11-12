@@ -2,6 +2,15 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  12 Nov 2012; Karl Lindén <spray.sucks@gmail.com>
+  qtractor-9999.ebuild:
+  fixed copyright notice
+  moved to EAPI 3
+  moved to http instead of https
+  removed bugfix for issue #111 as it is no longer needed
+  added supported USE flags and reordered them alphabetically
+  updated dependencies (removed deprecated and added depend on drobilla-9999)
+
   04 Mar 2011; Frieder Buerzele <evermind@tuxfamily.org>
   qtractor-9999.ebuild:
   fixes bug #111 thx nilekurt
