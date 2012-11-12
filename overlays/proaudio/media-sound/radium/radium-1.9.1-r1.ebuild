@@ -14,7 +14,7 @@ SRC_URI="http://dl.dropbox.com/u/4814054/${P}.tar.gz"
 
 KEYWORDS="~x86 amd64"
 SLOT="0"
-IUSE="faust"
+IUSE="+calf -faust"
 
 DEPEND="x11-libs/qt-core[qt3support]
 	x11-libs/libXaw
@@ -26,8 +26,9 @@ DEPEND="x11-libs/qt-core[qt3support]
 	media-libs/libsndfile
 	media-libs/ladspa-sdk
 	>=dev-libs/glib-2.0
-	media-plugins/calf
 	>=media-libs/rtmidi-2.0.0[alsa,jack]"
+RDEPEND="${DEPEND}
+	calf? ( <media-plugins/calf-0.0.19[ladspa] )"
 
 pkg_setup() {
 	python_set_active_version 2

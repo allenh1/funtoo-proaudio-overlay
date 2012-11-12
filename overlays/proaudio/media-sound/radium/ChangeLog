@@ -3,5 +3,7 @@
 # $Header: $
 
   12 May 2012; Dominique Michel <dominique_libre@sourceforge.net>;
-  +radium-1.9.1.ebuild: Initial ebuild
+  +radium-1.9.1.ebuild: Initial ebuild; move media-plugins/calf to RDEPEND
   +files/radium.patch: some bug fixes and improvments from the GIT tarball.
+  -radium-1.9.1.ebuild; +radium-1.9.1-r1.ebuild: move media-plugins/calf to RDEPEND
+  with USE=ladspa.
