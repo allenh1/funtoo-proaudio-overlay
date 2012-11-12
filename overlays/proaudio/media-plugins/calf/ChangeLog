@@ -2,6 +2,13 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*calf-0.0.19 (12 Nov 2012)
+
+  12 Nov 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  +calf-0.0.19.ebuild, calf-9999.ebuild, metadata.xml:
+  bump. migrate to autotools-utils and git-2 eclass. dssi and ladspa are gone
+  from this version so keep 0.0.18.6 around if one wants those plugins.
+
   12 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
   depend on lv2core or >=lv2-1.0.0 into the other ebuilds
 

@@ -3,15 +3,15 @@
 # $Header: $
 
 EAPI=4
-inherit autotools-utils git-2
+inherit autotools-utils
 
 DESCRIPTION="A set of open source instruments and effects for digital audio workstations"
 HOMEPAGE="http://calf.sf.net/"
-EGIT_REPO_URI="git://repo.or.cz/calf.git"
+SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="lash lv2 sse static-libs"
 
 RDEPEND="dev-libs/expat
@@ -26,9 +26,9 @@ RDEPEND="dev-libs/expat
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
-DOCS=(AUTHORS ChangeLog NEWS README TODO)
+RESTRICT="mirror"
 
-AUTOTOOLS_AUTORECONF=1
+DOCS=(AUTHORS ChangeLog NEWS README TODO)
 
 src_configure() {
 	myeconfargs=(
