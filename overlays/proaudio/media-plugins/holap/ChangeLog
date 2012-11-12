@@ -1,0 +1,13 @@
+# ChangeLog for media-plugins/holap
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*holap-2012.10.26 (12 Nov 2012)
+
+  12 Nov 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  +holap-2012.10.26.ebuild,
+  +files/holap-2012.10.26/0001-remove-forced-flags.patch,
+  +files/holap-2012.10.26/0002-workaround-sandbox-violation.patch,
+  +files/holap-2012.10.26/0003-respect-ldflags.patch, +metadata.xml:
+  import
+

@@ -1,0 +1,179 @@
+From a017bbaa1c1daefca98e84b82bc2d15c0467d9c7 Mon Sep 17 00:00:00 2001
+From: "Gavin Pryke (gavlee)" <gavinlee303@googlemail.com>
+Date: Fri, 9 Nov 2012 16:24:22 +0000
+Subject: [PATCH 1/3] remove forced flags
+
+---
+ exciter/configure.ac      |    2 +-
+ goomf/configure.in        |    2 +-
+ harmonizer/configure.in   |    2 +-
+ harmonizer_l/configure.in |    2 +-
+ horgand-dssi/configure.in |    2 +-
+ musicaldelay/configure.in |    2 +-
+ zynalienwah/configure.in  |    2 +-
+ zynchorus/configure.in    |    2 +-
+ zyneq10band/configure.in  |    2 +-
+ zyneq3par/configure.in    |    2 +-
+ zynphaser/configure.in    |    2 +-
+ zynreverb/configure.in    |    2 +-
+ 12 files changed, 12 insertions(+), 12 deletions(-)
+
+diff --git a/exciter/configure.ac b/exciter/configure.ac
+index 786ab97..fd982a7 100644
+--- a/exciter/configure.ac
++++ b/exciter/configure.ac
+@@ -56,7 +56,7 @@ SSE="-msse -mfpmath=sse -ffast-math"
+ fi
+ 
+ 
+-CFLAGS="-Wall -pipe $SSE -O2 -Wall -ffunction-sections -fomit-frame-pointer $MODULE_CFLAGS"
++CFLAGS="-Wall  $SSE  -Wall -ffunction-sections  $MODULE_CFLAGS"
+ LDFLAGS="$MODULE_LIBS" 
+ 
+ 
+diff --git a/goomf/configure.in b/goomf/configure.in
+index dc92cb9..bab8ec7 100644
+--- a/goomf/configure.in
++++ b/goomf/configure.in
+@@ -57,7 +57,7 @@ SSE="-msse -mfpmath=sse"
+ fi
+ 
+ 
+-CFLAGS="-c -pipe $SSE -ffast-math -O2 -Wall -combine -ffunction-sections -fomit-frame-pointer $MODULE_CFLAGS"
++CFLAGS="-c  $SSE -ffast-math  -Wall -combine -ffunction-sections  $MODULE_CFLAGS"
+ LDFLAGS="$MODULE_LIBS" 
+ 
+ 
+diff --git a/harmonizer/configure.in b/harmonizer/configure.in
+index 3053862..c3e9964 100644
+--- a/harmonizer/configure.in
++++ b/harmonizer/configure.in
+@@ -56,7 +56,7 @@ SSE="-msse -mfpmath=sse -ffast-math"
+ fi
+ 
+ 
+-CFLAGS="-Wall -pipe $SSE -O2 -Wall -ffunction-sections -fomit-frame-pointer $MODULE_CFLAGS"
++CFLAGS="-Wall  $SSE  -Wall -ffunction-sections  $MODULE_CFLAGS"
+ LDFLAGS="$MODULE_LIBS" 
+ 
+ 
+diff --git a/harmonizer_l/configure.in b/harmonizer_l/configure.in
+index 03456c7..21cbed9 100644
+--- a/harmonizer_l/configure.in
++++ b/harmonizer_l/configure.in
+@@ -48,7 +48,7 @@ SSE="-msse -mfpmath=sse -ffast-math"
+ fi
+ 
+ 
+-CFLAGS="-fPIC -DPIC -Wall -pipe $SSE -O2 -Wall -ffunction-sections -fomit-frame-pointer -c "
++CFLAGS="-fPIC -DPIC -Wall  $SSE  -Wall -ffunction-sections  -c "
+ 
+ LDFLAGS= 
+ 
+diff --git a/horgand-dssi/configure.in b/horgand-dssi/configure.in
+index 7d629fd..1e92d00 100644
+--- a/horgand-dssi/configure.in
++++ b/horgand-dssi/configure.in
+@@ -54,7 +54,7 @@ else
+ SSE="-msse -mfpmath=sse"
+ fi
+ 
+-CFLAGS="-O2 $SSE -ffast-math  -Wall -pipe -combine -ffunction-sections -fomit-frame-pointer $MODULE_CFLAGS"
++CFLAGS=" $SSE -ffast-math  -Wall  -combine -ffunction-sections  $MODULE_CFLAGS"
+ LDFLAGS="$MODULE_LIBS" 
+ 
+ 
+diff --git a/musicaldelay/configure.in b/musicaldelay/configure.in
+index 7edd717..eb566c4 100644
+--- a/musicaldelay/configure.in
++++ b/musicaldelay/configure.in
+@@ -48,7 +48,7 @@ SSE="-msse -mfpmath=sse -ffast-math"
+ fi
+ 
+ 
+-CFLAGS="-fPIC -DPIC -Wall -pipe $SSE -O2 -Wall -ffunction-sections -fomit-frame-pointer -c "
++CFLAGS="-fPIC -DPIC -Wall  $SSE  -Wall -ffunction-sections  -c "
+ 
+ LDFLAGS= 
+ 
+diff --git a/zynalienwah/configure.in b/zynalienwah/configure.in
+index 8db4cef..c417305 100644
+--- a/zynalienwah/configure.in
++++ b/zynalienwah/configure.in
+@@ -48,7 +48,7 @@ SSE="-msse -mfpmath=sse -ffast-math"
+ fi
+ 
+ 
+-CFLAGS="-fPIC -DPIC -Wall -pipe $SSE -O2 -Wall -ffunction-sections -fomit-frame-pointer -c "
++CFLAGS="-fPIC -DPIC -Wall  $SSE  -Wall -ffunction-sections  -c "
+ 
+ LDFLAGS= 
+ 
+diff --git a/zynchorus/configure.in b/zynchorus/configure.in
+index abc72ae..3f38e3d 100644
+--- a/zynchorus/configure.in
++++ b/zynchorus/configure.in
+@@ -48,7 +48,7 @@ SSE="-msse -mfpmath=sse -ffast-math"
+ fi
+ 
+ 
+-CFLAGS="-fPIC -DPIC -Wall -pipe $SSE -O2 -Wall -ffunction-sections -fomit-frame-pointer -c "
++CFLAGS="-fPIC -DPIC -Wall  $SSE  -Wall -ffunction-sections  -c "
+ 
+ LDFLAGS= 
+ 
+diff --git a/zyneq10band/configure.in b/zyneq10band/configure.in
+index 7b117cf..36d4e31 100644
+--- a/zyneq10band/configure.in
++++ b/zyneq10band/configure.in
+@@ -48,7 +48,7 @@ SSE="-msse -mfpmath=sse -ffast-math"
+ fi
+ 
+ 
+-CFLAGS="-fPIC -DPIC -Wall -pipe $SSE -O2 -Wall -ffunction-sections -fomit-frame-pointer -c "
++CFLAGS="-fPIC -DPIC -Wall  $SSE  -Wall -ffunction-sections  -c "
+ 
+ LDFLAGS= 
+ 
+diff --git a/zyneq3par/configure.in b/zyneq3par/configure.in
+index 2a539ee..6aa1da7 100644
+--- a/zyneq3par/configure.in
++++ b/zyneq3par/configure.in
+@@ -48,7 +48,7 @@ SSE="-msse -mfpmath=sse -ffast-math"
+ fi
+ 
+ 
+-CFLAGS="-fPIC -DPIC -Wall -pipe $SSE -O2 -Wall -ffunction-sections -fomit-frame-pointer -c "
++CFLAGS="-fPIC -DPIC -Wall  $SSE  -Wall -ffunction-sections  -c "
+ 
+ LDFLAGS= 
+ 
+diff --git a/zynphaser/configure.in b/zynphaser/configure.in
+index 6697ca7..3077208 100644
+--- a/zynphaser/configure.in
++++ b/zynphaser/configure.in
+@@ -48,7 +48,7 @@ SSE="-msse -mfpmath=sse -ffast-math"
+ fi
+ 
+ 
+-CFLAGS="-fPIC -DPIC -Wall -pipe $SSE -O2 -Wall -ffunction-sections -fomit-frame-pointer -c "
++CFLAGS="-fPIC -DPIC -Wall  $SSE  -Wall -ffunction-sections  -c "
+ 
+ LDFLAGS= 
+ 
+diff --git a/zynreverb/configure.in b/zynreverb/configure.in
+index 01f0e0a..e2e69af 100644
+--- a/zynreverb/configure.in
++++ b/zynreverb/configure.in
+@@ -48,7 +48,7 @@ SSE="-msse -mfpmath=sse -ffast-math"
+ fi
+ 
+ 
+-CFLAGS="-fPIC -DPIC -Wall -pipe $SSE -O2 -Wall -ffunction-sections -fomit-frame-pointer -c "
++CFLAGS="-fPIC -DPIC -Wall  $SSE  -Wall -ffunction-sections  -c "
+ 
+ LDFLAGS= 
+ 
+-- 
+1.7.8.6
+
