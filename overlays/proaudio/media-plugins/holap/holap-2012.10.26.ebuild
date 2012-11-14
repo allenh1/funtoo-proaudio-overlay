@@ -3,7 +3,9 @@
 # $Header: $
 
 EAPI=4
-inherit autotools-utils flag-o-matic multilib
+inherit autotools flag-o-matic multilib
+WANT_AUTOCONF="2.59"
+WANT_AUTOMAKE="1.9"
 
 DESCRIPTION="Holborn Audio Plugins: DSSI and LADSPA audio plugins, including DSP effects and a FM synthesizer"
 HOMEPAGE="http://holap.berlios.de/index.html"
@@ -35,7 +37,10 @@ src_prepare() {
 	local p=
 	for p in ${HOLAP_ALL_PLUGINS}; do
 		cd "${S}"/"${p}"
-		eautoreconf
+		eaclocal
+		eautoheader
+		eautoconf
+		eautomake -a --gnu
 	done
 }
 
