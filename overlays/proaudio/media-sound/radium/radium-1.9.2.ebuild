@@ -44,6 +44,7 @@ pkg_setup() {
 
 src_prepare() {
 	epatch "${FILESDIR}/${P}.patch" || die "epatch failed"
+	sed -i -e 's:DUSE_VESTIGE=0:DUSE_VESTIGE=1:' "${S}/Makefile.Qt" || die "sed failed"
 }
 
 src_compile() {
