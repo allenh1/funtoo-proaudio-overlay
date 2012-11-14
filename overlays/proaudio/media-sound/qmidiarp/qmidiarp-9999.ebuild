@@ -16,8 +16,8 @@ IUSE=""
 
 EGIT_REPO_URI="git://qmidiarp.git.sourceforge.net/gitroot/qmidiarp/qmidiarp"
 
-DEPEND=">=x11-libs/qt-core-4.2:4[qt3support]
-	>=x11-libs/qt-gui-4.2:4[qt3support]
+DEPEND=">=x11-libs/qt-core-4.2:4
+	>=x11-libs/qt-gui-4.2:4
 	>=media-sound/jack-audio-connection-kit-0.103.0
 	>=media-libs/alsa-lib-0.9.0"
 RDEPEND="${DEPEND}"
