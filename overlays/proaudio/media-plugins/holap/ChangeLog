@@ -2,6 +2,12 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  14 Nov 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  holap-2012.10.26.ebuild:
+  move WANT_AUTOCONF above inherit, change 2.59 -> 2.5.
+  add call to _elibtoolize since eautoreconf was dropped and no plugins get
+  installed. add some einfo messages. remove .la files. add ~x86 keyword.
+
   13 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net> holap-2012.10.26.ebuild:
   moved to autotools eclass, adding WANT_AUTOCONF and WANT_AUTOMAKE; use the same function
   as in the original autoconf system instead of eautoreconf
