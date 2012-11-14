@@ -2,8 +2,16 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  12 May 2012; Dominique Michel <dominique_libre@sourceforge.net>;
+  14 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>;
+  -radium-1.9.1-r1.ebuild;+radium-1.9.2.ebuild: version bump; fixed SRC_URI to
+  the final location (Kjetil Matheussen); removed non needed DEPEND (Kjetil M.);
+  make repoman happy, more will follow);
+  -files/radium-1.9.1.patch; +files/radium-1.9.2.patch: some bug fixes
+   and improvments from the GIT tarball, including a fix for the menu font size;
+   metadata.xml: added description for calf USE flag.
+
+  12 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>;
   +radium-1.9.1.ebuild: Initial ebuild; move media-plugins/calf to RDEPEND
-  +files/radium.patch: some bug fixes and improvments from the GIT tarball.
+  +files/radium-1.0.1.patch: some bug fixes and improvments from the GIT tarball.
   -radium-1.9.1.ebuild; +radium-1.9.1-r1.ebuild: move media-plugins/calf to RDEPEND
   with USE=ladspa.

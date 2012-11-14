@@ -10,25 +10,32 @@ inherit eutils multilib python
 RESTRICT="mirror"
 DESCRIPTION="Open source music editor with a novel interface and fever limitations than trackers"
 HOMEPAGE="http://users.notam02.no/~kjetism/${PN}/"
-SRC_URI="http://dl.dropbox.com/u/4814054/${P}.tar.gz"
+SRC_URI="http://archive.notam02.no/arkiv/src/${P}.tar.gz"
 
 KEYWORDS="~x86 amd64"
 SLOT="0"
-IUSE="+calf -faust"
+IUSE="+calf"
+LICENSE="GPL-2"
 
 DEPEND="x11-libs/qt-core[qt3support]
 	x11-libs/libXaw
-	faust? ( dev-lang/faust )
 	media-libs/alsa-lib
 	media-sound/jack-audio-connection-kit
 	media-libs/libsamplerate
 	media-libs/liblrdf
 	media-libs/libsndfile
 	media-libs/ladspa-sdk
-	>=dev-libs/glib-2.0
-	>=media-libs/rtmidi-2.0.0[alsa,jack]"
-RDEPEND="${DEPEND}
-	calf? ( <media-plugins/calf-0.0.19[ladspa] )"
+	>=dev-libs/glib-2.0"
+# repoman doesn't like this:
+# RDEPEND="${DEPEND}
+#	calf? ( <media-plugins/calf-0.0.19[ladspa] )"
+# somebody knows?
+if use calf; then
+	RDEPEND="${DEPEND}
+#	<media-plugins/calf-0.0.19[ladspa]"
+else
+	RDEPEND="${DEPEND}"
+fi
 
 pkg_setup() {
 	python_set_active_version 2
@@ -49,10 +56,6 @@ src_install() {
 	emake libdir="/usr/$(get_libdir)" DESTDIR="${D}" PREFIX="/usr" install \
 		|| die "install failed"
 	insinto /usr/share/pixmaps
-	doins ${FILESDIR}/radium.xpm
+	doins "${FILESDIR}/radium.xpm"
 	make_desktop_entry radium Radium "radium" "AudioVideo;Audio;AudioVideoEditing;"
 }
-
-#pkg_preinst() {
-#	sed -i -e "s:${D}::" "${D}/usr/bin/radium" || "sed failed"
-#}
