@@ -3,15 +3,15 @@
 # $Header: $
 
 EAPI=4
-inherit base toolchain-funcs multilib git-2
+inherit base toolchain-funcs multilib
 
 DESCRIPTION="MIDI controlled DSP tonewheel organ"
 HOMEPAGE="http://setbfree.org"
-EGIT_REPO_URI="https://github.com/pantherb/setBfree.git"
+SRC_URI="http://github.com/downloads/pantherb/setBfree/${P}.tar.gz"
 
 LICENSE="GPL-2 CCPL-Attribution-ShareAlike-3.0"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="convolution"
 
 RDEPEND="dev-lang/tcl
@@ -26,10 +26,12 @@ DEPEND="${RDEPEND}
 	sys-apps/help2man
 	virtual/pkgconfig"
 
+RESTRICT="mirror"
+
 DOCS=(ChangeLog README.md)
 
 src_prepare() {
-	epatch "${FILESDIR}"/${PN}-0.5.5/*.patch
+	epatch "${FILESDIR}"/${P}/*.patch
 	base_src_prepare
 }
 

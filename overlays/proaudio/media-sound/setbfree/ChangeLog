@@ -2,6 +2,14 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*setbfree-0.5.5 (13 Nov 2012)
+
+  13 Nov 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  +setbfree-0.5.5.ebuild, +files/setbfree-0.5.5/0001-multilib-strict.patch,
+  +files/setbfree-0.5.5/0002-respect-ldflags.patch,
+  +files/setbfree-0.5.5/0003-cflags.patch, setbfree-9999.ebuild, metadata.xml:
+  bump. fix multilib-strict, obey toolchain env/flags.
+
   17 Jul 2012; Dominique Michel <dominique_libre@sourceforge.net>
   +setbfree-9999.ebuild: live git ebuild for setbfree
   +setbfree-0.5.4.ebuild: version bump, removed outdated comment

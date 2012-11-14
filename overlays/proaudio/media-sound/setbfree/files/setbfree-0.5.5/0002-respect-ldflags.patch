@@ -1,0 +1,67 @@
+From f892b639a10c739c41654eab86ccb2363462e65e Mon Sep 17 00:00:00 2001
+From: "Gavin Pryke (gavlee)" <gavinlee303@googlemail.com>
+Date: Tue, 13 Nov 2012 15:15:06 +0000
+Subject: [PATCH 2/3] respect ldflags
+
+---
+ b_overdrive/Makefile |    2 +-
+ b_reverb/Makefile    |    2 +-
+ b_synth/Makefile     |    2 +-
+ b_whirl/Makefile     |    2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/b_overdrive/Makefile b/b_overdrive/Makefile
+index 7554982..4caea09 100644
+--- a/b_overdrive/Makefile
++++ b/b_overdrive/Makefile
+@@ -37,7 +37,7 @@ manifest.ttl:
+ 	sed "s/@LV2NAME@/$(LV2NAME)/;s/@LIB_EXT@/$(LIB_EXT)/" manifest.ttl.in > manifest.ttl
+ 
+ $(LV2NAME)$(LIB_EXT): lv2.c overdrive.o
+-	$(CC) -o $(LV2NAME)$(LIB_EXT) $(CFLAGS) -shared -Wl,-Bstatic -Wl,-Bdynamic lv2.c overdrive.o
++	$(CC) $(LDFLAGS) -o $(LV2NAME)$(LIB_EXT) $(CFLAGS) -shared -Wl,-Bstatic -Wl,-Bdynamic lv2.c overdrive.o
+ 
+ overdrive.o: overmaker overdrive.h ../src/cfgParser.h ../src/midi.h
+ 	./overmaker > overdrive.c
+diff --git a/b_reverb/Makefile b/b_reverb/Makefile
+index 1f5d9cd..959c646 100644
+--- a/b_reverb/Makefile
++++ b/b_reverb/Makefile
+@@ -18,7 +18,7 @@ manifest.ttl:
+ 	sed "s/@LV2NAME@/$(LV2NAME)/;s/@LIB_EXT@/$(LIB_EXT)/" manifest.ttl.in > manifest.ttl
+ 
+ $(LV2NAME)$(LIB_EXT): lv2.c reverb.o
+-	$(CC) -o $(LV2NAME)$(LIB_EXT) $(CFLAGS) -shared -Wl,-Bstatic -Wl,-Bdynamic lv2.c reverb.o
++	$(CC) $(LDFLAGS) -o $(LV2NAME)$(LIB_EXT) $(CFLAGS) -shared -Wl,-Bstatic -Wl,-Bdynamic lv2.c reverb.o
+ 
+ %.o: %c %.h ../src/cfgParser.h
+ 
+diff --git a/b_synth/Makefile b/b_synth/Makefile
+index 1690ca0..734280c 100644
+--- a/b_synth/Makefile
++++ b/b_synth/Makefile
+@@ -33,7 +33,7 @@ manifest.ttl: manifest.ttl.in
+ 	sed "s/@LV2NAME@/$(LV2NAME)/;s/@LIB_EXT@/$(LIB_EXT)/" manifest.ttl.in > manifest.ttl
+ 
+ $(LV2NAME)$(LIB_EXT): lv2.c $(OBJ)  ../src/cfgParser.h ../src/midi.h
+-	$(CC) -o $(LV2NAME)$(LIB_EXT) $(CFLAGS) -shared -Wl,-Bstatic -Wl,-Bdynamic lv2.c $(OBJ)
++	$(CC) $(LDFLAGS) -o $(LV2NAME)$(LIB_EXT) $(CFLAGS) -shared -Wl,-Bstatic -Wl,-Bdynamic lv2.c $(OBJ)
+ 
+ %.o: %.c %.h
+ 	+$(MAKE) -C ../src $(subst ../src/,,$@)
+diff --git a/b_whirl/Makefile b/b_whirl/Makefile
+index c2a82e1..225b2b6 100644
+--- a/b_whirl/Makefile
++++ b/b_whirl/Makefile
+@@ -18,7 +18,7 @@ manifest.ttl:
+ 	sed "s/@LV2NAME@/$(LV2NAME)/;s/@LIB_EXT@/$(LIB_EXT)/" manifest.ttl.in > manifest.ttl
+ 
+ $(LV2NAME)$(LIB_EXT): lv2.c whirl.o eqcomp.o whirl.h eqcomp.h ../src/cfgParser.h
+-	$(CC) -o $(LV2NAME)$(LIB_EXT) $(CFLAGS) -shared -Wl,-Bstatic -Wl,-Bdynamic lv2.c whirl.o eqcomp.o
++	$(CC) $(LDFLAGS) -o $(LV2NAME)$(LIB_EXT) $(CFLAGS) -shared -Wl,-Bstatic -Wl,-Bdynamic lv2.c whirl.o eqcomp.o
+ 
+ install: $(targets)
+ ifneq ($(strip $(LV2NAME)),)
+-- 
+1.7.8.6
+
