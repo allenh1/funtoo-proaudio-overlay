@@ -1,9 +1,9 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI=2
-inherit autotools 
+inherit eutils autotools
 
 DESCRIPTION="Console/Qt4 programs that listen to MIDI machine control messages (MMC) to drive JACK transport"
 HOMEPAGE="http://jackctlmmc.sourceforge.net/"
@@ -20,7 +20,7 @@ RDEPEND="media-libs/alsa-lib
 	lash? ( media-sound/lash )"
 
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig"
+	virtual/pkgconfig"
 
 S=${WORKDIR}/${PN}
 

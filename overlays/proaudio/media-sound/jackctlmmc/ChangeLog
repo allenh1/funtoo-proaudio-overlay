@@ -1,6 +1,10 @@
 # ChangeLog for media-sound/jackctlmmc
-# Copyright 2002-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  15 Nov 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  jackctlmmc-4.ebuild, metadata.xml:
+  fix patching. moved to virtual/pkgconfig.
 
   25 May 2011: Dominique Michel <dominique@tuxfamily.org>
   - Introducing jackctlmmc-4.ebuild from original ebuild send by Alex Montgomery
