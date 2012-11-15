@@ -1,0 +1,39 @@
+From 8ba5245560334dcff2a5b7283816f3ce4fa32c09 Mon Sep 17 00:00:00 2001
+From: "Gavin Pryke (gavlee)" <gavinlee303@googlemail.com>
+Date: Thu, 15 Nov 2012 14:17:38 +0000
+Subject: [PATCH 4/4] remove combine
+
+---
+ goomf/configure.in        |    2 +-
+ horgand-dssi/configure.in |    2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/goomf/configure.in b/goomf/configure.in
+index 79c082b..aa2f78f 100644
+--- a/goomf/configure.in
++++ b/goomf/configure.in
+@@ -57,7 +57,7 @@ SSE="-msse -mfpmath=sse"
+ fi
+ 
+ 
+-CFLAGS="-c  $SSE -ffast-math  -Wall -combine -ffunction-sections  $MODULE_CFLAGS"
++CFLAGS="-c  $SSE -ffast-math  -Wall -ffunction-sections  $MODULE_CFLAGS"
+ LDFLAGS="$LDFLAGS $MODULE_LIBS" 
+ 
+ 
+diff --git a/horgand-dssi/configure.in b/horgand-dssi/configure.in
+index e7de3bf..5553fd3 100644
+--- a/horgand-dssi/configure.in
++++ b/horgand-dssi/configure.in
+@@ -54,7 +54,7 @@ else
+ SSE="-msse -mfpmath=sse"
+ fi
+ 
+-CFLAGS=" $SSE -ffast-math  -Wall  -combine -ffunction-sections  $MODULE_CFLAGS"
++CFLAGS=" $SSE -ffast-math  -Wall -ffunction-sections  $MODULE_CFLAGS"
+ LDFLAGS="$LDFLAGS $MODULE_LIBS" 
+ 
+ 
+-- 
+1.7.8.6
+

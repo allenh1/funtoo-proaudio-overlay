@@ -2,6 +2,11 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  15 Nov 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  +files/holap-2012.10.26/0004-remove-combine.patch:
+  Remove combine flag to attempt fix build with 4.6.x. Thanks to Dominique
+  Michel for build log
+
   14 Nov 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
   holap-2012.10.26.ebuild:
   move WANT_AUTOCONF above inherit, change 2.59 -> 2.5.
