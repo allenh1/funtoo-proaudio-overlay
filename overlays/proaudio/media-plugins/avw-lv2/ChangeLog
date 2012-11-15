@@ -1,0 +1,7 @@
+# ChangeLog for media-plugins/avw-lv2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  15 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  +avw-lv2-0-0.8.ebuild: Initial ebuild from Matt Henley with some changes
+  to make python3 and repoman happy.
