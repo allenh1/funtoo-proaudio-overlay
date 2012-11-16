@@ -1,0 +1,31 @@
+From a2e7e508d3768a2a30fc4ffb2660a229f6aa1f63 Mon Sep 17 00:00:00 2001
+From: "Gavin Pryke (gavlee)" <gavinlee303@googlemail.com>
+Date: Thu, 15 Nov 2012 18:50:28 +0000
+Subject: [PATCH 2/2] no suid bins
+
+---
+ src/Makefile.am |    8 --------
+ 1 files changed, 0 insertions(+), 8 deletions(-)
+
+diff --git a/src/Makefile.am b/src/Makefile.am
+index e90108c..e0612ad 100644
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -38,14 +38,6 @@ tapiir_alsa_LDADD = @LIBS@ @ALSA_LIBS@
+ 
+ tapiir_jack_LDADD = @LIBS@ @ALSA_LIBS@ @JACK_LIBS@
+ 
+-install-exec-hook:
+-	chown root $(DESTDIR)$(bindir)/tapiir
+-	chmod u+s $(DESTDIR)$(bindir)/tapiir
+-	chown root $(DESTDIR)$(bindir)/tapiir_alsa
+-	chmod u+s $(DESTDIR)$(bindir)/tapiir_alsa
+-	chown root $(DESTDIR)$(bindir)/tapiir_jack
+-	chmod u+s $(DESTDIR)$(bindir)/tapiir_jack
+-
+ DISTCLEANFILES = Makefile.in
+ 
+ EXTRA_DIST = LayoutSet.cxx MTDConvert.cxx
+-- 
+1.7.8.6
+

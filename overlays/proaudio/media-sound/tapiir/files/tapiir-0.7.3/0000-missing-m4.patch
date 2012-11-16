@@ -1,0 +1,215 @@
+--- /dev/null	2012-11-13 01:08:02.458030050 +0000
++++ m4/alsa.m4	2012-11-15 19:42:48.849919276 +0000
+@@ -0,0 +1,141 @@
++dnl Configure Paths for Alsa
++dnl Some modifications by Richard Boulton <richard-alsa@tartarus.org>
++dnl Christopher Lansdown <lansdoct@cs.alfred.edu>
++dnl Jaroslav Kysela <perex@perex.cz>
++dnl Last modification: $Id: alsa.m4,v 1.24 2004/09/15 18:48:07 tiwai Exp $
++dnl AM_PATH_ALSA([MINIMUM-VERSION [, ACTION-IF-FOUND [, ACTION-IF-NOT-FOUND]]])
++dnl Test for libasound, and define ALSA_CFLAGS and ALSA_LIBS as appropriate.
++dnl enables arguments --with-alsa-prefix=
++dnl                   --with-alsa-enc-prefix=
++dnl                   --disable-alsatest
++dnl
++dnl For backwards compatibility, if ACTION_IF_NOT_FOUND is not specified,
++dnl and the alsa libraries are not found, a fatal AC_MSG_ERROR() will result.
++dnl
++AC_DEFUN([AM_PATH_ALSA],
++[dnl Save the original CFLAGS, LDFLAGS, and LIBS
++alsa_save_CFLAGS="$CFLAGS"
++alsa_save_LDFLAGS="$LDFLAGS"
++alsa_save_LIBS="$LIBS"
++alsa_found=yes
++
++dnl
++dnl Get the cflags and libraries for alsa
++dnl
++AC_ARG_WITH(alsa-prefix,
++[  --with-alsa-prefix=PFX  Prefix where Alsa library is installed(optional)],
++[alsa_prefix="$withval"], [alsa_prefix=""])
++
++AC_ARG_WITH(alsa-inc-prefix,
++[  --with-alsa-inc-prefix=PFX  Prefix where include libraries are (optional)],
++[alsa_inc_prefix="$withval"], [alsa_inc_prefix=""])
++
++dnl FIXME: this is not yet implemented
++AC_ARG_ENABLE(alsatest,
++[  --disable-alsatest      Do not try to compile and run a test Alsa program],
++[enable_alsatest="$enableval"],
++[enable_alsatest=yes])
++
++dnl Add any special include directories
++AC_MSG_CHECKING(for ALSA CFLAGS)
++if test "$alsa_inc_prefix" != "" ; then
++	ALSA_CFLAGS="$ALSA_CFLAGS -I$alsa_inc_prefix"
++	CFLAGS="$CFLAGS -I$alsa_inc_prefix"
++fi
++AC_MSG_RESULT($ALSA_CFLAGS)
++
++dnl add any special lib dirs
++AC_MSG_CHECKING(for ALSA LDFLAGS)
++if test "$alsa_prefix" != "" ; then
++	ALSA_LIBS="$ALSA_LIBS -L$alsa_prefix"
++	LDFLAGS="$LDFLAGS $ALSA_LIBS"
++fi
++
++dnl add the alsa library
++ALSA_LIBS="$ALSA_LIBS -lasound -lm -ldl -lpthread"
++LIBS="$ALSA_LIBS $LIBS"
++AC_MSG_RESULT($ALSA_LIBS)
++
++dnl Check for a working version of libasound that is of the right version.
++min_alsa_version=ifelse([$1], ,0.1.1,$1)
++AC_MSG_CHECKING(for libasound headers version >= $min_alsa_version)
++no_alsa=""
++    alsa_min_major_version=`echo $min_alsa_version | \
++           sed 's/\([[0-9]]*\).\([[0-9]]*\).\([[0-9]]*\)/\1/'`
++    alsa_min_minor_version=`echo $min_alsa_version | \
++           sed 's/\([[0-9]]*\).\([[0-9]]*\).\([[0-9]]*\)/\2/'`
++    alsa_min_micro_version=`echo $min_alsa_version | \
++           sed 's/\([[0-9]]*\).\([[0-9]]*\).\([[0-9]]*\)/\3/'`
++
++AC_LANG_SAVE
++AC_LANG_C
++AC_TRY_COMPILE([
++#include <alsa/asoundlib.h>
++], [
++/* ensure backward compatibility */
++#if !defined(SND_LIB_MAJOR) && defined(SOUNDLIB_VERSION_MAJOR)
++#define SND_LIB_MAJOR SOUNDLIB_VERSION_MAJOR
++#endif
++#if !defined(SND_LIB_MINOR) && defined(SOUNDLIB_VERSION_MINOR)
++#define SND_LIB_MINOR SOUNDLIB_VERSION_MINOR
++#endif
++#if !defined(SND_LIB_SUBMINOR) && defined(SOUNDLIB_VERSION_SUBMINOR)
++#define SND_LIB_SUBMINOR SOUNDLIB_VERSION_SUBMINOR
++#endif
++
++#  if(SND_LIB_MAJOR > $alsa_min_major_version)
++  exit(0);
++#  else
++#    if(SND_LIB_MAJOR < $alsa_min_major_version)
++#       error not present
++#    endif
++
++#   if(SND_LIB_MINOR > $alsa_min_minor_version)
++  exit(0);
++#   else
++#     if(SND_LIB_MINOR < $alsa_min_minor_version)
++#          error not present
++#      endif
++
++#      if(SND_LIB_SUBMINOR < $alsa_min_micro_version)
++#        error not present
++#      endif
++#    endif
++#  endif
++exit(0);
++],
++  [AC_MSG_RESULT(found.)],
++  [AC_MSG_RESULT(not present.)
++   ifelse([$3], , [AC_MSG_ERROR(Sufficiently new version of libasound not found.)])
++   alsa_found=no]
++)
++AC_LANG_RESTORE
++
++dnl Now that we know that we have the right version, let's see if we have the library and not just the headers.
++if test "x$enable_alsatest" = "xyes"; then
++AC_CHECK_LIB([asound], [snd_ctl_open],,
++	[ifelse([$3], , [AC_MSG_ERROR(No linkable libasound was found.)])
++	 alsa_found=no]
++)
++fi
++
++if test "x$alsa_found" = "xyes" ; then
++   ifelse([$2], , :, [$2])
++   LIBS=`echo $LIBS | sed 's/-lasound//g'`
++   LIBS=`echo $LIBS | sed 's/  //'`
++   LIBS="-lasound $LIBS"
++fi
++if test "x$alsa_found" = "xno" ; then
++   ifelse([$3], , :, [$3])
++   CFLAGS="$alsa_save_CFLAGS"
++   LDFLAGS="$alsa_save_LDFLAGS"
++   LIBS="$alsa_save_LIBS"
++   ALSA_CFLAGS=""
++   ALSA_LIBS=""
++fi
++
++dnl That should be it.  Now just export out symbols:
++AC_SUBST(ALSA_CFLAGS)
++AC_SUBST(ALSA_LIBS)
++])
++
+--- /dev/null	2012-11-13 01:08:02.458030050 +0000
++++ m4/fltk.m4	2012-11-15 19:42:10.086104611 +0000
+@@ -0,0 +1,68 @@
++# Configure paths for FLTK
++# Alvin Beach 26/01/2007
++# Used sdl.m4 as example. Thanks SDL Team!
++# stole most of the commands from:
++# http://www.kdevelop.org/mediawiki/index.php/FLTK_hello_world_application_template
++
++dnl AM_PATH_FLTK([MINIMUM-VERSION, [ACTION-IF-FOUND [, ACTION-IF-NOT-FOUND]]])
++dnl Test for FLTK, and define FLTK_CXXFLAGS, FLTK_LIBS, and FLTK_LDFLAGS
++dnl
++AC_DEFUN([AM_PATH_FLTK],
++[dnl
++dnl Get the cflags and libraries from the fltk-config script
++dnl
++
++dnl Prefix where FLTK is installed
++AC_ARG_WITH(fltk-prefix,[  --with-fltk-prefix=PREFIX    Prefix where FLTK is installed (default: /usr)],
++        fltk_prefix="$withval", fltk_prefix="/usr")
++
++dnl Switch to pass to fltk-config
++AC_ARG_WITH(fltk-ldopts,[  --with-fltk-ldopts=OPTS    Linker options to pass to fltk-config (e.g "--use-images --use-gl")],
++        fltk_ldopts="$withval", fltk_ldopts="")
++
++AC_REQUIRE([AC_CANONICAL_TARGET])
++
++PATH="$fltk_prefix/bin:$prefix/bin:$prefix/usr/bin:$PATH"
++
++AC_PATH_PROG(FLTK_CONFIG, fltk-config, no, $PATH)
++
++dnl Assume fltk is not installed
++FLTK_CXXFLAGS=""
++FLTK_LIBS=""
++FLTK_LDFLAGS=""
++
++if test "$FLTK_CONFIG" != "no" ; then
++        min_fltk_version=ifelse([$1], ,0.0.0,$1)
++
++        AC_MSG_CHECKING(for FLTK - version >= $min_fltk_version)
++
++        fltk_version="`$FLTK_CONFIG --version`"
++
++        dnl Convert versions to an integer e.g. 1.1.7 becomes 117
++        min_vers=`echo $min_fltk_version | sed 's/\.//g'`
++        fltk_vers=`echo $fltk_version | sed 's/\.//g'`
++
++        if test -n "$fltk_vers" -a "$fltk_vers" -ge $min_vers; then
++                dnl All is good. Set the FLTK flags and such
++                AC_MSG_RESULT(yes)
++                ifelse([$2], , :, [$2])
++
++                if test -n "$fltk_ldopts"; then
++                        AC_MSG_NOTICE([FLTK linker options: $fltk_ldopts])
++                fi
++
++                FLTK_CXXFLAGS="`$FLTK_CONFIG --cxxflags`"
++                FLTK_LDFLAGS="`$FLTK_CONFIG $fltk_ldopts --ldflags`"
++                FLTK_LIBS="`$FLTK_CONFIG $fltk_ldopts --ldflags`"
++        else
++                dnl A version of FLTK less-than $min_fltk_version is installed...fltk should be upgraded
++                AC_MSG_RESULT(no)
++                AC_MSG_ERROR([Installed version of FLTK is too old. Please upgrade to atleast $min_fltk_version])
++                ifelse([$3], , :, [$3])
++        fi
++else
++        dnl fltk-config could not be found. fltk must not be installed
++        AC_MSG_ERROR([fltk-config could not be found. Either FLTK is not installed or FLTK's location needs to be specified with --with-fltk-prefix ])
++        ifelse([$3], , :, [$3])
++fi
++])
