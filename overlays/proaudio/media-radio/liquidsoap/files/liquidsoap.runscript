@@ -4,7 +4,7 @@ script=${RC_SVCNAME#*.}
 scriptfile="/etc/liquidsoap/${script}.liq"
 command=/usr/bin/liquidsoap
 command_args="--daemon ${scriptfile}"
-start_stop_daemon_args="--user liquidsoap:liquidsoap"
+start_stop_daemon_args="--user liquidsoap:liquidsoap --nicelevel -15 "
 pidfile="/var/run/liquidsoap/${script}.pid"
 name=${RC_SVCNAME}
 
@@ -44,3 +44,10 @@ start_pre() {
     _script_exists || return 1
 }
 
+start() {
+    start-stop-daemon --start  \
+        ${start_stop_daemon_args} \
+        --make-pidfile ${pidfile} \
+        --exec ${command} \
+        -- ${command_args}
+}

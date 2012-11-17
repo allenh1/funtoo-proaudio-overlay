@@ -10,7 +10,7 @@
 ## optional
 
 EAPI=4
-inherit autotools eutils findlib
+inherit autotools eutils findlib systemd
 
 DESCRIPTION="A swiss-army knife for multimedia streaming, notably used for netradios."
 HOMEPAGE="http://liquidsoap.fm/"
@@ -27,9 +27,10 @@ RDEPEND="dev-lang/ocaml
 		 dev-ml/ocaml-magic
 		 dev-ml/ocaml-mm
 		 dev-ml/pcre-ocaml
-		 media-fonts/dejavu
 		 dev-ml/gd4o
-		 dev-ml/ocamlsdl
+		 dev-ml/ocamlsdl[truetype]
+		 media-fonts/dejavu
+		 media-libs/sdl-ttf
 	aacplus? ( dev-ml/ocaml-aacplus )
 	alsa? ( dev-ml/ocaml-alsa )
 	ao? ( dev-ml/ocaml-ao )
@@ -37,8 +38,7 @@ RDEPEND="dev-lang/ocaml
 	doc? ( dev-perl/XML-DOM )
 	dssi? ( dev-ml/ocaml-dssi )
 	faad? ( dev-ml/ocaml-faad )
-	flac? ( dev-ml/ocaml-flac
-			dev-ml/ocaml-ogg )
+	flac? ( dev-ml/ocaml-flac )
 	gavl? ( dev-ml/ocaml-gavl )
 	graphics? ( dev-ml/camlimages )
 	jack? ( dev-ml/ocaml-bjack )
@@ -76,6 +76,8 @@ pkg_setup() {
 }
 
 src_prepare() {
+	has_version '>=dev-lang/ocaml-4' &&  epatch "${FILESDIR}/ocaml-4.patch"
+
 	einfo "Sandboxing Makefile.defs.in ..."
 	sed -i 's/@exec_prefix@/${DESTDIR}@exec_prefix@/g' Makefile.defs.in
 	sed -i 's/@libdir@/${DESTDIR}@libdir@/'g Makefile.defs.in
@@ -88,7 +90,7 @@ src_prepare() {
 	einfo "Replacing tool check macros ..."
 	sed -i 's/AC_CHECK_TOOL_STRICT/AC_CHECK_TOOL/g' m4/ocaml.m4
 
-	AT_M4DIR="m4" eautoreconf
+	AT_M4DIR="m4" eautoreconf -f -i
 	eautomake
 }
 
@@ -151,6 +153,7 @@ src_install() {
 	findlib_src_install
 	keepdir /etc/${PN} /var/log/${PN}
 	newinitd "${FILESDIR}/liquidsoap.runscript" ${PN}
+	systemd_newunit "${FILESDIR}/liquidsoap-at.service" "liquidsoap@.service"
 	dodoc CHANGES README
 	if use doc; then
 		emake doc
