@@ -4,11 +4,13 @@
 
 EAPI="4"
 
-inherit eutils git-2
+PYTHON_DEPEND="2"
+inherit waf-utils git-2 python
 
 DESCRIPTION="The Non Things: Non-DAW, Non-Mixer, Non-Sequencer and Non-Session-Manager"
 HOMEPAGE="http://non.tuxfamily.org"
 EGIT_REPO_URI="git://git.tuxfamily.org/gitroot/non/non.git"
+
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
@@ -22,50 +24,32 @@ RDEPEND=">=media-sound/jack-audio-connection-kit-0.103.0
 	"
 DEPEND="${RDEPEND}
 	x11-libs/ntk
-	x11-libs/cairo 
-	x11-libs/libXft 
-	media-libs/libpng 
-	x11-libs/pixman 
-	x11-libs/libXpm 
-	virtual/jpeg 
+	x11-libs/cairo
+	x11-libs/libXft
+	media-libs/libpng
+	x11-libs/pixman
+	x11-libs/libXpm
+	virtual/jpeg
 	x11-libs/libXinerama
-	x11-libs/libxcb 
+	x11-libs/libxcb
 "
 
+pkg_setup(){
+	python_set_active_version 2
+	python_pkg_setup
+}
+
 src_configure() {
-	if use debug ; then
-		econf --enable-debug=yes
-	else
-		econf --enable-debug=no
+	if use debug
+		then waf-utils_src_configure --project=sequencer --enable-debug
+		else waf-utils_src_configure --prefix=/usr --project=sequencer
 	fi
 }
 
 src_compile() {
-#make # builds everything else
-	cd ${S}/nonlib 
-	make -C nonlib
-	cd  ${S}/FL
-	make -C  FL
-	cd ${S}/sequencer 
-	make -C  sequencer
+	waf-utils_src_compile
 }
 
 src_install() {
-	cd ${S}/sequencer
-	emake DESTDIR="${D}" install
-	
-	# necessary to launch Help -> Manual
-	dobin "${FILESDIR}/x-www-browser"
-	doenvd "${FILESDIR}/61browser"
-}
-
-pkg_postinst() {
-	ewarn "If it is the first time you install ${PN},"
-	ewarn "You should review the value of BROWSER in /etc/env.d/61browser"
-	ewarn ""
-	ewarn "If running X, the best is to log-out and re-login."
-	ewarn "As alternative, you can run in a terminal"
-	ewarn "  env-update && source /etc-profile"
-	ewarn "and run the Non Things from the same terminal."
-	ewarn "Otherwise, Help -> Manual will do nothing."
+	waf-utils_src_install
 }
