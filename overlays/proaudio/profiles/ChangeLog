@@ -1,0 +1,20 @@
+# ChangeLog for profile directory
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+#
+# This ChangeLog should include records for all changes in profiles directory.
+# Only typo fixes which don't affect portage/repoman behaviour could be avoided
+# here. If in doubt put a record here!
+
+  18 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  Initial release of 2 desktop profiles: proaudio and proaudio-kde.
+  
+  * desktop/proaudio: based on portage desktop profile with the addition of
+  audio related USE flag as well the mmx and sse USE flags, and the
+  removal of policykit, consolekit, udisks, udisk2 and upower.
+  
+  * desktop/proaudio-kde: based on portage desktop/kde profile with the same
+  features than desktop/proaudio and the additional removal of raptor,
+  redland, semantic-desktop and virtuoso.
+  
+  Added a ChangeLog
