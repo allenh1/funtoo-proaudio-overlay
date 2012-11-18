@@ -1,0 +1,7 @@
+# ChangeLog for sys-apps/pmount-gui
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  18 Nov 2012; Doinique Michel <dominique_libre@sourceforge.net> Initial commit of pmount-gui
+  +pmount-gui-1.20121118.ebuild, +pmount-gui-9999.ebuild
+
