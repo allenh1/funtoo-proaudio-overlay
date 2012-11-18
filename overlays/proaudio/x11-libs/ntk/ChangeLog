@@ -2,5 +2,8 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  18 Nov 2012: Dominique Michel <dominique_libre@sourceforgen.net>
+  ntk-9999.enuild: waf szpport from Tina Cochet's ebuild with some cleanup
+
   04 Nov 2012: Dominique Michel <dominique_libre@sourceforgen.net> Initial ntk ebuild
   +ntk-9999.enuild: From Tina Cochet's ebuild with some clean-up

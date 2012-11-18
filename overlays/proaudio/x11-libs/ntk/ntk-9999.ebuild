@@ -4,7 +4,8 @@
 
 EAPI="4"
 
-inherit eutils git-2
+PYTHON_DEPEND="2"
+inherit waf-utils git-2 python
 
 DESCRIPTION="The Non Things: Non-DAW, Non-Mixer, Non-Sequencer and Non-Session-Manager"
 HOMEPAGE="http://non.tuxfamily.org"
@@ -16,16 +17,28 @@ KEYWORDS=""
 IUSE="-debug"
 
 RDEPEND=">=media-sound/jack-audio-connection-kit-0.103.0
-        >=media-libs/liblrdf-0.1.0
-        >=media-libs/liblo-0.26
-        >=dev-libs/libsigc++-2.2.0
-        "
+	>=media-libs/liblrdf-0.1.0
+	>=media-libs/liblo-0.26
+	>=dev-libs/libsigc++-2.2.0"
 DEPEND="${RDEPEND}"
 
-
-
-src_configure() {
-	econf --disable-gl --enable-threads --enable-xft --enable-cairo \
-		--enable-cairoext --enable-xinerama
+pkg_setup(){
+	python_set_active_version 2
 }
 
+src_configure() {
+	myconf=""
+	if use debug ; then
+		myconf="--enable-debug"
+	fi
+	waf-utils_src_configure "${myconf}"
+}
+
+src_compile() {
+	waf-utils_src_compile
+}
+
+src_install() {
+	waf-utils_src_install
+	dodoc CREDITS README
+}
