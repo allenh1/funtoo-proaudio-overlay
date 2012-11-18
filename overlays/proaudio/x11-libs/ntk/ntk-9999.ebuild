@@ -24,14 +24,16 @@ DEPEND="${RDEPEND}"
 
 pkg_setup(){
 	python_set_active_version 2
+	pxthon_pkg_setup
 }
 
 src_configure() {
 	myconf=""
 	if use debug ; then
-		myconf="--enable-debug"
+		waf-utils_src_configure --enable-debug
+	else
+		waf-utils_src_configure
 	fi
-	waf-utils_src_configure "${myconf}"
 }
 
 src_compile() {
