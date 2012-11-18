@@ -4,11 +4,13 @@
 
 EAPI="4"
 
-inherit eutils git-2
+PYTHON_DEPEND="2"
+inherit waf-utils git-2 python
 
 DESCRIPTION="The Non Things: Non-DAW, Non-Mixer, Non-Sequencer and Non-Session-Manager"
 HOMEPAGE="http://non.tuxfamily.org"
 EGIT_REPO_URI="git://git.tuxfamily.org/gitroot/non/non.git"
+
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
@@ -22,36 +24,33 @@ RDEPEND=">=media-sound/jack-audio-connection-kit-0.103.0
 	"
 DEPEND="${RDEPEND}
 	x11-libs/ntk
-	x11-libs/cairo 
-	x11-libs/libXft 
-	media-libs/libpng 
-	x11-libs/pixman 
-	x11-libs/libXpm 
-	virtual/jpeg 
+	x11-libs/cairo
+	x11-libs/libXft
+	media-libs/libpng
+	x11-libs/pixman
+	x11-libs/libXpm
+	virtual/jpeg
 	x11-libs/libXinerama
-	x11-libs/libxcb 
+	x11-libs/libxcb
 "
 
+pkg_setup(){
+	python_set_active_version 2
+	python_pkg_setup
+}
+
 src_configure() {
+#	${WAF_BINARY:="${S}/waf"}
 	if use debug
-		then econf --enable-debug=yes
-	else 
-		econf --enable-debug=no
+		then waf-utils_src_configure --project=mixer --enable-debug
+		else waf-utils_src_configure --project=mixer
 	fi
 }
 
 src_compile() {
-#make # builds everything else
-	cd ${S}/nonlib 
-	make -C nonlib
-	cd  ${S}/FL
-	make -C  FL
-	cd ${S}/mixer 
-	make -C  mixer
+	waf-utils_src_compile
 }
 
 src_install() {
-	cd ${S}/mixer
-	emake DESTDIR="${D}" install
+	waf-utils_src_install
 }
-
