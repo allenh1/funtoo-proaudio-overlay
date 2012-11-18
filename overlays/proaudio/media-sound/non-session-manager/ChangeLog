@@ -2,6 +2,10 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  18 Nov 2012; Dominique Michel <dominique@tuxgamily.org>
+  non-session-manager-9999.ebuild: waf support from Tina Cochet; clean-up;
+  added RDEPEND=media-libs/pyliblo to resolve a file collision
+
   04 Nov 2012; Dominique Michel <dominique@tuxgamily.org>
   +non-session-manager-9999.ebuild:
   From Tina Cochet's ebuild with a little clean-up
