@@ -20,8 +20,7 @@ RDEPEND=">=media-sound/jack-audio-connection-kit-0.103.0
 	>=media-libs/liblrdf-0.1.0
 	>=media-libs/liblo-0.26
 	>=dev-libs/libsigc++-2.2.0
-	media-sound/non-session-manager
-	media-libs/pyliblo"
+	media-sound/non-session-manager"
 DEPEND="${RDEPEND}
 	x11-libs/ntk
 	x11-libs/cairo
@@ -51,8 +50,4 @@ src_compile() {
 
 src_install() {
 	waf-utils_src_install
-
-	# strange, doesn't work in pkg_preinst... who konws?
-	# provided by media-libs/pyliblo
-	rm "${D}/usr/bin/send_osc" || die
 }

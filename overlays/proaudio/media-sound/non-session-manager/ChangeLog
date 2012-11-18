@@ -3,8 +3,7 @@
 # $Header: $
 
   18 Nov 2012; Dominique Michel <dominique@tuxgamily.org>
-  non-session-manager-9999.ebuild: waf support from Tina Cochet; clean-up;
-  added RDEPEND=media-libs/pyliblo to resolve a file collision
+  non-session-manager-9999.ebuild: waf support from Tina Cochet; clean-up
 
   04 Nov 2012; Dominique Michel <dominique@tuxgamily.org>
   +non-session-manager-9999.ebuild:
