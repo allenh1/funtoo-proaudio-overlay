@@ -2,6 +2,11 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  19 Nov 2012; Karl Lindén (lilrc) <spray.sucks@gmail.com>
+  jost-0.4.5.ebuild, jost-0.5.2, jost-0.5.4.ebuild:
+  Minor cleanup that made repoman less unhappy.
+  Removed libX11-checks; libX11 does no longer have the use flag "xcb" 
+
   24 Aug 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
   jost-0.4.6.ebuild, jost-0.5.2.ebuild, jost-0.5.4.ebuild, +files/jost.xpm,
   -files/jost.png:

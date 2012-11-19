@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI="1"
+
 inherit eutils flag-o-matic multilib
 
 MY_P="${PN}_src-v${PV}"
@@ -14,7 +16,6 @@ RESTRICT="mirror"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-EAPI="1"
 KEYWORDS="~x86 ~amd64"
 IUSE="+vst ladspa dssi"
 
@@ -22,11 +23,11 @@ RDEPEND="|| ( (  x11-proto/xineramaproto
 					x11-proto/xextproto
 					x11-proto/xproto )
 			virtual/x11 )
-		media-sound/jack-audio-connection-kit"
-DEPEND="${RDEPEND}
+		media-sound/jack-audio-connection-kit
 		vst? ( media-libs/vst-sdk )
 		ladspa? ( media-libs/ladspa-sdk )
-        dssi? ( media-libs/dssi )"
+		dssi? ( media-libs/dssi )"
+DEPEND="${RDEPEND}"
 
 # uh, is there any better way to say following:
 if use amd64 && use vst; then
@@ -50,23 +51,11 @@ pkg_setup() {
 			fi
 		fi
 	fi
-
-	# XCB issues
-	if built_with_use x11-libs/libX11 xcb; then
-		if has_version "<x11-libs/libxcb-1.1"; then
-			eerror "You have libX11 compiled with xcb support, and you are"
-			eerror "using libxcb older than version 1.1. Jost will not work."
-			eerror "Please update your libxcb first"
-			die
-		fi
-	fi
 }
 
-src_unpack() {
-	unpack ${A}
-
+src_prepare() {
 	# patch use flags
-	cd ${S}/plugins/Jost/src
+	cd "${S}/plugins/Jost/src"
 	use vst || \
 		sed -i -e "s:#define JOST_USE_VST://#define JOST_USE_VST:" \
 		Config.h || die "bad sed"
@@ -92,7 +81,8 @@ src_unpack() {
 	use amd64 && epatch "${FILESDIR}/${P}-jostbridge-m64.patch"
 }
 
-src_compile() {
+src_configure() {
+	cd "${S}/shared"
 	# test.. we compile Release32, but with a 32bit toolchain, and compile
 	# jackbridge with -m64, let's see
 	use amd64 && multilib_toolchain_setup x86
@@ -104,9 +94,12 @@ src_compile() {
 	append-flags -fPIC -DPIC
 	append-ldflags -fPIC -DPIC
 
-	cd "${S}"/shared
 	# non-standard configure
 	./configure || die
+}
+
+src_compile() {
+	cd "${S}/shared"
 	# jost and libs are compiled 32bit on amd64
 	if use amd64; then
 		./compile_libs Release32 || die
@@ -136,14 +129,5 @@ pkg_postinst() {
 		echo
 		elog "You have to start jostbridge prior to jost!"
 		echo
-	fi
-	
-	if built_with_use x11-libs/libX11 xcb; then
-		ewarn "You have compiled libX11 with xcb enabled."
-		ewarn "Make sure you use libxcb-1.1 or higher, and do"
-		echo
-		ewarn "export LIBXCB_ALLOW_SLOPPY_LOCK=1"
-		echo
-		ewarn "Otherwhise Jost will freeze after startup!"
 	fi
 }
