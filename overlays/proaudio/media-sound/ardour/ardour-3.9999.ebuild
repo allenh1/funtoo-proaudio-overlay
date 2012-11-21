@@ -14,7 +14,7 @@ ESVN_REPO_URI="http://subversion.ardour.org/svn/ardour2/branches/3.0"
 LICENSE="GPL-2"
 SLOT="3"
 KEYWORDS=""
-IUSE="altivec debug freesound nls sse lv2 vst wiimote lxvst"
+IUSE="altivec debug doc freesound nls sse lv2 vst wiimote"
 
 RDEPEND="media-libs/liblo
 	>=media-libs/taglib-1.5
@@ -31,7 +31,7 @@ RDEPEND="media-libs/liblo
 	>=dev-libs/libxml2-2.6.0
 	dev-libs/libxslt
 	>=media-libs/libsndfile-1.0.18_pre24
-	>=media-libs/suil-0.6.2
+	|| ( >=media-libs/suil-0.6.2 =media-sound/drobilla-9999 )
 	gnome-base/libgnomecanvas
 	x11-themes/gtk-engines
 	>=dev-cpp/gtkmm-2.12.3
@@ -40,17 +40,21 @@ RDEPEND="media-libs/liblo
 	dev-cpp/cairomm
 	>=dev-libs/libsigc++-2.0
 	media-libs/libsoundtouch
-	dev-libs/libusb
+	virtual/libusb
 	=sci-libs/fftw-3*
 	freesound? ( net-misc/curl )
-	lv2? ( >=media-libs/lilv-0.14.0 )"
+	lv2? ( || (
+		>=media-libs/lilv-0.14.0
+		=media-sound/drobilla-9999
+	) )"
 
 DEPEND="${RDEPEND}
 	sys-devel/libtool
 	dev-libs/boost
-	dev-util/pkgconfig
+	virtual/pkgconfig
 	>=dev-util/scons-0.98.5
-	nls? ( sys-devel/gettext )"
+	nls? ( sys-devel/gettext )
+	doc? ( app-doc/doxygen )"
 
 src_unpack() {
 	subversion_src_unpack
@@ -82,13 +86,14 @@ src_compile() {
 		use freesound || myconf="$myconf --no-freesound"
 		use wiimote   && myconf="$myconf --wiimote"
 		use vst       && myconf="$myconf --windows-vst"
+		use doc       && myconf="$myconf --doc"
 	if use sse || use altivec ;then
 		myconf="$myconf --fpu-optimization"
 	fi
 
-	einfo "./waf configure $myconf" # show configure options
+	einfo "./waf configure ${myconf}" # show configure options
 	./waf configure $myconf || die "failed to configure"
-	./waf build ${MAKEOPTS/-s/} || die "failed to build"
+	./waf build "${MAKEOPTS/-s/}" || die "failed to build"
 }
 
 src_install() {
@@ -97,13 +102,8 @@ src_install() {
 	#	mv "${D}"/usr/bin/ardourvst "${D}"/usr/bin/ardour2
 	#fi
 
-#	dodoc DOCUMENTATION/*
-
-	#newicon "icons/icon/ardour_icon_tango_48px_blue.png" "ardour3.png"
-	#make_desktop_entry "ardour3" "Ardour3" "ardour3" "AudioVideo;Audio"
-
-	# fix wrapper
-	#sed -i -e 's:ardour2:ardour3:g' ${D}/usr/bin/ardour3 || die
+	newicon "icons/icon/ardour_icon_tango_48px_red.png" "ardour.png"
+	make_desktop_entry "ardour3" "Ardour3" "ardour" "AudioVideo;Audio"
 }
 
 pkg_postinst() {
