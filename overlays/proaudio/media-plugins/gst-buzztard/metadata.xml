@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd>no-herd</herd>
 	<maintainer>
 		<email>proaudio@tuxfamily.org</email>
 		<name>pro-audio overlay team</name>
 	</maintainer>
 	<use>
-		<flag name="bml">Enable the buzz machine loader through media-libs/bml</flag>
-		<flag name="fluidsynth">Enable fluidsynth support</flag>
+	<flag name="orc">Use <pkg>dev-lang/orc</pkg> for runtime optimisations</flag>
 	</use>
 </pkgmetadata>
