@@ -1,38 +1,26 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
-
-inherit multilib subversion
+EAPI=4
+inherit autotools-utils git-2
 
 DESCRIPTION="Machines for Buzztard"
 HOMEPAGE="http://www.buzztard.org"
-
-ESVN_REPO_URI="https://buzztard.svn.sourceforge.net/svnroot/buzztard/trunk/${PN}"
-ESVN_BOOTSTRAP="NOCONFIGURE=1 ./autogen.sh"
+SRC_URI=""
+EGIT_REPO_URI="git://buzzmachines.git.sourceforge.net/gitroot/buzzmachines/buzzmachines"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="debug"
+IUSE=""
 
-DEPEND=">=media-libs/bml-0.3.0"
-RDEPEND="${DEPEND}"
+DEPEND=""
+RDEPEND=">=media-libs/bml-0.3.0"
 
-src_configure() {
-	econf $(use_enable debug) \
-		|| die "Configure failed"
-}
+DOCS=(ChangeLog HACKING NEWS README TODO)
 
-#src_compile() {
-#	emake || die "Compilation failed"
-#}
-
-src_install() {
-	einstall || die "Install failed"
-	dodoc AUTHORS ChangeLog README
-}
+AUTOTOOLS_AUTORECONF=1
 
 pkg_postinst() {
 	elog "Please see the README on how to set up environment variables etc."
