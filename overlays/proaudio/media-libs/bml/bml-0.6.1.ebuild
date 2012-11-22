@@ -3,25 +3,24 @@
 # $Header: $
 
 EAPI=4
-inherit autotools-utils git-2
+inherit autotools-utils
 
 DESCRIPTION="Buzz Machines Loader for Buzztard"
 HOMEPAGE="http://www.buzztard.org"
-SRC_URI=""
-EGIT_REPO_URI="git://buzztard.git.sourceforge.net/gitroot/buzztard/${PN}"
+SRC_URI="mirror://sourceforge/buzztard/${P}.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="static-libs"
 
 RDEPEND="app-emulation/wine"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
-DOCS=(AUTHORS ChangeLog NEWS README TODO)
+RESTRICT="mirror"
 
-AUTOTOOLS_AUTORECONF=1
+DOCS=(AUTHORS ChangeLog NEWS README TODO)
 
 pkg_postinst() {
 	if use amd64; then
