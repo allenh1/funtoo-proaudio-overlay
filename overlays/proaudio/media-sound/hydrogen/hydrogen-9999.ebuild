@@ -26,6 +26,7 @@ RDEPEND="
 	media-libs/audiofile
 	dev-libs/libtar
 	media-libs/rubberband
+	x11-libs/qt-xmlpatterns
 	portaudio? ( >=media-libs/portaudio-18.1 )
 	portmidi? ( media-libs/portmidi )
 	alsa? ( media-libs/alsa-lib )
@@ -50,7 +51,7 @@ src_configure() {
 		$(cmake-utils_use_want lrdf LRDF) \
 		$(cmake-utils_use_want portaudio PORTAUDIO) \
 		$(cmake-utils_use_want portmidi PORTMIDI) \
-		$(cmake-utils_use_want rubberband RUBBERBAND) ..
+		$(cmake-utils_use_want rubberband RUBBERBAND) .. || die "Compilation failed"
 }
 
 src_compile() {
