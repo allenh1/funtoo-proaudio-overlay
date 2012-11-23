@@ -26,4 +26,10 @@ RESTRICT="mirror"
 src_install() {
 	gnome2_src_install
 	dodoc AUTHORS ChangeLog NEWS README TODO
+
+	# remove some of the mime files to prevent collision, gnome2 eclass
+	# takes care of updates in post_inst and post_rm
+	cd "${ED}"/usr/share/mime/
+	rm -rf XMLnamespaces aliases generic-icons globs globs2 icons magic \
+		mime.cache subclasses treemagic types version
 }

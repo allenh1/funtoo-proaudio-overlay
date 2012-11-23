@@ -2,6 +2,10 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  23 Nov 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  bsl-0.6.0.ebuild, bsl-9999.ebuild:
+  remove mime files in install image to avoid collision
+
 *bsl-9999 (22 Nov 2012)
 *bsl-0.6.0 (22 Nov 2012)
 
