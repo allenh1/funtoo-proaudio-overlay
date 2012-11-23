@@ -1,0 +1,25 @@
+From 0aea0e250af3bca8b24116e4d67415432780bbce Mon Sep 17 00:00:00 2001
+From: "Gavin Pryke (gavlee)" <gavinlee303@googlemail.com>
+Date: Fri, 23 Nov 2012 17:21:55 +0000
+Subject: [PATCH 2/2] strip -march=native
+
+---
+ configure.ac |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index 243b3f1..b8f3eff 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -460,7 +460,7 @@ ARCH_CFLAGS=""
+ ARCH_CPPFLAGS=""
+ case "x${host_cpu}" in
+   xi?86|k?|xx86_64|xamd64)
+-    ARCH_CFLAGS="-march=native"
++    ARCH_CFLAGS=""
+     ARCH_CPPFLAGS="-D__SSE__ -D__MMX__"
+     AC_CHECK_HEADERS([xmmintrin.h])
+     ;;
+-- 
+1.7.8.6
+

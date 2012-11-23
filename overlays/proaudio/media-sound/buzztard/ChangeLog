@@ -2,6 +2,13 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  23 Nov 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  buzztard-0.6.0.ebuild, buzztard-9999.ebuild,
+  +files/buzztard-9999/0001-multilib-strict.patch,
+  +files/buzztard-9999/0002-strip-march-native.patch:
+  remove -march=native for distcc and work around multilib-strict, git now
+  contains media-libs/bsl
+
 *buzztard-9999 (22 Nov 2012)
 *buzztard-0.6.0 (22 Nov 2012)
 

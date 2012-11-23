@@ -24,8 +24,13 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	doc? ( dev-util/gtk-doc )"
 
+src_prepare() {
+	sed -i -e "s/-march=native//" configure || die
+	gnome2_src_prepare
+}
+
 src_configure() {
-	econf --disable-dependency-tracking \
+	gnome2_src_configure --disable-dependency-tracking \
 		$(use_enable doc gtk-doc-html) \
 		$(use_enable introspection) \
 		$(use_enable static-libs static)

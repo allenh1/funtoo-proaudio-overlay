@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=4
-inherit gnome2 git-2
+inherit gnome2 eutils autotools git-2
 
 DESCRIPTION="A free, open source music studio that is conceptionally based on Buzz"
 HOMEPAGE="http://www.buzztard.org"
@@ -22,11 +22,18 @@ RDEPEND=">=gnome-base/libgnomecanvas-2.14.0
 	>=x11-libs/gtk+-2.10:2[introspection?]
 	introspection? ( dev-libs/gobject-introspection )"
 DEPEND="${RDEPEND}
+	!media-libs/bsl
 	virtual/pkgconfig
 	doc? ( dev-util/gtk-doc )"
 
+src_prepare() {
+	epatch "${FILESDIR}"/${P}/*.patch
+	AT_NOELIBTOOLIZE=yes eautoreconf
+	gnome2_src_prepare
+}
+
 src_configure() {
-	econf --disable-dependency-tracking \
+	gnome2_src_configure --disable-dependency-tracking \
 		$(use_enable doc gtk-doc-html) \
 		$(use_enable introspection) \
 		$(use_enable static-libs static)
