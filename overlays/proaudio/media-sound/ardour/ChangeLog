@@ -2,6 +2,10 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  21 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  ardour-3.9999.ebuild: renamed icon file to ardour3.png due to file collision
+  with ardour2 from portage
+
   21 Nov 2012; Karl Lindén (lilrc) <spray.sucks@gmail.com>
   ardour-3.9999.ebuild, metadata.xml:
   Fixed some dependencies (depend on virtual packages and added conditional
@@ -9,7 +13,6 @@
   Removed the "lxvst" USE flag and added the "doc" USE flag
   Added desktop entry and made ebuild install icons
   Removed "no-herd" from metadata
-  
 
   22 Jun 2012; Frieder Buerzele <evermind@tuxfamily.org> ardour-3.9999.ebuild:
   fixed some USE flags

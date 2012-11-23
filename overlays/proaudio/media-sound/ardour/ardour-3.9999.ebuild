@@ -102,8 +102,8 @@ src_install() {
 	#	mv "${D}"/usr/bin/ardourvst "${D}"/usr/bin/ardour2
 	#fi
 
-	newicon "icons/icon/ardour_icon_tango_48px_red.png" "ardour.png"
-	make_desktop_entry "ardour3" "Ardour3" "ardour" "AudioVideo;Audio"
+	newicon "icons/icon/ardour_icon_tango_48px_red.png" "ardour3.png"
+	make_desktop_entry "ardour3" "Ardour3" "ardour3" "AudioVideo;Audio"
 }
 
 pkg_postinst() {
