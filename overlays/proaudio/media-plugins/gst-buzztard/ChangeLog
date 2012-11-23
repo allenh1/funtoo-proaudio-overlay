@@ -2,6 +2,10 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  23 Nov 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  gst-buzztard-0.6.0.ebuild, gst-buzztard-9999.ebuild:
+  add forgotten dev-lang/orc dep, make it default in IUSE
+
 *gst-buzztard-9999 (22 Nov 2012)
 *gst-buzztard-0.6.0 (22 Nov 2012)
 
