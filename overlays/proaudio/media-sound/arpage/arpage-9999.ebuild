@@ -20,8 +20,22 @@ RDEPEND=">=dev-cpp/gtkmm-2.12:2.4
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
-DOCS=(AUTHORS ChangeLog README)
+DOCS=("${S}"/AUTHORS "${S}"/ChangeLog "${S}"/README)
 
-PATCHES=("${FILESDIR}"/${PN}-0.3.3-doc.patch)
+PATCHES=("${FILESDIR}"/"${PN}-0.3.3-doc.patch"
+	"${FILESDIR}"/"${PN}-0.3.3-gcc46.patch"
+	"${FILESDIR}"/"${PN}-0.3.3-gcc47.patch")
 
 AUTOTOOLS_AUTORECONF=1
+
+src_prepare() {
+	epatch "${PATCHES[@]}"
+}
+
+src_install() {
+	cd "${S}_build"
+	emake DESTDIR="${D}" install || die "Install failed"
+	dodoc "${DOCS[@]}"
+	doicon "${S}"/src/arpage.png
+	make_desktop_entry "${PN}" Arpage "${PN}" "AudioVideo;Audio;Midi;X-Jack"
+}

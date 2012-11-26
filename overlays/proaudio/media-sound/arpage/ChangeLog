@@ -2,6 +2,11 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  26 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  +files/arpage-0.3.3-gcc46.patch; +files/arpage-0.3.3-gcc47.patch;
+  -arpage-0.3.3.ebuild; +arpage-0.3.3-r1.ebuild; arpage-9999.ebuild:
+  Added patches from Fedora for gcc46 and gcc47; added icon and desktop file installation.
+
 *arpage-0.3.3 (30 Sep 2012)
 
   30 Sep 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>

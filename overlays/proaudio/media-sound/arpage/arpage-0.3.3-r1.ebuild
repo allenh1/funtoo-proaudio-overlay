@@ -22,8 +22,18 @@ DEPEND="${RDEPEND}
 
 RESTRICT="mirror"
 
-DOCS=(AUTHORS ChangeLog README)
+DOCS=("${S}"/AUTHORS "${S}"/ChangeLog "${S}"/README)
 
-PATCHES=("${FILESDIR}"/${P}-doc.patch)
+PATCHES=("${FILESDIR}"/${P}-doc.patch
+	"${FILESDIR}"/${P}-gcc46.patch
+	"${FILESDIR}"/${P}-gcc47.patch)
 
 AUTOTOOLS_AUTORECONF=1
+
+src_install() {
+	cd "${S}_build"
+	emake DESTDIR="${D}" install || die "Install failed"
+	dodoc "${DOCS[@]}"
+	doicon "${S}"/src/arpage.png
+	make_desktop_entry "${PN}" Arpage "${PN}" "AudioVideo;Audio;Midi;X-Jack"
+}
