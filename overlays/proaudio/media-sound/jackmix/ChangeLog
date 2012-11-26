@@ -2,6 +2,14 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  26 Nov 2012; Karl Lindén <lilrc@users.sourceforge.net>
+  -jackmix-0.4.ebuild, +jackmix-0.4.1.ebuild, jackmix-0.2.ebuild,
+  jackmix-0.3.1.ebuild, metadata.xml:
+  minor cleanup (made repoman happy)
+  updated to qt4-r2 and EAPI 4
+  removed old ebuild
+  added new ebuild
+  
   06 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
   -jackmix-0.1.ebuild, jackmix-0.2.ebuild, jackmix-0.3.1.ebuild,
   jackmix-0.4.ebuild:
