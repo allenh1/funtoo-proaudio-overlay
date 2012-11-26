@@ -37,5 +37,7 @@ src_install() {
 	emake DESTDIR="${D}" install || die "Install failed"
 	dodoc "${DOCS[@]}"
 	doicon "${S}"/src/arpage.png
+	doicon "${S}"/src/zonage.png
 	make_desktop_entry "${PN}" Arpage "${PN}" "AudioVideo;Audio;Midi;X-Jack"
+	make_desktop_entry "zonage" Zonage "zonage" "AudioVideo;Audio;Midi;X-Jack"
 }
