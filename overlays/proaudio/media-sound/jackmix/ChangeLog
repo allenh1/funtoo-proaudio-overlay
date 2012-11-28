@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  +jackmix-0.4.2.ebuild: Hope this version will work for everybody
+
   26 Nov 2012; Karl Lindén <lilrc@users.sourceforge.net>
   -jackmix-0.4.ebuild, +jackmix-0.4.1.ebuild, jackmix-0.2.ebuild,
   jackmix-0.3.1.ebuild, metadata.xml:
