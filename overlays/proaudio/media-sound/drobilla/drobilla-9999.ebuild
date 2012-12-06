@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -19,7 +19,6 @@ KEYWORDS=""
 SLOT="0"
 
 RDEPEND="!media-libs/raul
-	!x11-libs/flowcanvas
 	!dev-libs/serd
 	!dev-libs/sord
 	!media-libs/suil
@@ -52,8 +51,8 @@ DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )"
 
 pkg_setup() {
-ewarn "${P} will install everything from http://drobilla.net/software"
-ewarn "This mean that ${P} will install dev-libs/serd dev-libs/sord media-libs/lilv media-libs/raul media-libs/sratom meida-libs/suil media-sound/ingen media-sound/jalv media-plugins/mda-kv2 media-plugins/omins media-sound/patchage x11-libs/flowcanvas"
+ewarn "${P} will install almost everything from http://drobilla.net/software"
+ewarn "This mean that ${P} will install dev-libs/serd dev-libs/sord media-libs/lilv media-libs/raul media-libs/sratom meida-libs/suil media-sound/ingen media-sound/jalv media-plugins/mda-kv2 media-plugins/omins media-sound/patchage"
 ewarn ""
 ewarn "To install ${P}. you must uninstall the above softwares before to process."
 

@@ -6,4 +6,5 @@
 		<email>proaudio@tuxfamily.org</email>
 		<name>pro-audio overlay team</name>
 	</maintainer>
+	<flag name="gir">Use gir</flag>
 </pkgmetadata>
