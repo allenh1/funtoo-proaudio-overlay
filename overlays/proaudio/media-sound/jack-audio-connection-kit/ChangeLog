@@ -2,6 +2,21 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  09 Dec 2012; Karl Lindén <lilrc@users.sourceforge.net>
+  jack-audio-connection-kit-1.9.8:
+    Fixed dependencies
+    Use python_convert_shebangs instead of hack
+  jack-audio-connection-kit-1.9999:
+    Fixed dependencies
+    Added missing EAPI
+    Minor cleanup
+    Updated copyright header
+  jack-audio-connection-kit-2.9999:
+    Fixed dependencies
+    Updated EAPI
+    Minor cleanup
+    Use python_convert_shebangs
+
   09 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
   jack-audio-connection-kit-2.9999.ebuild: fix for the doxygen documenation;
   added opus support in netjack, will be enabled if media-libs/opus is present;

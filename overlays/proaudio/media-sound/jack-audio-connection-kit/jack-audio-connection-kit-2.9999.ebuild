@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI="5"
 
 PYTHON_DEPEND="2"
 
@@ -16,19 +16,18 @@ EGIT_REPO_URI="git://github.com/jackaudio/jack2.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-# celt has been merged into opus and is obsolate -> no celt support
 IUSE="alsa classic debug doc dbus freebob ieee1394 mixed opus pam"
 
-RDEPEND="dev-util/pkgconfig
+RDEPEND="media-libs/libsamplerate
 	>=media-libs/alsa-lib-1.0.24
+	dbus? ( sys-apps/dbus )
+	freebob? ( sys-libs/libfreebob !media-libs/libffado )
+	ieee1394? ( media-libs/libffado !sys-libs/libfreebob )
 	opus? ( media-libs/opus )
 	pam? ( sys-auth/realtime-base )"
 DEPEND="${RDEPEND}
-	freebob? ( sys-libs/libfreebob !media-libs/libffado )
-	doc? ( app-doc/doxygen )
-	dbus? ( sys-apps/dbus )
-	ieee1394? ( media-libs/libffado !sys-libs/libfreebob )
-	media-libs/libsamplerate"
+	virtual/pkgconfig
+	doc? ( app-doc/doxygen )"
 
 src_unpack() {
 	git-2_src_unpack
@@ -39,14 +38,7 @@ pkg_setup() {
 	python_pkg_setup
 }
 
-#src_prepare()
-#{
-#	epatch "${FILESDIR}"/jack-audio-connection-kit-2.9999-link-fix.patch
-#}
-
 src_configure() {
-	cd ${S}
-
 	local myconf="--prefix=/usr --destdir=${D}"
 	use alsa && myconf="${myconf} --alsa"
 	if use classic && use dbus ; then
@@ -77,4 +69,5 @@ src_install() {
 	if use doc ; then
 		dohtml html/* || die "dohtml failed"
 	fi
+	python_convert_shebangs -r 2 "${ED}"
 }

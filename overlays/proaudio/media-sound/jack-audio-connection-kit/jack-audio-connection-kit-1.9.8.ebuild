@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI="4"
 
 PYTHON_DEPEND="2"
 
@@ -17,29 +17,19 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="alsa dbus debug doc freebob ieee1394 32bit"
 
-RDEPEND="dev-util/pkgconfig"
-
-DEPEND="${RDEPEND}
-	alsa? ( >=media-libs/alsa-lib-0.9.1 )
+RDEPEND="alsa? ( >=media-libs/alsa-lib-0.9.1 )
 	freebob? ( sys-libs/libfreebob !media-libs/libffado )
-	doc? ( app-doc/doxygen )
 	dbus? ( sys-apps/dbus )
 	ieee1394? ( media-libs/libffado !sys-libs/libfreebob )"
+DEPEND="${RDEPEND}
+	virtual/pkgconfig
+	doc? ( app-doc/doxygen )"
 
 S="${WORKDIR}/jack-${PV}/jack-${PV}"
 
 pkg_setup() {
 	python_set_active_version 2
 	python_pkg_setup
-}
-
-src_prepare() {
-# Fix for waf to use python2, since waf is not compatible with phyton3
-cd ${S}
-	for x in $(grep -r "/usr/bin/env python" * | cut -f1 -d":" ); do
-		einfo "Tweaking $x for python2..."
-		sed -e "s:/usr/bin/env python:/usr/bin/env python2:g" -i $x
-	done
 }
 
 src_configure() {
@@ -64,4 +54,5 @@ src_compile() {
 src_install() {
 	ln -s ../../html build/default/html
 	./waf --destdir="${D}" install || die "waf install failed"
+	python_convert_shebangs -r 2 "${ED}"
 }

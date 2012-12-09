@@ -1,6 +1,8 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
+
+EAPI="5"
 
 inherit flag-o-matic eutils multilib git-2 linux-info autotools
 
@@ -16,7 +18,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE="3dnow altivec alsa celt coreaudio cpudetection doc debug examples mmx oss sse netjack freebob ieee1394 jackdmp"
 
-RDEPEND="!jackdmp? ( 
+RDEPEND="!jackdmp? (
 	>=media-libs/libsndfile-1.0.0
 	sys-libs/ncurses
 	celt? ( >=media-libs/celt-0.5.0 )
@@ -24,13 +26,14 @@ RDEPEND="!jackdmp? (
 	freebob? ( sys-libs/libfreebob !media-libs/libffado )
 	ieee1394? ( media-libs/libffado !sys-libs/libfreebob )
 	netjack? ( media-libs/libsamplerate )
-	!media-sound/jackdmp )"
+	!media-sound/jackdmp
+)"
 
 DEPEND="${RDEPEND}
-	!jackdmp? ( 
-	dev-util/pkgconfig
-	doc? ( app-doc/doxygen )
-	netjack? ( dev-util/scons )
+	!jackdmp? (
+		virtual/pkgconfig
+		doc? ( app-doc/doxygen )
+		netjack? ( dev-util/scons )
 	)"
 PDEPEND="jackdmp? ( >=media-sound/jackdmp-9999-r1 )"
 
@@ -49,9 +52,9 @@ src_unpack() {
 		return # no more to do
 	fi
 	git-2_src_unpack
+}
 
-	cd "${S}"
-	
+src_configure() {
 	eautoreconf
 }
 
@@ -69,7 +72,7 @@ src_compile() {
 		myconf="${myconf} --enable-dynsimd"
 		append-flags -mmmx -msse -m3dnow -O2
 	fi
-	
+
 	use doc || export ac_cv_prog_HAVE_DOXYGEN=false
 
 	econf \
