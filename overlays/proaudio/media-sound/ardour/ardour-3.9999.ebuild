@@ -46,7 +46,8 @@ RDEPEND="media-libs/liblo
 	lv2? ( || (
 		>=media-libs/lilv-0.14.0
 		=media-sound/drobilla-9999
-	) )"
+	) )
+	wiimote? ( app-misc/cwiid )"
 
 DEPEND="${RDEPEND}
 	sys-devel/libtool
@@ -77,7 +78,7 @@ src_unpack() {
 ##		-i libs/ardour/SConscript
 }
 
-src_compile() {
+src_configure() {
 
 	local myconf="--freedesktop --noconfirm --prefix=/usr"
 		use debug     && myconf="$myconf --debug"
@@ -93,10 +94,15 @@ src_compile() {
 
 	einfo "./waf configure ${myconf}" # show configure options
 	./waf configure $myconf || die "failed to configure"
+}
+
+src_compile() {
+	einfo "./waf build ${MAKEOPTS/-s/}" # show build options
 	./waf build "${MAKEOPTS/-s/}" || die "failed to build"
 }
 
 src_install() {
+	einfo "./waf --destdir=${D} install" # show install options
 	./waf --destdir="${D}" install || die "install failed"
 	#if use vst;then
 	#	mv "${D}"/usr/bin/ardourvst "${D}"/usr/bin/ardour2

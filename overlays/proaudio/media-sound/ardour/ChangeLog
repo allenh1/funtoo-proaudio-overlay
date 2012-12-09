@@ -2,6 +2,10 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  09 Dec 2012; Karl Lindén <lilrc@users.sourceforge.net>
+  ardour-3.9999.ebuild: fixed broken wiimote support and made ebuild
+  more verbose. Thanks to Ulrich-Lorenz Schlüter
+
   21 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
   ardour-3.9999.ebuild: renamed icon file to ardour3.png due to file collision
   with ardour2 from portage
