@@ -28,7 +28,7 @@ RDEPEND="
 	dbus? ( sys-apps/dbus )
 	sndfile? ( media-libs/libsndfile )"
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig
+	virtual/pkgconfig
 	doc? ( app-doc/doxygen )"
 
 pkg_setup() {
