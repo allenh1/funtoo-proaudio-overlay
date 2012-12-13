@@ -1,6 +1,11 @@
 # ChangeLog for media-sound/fluidsynth
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  13 Dec 2012; Karl Lindén <lilrc@users.sourceforge.net>
+  fluidsynth-9999.ebuild:
+  replaced dependency on media-sound/lash with virtual/liblash
+  updated EAPI and copyright notice
 
 *fluidsynth-9999 (31 Aug 2010)
 

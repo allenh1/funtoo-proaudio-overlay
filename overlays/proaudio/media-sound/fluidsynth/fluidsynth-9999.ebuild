@@ -1,8 +1,8 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI="4"
 inherit autotools subversion
 
 IUSE="alsa dbus debug doc double jack ladspa lash oss portaudio pulseaudio readline sndfile"
@@ -21,7 +21,7 @@ RDEPEND="
 	ladspa? ( >=media-libs/ladspa-sdk-1.12
 		  >=media-libs/ladspa-cmt-1.15 )
 	alsa? ( media-libs/alsa-lib
-		lash? ( >=media-sound/lash-0.5 ) )
+		lash? ( virtual/liblash ) )
 	pulseaudio? ( >=media-sound/pulseaudio-0.9.8 )
 	portaudio? ( >=media-libs/portaudio-19_pre )
 	readline? ( sys-libs/readline )
