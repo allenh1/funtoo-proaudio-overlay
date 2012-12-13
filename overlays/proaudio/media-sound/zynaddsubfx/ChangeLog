@@ -2,6 +2,13 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  13 Dec 2012; Karl Lindén (lilrc) <lilrc@users.sourceforge.net>
+  zynadsubbfx-2.2.1-r8.ebuild, zynadsubbfx-2.4.0.ebuild,
+  zynadsubbfx-20070707.ebuild, zynaddsubfx-20070707-r1.ebuild
+  zynadsubbfx-99999999.ebuild
+  replaced dependency on media-sound/lash with virtual/liblash
+  updated copyright notice
+
   24 May 2011: Dominique Michel <dominique@tuxfamily.org>
   * version 9999... removed patch that doesn't apply anymore
   * added portage patch for build with fltk-1.3

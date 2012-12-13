@@ -20,7 +20,7 @@ DEPEND=">=x11-libs/fltk-1.1.2
 	=sci-libs/fftw-3*
 	 media-sound/jack-audio-connection-kit
 	>=dev-libs/mini-xml-2.2.1
-	lash? ( >=media-sound/lash-0.5 )"
+	lash? ( virtual/liblash )"
 #	portaudio? ( media-libs/portaudio )"
 
 RDEPEND="media-libs/zynaddsubfx-banks"

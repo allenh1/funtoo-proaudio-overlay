@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -28,7 +28,7 @@ DEPEND=">=x11-libs/fltk-1.1.2
 	jackmidi? ( >=media-sound/jack-audio-connection-kit-0.100.0-r3 )
 	!jackmidi? ( media-sound/jack-audio-connection-kit )
 	>=dev-libs/mini-xml-2.2.1
-	lash? ( >=media-sound/lash-0.5 )"
+	lash? ( virtual/liblash )"
 #	portaudio? ( media-libs/portaudio )"
 
 RDEPEND="media-libs/zynaddsubfx-banks
