@@ -22,7 +22,7 @@ RDEPEND="x11-libs/qt-gui:4 x11-libs/qt-core:4
 	alsa? ( media-libs/alsa-lib )
 	jack? ( media-sound/jack-audio-connection-kit )
 	ladspa? ( media-libs/liblrdf )
-	lash? ( media-sound/lash )
+	lash? ( virtual/liblash )
 	portaudio? ( >=media-libs/portaudio-19_pre )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig

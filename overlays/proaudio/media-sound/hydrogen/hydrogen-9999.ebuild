@@ -18,7 +18,7 @@ IUSE="alsa debug jack jacksession ladspa lash lrdf portaudio portmidi rubberband
 
 RDEPEND="
 	|| ( (
-         	x11-libs/qt-core:4
+			x11-libs/qt-core:4
 			x11-libs/qt-gui:4 )
 			>=x11-libs/qt-4.4:4	)
 	dev-libs/libxml2
@@ -32,7 +32,7 @@ RDEPEND="
 	alsa? ( media-libs/alsa-lib )
 	jack? ( media-sound/jack-audio-connection-kit )
 	ladspa? ( media-libs/liblrdf )
-	lash? ( media-sound/lash )
+	lash? ( virtual/liblash )
 	lrdf? ( media-libs/liblrdf )"
 
 DEPEND="${RDEPEND}"
@@ -41,7 +41,7 @@ src_configure() {
 	mkdir build
 	cd build
 	cmake -L \
-		-DCMAKE_INSTALL_PREFIX=${ROOT}usr DESTDIR=${D} \
+		-DCMAKE_INSTALL_PREFIX="${ROOT}"/usr DESTDIR="${D}" \
 		$(cmake-utils_use_want alsa ALSA) \
 		$(cmake-utils_use_want debug DEBUG) \
 		$(cmake-utils_use_want jack JACK) \
@@ -55,13 +55,13 @@ src_configure() {
 }
 
 src_compile() {
-	cd ${S}/build
-	emake 
+	cd "${S}"/build
+	emake
 }
 
 src_install() {
-	cd ${S}/build
-	emake DESTDIR=${D} install
+	cd "${S}"/build
+	emake DESTDIR="${D}" install
 	cd ..
 	dodoc AUTHORS ChangeLog DEVELOPERS README.txt
 }
