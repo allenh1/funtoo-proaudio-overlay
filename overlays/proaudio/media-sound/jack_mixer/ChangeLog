@@ -2,6 +2,11 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  13 Dec 2012; Karl Lindén (lilrc) <lilrc@users.sourceforge.net>;
+  jack_mixer-9.ebuild, jack_mixer-9-r1.ebuild, jack_mixer-9999.ebuild:
+  updated to EAPI 5
+  updated lash dependency to depend virtual/liblash[python]
+
   12 Nov 2012; Karl Lindén <spray.sucks@gmail.com>;
   jack_mixer-9.ebuild: updated to EAPI 3
 

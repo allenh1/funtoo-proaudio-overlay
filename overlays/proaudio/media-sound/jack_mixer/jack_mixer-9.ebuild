@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI="5"
 
 inherit eutils gnome2 python
 
@@ -25,7 +25,7 @@ DEPEND="media-sound/jack-audio-connection-kit
 	# 1. only needed for non tarballs aka svn checkouts >=dev-lang/swig-1.3.25
 RDEPEND="${DEPEND}
 	phat? ( media-libs/pyphat )
-	lash? ( || ( media-sound/lash[python] >=media-libs/pylash-3_pre ) )"
+	lash? ( virtual/liblash[python] )"
 
 src_prepare() {
 	epatch "${FILESDIR}/empty_name_on_rename.patch"

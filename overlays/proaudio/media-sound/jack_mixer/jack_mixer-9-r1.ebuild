@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI="5"
 PYTHON_DEPEND="2:2.4"
 RESTRICT_PYTHON_ABIS="3.*"
 inherit eutils gnome2 python
@@ -24,11 +24,7 @@ DEPEND="dev-python/fpconst
 	media-sound/jack-audio-connection-kit"
 RDEPEND="${DEPEND}
 	gconf? ( dev-python/gconf-python:2 )
-	lash? (	|| (
-		media-sound/lash[python]
-		>=media-libs/pylash-3_pre
-		)
-	)
+	lash? ( virtual/liblash[python] )
 	phat? ( media-libs/pyphat )"
 
 pkg_setup() {
