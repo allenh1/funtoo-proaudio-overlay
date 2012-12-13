@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI="4"
 inherit autotools-utils
 
 DESCRIPTION="A set of open source instruments and effects for digital audio workstations"
@@ -21,7 +21,7 @@ RDEPEND="dev-libs/expat
 	>=media-sound/jack-audio-connection-kit-0.105.0
 	sci-libs/fftw:3.0
 	x11-libs/gtk+:2
-	lash? ( media-sound/lash )
+	lash? ( virtual/liblash )
 	lv2? ( >=media-libs/lv2-1.0.0 )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
