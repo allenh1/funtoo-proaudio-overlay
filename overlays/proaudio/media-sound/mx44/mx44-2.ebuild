@@ -10,12 +10,13 @@ MY_PN="${PN/m/M}"
 MY_P="${MY_PN}.$(replace_version_separator "0" "-")"
 
 DESCRIPTION="Mx44 is a polyphonic midi realtime software synthesizer"
-HOMEPAGE="http://hem.passagen.se/ja_linux/"
-SRC_URI="http://hem.passagen.se/ja_linux/${MY_P}.tar.gz"
+HOMEPAGE="http://web.comhem.se/luna/"
+SRC_URI="http://web.comhem.se/luna/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="x86 amd64"
+KEYWORDS="~x86 ~amd64"
+DOCS=( "${WORKDIR}/${MY_P}/README" )
 
 IUSE=""
 DEPEND="media-sound/jack-audio-connection-kit
@@ -23,17 +24,8 @@ DEPEND="media-sound/jack-audio-connection-kit
 		media-libs/alsa-lib"
 RDEPEND="${DEPEND}"
 
-S="${WORKDIR}/${MY_P}"
+S="${WORKDIR}/${MY_P}/src"
 
 src_prepare() {
 	echo 'FLAGS += $(CFLAGS)' >> Makefile
-}
-
-src_install() {
-	mv "${PN}" "${PN}.bin"
-	dobin "${FILESDIR}/${PN}" "${PN}.bin" || die "install mx44 failed"
-	dodoc "${FILESDIR}/README.Gentoo" || die "install doc failed"
-	dodoc "README"
-	insinto "/usr/share/${PN}"
-	doins mx41patch || die "instal mx41patch failed"
 }

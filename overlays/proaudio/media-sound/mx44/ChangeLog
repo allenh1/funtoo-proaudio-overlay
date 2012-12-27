@@ -1,6 +1,14 @@
 # ChangeLog for media-sound/mx44
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  27 Dec 2012; Karl Lindén (lilrc) <lilrc@users.sourceforge.net>
+  +mx44-2.ebuild, mx44-1.ebuild, metadata.xml:
+  removed herd in metadata.xml
+  made repoman happy
+  version bump (mx44-2)
+  added EAPI to mx44-1.ebuild
+  marked mx44-1 as stable for all supported architectures
 
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
   added a changelog
