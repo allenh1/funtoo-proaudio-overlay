@@ -1,10 +1,10 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=1
+EAPI="5"
 
-inherit eutils qt4 git
+inherit eutils qt4-r2 git-2 waf-utils
 
 DESCRIPTION="WinAmp2 skinnable frontend for XMMS2"
 HOMEPAGE="http://wiki.xmms2.xmms.se/wiki/Client:Promoe"
@@ -16,27 +16,14 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="|| ( >=x11-libs/qt-4.2.0 x11-libs/qt-gui:4.4 )
-	>=media-sound/xmms2-0.4"
-RDEPEND="${DEPEND}"
-
-pkg_setup() {
-	# no use-depends yet..
-	if ! built_with_use media-sound/xmms2 cpp; then
-		eerror "You need to compile media-sound/xmms2 with USE=cpp"
-		die
-	fi
-}
-
-
-src_compile() {
-	eqmake4 || die
-	emake || die
-}
+RDEPEND=">=x11-libs/qt-gui-4.2
+	>=x11-libs/qt-core-4.2
+	>=media-sound/xmms2-0.4[cxx]"
+DEPEND="${RDEPEND}"
 
 src_install() {
-	dobin promoe
 	dodoc AUTHORS README TODO
 	newicon "data/icon.png" "${PN}.png"
 	make_desktop_entry "${PN}" "Promoe XMMS2 Client" "${PN}" "AudioVideo;Audio;Player"
+	autotools-utils_src_install
 }
