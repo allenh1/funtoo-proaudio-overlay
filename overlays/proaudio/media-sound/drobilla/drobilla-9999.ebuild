@@ -18,17 +18,17 @@ LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="0"
 
-RDEPEND="!media-libs/raul
-	!dev-libs/serd
-	!dev-libs/sord
-	!media-libs/suil
-	!media-libs/sratom
-	!media-libs/lilv
-	!media-plugins/mda-lv2
-	!media-sound/ingen
-	!media-sound/jalv
-	!media-plugins/omins
-	!media-sound/patchage
+RDEPEND="!media-plugins/omins
+	=media-libs/raul-9999
+	=dev-libs/serd-9999
+	=dev-libs/sord-9999
+	=media-libs/suil-9999
+	=media-libs/sratom-9999
+	=media-libs/lilv-9999
+	=media-plugins/mda-lv2-9999
+	=media-sound/ingen-9999
+	=media-sound/jalv-9999
+	=media-sound/patchage-9999
 	>=dev-cpp/gtkmm-2.14.0:2.4
 	>=dev-cpp/glibmm-2.14:2
 	>=dev-cpp/libglademm-2.6.0

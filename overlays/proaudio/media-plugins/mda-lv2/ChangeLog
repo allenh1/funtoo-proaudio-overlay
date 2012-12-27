@@ -1,0 +1,9 @@
+# ChangeLog for media-plugins/mda-lv2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  27 Dec 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  +mda-lv2-9999.ebuild: Initial ebuild aimed to satisfy portage
+  dependencies without creating circular dependencies.
+  We don't control packages outside of the overlay, so please, 
+  don't remove it if you are not 100% sure of what you are doing.

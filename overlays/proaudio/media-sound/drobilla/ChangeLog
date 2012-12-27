@@ -1,6 +1,13 @@
 # ChangeLog for media-sound/drobilla
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  27 Dec 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  drobilla-9999.ebuild: Removed the herd from metadata.xml, this
+  made repoman happy
+  Changed the depends from drobilla.net from blocking to fake *-9999
+  depends. This is needed to avoid circular dependencies with portage
+  because we don't control the packages outside of the overlay.
 
   06 Dec 2012; Karl Lindén <lilrc@users.sourceforge.net>
   drobilla-9999.ebuild: Removed block for x11-libs/flowcanvas since

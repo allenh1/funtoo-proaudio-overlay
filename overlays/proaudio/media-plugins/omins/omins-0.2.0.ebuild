@@ -1,8 +1,8 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit exteutils autotools 
+inherit exteutils autotools
 
 RESTRICT="mirror"
 DESCRIPTION="Collection of LADSPA plugins for modular synthesizers."
@@ -19,7 +19,7 @@ RDEPEND="${DEPEND}"
 
 src_unpack() {
 	unpack ${A}
-	cd ${S}
+	cd "${S}"
 	esed_check -i -e 's#$libdir/ladspa#\\$\\(DESTDIR\\)$libdir/ladspa#' \
 		configure.ac
 	eautoreconf

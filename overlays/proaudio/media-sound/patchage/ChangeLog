@@ -1,6 +1,10 @@
 # ChangeLog for media-sound/patchage
-# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  27 Dec 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  +patchage-9999.ebuild: Initial live ebuild. This is a fake ebuild
+  aimed to satisfy portage dependencies with the drobilla ebuild.
 
   11 Nob 2012; Dominique Michel <dominique_libre@sourceforge.net>
   -patchage-9999.ebuild: install media-sound/drobilla instead
