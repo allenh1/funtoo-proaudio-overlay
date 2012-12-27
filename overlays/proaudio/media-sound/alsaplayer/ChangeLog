@@ -2,6 +2,11 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: /var/cvsroot/gentoo-x86/media-sound/alsaplayer/ChangeLog,v 1.59 2007/06/12 02:59:47 dirtyepic Exp $
 
+  27 Dec 2012; Karl Lindén <lilrc@users.ourceforge.net>
+  remove inherit on deprecated eclasses
+  updated EAPI
+  cleanup
+
   06 Jan 2012; Gavin Pryke <gavinlee303@googlemail.com> metadata.xml:
   copy USE description from use.local.desc to metadata.xml
 
