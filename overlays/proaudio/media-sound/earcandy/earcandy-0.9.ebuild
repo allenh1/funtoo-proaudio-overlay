@@ -5,19 +5,20 @@
 EAPI="5"
 
 PYTHON_COMPAT="python2_7"
-inherit bzr python
+inherit python
 
-EBZR_REPO_URI="lp:earcandy"
+MY_P="${P/-/_}"
 
 DESCRIPTION="A sound level manager that fades applications in and out based on their profile and window focus"
 HOMEPAGE="https://launchpad.net/earcandy"
-SRC_URI=""
+SRC_URI="https://launchpad.net/earcandy/${PV}/${PV}/+download/${MY_P}.tar.gz"
+
+S="${WORKDIR}/${PN}"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE=""
-DOCS="README COPYING"
 
 DEPEND="media-sound/pulseaudio
 	dev-lang/python"
