@@ -12,15 +12,10 @@ SRC_URI="http://download.tuxfamily.org/proaudio/distfiles/zynaddsubfx-presets-0.
 
 ECVS_SERVER="zynaddsubfx.cvs.sourceforge.net:/cvsroot/zynaddsubfx"
 ECVS_MODULE="zynaddsubfx"
-#ECVS_AUTH="pserver"
-#ECVS_USER="anonymous"
-#ECVS_PASS=""
-
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-#IUSE="oss alsa jack mmx"
 IUSE="oss alsa jack jackmidi lash"
 
 DEPEND=">=x11-libs/fltk-1.1.2
@@ -29,7 +24,6 @@ DEPEND=">=x11-libs/fltk-1.1.2
 	!jackmidi? ( media-sound/jack-audio-connection-kit )
 	>=dev-libs/mini-xml-2.2.1
 	lash? ( virtual/liblash )"
-#	portaudio? ( media-libs/portaudio )"
 
 RDEPEND="media-libs/zynaddsubfx-banks
 	!media-sound/zynaddsubfx-cvs"
@@ -91,7 +85,7 @@ src_compile() {
 	echo "make ${myconf}" > gentoo_make_options # for easier debugging
 	chmod +x gentoo_make_options
 
-	emake -j1 ${myconf} || die "make failed with this options: ${myconf}"
+	emake ${myconf} || die "make failed with this options: ${myconf}"
 
 	cd "${S}/ExternalPrograms/Spliter"
 	./compile.sh
@@ -117,7 +111,6 @@ src_install() {
 	newicon "${S}/zynaddsubfx_icon.png" "zynaddsubfx_icon.png"
 	make_desktop_entry "${PN}" "ZynAddSubFx-Synth" \
 		"zynaddsubfx_icon.png" "AudioVideo;Audio"
-
 }
 
 pkg_postinst() {

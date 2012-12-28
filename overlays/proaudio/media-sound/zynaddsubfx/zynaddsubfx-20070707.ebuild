@@ -18,7 +18,7 @@ IUSE="oss alsa jack jackmidi lash mmx"
 
 DEPEND=">=x11-libs/fltk-1.1.2
 	=sci-libs/fftw-3*
-    media-sound/jack-audio-connection-kit
+	media-sound/jack-audio-connection-kit
 	>=dev-libs/mini-xml-2.2.1
 	lash? ( virtual/liblash )"
 #	portaudio? ( media-libs/portaudio )"
@@ -35,7 +35,7 @@ pkg_setup() {
 
 src_unpack() {
 	unpack ${MY_P}.tar.bz2 || die
-	cd ${S}
+	cd "${S}"
 	unpack "zynaddsubfx-presets-0.1.tar.bz2"
 	# add our CXXFLAGS
 	cd src/
@@ -75,7 +75,7 @@ src_compile() {
 	echo "make ${myconf}" > gentoo_make_options # for easier debugging
 	chmod +x gentoo_make_options
 
-	emake -j1 ${myconf} || die "make failed with this options: ${myconf}"
+	emake ${myconf} || die "make failed with this options: ${myconf}"
 
 	cd "${S}/ExternalPrograms/Spliter"
 	./compile.sh

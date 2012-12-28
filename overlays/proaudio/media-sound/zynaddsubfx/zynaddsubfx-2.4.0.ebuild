@@ -1,4 +1,4 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -13,7 +13,6 @@ SRC_URI="mirror://sourceforge/zynaddsubfx/${MY_P}.tar.bz2
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
-#IUSE="oss alsa jack mmx"
 IUSE="oss alsa jack jackmidi lash mmx"
 
 DEPEND=">=x11-libs/fltk-1.1.2
@@ -21,7 +20,6 @@ DEPEND=">=x11-libs/fltk-1.1.2
 	 media-sound/jack-audio-connection-kit
 	>=dev-libs/mini-xml-2.2.1
 	lash? ( virtual/liblash )"
-#	portaudio? ( media-libs/portaudio )"
 
 RDEPEND="media-libs/zynaddsubfx-banks"
 
@@ -30,7 +28,7 @@ S="${WORKDIR}/${MY_P}"
 src_unpack() {
 	unpack ${A}
 	cd "${S}"
-	
+
 	# add our CXXFLAGS
 	cd src/
 	esed_check -i "s@\(CXXFLAGS.\+=.*OS_PORT.*\)@\1 ${CXXFLAGS}@g" Makefile
@@ -68,7 +66,7 @@ src_compile() {
 	echo "make ${myconf}" > gentoo_make_options # for easier debugging
 	chmod +x gentoo_make_options
 
-	emake -j1 ${myconf} || die "make failed with this options: ${myconf}"
+	emake ${myconf} || die "make failed with this options: ${myconf}"
 
 	cd "${S}/ExternalPrograms/Spliter"
 	emake || die "emake Spliter failed"
