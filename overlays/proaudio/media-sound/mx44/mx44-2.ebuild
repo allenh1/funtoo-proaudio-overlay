@@ -4,7 +4,7 @@
 
 EAPI="5"
 
-inherit eutils versionator
+inherit eutils exteutils versionator
 RESTRICT="mirror"
 MY_PN="${PN/m/M}"
 MY_P="${MY_PN}.$(replace_version_separator "0" "-")"
@@ -27,5 +27,12 @@ RDEPEND="${DEPEND}"
 S="${WORKDIR}/${MY_P}/src"
 
 src_prepare() {
+	esed_check -i -e "s:PREFIX.*=.*:PREFIX = ${D}:" Makefile
 	echo 'FLAGS += $(CFLAGS)' >> Makefile
+	cat Makefile
+}
+
+src_install() {
+	install -d "${D}/bin"
+	default
 }
