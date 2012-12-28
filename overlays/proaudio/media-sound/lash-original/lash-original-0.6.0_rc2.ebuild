@@ -6,7 +6,9 @@ EAPI="4"
 
 inherit eutils python
 
-MY_P="${P/_/~}"
+MY_PV="${PV/_/~}"
+MY_PN="${PN/-original/}"
+MY_P="${MY_PN}-${MY_PV}"
 
 DESCRIPTION="LASH Audio Session Handler"
 HOMEPAGE="http://www.nongnu.org/lash/"
@@ -27,10 +29,10 @@ DEPEND="${RDEPEND}
 	dev-util/pkgconfig
 	python? ( >=dev-lang/swig-1.3.31 )"
 
-S="${WORKDIR}/${PN}-0.6.0.594"
+S="${WORKDIR}/${MY_PN}-0.6.0.594"
 
 src_prepare() {
-	epatch "${FILESDIR}/${P}-texi2html.diff" || die "conf patch failed"
+	epatch "${FILESDIR}/${MY_PN}-${PV}-texi2html.diff" || die "conf patch failed"
 }
 
 src_configure() {

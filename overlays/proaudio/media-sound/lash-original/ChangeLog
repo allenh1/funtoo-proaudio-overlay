@@ -1,15 +1,12 @@
-# ChangeLog for media-sound/lash
+# ChangeLog for media-sound/lash-original
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
   27 Dec 2012; Dominique Michel <dominique_libre@sourceforge.net>
-  -Moved all lash stufs to media-sound/lash-original
-  +lash-9998.ebuild; fake virtual ebuild that will depend on one of
-  media-sound/lash-original and media-sound/ladish.
-  This is needed because all the portage ebuilds depend on media-sound/lash
-  and they will block media-sound/ladish. The same block will append if
-  virtual/liblash or some other package want to install ladish.
-  All new ebuilds should depend on virtual/liblash instead of media-sound/lash.
+  Renamed media-sound/lash to media-sound/lash-original
+  due to media-sound/ladish import and blocking with packages 
+  depending on media-sound/lash.
+  For new ebuilds, please use (R)DEPEND="virtual/liblash" instead.
 
   11 Nov 2012; Karl Lindén <spray.sucks@gmail.com>;
   lash-0.6.0_rc2.ebuild: added python_convert_shebangs to ebuild
