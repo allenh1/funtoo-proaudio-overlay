@@ -9,6 +9,10 @@
   This is needed because all the portage ebuilds depend on media-sound/lash
   and they will block media-sound/ladish. The same block will append if
   virtual/liblash or some other package want to install ladish.
+  
+  Complex dependencies are needed or portage can get confused
+  during world update.
+  
   All new ebuilds should depend on virtual/liblash instead of media-sound/lash.
 
   11 Nov 2012; Karl Lindén <spray.sucks@gmail.com>;

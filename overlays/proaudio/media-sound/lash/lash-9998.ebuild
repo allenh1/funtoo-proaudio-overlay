@@ -11,6 +11,8 @@ KEYWORDS="amd64 x86"
 SLOT="0"
 IUSE="ladish"
 
-RDEPEND="ladish? ( media-sound/ladish )
-	!ladish? ( media-sound/lash-original )"
+RDEPEND="ladish? ( media-sound/ladish 
+		!media-sound/lash-original )
+	!ladish? ( media-sound/lash-original 
+		!media-sound/ladish )"
 DEPEND="${RDEPEND}"
