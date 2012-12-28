@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -33,7 +33,7 @@ RDEPEND=">=media-libs/liblrdf-0.4.0
 	freesound? ( net-misc/curl )
 	lv2? ( >=media-libs/slv2-0.6.1 )
 	liblo? ( media-libs/liblo )
-	tranzport? ( dev-libs/libusb )
+	tranzport? ( virtual/libusb )
 	wiimote? ( app-misc/cwiid )
 	sys-libs? ( >=dev-libs/libsigc++-2.0
 		>=dev-cpp/glibmm-2.4
@@ -50,7 +50,7 @@ RDEPEND=">=media-libs/liblrdf-0.4.0
 DEPEND="${RDEPEND}
 	sys-devel/libtool
 	dev-libs/boost
-	dev-util/pkgconfig
+	virtual/pkgconfig
 	dev-util/scons
 	nls? ( sys-devel/gettext )"
 

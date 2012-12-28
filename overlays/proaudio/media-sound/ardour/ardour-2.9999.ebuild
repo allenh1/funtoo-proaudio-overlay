@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -49,7 +49,7 @@ RDEPEND=">=media-libs/liblrdf-0.4.0
 DEPEND="${RDEPEND}
 	sys-devel/libtool
 	dev-libs/boost
-	dev-util/pkgconfig
+	virtual/pkgconfig
 	dev-util/scons
 	nls? ( sys-devel/gettext )"
 
