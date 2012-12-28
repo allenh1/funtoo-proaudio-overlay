@@ -1,0 +1,32 @@
+# ChangeLog for media-sound/laditools
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  28 Dec 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  Import from the ladi overlay
+  
+  26 Dec 2012; Karl Lindén <lilrc@users.sourceforge.net>
+  laditools-1.0_rc8-ebuild, laditools_1.0.1.ebuild, laditools-9999.ebuild:
+  Replace deprecated python-distutils-ng with python-r1 + distutils-r1
+  Fix dependency on pygobject
+
+  09 Dec 2012; Karl Lindén <lilrc@users.sourceforge.net>
+  +laditools-1.0.1.ebuild, +laditools-1.0_rc8.ebuild, laditools-9999.ebuild
+  +files/laditools-1.0_rc8-rsvg.patch:
+  Updated ebuilds
+    Use EAPI 5
+    Use python-distutils-ng instead of python and distutils
+    Updated dependencies
+  Updated copyright notices
+
+  28 Dec 2008; Marc-Olivier Barre <marco@marcochapeau.org>
+  laditools-9999.ebuild now depends on dev-python/pyyaml
+
+  27 Dec 2008; Marc-Olivier Barre <marco@marcochapeau.org>
+  laditools-9999.ebuild now uses the git repository
+  no more pyxml dependency
+
+  15 Dec 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  +laditools-1.0_rc1.ebuild:
+  initial ebuild
+
