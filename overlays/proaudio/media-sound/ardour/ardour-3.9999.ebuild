@@ -87,7 +87,7 @@ src_configure() {
 		use freesound || myconf="$myconf --no-freesound"
 		use wiimote   && myconf="$myconf --wiimote"
 		use vst       && myconf="$myconf --windows-vst"
-		use doc       && myconf="$myconf --doc"
+		use doc       && myconf="$myconf --docs"
 	if use sse || use altivec ;then
 		myconf="$myconf --fpu-optimization"
 	fi
