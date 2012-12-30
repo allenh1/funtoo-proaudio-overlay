@@ -1,6 +1,19 @@
 # ChangeLog for media-video/xjadeo
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*xjadeo-0.6.4 (30 Dec 2012)
+
+  30 Dec 2012; Karl Lindén <lilrc@users.sourceforge.net>
+  -xjadeo-0.4.10.ebuild, +xjadeo-0.6.4.ebuild, metadata.xml:
+  Removed herd from metadata.xml
+  Added local useflags to metadata.xml
+  Drop qt3 support (the x11-libs/qt-3 doesn't exist)
+  Add conditional dependency on qt-test
+  Use autotools-utils
+  Updated EAPI
+  Cleanup
+  Thanks to Jannis Achstetter for submitting the original xjadeo-0.6.4.ebuild!
 
 *xjadeo-0.4.10 (19 Jun 2010)
 
