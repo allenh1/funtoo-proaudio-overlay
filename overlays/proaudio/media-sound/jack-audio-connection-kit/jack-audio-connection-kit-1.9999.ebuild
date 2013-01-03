@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -6,7 +6,7 @@ EAPI="5"
 
 inherit flag-o-matic eutils multilib git-2 linux-info autotools
 
-RESTRICT="nostrip mirror"
+RESTRICT="mirror"
 DESCRIPTION="A low-latency audio server"
 HOMEPAGE="http://www.jackaudio.org"
 
@@ -54,11 +54,11 @@ src_unpack() {
 	git-2_src_unpack
 }
 
-src_configure() {
+src_prepare() {
 	eautoreconf
 }
 
-src_compile() {
+src_configure() {
 	if use jackdmp; then
 		einfo "You requested to install jackdmp. Nothing to do"
 		return # no more to do
@@ -88,7 +88,6 @@ src_compile() {
 		--disable-dependency-tracking \
 		--with-default-tmpdir=/dev/shm \
 		${myconf} || die "configure failed"
-	emake || die "compilation failed"
 }
 
 src_install() {

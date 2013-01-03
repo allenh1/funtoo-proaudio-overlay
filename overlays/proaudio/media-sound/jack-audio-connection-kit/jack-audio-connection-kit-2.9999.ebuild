@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -19,6 +19,7 @@ KEYWORDS=""
 IUSE="alsa classic debug doc dbus freebob ieee1394 mixed opus pam"
 
 RDEPEND="media-libs/libsamplerate
+	>=media-libs/libsndfile-1.0.0
 	>=media-libs/alsa-lib-1.0.24
 	dbus? ( sys-apps/dbus )
 	freebob? ( sys-libs/libfreebob !media-libs/libffado )
