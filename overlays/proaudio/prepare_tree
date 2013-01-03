@@ -125,7 +125,7 @@ done
 
 # check Manifests
 for i in `find -iname 'Manifest'`; do
-	grep -i -e '.swp' -e '~' $i && echo "ERROR IN: $i"
+	grep -i -e '.swp' -e ' ~' -e '~ ' $i && echo "ERROR IN: $i"
 done
 
 # generate 00-PACKAGES-LIST
