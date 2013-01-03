@@ -1,6 +1,12 @@
 # ChangeLog for media-sound/lmms
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*lmms-0.4.9999 (03 Jan 2013)
+
+  03 Jan 2013; Frieder Buerzele <evermind@tuxfamily.org>
+  +files/lmms-0.4.10-unembedfltk.patch, +lmms-0.4.9999.ebuild:
+  live ebuild for the stable branch
 
   10 Apr 2010; Viktor Lazarev <taurus101v@gmail.com> lmms-9999-r1.ebuild:
   license, git repo URI & DOCS fixed
