@@ -47,26 +47,33 @@ while getopts powsh options; do
 done
 
 generate_list(){
-	for x in `find -maxdepth 1 -type d -printf '%f\n'|sed '1d'|sort|uniq`;do
+	for x in `find -maxdepth 1 -type d -printf '%f\n'|sed '1d'|sort|uniq|egrep -v '^(profiles|licenses)$'`;do
 	old_pwd=$PWD
 	cd $x
 	for i in `find -maxdepth 1 -type d|sed '1d'`;do
 		i=${i/.\//}
-		ebuilds="$(ls $i/*.ebuild)"
 
-		if [ "$OPT_LIST_OVERLAY_ONLY" -eq 1 ] && [ -e $PORTAGE_TREE/$x/$i ];then
-			continue
-		fi
-	
-		echo "#------- $x/$i --------"
-		nr_of_ebuilds="-1"
-		
 		# reset descriptions so if one's is missing we'll see it
 		# in the generated list
 		HOMEPAGE="unknown"
 		DESCRIPTION="unknown"
 		KEYWORDS="unknown"
+		cat_ebuild_seen=""
+
+		nr_of_ebuilds="-1"
+
+		ebuilds="$(ls $i/*.ebuild)"
 		for k in ${ebuilds[@]};do
+
+		if [ "$OPT_LIST_OVERLAY_ONLY" -eq 1 ] && [ -e $PORTAGE_TREE/$x/$i/$k ];then
+			continue
+		fi
+	
+		if [ -z "$cat_ebuild_seen" ];then
+			echo "#------- $x/$i --------"
+			cat_ebuild_seen=yes
+		fi
+		
 			source $k &>/dev/null
 			k="${k##*/}"
 			k=${k/\.ebuild/}
