@@ -1,5 +1,5 @@
 # ChangeLog for app-portage/euses
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
 TODO: Add a reading pipe to obtain a (list of) string(s).
@@ -9,6 +9,12 @@ TODO: (Optionally) highlight STRING in DESC (when -c).
 TODO: Additionally search profiles.desc.
 TODO: Build a struct with line numbers and all elements of a description
 TODO:   and build a database of matching lines before doing any output.
+
+*euses-2.5.9-r1 (04 Jan 2013)
+
+  04 Jan 2013; Frieder Buerzele <evermind@tuxfamily.org>
+  -euses-2.5.5-r1.ebuild, +euses-2.5.9-r1.ebuild:
+  overlay patches adjusted to new version
 
   04 May 2010; Viktor Lazarev <taurus101v@gmail.com> euses-2.5.5-r1.ebuild:
   repoman payment

@@ -1,15 +1,15 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI="2"
 
-inherit toolchain-funcs autotools
+inherit toolchain-funcs autotools eutils
 
 DESCRIPTION="look up USE flag descriptions fast"
 HOMEPAGE="http://www.xs4all.nl/~rooversj/gentoo"
 SRC_URI="http://www.xs4all.nl/~rooversj/gentoo/${P}.tar.bz2
-	http://download.tuxfamily.org/proaudio/distfiles/euses-overlay-patches-1.tar.gz"
+	http://download.tuxfamily.org/proaudio/distfiles/euses-overlay-patches-2.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
