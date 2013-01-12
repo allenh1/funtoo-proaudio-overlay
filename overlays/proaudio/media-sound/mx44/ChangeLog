@@ -2,6 +2,10 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  13 Jan 2013; Karl Lindén (lilrc) <lilrc@users.sourceforge.net>
+  files/mx44-autotoolize.patch:
+  Added missing "/" to DATADIR so that the gtkrc is found
+
   12 Jan 2013; Karl LindÃ©n (lilrc) <lilrc@users.sourceforge.net>
   mx44-2.ebuild, +mx44-2-r1.ebuild, +files/mx44-autotoolize.patch:
   Added patch to use autotools as build system and created a ebuild
