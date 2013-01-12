@@ -1,6 +1,12 @@
 # ChangeLog for media-sound/mx44
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  12 Jan 2013; Karl Lindén (lilrc) <lilrc@users.sourceforge.net>
+  mx44-2.ebuild, +mx44-2-r1.ebuild, +files/mx44-autotoolize.patch:
+  Added patch to use autotools as build system and created a ebuild
+  accordingly
+  Removed unnecessary cat statement in mx44-2.ebuild
 
   28 Dec 2012; Karl Lindén (lilrc) <lilrc@users.sourceforge.net>
   mx44-2.ebuild:

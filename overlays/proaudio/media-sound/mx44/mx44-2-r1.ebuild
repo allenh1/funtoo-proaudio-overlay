@@ -4,7 +4,7 @@
 
 EAPI="5"
 
-inherit eutils exteutils versionator
+inherit autotools-utils eutils versionator
 RESTRICT="mirror"
 MY_PN="${PN/m/M}"
 MY_P="${MY_PN}.$(replace_version_separator "0" "-")"
@@ -12,6 +12,10 @@ MY_P="${MY_PN}.$(replace_version_separator "0" "-")"
 DESCRIPTION="Mx44 is a polyphonic midi realtime software synthesizer"
 HOMEPAGE="http://web.comhem.se/luna/"
 SRC_URI="http://web.comhem.se/luna/${MY_P}.tar.gz"
+
+AUTOTOOLS_AUTORECONF="1"
+AUTOTOOLS_IN_SOURCE_BUILD="1"
+PATCHES=( "${FILESDIR}/${PN}-autotoolize.patch" )
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -24,14 +28,4 @@ DEPEND="media-sound/jack-audio-connection-kit
 		media-libs/alsa-lib"
 RDEPEND="${DEPEND}"
 
-S="${WORKDIR}/${MY_P}/src"
-
-src_prepare() {
-	esed_check -i -e "s:PREFIX.*=.*:PREFIX = ${D}:" Makefile
-	echo 'FLAGS += $(CFLAGS)' >> Makefile
-}
-
-src_install() {
-	install -d "${D}/bin"
-	default
-}
+S="${WORKDIR}/${MY_P}"
