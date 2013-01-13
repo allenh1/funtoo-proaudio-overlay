@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE="laptop session"
 
-ESVN_REPO_URI="https://fvwm-crystal.svn.sourceforge.net/svnroot/fvwm-crystal"
+ESVN_REPO_URI="svn://svn.code.sf.net/p/fvwm-crystal/code"
 
 # Should work with fvwm-2.5.13, but like portage use the correct fvwm exec name
 # only from 2.5.26 and that I am using this version to develop fvwm-crystal, it
