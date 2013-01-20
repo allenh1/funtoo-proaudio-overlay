@@ -10,7 +10,7 @@ inherit multilib python
 
 DESCRIPTION="Jackdmp jack implemention for multi-processor machine"
 HOMEPAGE="http://www.jackaudio.org"
-SRC_URI="https://dl.dropbox.com/u/28869550/jack-${PV}.tgz"
+SRC_URI="https://dl.dropbox.com/u/28869550/jack-${PV}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -25,7 +25,7 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	doc? ( app-doc/doxygen )"
 
-S="${WORKDIR}/jack-${PV}/jack-${PV}"
+S="${WORKDIR}/jack-${PV}"
 
 pkg_setup() {
 	python_set_active_version 2
