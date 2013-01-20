@@ -3,6 +3,11 @@
 # $Header: $
 
   20 Jan 2013; Nedko Arnaudov <nedko@arnaudov.name>
+  jack-audio-connection-kit-1.9.9.5.ebuild,
+  +files/jack2-no-self-connect-1.9.9.5.patch:
+  build with with no-self-connect patch
+
+  20 Jan 2013; Nedko Arnaudov <nedko@arnaudov.name>
   jack-audio-connection-kit-1.9.9.5.ebuild:
   rename the "32bit" use flag to documented "mixed" use flag
 

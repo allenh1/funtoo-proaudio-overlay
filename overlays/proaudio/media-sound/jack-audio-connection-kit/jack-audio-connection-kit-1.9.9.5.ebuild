@@ -6,7 +6,7 @@ EAPI="4"
 
 PYTHON_DEPEND="2"
 
-inherit multilib python
+inherit multilib python eutils
 
 DESCRIPTION="Jackdmp jack implemention for multi-processor machine"
 HOMEPAGE="http://www.jackaudio.org"
@@ -30,6 +30,10 @@ S="${WORKDIR}/jack-${PV}"
 pkg_setup() {
 	python_set_active_version 2
 	python_pkg_setup
+}
+
+src_prepare() {
+	epatch "${FILESDIR}/jack2-no-self-connect-1.9.9.5.patch"
 }
 
 src_configure() {
