@@ -15,7 +15,7 @@ SRC_URI="https://dl.dropbox.com/u/28869550/jack-${PV}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="alsa dbus debug doc freebob ieee1394 32bit"
+IUSE="alsa dbus debug doc freebob ieee1394 mixed"
 
 RDEPEND="alsa? ( >=media-libs/alsa-lib-0.9.1 )
 	freebob? ( sys-libs/libfreebob !media-libs/libffado )
@@ -41,7 +41,7 @@ src_configure() {
 	use doc && myconf="${myconf} --doxygen"
 	use freebob && myconf="${myconf} --freebob"
 	use ieee1394 && myconf="${myconf} --firewire"
-	use 32bit && myconf="${myconf} --mixed"
+	use mixed && myconf="${myconf} --mixed"
 
 	einfo "Running \"./waf configure ${myconf}\" ..."
 	./waf configure ${myconf} || die "waf configure failed"
