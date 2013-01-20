@@ -4,7 +4,7 @@
 
 *jack-audio-connection-kit-1.9.9.5 (20 Jan 2013)
 
-  20 Jan 2013; <nedko@gentoo.org> -jack-audio-connection-kit-1.9.8.ebuild,
+  20 Jan 2013; Nedko Arnaudov <nedko@arnaudov.name>
   +jack-audio-connection-kit-1.9.9.5.ebuild: Add ebuild for the latest jack2 release
   -jack-audio-connection-kit-1.9.8.ebuild: Remove ebuild for obsolete jack2 release
 
