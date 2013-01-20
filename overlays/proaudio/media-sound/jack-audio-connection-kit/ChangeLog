@@ -2,6 +2,12 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*jack-audio-connection-kit-1.9.9.5 (20 Jan 2013)
+
+  20 Jan 2013; <nedko@gentoo.org> -jack-audio-connection-kit-1.9.8.ebuild,
+  +jack-audio-connection-kit-1.9.9.5.ebuild: Add ebuild for the latest jack2 release
+  -jack-audio-connection-kit-1.9.8.ebuild: Remove ebuild for obsolete jack2 release
+
   03 Jan 2012; Karl Lindén (lilrc) <lilrc@users.sourceforge.net>
   jack-audio-connection-kit-0.121.3.ebuild, jack-audio-connection-kit-1.9.8.ebuild
   jack-audio-connection-kit-1.9999.ebuild, jack-audio-connection-kit-2.9999.ebuild,
