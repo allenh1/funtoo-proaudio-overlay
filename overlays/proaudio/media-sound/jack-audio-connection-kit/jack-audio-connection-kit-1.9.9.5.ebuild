@@ -8,6 +8,7 @@ PYTHON_DEPEND="2"
 
 inherit multilib python eutils
 
+RESTRICT="mirror"
 DESCRIPTION="Jackdmp jack implemention for multi-processor machine"
 HOMEPAGE="http://www.jackaudio.org"
 SRC_URI="https://dl.dropbox.com/u/28869550/jack-${PV}.tar.bz2"

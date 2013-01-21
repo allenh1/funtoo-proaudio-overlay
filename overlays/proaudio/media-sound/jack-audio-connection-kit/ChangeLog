@@ -4,6 +4,10 @@
 
   21 Jan 2013; Nedko Arnaudov <nedko@arnaudov.name>
   jack-audio-connection-kit-1.9.9.5.ebuild:
+  set RESTRICT="mirror" for the jack-1.9.9.5 ebuild
+
+  21 Jan 2013; Nedko Arnaudov <nedko@arnaudov.name>
+  jack-audio-connection-kit-1.9.9.5.ebuild:
   show warning when building with "mixed" use flag
 
   20 Jan 2013; Nedko Arnaudov <nedko@arnaudov.name>
