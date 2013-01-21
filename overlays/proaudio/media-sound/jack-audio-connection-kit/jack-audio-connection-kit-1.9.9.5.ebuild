@@ -27,6 +27,15 @@ DEPEND="${RDEPEND}
 
 S="${WORKDIR}/jack-${PV}"
 
+pkg_pretend() {
+	if use mixed; then
+		ewarn 'You are about to build with "mixed" use flag.'
+		ewarn 'The build will probably fail.'
+		ewarn 'If you know how to properly build 32bit lib on 64bit system,'
+		ewarn 'please help with fixing the bug.'
+	fi
+}
+
 pkg_setup() {
 	python_set_active_version 2
 	python_pkg_setup
