@@ -1,8 +1,8 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI="5"
 
 inherit eutils toolchain-funcs
 
@@ -14,7 +14,7 @@ RESTRICT="mirror"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~x86 ~amd64"
 IUSE=""
 
 DEPEND=">=media-libs/libclthreads-2.2.1
@@ -30,10 +30,10 @@ src_prepare() {
 
 src_compile() {
 	tc-export CXX
-	emake PREFIX=/usr || die "emake failed"
+	emake PREFIX="${EPREFIX}usr" || die "emake failed"
 }
 
 src_install() {
-	make DESTDIR="${D}" PREFIX=/usr install || die "make install failed"
+	make DESTDIR="${D}" PREFIX="${EPREFIX}usr" install || die "make install failed"
 	dodoc AUTHORS README
 }
