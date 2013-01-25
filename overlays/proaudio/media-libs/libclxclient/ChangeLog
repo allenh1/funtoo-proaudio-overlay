@@ -4,7 +4,7 @@
 
 *libclxclient-3.6.1 (25 Jan 2013)
 
-  25 Jan 2013; Karl Lindén (lirc) <lilrc@users.sourceforge.net> 
+  25 Jan 2013; Karl Linden (lirc) <lilrc@users.sourceforge.net> 
   +libclxclient-3.6.1.ebuild,
   +files/libclxclient-3.6.1-Makefile.patch, +metadata.xml:
   Initial ebuild (imported and fixed version from portage)
