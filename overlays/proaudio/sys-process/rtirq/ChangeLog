@@ -1,6 +1,12 @@
 # ChangeLog for sys-process/rtirq
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*rtirq-20121105 (27 Jan 2013)
+
+  27 Jan 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -rtirq-20120505.ebuild, +rtirq-20121105.ebuild:
+  Remove obsolete ebuild and add new version.
 
 *rtirq-20120505 (22 May 2012)
 
