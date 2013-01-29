@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -10,7 +10,7 @@ SLOT="0"
 LICENSE="GPL-2"
 KEYWORDS="~x86 ~amd64"
 
-DESCRIPTION="Faust AUdio STreams is a functional programming language for realtime audio plugins and applications development. The Faust compiler translates signal processing specifications into C++ code."
+DESCRIPTION="Faust AUdio STreams is a functional programming language and compiler for fast DSP algorythms"
 HOMEPAGE="http://faudiostream.sourceforge.net"
 SRC_URI="mirror://sourceforge/faudiostream/${P}.tar.gz"
 
@@ -19,7 +19,7 @@ RDEPEND="sys-devel/bison
 DEPEND="sys-apps/sed"
 
 src_unpack() {
-	unpack "${A}"
+	unpack ${A}
 	cd "${S}"
 	# fix prefix
 	esed_check -i -e "s\/usr/local\ /usr\ " Makefile

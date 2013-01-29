@@ -1,7 +1,13 @@
 # ChangeLog for dev-lang/faust
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  29 Jan 2013; Dominique Michel <dominique@tuyfamily.org> faust-0.9.58.eduild:
+  added EAPI=5 -- removed uneeded die calls
+  USE doc install the doxygen documentation
+  some cleanup
+  +metadata.xml
+  
   09 Jun 2011; Dominique Michel <dominique@tuyfamily.org>
   bump to faust-0.9.30.eduild:
   removed unneded sed patches
