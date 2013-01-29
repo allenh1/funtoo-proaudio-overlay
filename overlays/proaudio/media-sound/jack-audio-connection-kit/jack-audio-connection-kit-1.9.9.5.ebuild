@@ -44,6 +44,7 @@ pkg_setup() {
 
 src_prepare() {
 	epatch "${FILESDIR}/jack2-no-self-connect-1.9.9.5.patch"
+	epatch "${FILESDIR}/jack-1.9.9.5-opus_custom.patch"
 }
 
 src_configure() {
