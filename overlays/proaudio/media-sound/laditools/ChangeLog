@@ -1,6 +1,11 @@
 # ChangeLog for media-sound/laditools
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  29 Jan 2013; Nedko Arnaudov <nedko@arnaudov.name> laditools-1.0.ebuild:
+  Make laditools-1.0 depend on wmdocklib
+
+  wmdocklib is used by wmladi
 
   28 Dec 2012; Dominique Michel <dominique_libre@sourceforge.net>
   Import from the ladi overlay

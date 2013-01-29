@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -20,6 +20,7 @@ IUSE=""
 DEPEND="dev-python/python-distutils-extra"
 
 RDEPEND=">=dev-python/enum-0.4.4
+	dev-python/wmdocklib
 	>=media-sound/jack-audio-connection-kit-0.109.2-r2[dbus]
 	>=x11-libs/vte-0.30.1[introspection]"
 
