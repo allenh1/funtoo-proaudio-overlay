@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -10,7 +10,7 @@ DESCRIPTION="A simple Linux Guitar Amplifier for jack with one input and two out
 SRC_URI="mirror://sourceforge/guitarix/guitarix/${P}.tar.bz2"
 HOMEPAGE="http://guitarix.sourceforge.net/"
 
-RESTRICT="nomirror"
+RESTRICT="mirror"
 
 SLOT="0"
 LICENSE="GPL-2"
@@ -35,7 +35,7 @@ RDEPEND="
 S="${WORKDIR}/guitarix-${PV}"
 
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig"
+	virtual/pkgconfig"
 
 src_configure() {
 	./waf configure --prefix=/usr --ladspadir=/usr/share/ladspa \
