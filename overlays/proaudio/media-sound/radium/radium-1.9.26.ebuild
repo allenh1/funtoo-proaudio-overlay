@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -12,9 +12,9 @@ DESCRIPTION="Open source music editor with a novel interface and fever limitatio
 HOMEPAGE="http://users.notam02.no/~kjetism/${PN}/"
 SRC_URI="http://archive.notam02.no/arkiv/src/${P}.tar.gz"
 
-KEYWORDS="~x86 amd64"
+KEYWORDS="~amd64 ~x86"
 SLOT="0"
-IUSE="+calf"
+IUSE="+calf debug"
 LICENSE="GPL-2"
 
 DEPEND="x11-libs/qt-core[qt3support]
@@ -42,15 +42,19 @@ pkg_setup() {
 	python_pkg_setup
 }
 
-src_prepare() {
-	epatch "${FILESDIR}/${P}.patch" || die "epatch failed"
-	sed -i -e 's:DUSE_VESTIGE=0:DUSE_VESTIGE=1:' "${S}/Makefile.Qt" || die "sed failed"
-}
+#src_prepare() {
+#	sed -i -e 's:DUSE_VESTIGE=0:DUSE_VESTIGE=1:' "${S}/Makefile.Qt" || die "sed failed"
+#}
 
 src_compile() {
-	emake DESTDIR="${D}" PREFIX="/usr" libdir="/usr/$(get_libdir)" BUILDTYPE="RELEASE" \
+	if use debug; then
+		BUILDT=DEBUG
+	else
+		BUILDT=RELEASE
+	fi
+	emake DESTDIR="${D}" PREFIX="/usr" libdir="/usr/$(get_libdir)" \
 		OPTIMIZE="${CXXFLAGS}" packages || die "make packages failed"
-	./build_linux.sh -j7 || die "Build failed"
+	BUILDTYPE="${BUILDT}" ./build_linux.sh -j7 || die "Build failed"
 }
 
 src_install() {

@@ -2,6 +2,11 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+
+  29 Jan 2013; Dominique Michel <dominique_libre@sourceforge.net>;
+  +radium-1.9.26.ebuild; -radium-1.9.2.ebuild: version bump;
+  metadata.xml: removed no-herd
+
   14 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>;
   -radium-1.9.1-r1.ebuild;+radium-1.9.2.ebuild: version bump; fixed SRC_URI to
   the final location (Kjetil Matheussen); removed non needed DEPEND (Kjetil M.);
