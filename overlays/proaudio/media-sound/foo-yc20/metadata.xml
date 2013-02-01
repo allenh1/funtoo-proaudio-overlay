@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer>
+		<email>proaudio@tuxfamily.org</email>
+		<name>pro-audio overlay team</name>
+	</maintainer>
+	<longdescription>YC-20 is a divide-down combo organ designed in the late 60's. This emulation faithfully copies the features, sounds and flaws the original organ."
+	</longdescription>
+</pkgmetadata>
