@@ -19,7 +19,7 @@ RDEPEND="media-libs/ladspa-sdk
 	dev-cpp/gtkmm:2.4
 	media-sound/jack-audio-connection-kit
 	media-libs/lv2
-	dev-lang/faust"
+	>=dev-lang/faust-0.9.58"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
