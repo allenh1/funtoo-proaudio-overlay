@@ -52,7 +52,7 @@ src_configure() {
 	use alsa && myconf="${myconf} --alsa"
 	use dbus && myconf="${myconf} --dbus"
 	! use dbus && myconf="${myconf} --classic"
-	use debug && myconf="${myconf} -d debug"
+	use debug && myconf="${myconf} --debug"
 	use doc && myconf="${myconf} --doxygen"
 	use freebob && myconf="${myconf} --freebob"
 	use ieee1394 && myconf="${myconf} --firewire"
