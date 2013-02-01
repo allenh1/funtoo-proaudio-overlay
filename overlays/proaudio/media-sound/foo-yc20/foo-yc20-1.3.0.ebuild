@@ -14,8 +14,7 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND="media-libs/ladspa-sdk
-	x11-libs/cairo
+RDEPEND="x11-libs/cairo
 	dev-cpp/gtkmm:2.4
 	media-sound/jack-audio-connection-kit
 	media-libs/lv2
