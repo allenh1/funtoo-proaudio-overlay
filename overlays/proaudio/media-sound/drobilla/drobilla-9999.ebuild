@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -37,7 +37,7 @@ RDEPEND="!media-plugins/omins
 	>=net-libs/webkit-gtk-1.4.0
 	dev-libs/boost
 	dev-libs/libpcre
-	>=media-libs/lv2-1.0.15
+	>=media-libs/lv2-9999
 	>=media-sound/jack-audio-connection-kit-0.109.0
 	alsa? ( media-libs/alsa-lib )
 	gtk? ( >=x11-libs/gtk+-2.22.1-r1:2 )
