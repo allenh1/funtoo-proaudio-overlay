@@ -1,9 +1,10 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI=2
 inherit autotools multilib
+WANT_AUTOMAKE="1.11.1"
 
 DESCRIPTION="Control Signal Audio. A group of LADSPA Audio plugins for FM broadcast and more"
 HOMEPAGE="http://csa.sourceforge.net/index/index_en.html"
