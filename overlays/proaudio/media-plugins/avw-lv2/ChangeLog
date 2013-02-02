@@ -1,6 +1,15 @@
 # ChangeLog for media-plugins/avw-lv2
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*avw-lv2-0.1.3 (02 Feb 2013)
+
+  02 Feb 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -avw-lv2-0.0.8.ebuild, +avw-lv2-0.1.3.ebuild,
+  +files/avw-lv2-0.1.3-replace-std-c++11.patch, metadata.xml:
+  version bumb, added patch to get rid of compiler fault, depend on lvtk, 
+  updated EAPI
+  removed no-herd from metadata.xml
 
   15 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
   +avw-lv2-0-0.8.ebuild: Initial ebuild from Matt Henley with some changes
