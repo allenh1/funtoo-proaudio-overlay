@@ -39,7 +39,7 @@ src_install() {
 }
 
 pkg_postinst() {
-	einfo "${PN} can be used for the following types of Faust projects:"
+	einfo "FaustWorks can be used for the following types of Faust projects:"
 	einfo "alsa-gtk, alsa-qt, csound, dssi, jack-gtk, jack-qt, ladspa, puredata and supercollider."
 	einfo ""
 	einfo "You may want to install some of those software."
