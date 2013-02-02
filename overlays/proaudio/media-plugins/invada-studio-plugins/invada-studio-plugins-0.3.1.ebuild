@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -7,8 +7,8 @@ EAPI=2
 inherit eutils toolchain-funcs multilib
 
 DESCRIPTION="Invada ladspa package, contains: Compressor, Filters, Reverb, Input Processor, Tube Simulator"
-HOMEPAGE="http://www.invadarecords.com/Downloads.php?ID=00000263"
-SRC_URI="http://www.invadarecords.com/downloads/${PN}_${PV}-1.tar.gz"
+HOMEPAGE="https://launchpad.net/invada-studio/ladspa"
+SRC_URI="https://launchpad.net/invada-studio/ladspa/0.3/+download/${PN}_${PV}-1.tar.gz"
 LICENSE="GPL-2"
 
 SLOT=0
