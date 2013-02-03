@@ -15,7 +15,7 @@ SRC_URI="https://dl.dropbox.com/u/28869550/jack-${PV}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="alsa dbus debug doc freebob ieee1394 mixed"
 
 RDEPEND="alsa? ( >=media-libs/alsa-lib-0.9.1 )

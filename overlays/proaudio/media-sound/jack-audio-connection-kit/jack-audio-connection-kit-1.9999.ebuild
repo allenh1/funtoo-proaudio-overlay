@@ -4,7 +4,7 @@
 
 EAPI="5"
 
-inherit flag-o-matic eutils multilib git-2 linux-info autotools
+inherit flag-o-matic eutils multilib git-2 autotools
 
 RESTRICT="mirror"
 DESCRIPTION="A low-latency audio server"
@@ -16,54 +16,26 @@ EGIT_HAS_SUBMODULES="example-clients"
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="3dnow altivec alsa celt coreaudio cpudetection doc debug examples mmx oss sse netjack freebob ieee1394 jackdmp"
+IUSE="3dnow altivec alsa celt coreaudio cpudetection doc debug examples mmx oss sse netjack freebob ieee1394"
 
-RDEPEND="!jackdmp? (
-	>=media-libs/libsndfile-1.0.0
+RDEPEND=">=media-libs/libsndfile-1.0.0
 	sys-libs/ncurses
 	celt? ( >=media-libs/celt-0.5.0 )
 	alsa? ( >=media-libs/alsa-lib-0.9.1 )
 	freebob? ( sys-libs/libfreebob !media-libs/libffado )
 	ieee1394? ( media-libs/libffado !sys-libs/libfreebob )
-	netjack? ( media-libs/libsamplerate )
-	!media-sound/jackdmp
-)"
+	netjack? ( media-libs/libsamplerate )"
 
 DEPEND="${RDEPEND}
-	!jackdmp? (
-		virtual/pkgconfig
-		doc? ( app-doc/doxygen )
-		netjack? ( dev-util/scons )
-	)"
-PDEPEND="jackdmp? ( >=media-sound/jackdmp-9999-r1 )"
-
-pkg_setup() {
-	if use jackdmp; then
-		ewarn "You have enabled the jackdmp useflag. This ebuild will just pull"
-		ewarn "in jackdmp and will NOT compile and install ${PN}!"
-		sleep 3
-		return # no more to do
-	fi
-}
-
-src_unpack() {
-	if use jackdmp; then
-		einfo "You requested to install jackdmp. Nothing to do"
-		return # no more to do
-	fi
-	git-2_src_unpack
-}
+	virtual/pkgconfig
+	doc? ( app-doc/doxygen )
+	netjack? ( dev-util/scons )"
 
 src_prepare() {
 	eautoreconf
 }
 
 src_configure() {
-	if use jackdmp; then
-		einfo "You requested to install jackdmp. Nothing to do"
-		return # no more to do
-	fi
-
 	local myconf="--with-html-dir=/usr/share/doc/${PF}"
 
 	# CPU Detection (dynsimd) uses asm routines which requires 3dnow, mmx and sse.
@@ -91,11 +63,6 @@ src_configure() {
 }
 
 src_install() {
-	if use jackdmp; then
-		einfo "You requested to install jackdmp. Nothing to do"
-		return # no more to do
-	fi
-
 	emake DESTDIR="${D}" install || die "install failed"
 	dodoc AUTHORS TODO README
 

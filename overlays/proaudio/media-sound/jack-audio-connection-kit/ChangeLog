@@ -2,6 +2,15 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  03 Feb 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  jack-audio-connection-kit-0.121.3.ebuild,
+  jack-audio-connection-kit-1.9.9.5.ebuild,
+  jack-audio-connection-kit-1.9999.ebuild, metadata.xml:
+  Keyworded ebuilds for ~ppc
+  jack-audio-connection-kit-1.9999:
+  Removed unused inherit
+  Removed dependency on nonexistent jackdmp
+
   01 Feb 2013; Dominique Michel <dominique_libre@sourceforge.net>
   jack-audio-connection-kit-1.9.9.5.ebuild:
   fixed --debug configure option
