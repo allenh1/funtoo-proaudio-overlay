@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit exteutils cvs patcher jackmidi
+inherit exteutils cvs patcher toolchain-funcs jackmidi
 RESTRICT="mirror"
 
 MY_P=ZynAddSubFX-${PV}
@@ -51,6 +51,9 @@ src_unpack() {
 	# add our CXXFLAGS
 	esed_check -i "s@\(CXXFLAGS.\+=.*OS_PORT.*\)@\1 ${CXXFLAGS}@g" Makefile
 	esed_check -i "s@&master->mutex@\&master->processMutex@g" main.C
+	# add compiler and CFLAGS
+	esed_check -i "s\gcc\\$(tc-getCC) ${CFLAGS}\g" "${S}/ExternalPrograms/Spliter/Makefile"
+	esed_check -i "s\gcc\\$(tc-getCC) ${CFLAGS}\g" "${S}/ExternalPrograms/Controller/Makefile"
 }
 
 src_compile() {
@@ -85,12 +88,12 @@ src_compile() {
 	echo "make ${myconf}" > gentoo_make_options # for easier debugging
 	chmod +x gentoo_make_options
 
-	emake ${myconf} || die "make failed with this options: ${myconf}"
+	emake -j1 ${myconf} || die "make failed with this options: ${myconf}"
 
 	cd "${S}/ExternalPrograms/Spliter"
-	./compile.sh
+	emake
 	cd "${S}/ExternalPrograms/Controller"
-	./compile.sh
+	emake
 }
 
 src_install() {
