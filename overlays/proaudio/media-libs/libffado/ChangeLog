@@ -1,6 +1,12 @@
 # ChangeLog for media-libs/libffado
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  03 Feb 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  libffado-2.1.0.ebuild:
+  Keyworded for ~ppc. This is not completely OK as dbus-c++ does not 
+  support ~ppc yet, but it is better than getting alot of warnings when 
+  when running repoman in media-sound/jack-audio-connection-kit.
 
 *libffado-2.1.0 (27 Sep 2012)
 
