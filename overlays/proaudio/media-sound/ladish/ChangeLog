@@ -1,6 +1,10 @@
 # ChangeLog for media-sound/ladish
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  03 Feb 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  ladish-1.ebuild:
+  keyword for ~amd64 ~ppc ~x86
 
   28 Dec 2012; Dominique Michel <dominique_libre@sourceforge.net>
   Imported ladish-1.ebuild and ladish-9999.ebuild from the ladi overlay
