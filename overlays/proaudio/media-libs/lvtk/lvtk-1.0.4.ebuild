@@ -10,7 +10,7 @@ inherit waf-utils python-single-r1
 RESTRICT="mirror"
 DESCRIPTION="A set C++ wrappers around the LV2 C API."
 HOMEPAGE="http://lvtoolkit.org/"
-SRC_URI="http://lvtoolkit.org/code/browse/${PN}/snapshot/${P}.tar.gz"
+SRC_URI="http://download.tuxfamily.org/proaudio/distfiles/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"

@@ -4,6 +4,9 @@
 
 *lvtk-1.0.4 (02 Feb 2013)
 
+  03 Feb 2913; Dominique Michel <dominique.michel@sourceforge.net>
+  lvtk-1.0.4.ebuild: changed SRC_URI to overlay's distfiles
+
   02 Feb 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   +lvtk-1.0.4.ebuild, +metadata.xml:
   Initial ebuild
