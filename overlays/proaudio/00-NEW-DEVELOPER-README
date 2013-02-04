@@ -37,7 +37,7 @@ Index:
   4.1 # example proaudio / proaudio-dev overlays setup
 5.0 # feel free to ask
 6.0 # testing ebuilds on different archs
-
+7.0 # adding files to the overlay
 
 1. # get a account at tuxfamily.org
   You need to get a account at http://tuxfamily.org 
@@ -276,3 +276,10 @@ Index:
   # --> this ebuilds needs testing 
   # so rekeyword if it builds AND works and check it into the svn repository
   # (some ebuilds might only work on the given arch)
+
+7.0 # adding files to the overlay
+  # files can be added to the overlay using
+  ftp://ftp.tuxfamily.org/proaudio/pro-audio-repository/distfiles
+  # use your favourite ftp client with your tuxfamily username and password
+  # they can be accessed from an ebuild with
+  http://download.tuxfamily.org/proaudio/distfiles
