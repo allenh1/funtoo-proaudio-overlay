@@ -8,10 +8,10 @@ EAPI="5"
 inherit autotools-utils
 
 DESCRIPTION="An old-school all-digital 4-oscillator subtractive polyphonic synthesizer with stereo fx."
-HOMEPAGE="http://synthv1.sourceforge.net/synthv1-index.html"
+HOMEPAGE="http://${PN}.sourceforge.net/"
 
 if [[ "${PV}" = "9999" ]]; then
-	ESVN_REPO_URI="http://svn.code.sf.net/p/synthv1/code/trunk"
+	ESVN_REPO_URI="http://svn.code.sf.net/p/${PN}/code/trunk"
 	SRC_URI=""
 	KEYWORDS=""
 else
