@@ -48,7 +48,7 @@ src_install() {
 	CC="$(tc-getCC)" CXX="$(tc-getCXX)" LINKFLAGS="${LDFLAGS}" \
 	LIBPATH="/usr/$(get_libdir)" escons install \
 		PREFIX=/usr \
-		DESTDIR="${D}" ARCH="${CXXFLAGS}"
+		DESTDIR="${D}"
 
 	doicon "${DISTDIR}/softwerk.png"
 	make_desktop_entry "${PN}" SoftWerk "${PN}" "AudioVideo;Audio;Sequencer;"
