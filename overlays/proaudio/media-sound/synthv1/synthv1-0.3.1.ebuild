@@ -38,10 +38,10 @@ DOCS=( AUTHORS ChangeLog README )
 
 src_configure() {
 	local myeconfargs=(
-		$(use_with alsa)
-		$(use_with jack)
-		$(use_with lv2)
+		$(use_enable alsa alsa-midi)
 		$(use_enable debug)
+		$(use_enable jack)
+		$(use_enable lv2)
 	)
 	autotools-utils_src_configure
 }
