@@ -1,8 +1,20 @@
 # ChangeLog for media-sound/qtractor
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  12 Nov 2012; Karl Lindén <spray.sucks@gmail.com>
+  17 Feb 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  qtractor-9999.ebuild, metadata.xml:
+  Added use flag descriptions
+  Removed no-herd from metadata.xml
+  Updated EAPI
+  Removed unused inherits
+  Shortened DESCRIPTION
+  Corrected svn repository URI
+  Added lilv use flag
+  Use autotools-utils
+  Minor cleanup
+
+  12 Nov 2012; Karl Linden <spray.sucks@gmail.com>
   qtractor-9999.ebuild:
   fixed copyright notice
   moved to EAPI 3
