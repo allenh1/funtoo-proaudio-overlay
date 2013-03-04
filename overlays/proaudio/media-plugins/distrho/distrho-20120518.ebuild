@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -21,10 +21,11 @@ RDEPEND="media-libs/alsa-lib
 	sci-libs/fftw:3.0
 	x11-libs/libX11
 	x11-libs/libXext
-	x11-libs/qt-core:4
-	x11-libs/qt-gui:4"
+	dev-qt/qtcore:4
+	dev-qt/qtgui:4"
 DEPEND="${RDEPEND}
 	=dev-util/premake-3.7
+	sys-apps/findutils
 	virtual/pkgconfig"
 
 S=${WORKDIR}/${PN}
