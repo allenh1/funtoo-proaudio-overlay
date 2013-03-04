@@ -25,8 +25,8 @@ LICENSE="GPL-2"
 
 SLOT="0"
 
-RDEPEND="x11-libs/qt-core
-x11-libs/qt-gui
+RDEPEND="dev-qt/qtcore
+dev-qt/qtgui
 alsa? ( media-libs/alsa-lib )
 jack? ( media-sound/jack-audio-connection-kit )
 lv2? ( media-libs/lv2 )"
