@@ -1,6 +1,10 @@
 # ChangeLog for media-sound/fmit
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  04 Mar 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  fmit-0.99.2.ebuild, fmit-9999.ebuild:
+  modify depends x11-libs/qt-* -> dev-qt/
 
 *fmit-0.99.2 (17 Oct 2012)
 

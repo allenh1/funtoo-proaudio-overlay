@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -18,9 +18,9 @@ IUSE="alsa debug jack oss portaudio"
 
 DEPEND=">=media-libs/freeglut-2.6.0
 	>=sci-libs/fftw-3.2.2:3.0
-	>=x11-libs/qt-core-4.6.3
-	>=x11-libs/qt-gui-4.6.3
-	>=x11-libs/qt-opengl-4.6.3
+	>=dev-qt/qtcore-4.6.3:4
+	>=dev-qt/qtgui-4.6.3:4
+	>=dev-qt/qtopengl-4.6.3:4
 	alsa? ( >=media-libs/alsa-lib-1.0.23 )
 	jack? ( >=media-sound/jack-audio-connection-kit-0.118.0 )
 	portaudio? ( media-libs/portaudio )"
