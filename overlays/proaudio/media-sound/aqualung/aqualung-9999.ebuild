@@ -22,11 +22,8 @@ SLOT="0"
 
 KEYWORDS=""
 
-# Won't compile with cdda support against >=libcdio-0.90 due to changes in the library
-# Remove the "<" in "<dev-libs/libcdio-0.90" when the issue is resolved
-# 	Karl Lindén 19 Jan 2013 
 RDEPEND="alsa? ( media-libs/alsa-lib )
-	cdda? ( <dev-libs/libcdio-0.90 )
+	cdda? ( dev-libs/libcdio )
 	cddb? ( amd64? ( >=media-libs/libcddb-1.3.0 ) )
 	encode? ( lame? ( media-sound/lame ) )
 	ffmpeg? ( virtual/ffmpeg )
