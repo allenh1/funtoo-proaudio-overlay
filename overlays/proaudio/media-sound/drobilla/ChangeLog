@@ -4,6 +4,10 @@
 
   07 Mar 2013; Matt Henley (nwmatt) <nwmatt@gmail.com>
   drobilla-9999.ebuild:
+  Fix typo in previous change. Tested properly this time. 
+
+  07 Mar 2013; Matt Henley (nwmatt) <nwmatt@gmail.com>
+  drobilla-9999.ebuild:
   Fix typo in previous change.
 
   05 Mar 2013; Matt Henley (nwmatt) <nwmatt@gmail.com>
