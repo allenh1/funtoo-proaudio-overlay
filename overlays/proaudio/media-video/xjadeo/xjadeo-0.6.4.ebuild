@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -24,9 +24,8 @@ RDEPEND=">=media-sound/jack-audio-connection-kit-0.100
 
 DEPEND="${RDPEND}
 	>=sys-libs/zlib-1.2.2
-	qt4? ( || ( x11-libs/qt-qt3support
-		>=x11-libs/qt-4:4[qt3support] )
-		>=x11-libs/qt-test-4:4
+	qt4? ( dev-qt/qt3support
+		>=dev-qt/qttest-4:4
 	)
 	virtual/pkgconfig"
 

@@ -1,6 +1,9 @@
 # ChangeLog for media-video/xjadeo
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  08 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  yjadeo-0.6.4.ebuild: moved depend to dev-qt/*
 
 *xjadeo-0.6.4 (30 Dec 2012)
 
