@@ -2,6 +2,10 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  05 Mar 2013; Matt Henley (nwmatt) <nwmatt@gmail.com>
+  drobilla-9999.ebuild:
+  modify qt4 deps from x11-libs/qt* to dev-qt/
+
   02 Feb 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   drobilla-9999.ebuild:
   Drobilla will not build against <lv2-1.3.1, dependency on lv2-9999 is 

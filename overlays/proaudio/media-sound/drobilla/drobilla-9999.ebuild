@@ -42,8 +42,8 @@ RDEPEND="!media-plugins/omins
 	alsa? ( media-libs/alsa-lib )
 	gtk? ( >=x11-libs/gtk+-2.22.1-r1:2 )
 	lash? ( dev-libs/dbus-glib )
-	qt4? ( >=x11-libs/qt-core-4.0
-		>=x11-libs/qt-gui-4.0 )"
+	qt4? ( qt-dev/qtcore:4
+	       qt-dev/qt-gui:4 )"
 
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
