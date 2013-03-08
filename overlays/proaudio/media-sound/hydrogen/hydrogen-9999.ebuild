@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -17,16 +17,14 @@ KEYWORDS=""
 IUSE="alsa debug jack jacksession ladspa lash lrdf portaudio portmidi rubberband"
 
 RDEPEND="
-	|| ( (
-			x11-libs/qt-core:4
-			x11-libs/qt-gui:4 )
-			>=x11-libs/qt-4.4:4	)
+	dev-qt/qtcore:4
+	dev-qt/qtgui:4
 	dev-libs/libxml2
 	media-libs/libsndfile
 	media-libs/audiofile
 	dev-libs/libtar
 	media-libs/rubberband
-	x11-libs/qt-xmlpatterns
+	dev-qt/qtxmlpatterns
 	portaudio? ( >=media-libs/portaudio-18.1 )
 	portmidi? ( media-libs/portmidi )
 	alsa? ( media-libs/alsa-lib )

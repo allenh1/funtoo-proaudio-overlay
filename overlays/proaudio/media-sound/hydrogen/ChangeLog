@@ -2,6 +2,10 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  07 Mar 2013; Matt Henley (nwmatt) <nwmatt@gmail.com>
+  hyrdogen-0.9.5.1.ebuild, hydrogen-9999.ebuild:
+  modify qt4 deps from x11-libs/qt* to dev-qt/
+
   13 Dec 2012; Karl Lindén (lilrc) <lilrc@users.sourceforge.net>
   hyrdogen-0.9.5.1.ebuild, hydrogen-9999.ebuild:
   replaced dependency on media-sound/lash with virtual/liblash
