@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -16,46 +16,47 @@ SLOT="3"
 KEYWORDS=""
 IUSE="altivec debug doc freesound nls sse lv2 vst wiimote"
 
-RDEPEND="media-libs/liblo
-	>=media-libs/taglib-1.5
-	media-libs/aubio
-	>=media-libs/liblrdf-0.4.0
-	>=media-libs/raptor-1.4.2[curl]
-	>=media-sound/jack-audio-connection-kit-0.120.1
-	>=dev-libs/glib-2.2
-	x11-libs/pango
-	>=x11-libs/gtk+-2.8.8
-	media-libs/flac
-	>=media-libs/alsa-lib-1.0.14a-r1
-	>=media-libs/libsamplerate-0.1.1-r1
-	>=dev-libs/libxml2-2.6.0
-	dev-libs/libxslt
-	>=media-libs/libsndfile-1.0.18_pre24
-	|| ( >=media-libs/suil-0.6.2 =media-sound/drobilla-9999 )
-	gnome-base/libgnomecanvas
-	x11-themes/gtk-engines
+RDEPEND="dev-cpp/cairomm
 	>=dev-cpp/gtkmm-2.12.3
 	>=dev-cpp/glibmm-2.14.2
 	>=dev-cpp/libgnomecanvasmm-2.20.0
-	dev-cpp/cairomm
+	>=dev-libs/glib-2.2
 	>=dev-libs/libsigc++-2.0
+	>=dev-libs/libxml2-2.6.0
+	dev-libs/libxslt
+	|| ( ( dev-libs/serd =media-sound/drobilla-9999 ) )
+	gnome-base/libgnomecanvas
+	>=media-libs/alsa-lib-1.0.14a-r1
+	media-libs/aubio
+	media-libs/flac
+	media-libs/liblo
+	>=media-libs/liblrdf-0.4.0
+	>=media-libs/libsamplerate-0.1.1-r1
+	>=media-libs/libsndfile-1.0.18_pre24
 	media-libs/libsoundtouch
-	virtual/libusb
+	>=media-libs/raptor-1.4.2[curl]
+	|| ( >=media-libs/suil-0.6.2 =media-sound/drobilla-9999 )
+	>=media-libs/taglib-1.5
+	>=media-sound/jack-audio-connection-kit-0.120.1
 	=sci-libs/fftw-3*
+	virtual/libusb
+	>=x11-libs/gtk+-2.8.8
+	x11-libs/pango
+	x11-themes/gtk-engines
 	freesound? ( net-misc/curl )
 	lv2? ( || (
-		>=media-libs/lilv-0.14.0
+		( >=media-libs/lilv-0.14.0 )
 		=media-sound/drobilla-9999
 	) )
 	wiimote? ( app-misc/cwiid )"
 
 DEPEND="${RDEPEND}
-	sys-devel/libtool
 	dev-libs/boost
-	virtual/pkgconfig
 	>=dev-util/scons-0.98.5
-	nls? ( sys-devel/gettext )
-	doc? ( app-doc/doxygen )"
+	sys-devel/libtool
+	virtual/pkgconfig
+	doc? ( app-doc/doxygen )
+	nls? ( sys-devel/gettext )"
 
 src_unpack() {
 	subversion_src_unpack
