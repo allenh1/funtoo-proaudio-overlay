@@ -1,6 +1,9 @@
 # ChangeLog for media-sound/chordata
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header$
+
+  08 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  Moved depend to qt-dev/* in both ebuilds
 
   17 Oct 2012; Dominique Michel <dominique_libre@sourceforge.net>
   Updated both ebuilds to qt4-r2 eclass

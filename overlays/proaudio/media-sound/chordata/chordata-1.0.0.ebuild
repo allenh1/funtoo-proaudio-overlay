@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -18,8 +18,9 @@ IUSE=""
 RDEPEND=">=media-libs/libclam-1.4.0
 	<media-libs/libclam-9999
 	>=media-sound/NetworkEditor-1.4.0
-	|| ( ( x11-libs/qt-core x11-libs/qt-gui x11-libs/qt-opengl )
-			>=x11-libs/qt-4.4:4 )"
+	dev-qt/qtcore
+	dev-qt/qtgui
+	dev-qt/qtopengl"
 
 DEPEND="${RDEPEND}
 	dev-util/scons"
@@ -37,7 +38,6 @@ src_compile() {
 }
 
 src_install() {
-	cd "${S}"
 	dodir /usr
 	addpredict /usr/share/clam/sconstools
 
