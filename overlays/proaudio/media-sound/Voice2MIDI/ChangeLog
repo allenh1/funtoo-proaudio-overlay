@@ -2,6 +2,9 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  09 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  Moved QT depends to dev-qt/* in all ebuilds; cleanup
+
   17 Oct 2012; Dominique Michel <dominique_libre@sourceforge.net>
   -Voice2;IDI-0.3.6-r1.ebuild, deprecated due to qt3 depend
   All the remaining ebuilds: updated to qt4-r2 eclass

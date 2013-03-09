@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -21,12 +21,12 @@ RESTRICT="mirror"
 
 PYTHON_DEPEND="2:7"
 
-DEPEND="dev-util/scons
-	>=media-libs/libclam-9999
- 	|| ( ( x11-libs/qt-core x11-libs/qt-gui 
- 		x11-libs/qt-xmlpatterns x11-libs/qt-opengl
- 		x11-libs/qt-svg )
- 		>=x11-libs/qt-4:4 )"
+DEPEND=">=media-libs/libclam-9999
+	dev-qt/qtcore
+	dev-qt/qtgui
+	dev-qt/qtxmlpatterns
+	dev-qt/qtopengl
+	dev-qt/qtsvg"
 
 RDEPEND="${DEPEND}
 	media-gfx/imagemagick"
@@ -55,21 +55,21 @@ src_unpack() {
 
 src_compile() {
 	# required for scons to "see" intermediate install location
-	mkdir -p ${D}/usr
+	mkdir -p "${D}"/usr
 	addpredict /usr/share/clam/sconstools
 
-	cd ${MY_S} || die
+	cd "${MY_S}" || die
 	scons clam_prefix=/usr DESTDIR="${D}/usr" prefix="${D}/usr" release=yes || die "Build failed"
 }
 
 src_install() {
-	cd ${MY_S}
+	cd "${MY_S}"
 	dodir /usr
 	addpredict /usr/share/clam/sconstools
 
 	scons install || die "scons install failed"
 
-	dodoc CHANGES COPYING README
+	dodoc CHANGES README
 
 	make_desktop_entry ${PN} Voice2MIDI ${PN} \
 		"AudioVideo;Audio;Midi;"
