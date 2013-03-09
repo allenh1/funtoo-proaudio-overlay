@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -16,8 +16,8 @@ IUSE=""
 
 EGIT_REPO_URI="git://qmidiarp.git.sourceforge.net/gitroot/qmidiarp/qmidiarp"
 
-DEPEND=">=x11-libs/qt-core-4.2:4
-	>=x11-libs/qt-gui-4.2:4
+DEPEND=">=dev-qt/qtcore-4.2:4
+	>=dev-qt/qtgui-4.2:4
 	>=media-sound/jack-audio-connection-kit-0.103.0
 	>=media-libs/alsa-lib-0.9.0"
 RDEPEND="${DEPEND}"

@@ -2,6 +2,14 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  09 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  qmidiarp-9999.ebuild, qmidiarp-0.5.1.ebuild: Moved QT depends to dev-qt/*
+  qmidiarp-0.5.1.ebuild: use virtual/pkgconfig
+  -qmidiarp-0.5.0.ebuild
+  -qmidiarp-0.4.5.ebuild
+  -qmidiarp-0.4.4.ebuild
+  -qmidiarp-0.4.3.ebuild
+
   22 Apr 2010; Frieder Buerzele <evermind@tuxfamily.org>
   qmidiarp-9999.ebuild:
   fixup deps and workaround buggy configure.ac
