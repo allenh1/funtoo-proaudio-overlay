@@ -2,6 +2,9 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header$
 
+  09 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  Moved QT depends to dev-qt/* in both ebuilds
+
 *composite-9999 (10 Oct 2010)
 
   10 Oct 2010; Viktor Lazarev <taurus101v@gmail.com>
