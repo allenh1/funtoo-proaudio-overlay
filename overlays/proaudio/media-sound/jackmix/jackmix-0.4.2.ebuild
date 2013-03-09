@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -18,12 +18,13 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="media-sound/jack-audio-connection-kit
-	|| ( ( x11-libs/qt-core x11-libs/qt-gui x11-libs/qt-xmlpatterns )
-		>=x11-libs/qt-4.2:4 )
-		>=media-libs/liblo-0.23"
+	dev-qt/qtcore
+	dev-qt/qtgui
+	dev-qt/qtxmlpatterns
+	>=media-libs/liblo-0.23"
 DEPEND="${RDEPEND}
-		dev-util/scons
-		virtual/pkgconfig"
+	dev-util/scons
+	virtual/pkgconfig"
 
 src_prepare() {
 	esed_check -i -e "s/-Wall -Werror -g -fpic/${CXXFLAGS}/" SConstruct
