@@ -3,6 +3,10 @@
 # NOTE: Please add your entry at the top!
 #
 
+# Dominique Michel <dominique@tuxfamily.ord> 09 Mar (2013)
+# Pld qt3 version, need bump to a qt4 version or removing
+=media-sound/rivendell-2.1.2
+
 # Dominique Michel <dominique@tuxfamily.ord> 12 Aug (2012)
 # Old ebuilds, they just don't work anymore. Fix or removing needed.
 =media-sound/museseq-1.0.1

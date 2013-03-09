@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -25,7 +25,7 @@ DEPEND="alsa? ( media-libs/alsa-lib )
 	media-libs/libsndfile
 	media-libs/libsoundtouch
 	virtual/mysql
-	x11-libs/qt-meta:3[mysql]"
+	dev-qt/qtsql[mysql]"
 RDEPEND="${DEPEND}
 	lame? ( media-sound/lame )
 	twolame? ( media-sound/twolame )

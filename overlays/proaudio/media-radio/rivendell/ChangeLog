@@ -1,6 +1,11 @@
 # ChangeLog for media-radio/rivendell
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  09 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  rivendell-2.1.2.ebuild: Changed the QT depends to dev-qt/*
+  -rivendell-2.0.2
+  -rivendell-2.1.1
 
 *rivendell-2.1.2 (30 Dec 2011)
 
