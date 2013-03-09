@@ -1,6 +1,15 @@
 # ChangeLog for media-sound/ghostess
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  09 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  ghostess-20120105.ebuild, metadata.xml:
+  Removed jackmidi inherit
+  Made repoman happy
+  Added EAPI
+  Use autotools-utils
+  Removed no-herd from metadata.xml
+  Clenup
 
   29 Jul 2012; Dominique Michel <dominique@tuxfamily.org>
   +ghostess-20120105.ebuild: version bump
