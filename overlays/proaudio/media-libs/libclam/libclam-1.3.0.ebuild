@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -15,13 +15,12 @@ SRC_URI="http://clam-project.org/download/src/${MY_P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 x86"
-IUSE="doc double jack ladspa osc fftw fft alsa optimize qt3 sndfile vorbis mad portaudio"
+IUSE="doc double jack ladspa osc fftw fft alsa optimize sndfile vorbis mad portaudio"
 # portmidi"
 
 RESTRICT="mirror"
 
-DEPEND=">=dev-util/scons-0.96.92
-	ladspa? ( media-libs/ladspa-sdk )
+DEPEND="ladspa? ( media-libs/ladspa-sdk )
 	=dev-libs/xerces-c-2.7*
 	fftw? ( =sci-libs/fftw-3* )
 	virtual/opengl
@@ -39,8 +38,6 @@ DEPEND=">=dev-util/scons-0.96.92
 	x11-libs/libXext
 	x11-libs/libXft
 	x11-libs/libXi
-	qt3? ( =x11-libs/qt-3* )
-	app-doc/doxygen
 	dev-util/cppunit
 	osc? ( media-libs/oscpack )"
 

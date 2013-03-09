@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -34,7 +34,7 @@ RDEPEND="
 	x11-libs/libXext
 	x11-libs/libXft
 	x11-libs/libXi
-	x11-libs/qt-gui:4
+	dev-qt/qtgui:4
 	ladspa? ( media-libs/ladspa-sdk )
 	xercesc? ( <dev-libs/xerces-c-3 )
 	xmlpp? ( dev-cpp/libxmlpp:2.6 )

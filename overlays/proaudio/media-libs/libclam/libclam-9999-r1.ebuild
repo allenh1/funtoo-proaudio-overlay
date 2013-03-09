@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -17,7 +17,7 @@ ESVN_PROJECT="clam"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="doc double fft fftw jack ladspa lv2 mad optimize osc portaudio portmidi qt3 rtaudio sndfile vorbis xercesc +xmlpp"
+IUSE="doc double fft fftw jack ladspa lv2 mad optimize osc portaudio portmidi rtaudio sndfile vorbis xercesc +xmlpp"
 RESTRICT="mirror"
 
 PYTHON_DEPEND="2:7"
@@ -42,7 +42,7 @@ RDEPEND="ladspa? ( media-libs/ladspa-sdk )
 	x11-libs/libXext
 	x11-libs/libXft
 	x11-libs/libXi
-	qt3? ( =x11-libs/qt-3* )
+	dev-qt/qtgui:4
 	dev-util/cppunit
 	osc? ( media-libs/oscpack )"
 
@@ -117,7 +117,7 @@ src_compile() {
 	    myconf="${myconf} with_mad=no"
 	    myconf="${myconf} with_id3=no" # workaround buggy buildsys
 	fi
-	if use mad; then # was ! use id3 
+	if use mad; then # was ! use id3
 	    myconf="${myconf} with_mad=yes"
 	    myconf="${myconf} with_id3=yes" # was no
 	fi
