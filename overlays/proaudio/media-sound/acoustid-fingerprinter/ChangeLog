@@ -2,6 +2,9 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  09 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  acourstid-fingerprinter-0.5.1: Moved QT depends to dev-qt/*; repoman cleanup
+
 *acoustid-fingerprinter-0.5.1 (14 Mar 2012)
 
   14 Mar 2012; Emery Hemingway <emery@vfemail.net>
