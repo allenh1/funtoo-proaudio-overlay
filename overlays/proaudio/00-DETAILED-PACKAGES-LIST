@@ -1668,13 +1668,6 @@
 	Homepage:    http://drc-fir.sourceforge.net
 
 
-#------- media-sound/qamix --------
-	qamix-0.0.7e	arch: ~x86 ~amd64
-	Description: Configurable mixer for ALSA, with MIDI connectivity.
-		
-	Homepage:    http://alsamodular.sourceforge.net/
-
-
 #------- media-sound/openoctave-midi --------
 	openoctave-midi-9999	arch: -*
 	Description: OpenOctave MIDI sequencer
@@ -1809,9 +1802,6 @@
 
 
 #------- media-sound/jackmix --------
-	jackmix-0.2	arch: ~amd64 ~x86
-	jackmix-0.3.1	arch: ~amd64 ~x86
-	jackmix-0.4.1	arch: ~amd64 ~x86
 	jackmix-0.4.2	arch: ~amd64 ~x86
 	Description: A mixer app for jack
 	Homepage:    http://www.arnoldarts.de/JackMix%3Aintro

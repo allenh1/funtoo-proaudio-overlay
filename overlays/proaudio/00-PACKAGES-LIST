@@ -97,7 +97,6 @@ media-sound/jack_convolve
 media-sound/paulstretch
 media-sound/gdam
 media-sound/drc
-media-sound/qamix
 media-sound/openoctave-midi
 media-sound/traverso
 media-sound/jackctlmmc
