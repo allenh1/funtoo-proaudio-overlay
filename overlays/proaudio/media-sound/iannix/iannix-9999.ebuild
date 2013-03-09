@@ -33,12 +33,12 @@ RDEPEND="dev-qt/qtcore
 	media-libs/alsa-lib
 	x11-libs/gdk-pixbuf"
 
-pkg_setup() {
-	if ! has_version x11-libs/qt-opengl && ! built_with_use =x11-libs/qt-4* opengl; then
-		eerror "You need to build qt4 with opengl support to have it in ${PN}"
-		die "Enabling opengl for $PN requires qt4 to be built with opengl support"
-	fi
-}
+#pkg_setup() {
+#	if ! has_version dev-qt/qtopengl && ! built_with_use =dev-qt/qt-4* opengl; then
+#		eerror "You need to build qt4 with opengl support to have it in ${PN}"
+#		die "Enabling opengl for $PN requires qt4 to be built with opengl support"
+#	fi
+#}
 
 src_unpack() {
 	git-2_src_unpack
