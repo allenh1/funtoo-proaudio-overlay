@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd>no-herd</herd>
 	<maintainer>
 		<email>proaudio@tuxfamily.org</email>
 		<name>pro-audio overlay team</name>
@@ -16,6 +15,5 @@
 		<flag name="osc">Enable OSC support</flag>
 		<flag name="python">Enable python control module build</flag>
 		<flag name="vst">Enable obsolated vst support trough fst/wine</flag>
-		<flag name="zynaddsubfx">Enable zynaddsubfx support</flag>
 	</use>
 </pkgmetadata>

@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -20,9 +20,11 @@ SLOT="1"
 KEYWORDS=""
 IUSE="doc +dssi -experimental fluidsynth lash optimization +osc -python -vst"
 
-RDEPEND="|| ( ( x11-libs/qt-core x11-libs/qt-gui x11-libs/qt-xmlpatterns
-		x11-libs/qt-qt3support x11-libs/qt-svg )
-		>=x11-libs/qt-4.2:4[qt3support] )
+RDEPEND="dev-qt/qtcore
+	dev-qt/qtgui
+	dev-qt/qtxmlpatterns
+	dev-qt/qt3support
+	dev-qt/qtsvg
 	>=media-libs/alsa-lib-1.0
 	>=media-sound/fluidsynth-1.0.3
 	dev-lang/perl
@@ -71,10 +73,10 @@ src_prepare() {
 
 	# copy over correct header from ardour in case of amd64
 	use amd64 && cp "${FILESDIR}/sse_functions_64bit.s" al/dspSSE.cpp || die "cd failed"
-	
+
 	# patch gor correct build with USE=experimental
 	sed -i -e 's:-DBUILD_EXPERIMENTAL ${CMAKE_CXX_FLAGS}:"-DBUILD_EXPERIMENTAL ${CMAKE_CXX_FLAGS}":' \
-	${S}/CMakeLists.txt || die "sed failed"
+	"${S}"/CMakeLists.txt || die "sed failed"
 }
 
 src_configure() {

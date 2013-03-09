@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -19,8 +19,8 @@ KEYWORDS="~amd64 ~x86"
 IUSE="debug doc fluidsynth lash pch"
 # how about "dssi (open)jade sse vst/win"?
 RDEPEND="
-	x11-libs/qt-core:4[qt3support]
-	x11-libs/qt-gui:4[qt3support]
+	dev-qt/qtcore:4[qt3support]
+	dev-qt/qtgui:4[qt3support]
 	>=media-libs/alsa-lib-0.9.0
 	fluidsynth? ( >=media-sound/fluidsynth-1.0.3 )
 	dev-lang/perl

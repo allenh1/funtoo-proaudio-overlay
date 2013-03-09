@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/media-sound/museseq/museseq-0.9.ebuild,v 1.4 2008/07/27 21:30:21 carlo Exp $
 
@@ -20,8 +20,8 @@ IUSE="doc lash debug"
 MY_PN=${PN/museseq/muse}
 
 RDEPEND="
-	x11-libs/qt-core:4[qt3support]
-	x11-libs/qt-gui:4[qt3support]
+	dev-qt/qtcore:4[qt3support]
+	dev-qt/qtgui:4[qt3support]
 	>=media-libs/alsa-lib-0.9.0
 	>=media-sound/fluidsynth-1.0.3
 	dev-lang/perl
@@ -31,7 +31,7 @@ RDEPEND="
 	lash? ( >=media-sound/lash-0.5.0 )"
 
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig
+	virtual/pkgconfig
 	doc? ( app-text/openjade
 		app-doc/doxygen
 		media-gfx/graphviz )"
