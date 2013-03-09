@@ -35,7 +35,7 @@ pkg_setup() {
 #		eerror "You need to build qt4 with opengl support to have it in ${PN}"
 #		die "Enabling opengl for $PN requires qt4 to be built with opengl support"
 #	fi
-#	if ! has_version x11-libs/qt-qt3support && ! built_with_use =dev-qt/qt3support; then
+#	if ! has_version dev-qt/qt3support && ! built_with_use =dev-qt/qt3support; then
 #		eerror "You need to build qt4 with qt3support support to have it in ${PN}"
 #		die "Enabling qt3support for $PN requires qt4 to be built with qt3support support"
 #	fi
