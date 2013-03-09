@@ -1,8 +1,8 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=1
+EAPI="5"
 
 inherit multilib
 
@@ -20,30 +20,21 @@ RDEPEND=">=dev-cpp/gtkmm-2.8.8:2.4"
 DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )"
 
-src_unpack() {
-	unpack ${A}
-	cd "${S}"
+src_prepare() {
 	# ar doesn't really like ldflags
 	sed -e 's:ar rcs $$@ $$^ $(LDFLAGS) $$($(2)_LDFLAGS):ar rcs $$@ $$^:' \
 		-i Makefile.template || die
 }
 
 src_compile() {
-	./configure \
-		--prefix=/usr \
-		--CFLAGS="${CFLAGS}" \
-		|| die "configure failed"
-	emake || die "emake failed"
+	default
 	if use doc; then
 		doxygen || die "making docs failed"
 	fi
 }
 
 src_install() {
-	make DESTDIR="${D}" \
-		libdir="/usr/$(get_libdir)" \
-		docdir="/usr/share/doc/${PF}" \
-		install || die "install failed"
+	default
 	if use doc; then
 		dohtml -r html/*
 	fi
