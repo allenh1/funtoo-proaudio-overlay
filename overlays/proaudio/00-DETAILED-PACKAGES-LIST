@@ -2119,13 +2119,6 @@
 	Homepage:    http://.sourceforge.net/
 
 
-#------- media-sound/qoscc --------
-	qoscc-0.3.1	arch: ~x86 ~amd64
-	Description: Highly flexible and configurable software
-		 oscilloscope.
-	Homepage:    http://flup.homelinux.org/qoscc.html
-
-
 #------- media-sound/qmidiarp --------
 	qmidiarp-0.5.1	arch: ~amd64 x86
 	qmidiarp-9999	arch: -> live ebuild: [svn|cvs|...]<-
