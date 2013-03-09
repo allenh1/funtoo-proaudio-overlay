@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -20,8 +20,8 @@ SLOT="0"
 KEYWORDS=""
 IUSE="16bittmp alsa doc flac jack ladspa nls oss portaudio soundtouch vorbis"
 
-RDEPEND="|| ( ( x11-libs/qt-core x11-libs/qt-gui )
-				x11-libs/qt:4 )
+RDEPEND="dev-qt/qtcore
+	dev-qt/qtgui
 	sci-libs/fftw:3.0
 	ladspa? ( >=media-libs/ladspa-sdk-1.12
 			>=media-libs/ladspa-cmt-1.15 )
@@ -36,7 +36,7 @@ RDEPEND="|| ( ( x11-libs/qt-core x11-libs/qt-gui )
 DEPEND="${RDEPEND}
 	doc? ( sys-devel/gettext
 		virtual/libintl )
-	dev-util/pkgconfig"
+	virtual/pkgconfig"
 
 src_unpack() {
 	unpack ${A}
