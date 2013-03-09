@@ -1214,12 +1214,6 @@
 	Homepage:    http://xmms2.xmms.org
 
 
-#------- media-sound/freecycle --------
-	freecycle-0.6.1.1_alpha	arch: -*
-	Description: Freecycle is a beat slicer
-	Homepage:    http://www.redsteamrecords.com/freecycle/
-
-
 #------- media-sound/fluidsynth --------
 	fluidsynth-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: Fluidsynth is a software real-time synthesizer
