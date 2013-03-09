@@ -2391,15 +2391,6 @@
 	Homepage:    http://swami.sourceforge.net
 
 
-#------- media-sound/ldrum --------
-	ldrum-0.6.0-r1	arch: -*
-	Description: The LDrum is an open-source drummachine that
-		 offers ten sample channels, realtime control,
-		 a simple pattern sequencer, MIDI support and a
-		 Qt-GUI
-	Homepage:    http://ldrum.sf.net/
-
-
 #------- media-sound/acoustid-fingerprinter --------
 	acoustid-fingerprinter-0.5.1	arch: amd64
 	Description: GUI application to submit audio fingerprints
@@ -2479,10 +2470,7 @@
 
 
 #------- media-sound/Annotator --------
-	Annotator-0.3.10	arch: ~amd64 x86
-	Annotator-0.3.8-r1	arch: ~amd64 x86
-	Annotator-0.3.9	arch: ~amd64 x86
-	Annotator-0.5.0	arch: ~amd64 x86
+	Annotator-0.5.0	arch: ~amd64 ~x86
 	Annotator-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: CLAM Music Annotator can visualize, check
 		 and modify music information extracted from
