@@ -2,6 +2,13 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header$
 
+  09 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  stretchplayer-0.503.ebuild; stretchplayer-9999.ebuild: Moved QT depends to dev-qt/*;
+  repoman cleanup
+  -stretchplayer-0.500
+  -stretchplayer-0.501
+  -stretchplayer-0.502
+
 *stretchplayer-0.503 (08 Aug 2010)
 
   08 Aug 2010; Viktor Lazarev <taurus101v@gmail.com>

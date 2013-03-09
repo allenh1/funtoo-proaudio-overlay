@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -18,8 +18,8 @@ IUSE="debug"
 RESTRICT="mirror"
 
 RDEPEND="media-libs/rubberband
-	>=x11-libs/qt-core-4.5:4
-	>=x11-libs/qt-gui-4.5:4
+	>=dev-qt/qtcore-4.5:4
+	>=dev-qt/qtgui-4.5:4
 	media-libs/libsndfile
 	media-sound/jack-audio-connection-kit"
 
