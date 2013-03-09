@@ -1,8 +1,8 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=1
+EAPI=5
 
 inherit multilib
 
@@ -15,8 +15,9 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="x86 amd64"
 
-DEPEND="|| ( ( x11-libs/qt-core x11-libs/qt-gui x11-libs/qt-xmlpatterns )
-		>=x11-libs/qt-4:4 )
+DEPEND="dev-qt/qtcore
+	dev-qt/qtgui
+	dev-qt/qtxmlpatterns
 	>=x11-libs/qwt-5.0.0_rc0
 	media-sound/jack-audio-connection-kit
 	>=media-libs/libsndfile-1.0
@@ -29,5 +30,5 @@ src_compile() {
 
 src_install() {
 	dobin bin/qloud || die "Binary installation failed"
-	dodoc INSTALL COPYING README || die "Doc installation failed"
+	dodoc INSTALL README || die "Doc installation failed"
 }
