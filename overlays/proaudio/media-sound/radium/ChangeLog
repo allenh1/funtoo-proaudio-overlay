@@ -1,7 +1,9 @@
 # ChangeLog for media-sound/radium
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  9 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>;
+  radium-1.9.26.ebuild: moved QT depend to dev-qt/*
 
   29 Jan 2013; Dominique Michel <dominique_libre@sourceforge.net>;
   +radium-1.9.26.ebuild; -radium-1.9.2.ebuild: version bump;

@@ -17,7 +17,7 @@ SLOT="0"
 IUSE="+calf debug"
 LICENSE="GPL-2"
 
-DEPEND="x11-libs/qt-core[qt3support]
+DEPEND="dev-qt/qtcore[qt3support]
 	x11-libs/libXaw
 	media-libs/alsa-lib
 	media-sound/jack-audio-connection-kit
