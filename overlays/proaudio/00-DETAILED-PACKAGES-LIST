@@ -2083,13 +2083,6 @@
 	Homepage:    http://audacity.sourceforge.net/
 
 
-#------- media-sound/qlo10k1 --------
-	qlo10k1-0.1.2	arch: x86 ~amd64
-	Description: Gui for ld10k1 (EMU10K1 (EMU10K2) effect
-		 loader for ALSA)
-	Homepage:    http://ld10k1.sourceforge.net/
-
-
 #------- media-sound/beast --------
 	beast-0.7.4-r1	arch: ~amd64 ~ppc ~x86
 	Description: BEAST - the Bedevilled Sound Engine
@@ -2148,9 +2141,6 @@
 
 
 #------- media-sound/bpmdj --------
-	bpmdj-3.6	arch: ~amd64 ~x86 ~ppc
-	bpmdj-4.1	arch: ~amd64 ~x86 ~ppc
-	bpmdj-4.1-r1	arch: ~amd64 ~x86 ~ppc
 	bpmdj-4.2.4	arch: ~amd64 ~x86 ~ppc
 	Description: Bpmdj, software for measuring the BPM of
 		 music and mixing
@@ -2237,9 +2227,6 @@
 
 
 #------- media-sound/stretchplayer --------
-	stretchplayer-0.500	arch: ~x86 ~amd64
-	stretchplayer-0.501	arch: ~x86 ~amd64
-	stretchplayer-0.502	arch: ~x86 ~amd64
 	stretchplayer-0.503	arch: ~x86 ~amd64
 	stretchplayer-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: Audio player with time stretch and pitch
