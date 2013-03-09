@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -6,7 +6,7 @@ EAPI="2"
 
 CMAKE_IN_SOURCE_BUILD="1"
 
-inherit eutils qt4-r2 cmake-utils git
+inherit eutils qt4-r2 cmake-utils git-2
 
 DESCRIPTION="Professional Audio Tools for GNU/Linux"
 HOMEPAGE="http://traverso-daw.org/"
@@ -23,9 +23,9 @@ RDEPEND=">=media-libs/libsndfile-1.0.12
 	media-libs/libsamplerate
 	media-libs/libvorbis
 	media-sound/wavpack
-	sci-libs/fftw:3
-	x11-libs/qt-core:4
-	x11-libs/qt-gui:4
+	sci-libs/fftw:3.0
+	dev-qt/qtcore:4
+	dev-qt/qtgui:4
 	alsa? ( media-libs/alsa-lib )
 	jack? ( media-sound/jack-audio-connection-kit )
 	lame? ( media-sound/lame )
@@ -34,7 +34,7 @@ RDEPEND=">=media-libs/libsndfile-1.0.12
 		media-libs/slv2 )
 	mad? ( media-libs/libmad )
 	opengl? ( virtual/opengl
-		x11-libs/qt-opengl )
+		dev-qt/qtopengl )
 	portaudio? ( =media-libs/portaudio-19* )
 	pulseaudio? ( media-sound/pulseaudio )"
 	# Note: wavpack and vorbis are not configurable at this point
