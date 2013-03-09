@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -21,8 +21,8 @@ KEYWORDS="~x86 ~amd64"
 IUSE="ffmpeg gstreamer musepack mp3 sndfile speex taglib"
 
 DEPEND="dev-libs/glib:2
-	x11-libs/qt-gui
-	x11-libs/qt-svg
+	dev-qt/qtgui
+	dev-qt/qtsvg
 	ffmpeg? ( virtual/ffmpeg )
 	gstreamer? ( media-libs/gstreamer )
 	musepack? ( media-sound/musepack-tools )
