@@ -1,6 +1,9 @@
 # ChangeLog for media-sound/jmess
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  09 Mar 2013: Dominique Michel <dominique_libre@souurceforge.net>
+  jmess-1.0.1: Moved QT depend to dev-qt/*
 
 *jmess-1.0.1 (25 Aug 2012)
 
