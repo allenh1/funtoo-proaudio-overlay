@@ -1,6 +1,9 @@
 # ChangeLog for media-sound/qsampler
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  09 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  qsampler-9999.ebuild: Changed QT depend to dev-qt/*
 
   10 May 2012; Hakan Demiralp <keenblade@tuxfamily.org> qsampler-9999.ebuild:
   qsampler-9999: ebuild updated. Thanks to Natanael

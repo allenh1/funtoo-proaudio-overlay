@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -14,7 +14,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 IUSE=""
-RDEPEND="x11-libs/qt-gui:4
+RDEPEND="dev-qt/qtgui:4
 	>=media-libs/liblscp-0.5.5
 	>=media-libs/libgig-0.3.3
 	>=media-sound/linuxsampler-0.4
