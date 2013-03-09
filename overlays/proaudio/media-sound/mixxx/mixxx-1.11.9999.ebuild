@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -29,12 +29,12 @@ RDEPEND="dev-libs/protobuf
 	media-libs/vamp-plugin-sdk
 	virtual/glu
 	virtual/opengl
-	x11-libs/qt-gui:4
-	x11-libs/qt-opengl:4
-	x11-libs/qt-sql:4
-	x11-libs/qt-svg:4
-	x11-libs/qt-webkit:4
-	x11-libs/qt-xmlpatterns:4
+	dev-qt/qtgui:4
+	dev-qt/qtopengl:4
+	dev-qt/qtsql:4
+	dev-qt/qtsvg:4
+	dev-qt/qtwebkit:4
+	dev-qt/qtxmlpatterns:4
 	aac? (
 		media-libs/faad2
 		media-libs/libmp4v2:0
