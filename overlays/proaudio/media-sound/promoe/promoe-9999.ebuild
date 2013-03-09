@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -16,8 +16,8 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-RDEPEND=">=x11-libs/qt-gui-4.2
-	>=x11-libs/qt-core-4.2
+RDEPEND=">=dev-qt/qtgui-4.2
+	>=dev-qt/qtcore-4.2
 	>=media-sound/xmms2-0.4[cxx]"
 DEPEND="${RDEPEND}"
 
