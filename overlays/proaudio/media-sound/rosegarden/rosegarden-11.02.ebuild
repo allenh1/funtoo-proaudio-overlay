@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -15,8 +15,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="debug lirc"
 
-RDEPEND="x11-libs/qt-gui:4
-	x11-libs/qt-qt3support:4
+RDEPEND="dev-qt/qtgui:4
+	dev-qt/qt3support:4
 	media-libs/ladspa-sdk
 	x11-libs/libSM
 	media-sound/jack-audio-connection-kit
@@ -28,7 +28,7 @@ RDEPEND="x11-libs/qt-gui:4
 	media-libs/libsamplerate[sndfile]
 	lirc? ( app-misc/lirc )"
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig
+	virtual/pkgconfig
 	x11-misc/makedepend"
 
 src_prepare() {

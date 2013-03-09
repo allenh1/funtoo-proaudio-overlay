@@ -1,6 +1,6 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header:$
+# $Header: $
 
 EAPI="2"
 
@@ -17,7 +17,8 @@ SLOT="0"
 KEYWORDS=""
 IUSE="alsa jack dssi lirc debug lilypond export kde gnome"
 
-RDEPEND="|| ( ( x11-libs/qt-core x11-libs/qt-gui ) >=x11-libs/qt-4.3:4 )
+RDEPEND="dev-qt/qtcore
+	dev-qt/qtgui
 	alsa? ( >=media-libs/alsa-lib-1.0 )
 	lilypond? ( >=media-sound/lilypond-2.6.0
 		|| ( kde? ( kde-base/okular ) gnome? ( app-text/evince ) app-text/acroread ) )
@@ -37,7 +38,7 @@ RDEPEND="|| ( ( x11-libs/qt-core x11-libs/qt-gui ) >=x11-libs/qt-4.3:4 )
 
 DEPEND="${RDEPEND}
 	>=sys-devel/gcc-4.1
-	>=dev-util/pkgconfig-0.22"
+	virtual/pkgconfig"
 
 LANGS="ca cs cy de en_GB en es et fr it ja nl ru sv zh_CN"
 
