@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -19,13 +19,13 @@ RESTRICT="mirror"
 
 PYTHON_DEPEND="2:7"
 
-DEPEND="dev-util/scons
-	>=media-libs/libclam-1.4.0
+DEPEND=">=media-libs/libclam-1.4.0
 	<media-libs/libclam-9999
-	|| ( ( x11-libs/qt-core x11-libs/qt-gui
-		x11-libs/qt-xmlpatterns x11-libs/qt-opengl
-		x11-libs/qt-svg )
-		>=x11-libs/qt-4.4:4 )"
+	dev-qt/qtcore
+	dev-qt/qtgui
+	dev-qt/qtxmlpatterns
+	dev-qt/qtopengl
+	dev-qt/qtsvg"
 
 RDEPEND="${DEPEND}
 	media-gfx/imagemagick"
@@ -33,10 +33,10 @@ RDEPEND="${DEPEND}
 QTDIR=""
 
 pkg_setup() {
-	if ! has_version x11-libs/qt-opengl && ! built_with_use =x11-libs/qt-4* opengl; then
-		eerror "You need to build qt4 with opengl support to have it in ${PN}"
-		die "Enabling opengl for $PN requires qt4 to be built with opengl support"
-	fi
+#	if ! has_version dev-qt/qtopengl && ! built_with_use =dev-qt/qt-4* opengl; then
+#		eerror "You need to build qt4 with opengl support to have it in ${PN}"
+#		die "Enabling opengl for $PN requires qt4 to be built with opengl support"
+#	fi
 
 	set_python_active_version 2
 }
@@ -46,7 +46,6 @@ src_compile() {
 	mkdir -p "${D}/usr"
 	addpredict /usr/share/clam/sconstools
 
-	cd "${S}"
 	scons clam_prefix=/usr DESTDIR="${D}/usr" prefix="${D}/usr" \
 		qt_plugins_install_path="/lib/qt4/plugins/designer" || die "Build failed"
 	scons --help
@@ -55,13 +54,12 @@ src_compile() {
 }
 
 src_install() {
-	cd "${S}"
 	dodir /usr
 	addpredict /usr/share/clam/sconstools
 
 	scons install || die "scons install failed"
 
-	dodoc CHANGES COPYING README || die "dodoc failed"
+	dodoc CHANGES README || die "dodoc failed"
 	insinto /usr/share/pixmaps
 	doins *.xpm || die "install icons failed"
 }
