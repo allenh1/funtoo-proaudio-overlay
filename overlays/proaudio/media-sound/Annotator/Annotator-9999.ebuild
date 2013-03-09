@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -21,10 +21,10 @@ RESTRICT="mirror"
 
 PYTHON_DEPEND="2:7"
 
-DEPEND="dev-util/scons
-	>=media-libs/libclam-9999
-	|| ( ( x11-libs/qt-core x11-libs/qt-gui x11-libs/qt-opengl )
-			>=x11-libs/qt-4.1:4 )"
+DEPEND=">=media-libs/libclam-9999
+	dev-qt/qtcore
+	dev-qt/qtgui
+	dev-qt/qtopengl"
 
 RDEPEND="${DEPEND}
 	media-gfx/imagemagick"
@@ -39,7 +39,7 @@ pkg_setup() {
 
 src_compile() {
 	# required for scons to "see" intermediate install location
-	mkdir -p ${D}/usr/vmqt
+	mkdir -p "${D}"/usr/vmqt
 	addpredict /usr/share/clam/sconstools
 
 	cd ${MY_S}/vmqt
@@ -56,7 +56,7 @@ src_install() {
 
 	escons install || die "scons install failed"
 
-	dodoc CHANGES COPYING README todos || die "dodoc failed"
+	dodoc CHANGES README todos || die "dodoc failed"
 
 	if use doc; then
 		docinto examples/data
