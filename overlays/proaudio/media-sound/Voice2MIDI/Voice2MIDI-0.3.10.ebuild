@@ -28,16 +28,16 @@ RDEPEND="${DEPEND}"
 
 QTDIR=""
 
-pkg_setup() {
-	if ! has_version x11-libs/qt-opengl && ! built_with_use =x11-libs/qt-4* opengl; then
-		eerror "You need to build qt4 with opengl support to have it in ${PN}"
-		die "Enabling opengl for $PN requires qt4 to be built with opengl support"
-	fi
-	if ! has_version x11-libs/qt-qt3support && ! built_with_use =x11-libs/qt-4* qt3support; then
-		eerror "You need to build qt4 with qt3support support to have it in ${PN}"
-		die "Enabling qt3support for $PN requires qt4 to be built with qt3support support"
-	fi
-}
+#pkg_setup() {
+#	if ! has_version dev-qt/qtopengl && ! built_with_use =dev-qt/qtopengl; then
+#		eerror "You need to build qt4 with opengl support to have it in ${PN}"
+#		die "Enabling opengl for $PN requires qt4 to be built with opengl support"
+#	fi
+#	if ! has_version dev-qt/qt3support && ! built_with_use =dev-qt/qt3support; then
+#		eerror "You need to build qt4 with qt3support support to have it in ${PN}"
+#		die "Enabling qt3support for $PN requires qt4 to be built with qt3support support"
+#	fi
+#}
 
 src_compile() {
 	# required for scons to "see" intermediate install location
