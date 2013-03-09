@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -23,12 +23,12 @@ IUSE="doc -python -ruby userdoc"
 RDEPEND="python? ( >=dev-lang/python-2.5 )
 	sys-libs/zlib
 	media-libs/alsa-lib
-	>=x11-libs/qt-svg-4.4:4
-	>=x11-libs/qt-core-4.4:4
+	>=dev-qt/qtsvg-4.4:4
+	>=dev-qt/qtcore-4.4:4
 	ruby? ( dev-lang/ruby )
 	sys-libs/libunwind
 	media-sound/lilypond
-	x11-libs/qt-assistant:4"
+	dev-qt/qthelp:4"
 
 DEPEND="${REDEND}
 	dev-lang/swig
