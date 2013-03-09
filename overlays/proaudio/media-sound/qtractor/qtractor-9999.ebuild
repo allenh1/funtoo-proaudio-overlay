@@ -17,8 +17,8 @@ KEYWORDS=""
 
 IUSE="debug dssi ladspa libsamplerate lilv lv2 mad osc rubberband sse suil vorbis vst zlib"
 
-RDEPEND=">=x11-libs/qt-core-4.2:4
-	>=x11-libs/qt-gui-4.2:4
+RDEPEND=">=dev-qt/qtcore-4.2:4
+	>=dev-qt/qtgui-4.2:4
 	media-libs/alsa-lib
 	media-libs/libsndfile
 	media-sound/jack-audio-connection-kit
