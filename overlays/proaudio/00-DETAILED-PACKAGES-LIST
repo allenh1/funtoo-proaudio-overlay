@@ -2591,12 +2591,6 @@
 	Homepage:    http://essej.net/sooperlooper/index.html
 
 
-#------- media-sound/qarecord --------
-	qarecord-0.0.9b	arch: ~x86 ~amd64
-	Description: Multithreaded stereo recording tool.
-	Homepage:    http://alsamodular.sourceforge.net/
-
-
 #------- media-sound/canorus --------
 	canorus-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: a free extensible music score editor
