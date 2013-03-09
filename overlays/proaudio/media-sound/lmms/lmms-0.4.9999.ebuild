@@ -8,7 +8,6 @@ inherit eutils cmake-utils git-2
 EGIT_BRANCH="stable-0.4"
 EGIT_REPO_URI="git://lmms.git.sf.net/gitroot/lmms/lmms"
 
-
 DESCRIPTION="Free alternative to popular programs such as Fruityloops, Cubase and Logic"
 HOMEPAGE="http://lmms.sourceforge.net/"
 SRC_URI=""
@@ -19,8 +18,8 @@ KEYWORDS=""
 
 IUSE="alsa debug fftw fluidsynth jack ogg portaudio pulseaudio sdl stk vst"
 
-RDEPEND="x11-libs/qt-core:4
-	x11-libs/qt-gui:4[accessibility]
+RDEPEND="dev-qt/qtcore:4
+	dev-qt/qtgui:4[accessibility]
 	>=media-libs/libsndfile-1.0.11
 	>=media-libs/libsamplerate-0.1.7
 	x11-libs/libXinerama

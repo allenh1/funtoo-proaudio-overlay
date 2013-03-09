@@ -1,10 +1,10 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI="2"
 
-inherit eutils cmake-utils git
+inherit eutils cmake-utils git-2
 
 DESCRIPTION="free alternative to popular programs such as FruityLoops, Cubase and Logic"
 HOMEPAGE="http://lmms.sourceforge.net"
@@ -17,10 +17,8 @@ KEYWORDS=""
 
 IUSE="alsa debug fftw fluidsynth jack ogg pulseaudio sdl stk vst"
 
-RDEPEND="|| ( (
-				x11-libs/qt-core
-				x11-libs/qt-gui[accessibility]
-			) >=x11-libs/qt-4.3.0:4[accessibility] )
+RDEPEND="dev-qt/qtcore
+	dev-qt/qtgui[accessibility]
 	alsa? ( media-libs/alsa-lib )
 	fftw? ( =sci-libs/fftw-3* )
 	fluidsynth? ( media-sound/fluidsynth )

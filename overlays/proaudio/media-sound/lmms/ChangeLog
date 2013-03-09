@@ -2,6 +2,9 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  09 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  lmms-0.4.9999.ebuild; lmms-9999-r1.ebuild: Moved QT depends to dev-qt/*
+
 *lmms-0.4.9999 (03 Jan 2013)
 
   03 Jan 2013; Frieder Buerzele <evermind@tuxfamily.org>
