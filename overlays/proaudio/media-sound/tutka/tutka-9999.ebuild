@@ -1,8 +1,8 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /cvsroot/jacklab/gentoo/media-sound/tutka/tutka-0.12.3.ebuild,v 1.1 2006/04/10 17:19:53 gimpel Exp $
 
-EAPI=2
+EAPI=5
 inherit eutils git-2 qt4-r2
 
 RESTRICT="mirror"
@@ -13,11 +13,11 @@ EGIT_REPO_URI="git://git.sv.gnu.org/${PN}.git"
 
 LICENSE="GPL-2"
 SLOT="1"
-KEYWORDS="**"
+KEYWORDS=""
 
 DEPEND=">=media-libs/alsa-lib-0.9.0
-	x11-libs/qt-core
-	x11-libs/qt-gui"
+	dev-qt/qtcore
+	dev-qt/qtgui"
 #	jack? ( >=media-sound/jack-audio-connection-kit-0.90.0 )"
 
 DOCS=( AUTHORS NEWS README TODO )
