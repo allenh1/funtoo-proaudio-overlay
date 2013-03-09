@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -20,19 +20,18 @@ IUSE="examples"
 S="${WORKDIR}/IanniX"
 
 DEPEND="${RDEPEND}"
-RDEPEND="|| ( ( x11-libs/qt-core
-		x11-libs/qt-gui
-		x11-libs/qt-sql
-		x11-libs/qt-test
-		x11-libs/qt-opengl
-		x11-libs/qt-svg )
-		>=x11-libs/qt-4.7:4 )
-		media-libs/freetype
-		x11-libs/libSM
-		x11-libs/libXrender
-		media-libs/mesa
-		media-libs/alsa-lib
-		x11-libs/gdk-pixbuf"
+RDEPEND="dev-qt/qtcore
+	dev-qt/qtgui
+	dev-qt/qtsql
+	dev-qt/qttest
+	dev-qt/qtopengl
+	dev-qt/qtsvg
+	media-libs/freetype
+	x11-libs/libSM
+	x11-libs/libXrender
+	media-libs/mesa
+	media-libs/alsa-lib
+	x11-libs/gdk-pixbuf"
 
 pkg_setup() {
 	if ! has_version x11-libs/qt-opengl && ! built_with_use =x11-libs/qt-4* opengl; then
