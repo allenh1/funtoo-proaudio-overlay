@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -13,7 +13,7 @@ MIDI devices"
 HOMEPAGE="http://sourceforge.net/projects/sysexxer/"
 SRC_URI="mirror://sourceforge/sysexxer/${MY_P}-${PV}.tar.gz"
 
-LICENSE="GPL-2 as-is"
+LICENSE="GPL-2 HPND"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE=""
@@ -21,8 +21,8 @@ IUSE=""
 S="${WORKDIR}/${MY_P}-${PV}"
 
 DEPEND=">=media-libs/alsa-lib-1.0.9
-	x11-libs/qt-core:4
-	x11-libs/qt-gui:4"
+	dev-qt/qtcore:4
+	dev-qt/qtgui:4"
 RDEPEND="${DEPEND}"
 
 src_configure() {
