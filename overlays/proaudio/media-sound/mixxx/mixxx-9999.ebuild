@@ -51,7 +51,8 @@ S=${S}/${PN}
 
 src_prepare() {
 	epatch "${FILESDIR}"/${P}-cflags.patch
-	epatch "${FILESDIR}"/${P}-system-libs.patch
+	#Doesn't apply anymore
+#	epatch "${FILESDIR}"/${P}-system-libs.patch
 	epatch "${FILESDIR}"/${P}-docs.patch
 	epatch "${FILESDIR}"/${P}-no-bzr.patch
 
