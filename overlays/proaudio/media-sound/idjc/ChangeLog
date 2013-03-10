@@ -1,6 +1,11 @@
 # ChangeLog for media-sound/idjc
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*idjc-9999 (10 Nar 2013)
+
+  10 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  +idjc-9999.ebuild: Initial git ebuild
 
 *idjc-0.8.8 (04 Nov 2012)
 

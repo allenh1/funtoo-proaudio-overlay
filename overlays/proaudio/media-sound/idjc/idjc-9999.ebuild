@@ -6,15 +6,15 @@ EAPI=4
 
 PYTHON_DEPEND="2"
 
-inherit eutils python
+inherit autotools eutils python git-2
 
 RESTRICT="mirror"
 DESCRIPTION="Internet DJ Console has two media players, jingles player, crossfader, VoIP and streaming"
 HOMEPAGE="http://idjc.sourceforge.net/"
-SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
+EGIT_REPO_URI="git://${PN}.git.sourceforge.net/gitroot/${PN}/${PN}"
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS=""
 
 IUSE="aac flac mad vorbis wma"
 
@@ -38,10 +38,15 @@ pkg_setup() {
 }
 
 src_unpack() {
-	unpack ${A}
+	git-2_src_unpack
 }
 
 src_prepare() {
+	cd "${S}/docsrc"
+	make && make doc
+	cd "${S}"
+	eautoreconf
+
 	if has_version ">=media-video/ffmpeg-0.4.9_p20080326"; then
 		sed -i \
 			-e 's:ffmpeg/avcodec.h:libavcodec/avcodec.h:g' \
@@ -53,5 +58,6 @@ src_prepare() {
 
 src_install() {
 	make DESTDIR="${D}" install || die "Install failed"
+	dohtml doc/*
 #	python_convert_shebangs $(python_get_version) "${D}/usr/bin/idjcctrl"
 }
