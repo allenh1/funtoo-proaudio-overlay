@@ -2,6 +2,16 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*museseq-2.1.1 (10 Mar 2013)
+
+  10 Mar 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -museseq-1.0_rc1.ebuild, -museseq-1.0.1.ebuild, -museseq-1.9999.ebuild,
+  +museseq-2.1.1.ebuild, +files/museseq-2.1.1-cmake-rpath.patch,
+  museseq-2.9999.ebuild, -files/museseq-9999-find_fltk.patch,
+  -files/fix_zyn.patch, metadata.xml:
+  bump to 2.1.1 and freshen live ebuild. add patch for cmake rpath.
+  remove some patches and old 1.x ebuilds requiring qt3.
+
   09 Mar 2013; Dominique Michel <dominique@tuxfamily.org>
   Moved QT depend to dev-qt/* in all 4 ebuilds
 

@@ -3,15 +3,17 @@
 # $Header: $
 
 EAPI=5
-inherit cmake-utils toolchain-funcs flag-o-matic versionator subversion
+inherit cmake-utils toolchain-funcs flag-o-matic versionator
+
+MY_PV=$(get_version_component_range 1-2)
 
 DESCRIPTION="The Linux (midi) MUSic Editor (a sequencer)"
 HOMEPAGE="http://www.muse-sequencer.org/"
-ESVN_REPO_URI="https://lmuse.svn.sourceforge.net/svnroot/lmuse/trunk/muse2"
+SRC_URI="mirror://sourceforge/lmuse/muse-${MY_PV}/muse-${PV}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="1"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="doc dssi fluidsynth lash osc vst"
 REQUIRED_USE=""
 
@@ -33,15 +35,10 @@ DEPEND="${CDEPEND}
 		   app-doc/doxygen
 		   media-gfx/graphviz )"
 
-S=${WORKDIR}/muse2
+S=${WORKDIR}/muse-${PV}
 RESTRICT="mirror"
 
-PATCHES=("${FILESDIR}"/${PN}-2.1.1-cmake-rpath.patch)
-
-src_prepare() {
-	base_src_prepare
-	subversion_src_prepare
-}
+PATCHES=("${FILESDIR}"/${P}-cmake-rpath.patch)
 
 src_configure() {
 	local mycmakeargs=(
@@ -53,3 +50,7 @@ src_configure() {
 	)
 	cmake-utils_src_configure
 }
+
+#src_compile() {
+#	cmake-utils_src_compile -j1
+#}
