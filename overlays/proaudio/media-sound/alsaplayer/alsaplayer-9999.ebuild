@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -16,14 +16,13 @@ HOMEPAGE="http://www.alsaplayer.org/"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE="alsa doc esd flac gtk jack mad mikmod nas nls ogg opengl oss vorbis systray xosd"
+IUSE="alsa doc flac gtk jack mad mikmod nas nls ogg opengl oss vorbis systray xosd"
 
 S="${WORKDIR}/${PN}"
 
 RDEPEND="media-libs/libsndfile
 	alsa? ( media-libs/alsa-lib )
 	mad? ( media-libs/libmad )
-	esd? ( media-sound/esound )
 	flac? ( media-libs/flac )
 	jack? ( >=media-sound/jack-audio-connection-kit-0.80.0 )
 	mikmod? ( >=media-libs/libmikmod-3.1.10 )
@@ -41,20 +40,19 @@ DEPEND="${RDEPEND}
 	gtk? ( >=x11-libs/gtk+-2.8 )
 	systray? ( >=x11-libs/gtk+-2.10 )"
 
+DOCS=( AUTHORS ChangeLog README TODO docs/wishlist.txt )
+
 src_prepare() {
 	./bootstrap || die "bootstrap failed"
 	autotools-utils_src_prepare
 }
 
 src_configure() {
-	use xosd ||
-		export ac_cv_lib_xosd_xosd_create="no"
+	use xosd || export ac_cv_lib_xosd_xosd_create="no"
 
-	use doc ||
-		export ac_cv_prog_HAVE_DOXYGEN="false"
+	use doc || export ac_cv_prog_HAVE_DOXYGEN="false"
 
 	local myeconfargs=(
-		$(use_enable esd)
 		$(use_enable flac)
 		$(use_enable jack)
 		$(use_enable mad)
@@ -67,14 +65,9 @@ src_configure() {
 		$(use_enable vorbis oggvorbis)
 		$(use_enable gtk gtk2)
 		$(use_enable systray)
+		--disable-esd
 		--disable-sgi
 		--disable-dependency-tracking
 	)
 	autotools-utils_src_configure
-}
-
-src_install() {
-	autotools-utils_src_install
-	dodoc AUTHORS ChangeLog README TODO
-	dodoc docs/wishlist.txt
 }
