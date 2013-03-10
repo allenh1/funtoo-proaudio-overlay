@@ -709,12 +709,6 @@
 	Homepage:    http://ld10k1.sourceforge.net/
 
 
-#------- media-libs/librdf --------
-	librdf-1.0.6	arch: ~x86
-	Description: libraries that provide support for the Resource
-		 Description Framework (RDF)
-	Homepage:    http://librdf.org/
-
 
 #------- media-libs/naspro-bridge-it --------
 	naspro-bridge-it-0.4.1	arch: ~amd64 ~x86
