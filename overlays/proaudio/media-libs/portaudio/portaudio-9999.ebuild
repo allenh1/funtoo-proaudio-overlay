@@ -1,17 +1,17 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI="5"
 
-inherit libtool subversion
+inherit subversion autotools-utils
 
 DESCRIPTION="An open-source cross platform audio API."
-HOMEPAGE="http://www.portaudio.com"
+HOMEPAGE="http://www.portaudio.com/"
 ESVN_REPO_URI="https://subversion.assembla.com/svn/portaudio/portaudio/trunk"
 SRC_URI=""
 
-LICENSE="as-is"
+LICENSE="MIT"
 SLOT="0"
 KEYWORDS=""
 IUSE="alsa +cxx debug jack oss static-libs"
@@ -19,38 +19,27 @@ IUSE="alsa +cxx debug jack oss static-libs"
 RDEPEND="alsa? ( media-libs/alsa-lib )
 	jack? ( media-sound/jack-audio-connection-kit )"
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig"
+	virtual/pkgconfig"
 
-S=${WORKDIR}/${PN}
+S="${WORKDIR}/${PN}"
+
+AUTOTOOLS_AUTORECONF="1"
+
+DOCS=( README.txt )
+HTML_DOCS=( index.html )
 
 src_unpack() {
 	subversion_src_unpack
 }
 
-src_prepare() {
-	elibtoolize
-}
-
 src_configure() {
-	econf \
+	local myeconfargs=(
 		$(use_enable debug debug-output) \
 		$(use_enable cxx) \
 		$(use_enable static-libs static) \
 		$(use_with alsa) \
 		$(use_with jack) \
 		$(use_with oss)
-}
-
-src_compile() {
-	emake lib/libportaudio.la || die
-	emake || die
-}
-
-src_install() {
-	default
-
-	find "${D}" -name '*.la' -exec rm -f {} +
-
-	dodoc README.txt
-	dohtml index.html
+	)
+	autotools-utils_src_configure
 }
