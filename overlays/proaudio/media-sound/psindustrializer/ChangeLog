@@ -1,6 +1,10 @@
 # ChangeLog for media-sound/psindustrializer
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  11 Mar 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  psindustrializer-0.2.5-r1.ebuild:
+  disable esd. dev-util/pkgconfig -> virtual/pkgconfig.
 
 *psindustrializer-0.2.5-r1 (02 Jan 2012)
 
