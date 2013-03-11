@@ -1,0 +1,28 @@
+--- python.orig/control.cc	2007-07-08 21:42:46.000000000 +0200
++++ python/control.cc	2013-03-11 18:57:39.840939431 +0100
+@@ -150,12 +150,6 @@
+   int get_length(int sid)
+   { return get<int>(ap_get_length, sid); }
+ 
+-  int get_frame(int sid)
+-  { return get<int>(ap_get_frame, sid); }
+-
+-  int get_frames(int sid)
+-  { return get<int>(ap_get_frames, sid); }
+-
+   std::string get_stream_type(int sid)
+   { return get_string<AP_STREAM_TYPE_MAX>(ap_get_stream_type, sid); }
+ 
+@@ -298,12 +292,6 @@
+       ap_set_position_relative);
+   def("get_length",
+       ::get_length);
+-  def("set_frame",
+-      ap_set_frame);
+-  def("get_frame",
+-      ::get_frame);
+-  def("get_frames",
+-      ::get_frames);
+   def("get_stream_type",
+       ::get_stream_type);
+   def("get_status",
