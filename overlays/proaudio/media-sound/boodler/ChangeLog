@@ -1,6 +1,13 @@
 # ChangeLog for media-sound/boodler
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*boodler-2.0.4-r1 (11 Mar 2013)
+
+  11 Mar 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -boodler-2.0.4.ebuild, +boodler-2.0.4-r1.ebuild, metadata.xml:
+  attempt move to distutils-r1 eclass. fix rename of bash-completion-r1
+  install command. force disable esd.
 
   02 Jun 2012; Hakan Demiralp <keenblade@tuxfamily.org> boodler-2.0.4.ebuild:
   boodler-2.0.4: fix missing python_pkg_setup() call wrt bug #106 by 3rx9o

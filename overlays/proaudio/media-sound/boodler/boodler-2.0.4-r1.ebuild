@@ -1,26 +1,21 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
-
-PYTHON_DEPEND="2:2.7"
-inherit distutils bash-completion-r1 python
-
-MY_P="Boodler-${PV}"
+EAPI=5
+PYTHON_COMPAT=( python{2_5,2_6,2_7} )
+inherit distutils-r1 bash-completion-r1
 
 DESCRIPTION="Tool for creating soundscapes -- continuous, infinitely varying streams of sound"
 HOMEPAGE="http://boodler.org/"
-SRC_URI="http://boodler.org/dl/${MY_P}.tar.gz"
+SRC_URI="http://boodler.org/dl/Boodler-${PV}.tar.gz"
 LICENSE="LGPL-2 GPL-2 public-domain"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="alsa bash-completion coreaudio doc esd intmath jack lame pulseaudio qt4 shout vorbis"
-
-RESTRICT="mirror"
+IUSE="alsa bash-completion coreaudio doc intmath jack lame pulseaudio qt4 shout vorbis"
+REQUIRED_USE="shout? ( vorbis )"
 
 DEPEND="alsa? ( >=media-libs/alsa-lib-1.0.17a )
-	esd? ( >=media-sound/esound-0.2.41 )
 	jack? ( >=media-libs/bio2jack-0.9 )
 	lame? ( >=media-sound/lame-3.98.2-r1 )
 	pulseaudio? ( >=media-sound/pulseaudio-0.9.9 )
@@ -29,21 +24,34 @@ DEPEND="alsa? ( >=media-libs/alsa-lib-1.0.17a )
 RDEPEND="${DEPEND}
 	qt4? ( >=dev-python/PyQt4-4.7.3[X] )"
 
-S="${WORKDIR}/${MY_P}"
+S=${WORKDIR}/Boodler-${PV}
+RESTRICT="mirror"
 
-pkg_setup() {
-# Since boodler does not work with python3, we use python2
-	python_set_active_version 2
-		python_pkg_setup
+HTML_DOCS=( doc/ )
 
-	if use shout && ! use vorbis ; then
-		eerror "To have shout support, you also need to build boodler with"
-		eerror "USE=\"vorbis\"!"
-		die
-	fi
+python_prepare_all() {
+	# fix bash completion script for new file names without extension in 2.0.4
+	cp "${FILESDIR}/boodler" "${T}"/boodler || die
+	sed -i -e s/\.py//g "${T}"/boodler || die
+
+	distutils-r1_python_prepare_all
 }
 
-src_prepare() {
+python_prepare() {
+	if use qt4 ; then
+		# copy to tmp dir so it can be modified later
+		cp "${FILESDIR}"/boodle-ui-qt.py \
+			"${T}"/${EPYTHON}/boodle-ui-qt || die
+
+		# fix up the command name which was changed in boodler-2.0.4
+		sed -i -e "s/\"boodler.py\"/\"boodler\"/" \
+			"${T}"/${EPYTHON}/boodle-ui-qt || die
+	fi
+
+	distutils-r1_python_prepare
+}
+
+python_configure_all() {
 	local defdriver
 	local with
 	local without
@@ -64,7 +72,7 @@ src_prepare() {
 	use alsa && with="${with}alsa," || without="${without}alsa,"
 	use coreaudio && with="${with}macosx,osxaq," \
 		|| without="${without}macosx,osxaq,"
-	use esd && with="${with}esd," || without="${without}esd,"
+	without="${without}esd,"
 	use jack && with="${with}jackb," || without="${without}jackb,"
 	use lame && with="${with}lame," || without="${without}lame,"
 	use pulseaudio && with="${with}pulse," || without="${without}pulse,"
@@ -72,10 +80,10 @@ src_prepare() {
 	use vorbis && with="${with}vorbis," || without="${without}vorbis,"
 
 	# move the original setup.cfg out of the way as a backup to check syntax
-	mv "${S}/setup.cfg" "${T}/setup.cfg.original" || die "setup.cfg not found"
+	mv setup.cfg setup.cfg.orig || die
 
 	# fill the setup.cfg with the values
-	cat > "${S}/setup.cfg" <<-EOF
+	cat > setup.cfg <<-EOF
 		[build_scripts]
 		default_driver=${defdriver}
 		[build_ext]
@@ -84,40 +92,23 @@ src_prepare() {
 		intmath=$(use intmath && echo 1 || echo 0)
 	EOF
 
-	# workaround for default-driver in setup.cfg not functioning
-	$(PYTHON -a) setup.py build_scripts \
-		--default-driver ${defdriver} \
-		|| die "$(PYTHON) setup.py build_scripts failed"
-
-	if use qt4 ; then
-		cp "${FILESDIR}/boodle-ui-qt.py" "${T}/boodle-ui-qt.py" || die
-
-		# fix up the command name for use in new boodler-2.0.4
-		sed -i -e "s/\"boodler.py\"/\"boodler\"/" "${T}/boodle-ui-qt.py" || die
-
-		python_convert_shebangs $(python_get_version) "${T}/boodle-ui-qt.py"
-	fi
+	mydistutilargs=( --default-driver ${defdriver} )
 }
 
-src_install() {
-	distutils_src_install
-
-	# a bash completion addon script downloaded from the official site
-	# http://boodler.org/dl/etc/bash_completion.d/boodler
-	dobashcompletion "${FILESDIR}/boodler"
-
+python_install() {
 	# a pyqt4 gui addon for boodler downloaded from the official site
 	# http://boodler.org/dl/etc/boodle-ui-qt.py
 	if use qt4 ; then
-		newbin "${T}/boodle-ui-qt.py" boodle-ui-qt || \
-		die "boodle-ui-qt.py not found"
+		python_doscript "${T}"/${EPYTHON}/boodle-ui-qt
 	fi
 
-	# docs, better include them as boodler is not the most intuitive to use for
-	# new users
-	if use doc ; then
-		pushd doc || die "doc dir not found"
-		dohtml -r *
-		popd
-	fi
+	distutils-r1_python_install
+}
+
+src_install() {
+	distutils-r1_src_install
+
+	# a bash completion addon script downloaded from the official site
+	# http://boodler.org/dl/etc/bash_completion.d/boodler
+	dobashcomp "${T}/boodler"
 }
