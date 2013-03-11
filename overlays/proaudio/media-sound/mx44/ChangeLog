@@ -2,21 +2,21 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  13 Jan 2013; Karl Lind�n (lilrc) <lilrc@users.sourceforge.net>
+  13 Jan 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   files/mx44-autotoolize.patch:
   Added missing "/" to DATADIR so that the gtkrc is found
 
-  12 Jan 2013; Karl Lindén (lilrc) <lilrc@users.sourceforge.net>
+  12 Jan 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   mx44-2.ebuild, +mx44-2-r1.ebuild, +files/mx44-autotoolize.patch:
   Added patch to use autotools as build system and created a ebuild
   accordingly
   Removed unnecessary cat statement in mx44-2.ebuild
 
-  28 Dec 2012; Karl Lindén (lilrc) <lilrc@users.sourceforge.net>
+  28 Dec 2012; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   mx44-2.ebuild:
   Make ebuild to install to the right directory
 
-  27 Dec 2012; Karl Lindén (lilrc) <lilrc@users.sourceforge.net>
+  27 Dec 2012; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   +mx44-2.ebuild, mx44-1.ebuild, metadata.xml:
   removed herd in metadata.xml
   made repoman happy
