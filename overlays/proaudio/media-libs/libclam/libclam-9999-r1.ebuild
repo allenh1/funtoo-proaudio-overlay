@@ -61,6 +61,11 @@ src_unpack() {
 	subversion_src_unpack
 }
 
+src_prepare() {
+	cd "${MY_S}" || die
+	epatch "${FILESDIR}/${P}_timeutc.patch"
+}
+
 src_compile() {
 	# required for scons to "see" intermediate install location
 	mkdir -p "${D}"/usr
