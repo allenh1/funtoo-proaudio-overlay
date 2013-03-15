@@ -1,6 +1,21 @@
 # ChangeLog for media-libs/libclam
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*libclam-1.4.0-r1 (15 Mar 2013)
+
+  15 Mar 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  +libclam-1.4.0-r1.ebuild,
+  +files/libclam-1.4.0/0001-fix-creation-of-packaging-install-dir.patch,
+  +files/libclam-1.4.0/0002-fix-compile-with-gcc-4.6.patch,
+  +files/libclam-1.4.0/0003-honour-toolchain-environment.patch,
+  +files/libclam-1.4.0/0004-add-libdir-option-for-multilib-strict.patch,
+  +files/libclam-1.4.0/0005-remove-fomit-frame-pointer-cflags.patch,
+  +files/libclam-1.4.0/0006-correct-prefix-in-.pc-files-building-modules.patch:
+  in addition to patch descriptions: migrate to scons-utils.eclass and EAPI=5
+  to simplify installing of examples with recursive dodoc. trim dependencies.
+  adjust USE. include doxygen html docs. remove old with bad deps on
+  dev-libs/xerces-c and media-libs/portaudio-19 because _pre is less than 19.
 
   11 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
   libclam-9999-r1.ebuild: Added fix for compilation failure with recent glibx
