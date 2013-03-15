@@ -2,6 +2,16 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*NetworkEditor-1.4.0-r1 (15 Mar 2013)
+
+  15 Mar 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -NetworkEditor-1.4.0.ebuild, +NetworkEditor-1.4.0-r1.ebuild,
+  +files/NetworkEditor-1.4.0/0001-fix-creation-of-prefix-dir.patch,
+  +files/NetworkEditor-1.4.0/0002-add-libdir-option-for-multilib-strict.patch,
+  +files/NetworkEditor-1.4.0/0003-honour-toolchain-environment.patch:
+  add patches pulled in from debian through SRC_URI fixinng build with recent
+  compilers. update for new libclam-1.4.0-r1 with multilib-strict fixes.
+
   09 Mart 2013; Dominique Michel <dominique_libre@sourceforge.net>
   NetworkEditor-9999.ebuild; NetworkEditor-1.4.0.ebuild: Moved QT depends to dev-qt/*
   -NetworkEditor-1.0.0

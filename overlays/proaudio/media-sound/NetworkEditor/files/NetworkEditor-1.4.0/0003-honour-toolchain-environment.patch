@@ -1,0 +1,46 @@
+From dc885d83c78329231e7eb90e368d36d65ce3c296 Mon Sep 17 00:00:00 2001
+From: "Gavin Pryke (gavlee)" <gavinlee303@googlemail.com>
+Date: Thu, 14 Mar 2013 14:29:18 +0000
+Subject: [PATCH 3/3] honour toolchain environment
+
+---
+ SConstruct | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+
+diff --git a/SConstruct b/SConstruct
+index 0e957e3..343ab64 100755
+--- a/SConstruct
++++ b/SConstruct
+@@ -2,6 +2,7 @@
+ import os
+ import glob
+ import sys
++import SCons.Util
+ 
+ options = Variables('options.cache', ARGUMENTS)
+ options.Add(PathVariable('prefix', 'The prefix where the application will be installed', '/usr/local', PathVariable.PathIsDirCreate))
+@@ -34,6 +35,21 @@ Help(options.GenerateHelpText(env))
+ 
+ env.SConsignFile() # Single signature file
+ 
++# from http://dev.gentoo.org/~vapier/scons-blows.txt
++if os.environ.has_key('CC'):
++	env['CC'] = os.environ['CC']
++if os.environ.has_key('CFLAGS'):
++	env['CCFLAGS'] += SCons.Util.CLVar(os.environ['CFLAGS'])
++if os.environ.has_key('CXX'):
++	env['CXX'] = os.environ['CXX']
++if os.environ.has_key('CXXFLAGS'):
++	env['CXXFLAGS'] += SCons.Util.CLVar(os.environ['CXXFLAGS'])
++if os.environ.has_key('CPPFLAGS'):
++	env['CCFLAGS'] += SCons.Util.CLVar(os.environ['CPPFLAGS'])
++if os.environ.has_key('LDFLAGS'):
++	env['LINKFLAGS'] += SCons.Util.CLVar(os.environ['LDFLAGS'])
++
++
+ crosscompiling = env.has_key("crossmingw") and env["crossmingw"]
+ isWindowsPlatform = sys.platform=='win32' or crosscompiling
+ isLinuxPlatform = sys.platform=='linux2' and not crosscompiling
+-- 
+1.7.12.4
+
