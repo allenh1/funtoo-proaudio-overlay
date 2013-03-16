@@ -2,14 +2,14 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="4"
+EAPI="5"
 
-inherit eutils toolchain-funcs fdo-mime flag-o-matic subversion versionator
+inherit eutils fdo-mime git-2 waf-utils
 
 DESCRIPTION="multi-track hard disk recording software"
 HOMEPAGE="http://ardour.org/"
 
-ESVN_REPO_URI="http://subversion.ardour.org/svn/ardour2/branches/3.0"
+EGIT_REPO_URI="git://git.ardour.org/ardour/ardour.git"
 
 LICENSE="GPL-2"
 SLOT="3"
@@ -59,24 +59,7 @@ DEPEND="${RDEPEND}
 	nls? ( sys-devel/gettext )"
 
 src_unpack() {
-	subversion_src_unpack
-	cd "${S}"
-	# get the svn revision
-	subversion_wc_info
-	echo '#include "ardour/svn_revision.h"' > libs/ardour/svn_revision.cc
-	echo "namespace ARDOUR { const char* svn_revision=\"$ESVN_WC_REVISION\"; }" >> libs/ardour/svn_revision.cc
-	echo >> libs/ardour/svn_revision.cc
-
-##	# some temporary slotting fixes
-##	sed -i -e 's:ardour2:ardour3:' \
-##		libs/rubberband/SConscript \
-##		libs/clearlooks-older/SConscript \
-##		|| die
-##		# now it gets dirty... the locale files...
-##	sed -e "s:share/locale:share/ardour3/locale:" \
-##		-i SConstruct gtk2_ardour/SConscript || die
-##	sed -e "s:'share', 'locale':'share', 'ardour3', 'locale':" \
-##		-i libs/ardour/SConscript
+	git-2_src_unpack
 }
 
 src_configure() {
@@ -93,21 +76,11 @@ src_configure() {
 		myconf="$myconf --fpu-optimization"
 	fi
 
-	einfo "./waf configure ${myconf}" # show configure options
-	./waf configure $myconf || die "failed to configure"
-}
-
-src_compile() {
-	einfo "./waf build ${MAKEOPTS/-s/}" # show build options
-	./waf build "${MAKEOPTS/-s/}" || die "failed to build"
+	waf-utils_src_configure $myconf
 }
 
 src_install() {
-	einfo "./waf --destdir=${D} install" # show install options
-	./waf --destdir="${D}" install || die "install failed"
-	#if use vst;then
-	#	mv "${D}"/usr/bin/ardourvst "${D}"/usr/bin/ardour2
-	#fi
+	waf-utils_src_install
 
 	newicon "icons/icon/ardour_icon_tango_48px_red.png" "ardour3.png"
 	make_desktop_entry "ardour3" "Ardour3" "ardour3" "AudioVideo;Audio"
