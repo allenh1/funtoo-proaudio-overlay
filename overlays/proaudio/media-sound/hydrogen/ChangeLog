@@ -3,6 +3,18 @@
 # $Header: $
 
   17 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  hydrogen-0.9.5.1.ebuild, +files/hydrogen-0.9.5.1-jack-version.patch,
+  files/hydrogen-0.9.5.1-use_lrdf_pkgconfig.patch:
+  Update EAPI.
+  Add portmidi support.
+  Unkeyword for ~ppc (media-libs/portmidi does not support ~ppc).
+  Move to base and scons-utils eclasses.
+  Improve the lrdf patch.
+  Add patch so that the package can compile against 
+  media-sound/jack-audio-connection-kit-1.9.9.5 (closes #0000157). Thanks 
+  to dbautista for reporting the bug.
+
+  17 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   hydrogen-0.9.5.1.ebuild, hydrogen-9999.ebuild:
   Keyword hydrogen-0.9.5.1 for ~x86 ~amd64 ~ppc to avoid repoman 
   warnings as virtual/liblash is not yet stable.
