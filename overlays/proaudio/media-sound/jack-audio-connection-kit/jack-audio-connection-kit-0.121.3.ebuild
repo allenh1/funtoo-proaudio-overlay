@@ -2,10 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/media-sound/jack-audio-connection-kit/jack-audio-connection-kit-0.121.3.ebuild,v 1.14 2012/07/15 17:57:38 armin76 Exp $
 
-EAPI=2
+EAPI="5"
 
-inherit flag-o-matic eutils multilib autotools
+inherit flag-o-matic eutils autotools-utils
 
+RESTRICT="mirror"
 DESCRIPTION="A low-latency audio server"
 HOMEPAGE="http://www.jackaudio.org"
 SRC_URI="http://www.jackaudio.org/downloads/${P}.tar.gz
@@ -29,12 +30,14 @@ DEPEND="${RDEPEND}
 RDEPEND="${RDEPEND}
 	pam? ( sys-auth/realtime-base )"
 
-src_prepare() {
-	epatch "${FILESDIR}/${PN}-sparc-cpuinfo.patch"
-	epatch "${FILESDIR}/${PN}-freebsd.patch"
-	epatch "${DISTDIR}/${P}-dbus.patch"
-	eautoreconf
-}
+DOCS=( AUTHORS TODO README )
+PATCHES=(
+	"${FILESDIR}/${PN}-sparc-cpuinfo.patch"
+	"${FILESDIR}/${PN}-freebsd.patch"
+	"${FILESDIR}/${P}-respect-march.patch"
+	"${DISTDIR}/${P}-dbus.patch"
+)
+AUTOTOOLS_AUTORECONF="1"
 
 src_configure() {
 	local myconf=""
@@ -46,28 +49,34 @@ src_configure() {
 		append-flags -mmmx -msse -m3dnow -O2
 	fi
 
+	# Neither SSE or MMX will be used if --enable-optimize is not given 
+	if use mmx || use sse;  then
+		myconf="${myconf} --enable-optimize"
+	fi
+
 	use doc || export ac_cv_prog_HAVE_DOXYGEN=false
 
-	econf \
-		$(use_enable altivec) \
-		$(use_enable alsa) \
-		$(use_enable coreaudio) \
-		$(use_enable dbus) \
-		$(use_enable debug) \
-		$(use_enable freebob) \
-		$(use_enable ieee1394 firewire) \
-		$(use_enable mmx) \
-		$(use_enable oss) \
-		--disable-portaudio \
-		$(use_enable sse) \
-		--with-html-dir=/usr/share/doc/${PF} \
-		--disable-dependency-tracking \
-		${myconf} || die "configure failed"
+	local myeconfargs=(
+		$(use_enable altivec)
+		$(use_enable alsa)
+		$(use_enable coreaudio)
+		$(use_enable dbus)
+		$(use_enable debug)
+		$(use_enable freebob)
+		$(use_enable ieee1394 firewire)
+		$(use_enable mmx)
+		$(use_enable oss)
+		$(use_enable sse)
+		--disable-portaudio
+		--with-html-dir=/usr/share/doc/${PF}
+		--disable-dependency-tracking
+		${myconf}
+	)
+	autotools-utils_src_configure
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die "install failed"
-	dodoc AUTHORS TODO README
+	autotools-utils_src_install
 
 	if use examples; then
 		insinto /usr/share/doc/${PF}

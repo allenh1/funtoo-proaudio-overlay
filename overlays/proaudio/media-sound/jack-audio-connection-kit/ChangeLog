@@ -2,6 +2,14 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  17 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  jack-audio-connection-kit-0.121.3.ebuild,
+  +files/jack-audio-connection-kit-0.121.3-respect-march.patch:
+  Move to EAPI 5.
+  Move to autotools-utils eclass.
+  Enable optimizations if sse or mmx use flags are set.
+  Add patch to respect -march CFLAG.
+
   03 Feb 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   jack-audio-connection-kit-0.121.3.ebuild,
   jack-audio-connection-kit-1.9.9.5.ebuild,
