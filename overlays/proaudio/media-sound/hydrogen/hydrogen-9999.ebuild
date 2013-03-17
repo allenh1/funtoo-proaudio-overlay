@@ -2,14 +2,14 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=2
+EAPI="5"
 
-inherit eutils qt4-r2 subversion cmake-utils
+inherit git-2 cmake-utils
 
 DESCRIPTION="Linux Drum Machine"
-HOMEPAGE="http://hydrogen.sourceforge.net/"
+HOMEPAGE="http://www.hydrogen-music.org/"
 
-ESVN_REPO_URI="http://svn.assembla.com/svn/hydrogen/trunk"
+EGIT_REPO_URI="git://github.com/hydrogen-music/hydrogen.git"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -32,34 +32,26 @@ RDEPEND="
 	ladspa? ( media-libs/liblrdf )
 	lash? ( virtual/liblash )
 	lrdf? ( media-libs/liblrdf )"
-
 DEPEND="${RDEPEND}"
 
+DOCS=( AUTHORS ChangeLog DEVELOPERS README.txt )
+
+src_unpack() {
+	git-2_src_unpack
+}
+
 src_configure() {
-	mkdir build
-	cd build
-	cmake -L \
-		-DCMAKE_INSTALL_PREFIX="${ROOT}"/usr DESTDIR="${D}" \
-		$(cmake-utils_use_want alsa ALSA) \
-		$(cmake-utils_use_want debug DEBUG) \
-		$(cmake-utils_use_want jack JACK) \
-		$(cmake-utils_use_want jacksession JACKSESSION) \
-		$(cmake-utils_use_want ladspa LADSPA) \
-		$(cmake-utils_use_want lash LASH) \
-		$(cmake-utils_use_want lrdf LRDF) \
-		$(cmake-utils_use_want portaudio PORTAUDIO) \
-		$(cmake-utils_use_want portmidi PORTMIDI) \
-		$(cmake-utils_use_want rubberband RUBBERBAND) .. || die "Compilation failed"
-}
-
-src_compile() {
-	cd "${S}"/build
-	emake
-}
-
-src_install() {
-	cd "${S}"/build
-	emake DESTDIR="${D}" install
-	cd ..
-	dodoc AUTHORS ChangeLog DEVELOPERS README.txt
+	local mycmakeargs=(	${mycmakeargs}
+						$(cmake-utils_use_want alsa ALSA)
+						$(cmake-utils_use_want debug DEBUG)
+						$(cmake-utils_use_want jack JACK)
+						$(cmake-utils_use_want jacksession JACKSESSION)
+						$(cmake-utils_use_want ladspa LADSPA)
+						$(cmake-utils_use_want lash LASH)
+						$(cmake-utils_use_want lrdf LRDF)
+						$(cmake-utils_use_want portaudio PORTAUDIO)
+						$(cmake-utils_use_want portmidi PORTMIDI)
+						$(cmake-utils_use_want rubberband RUBBERBAND)
+	)
+	cmake-utils_src_configure
 }

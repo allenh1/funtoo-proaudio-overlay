@@ -2,6 +2,16 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  17 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  hydrogen-0.9.5.1.ebuild, hydrogen-9999.ebuild:
+  Keyword hydrogen-0.9.5.1 for ~x86 ~amd64 ~ppc to avoid repoman 
+  warnings as virtual/liblash is not yet stable.
+  Move from old subversion repository to new git repo. Thanks to mikkl who 
+  reported this on MantisBT.
+  Change to new homepage in live ebuild.
+  Big cleanup in live ebuild.
+  Remove bad letters in my previous ChangeLog messages.
+
   08 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
   metadata.xml: removed no-herd, added use flags section
   
@@ -9,12 +19,12 @@
   hyrdogen-0.9.5.1.ebuild, hydrogen-9999.ebuild:
   modify qt4 deps from x11-libs/qt* to dev-qt/
 
-  13 Dec 2012; Karl Lindén (lilrc) <lilrc@users.sourceforge.net>
+  13 Dec 2012; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   hyrdogen-0.9.5.1.ebuild, hydrogen-9999.ebuild:
   replaced dependency on media-sound/lash with virtual/liblash
   minor cleanup
 
-  22 Nov 2012; Karl Lindén (lilrc) <spray.sucks@gmail.com>
+  22 Nov 2012; Karl Linden (lilrc) <spray.sucks@gmail.com>
   hydrogen-9999.ebuild:
   Added dependency on "x11-libs/qt-xmlpatterns"
   Made a cmake fails fatal

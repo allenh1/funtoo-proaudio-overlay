@@ -12,7 +12,7 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-2 ZLIB"
 SLOT="0"
-KEYWORDS="amd64 ppc ppc64 x86"
+KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="alsa +archive debug jack ladspa lash oss portaudio"
 
 RDEPEND="dev-qt/qtgui:4
