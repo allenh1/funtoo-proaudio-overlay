@@ -24,11 +24,13 @@ RDEPEND="media-libs/libsamplerate
 	dbus? ( sys-apps/dbus )
 	freebob? ( sys-libs/libfreebob !media-libs/libffado )
 	ieee1394? ( media-libs/libffado !sys-libs/libfreebob )
-	opus? ( media-libs/opus )
-	pam? ( sys-auth/realtime-base )"
+	opus? ( media-libs/opus )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	doc? ( app-doc/doxygen )"
+RDEPEND="${RDEPEND}
+	dbus? ( dev-python/dbus-python )
+	pam? ( sys-auth/realtime-base )"
 
 src_unpack() {
 	git-2_src_unpack

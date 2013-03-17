@@ -3,6 +3,12 @@
 # $Header: $
 
   17 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  jack-audio-connection-kit-1.9.9.5.ebuild,
+  jack-audio-connection-kit-2.9999.ebuild:
+  Added dependency on dev-python/dbus-python (closes #0000155). Thanks to 
+  olof for reporting the bug.
+
+  17 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   jack-audio-connection-kit-0.121.3.ebuild,
   +files/jack-audio-connection-kit-0.121.3-respect-march.patch:
   Move to EAPI 5.

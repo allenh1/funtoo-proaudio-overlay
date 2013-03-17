@@ -25,6 +25,8 @@ RDEPEND="alsa? ( >=media-libs/alsa-lib-0.9.1 )
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	doc? ( app-doc/doxygen )"
+RDEPEND="${RDEPEND}
+	dbus? ( dev-python/dbus-python )"
 
 S="${WORKDIR}/jack-${PV}"
 
