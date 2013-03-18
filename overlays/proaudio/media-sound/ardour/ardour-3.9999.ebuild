@@ -17,8 +17,8 @@ KEYWORDS=""
 IUSE="altivec debug doc freesound nls sse lv2 vst wiimote"
 
 RDEPEND="dev-cpp/cairomm
-	>=dev-cpp/gtkmm-2.12.3
-	>=dev-cpp/glibmm-2.14.2
+	>=dev-cpp/gtkmm-2.8.0
+	>=dev-cpp/glibmm-2.32.0
 	>=dev-cpp/libgnomecanvasmm-2.20.0
 	>=dev-libs/glib-2.2
 	>=dev-libs/libsigc++-2.0
@@ -40,7 +40,7 @@ RDEPEND="dev-cpp/cairomm
 	>=media-sound/jack-audio-connection-kit-0.120.1
 	=sci-libs/fftw-3*
 	virtual/libusb
-	>=x11-libs/gtk+-2.8.8
+	>=x11-libs/gtk+-2.12.1
 	x11-libs/pango
 	x11-themes/gtk-engines
 	freesound? ( net-misc/curl )
