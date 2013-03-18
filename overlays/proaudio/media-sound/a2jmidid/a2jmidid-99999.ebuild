@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/media-sound/a2jmidid/a2jmidid-6.ebuild,v 1.1 2010/01/09 18:49:56 aballier Exp $
 
@@ -14,11 +14,11 @@ EGIT_REPO_URI="git://repo.or.cz/a2jmidid.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE=""
+IUSE="dbus"
 
 RDEPEND="media-libs/alsa-lib
 	media-sound/jack-audio-connection-kit
-	sys-apps/dbus"
+	dbus? ( sys-apps/dbus )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
@@ -36,7 +36,13 @@ src_unpack() {
 src_configure() {
 	WAF_BINARY="./waf"
 	tc-export CC AR CPP LD RANLIB
-	CCFLAGS="${CFLAGS}" LINKFLAGS="${LDFLAGS}" ${WAF_BINARY} configure --prefix="${EPREFIX}/usr" || die "failed to configure"
+	local myconf
+	myconf="--prefix=${EPREFIX}/usr"
+	if use !dbus ; then
+		myconf="${myconf} --disable-dbus"
+	fi
+	# waf fail if I write "${myconf}" 
+	CCFLAGS="${CFLAGS}" LINKFLAGS="${LDFLAGS}" ${WAF_BINARY} configure ${myconf} || die "failed to configure"
 }
 
 src_install() {

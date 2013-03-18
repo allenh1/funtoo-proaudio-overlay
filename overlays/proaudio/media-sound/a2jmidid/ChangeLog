@@ -2,6 +2,9 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  18 Mar 2013; Dominique Michel <dominique_libre@users.sourveforge.net>
+  a2jmidid-99999.ebuild: Added dbus USE flag
+
   03 Jan 2013; Karl Lindén (lilrc) <lilrc@users.sourceforge.net>
   metadata.xml:
   Removed herd from metadata.
