@@ -1,6 +1,17 @@
 # ChangeLog for media-sound/Voice2MIDI
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*Voice2MIDI-0.3.10-r1 (18 Mar 2013)
+
+  18 Mar 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -Voice2MIDI-0.3.7.ebuild, -Voice2MIDI-0.3.8.ebuild,
+  -Voice2MIDI-0.3.10.ebuild, +Voice2MIDI-0.3.10-r1.ebuild,
+  +files/Voice2MIDI-0.3.10/0001-create-prefix-dir-for-installation.patch,
+  +files/Voice2MIDI-0.3.10/0002-honour-toolchain-environment.patch,
+  metadata.xml:
+  update for 0.3.10-r1: build with escons from scons-utils.eclass. update EAPI.
+  add patches for failure creating install dir. cflags, ldflags etc. cleanup.
 
   09 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
   Moved QT depends to dev-qt/* in all ebuilds; cleanup

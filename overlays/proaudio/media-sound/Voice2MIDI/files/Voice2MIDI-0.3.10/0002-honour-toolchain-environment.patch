@@ -1,0 +1,55 @@
+From 6d6db1d9c8ea6ae0f3e6a386e17c6c92e824e95d Mon Sep 17 00:00:00 2001
+From: "Gavin Pryke (gavlee)" <gavinlee303@googlemail.com>
+Date: Mon, 18 Mar 2013 18:17:31 +0000
+Subject: [PATCH 2/2] honour toolchain environment
+
+---
+ SConstruct | 18 +++++++++++++++++-
+ 1 file changed, 17 insertions(+), 1 deletion(-)
+
+diff --git a/SConstruct b/SConstruct
+index 75f499f..a8f1a15 100755
+--- a/SConstruct
++++ b/SConstruct
+@@ -2,6 +2,7 @@
+ import os
+ import glob
+ import sys
++import SCons.Util
+ 
+ options = Variables('options.cache', ARGUMENTS)
+ options.Add(PathVariable('prefix', 'The prefix where the application will be installed', '', PathVariable.PathIsDirCreate))
+@@ -55,6 +56,18 @@ print "Package version: ", fullVersion
+ versionInfo.generateVersionSources(os.path.join('src','Voice2MIDIVersion'), "Voice2MIDI", version, fullVersion)
+ 
+ 
++# from http://dev.gentoo.org/~vapier/scons-blows.txt
++if os.environ.has_key('CC'):
++        env['CC'] = os.environ['CC']
++if os.environ.has_key('CFLAGS'):
++        env['CCFLAGS'] += SCons.Util.CLVar(os.environ['CFLAGS'])
++if os.environ.has_key('CXX'):
++        env['CXX'] = os.environ['CXX']
++if os.environ.has_key('CXXFLAGS'):
++        env['CXXFLAGS'] += SCons.Util.CLVar(os.environ['CXXFLAGS'])
++if os.environ.has_key('CPPFLAGS'):
++        env['CCFLAGS'] += SCons.Util.CLVar(os.environ['CPPFLAGS'])
++
+ 
+ env['CXXFILESUFFIX'] = '.cxx'
+ env['QT4_UICDECLSUFFIX'] = '.hxx'
+@@ -162,7 +175,10 @@ if sys.platform=='linux2' :
+ #	env.Append( LINKFLAGS=['-rdynamic'] ) # TODO: Is it needed?
+ 
+ extralinkFlags = []
+-if sys.platform == 'darwin' :
++if sys.platform=='linux2':
++    if os.environ.has_key('LDFLAGS'):
++        extralinkFlags = SCons.Util.CLVar(os.environ['LDFLAGS'])
++elif sys.platform == 'darwin':
+ 	extralinkFlags=['-dynamic','-bind_at_load']
+ 
+ programs = []
+-- 
+1.7.12.4
+
