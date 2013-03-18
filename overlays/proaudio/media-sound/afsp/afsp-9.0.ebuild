@@ -17,7 +17,7 @@ HOMEPAGE="http://www-mmsp.ece.mcgill.ca/Documents/Software/Packages/AFsp/AFsp.ht
 SRC_URI="http://www-mmsp.ece.mcgill.ca/Documents/Downloads/AFsp/${MY_P}.tar.gz"
 LICENSE="AFsp"
 SLOT="0"
-KEYWORDS="x86 amd64"
+KEYWORDS="~x86 ~amd64"
 IUSE=""
 
 DEPEND=""
