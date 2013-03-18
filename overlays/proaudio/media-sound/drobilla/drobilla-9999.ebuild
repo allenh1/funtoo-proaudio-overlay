@@ -4,10 +4,10 @@
 
 EAPI=2
 
-inherit subversion toolchain-funcs
+inherit subversion toolchain-funcs multilib
 
 RESTRICT="mirror"
-IUSE="alsa debug doc gir gtk lash qt4"
+IUSE="alsa debug doc gir gtk qt4 +session"
 DESCRIPTION="Patchage is a modular patchbay for Jack audio and Alsa sequencer."
 HOMEPAGE="http://drobilla.net/software/patchage"
 
@@ -41,7 +41,7 @@ RDEPEND="!media-plugins/omins
 	>=media-sound/jack-audio-connection-kit-0.109.0
 	alsa? ( media-libs/alsa-lib )
 	gtk? ( >=x11-libs/gtk+-2.22.1-r1:2 )
-	lash? ( dev-libs/dbus-glib )
+	dev-libs/dbus-glib
 	qt4? ( dev-qt/qtcore:4
 	       dev-qt/qtgui:4 )"
 
@@ -67,10 +67,11 @@ src_configure() {
 	tc-export CC CXX CPP AR RANLIB
 	./waf configure \
 		--prefix=/usr \
+		--libdir="/usr/$(get_libdir)" \
 		$(use debug && echo "--debug") \
 		$(use alsa || echo "--no-alsa") \
 		$(use gir && echo "--gir") \
-		$(use lash || echo "--no-lash") \
+		$(use session || echo "--no-jack-session") \
 		$(use doc && echo "--docs --docdir=/usr/share/doc/${P}/html") \
 		|| die
 }

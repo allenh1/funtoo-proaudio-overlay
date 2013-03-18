@@ -7,5 +7,6 @@
 	</maintainer>
 	<use>
 		<flag name="gir">Use gir</flag>
+		<flag name="session">Build Jack session support</flag>
 	</use>
 </pkgmetadata>
