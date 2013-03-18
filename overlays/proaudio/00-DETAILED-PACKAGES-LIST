@@ -1235,13 +1235,6 @@
 	Homepage:    http://kenvy24.wiki.sourceforge.net/
 
 
-#------- media-sound/tuneroid --------
-	tuneroid-0.9.5	arch: -*
-	Description: tuneroid is a tuner for variety of musical
-		 instruments
-	Homepage:    http://zyzstar.kosoru.com/?tuneroid
-
-
 #------- media-sound/arpage --------
 	arpage-0.3.3-r1	arch: ~amd64 ~x86
 	arpage-9999	arch: -> live ebuild: [svn|cvs|...]<-
