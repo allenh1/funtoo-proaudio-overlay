@@ -1897,14 +1897,6 @@
 	Homepage:    http://sourceforge.net/projects/jackmixdesk
 
 
-#------- media-sound/simsam --------
-	simsam-0.1.7	arch: -*
-	Description: Simsam is a simple MIDI sample playback program.
-		 You can use it to play drum samples and loops from
-		 a MIDI keyboard or sequencer
-	Homepage:    http://simsam.sourceforge.net
-
-
 #------- media-sound/ambdec --------
 	ambdec-0.5.1	arch: ~x86 ~amd64
 	Description: An Ambisonic decoder for first and second
