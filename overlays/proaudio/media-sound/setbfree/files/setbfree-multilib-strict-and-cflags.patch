@@ -1,36 +1,26 @@
-From d77b6b533b7cb2e0441853a31ede7965e6755101 Mon Sep 17 00:00:00 2001
-From: "Gavin Pryke (gavlee)" <gavinlee303@googlemail.com>
-Date: Tue, 13 Nov 2012 22:00:34 +0000
-Subject: [PATCH 3/3] cflags
-
----
- common.mak |    5 ++---
- 1 files changed, 2 insertions(+), 3 deletions(-)
-
 diff --git a/common.mak b/common.mak
-index dfa5563..421f813 100644
+index 9bb7071..c08054a 100644
 --- a/common.mak
 +++ b/common.mak
-@@ -2,17 +2,16 @@
+@@ -1,17 +1,17 @@
+ # TODO include this only once and export variables
  
  PREFIX ?= /usr/local
- LIBDIR ?= lib
 -OPTIMIZATIONS ?= -msse -msse2 -mfpmath=sse -ffast-math -fomit-frame-pointer -O3 -fno-finite-math-only
++LIBDIR ?= lib
  ENABLE_CONVOLUTION ?= no
  
  bindir = $(PREFIX)/bin
  sharedir = $(PREFIX)/share/setBfree
- lv2dir = $(PREFIX)/$(LIBDIR)/lv2
+-lv2dir = $(PREFIX)/lib/lv2
++lv2dir = $(PREFIX)/$(LIBDIR)/lv2
  
 -CFLAGS = $(OPTIMIZATIONS) -Wall -fPIC
-+CFLAGS+= -Wall -fPIC
++CFLAGS = -Wall -fPIC
  CFLAGS+= -DVERSION="\"$(VERSION)\""
  
 -CXXFLAGS = $(OPTIMIZATIONS) -Wall
-+CXXFLAGS += -Wall
++CXXFLAGS = -Wall
  
  # detect Tcl/Tk
  TCLPREFIX=/usr /usr/local
--- 
-1.7.8.6
-

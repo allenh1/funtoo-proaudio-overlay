@@ -1,17 +1,17 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
-inherit base toolchain-funcs multilib
+EAPI="5"
+inherit base toolchain-funcs multilib git-2
 
 DESCRIPTION="MIDI controlled DSP tonewheel organ"
 HOMEPAGE="http://setbfree.org"
-SRC_URI="http://github.com/downloads/pantherb/setBfree/${P}.tar.gz"
+EGIT_REPO_URI="https://github.com/pantherb/setBfree.git"
 
-LICENSE="GPL-2 CCPL-Attribution-ShareAlike-3.0"
+LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE="convolution"
 
 RDEPEND="dev-lang/tcl
@@ -26,14 +26,11 @@ DEPEND="${RDEPEND}
 	sys-apps/help2man
 	virtual/pkgconfig"
 
-RESTRICT="mirror"
-
 DOCS=(ChangeLog README.md)
-
-src_prepare() {
-	epatch "${FILESDIR}"/${P}/*.patch
-	base_src_prepare
-}
+PATCHES=(
+	"${FILESDIR}/${PN}-multilib-strict-and-cflags.patch"
+	"${FILESDIR}/${PN}-respect-ldflags.patch"
+)
 
 src_compile() {
 	tc-export CC CXX
