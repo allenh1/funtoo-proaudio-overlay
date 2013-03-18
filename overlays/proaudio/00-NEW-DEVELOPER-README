@@ -279,7 +279,7 @@ Index:
 
 7.0 # adding files to the overlay
   # files can be added to the overlay using
-  ftp://ftp.tuxfamily.org/proaudio/pro-audio-repository/distfiles
+  ftp://ftp.tuxfamily.org/proaudio/proaudio-repository/distfiles
   # use your favourite ftp client with your tuxfamily username and password
   # they can be accessed from an ebuild with
   http://download.tuxfamily.org/proaudio/distfiles
