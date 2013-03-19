@@ -724,12 +724,6 @@
 	Homepage:    http://www.hakenaudio.com/Loris
 
 
-#------- media-libs/pylash --------
-	pylash-3_pre	arch: ~x86 ~amd64
-	Description: Python bindings for LASH.
-	Homepage:    http://nedko.arnaudov.name/soft/pylash/
-
-
 #------- media-libs/gavl --------
 	gavl-1.4.0	arch: amd64 ~ppc ~ppc64 x86
 	Description: library for handling uncompressed audio and
