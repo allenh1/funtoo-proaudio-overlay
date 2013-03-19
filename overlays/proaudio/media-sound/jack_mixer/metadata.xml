@@ -7,7 +7,6 @@
 	</maintainer>
 	<use>
 		<flag name="gconf">Use <pkg>dev-python/gconf-python</pkg> to store preferences with gconf</flag>
-		<flag name="lash">Enable LASH Audio Session Handler support with <pkg>media-libs/pylash</pkg></flag>
 		<flag name="phat">Use fanslider widget for pan/balance from <pkg>media-libs/pyphat</pkg></flag>
 	</use>
 </pkgmetadata>
