@@ -1,5 +1,5 @@
 diff --git a/Makefile b/Makefile
-index f0a3ac1..db03806 100644
+index f0a3ac1..5a6d90e 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -1,13 +1,10 @@
@@ -7,7 +7,7 @@ index f0a3ac1..db03806 100644
 -#COMPILE_FLAGS += -g -O2 
 -COMPILE_FLAGS += -O3
 -
-+CXXFLAGS = -Wall `pkg-config alsa libglade-2.0 gtk+-2.0 liblo --cflags`
++CXXFLAGS += -Wall `pkg-config alsa libglade-2.0 gtk+-2.0 liblo --cflags`
  
  LINK_FLAGS    = `pkg-config alsa libglade-2.0 gtk+-2.0 liblo --libs ` -export-dynamic
  
