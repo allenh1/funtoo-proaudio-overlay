@@ -17,8 +17,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="doc dssi fluidsynth lash osc vst"
 REQUIRED_USE=""
 
-CDEPEND="!media-sound/openoctave-midi
-	>=media-libs/alsa-lib-0.9.0
+CDEPEND=">=media-libs/alsa-lib-0.9.0
 	>=media-libs/libsamplerate-0.1.0
 	>=media-libs/libsndfile-1.0
 	>=media-sound/jack-audio-connection-kit-0.103
