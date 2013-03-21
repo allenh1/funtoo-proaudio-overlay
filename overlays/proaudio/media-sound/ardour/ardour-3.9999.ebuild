@@ -4,7 +4,7 @@
 
 EAPI="5"
 
-inherit eutils fdo-mime git-2 waf-utils
+inherit eutils fdo-mime git-2 python waf-utils
 
 DESCRIPTION="multi-track hard disk recording software"
 HOMEPAGE="http://ardour.org/"
@@ -57,6 +57,11 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	doc? ( app-doc/doxygen )
 	nls? ( sys-devel/gettext )"
+
+pkg_setup() {
+	python_set_active_version 2
+	python_pkg_setup
+}
 
 src_unpack() {
 	git-2_src_unpack
