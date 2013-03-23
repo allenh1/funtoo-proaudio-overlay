@@ -1,8 +1,10 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit autotools
+EAPI=5
+
+inherit autotools eutils
 
 MY_PV="${PV/_p/-r}"
 
@@ -21,11 +23,10 @@ RDEPEND=">=media-sound/jack-audio-connection-kit-0.100.0
 	=x11-libs/gtk+-2*
 	>=media-sound/lash-0.5.4-r1
 	>=media-libs/liblo-0.25
-	>=media-libs/phat-0.4.1
 	>=net-dns/libidn-1.13"
 DEPEND="${RDEPEND}
 	>=dev-libs/libxml2-2.6.28
-	>=dev-util/pkgconfig-0.9"
+	virtual/pkgconfig"
 
 src_unpack() {
 	unpack ${A}
@@ -33,12 +34,13 @@ src_unpack() {
 	eautoreconf || die "autoconf failed"
 }
 
-src_compile() {
-	econf || die "configure failed"
-	emake || die "make failed"
-}
-
 src_install() {
 	make DESTDIR="${D}" install || die "install failed"
 	dodoc README ChangeLog AUTHORS TODO
+	make_desktop_entry "${PN}"_gtk JackMixDesk "${PN}" "AudioVideo;Audio;Mixer"
+	doicon doc/"${PN}".png
+}
+
+pkg_preinst() {
+	rm -r "${D}/usr/share/doc/${PN}-${MY_PV}/" || die "rm failed"
 }
