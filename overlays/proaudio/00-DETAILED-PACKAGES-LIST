@@ -426,7 +426,7 @@
 
 
 #------- media-libs/alsaplayer-python --------
-	alsaplayer-python-0.3.1-r1	arch: x86
+	alsaplayer-python-0.3.1-r2	arch: ~x86 ~amd64
 	Description: New Python bindings for Alsaplayer.
 	Homepage:    http://alsaplayer.sourceforge.net/
 
@@ -439,11 +439,7 @@
 
 
 #------- media-libs/libclam --------
-	libclam-1.0.0-r1	arch: ~amd64 x86
-	libclam-1.1.0	arch: ~amd64 x86
-	libclam-1.2.0	arch: ~amd64 x86
-	libclam-1.3.0	arch: ~amd64 x86
-	libclam-1.4.0	arch: ~amd64 ~x86
+	libclam-1.4.0-r1	arch: ~amd64 ~x86
 	libclam-9999-r1	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: Framework for research and application development
 		 in the Audio and Music domain
@@ -472,14 +468,10 @@
 
 
 #------- media-libs/libshout-idjc --------
-	libshout-idjc-2.3.0	arch: ~amd64
+	libshout-idjc-2.3.0	arch: ~amd64 ~x86
 	Description: Libshout-idjc is libshout plus some extensions
 		 for IDJC
 	Homepage:    http://sourceforge.net/projects/idjc/files/libshout-idjc/
-
-
-	Description: unknown
-	Homepage:    unknown
 
 
 #------- media-libs/asio-sdk --------
@@ -634,11 +626,9 @@
 
 
 #------- media-libs/portaudio --------
-	portaudio-19_pre20071207	arch: alpha amd64 arm hppa ia64 ppc ppc64 sh sparc x86
-	portaudio-19-r4	arch: x86 sparc amd64 ~ppc ~ppc-macos ~mips
 	portaudio-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: An open-source cross platform audio API.
-	Homepage:    http://www.portaudio.com
+	Homepage:    http://www.portaudio.com/
 
 
 #------- media-libs/libclthreads --------
@@ -707,7 +697,6 @@
 	ld10k1-0.1.8	arch: x86 ~amd64
 	Description: EMU10K1 (EMU10K2) effect loader for ALSA
 	Homepage:    http://ld10k1.sourceforge.net/
-
 
 
 #------- media-libs/naspro-bridge-it --------
@@ -1067,8 +1056,6 @@
 
 
 #------- media-radio/rivendell --------
-	rivendell-2.0.2	arch: ~amd64 ~x86
-	rivendell-2.1.1	arch: ~amd64 ~x86
 	rivendell-2.1.2	arch: ~amd64 ~x86
 	Description: An automated system for acquisition, management,
 		 scheduling and playout of audio content.
@@ -1178,6 +1165,7 @@
 
 #------- media-sound/afsp --------
 	afsp-8.2	arch: x86 amd64
+	afsp-9.0	arch: ~x86 ~amd64
 	Description: audio file utility programs and library of
 		 routines for reading and writing audio files
 		
@@ -1298,10 +1286,10 @@
 
 
 #------- media-sound/kontroll --------
-	kontroll-20060925	arch: x86 ~amd64
-	Description: A small utility that generates midi cc messages
-		 from the mouse position
-	Homepage:    http://tapas.affenbande.org/?page_id=42
+	kontroll-20130319	arch: ~amd64 ~x86
+	Description: A small utility that generates MIDI CC and
+		 OSC messages from the mouse position
+	Homepage:    http://github.com/fps/kontroll
 
 
 #------- media-sound/azr3-jack --------
@@ -1314,7 +1302,7 @@
 
 
 #------- media-sound/NetworkEditor --------
-	NetworkEditor-1.4.0	arch: ~amd64 ~x86
+	NetworkEditor-1.4.0-r1	arch: ~amd64 ~x86
 	NetworkEditor-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: CLAM's visual builder
 	Homepage:    http://clam-project.org/index.html
@@ -1360,9 +1348,7 @@
 
 
 #------- media-sound/museseq --------
-	museseq-1.0.1	arch: ~amd64 ~x86
-	museseq-1.0_rc1	arch: ~amd64 ~x86
-	museseq-1.9999	arch: -> live ebuild: [svn|cvs|...]<-
+	museseq-2.1.1	arch: ~amd64 ~x86
 	museseq-2.9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: The Linux (midi) MUSic Editor (a sequencer)
 		
@@ -1632,7 +1618,7 @@
 
 
 #------- media-sound/openoctave-midi --------
-	openoctave-midi-9999	arch: -*
+	openoctave-midi-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: OpenOctave MIDI sequencer
 	Homepage:    http://www.openoctave.org
 
@@ -1688,18 +1674,6 @@
 	Description: An old-school all-digital 4-oscillator subtractive
 		 polyphonic synthesizer with stereo fx.
 	Homepage:    http://.sourceforge.net/
-
-
-#------- media-sound/SMSTools --------
-	SMSTools-0.4.10	arch: ~amd64 x86
-	SMSTools-0.4.12	arch: ~amd64 x86
-	SMSTools-0.4.7-r1	arch: ~amd64 x86
-	SMSTools-0.4.8	arch: ~amd64 x86
-	SMSTools-0.4.9	arch: ~amd64 x86
-	SMSTools-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Analyzes, transforms and synthesizes back
-		 a given sound using the SMS model.
-	Homepage:    http://clam.project.org/index.html
 
 
 #------- media-sound/non-sequencer --------
@@ -1771,10 +1745,10 @@
 
 
 #------- media-sound/lash --------
-	lash-9998	arch: amd64 x86
-	Description: Temporary wrapper for liblas (lash) and ladish
-		
-	Homepage:    http://proaudio.tuxfamily.org
+	lash-9998	arch: ~amd64 ~x86
+	Description: Temporary wrapper for liblash (lash) and
+		 ladish
+	Homepage:    http://proaudio.tuxfamily.org/
 
 
 #------- media-sound/zita-rev1 --------
@@ -1810,13 +1784,6 @@
 	Description: Midi input plugin for the alsaplayer. It
 		 use timidity++ for the output
 	Homepage:    http://www.alsaplayer.org/
-
-
-#------- media-sound/kaconnect --------
-	kaconnect-1.1.1-r1	arch: amd64 ~ppc sparc x86
-	Description: Part of Kalsatools - QT based frontend to
-		 aconnect
-	Homepage:    http://www.suse.de/~mana/kalsatools.html
 
 
 #------- media-sound/non-things --------
@@ -1877,7 +1844,7 @@
 
 
 #------- media-sound/jackmixdesk --------
-	jackmixdesk-0.3_p2	arch: ~amd64 ~ppc ~x86
+	jackmixdesk-0.3_p3	arch: ~amd64 ~ppc ~x86
 	jackmixdesk-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: Audio mixer for JACK with OSC control, LASH
 		 support and GTK GUI
@@ -1962,13 +1929,6 @@
 	Homepage:    http://zhevny.com/specimen
 
 
-#------- media-sound/ktabedit --------
-	ktabedit-0.0.8	arch: -*
-	Description: KTabEdit is basically a guitar tabulature
-		 editor for K Desktop Environment.
-	Homepage:    http://ktabedit.sourceforge.net/
-
-
 #------- media-sound/bristol --------
 	bristol-0.60.10	arch: ~amd64 ~x86
 	bristol-0.60.8	arch: ~amd64 ~x86
@@ -1981,13 +1941,6 @@
 	schism-tracker-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: Schism Tracker cvs
 	Homepage:    http://rigelseven.org/schism
-
-
-#------- media-sound/denemo --------
-	denemo-0.7.5	arch: ~amd64 x86
-	denemo-0.8.6	arch: ~amd64 x86
-	Description: GTK+ graphical music notation editor
-	Homepage:    http://denemo.sourceforge.net/
 
 
 #------- media-sound/dino --------
@@ -2043,10 +1996,10 @@
 
 
 #------- media-sound/hydrogen --------
-	hydrogen-0.9.5.1	arch: amd64 ppc ppc64 x86
+	hydrogen-0.9.5.1	arch: ~amd64 ~x86
 	hydrogen-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: Linux Drum Machine
-	Homepage:    http://hydrogen.sourceforge.net/
+	Homepage:    http://www.hydrogen-music.org/
 
 
 #------- media-sound/drumkv1 --------
@@ -2155,6 +2108,7 @@
 
 #------- media-sound/idjc --------
 	idjc-0.8.8	arch: ~x86 ~amd64
+	idjc-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: Internet DJ Console has two media players,
 		 jingles player, crossfader, VoIP and streaming
 		
@@ -2324,7 +2278,7 @@
 
 
 #------- media-sound/acoustid-fingerprinter --------
-	acoustid-fingerprinter-0.5.1	arch: amd64
+	acoustid-fingerprinter-0.6	arch: ~amd64 ~x86
 	Description: GUI application to submit audio fingerprints
 		 to the Acoustid database.
 	Homepage:    http://acoustid.org/fingerprinter
@@ -2442,17 +2396,10 @@
 
 
 #------- media-sound/boodler --------
-	boodler-2.0.4	arch: ~amd64 ~x86
+	boodler-2.0.4-r1	arch: ~amd64 ~x86
 	Description: Tool for creating soundscapes -- continuous,
 		 infinitely varying streams of sound
 	Homepage:    http://boodler.org/
-
-
-#------- media-sound/ecamegapedal --------
-	ecamegapedal-0.4.4	arch: amd64 ~ppc sparc x86
-	Description: Ecamegapedal is a real-time effect processor.
-		
-	Homepage:    http://www.wakkanet.fi/~kaiv/ecamegapedal/
 
 
 #------- media-sound/horgand --------
@@ -2528,9 +2475,8 @@
 
 
 #------- media-sound/setbfree --------
-	setbfree-0.5.4	arch: ~amd64 ~x86
-	setbfree-0.5.5	arch: ~amd64 ~x86
-	setbfree-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	setbfree-20130418	arch: ~amd64 ~x86
+	setbfree-99999999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: MIDI controlled DSP tonewheel organ
 	Homepage:    http://setbfree.org
 
@@ -2580,9 +2526,7 @@
 
 
 #------- media-sound/Voice2MIDI --------
-	Voice2MIDI-0.3.10	arch: ~amd64 ~x86
-	Voice2MIDI-0.3.7	arch: ~amd64 x86
-	Voice2MIDI-0.3.8	arch: ~amd64 x86
+	Voice2MIDI-0.3.10-r1	arch: ~amd64 ~x86
 	Voice2MIDI-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: CLAM Voice2MIDI extracts the melody as a
 		 MIDI or XML file from monophonic audio files
@@ -2653,7 +2597,7 @@
 
 
 #------- media-sound/chordata --------
-	chordata-1.0.0	arch: ~x86 ~amd64
+	chordata-1.0.0-r1	arch: ~amd64 ~x86
 	chordata-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: Chordata is a tool for tonal analysis of
 		 audio files.

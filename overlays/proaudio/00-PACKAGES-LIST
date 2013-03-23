@@ -12,6 +12,7 @@ dev-libs/icu
 games-misc/linthesia
 sys-apps/das_watchdog
 sys-apps/jackd-init
+x11-libs/ntk
 x11-libs/qwt
 sys-kernel/rt-sources
 media-plugins/nekobee
@@ -94,13 +95,11 @@ media-sound/jack_convolve
 media-sound/paulstretch
 media-sound/gdam
 media-sound/drc
-media-sound/openoctave-midi
 media-sound/traverso
 media-sound/jackctlmmc
 media-sound/madjack
 media-sound/zynaddsubfx
 media-sound/sweep
-media-sound/SMSTools
 media-sound/non-sequencer
 media-sound/guitarix
 media-sound/qloud
@@ -113,14 +112,12 @@ media-sound/tapeutape
 media-sound/smack
 media-sound/lash-original
 media-sound/alsaplayer-midi
-media-sound/kaconnect
 media-sound/snd-ls
 media-sound/jackminimix
 media-sound/postfish
 media-sound/chionic
 media-sound/khagan
 media-sound/mx44
-media-sound/jackmixdesk
 media-sound/ambdec
 media-sound/sfxr
 media-sound/san-dysth
@@ -131,10 +128,8 @@ media-sound/kguitar
 media-sound/somaplayer
 media-sound/jackEQ
 media-sound/specimen
-media-sound/ktabedit
 media-sound/bristol
 media-sound/schism-tracker
-media-sound/denemo
 media-sound/dino
 media-sound/jack_oscrolloscope
 media-sound/tuxguitar
@@ -176,7 +171,6 @@ media-sound/machina
 media-sound/laditools
 media-sound/AudioCutter
 media-sound/boodler
-media-sound/ecamegapedal
 media-sound/horgand
 media-sound/fmit
 media-sound/zita-ajbridge
@@ -197,6 +191,7 @@ media-sound/tapiir
 media-sound/freqtweak
 media-sound/mixxx
 media-sound/xwax
+media-sound/chordata
 x11-themes/crystal-artwork
 x11-themes/fvwm-crystal
 media-libs/zynaddsubfx-extras
@@ -219,7 +214,6 @@ media-libs/stk
 media-libs/aubio
 media-libs/phat
 media-libs/zynaddsubfx-banks
-media-libs/portaudio
 media-libs/libclthreads
 media-libs/lv2dynparam1
 media-libs/fst
