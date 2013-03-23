@@ -1,23 +1,19 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header:$
+# $Header: $
 
-inherit cmake-utils eutils exteutils git #kde qt3
-
-# TODO: this ebuild needs some kde/qt3 eclass work -- will not function
+inherit cmake-utils eutils exteutils git-2
 
 DESCRIPTION="OpenOctave MIDI sequencer"
 HOMEPAGE="http://www.openoctave.org"
-SRC_URI=""
-
-EGIT_REPO_URI="git://68.150.160.199:9418/var/git/openoctave.git"
+EGIT_REPO_URI="git://git.openoctave.org/oom.git"
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="-*"
+KEYWORDS=""
 IUSE="debug lilypond export kde gnome"
 
 RDEPEND="lilypond? ( media-sound/lilypond
-		|| ( kde? ( kde-base/kghostview ) gnome? ( app-text/evince ) app-text/ggv ) )
+		|| ( kde? ( kde-base/kghostview ) gnome? ( app-text/evince ) ) )
 	export? ( || ( kde-base/kdialog kde-base/kdebase )
 			dev-perl/XML-Twig
 			media-libs/libsndfile )
@@ -29,11 +25,8 @@ RDEPEND="lilypond? ( media-sound/lilypond
 	>=media-libs/liblo-0.7
 	x11-libs/libXtst"
 DEPEND="${RDEPEND}
-	>=dev-util/pkgconfig-0.15
+	virtual/pkgconfig
 	>=dev-util/cmake-2.4.2"
-
-#need-kde 3.1
-#need-qt 3
 
 S="${WORKDIR}/${PN}"
 
@@ -45,14 +38,14 @@ pkg_setup(){
 		ewarn "please remerge with USE=\"export\"" && sleep 3
 	fi
 
-	if ! use lilypond && ! ( has_version "media-sound/lilypond" && has_any-pkg "app-text/ggv kde-base/kghostview app-text/evince" ) ;then
+	if ! use lilypond && ! ( has_version "media-sound/lilypond" && has_any-pkg "kde-base/kghostview app-text/evince" ) ;then
 		ewarn "lilypond preview won't work."
 		ewarn "If you want this feature please remerge USE=\"lilypond\""
 	fi
 }
 
 src_unpack() {
-	git_src_unpack
+	git-2_src_unpack
 }
 
 src_compile() {
