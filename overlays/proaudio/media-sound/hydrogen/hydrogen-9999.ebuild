@@ -4,7 +4,7 @@
 
 EAPI="5"
 
-inherit git-2 cmake-utils
+inherit eutils git-2 cmake-utils
 
 DESCRIPTION="Linux Drum Machine"
 HOMEPAGE="http://www.hydrogen-music.org/"
@@ -54,4 +54,9 @@ src_configure() {
 						$(cmake-utils_use_want rubberband RUBBERBAND)
 	)
 	cmake-utils_src_configure
+}
+
+src_install() {
+	cmake-utils_src_install
+	doicon "${S}/data/img/gray/h2-icon.svg"
 }

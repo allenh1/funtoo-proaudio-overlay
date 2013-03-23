@@ -2,6 +2,10 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  23 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  hydrogen-9999.ebuild:
+  Install an icon for the desktop entry.
+
   17 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   hydrogen-0.9.5.1.ebuild, +files/hydrogen-0.9.5.1-jack-version.patch,
   files/hydrogen-0.9.5.1-use_lrdf_pkgconfig.patch:
