@@ -2,11 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="4"
+EAPI="5"
 
 PYTHON_DEPEND="2"
 
-inherit multilib python eutils
+inherit eutils multilib python waf-utils
 
 RESTRICT="mirror"
 DESCRIPTION="Jackdmp jack implemention for multi-processor machine"
@@ -30,6 +30,11 @@ RDEPEND="${RDEPEND}
 
 S="${WORKDIR}/jack-${PV}"
 
+PATCHES=(
+	"${FILESDIR}/jack2-no-self-connect-1.9.9.5.patch"
+	"${FILESDIR}/jack-1.9.9.5-opus_custom.patch"
+)
+
 pkg_pretend() {
 	if use mixed; then
 		ewarn 'You are about to build with "mixed" use flag.'
@@ -44,13 +49,8 @@ pkg_setup() {
 	python_pkg_setup
 }
 
-src_prepare() {
-	epatch "${FILESDIR}/jack2-no-self-connect-1.9.9.5.patch"
-	epatch "${FILESDIR}/jack-1.9.9.5-opus_custom.patch"
-}
-
 src_configure() {
-	local myconf="--prefix=/usr --destdir=${D}"
+	local myconf=""
 	use alsa && myconf="${myconf} --alsa"
 	use dbus && myconf="${myconf} --dbus"
 	! use dbus && myconf="${myconf} --classic"
@@ -60,16 +60,11 @@ src_configure() {
 	use ieee1394 && myconf="${myconf} --firewire"
 	use mixed && myconf="${myconf} --mixed"
 
-	einfo "Running \"./waf configure ${myconf}\" ..."
-	./waf configure ${myconf} || die "waf configure failed"
-}
-
-src_compile() {
-	./waf build ${MAKEOPTS} || die "waf build failed"
+	waf-utils_src_configure ${myconf}
 }
 
 src_install() {
 	ln -s ../../html build/default/html
-	./waf --destdir="${D}" install || die "waf install failed"
+	waf-utils_src_install
 	python_convert_shebangs -r 2 "${ED}"
 }
