@@ -4,22 +4,28 @@
 
 EAPI="5"
 
-inherit versionator flag-o-matic autotools-utils
+inherit versionator autotools-utils
 MY_P="${PN}-$(replace_version_separator "3" ".")"
-DESCRIPTION="xjadeo is a simple video player that is synchronized to jack transport."
-HOMEPAGE="http://xjadeo.sourceforge.net/"
+DESCRIPTION="a simple video player that is synchronized to jack transport."
+HOMEPAGE="http://${PN}.sourceforge.net/"
 SRC_URI="mirror://sourceforge/${PN}/${MY_P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-IUSE="xv sdl osd qt4 tools lash tiff"
+IUSE="alsa imlib lash midi osc osd qt4 portmidi sdl tiff tools xv"
+REQUIRED_USE="alsa? ( midi )
+	portmidi? ( midi )"
 
 RDEPEND=">=media-sound/jack-audio-connection-kit-0.100
 	>=media-video/ffmpeg-0.4.9
-	>=media-libs/alsa-lib-1.0.10
-	>=media-libs/imlib2-1.3.0
+	midi? (
+		alsa? ( >=media-libs/alsa-lib-1.0.10 )
+		portmidi? ( media-libs/portmidi )
+	)
+	imlib? ( >=media-libs/imlib2-1.3.0 )
 	lash? ( virtual/liblash )
+	osc? ( media-libs/liblo )
 	sdl? ( >=media-libs/libsdl-1.2.8 )"
 
 DEPEND="${RDPEND}
@@ -29,6 +35,9 @@ DEPEND="${RDPEND}
 	)
 	virtual/pkgconfig"
 
+PATCHES=( "${FILESDIR}/${P}-no-libporttime.patch" )
+
+AUTOTOOLS_AUTORECONF="1"
 AUTOTOOLS_IN_SOURCE_BUILD="1"
 
 DOCS=( AUTHORS ChangeLog TODO README NEWS )
@@ -36,23 +45,36 @@ DOCS=( AUTHORS ChangeLog TODO README NEWS )
 S="${WORKDIR}/${MY_P}"
 
 src_configure() {
-	local myeconfargs=(	$(use_enable xv) \
-						$(use_enable sdl) \
-						$(use_enable osd ft) \
-						$(use_enable tools contrib) \
-						$(use_enable lash) \
-						$(use_enable tiff) \
-						$(use_enable qt4 qtgui) \
-						--enable-imlib2 \
-						--without-portmidisrc \
+	local myeconfargs=(
+		$(use_enable imlib imlib2)
+		$(use_enable lash)
+		$(use_enable midi)
+		$(use_enable osc)
+		$(use_enable osd ft)
+		$(use_enable qt4 qtgui)
+		$(use_enable sdl)
+		$(use_enable tiff)
+		$(use_enable tools contrib)
+		$(use_enable xv)
 	)
+
+	use alsa || export ALSAMIDI="no"
+	use portmidi || export PORTMIDI="no"
 
 	autotools-utils_src_configure
 }
 
 src_install() {
 	autotools-utils_src_install
-	use tools && newdoc contrib/README README-tools
-	insinto /usr/share/${PN}
-	use tools && doins contrib/xjadeo-example.avi
+	if use tools; then
+		newdoc contrib/README README.tools
+		dobin contrib/encode.sh
+		newdoc contrib/cli-remote/README README.cli-remote
+		dobin contrib/cli-remote/jadeo-rcli
+		newdoc contrib/tsmm/README README.tsmm
+		dobin contrib/tsmm/xjtsmm
+		dobin contrib/tsmm/tsmm.pl
+		insinto "/usr/share/${PN}"
+		doins "contrib/${PN}-example.avi"
+	fi
 }
