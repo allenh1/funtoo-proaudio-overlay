@@ -1,11 +1,11 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 inherit exteutils toolchain-funcs
 
 DESCRIPTION="C++ class library of common digital signal processing functions."
-HOMEPAGE="http://libdsp.sf.net"
+HOMEPAGE="http://${PN}.sourceforge.net/"
 SRC_URI="mirror://sourceforge/${PN}/${PN}-src-${PV}.tar.gz
 		doc? ( mirror://sourceforge/${PN}/${PN}-doc-html.tar.gz )"
 
@@ -14,9 +14,10 @@ SLOT="0"
 
 KEYWORDS="x86 ~amd64 -sparc"
 IUSE="doc"
+RDEPEND=""
 DEPEND=""
 
-S=${WORKDIR}/${PN}-src-${PV}
+S="${WORKDIR}/${PN}-src-${PV}"
 
 src_unpack() {
 	unpack ${A}
