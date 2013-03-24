@@ -1,28 +1,33 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils cmake-utils git
+EAPI="5"
+
+inherit cmake-utils git-2
 
 DESCRIPTION="An A/52 (AC-3) audio encoder"
-HOMEPAGE="http://aften.sourceforge.net/"
-EGIT_REPO_URI="git://aften.git.sourceforge.net/gitroot/aften/aften"
+HOMEPAGE="http://${PN}.sourceforge.net/"
+EGIT_REPO_URI="git://${PN}.git.sourceforge.net/gitroot/${PN}/${PN}"
 
 LICENSE="LGPL-2.1 BSD"
 SLOT="0"
 KEYWORDS=""
 IUSE="cxx"
-DEPEND=""
 
-src_compile() {
+DEPEND=""
+RDEPEND=""
+
+DOCS=( README Changelog )
+
+src_configure() {
 	local mycmakeargs="-DSHARED=1"
 	use cxx && mycmakeargs="${mycmakeargs} -DBINDINGS_CXX=1"
-	cmake-utils_src_compile
+	cmake-utils_src_configure
 }
 
 src_install() {
 	cmake-utils_src_install
-	dodoc README Changelog
 	# File collision with media-sound/wavbreaker, upstream informed
-	mv "${D}/usr/bin/wavinfo" "${D}/usr/bin/wavinfo-aften"
+	mv "${D}/usr/bin/wavinfo" "${D}/usr/bin/wavinfo-${PN}"
 }
