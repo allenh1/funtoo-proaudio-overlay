@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -15,7 +15,7 @@ KEYWORDS="amd64 ppc x86"
 IUSE=""
 
 DEPEND="app-arch/unzip"
-RDEPEND="|| ( !<media-sound/zynaddsubfx-2.2.1-r4 !<media-sound/zynaddsubfx-cvs-2.2.2-r4 media-sound/yoshimi )"
+RDEPEND="|| ( !<media-sound/zynaddsubfx-2.2.1-r4 media-sound/yoshimi )"
 
 S="${WORKDIR}/banks"
 src_unpack(){
@@ -23,7 +23,7 @@ src_unpack(){
 	mv "${MY_P}"/banks . &>/dev/null
 	rm -rf "${MY_P}"
 	mv banks* banks
-	cd ${S}
+	cd "${S}"
 	find -name 'CVS' -exec rm -rf {} \; &>/dev/null
 }
 
@@ -49,4 +49,3 @@ pkg_postinst() {
 	einfo "you can also emerge the ~${ARCH} version of this ebuild"
 	einfo "which tries to fetch the latest tarball"
 }
-
