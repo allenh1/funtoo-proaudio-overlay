@@ -1,39 +1,50 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils jackmidi cvs
-RESTRICT="mirror"
-IUSE="debug"
-DESCRIPTION="Dino is a pattern-based MIDI sequencer."
-HOMEPAGE="http://dino.nongnu.org"
+EAPI="5"
 
-#SRC_URI="http://download.savannah.nongnu.org/releases/${PN}/${P}.tar.gz"
-ECVS_SERVER="cvs.savannah.nongnu.org:/sources/dino"
-ECVS_MODULE="${PN}"
-S="${WORKDIR}/${ECVS_MODULE}"
+inherit eutils base git-2 toolchain-funcs
+
+RESTRICT="mirror"
+
+DESCRIPTION="a pattern-based MIDI sequencer."
+HOMEPAGE="http://${PN}.nongnu.org"
+
+EGIT_REPO_URI="git://git.sv.gnu.org/${PN}.git"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 
-DEPEND=">=dev-cpp/libglademm-2.4.1
-	>=dev-cpp/libxmlpp-2.6.1
-	>=media-sound/jack-audio-connection-kit-9999
-	>=media-sound/lash-0.5.0"
+IUSE=""
 
-src_unpack() {
-	need_jackmidi
-	cvs_src_unpack
-	cd "${S}"
-	#epatch "${FILESDIR}/jack_midi_api_fix.diff"
+RDEPEND=">=dev-cpp/libglademm-2.4.1
+	>=dev-cpp/libxmlpp-2.6.1
+	media-sound/jack-audio-connection-kit
+	virtual/liblash"
+DEPEND="${RDEPEND}"
+
+PATCHES=(
+	"${FILESDIR}/${P}-no-override.patch"
+)
+
+display_warning() {
+	ewarn "Emergeing ${P} will not build ${PN} itself. It will just"
+	ewarn "install a library and some documentation."
+	ewarn "This message was written on the 24th of March 2013, if it"
+	ewarn "has been fixed upstream or you know a way to fix it please"
+	ewarn "let us know at the proaudio@lists.tuxfamily.org mailing list."
+}
+
+pkg_pretend() {
+	display_warning
 }
 
 src_compile() {
-	econf $(use_enable debug) || die
-	emake || die
+	base_src_compile CXX=$(tc-getCXX) CFLAGS="${CFLAGS}"
 }
 
-src_install() {
-	make DESTDIR="${D}" install || die
+pkg_postinst() {
+	display_warning
 }

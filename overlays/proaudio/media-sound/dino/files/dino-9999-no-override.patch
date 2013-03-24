@@ -1,0 +1,48 @@
+diff --git a/Makefile b/Makefile
+index 58bfeab..8fc7d92 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,5 +1,5 @@
+ CXXFLAGS = -std=c++0x
+-CXX = g++-4.5
++CXX := g++
+ 
+ PACKAGE_NAME = dino
+ PACKAGE_VERSION = $(shell ./VERSION)
+diff --git a/Makefile.template b/Makefile.template
+index a55b267..80be7ad 100644
+--- a/Makefile.template
++++ b/Makefile.template
+@@ -1,18 +1,18 @@
+ # Override these variables from the commandline, eg 'make DESTDIR=/usr install'
+-CFLAGS = -g -O2
+-prefix = /usr/local
+-bindir = $(prefix)/bin
+-libdir = $(prefix)/lib
+-datadir = $(prefix)/share
+-pkgdatadir = $(datadir)/$(PACKAGE_NAME)
+-pkglibdir = $(libdir)/$(PACKAGE_NAME)
+-docdir = $(datadir)/doc
+-pkgdocdir = $(docdir)/$(PACKAGE_NAME)
+-includedir = $(prefix)/include
+-pkgincludedir = $(includedir)/$(PACKAGE_NAME)
+-lv2plugindir = $(libdir)/lv2
+-mandir = $(datadir)/man
+-LV2PEG = lv2peg
++CFLAGS := -g -O2
++prefix := /usr/local
++bindir := $(prefix)/bin
++libdir := $(prefix)/lib
++datadir := $(prefix)/share
++pkgdatadir := $(datadir)/$(PACKAGE_NAME)
++pkglibdir := $(libdir)/$(PACKAGE_NAME)
++docdir := $(datadir)/doc
++pkgdocdir := $(docdir)/$(PACKAGE_NAME)
++includedir := $(prefix)/include
++pkgincludedir := $(includedir)/$(PACKAGE_NAME)
++lv2plugindir := $(libdir)/lv2
++mandir := $(datadir)/man
++LV2PEG := lv2peg
+ 
+ # Don't modify any variables below this line
+ SHELL := /bin/bash
