@@ -1,6 +1,19 @@
 # ChangeLog for media-sound/arpage
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  24 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  arpage-0.3.3-r1.ebuild, -files/arpage-0.3.3-doc.patch,
+  -files/arpage-0.3.3-gcc47.patch, +files/arpage-9999-makefile-am.patch,
+  +files/arpage-doc.patch, +files/arpage-gcc46.patch,
+  +files/arpage-gcc47.patch, -files/arpage-0.3.3-gcc46.patch,
+  arpage-9999.ebuild:
+  Make the ebuilds identical.
+  Rename patches.
+  Add patch to live ebuild for upstream bugs.
+  Update EAPI.
+  Use ${PN} more often.
+  Let autotools-utils handle install stage too.
 
   26 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
   +files/arpage-0.3.3-gcc46.patch; +files/arpage-0.3.3-gcc47.patch;
