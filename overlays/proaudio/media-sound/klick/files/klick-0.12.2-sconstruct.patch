@@ -1,0 +1,45 @@
+--- klick-0.12.2.orig/SConstruct	2013-03-25 07:26:12.824943598 +0100
++++ klick-0.12.2/SConstruct	2013-03-25 20:36:40.158783083 +0100
+@@ -11,25 +11,24 @@
+     ENV = os.environ,
+ )
+ 
+-# build options
+-opts = Options('scache.conf')
+-opts.AddOptions(
+-    PathOption('PREFIX', 'install prefix', '/usr/local'),
+-    PathOption('DESTDIR', 'intermediate install prefix', '', PathOption.PathAccept),
+-    BoolOption('DEBUG', 'debug mode', False),
+-    BoolOption('OSC', 'OSC support', True),
+-    BoolOption('TERMINAL', 'terminal control support', True),
+-    BoolOption('RUBBERBAND', 'use Rubber Band for pitch shifting', False),
+-)
+-opts.Update(env)
+-opts.Save('scache.conf', env)
+-Help(opts.GenerateHelpText(env))
++if os.environ.has_key('CXX'):
++	env.Replace(CXX = os.environ['CXX'])
++if os.environ.has_key('CXXFLAGS'):
++	env.Replace(CCFLAGS = os.environ['CXXFLAGS'])
+ 
+-if env['DEBUG']:
+-    env.Append(CCFLAGS = ['-g', '-W', '-Wall'])
+-else:
+-    env.Append(CCFLAGS = ['-O2', '-W', '-Wall'])
+-    env.Prepend(CPPDEFINES = 'NDEBUG')
++# build variables
++vars = Variables('scache.conf')
++vars.AddVariables(
++    PathVariable('PREFIX', 'install prefix', '/usr/local'),
++    PathVariable('DESTDIR', 'intermediate install prefix', '', PathVariable.PathAccept),
++    BoolVariable('DEBUG', 'debug mode', False),
++    BoolVariable('OSC', 'OSC support', True),
++    BoolVariable('TERMINAL', 'terminal control support', True),
++    BoolVariable('RUBBERBAND', 'use Rubber Band for pitch shifting', False),
++)
++vars.Update(env)
++vars.Save('scache.conf', env)
++Help(vars.GenerateHelpText(env))
+ 
+ # install paths
+ prefix_bin = os.path.join(env['PREFIX'], 'bin')

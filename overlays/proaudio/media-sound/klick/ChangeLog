@@ -1,0 +1,10 @@
+# ChangeLog for media-sound/klick
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*klick-0.12.2 (25 Mar 2013)
+
+  25 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +klick-0.12.2.ebuild, +files/klick-0.12.2-sconstruct.patch, +metadata.xml:
+  Initial ebuild. Thanks to goatee for the inclusion request.
+
