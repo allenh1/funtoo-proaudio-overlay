@@ -1,6 +1,12 @@
 # ChangeLog for media-sound/psychosynth
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  26 Mar 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -psychosynth-0.1.6.ebuild, psychosynth-0.3.0.ebuild, psychosynth-9999.ebuild,
+  metadata.xml:
+  remove old ebuild because repoman complains about dependencies.
+  dev-util/pkgconfig -> virtual/pkgconfig
 
   11 Aug 2012; Dominique Michel <dominique@tuxfamily.org>
   +psychosynth-0.3.0.ebuild

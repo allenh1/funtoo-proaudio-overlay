@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -30,7 +30,7 @@ RDEPEND=">=dev-libs/boost-1.39
 	vorbis? ( >=media-libs/libvorbis-1.2.0 )
 	xml? ( >=dev-libs/libxml2-2.6.31 )"
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig"
+	virtual/pkgconfig"
 
 AUTOTOOLS_IN_SOURCE_BUILD=1
 DOCS=(AUTHORS ChangeLog)
