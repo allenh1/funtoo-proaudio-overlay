@@ -32,4 +32,7 @@ The following tools are included:
    monitor a LADI system.
  * g15ladi : a JACK monitor for g15 keyboards
   </longdescription>
+  <use>
+    <flag name="wmaker">Support for window maker dock</flag>
+  </use>
 </pkgmetadata>

@@ -2,12 +2,19 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  26 Mar 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
+  -laditools-1.0.1.ebuild
+  +laditools-1.0.1-r1.ebuild
+  laditools-9999.rbuild, laditools-1.0.1-r1.ebuild: added missing depend for
+  window maker dock app and related USE flag.
+  laditools-1.0.ebuild: changed KEYWORD to ~x86 (repoman)
+
   29 Jan 2013; Nedko Arnaudov <nedko@arnaudov.name> laditools-1.0.ebuild:
   Make laditools-1.0 depend on wmdocklib
 
   wmdocklib is used by wmladi
 
-  28 Dec 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  28 Dec 2012; Dominique Michel <dominique_libre@users.sourceforge.net>
   Import from the ladi overlay
   
   26 Dec 2012; Karl Lindén <lilrc@users.sourceforge.net>
