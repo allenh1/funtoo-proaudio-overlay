@@ -1,4 +1,4 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -10,8 +10,8 @@ RESTRICT_PYTHON_ABIS="3.*"
 
 inherit python distutils
 
-DESCRIPTION="pyliblo is a Python wrapper for the liblo OSC library"
-HOMEPAGE="http://das.nasophon.de/pyliblo/"
+DESCRIPTION="A Python wrapper for the liblo OSC library"
+HOMEPAGE="http://das.nasophon.de/${PN}"
 SRC_URI="http://das.nasophon.de/download/${P}.tar.gz"
 
 RESTRICT="mirror"
