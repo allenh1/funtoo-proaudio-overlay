@@ -1,13 +1,17 @@
 # ChangeLog for media-sound/jack-tools
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  ?? ?? ????; unknow <unknow@somewhere.org>
-  Initial jack-tools.9999.ebuild:
-  It doesn't work due to changed url.
-  The correct darcs URL is
-  http://slavepianos.org/rd/sw/rju/
-  but it doesn't work either due to missing files.
+*jack-tools-20101210-r1 (26 Mar 2013)
+
+  26 Mar 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -jack-tools-9999.ebuild, -jack-tools-20101210.ebuild,
+  +jack-tools-20101210-r1.ebuild, +metadata.xml,
+  -files/fix_ftbfs_ld_as_needed.patch, -files/fix_ftbfs_with_printf.patch:
+  adjust SRC_URI to pull in tarball and patches from ubuntu repo, cleanup
+  ebuild. remove patches from filesdir which are included in SRC_URI.
+  remove live ebuild because there are missing files which are in another
+  repo upstream called c-common, a new package should be created for that.
 
   16 June 2012; Dominique Michel <dominique_libre@sourceforge.net>
   + ChangeLog
