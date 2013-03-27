@@ -2,6 +2,11 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  27 Mar 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
+  drobilla-9999.ebuild: changed media/plugins/omins depend to 9999
+  in order to satisgy the dependencies from other package like
+  media-sound/smack
+
   18 Mar 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
   drobilla-9999.ebuild: added multilib support; USE flags: removed lash,
   added session for jack-session support.

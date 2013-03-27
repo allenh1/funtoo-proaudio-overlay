@@ -18,7 +18,7 @@ LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="0"
 
-RDEPEND="!media-plugins/omins
+RDEPEND="=media-plugins/omins-9999
 	=media-libs/raul-9999
 	=dev-libs/serd-9999
 	=dev-libs/sord-9999
