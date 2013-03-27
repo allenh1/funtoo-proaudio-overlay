@@ -1228,13 +1228,6 @@
 	Homepage:    http://www.rsound.org/
 
 
-#------- media-sound/mjoo --------
-	mjoo-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: mjoo is a live sequencer with ZUI interface
-		 using jack
-	Homepage:    http://mjoo.org
-
-
 #------- media-sound/non-mixer --------
 	non-mixer-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: The Non Things: Non-DAW, Non-Mixer, Non-Sequencer
