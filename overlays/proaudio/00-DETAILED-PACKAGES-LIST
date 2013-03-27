@@ -1591,15 +1591,6 @@
 	Homepage:    http://www.ordrumbox.com/
 
 
-#------- media-sound/gdam --------
-	gdam-0.942	arch: x86
-	gdam-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: This is a digital dj mixing software package,
-		 aimed towards live music remixing and production.
-		
-	Homepage:    http://gdam.ffem.org/
-
-
 #------- media-sound/drc --------
 	drc-3.2.0	arch: ~amd64 ~x86
 	drc-3.2.1	arch: ~amd64 ~x86
