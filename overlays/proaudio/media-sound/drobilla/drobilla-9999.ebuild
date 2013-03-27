@@ -29,6 +29,7 @@ RDEPEND="=media-plugins/omins-9999
 	=media-sound/ingen-9999
 	=media-sound/jalv-9999
 	=media-sound/patchage-9999
+	=media-sound/machina-9999
 	>=dev-cpp/gtkmm-2.14.0:2.4
 	>=dev-cpp/glibmm-2.14:2
 	>=dev-cpp/libglademm-2.6.0
@@ -52,7 +53,7 @@ DEPEND="${RDEPEND}
 
 pkg_setup() {
 ewarn "${P} will install almost everything from http://drobilla.net/software"
-ewarn "This mean that ${P} will install dev-libs/serd dev-libs/sord media-libs/lilv media-libs/raul media-libs/sratom meida-libs/suil media-sound/ingen media-sound/jalv media-plugins/mda-kv2 media-plugins/omins media-sound/patchage"
+ewarn "This mean that ${P} will install dev-libs/serd dev-libs/sord media-libs/lilv media-libs/raul media-libs/sratom meida-libs/suil media-sound/ingen media-sound/jalv media-plugins/mda-kv2 media-plugins/omins media-sound/machina media-sound/patchage"
 ewarn ""
 ewarn "To install ${P}. you must uninstall the above softwares before to process."
 
