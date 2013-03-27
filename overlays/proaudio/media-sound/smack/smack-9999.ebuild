@@ -1,6 +1,8 @@
-# Copyright 1999-2007 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
+
+EAPI=5
 
 inherit subversion
 RESTRICT="mirror"
@@ -14,20 +16,14 @@ LICENSE="GPL-2"
 KEYWORDS=""
 SLOT="0"
 
-DEPEND="=media-sound/om-9999
-	media-plugins/omins
+DEPEND=">=media-sound/ingen-9999
+	>=media-plugins/omins-9999
 	media-plugins/swh-plugins
 	media-plugins/blop
 	media-libs/ladspa-cmt
 	media-libs/phat"
 
-src_compile() {
+src_configure() {
 	NOCONFIGURE="1" ./autogen.sh
-	econf || die
-	emake || die
-}
-
-src_install() {
-	make DESTDIR=${D} install || die
-	dodoc AUTHORS ChangeLog README NEWS
+	econf
 }

@@ -369,9 +369,9 @@
 
 
 #------- media-libs/zynaddsubfx-extras --------
-	zynaddsubfx-extras-20060419	arch: amd64 ppc x86
-	zynaddsubfx-extras-20060615	arch: amd64 ppc x86
-	zynaddsubfx-extras-20101203	arch: amd64 ppc x86
+	zynaddsubfx-extras-20060419	arch: ~amd64 ~ppc ~x86
+	zynaddsubfx-extras-20060615	arch: ~amd64 ~ppc ~x86
+	zynaddsubfx-extras-20101203	arch: ~amd64 ~ppc ~x86
 	zynaddsubfx-extras-99999999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: unsorted bank/instruments and parameters
 		 for zynaddsubfx
@@ -402,7 +402,7 @@
 #------- media-libs/aften --------
 	aften-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: An A/52 (AC-3) audio encoder
-	Homepage:    http://aften.sourceforge.net/
+	Homepage:    http://.sourceforge.net/
 
 
 #------- media-libs/bml --------
@@ -504,9 +504,10 @@
 #------- media-libs/pyliblo --------
 	pyliblo-0.8.1	arch: amd64 ~x86
 	pyliblo-0.9.1	arch: ~amd64 ~x86
-	Description: pyliblo is a Python wrapper for the liblo
-		 OSC library
-	Homepage:    http://das.nasophon.de/pyliblo/
+	pyliblo-0.9.1-r1	arch: ~amd64 ~x86
+	Description: A Python wrapper for the liblo OSC library
+		
+	Homepage:    http://das.nasophon.de/
 
 
 #------- media-libs/liblscp --------
@@ -539,12 +540,10 @@
 
 
 #------- media-libs/oscpack --------
-	oscpack-1.0.2	arch: ~amd64 ~ppc x86
-	oscpack-1.0.2-r1	arch: ~amd64 ~ppc x86
-	oscpack-1.0.2-r2	arch: ~amd64 ~ppc ~x86
+	oscpack-1.1.0.1	arch: ~amd64 ~ppc ~x86
 	Description: Set of C++ classes for packing and unpacking
 		 OSC packets
-	Homepage:    http://www.audiomulch.com/~rossb/code/oscpack
+	Homepage:    http://www.rossbencina.com/code/
 
 
 #------- media-libs/musicbrainz --------
@@ -592,7 +591,7 @@
 	libdsp-5.0.2	arch: x86 ~amd64 -sparc
 	Description: C++ class library of common digital signal
 		 processing functions.
-	Homepage:    http://libdsp.sf.net
+	Homepage:    http://.sourceforge.net/
 
 
 #------- media-libs/stk --------
@@ -681,13 +680,7 @@
 
 
 #------- media-libs/zynaddsubfx-collection --------
-	zynaddsubfx-collection-0.1	arch: amd64 ppc x86
-	zynaddsubfx-collection-0.2	arch: amd64 ppc x86
-	zynaddsubfx-collection-0.3	arch: amd64 ppc x86
-	zynaddsubfx-collection-0.4	arch: amd64 ppc x86
-	zynaddsubfx-collection-0.5	arch: amd64 ppc x86
-	zynaddsubfx-collection-0.6	arch: amd64 ppc x86
-	zynaddsubfx-collection-0.7	arch: amd64 ppc x86
+	zynaddsubfx-collection-0.7	arch: ~amd64 ~ppc ~x86
 	Description: user contributed instruments for zynaddsubfx
 		
 	Homepage:    http://proaudio.tuxfamily.org/files
@@ -782,9 +775,10 @@
 
 #------- media-plugins/omins --------
 	omins-0.2.0	arch: ~x86
-	Description: Collection of LADSPA plugins for modular
-		 synthesizers.
-	Homepage:    http://www.nongnu.org/om-synth/omins.html
+	omins-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Modular audio processing ssytem using JACK
+		 and LV2 or LADSPA plugins
+	Homepage:    http://drobilla.net/software/ingen
 
 
 #------- media-plugins/invada-studio-plugins-lv2 --------
@@ -1219,10 +1213,10 @@
 
 #------- media-sound/arpage --------
 	arpage-0.3.3-r1	arch: ~amd64 ~x86
-	arpage-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	arpage-9999	arch: ~amd64 ~x86
 	Description: MIDI Arpeggiator w/ JACK Tempo Sync, includes
 		 Zonage MIDI splitter/manipulator
-	Homepage:    http://sourceforge.net/projects/arpage/
+	Homepage:    http://sourceforge.net/projects/
 
 
 #------- media-sound/rsound --------
@@ -1316,7 +1310,6 @@
 
 
 #------- media-sound/psychosynth --------
-	psychosynth-0.1.6	arch: ~amd64 ~x86
 	psychosynth-0.3.0	arch: ~amd64 ~x86
 	psychosynth-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: Free software synthesizer inspired by the
@@ -1345,6 +1338,13 @@
 	Description: din is a musical instrument and audio synthesizer
 		
 	Homepage:    http://www.dinisnoise.org/
+
+
+#------- media-sound/gtklick --------
+	gtklick-0.6.4	arch: ~amd64 ~x86
+	Description: A simple metronome with an easy-to-use GTK
+		 interface.
+	Homepage:    http://das.nasophon.de/
 
 
 #------- media-sound/museseq --------
@@ -1403,10 +1403,9 @@
 
 
 #------- media-sound/jack-tools --------
-	jack-tools-20101210	arch: ~amd64 ~x86
-	jack-tools-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: a collection of jack tools
-	Homepage:    http://slavepianos.org/rd/f/207983/
+	jack-tools-20101210-r1	arch: ~amd64 ~x86
+	Description: A collection of audio tools for jack
+	Homepage:    http://rd.slavepianos.org/?t=rju
 
 
 #------- media-sound/frescobaldi --------
@@ -1793,6 +1792,13 @@
 	Homepage:    http://non.tuxfamily.org
 
 
+#------- media-sound/klick --------
+	klick-0.12.2	arch: ~amd64 ~ppc ~x86
+	Description: An advanced command-line based metronome
+		 for JACK
+	Homepage:    http://das.nasophon.de/
+
+
 #------- media-sound/snd-ls --------
 	snd-ls-0.9.6.2	arch: ~amd64 ~ppc ~sparc ~x86
 	snd-ls-0.9.7.0-r1	arch: ~amd64 ~ppc ~sparc ~x86
@@ -1844,11 +1850,11 @@
 
 
 #------- media-sound/jackmixdesk --------
-	jackmixdesk-0.3_p3	arch: ~amd64 ~ppc ~x86
-	jackmixdesk-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	jackmixdesk-0.3_p4	arch: ~amd64 ~ppc ~x86
+	jackmixdesk-9999	arch: ~amd64 ~ppc ~x86
 	Description: Audio mixer for JACK with OSC control, LASH
 		 support and GTK GUI
-	Homepage:    http://sourceforge.net/projects/jackmixdesk
+	Homepage:    http://sourceforge.net/projects/
 
 
 #------- media-sound/ambdec --------
@@ -1889,9 +1895,10 @@
 
 #------- media-sound/rtsynth --------
 	rtsynth-1.9.2	arch: amd64 x86
+	rtsynth-1.9.5	arch: ~amd64  ~x86
 	Description: reproduce sounds of strings, organs, flutes
 		 and drums in real time
-	Homepage:    http://www.linux-sound.org/rtsynth/
+	Homepage:    http://www.linux-sound.org/
 
 
 #------- media-sound/jnoise --------
@@ -1938,17 +1945,17 @@
 
 
 #------- media-sound/schism-tracker --------
-	schism-tracker-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Schism Tracker cvs
-	Homepage:    http://rigelseven.org/schism
+	schism-tracker-20120105	arch: ~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~sh ~sparc ~x86 ~x86-fbsd
+	schism-tracker-99999999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Schism Tracker
+	Homepage:    http://.org/
 
 
 #------- media-sound/dino --------
-	dino-0.2.2	arch: ~amd64 ~ppc x86
-	dino-0.2.4	arch: ~amd64 ~ppc ~x86
+	dino-0.2.8	arch: ~amd64 ~ppc ~x86
 	dino-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: Dino is a pattern-based MIDI sequencer.
-	Homepage:    http://dino.nongnu.org
+	Description: a pattern-based MIDI sequencer.
+	Homepage:    http://.nongnu.org
 
 
 #------- media-sound/soundmosaic --------
@@ -2379,8 +2386,8 @@
 
 
 #------- media-sound/laditools --------
-	laditools-1.0.1	arch: ~amd64 ~x86
-	laditools-1.0	arch: ~amd64 x86
+	laditools-1.0.1-r1	arch: ~amd64 ~x86
+	laditools-1.0	arch: ~amd64 ~x86
 	laditools-1.0_rc1	arch: ~amd64 ~x86
 	laditools-1.0_rc8	arch: ~amd64 ~x86
 	laditools-9999	arch: -> live ebuild: [svn|cvs|...]<-
@@ -2512,10 +2519,6 @@
 	Homepage:    http://www.buzztard.org
 
 
-	Description: unknown
-	Homepage:    unknown
-
-
 #------- media-sound/composite --------
 	composite-0.006	arch: ~x86 ~amd64
 	composite-9999	arch: -> live ebuild: [svn|cvs|...]<-
@@ -2627,9 +2630,9 @@
 
 #------- media-video/xjadeo --------
 	xjadeo-0.6.4	arch: ~x86 ~amd64
-	Description: xjadeo is a simple video player that is synchronized
+	Description: a simple video player that is synchronized
 		 to jack transport.
-	Homepage:    http://xjadeo.sourceforge.net/
+	Homepage:    http://.sourceforge.net/
 
 
 #------- sys-apps/das_watchdog --------

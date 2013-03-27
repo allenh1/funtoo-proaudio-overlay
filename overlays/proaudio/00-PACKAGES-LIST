@@ -74,11 +74,9 @@ media-sound/kontroll
 media-sound/azr3-jack
 media-sound/NetworkEditor
 media-sound/radium
-media-sound/psychosynth
 media-sound/museseq
 media-sound/ceres
 media-sound/jacker
-media-sound/jack-tools
 media-sound/jost
 media-sound/guitarix2
 media-sound/gwc
@@ -109,9 +107,9 @@ media-sound/yatm
 media-sound/jackmix
 media-sound/zita-rev1
 media-sound/tapeutape
-media-sound/smack
 media-sound/lash-original
 media-sound/alsaplayer-midi
+media-sound/klick
 media-sound/snd-ls
 media-sound/jackminimix
 media-sound/postfish
@@ -129,7 +127,6 @@ media-sound/somaplayer
 media-sound/jackEQ
 media-sound/specimen
 media-sound/bristol
-media-sound/schism-tracker
 media-sound/dino
 media-sound/jack_oscrolloscope
 media-sound/tuxguitar
@@ -184,7 +181,6 @@ media-sound/setbfree
 media-sound/jmeters
 media-sound/ladish
 media-sound/buzztard
-media-sound/kmidimon
 media-sound/Voice2MIDI
 media-sound/jack-audio-connection-kit
 media-sound/tapiir
