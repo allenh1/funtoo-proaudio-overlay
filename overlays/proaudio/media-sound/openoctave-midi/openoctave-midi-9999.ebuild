@@ -21,6 +21,7 @@ RDEPEND="lilypond? ( media-sound/lilypond
 	>=media-libs/ladspa-cmt-1.14
 	|| ( x11-libs/libX11 virtual/x11 )
 	>=media-libs/liblrdf-0.3
+	>=media-sound/linuxsampler-9999
 	>=sci-libs/fftw-3.0.0
 	>=media-libs/liblo-0.7
 	x11-libs/libXtst"
