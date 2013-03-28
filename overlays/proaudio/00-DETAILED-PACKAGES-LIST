@@ -37,10 +37,6 @@
 	Homepage:    http://swami.sourceforge.net/
 
 
-	Description: unknown
-	Homepage:    unknown
-
-
 #------- dev-libs/xerces-c --------
 	xerces-c-2.8.0-r1	arch: ~alpha ~amd64 ~hppa ppc ~ppc64 ~sparc ~x86 ~x86-fbsd
 	Description: A validating XML parser written in a portable
@@ -1811,12 +1807,6 @@
 	Homepage:    https://svn.xiph.org/trunk/postfish/
 
 
-#------- media-sound/chionic --------
-	chionic-1.0.1	arch: -*
-	Description: advanced sampler for linux
-	Homepage:    http://www.reduz.com.ar/chionic
-
-
 #------- media-sound/khagan --------
 	khagan-0.1.2-r1	arch: ~x86 ~amd64
 	Description: Live user interface builder for controlling
@@ -2364,9 +2354,9 @@
 
 #------- media-sound/machina --------
 	machina-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: A polyphonic MIDI sequencer based on probabilistic
-		 finite-state automata
-	Homepage:    http://drobilla.net/software/machina/
+	Description: Modular audio processing ssytem using JACK
+		 and LV2 or LADSPA plugins
+	Homepage:    http://drobilla.net/software/ingen
 
 
 #------- media-sound/laditools --------

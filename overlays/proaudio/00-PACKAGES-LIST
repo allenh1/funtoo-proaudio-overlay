@@ -6,7 +6,6 @@ dev-python/python-poppler-qt4
 app-portage/euses
 app-emulation/wineasio
 dev-libs/libinstpatch
-dev-libs/libtar
 dev-libs/xerces-c
 dev-libs/icu
 games-misc/linthesia
@@ -111,7 +110,6 @@ media-sound/klick
 media-sound/snd-ls
 media-sound/jackminimix
 media-sound/postfish
-media-sound/chionic
 media-sound/khagan
 media-sound/mx44
 media-sound/ambdec
@@ -162,7 +160,6 @@ media-sound/midicontroller
 media-sound/breakage
 media-sound/Annotator
 media-sound/jconvolver
-media-sound/machina
 media-sound/laditools
 media-sound/AudioCutter
 media-sound/boodler
