@@ -1,6 +1,12 @@
 # ChangeLog for media-sound/snd-ls
-# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  29 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  metadata.xml: removed no-herd
+  files: removed
+  all ebuilds: remove some of the repoman warnings inclusing
+  removing of ~sparc
 
   21 Jun 2012; Dominique Michel <dominique_libre@sourceforge.net>
   snd-ls-0.9.9.2_beta-r1.ebuild: added pcl RDEPEND
