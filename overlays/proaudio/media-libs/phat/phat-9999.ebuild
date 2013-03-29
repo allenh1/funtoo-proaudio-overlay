@@ -1,59 +1,56 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit exteutils subversion autotools flag-o-matic toolchain-funcs
+EAPI="5"
+
+inherit exteutils subversion autotools-utils flag-o-matic toolchain-funcs
 
 DESCRIPTION="Collection of GTK+ widgets geared toward pro-audio apps."
-HOMEPAGE="https://developper.berlios.de/projects/phat/"
+HOMEPAGE="https://developer.berlios.de/projects/phat/"
 
-ESVN_REPO_URI="http://svn.berlios.de/svnroot/repos/phat/trunk/phat"
+ESVN_REPO_URI="http://svn.berlios.de/svnroot/repos/${PN}/trunk/${PN}"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 
-S="${WORKDIR}/${PN}"
-
-IUSE="debug -doc glade"
-DEPEND=">x11-libs/gtk+-2
+IUSE="debug doc glade"
+DEPEND=">=x11-libs/gtk+-2
 	dev-util/gtk-doc-am
 	doc? ( dev-util/gtk-doc )
 	glade? ( dev-util/glade )"
 
-src_unpack() {
-	subversion_src_unpack ${A}
-	cd "${S}"
-	# workaround: bootstrap should not need gtkdocize if no docs are build
+PATCHES=( "${FILESDIR}/${P}-cflags.patch" )
+DOCS=( AUTHORS BUGS NEWS README TODO )
+
+AUTOTOOLS_IN_SOURCE_BUILD="1"
+AUTOTOOLS_AUTORECONF="1"
+
+src_prepare() {
+	# workaround: autoreconf should not need gtkdocize if no docs are built
 	if ! use doc ;then
-		esed_check -i -e "s@\(^gtkdocize.*\)@# \1@g" bootstrap
 		touch gtk-doc.make
-		cd docs
-			esed_check -i -e "s@\(^EXTRA_DIST\).*@\1 =@g" Makefile.am
-		cd ..
+		esed_check -i -e "s@\(^EXTRA_DIST\).*@\1 =@g" docs/Makefile.am
 	fi
 
-	./bootstrap
 	if [[ $(gcc-major-version)$(gcc-minor-version)$(gcc-micro-version) -ge 413 ]] ; then
 		ewarn "Appending -fgnu89-inline to CFLAGS/CXXFLAGS"
 		append-flags -fgnu89-inline
 	fi
+	autotools-utils_src_prepare
 }
 
-src_compile() {
-	if use glade; then
-		myconf="${myconf} --enable-glade-plugin"
-	fi
-
-	econf $(use_enable debug) \
-	      $(use_enable doc gtk-doc)\
-		  $myconf || die "Configure failed"
-
-	emake || die
+src_configure() {
+	local myeconfargs=(
+		$(use_enable debug)
+		$(use_enable doc gtk-doc)
+		$(use_enable glade glade-plugin)
+	)
+	autotools-utils_src_configure
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die "Install failed"
-	dodoc AUTHORS BUGS NEWS README TODO
-	use doc || rm -rf "${D}"/usr/share/gtk-doc/html/${PN}
+	autotools-utils_src_install
+	use doc || rm -rf "${D}/usr/share/gtk-doc/html/${PN}"
 }
