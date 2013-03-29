@@ -1,0 +1,16 @@
+# A patch created by lilrc to avoid unecessary and possibly faulty
+# linking.
+
+--- gmerlin-1.2.0.orig/doc/Makefile.am	2012-06-08 13:50:30.000000000 +0200
++++ gmerlin-1.2.0/doc/Makefile.am	2013-03-29 01:21:49.513906578 +0100
+@@ -22,10 +22,8 @@
+ gmerlin_TEXINFOS= $(info_TEXINFOS) version.texi
+ 
+ userguide: $(gmerlin_TEXINFOS)
+-	ln -sf `pwd`"/$(top_srcdir)/doc/img" $(top_builddir)/img
+ 	$(MAKEINFO) -I $(top_srcdir)/doc $(AM_MAKEINFOFLAGS) $(MAKEINFOFLAGS) \
+                 --html -o userguide $(top_srcdir)/doc/gmerlin.texi
+-	rm -f $(top_builddir)/img
+ 
+ apiref:
+ 	doxygen Doxyfile
