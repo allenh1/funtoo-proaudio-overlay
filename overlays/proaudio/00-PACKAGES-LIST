@@ -41,7 +41,6 @@ media-plugins/calf
 media-plugins/vcf
 media-plugins/lv2vocoder
 media-plugins/vocoder-ladspa
-dev-ruby/event-loop
 sys-firmware/midisport-firmware
 media-radio/liquidsoap
 media-radio/rivendell

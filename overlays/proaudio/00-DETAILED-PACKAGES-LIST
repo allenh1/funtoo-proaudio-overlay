@@ -329,13 +329,6 @@
 	Homepage:    http://pypi.python.org/pypi/enum/
 
 
-#------- dev-ruby/event-loop --------
-	event-loop-0.3	arch: ~x86 ~amd64
-	event-loop-0.3-r1	arch: ~x86 ~amd64
-	Description: Event loop construct for Ruby
-	Homepage:    http://www.brockman.se/software/ruby-event-loop/
-
-
 #------- dev-util/premake --------
 	premake-3.7	arch: ~amd64 ~x86
 	Description: A makefile generation tool
