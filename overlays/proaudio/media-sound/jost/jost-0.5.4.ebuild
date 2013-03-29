@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -32,7 +32,7 @@ RDEPEND="|| ( (  x11-proto/xineramaproto
 DEPEND="${RDEPEND}
 	vst? ( media-libs/vst-sdk )
 	ladspa? ( media-libs/ladspa-sdk )
-	dev-util/premake"
+	dev-util/premake:3"
 
 S="${WORKDIR}/${PN}-v${PV}"
 
