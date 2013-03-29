@@ -1,6 +1,16 @@
 # ChangeLog for dev-util/premake
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
++premake-4.3-r1.ebuid (30 Mar 2013)
+-premake-3.7.ebuid (30 Mar 2013)
++premake-3.7-r1.ebuid (30 Mar 2013)
++premake-3.5-r1.ebuid (30 Mar 2013)
+  
+  30 Mar 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
+  premake-4.3-r1.ebuild, premake-3.7-r1.ebuild, premake-3.5-r1.ebuild: imported
+  portage ebuilds, added slotting in all ebuilds because premake (3) is not
+  compatible with premake4
 
   27 Dec 2012; Karl Lindén <lilrc@users.sourceforge.net>
   -premake-4.2.1.ebuild, -files/premake-4.2.1-Makefile.patch, -files,
