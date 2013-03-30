@@ -1,0 +1,22 @@
+--- guitarix-0.25.2.a/wscript	2013-03-30 18:09:17.965348694 +0100
++++ guitarix-0.25.2.b/wscript	2013-03-30 18:15:07.814356299 +0100
+@@ -691,10 +691,6 @@
+ # Build / Install
+ ################################################################
+ 
+-def post(ctx):
+-    if os.geteuid() == 0:
+-        Utils.exec_command('/sbin/ldconfig')
+-
+ def build(bld):
+     if bld.env['INTLTOOL']:
+         obj = bld.new_task_gen ('intltool_po')
+@@ -754,8 +750,6 @@
+         return task
+     gen_desktop.create_task = gen_desktop_add_scanner
+ 
+-    if bld.env["GX_LIB_SHARED"]:
+-        bld.add_post_fun(post)
+     if bld.env["GX_LIB_DEV"]:
+         bld.install_files('${PREFIX}/include/gxw','libgxw/gxw/*.h')
+         bld.install_files('${PREFIX}/include','libgxw/gxw.h')

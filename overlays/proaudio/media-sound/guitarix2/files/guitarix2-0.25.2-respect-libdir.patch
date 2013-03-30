@@ -1,0 +1,16 @@
+--- guitarix-0.25.2.b/wscript	2013-03-30 18:15:07.814356299 +0100
++++ guitarix-0.25.2.c/wscript	2013-03-30 18:25:19.523369598 +0100
+@@ -572,7 +572,12 @@
+     # writing config.h
+     conf.write_config_header('config.h')
+ 
+-    conf.define('LIBDIR', os.path.normpath(os.path.join(conf.env['PREFIX'], 'lib')))
++    # Because the waf binary is so old the easiest solution is to check
++    # the environment
++    if 'LIBDIR' in os.environ:
++        conf.define('LIBDIR', os.environ['LIBDIR'])
++    else:
++        conf.define('LIBDIR', os.path.normpath(os.path.join(conf.env['PREFIX'], 'lib')))
+     conf.define('BINDIR', os.path.normpath(os.path.join(conf.env['PREFIX'], 'bin')))
+     conf.define('DESKAPPS_DIR', os.path.normpath(os.path.join(conf.env['SHAREDIR'], 'applications')))
+     conf.define('BIN_NAME', APPNAME)

@@ -2,6 +2,22 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  30 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -files/guitarix2-0.18.0-LINGUAS.patch, guitarix2-0.25.2.ebuild,
+  +files/guitarix2-0.25.2-no-ldconfig.patch,
+  +files/guitarix2-0.25.2-no-update-desktop-database.patch,
+  +files/guitarix2-0.25.2-respect-libdir.patch, guitarix2-9999.ebuild,
+  +files/guitarix2-9999-wscript.patch, metadata.xml:
+  Move to EAPI 5 and base eclass.
+  Enable parallel build.
+  Add more use flags and their descriptions when needed.
+  Add missing dependencies.
+  Import some code from waf-utils eclass to respect toolchain programs.
+  Remove old patch.
+  Add patch to respect libdir for 0.25.2.
+  Add patches to disable calling unecessary funcions from the build 
+  system; portage does so automatically.
+
 *guitarix2-9999 (30 Mar 2013)
 
   30 Mar 2013; Dominique Michel <dominique_libbre@users.sourceforge.net>

@@ -2,9 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="4"
+EAPI="5"
 
-inherit eutils git-2 multilib
+# We cannot use waf-utils eclass because the waf binary is old!
+# Version is 1.5.18. Written March 30 2013
+inherit base eutils git-2 multilib multiprocessing
 
 DESCRIPTION="A simple Linux Guitar Amplifier for jack with one input and two outputs"
 EGIT_REPO_URI="git://git.code.sf.net/p/guitarix/git/"
@@ -16,43 +18,73 @@ SLOT="0"
 LICENSE="GPL-2"
 KEYWORDS=""
 
-IUSE="+capture +convolver faust +meterbridge"
+IUSE="+capture +convolver faust glade ladspa lv2 +meterbridge nls python"
 
 RDEPEND="
+	>=dev-cpp/glibmm-2.24.0
+	>=dev-cpp/gtkmm-2.20.0
 	>=dev-libs/boost-1.38
-	media-libs/ladspa-sdk
+	dev-libs/glib
+	media-libs/liblrdf
 	>=media-libs/libsndfile-1.0.17
 	>=media-sound/jack-audio-connection-kit-0.109.1
 	media-sound/lame
 	media-sound/vorbis-tools
-	>=x11-libs/gtk+-2.12.0
-	>=media-libs/lv2-1.2.0
+	>=sci-libs/fftw-3.1.2
+	>=x11-libs/gtk+-2.20.0
 	capture? ( media-sound/jack_capture )
 	convolver? ( media-libs/zita-convolver )
 	faust? ( dev-lang/faust )
+	ladspa? ( media-libs/ladspa-sdk )
+	lv2? ( || ( media-libs/lv2core >=media-libs/lv2-1.2.0 ) )
 	meterbridge? ( media-sound/meterbridge )"
-
-S="${WORKDIR}/guitarix-${PV}/"
-
 DEPEND="${RDEPEND}
-	virtual/pkgconfig"
+	dev-lang/python
+	virtual/pkgconfig
+	nls? ( dev-util/intltool )"
+
+EGIT_SOURCEDIR="${S}"
+S="${S}/trunk"
+
+DOCS=( changelog README )
+
+PATCHES=(
+	"${FILESDIR}/${P}-wscript.patch"
+)
 
 src_configure() {
-	cd "${S}/trunk"
-	./waf configure --prefix=/usr --ladspadir=/usr/share/ladspa \
-	--build-lv2 --lv2dir=/usr/$(get_libdir)/lv2 || die
+	# About all gentoo packages install necessary libraries and headers
+	# and so should this package, hence force enable.
+	local mywafconfargs=(
+		--shared-lib
+		--lib-dev
+		$(use_enable nls)
+		"--libdir=${EPREFIX}/usr/$(get_libdir)"
+	)
+	use faust && mywafconfargs+=( --faust )
+	use faust || mywafconfargs+=( --no-faust )
+	use glade && mywafconfargs+=( --glade-support )
+	use ladspa && mywafconfargs+=( "--ladspadir=${EPREFIX}/usr/share/ladspa" )
+	use ladspa || mywafconfargs+=( --no-ladspa )
+	use lv2 && mywafconfargs+=(
+		--build-lv2
+		"--lv2dir=${EPREFIX}/usr/$(get_libdir)/lv2"
+	)
+	use python && mywafconfargs+=( --python-wrapper )
+
+	tc-export AR CC CPP CXX RANLIB
+	echo "CCFLAGS=\"${CFLAGS}\" LINKFLAGS=\"${LDFLAGS}\" ./waf --prefix=${EPREFIX}/usr ${mywafconfargs[@]} $@ configure"
+	CCFLAGS="${CFLAGS}" LINKFLAGS="${LDFLAGS}" ./waf \
+		"--prefix=${EPREFIX}/usr" ${mywafconfargs[@]} \
+		configure || die "configure failed"
 }
 
 src_compile() {
-	addpredict /etc
-
-	cd "${S}/trunk"
-	./waf build || die
+	./waf "--jobs=$(makeopts_jobs)" || die "build failed"
 }
 
 src_install() {
-	addpredict /usr/share/applications
+	./waf "--destdir=${D}" install || die "install failed"
 
-	cd "${S}/trunk"
-	DESTDIR=${D} ./waf install
+	base_src_install_docs
 }

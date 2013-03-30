@@ -1,0 +1,35 @@
+# This is a patch made by lilrc to disable calling
+# update-desktop-database and ldconfig from the build system, which
+# generates sandbox violations.
+# Portage does it automatically.
+
+diff --git a/trunk/wscript b/trunk/wscript
+index 3d92f60..fa80ccb 100644
+--- a/trunk/wscript
++++ b/trunk/wscript
+@@ -701,10 +701,6 @@ def configure(conf):
+ # Build / Install
+ ################################################################
+ 
+-def post(ctx):
+-    if os.geteuid() == 0:
+-        Utils.exec_command('/sbin/ldconfig')
+-
+ def build(bld):
+     if bld.env['INTLTOOL']:
+         obj = bld.new_task_gen ('intltool_po')
+@@ -763,14 +759,7 @@ def build(bld):
+         task.scan = po_scanner
+         return task
+     gen_desktop.create_task = gen_desktop_add_scanner
+-    if Options.commands["install"]:  ## newer waf version: bld.cmd == 'install'
+-        try:
+-            bld.exec_command(["update-desktop-database", Utils.subst_vars("${DATADIR}/applications", bld.env)])
+-        except:
+-            pass
+ 
+-    if bld.env["GX_LIB_SHARED"]:
+-        bld.add_post_fun(post)
+     if bld.env["GX_LIB_DEV"]:
+         bld.install_files('${PREFIX}/include/gxw','libgxw/gxw/*.h')
+         bld.install_files('${PREFIX}/include','libgxw/gxw.h')
