@@ -1655,16 +1655,6 @@
 	Homepage:    http://non.tuxfamily.org
 
 
-#------- media-sound/guitarix --------
-	guitarix-0.08.0	arch: ~amd64 ~x86
-	guitarix-0.09.0	arch: ~amd64 ~x86
-	guitarix-0.11.1	arch: ~amd64 ~x86
-	guitarix-0.22.3	arch: ~amd64 ~x86
-	Description: A simple Linux Guitar Amplifier for jack
-		 with one input and two outputs
-	Homepage:    http://guitarix.sourceforge.net/
-
-
 #------- media-sound/qloud --------
 	qloud-0.22	arch: x86 amd64
 	Description: Tool to measure loudspeaker frequency and
