@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -17,7 +17,7 @@ KEYWORDS=""
 RDEPEND=">=media-sound/xmms2-0.8
 	x11-libs/gdk-pixbuf
 	>=x11-libs/gtk+-3.0.0
-	>=dev-libs/libgee-0.6
+	dev-libs/libgee:0
 	dev-lang/vala:0.18"
 DEPEND="${RDEPEND}"
 

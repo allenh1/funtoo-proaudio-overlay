@@ -2,10 +2,13 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  29 Dec 2012; Dominique Michel <dominique_libre@sourceforge.net>
-  abraca-8888.ebuild: changed build system to waf
+  30 Mar 2013; Dominique Michel ydominique_libre@users.sourceforge.net>
+  abraca-9999.ebuild: changed dev-libs/libgee depend to slot 0
 
-  29 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  29 Dec 2012; Dominique Michel <dominique_libre@users.sourceforge.net>
+  abraca-9999.ebuild: changed build system to waf
+
+  29 Nov 2012; Dominique Michel <dominique_libre@users.sourceforge.net>
   -abraca-0.4.3.ebuild, -files/abraca-0.4.3-site_init.patch
   abraca-9999.ebuild: updated to git-2 eclass, updated HOMEPAGE and EGIT_REPO_URI,
   added pkg_setup for correct handling of VALAC, updated DEPENDS
