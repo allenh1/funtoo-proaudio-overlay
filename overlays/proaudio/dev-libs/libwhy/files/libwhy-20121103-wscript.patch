@@ -1,0 +1,28 @@
+From c671354bcab66208b84cd90bcacda30b357cd934 Mon Sep 17 00:00:00 2001
+From: "Gavin Pryke (gavlee)" <gavinlee303@googlemail.com>
+Date: Fri, 29 Mar 2013 02:59:00 +0000
+Subject: [PATCH] pass multilib-strict check
+
+---
+ wscript | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/wscript b/wscript
+index 920ce6f..8501f6a 100644
+--- a/wscript
++++ b/wscript
+@@ -10,9 +10,11 @@ out = 'build'
+ 
+ def options(opt):
+     opt.load('compiler_c')
++    opt.load('gnu_dirs')
+ 
+ def configure(conf):
+     conf.load('compiler_c')
++    conf.load('gnu_dirs')
+ 
+     # -FIX- should parameterize the minimum GTK+ version, so it can be substituted into libwhygui.pc
+     conf.check_cfg(package='gtk+-2.0', uselib_store='GTK', atleast_version='2.16.0',
+-- 
+1.8.1.5
+
