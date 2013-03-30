@@ -1,0 +1,24 @@
+# Get rid of the -Wformat warning telling us there are not enough
+# arguments passed to the function
+
+diff -ur raton_v0.22.b/src/interface.c raton_v0.22.c/src/interface.c
+--- raton_v0.22.b/src/interface.c	2013-03-30 21:18:34.668595593 +0100
++++ raton_v0.22.c/src/interface.c	2013-03-30 21:27:31.551607265 +0100
+@@ -901,7 +901,7 @@
+   GtkWidget *button2;
+   GtkWidget *button3;
+ 
+-  opendialog1 = gtk_file_chooser_dialog_new ("Open", NULL, GTK_FILE_CHOOSER_ACTION_OPEN, NULL);
++  opendialog1 = gtk_file_chooser_dialog_new ("Open", NULL, GTK_FILE_CHOOSER_ACTION_OPEN, NULL, NULL);
+   gtk_window_set_modal (GTK_WINDOW (opendialog1), TRUE);
+   gtk_window_set_type_hint (GTK_WINDOW (opendialog1), GDK_WINDOW_TYPE_HINT_DIALOG);
+ 
+@@ -949,7 +949,7 @@
+   GtkWidget *button4;
+   GtkWidget *button5;
+ 
+-  savedialog1 = gtk_file_chooser_dialog_new ("Save", NULL, GTK_FILE_CHOOSER_ACTION_SAVE, NULL);
++  savedialog1 = gtk_file_chooser_dialog_new ("Save", NULL, GTK_FILE_CHOOSER_ACTION_SAVE, NULL, NULL);
+   gtk_window_set_modal (GTK_WINDOW (savedialog1), TRUE);
+   gtk_window_set_type_hint (GTK_WINDOW (savedialog1), GDK_WINDOW_TYPE_HINT_DIALOG);
+ 

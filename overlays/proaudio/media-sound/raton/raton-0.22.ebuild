@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=5
+EAPI="5"
 
-inherit autotools eutils
+inherit autotools-utils eutils
 
 IUSE=""
 RESTRICT="mirror"
@@ -22,12 +22,15 @@ SLOT="0"
 DEPEND=">=media-libs/alsa-lib-0.9
 	>=x11-libs/gtk+-2.4"
 
-src_prepare() {
-	eautoreconf
-}
+AUTOTOOLS_AUTORECONF="1"
+
+PATCHES=(
+	"${FILESDIR}/${P}-libm.patch"
+	"${FILESDIR}/${P}-include-math.patch"
+	"${FILESDIR}/${P}-arguments.patch"
+)
 
 src_install() {
-	emake DESTDIR="${D}" install || die
-	dodoc AUTHORS ChangeLog NEWS README
+	autotools-utils_src_install
 	make_desktop_entry "${PN}" "${PN} mouse to MIDI" "${PN}" "AudioVideo;Audio;Midi"
 }
