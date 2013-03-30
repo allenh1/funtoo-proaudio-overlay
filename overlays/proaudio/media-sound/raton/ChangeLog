@@ -1,8 +1,13 @@
 # ChangeLog for media-sound/raton
-# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  27 Jul 2012; Dominique Michel <dominique@tuxfamily.org> raton-0.22.ebuild:
+  30 Mar 2013; Dominique Michel <dominique_libre@users.sourceforge.net> raton-0.22.ebuild:
+  Updated to EAPI=5; added autotools eclass to fix the build system; fixed Midi
+  category into the desktop file
+  metadata.xml: removed no-herd
+
+  27 Jul 2012; Dominique Michel <dominique_libre@users.sourceforge.net> raton-0.22.ebuild:
   Added a make_desktop_entry
 
   17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:

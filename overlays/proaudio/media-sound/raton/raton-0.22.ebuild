@@ -1,8 +1,10 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils
+EAPI=5
+
+inherit autotools eutils
 
 IUSE=""
 RESTRICT="mirror"
@@ -20,13 +22,12 @@ SLOT="0"
 DEPEND=">=media-libs/alsa-lib-0.9
 	>=x11-libs/gtk+-2.4"
 
-src_compile() {
-	./autogen.sh --prefix=/usr
-	emake || die
+src_prepare() {
+	eautoreconf
 }
 
 src_install() {
-	make DESTDIR="${D}" install || die
+	emake DESTDIR="${D}" install || die
 	dodoc AUTHORS ChangeLog NEWS README
-	make_desktop_entry "${PN}" "${PN} mouse to MIDI" "${PN}" "AudioVideo;Audio;MIDI"
+	make_desktop_entry "${PN}" "${PN} mouse to MIDI" "${PN}" "AudioVideo;Audio;Midi"
 }
