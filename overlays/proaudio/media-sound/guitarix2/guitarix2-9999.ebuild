@@ -14,7 +14,7 @@ RESTRICT="mirror"
 
 SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 
 IUSE="+capture +convolver faust +meterbridge"
 
@@ -30,8 +30,7 @@ RDEPEND="
 	capture? ( media-sound/jack_capture )
 	convolver? ( media-libs/zita-convolver )
 	faust? ( dev-lang/faust )
-	meterbridge? ( media-sound/meterbridge )
-	!media-sound/guitarix"
+	meterbridge? ( media-sound/meterbridge )"
 
 S="${WORKDIR}/guitarix-${PV}/"
 
@@ -45,11 +44,15 @@ src_configure() {
 }
 
 src_compile() {
+	addpredict /etc
+
 	cd "${S}/trunk"
 	./waf build || die
 }
 
 src_install() {
+	addpredict /usr/share/applications
+
 	cd "${S}/trunk"
 	DESTDIR=${D} ./waf install
 }

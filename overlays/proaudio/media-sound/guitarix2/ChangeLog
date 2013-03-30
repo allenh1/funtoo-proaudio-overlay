@@ -6,8 +6,9 @@
 
   30 Mar 2013; Dominique Michel <dominique_libbre@users.sourceforge.net>
   guitarix-0.25.2.ebuild: added addpredict to resolve access violation at
-  first time install
-  +guitarix-9999.ebuild: live ebuild with lv2 support
+  first time install; removed blocking with old guitarix
+  +guitarix-9999.ebuild: live ebuild with lv2 support; more add predict;
+  removed blocking with old guitarix
 
 *guitarix2-0.25.2 (29 Jul 2013)
 
