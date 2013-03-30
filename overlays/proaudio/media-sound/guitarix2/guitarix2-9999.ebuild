@@ -4,10 +4,10 @@
 
 EAPI="4"
 
-inherit eutils
+inherit eutils git-2 multilib
 
 DESCRIPTION="A simple Linux Guitar Amplifier for jack with one input and two outputs"
-SRC_URI="mirror://sourceforge/guitarix/guitarix/${P}.tar.bz2"
+EGIT_REPO_URI="git://git.code.sf.net/p/guitarix/git/"
 HOMEPAGE="http://guitarix.sourceforge.net/"
 
 RESTRICT="mirror"
@@ -26,29 +26,30 @@ RDEPEND="
 	media-sound/lame
 	media-sound/vorbis-tools
 	>=x11-libs/gtk+-2.12.0
+	>=media-libs/lv2-1.2.0
 	capture? ( media-sound/jack_capture )
 	convolver? ( media-libs/zita-convolver )
 	faust? ( dev-lang/faust )
 	meterbridge? ( media-sound/meterbridge )
 	!media-sound/guitarix"
 
-S="${WORKDIR}/guitarix-${PV}"
+S="${WORKDIR}/guitarix-${PV}/"
 
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
 src_configure() {
+	cd "${S}/trunk"
 	./waf configure --prefix=/usr --ladspadir=/usr/share/ladspa \
-	|| die
+	--build-lv2 --lv2dir=/usr/$(get_libdir)/lv2 || die
 }
 
 src_compile() {
+	cd "${S}/trunk"
 	./waf build || die
 }
 
 src_install() {
-	# needed at first time install
-	addpredict /usr/share/applications
-
+	cd "${S}/trunk"
 	DESTDIR=${D} ./waf install
 }

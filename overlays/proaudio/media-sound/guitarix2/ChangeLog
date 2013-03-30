@@ -2,7 +2,17 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  29 Jul 2013; Dominique Michel <dominique@tuxfamily.org>
+*guitarix2-9999 (30 Mar 2013)
+
+  30 Mar 2013; Dominique Michel <dominique_libbre@users.sourceforge.net>
+  guitarix-0.25.2.ebuild: added addpredict to resolve access violation at
+  first time install
+  +guitarix-9999.ebuild: live ebuild with lv2 support
+
+*guitarix2-0.25.2 (29 Jul 2013)
+
+
+  29 Jul 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
   +guitarix2-0.25.2.ebuild, -guitarix2-0.23.3.ebuild:
   version bump; depend - virtual/pkgconfig instead of dev-util/pkgconfig
   metadata.xml: removed no-herd, added use description
