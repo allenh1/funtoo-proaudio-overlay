@@ -1,8 +1,16 @@
 # ChangeLog for media-sound/composite
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header$
 
-  09 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
+*composite-0.006.2 (30 Mar 2013)
+
+  30 Mar 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
+  composite-9999.ebuild: added fix for compilation with USE=ladspa using
+  flag-o-matic and chaintools-funcs eclass
+  -composite-0.006: fail to build and outadated
+  +composte-0.006.2: added with the same ladspa fix
+
+  09 Mar 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
   Moved QT depends to dev-qt/* in both ebuilds
 
 *composite-9999 (10 Oct 2010)

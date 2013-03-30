@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-inherit eutils cmake-utils git
+inherit eutils cmake-utils flag-o-matic git-2 toolchain-funcs
 
 DESCRIPTION="software application/system for real-time, in-performance sequencing, sampling, and looping."
 HOMEPAGE="http://gabe.is-a-geek.org/composite/"
@@ -49,6 +49,15 @@ src_configure() {
 		mycmakeargs+=" -DCMAKE_BUILD_TYPE=Debug"
 	fi
 	mycmakeargs+=" $(cmake-utils_use_want ladspa LRDF)"
+	if use ladspa ; then
+		append-cppflags "$($(tc-getPKG_CONFIG) lrdf --cflags)"
+		#"-I/usr/include/raptor2"
+	fi
 
 	cmake-utils_src_configure
+}
+
+pkg_postinstall() {
+	einfo "The GUI for ${P} is very simple."
+	einfo "For a complete GUI, please install ${PN}-0.006.2"
 }

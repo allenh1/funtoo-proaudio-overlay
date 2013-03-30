@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-inherit eutils cmake-utils
+inherit eutils cmake-utils flag-o-matic toolchain-funcs
 
 RESTRICT="mirror"
 DESCRIPTION="software application/system for real-time, in-performance sequencing, sampling, and looping."
@@ -42,6 +42,9 @@ src_configure() {
 	fi
 
 	mycmakeargs+="$(cmake-utils_use_want ladspa LRDF)"
+	if use ladspa ; then
+		append-cppflags "$($(tc-getPKG_CONFIG) lrdf --cflags)"
+	fi
 
 	cmake-utils_src_configure
 }
