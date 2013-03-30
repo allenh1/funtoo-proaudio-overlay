@@ -1,0 +1,77 @@
+From c8bd6f2cb63d54165414113a34ca37ea50a8c81e Mon Sep 17 00:00:00 2001
+From: "Gavin Pryke (gavlee)" <gavinlee303@googlemail.com>
+Date: Fri, 29 Mar 2013 04:42:37 +0000
+Subject: [PATCH 1/2] pass multilib-strict check
+
+---
+ wscript | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
+
+diff --git a/wscript b/wscript
+index 3fb6c7e..8e8b9db 100644
+--- a/wscript
++++ b/wscript
+@@ -12,9 +12,11 @@ out = 'build'
+ 
+ def options(opt):
+     opt.load('compiler_c')
++    opt.load('gnu_dirs')
+ 
+ def configure(conf):
+     conf.load('compiler_c')
++    conf.load('gnu_dirs')
+     conf.check_cfg(package='gtk+-2.0', atleast_version='2.4.0', mandatory = True)
+     conf.check_cfg(package='libwhygui', uselib_store='WHYGUI', atleast_version='20121103',
+                    mandatory = True, args = '--cflags --libs')
+@@ -55,7 +57,7 @@ def build(bld):
+     bld.shlib(source = ['src/sfxr.c', 'src/sfxr_ports.c', 'src/main.c'],
+               target = 'sfxr-dssi',
+               use = 'DSSI',
+-              install_path = '${PREFIX}/lib/dssi',
++              install_path = '${LIBDIR}/dssi',
+               env = plugin_env,
+               mac_bundle = sys.platform.startswith('darwin'))
+ 
+@@ -63,11 +65,11 @@ def build(bld):
+     bld.program(source = ['src/gui_main.c', 'src/gui_sfxr.c', 'src/sfxr_ports.c'],
+                 target = 'sfxr-dssi_gtk',
+                 use = 'LO WHYGUI',
+-                install_path = '${PREFIX}/lib/dssi/sfxr-dssi')
++                install_path = '${LIBDIR}/dssi/sfxr-dssi')
+ 
+     # GUI Lua files
+-    bld.install_files('${PREFIX}/lib/dssi/sfxr-dssi', bld.path.ant_glob('src/*.lua'))
++    bld.install_files('${LIBDIR}/dssi/sfxr-dssi', bld.path.ant_glob('src/*.lua'))
+ 
+     # GUI images
+-    bld.install_files('${PREFIX}/lib/dssi/sfxr-dssi', bld.path.ant_glob('images/*'))
++    bld.install_files('${LIBDIR}/dssi/sfxr-dssi', bld.path.ant_glob('images/*'))
+ 
+-- 
+1.8.1.5
+
+From fd79f56d13170376fc293f1c3db7b75fcf066a5d Mon Sep 17 00:00:00 2001
+From: "Gavin Pryke (gavlee)" <gavinlee303@googlemail.com>
+Date: Fri, 29 Mar 2013 04:43:17 +0000
+Subject: [PATCH 2/2] remove -fomit-frame-pointer from cflags
+
+---
+ wscript | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/wscript b/wscript
+index 8e8b9db..4fd69cf 100644
+--- a/wscript
++++ b/wscript
+@@ -50,7 +50,7 @@ def build(bld):
+     plugin_env.macbundle_PATTERN = '%s.so'
+     print('*******************', bld.env.CC_NAME, bld.env['CFLAGS'])
+     if plugin_env.CC_NAME == 'gcc' and '-ffast-math' not in plugin_env['CFLAGS']:
+-        plugin_env.append_unique('CFLAGS', ['-finline-functions', '-ffast-math', '-fomit-frame-pointer', '-funroll-loops', '-Winline'])
++        plugin_env.append_unique('CFLAGS', ['-finline-functions', '-ffast-math', '-funroll-loops', '-Winline'])
+         # plugin_env.append_unique('CCFLAGS', '-finline-limit=5000')
+         # -FIX- this assumes gcc 3.4.6 or later:
+         # plugin_env.append_unique('CCFLAGS', ['--param large-function-growth=NNN', '--param inline-unit-growth=NNN'])
+-- 
+1.8.1.5
+
