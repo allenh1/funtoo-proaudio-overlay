@@ -1,0 +1,13 @@
+diff --git a/trunk/wscript b/trunk/wscript
+index 212673d..6c46ff8 100644
+--- a/trunk/wscript
++++ b/trunk/wscript
+@@ -521,7 +521,7 @@ def configure(conf):
+     else:
+         nls = 'no '
+         conf.define ('DISABLE_NLS', 1)
+-        sub_file('guitarix.desktop.in', 'build/default/guitarix.desktop', (('^_', '%s' % ""), ))
++        sub_file('guitarix.desktop.in', 'guitarix.desktop', (('^_', '%s' % ""), ))
+     conf.define ('GETTEXT_PACKAGE', APPNAME)
+ 
+     conf.define ('ENABLE_NLS', [0,1][nls == 'yes'])

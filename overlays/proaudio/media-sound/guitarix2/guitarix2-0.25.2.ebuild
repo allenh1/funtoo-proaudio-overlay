@@ -80,17 +80,20 @@ src_configure() {
 	export LIBDIR="${EPREFIX}/usr/$(get_libdir)"
 
 	tc-export AR CC CPP CXX RANLIB
-	echo "CCFLAGS=\"${CFLAGS}\" LINKFLAGS=\"${LDFLAGS}\" ./waf --prefix=${EPREFIX}/usr ${mywafconfargs[@]} $@ configure"
+	einfo "CCFLAGS=\"${CFLAGS}\" LINKFLAGS=\"${LDFLAGS}\" ./waf --prefix=${EPREFIX}/usr ${mywafconfargs[@]} $@ configure"
 	CCFLAGS="${CFLAGS}" LINKFLAGS="${LDFLAGS}" ./waf \
 		"--prefix=${EPREFIX}/usr" ${mywafconfargs[@]} \
 		configure || die "configure failed"
 }
 
 src_compile() {
-	./waf "--jobs=$(makeopts_jobs)" || die "build failed"
+	local jobs="--jobs=$(makeopts_jobs)"
+	einfo "./waf ${jobs}"
+	./waf ${jobs} || die "build failed"
 }
 
 src_install() {
+	einfo "./waf --destdir=${D}"
 	./waf "--destdir=${D}" install || die "install failed"
 
 	base_src_install_docs

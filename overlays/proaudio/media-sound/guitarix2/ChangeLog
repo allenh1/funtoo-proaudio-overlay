@@ -4,6 +4,13 @@
 
   31 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   guitarix2-0.25.2.ebuild, guitarix2-9999.ebuild,
+  +files/guitarix2-9999-desktop-entry.patch:
+  Added einfos and replaced echo with einfo.
+  Removed force enabled nls USE flag from live ebuild.
+  Added patch for live ebuild to install desktop entry correctly.
+
+  31 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  guitarix2-0.25.2.ebuild, guitarix2-9999.ebuild,
   -files/guitarix2-9999-wscript.patch:
   Force enable nls USE flag until intltool is not called from a source where
   nls has been disabled. It will be reported upstream. Thanks to shiznix for

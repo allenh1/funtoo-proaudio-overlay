@@ -20,10 +20,6 @@ KEYWORDS=""
 
 IUSE="+capture +convolver faust glade ladspa lv2 +meterbridge nls python"
 
-# The desktop entry cannot be created if nls is disabled
-# This can be removed when upstream has fixed the issue
-REQUIRED_USE="nls"
-
 RDEPEND="
 	>=dev-cpp/glibmm-2.24.0
 	>=dev-cpp/gtkmm-2.20.0
@@ -52,6 +48,8 @@ S="${S}/trunk"
 
 DOCS=( changelog README )
 
+PATCHES=( "${FILESDIR}/${P}-desktop-entry.patch" )
+
 src_configure() {
 	# About all gentoo packages install necessary libraries and headers
 	# and so should this package, hence force enable.
@@ -75,17 +73,20 @@ src_configure() {
 	use python && mywafconfargs+=( --python-wrapper )
 
 	tc-export AR CC CPP CXX RANLIB
-	echo "CCFLAGS=\"${CFLAGS}\" LINKFLAGS=\"${LDFLAGS}\" ./waf --prefix=${EPREFIX}/usr ${mywafconfargs[@]} $@ configure"
+	einfo "CCFLAGS=\"${CFLAGS}\" LINKFLAGS=\"${LDFLAGS}\" ./waf --prefix=${EPREFIX}/usr ${mywafconfargs[@]} $@ configure"
 	CCFLAGS="${CFLAGS}" LINKFLAGS="${LDFLAGS}" ./waf \
 		"--prefix=${EPREFIX}/usr" ${mywafconfargs[@]} \
 		configure || die "configure failed"
 }
 
 src_compile() {
-	./waf "--jobs=$(makeopts_jobs)" || die "build failed"
+	local jobs="--jobs=$(makeopts_jobs)"
+	einfo "./waf ${jobs}"
+	./waf ${jobs} || die "build failed"
 }
 
 src_install() {
+	einfo "./waf --destdir=${D}"
 	./waf "--destdir=${D}" install || die "install failed"
 
 	base_src_install_docs
