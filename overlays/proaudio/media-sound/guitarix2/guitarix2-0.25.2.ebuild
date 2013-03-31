@@ -19,7 +19,7 @@ SLOT="0"
 LICENSE="GPL-2"
 KEYWORDS="~amd64 ~x86"
 
-IUSE="+capture +convolver faust glade ladspa lv2 +meterbridge nls python"
+IUSE="+capture custom-cflags +convolver debug faust glade ladspa lv2 +meterbridge nls python"
 
 # The desktop entry cannot be created if nls is disabled
 # This can be removed when upstream has fixed the issue
@@ -70,6 +70,9 @@ src_configure() {
 		--lib-dev
 		$(use_enable nls)
 	)
+	use custom-cflags || mywafconfargs+=( --cxxflags-release="-DNDEBUG" )
+	use custom-cflags || mywafconfargs+=( --cxxflags="" )
+	use debug && mywafconfargs+=( --debug )
 	use faust && mywafconfargs+=( --faust )
 	use faust || mywafconfargs+=( --no-faust )
 	use glade && mywafconfargs+=( --glade-support )

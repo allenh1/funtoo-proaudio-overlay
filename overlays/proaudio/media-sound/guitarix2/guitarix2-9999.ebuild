@@ -19,7 +19,7 @@ SLOT="0"
 LICENSE="GPL-2"
 KEYWORDS=""
 
-IUSE="+capture +convolver faust glade ladspa lv2 +meterbridge nls python"
+IUSE="+capture custom-cflags +convolver debug faust glade ladspa lv2 +meterbridge nls python"
 
 RDEPEND="
 	>=dev-cpp/glibmm-2.24.0
@@ -67,6 +67,9 @@ src_configure() {
 		$(use_enable nls)
 		"--libdir=${EPREFIX}/usr/$(get_libdir)"
 	)
+	use custom-cflags || mywafconfargs+=( --cxxflags-release="-DNDEBUG" )
+	use custom-cflags || mywafconfargs+=( --cxxflags="" )
+	use debug && mywafconfargs+=( --debug )
 	use faust && mywafconfargs+=( --faust )
 	use faust || mywafconfargs+=( --no-faust )
 	use glade && mywafconfargs+=( --glade-support )
