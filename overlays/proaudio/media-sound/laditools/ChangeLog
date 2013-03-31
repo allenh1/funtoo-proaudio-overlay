@@ -2,6 +2,14 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*laditools-9999-r1 (31 Mar 2013)
+*laditools-1.0.1-r2 (31 Mar 2013)
+
+  31 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +laditools-1.0.1-r2.ebuild, +laditools-9999-r1.ebuild:
+  Depend on the USE flags to ensure the correct implementation is used.
+  Drop dependency on dev-lang/python it is handled by distutils-r1.
+
   26 Mar 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
   -laditools-1.0.1.ebuild
   +laditools-1.0.1-r1.ebuild
