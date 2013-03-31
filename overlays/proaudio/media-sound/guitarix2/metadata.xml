@@ -8,6 +8,7 @@
 	<use>
 		<flag name="capture">enable media-sound/jack_capture</flag>
 		<flag name="convolver">enable media-libs/zita-convolver</flag>
+		<flag name="custom-cflags">Build with upstream specified CFLAGS (unsupported)</flag>
 		<flag name="faust">enable dev-lang/faust</flag>
 		<flag name="glade">build support for Glade</flag>
 		<flag name="lv2">Add support for Ladspa V2</flag>

@@ -9,6 +9,7 @@
   31 Mar 2013; Dominique Michel <dominique_libbre@users.sourceforge.net>
   guitarix2-0.25.2.ebuild, guitarix2-9999: initial support for python eclass;
   added custom-cflags and debug USE flags
+  metadata.xml: added custom-cflags USE description
 
   31 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   guitarix2-0.25.2.ebuild, guitarix2-9999.ebuild,
