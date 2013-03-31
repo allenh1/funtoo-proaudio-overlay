@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI="5"
-PYTHON_DEPEND="2"
+PYTHON_DEPEND="2:2.7"
 
 # We cannot use waf-utils eclass because the waf binary is old!
 # Version is 1.5.18. Written March 30 2013
