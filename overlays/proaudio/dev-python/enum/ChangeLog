@@ -1,6 +1,12 @@
 # ChangeLog for dev-python/enum
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  31 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  enum-0.4.4.ebuild:
+  Move from python-distutils-ng to distutils-r1.
+  Do not attempt to fetch from the gentoo mirrors, restrict it.
+  Use thirdpartymirror pypi instead of the previous address.
 
   27 Dec 2012; Dominique Michel <dominique_libre@sourceforge.net>
   Import from the ladi overlay
