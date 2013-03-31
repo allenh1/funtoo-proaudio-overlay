@@ -2175,12 +2175,6 @@
 	Homepage:    http://essej.net/ac3jack/
 
 
-#------- media-sound/bpmdetect --------
-	bpmdetect-0.5	arch: ~amd64 ~x86
-	Description: Simple BPM detection utility
-	Homepage:    http://kde-apps.org/content/show.php/BPM+Detect?content=43147
-
-
 #------- media-sound/gigedit --------
 	gigedit-0.1.1	arch: ~amd64 ~x86
 	gigedit-9999	arch: -> live ebuild: [svn|cvs|...]<-
