@@ -73,6 +73,7 @@ src_configure() {
 	use custom-cflags || mywafconfargs+=( --cxxflags-release="-DNDEBUG" )
 	use custom-cflags || mywafconfargs+=( --cxxflags="" )
 	use debug && mywafconfargs+=( --debug )
+	use debug && mywafconfargs+=( --cxxflags-debug="" )
 	use faust && mywafconfargs+=( --faust )
 	use faust || mywafconfargs+=( --no-faust )
 	use glade && mywafconfargs+=( --glade-support )

@@ -60,6 +60,7 @@ src_configure() {
 	# About all gentoo packages install necessary libraries and headers
 	# and so should this package, hence force enable.
 	local mywafconfargs=(
+		--nocache
 		--shared-lib
 		--lib-dev
 		--no-ldconfig
@@ -70,6 +71,7 @@ src_configure() {
 	use custom-cflags || mywafconfargs+=( --cxxflags-release="-DNDEBUG" )
 	use custom-cflags || mywafconfargs+=( --cxxflags="" )
 	use debug && mywafconfargs+=( --debug )
+	use debug && mywafconfargs+=( --cxxflags-debug="" )
 	use faust && mywafconfargs+=( --faust )
 	use faust || mywafconfargs+=( --no-faust )
 	use glade && mywafconfargs+=( --glade-support )
