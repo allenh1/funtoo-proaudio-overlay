@@ -20,6 +20,10 @@ KEYWORDS=""
 
 IUSE="+capture +convolver faust glade ladspa lv2 +meterbridge nls python"
 
+# The desktop entry cannot be created if nls is disabled
+# This can be removed when upstream has fixed the issue
+REQUIRED_USE="nls"
+
 RDEPEND="
 	>=dev-cpp/glibmm-2.24.0
 	>=dev-cpp/gtkmm-2.20.0
@@ -48,16 +52,14 @@ S="${S}/trunk"
 
 DOCS=( changelog README )
 
-PATCHES=(
-	"${FILESDIR}/${P}-wscript.patch"
-)
-
 src_configure() {
 	# About all gentoo packages install necessary libraries and headers
 	# and so should this package, hence force enable.
 	local mywafconfargs=(
 		--shared-lib
 		--lib-dev
+		--no-ldconfig
+		--no-desktop-update
 		$(use_enable nls)
 		"--libdir=${EPREFIX}/usr/$(get_libdir)"
 	)

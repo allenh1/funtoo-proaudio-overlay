@@ -20,6 +20,10 @@ KEYWORDS="~amd64 ~x86"
 
 IUSE="+capture +convolver faust glade ladspa lv2 +meterbridge nls python"
 
+# The desktop entry cannot be created if nls is disabled
+# This can be removed when upstream has fixed the issue
+REQUIRED_USE="nls"
+
 RDEPEND="
 	>=dev-cpp/glibmm-2.24.0
 	>=dev-cpp/gtkmm-2.20.0
