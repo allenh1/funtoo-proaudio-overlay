@@ -2,6 +2,10 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  31 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  guitarix2-9999.ebuild, -files/guitarix2-9999-desktop-entry.patch:
+  Disable live ebuild patch. It should be working upstream now.
+
   31 Mar 2013; Dominique Michel <dominique_libbre@users.sourceforge.net>
   guitarix2-0.25.2.ebuild, guitarix2-9999: initial support for python eclass;
   added custom-cflags and debug USE flags

@@ -49,8 +49,6 @@ S="${S}/trunk"
 
 DOCS=( changelog README )
 
-PATCHES=( "${FILESDIR}/${P}-desktop-entry.patch" )
-
 pkg_setup() {
 	python_set_active_version 2
 	python_pkg_setup
