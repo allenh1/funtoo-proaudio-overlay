@@ -3,10 +3,11 @@
 # $Header: $
 
 EAPI="5"
+PYTHON_DEPEND="2"
 
 # We cannot use waf-utils eclass because the waf binary is old!
 # Version is 1.5.18. Written March 30 2013
-inherit base eutils git-2 multilib multiprocessing
+inherit base eutils git-2 multilib multiprocessing python
 
 DESCRIPTION="A simple Linux Guitar Amplifier for jack with one input and two outputs"
 EGIT_REPO_URI="git://git.code.sf.net/p/guitarix/git/"
@@ -49,6 +50,11 @@ S="${S}/trunk"
 DOCS=( changelog README )
 
 PATCHES=( "${FILESDIR}/${P}-desktop-entry.patch" )
+
+pkg_setup() {
+	python_set_active_version 2
+	python_pkg_setup
+}
 
 src_configure() {
 	# About all gentoo packages install necessary libraries and headers
