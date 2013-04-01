@@ -21,7 +21,3 @@ RDEPEND="$DEPEND"
 pkg_setup() {
 	append-ldflags $(no-as-needed)
 }
-
-src_install() {
-	emake DESTDIR="${D}" install || die "stop"
-}
