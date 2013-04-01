@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=2
+EAPI=5
 
 inherit subversion python qt4-r2
 
@@ -26,7 +26,8 @@ DEPEND=">=media-libs/libclam-9999
 	dev-qt/qtgui
 	dev-qt/qtxmlpatterns
 	dev-qt/qtopengl
-	dev-qt/qtsvg"
+	dev-qt/qtsvg
+	dev-python/shiboken"
 
 RDEPEND="${DEPEND}
 	media-gfx/imagemagick"
@@ -37,16 +38,17 @@ S="${WORKDIR}/${PN}"
 MY_S="${S}/${PN}"
 
 pkg_setup() {
-#	if ! has_version dev-qt/qtopengl && ! built_with_use =dev-qt/qt-4* opengl; then
-#		eerror "You need to build qt4 with opengl support to have it in ${PN}"
-#		die "Enabling opengl for $PN requires qt4 to be built with opengl support"
-#	fi
-
 	python_set_active_version 2
 }
 
 src_unpack() {
 	subversion_src_unpack
+}
+
+src_prepare() {
+	cd "${MY_S}"
+	sed -i -e "s/shiboken/shiboken-python2.7/" SConstruct || die "sed failed"
+	sed -i -e "s/boost_python/boost_python-2.7/" SConstruct || die "sed failed"
 }
 
 src_compile() {
