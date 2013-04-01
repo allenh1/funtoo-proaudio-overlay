@@ -2,6 +2,19 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*libffado-9999-r1 (01 Apr 2013)
+*libffado-2.1.0-r1 (01 Apr 2013)
+
+  01 Apr 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +libffado-2.1.0-r1.ebuild, +files/libffado-2.1.0-no-jackd-version.patch,
+  +libffado-9999-r1.ebuild, +files/libffado-9999-no-jackd-version.patch:
+  Add patch to avoid build system calling jackd --version. Addpredicts 
+  deleted.
+  Move to EAPI 5, base eclass and python-single-r1 eclass.
+  Explicitly specify udev rules directory.
+  Optimize before merging to file system (gives portage better file 
+  control)
+
   03 Feb 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   libffado-2.1.0.ebuild:
   Keyworded for ~ppc. This is not completely OK as dbus-c++ does not 
