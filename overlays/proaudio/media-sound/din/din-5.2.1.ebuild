@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -31,7 +31,8 @@ AUTOTOOLS_IN_SOURCE_BUILD="1"
 
 src_prepare() {
 	sed -e 's:tcl8.5/::' -i configure.ac && \
-		sed -e 's:vardir0=.*:vardir0=/var/lib/din/:' -i data/checkdotdin || \
-		die "sed failed"
+		sed -e 's:vardir0=.*:vardir0=/var/lib/din/:' -i data/checkdotdin && \
+		sed -e 's:Application;AudioVideo;:AudioVideo;:' -i data/din.desktop \
+		|| die "sed failed"
 	autotools-utils_src_prepare
 }

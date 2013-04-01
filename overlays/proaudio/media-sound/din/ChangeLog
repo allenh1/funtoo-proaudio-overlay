@@ -2,6 +2,14 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*din-5.2.1 (1 Apr 2013)
+
+1 Apr 2013; Dominique Michel <dominique_libre&users.sourceforge.net>
++din-5.2.1: bump; added desktop sed patch
+-din-1.9.5.ebuild
+-din-1.6.ebuild
+-din-1.4.2.ebuild
+
 *din-1.9.5 (28 Dec 2012)
 
 28 Dec 2012; Karl Lindén (lilrc) <lilrc@users.sourceforge.net>
