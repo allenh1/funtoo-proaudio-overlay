@@ -31,8 +31,8 @@ AUTOTOOLS_IN_SOURCE_BUILD="1"
 
 src_prepare() {
 	sed -e 's:tcl8.5/::' -i configure.ac && \
-		sed -e 's:vardir0=.*:vardir0=/var/lib/din/:' -i data/checkdotdin && \
 		sed -e 's:Application;AudioVideo;:AudioVideo;:' -i data/din.desktop \
 		|| die "sed failed"
 	autotools-utils_src_prepare
+	sed -e 's:/usr/local:/usr:' -i data/checkdotdin || die "sed2 failed"
 }
