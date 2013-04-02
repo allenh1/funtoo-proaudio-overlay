@@ -2,6 +2,13 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  02 Apr 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  files/libffado-2.1.0-no-jackd-version.patch,
+  files/libffado-9999-no-jackd-version.patch:
+  Update patches so that jackd --version wont be called later on in the build
+  process. (and fix typo)
+  Many thanks to Sebastian Rose for reporting the issue.
+
 *libffado-9999-r1 (01 Apr 2013)
 *libffado-2.1.0-r1 (01 Apr 2013)
 

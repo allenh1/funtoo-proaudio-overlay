@@ -1,6 +1,6 @@
 # AUTHOR: lilrc <lilrc@users-sourceforge.net>
 # A patch to avoid calling jackd --version from within the build system
-# which generates a sandbox vialoation. Instead use pkgconfig as jack
+# which generates a sandbox violation. Instead use pkgconfig as jack
 # will install the necessary pkgconfig files.
 
 Index: SConstruct
@@ -52,3 +52,16 @@ Index: SConstruct
      if env['ENABLE_SETBUFFERSIZE_API_VER'] == 'auto':
          if not(have_jack):
              print """
+Index: support/tools/ffado-diag-static
+===================================================================
+--- support/tools/ffado-diag-static	(revision 2285)
++++ support/tools/ffado-diag-static	(working copy)
+@@ -75,7 +75,7 @@
+     print "   gcc ............... %s" % get_version_first_line('gcc --version')
+     print "   g++ ............... %s" % get_version_first_line('g++ --version')
+     print "   PyQt4 (by pyuic4) . %s" % get_version_first_line('pyuic4 --version')
+-    print "   jackd ............. %s" % get_version_first_line('jackd --version')
++    print "   jackd ............. %s" % get_version_first_line('pkg-config --modversion jack')
+     print "     path ............ %s" % get_command_path('jackd')
+     print "     flags ........... %s" % get_package_flags("jack")
+     print "   libraw1394 ........ %s" % get_package_version("libraw1394")
