@@ -13,3 +13,5 @@ app-emulation/wine -udisks
 gnome-base/gvfs -gdu -polkit
 xfce-base/thunar -udev
 xfce-base/xfce4-session -udev
+xfce-extra/xfce4-systemload-plugin -udev
+xfce-extra/xfce4-weather-plugin -udev

@@ -7,7 +7,7 @@
 # here. If in doubt put a record here!
 
   2 Apr 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
-  proaudio 13.9; proaudio-kde 13.0: added USE flags for xfce-meta.
+  proaudio 13.9; proaudio-kde 13.0: added USE flags for xfce.
 
   20 Fev 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
   Added proaudio and proaudio-kde 13.0 profiles.
