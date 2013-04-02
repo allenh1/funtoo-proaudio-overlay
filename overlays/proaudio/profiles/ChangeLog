@@ -6,10 +6,13 @@
 # Only typo fixes which don't affect portage/repoman behaviour could be avoided
 # here. If in doubt put a record here!
 
-  20 Fev 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  2 Apr 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
+  proaudio 13.9; proaudio-kde 13.0: added USE flags for xfce-meta.
+
+  20 Fev 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
   Added proaudio and proaudio-kde 13.0 profiles.
 
-  18 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  18 Nov 2012; Dominique Michel <dominique_libre@users.sourceforge.net>
   Initial release of 2 desktop profiles: proaudio and proaudio-kde.
   
   * desktop/proaudio: based on portage desktop profile with the addition of
