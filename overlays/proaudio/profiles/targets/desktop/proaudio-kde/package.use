@@ -11,3 +11,5 @@ dev-python/PyQt4 sql webkit
 # We don't want anything that install poolkit
 app-emulation/wine -udisks
 gnome-base/gvfs -gdu -polkit
+xfce-base/thunar -udev
+xfce-base/xfce4-session -udev

@@ -6,3 +6,5 @@
 # We don't want anything that install *kit
 app-emulation/wine -udisks
 gnome-base/gvfs -gdu -udisks
+xfce-base/thunar -udev
+xfce-base/xfce4-session -udev
