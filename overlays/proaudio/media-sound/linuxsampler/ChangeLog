@@ -1,6 +1,11 @@
 # ChangeLog for media-sound/linuxsampler
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  03 Apr 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  linuxsampler-9999.ebuild, metadata.xml:
+  merge changes from portage, dropped dependency on liblscp, move to
+  autotools-utils eclass, repoman payment.
 
   10 May 2012; Hakan Demiralp <keenblade@tuxfamily.org>
   linuxsampler-9999.ebuild:
