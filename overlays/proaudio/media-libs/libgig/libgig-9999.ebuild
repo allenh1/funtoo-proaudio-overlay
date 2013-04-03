@@ -1,12 +1,12 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI="4"
+AUTOTOOLS_AUTORECONF=1
+inherit subversion autotools-utils
 
-inherit eutils subversion
-
-DESCRIPTION="libgig is a C++ library for loading Gigasampler files and DLS (Downloadable Sounds) Level 1/2 files."
+DESCRIPTION="a C++ library for loading Gigasampler files and DLS (Downloadable Sounds) Level 1/2 files."
 HOMEPAGE="http://www.linuxsampler.org/libgig/"
 ESVN_REPO_URI="https://svn.linuxsampler.org/svn/libgig/trunk"
 
@@ -14,30 +14,21 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 IUSE="doc"
+
 RDEPEND=">=media-libs/libsndfile-1.0.2
 	>=media-libs/audiofile-0.2.3"
-
 DEPEND="${RDEPEND}
+	virtual/pkgconfig
 	doc? ( app-doc/doxygen )"
 
-src_configure() {
-	make -f Makefile.cvs
-	econf || die "./configure failed"
-}
+DOCS=(AUTHORS ChangeLog NEWS README TODO)
 
 src_compile() {
-	emake -j1 || die "make failed"
-
-	if use doc; then
-		make docs || die "make docs failed"
-	fi
+	autotools-utils_src_compile -j1
+	use doc && autotools-utils_src_compile -j1 docs
 }
 
 src_install() {
-	einstall || die "einstall failed"
-	dodoc AUTHORS ChangeLog TODO README
-
-	if use doc; then
-		mv "${S}/doc/html" "${D}/usr/share/doc/${PF}/"
-	fi
+	use doc && HTML_DOCS=("${BUILD_DIR}"/doc/html/)
+	autotools-utils_src_install
 }
