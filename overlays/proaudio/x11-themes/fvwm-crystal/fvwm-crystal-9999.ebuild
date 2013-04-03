@@ -77,11 +77,9 @@ pkg_postinst() {
 	einfo "Read addons/session-management.README, it contain important"
 	einfo "information about session management support in FVWM-Crystal"
 	einfo
-	einfo "An important POSIX bugfix was committed recently to the svn"
-	einfo "repository. All the environment variable names with - in their"
-	einfo "name was changed to the same name with _ insted of -."
-	einfo " This will break your user configuration, so please check every"
-	einfo "file into your user config and change all the - into _ for all"
-	einfo "the environment variable names with - in their name."
+	einfo "Some icons fixes was committed recently to the svn"
+	einfo "To archive the same fixes on your private icon files,"
+	einfo "please read /usr/share/doc/${PF}/INSTALL.gz."
+	einfo "This will fix the libpng warnings at stderr."
 	einfo
 }
