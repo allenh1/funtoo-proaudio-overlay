@@ -16,6 +16,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 IUSE="alsa doc dssi jack lv2 sqlite static-libs"
+REQUIRED_USE="|| ( alsa jack )"
 
 # media-libs/dssi, media-libs/lv2 automagic
 RDEPEND=">=media-libs/libgig-9999
