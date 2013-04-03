@@ -3,23 +3,24 @@
 # $Header: $
 
 EAPI="5"
+AUTOTOOLS_AUTORECONF=1
+inherit subversion autotools-utils
 
-inherit autotools eutils subversion
-
-DESCRIPTION="liblscp is a C++ library for the Linux Sampler control protocol."
+DESCRIPTION="a C++ library for the Linux Sampler control protocol."
 HOMEPAGE="http://www.linuxsampler.org/"
 ESVN_REPO_URI="https://svn.linuxsampler.org/svn/liblscp/trunk"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE=""
+IUSE="doc"
 
 RDEPEND=""
-DEPEND=""
+DEPEND="doc? ( app-doc/doxygen )"
 
-src_prepare() {
-	# upstream autoconf is broken at that time, use portage functions
-	eautoreconf
-	#make -f Makefile.svn
+DOCS=(AUTHORS ChangeLog NEWS README TODO)
+
+src_install() {
+	use doc && HTML_DOCS=("${BUILD_DIR}"/doc/html/)
+	autotools-utils_src_install
 }
