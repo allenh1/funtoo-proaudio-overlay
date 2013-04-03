@@ -3,8 +3,8 @@
 # $Header: $
 
   3 Apr 2013; Dominique Michel <dominique_libre@users.sourceforge.net> fvwm-crystal-9999.ebuild:
-  Replaced habak by xloadimage in DEPEND; make repoman happy; changed the post
-  install message to reflect current issue.
+  Replaced habak by feh in DEPEND, added bloking on habak; make repoman happy;
+  changed the post install message to reflect current issue. 
   
   13 Jan 2013; Dominique Michel <dominique_libre@sourceforge.net> fvwm-crystal-9999.ebuild:
   Changed ESVN_UTI to the updated sf repository

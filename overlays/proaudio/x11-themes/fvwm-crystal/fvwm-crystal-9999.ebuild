@@ -24,9 +24,10 @@ ESVN_REPO_URI="svn://svn.code.sf.net/p/fvwm-crystal/code"
 RDEPEND=">=x11-wm/fvwm-2.5.26[png]
 	|| ( media-gfx/imagemagick media-gfx/graphicsmagick[imagemagick] )
 	|| ( >=x11-misc/stalonetray-0.6.2-r2 x11-misc/trayer )
-	|| ( media-gfx/xloadimage x11-misc/hsetroot )
+	|| ( x11-misc/hsetroot media-gfx/feh )
 	sys-devel/bc
-	!x11-themes/crystal-audio"
+	!x11-themes/crystal-audio
+	!x11-misc/habak"
 
 S="${WORKDIR}/${PN}"
 
