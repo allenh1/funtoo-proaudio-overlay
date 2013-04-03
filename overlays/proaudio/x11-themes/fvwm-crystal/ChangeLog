@@ -1,14 +1,17 @@
 # ChangeLog for x11-themes/fvwm-crystal
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  13 Jan 2013; Dominique Michel <dominique_libre@sf.net> fvwm-crystal-8888.ebuild:
+  3 Apr 2013; Dominique Michel <dominique_libre@users.sourceforge.net> fvwm-crystal-9999.ebuild:
+  Replaced habak by xloadimage in DEPEND; make repoman happy.
+  
+  13 Jan 2013; Dominique Michel <dominique_libre@sourceforge.net> fvwm-crystal-9999.ebuild:
   Changed ESVN_UTI to the updated sf repository
   
   28 Oct 2012; Hakan Demiralp <keenblade@tuxfamily.org> fvwm-crystal-9999.ebuild:
   fixed EAPI assignment to be on a valid line wrt #143 by Evi1M4chine
 
-  20 Feb 2011; Dominique Michel <dominique_libreæsourceforge.net>
+  20 Feb 2011; Dominique Michel <dominique_libre@users.sourceforge.net>
   The Makefile respect DESTDIR now. Changed the ebuild accordingly.
   Fixed the Python shebangs. Fixed fvwm depend on USE=png.
   Improved ImageMagick depend.

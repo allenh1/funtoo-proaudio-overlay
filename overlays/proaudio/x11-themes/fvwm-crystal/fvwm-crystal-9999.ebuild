@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/x11-themes/fvwm-crystal/fvwm-crystal-3.0.4.ebuild,v 1.6 2007/02/04 19:20:09 beandog Exp $
 
@@ -7,7 +7,7 @@ inherit subversion eutils python
 
 PYTHON_DEPEND="2"
 
-DESCRIPTION="Configurable and full featured theme for FVWM, with lots of transparency. This version add a freedesktop compatible menu"
+DESCRIPTION="Configurable and full featured FVWM theme, with lots of transparency and freedesktop compatible menu"
 HOMEPAGE="http://fvwm-crystal.org/"
 SRC_URI=""
 
@@ -24,7 +24,7 @@ ESVN_REPO_URI="svn://svn.code.sf.net/p/fvwm-crystal/code"
 RDEPEND=">=x11-wm/fvwm-2.5.26[png]
 	|| ( media-gfx/imagemagick media-gfx/graphicsmagick[imagemagick] )
 	|| ( >=x11-misc/stalonetray-0.6.2-r2 x11-misc/trayer )
-	|| ( >=x11-misc/habak-0.2.4.1 x11-misc/hsetroot )
+	|| ( media-gfx/xloadimage x11-misc/hsetroot )
 	sys-devel/bc
 	!x11-themes/crystal-audio"
 
@@ -36,7 +36,6 @@ src_unpack() {
 
 src_compile() {
 	sed -i 's/correctpermissions correctpath/correctpermissions/' Makefile || die "sed Makefile failed"
-
 
 	if use session; then
 		sed -i 's/Exec=fvwm/#Exec=fvwm/' addons/fvwm-crystal.desktop || die "sed failed"
@@ -54,11 +53,11 @@ src_install() {
 
 	emake DESTDIR="${D}" prefix="/usr" install || die install failed
 
-	dodoc AUTHORS COPYING README INSTALL NEWS ChangeLog doc/*
-	cp -r addons ${D}/usr/share/doc/${PF}/
+	dodoc AUTHORS README INSTALL NEWS ChangeLog doc/*
+	cp -r addons "${D}"/usr/share/doc/"${PF}"/
 
 	exeinto /etc/X11/Sessions
-	doexe ${FILESDIR}/fvwm-crystal
+	doexe "${FILESDIR}"/fvwm-crystal
 
 	insinto /usr/share/xsessions
 	doins addons/fvwm-crystal.desktop
