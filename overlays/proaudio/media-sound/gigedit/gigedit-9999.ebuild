@@ -1,60 +1,36 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI="4"
+AUTOTOOLS_AUTORECONF=1
+inherit subversion autotools-utils
 
-inherit eutils subversion
-
-DESCRIPTION="Gigedit is an instrument editor for Gigasampler files."
-HOMEPAGE="http://www.linuxsampler.org"
+DESCRIPTION="An instrument editor for gig files"
+HOMEPAGE="http://www.linuxsampler.org/"
 ESVN_REPO_URI="https://svn.linuxsampler.org/svn/gigedit/trunk"
+
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="doc"
+IUSE=""
 
-# this is a bleeding edge CVS ebuild, chances are high that we need a
-# stack trace, so don't strip symbols
-RESTRICT="strip"
-
-#TODO: linuxsampler is actually an optional dependency, thus a candidate
-#      for a use flag.
-RDEPEND="
-	>=dev-cpp/gtkmm-2.4.10
+RDEPEND="dev-cpp/gtkmm:2.4
 	>=media-libs/libgig-9999
 	>=media-libs/libsndfile-1.0.2
-	>=media-sound/linuxsampler-9999
-	doc? (
-		dev-libs/libxslt
-		app-text/docbook-xsl-stylesheets
-	)"
-
+	>=media-sound/linuxsampler-9999"
 DEPEND="${RDEPEND}
 	sys-devel/gettext
-	dev-util/pkgconfig"
+	>=dev-util/intltool-0.35.0
+	virtual/pkgconfig"
 
-src_configure() {
-	make -f Makefile.cvs
-	econf || die "./configure failed"
-}
+DOCS=(AUTHORS ChangeLog NEWS README)
 
 src_compile() {
-	emake -j1 || die "make failed"
-
-	# docs are currently automatically tried to be built
-	# on 'make (all)', so we don't need this now:
-	#if use doc; then
-	#   make docs || die "make docs failed"
-	#fi
+	autotools-utils_src_compile -j1
 }
 
 src_install() {
-	einstall || die "einstall failed"
-	dodoc AUTHORS ChangeLog README NEWS
-	make_desktop_entry "${PN}" GigEdit "${PN}" "AudioVideo;Audio;Sampler"
-
-	#if use doc; then
-	#    mv ${S}/doc/html ${D}/usr/share/doc/${PF}/
-	#fi
+	autotools-utils_src_install
+	make_desktop_entry "${PN}" GigEdit "${PN}" "AudioVideo;Audio;Player;Midi;"
 }
