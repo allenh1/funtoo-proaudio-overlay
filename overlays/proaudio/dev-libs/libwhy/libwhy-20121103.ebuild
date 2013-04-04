@@ -12,7 +12,7 @@ SRC_URI="http://smbolton.com/linux/${P}.tar.bz2"
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 # comes bundled with modified lua-5.2.1?
