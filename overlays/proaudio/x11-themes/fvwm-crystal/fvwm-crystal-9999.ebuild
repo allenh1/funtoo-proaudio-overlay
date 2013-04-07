@@ -83,4 +83,8 @@ pkg_postinst() {
 	einfo "please read /usr/share/doc/${PF}/INSTALL.gz."
 	einfo "This will fix the libpng warnings at stderr."
 	einfo
+	einfo "The color themes was updated to Fvwm InfoStore."
+	einfo "To know how to update your custom color themes, please run"
+	einfo "	/usr/share/doc/${PF}/addons/convert_colorsets"
+	einfo ""
 }
