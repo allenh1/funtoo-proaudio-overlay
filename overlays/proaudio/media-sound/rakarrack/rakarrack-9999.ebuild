@@ -1,24 +1,19 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI="5"
 
-inherit base autotools git flag-o-matic eutils
+inherit autotools-utils git-2
 
-#MY_P="${P}_Equinox"
-
-DESCRIPTION="Rakarrack is a richly featured multi-effects processor emulating a uitar effects pedalboard."
+DESCRIPTION="A richly featured multi-effects processor emulating a uitar effects pedalboard"
 HOMEPAGE="http://rakarrack.sourceforge.net/"
 EGIT_REPO_URI="git://${PN}.git.sourceforge.net/gitroot/${PN}/${PN}"
-
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE=""
-
-#S="${WORKDIR}/${MY_P}"
+IUSE="altivec jacksession sse sse2"
 
 RDEPEND="x11-libs/fltk:1
 	x11-libs/libXpm
@@ -29,15 +24,16 @@ RDEPEND="x11-libs/fltk:1
 	>=media-sound/jack-audio-connection-kit-0.100.0"
 DEPEND="${RDEPEND}"
 
-DOCS="AUTHORS ChangeLog NEWS README TODO"
+PATCHES=( "${FILESDIR}/${P}-assume-fltk.patch" )
 
-src_prepare() {
-	"${S}/autogen.sh"
-	epatch "${FILESDIR}/${PN}-0.5.8_configure.patch" || die "conf patch failed"
+AUTOTOOLS_AUTORECONF="1"
+
+src_configure() {
+	local myeconfargs=(
+		$(use_enable altivec)
+		$(use_enable jacksession jack-session)
+		$(use_enable sse)
+		$(use_enable sse2)
+	)
+	autotools-utils_src_configure
 }
-
-#src_configure() {
-#	append-ldflags -L/usr/lib/fltk-1.1
-#	"${S}/configure"
-#}
-

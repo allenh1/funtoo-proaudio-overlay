@@ -1,6 +1,16 @@
 # ChangeLog for media-sound/rakarrack
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  07 Apr 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  rakarrack-0.6.1.ebuild, +files/rakarrack-0.6.1-assume-fltk.patch,
+  -files/rakarrack-0.6.1_configure.patch, rakarrack-9999.ebuild,
+  +files/rakarrack-9999-assume-fltk.patch, metadata.xml:
+  Add useflags and description.
+  Add patches and remove the old one.
+  Move to EAPI 5 and autotools-utils.
+  Remove unused inherits.
+  Repoman payment.
 
 *rakarrack-0.6.1 (02 Jun 2012)
 
