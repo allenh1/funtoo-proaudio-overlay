@@ -10,7 +10,6 @@
 		<flag name="convolver">enable media-libs/zita-convolver</flag>
 		<flag name="custom-cflags">Build with upstream specified CFLAGS (unsupported)</flag>
 		<flag name="faust">enable dev-lang/faust</flag>
-		<flag name="glade">build support for Glade</flag>
 		<flag name="lv2">Add support for Ladspa V2</flag>
 		<flag name="meterbridge">enable media-sound/meterbridge</flag>
 	</use>

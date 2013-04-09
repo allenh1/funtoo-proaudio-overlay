@@ -2,6 +2,15 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*guitarix2-0.26.1 (09 Apr 2013)
+
+  09 Apr 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -guitarix2-0.25.2.ebuild, +guitarix2-0.26.1.ebuild, guitarix2-9999.ebuild:
+  Version bump and remove old ebuild.
+  Drop python and glade USE flags as those give developer only 
+  functionalities. The flags can be re-added if other packages start 
+  depending on this package with those functionalities.
+
   31 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   guitarix2-9999.ebuild, -files/guitarix2-9999-desktop-entry.patch:
   Disable live ebuild patch. It should be working upstream now.

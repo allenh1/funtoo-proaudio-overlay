@@ -3,11 +3,10 @@
 # $Header: $
 
 EAPI="5"
-PYTHON_DEPEND="2:2.7"
 
 # We cannot use waf-utils eclass because the waf binary is old!
-# Version is 1.5.18. Written March 30 2013
-inherit base eutils git-2 multilib multiprocessing python
+# Version is 1.5.18. Written April 09 2013
+inherit base eutils git-2 multilib multiprocessing
 
 DESCRIPTION="A simple Linux Guitar Amplifier for jack with one input and two outputs"
 EGIT_REPO_URI="git://git.code.sf.net/p/guitarix/git/"
@@ -19,7 +18,7 @@ SLOT="0"
 LICENSE="GPL-2"
 KEYWORDS=""
 
-IUSE="+capture custom-cflags +convolver debug faust glade ladspa lv2 +meterbridge nls python"
+IUSE="+capture custom-cflags +convolver debug faust ladspa lv2 +meterbridge nls"
 
 RDEPEND="
 	>=dev-cpp/glibmm-2.24.0
@@ -49,11 +48,6 @@ S="${S}/trunk"
 
 DOCS=( changelog README )
 
-pkg_setup() {
-	python_set_active_version 2
-	python_pkg_setup
-}
-
 src_configure() {
 	# About all gentoo packages install necessary libraries and headers
 	# and so should this package, hence force enable.
@@ -72,14 +66,12 @@ src_configure() {
 	use debug && mywafconfargs+=( --cxxflags-debug="" )
 	use faust && mywafconfargs+=( --faust )
 	use faust || mywafconfargs+=( --no-faust )
-	use glade && mywafconfargs+=( --glade-support )
 	use ladspa && mywafconfargs+=( "--ladspadir=${EPREFIX}/usr/share/ladspa" )
 	use ladspa || mywafconfargs+=( --no-ladspa )
 	use lv2 && mywafconfargs+=(
 		--build-lv2
 		"--lv2dir=${EPREFIX}/usr/$(get_libdir)/lv2"
 	)
-	use python && mywafconfargs+=( --python-wrapper )
 
 	tc-export AR CC CPP CXX RANLIB
 	einfo "CCFLAGS=\"${CFLAGS}\" LINKFLAGS=\"${LDFLAGS}\" ./waf --prefix=${EPREFIX}/usr ${mywafconfargs[@]} $@ configure"
