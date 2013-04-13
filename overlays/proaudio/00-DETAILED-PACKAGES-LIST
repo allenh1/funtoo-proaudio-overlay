@@ -1313,15 +1313,6 @@
 	Homepage:    http://sourceforge.net/projects/heaven/
 
 
-#------- media-sound/din --------
-	din-1.4.2	arch: ~amd64 x86
-	din-1.6	arch: ~amd64 x86
-	din-1.9.5	arch: ~amd64 ~x86
-	Description: din is a musical instrument and audio synthesizer
-		
-	Homepage:    http://www.dinisnoise.org/
-
-
 #------- media-sound/gtklick --------
 	gtklick-0.6.4	arch: ~amd64 ~x86
 	Description: A simple metronome with an easy-to-use GTK
