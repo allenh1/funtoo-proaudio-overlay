@@ -54,7 +54,7 @@ src_install() {
 
 	emake DESTDIR="${D}" prefix="/usr" install || die install failed
 
-	dodoc AUTHORS README INSTALL NEWS ChangeLog doc/*
+	dodoc AUTHORS README Export.README INSTALL NEWS ChangeLog doc/*
 	cp -r addons "${D}"/usr/share/doc/"${PF}"/
 
 	exeinto /etc/X11/Sessions
