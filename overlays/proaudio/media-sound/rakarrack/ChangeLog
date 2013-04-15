@@ -2,6 +2,10 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  15 Apr 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  rakarrack-9999.ebuild, -files/rakarrack-9999-assume-fltk.patch:
+  Removed patch for live ebuild. Applied upstream.
+
   07 Apr 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   rakarrack-0.6.1.ebuild, +files/rakarrack-0.6.1-assume-fltk.patch,
   -files/rakarrack-0.6.1_configure.patch, rakarrack-9999.ebuild,

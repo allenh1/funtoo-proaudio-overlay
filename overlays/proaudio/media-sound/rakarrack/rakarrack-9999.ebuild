@@ -24,8 +24,6 @@ RDEPEND="x11-libs/fltk:1
 	>=media-sound/jack-audio-connection-kit-0.100.0"
 DEPEND="${RDEPEND}"
 
-PATCHES=( "${FILESDIR}/${P}-assume-fltk.patch" )
-
 AUTOTOOLS_AUTORECONF="1"
 
 src_configure() {
