@@ -2,6 +2,14 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*aliki-0.2.0 (17 Apr 2013)
+
+  17 Apr 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -aliki-0.1.0.ebuild, -files/aliki-0.1.0-makefile.patch, +aliki-0.2.0.ebuild,
+  +files/aliki-0.2.0-Makefile.patch:
+  bump, EAPI=5, inherit base, change dep media-libs/libclalsadrv ->
+  media-libs/zita-alsa-pcmi, remove old.
+
   29 Mar 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
   redigest, the pdf file has changed
   metadata.xml: removed no-herd
