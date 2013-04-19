@@ -18,7 +18,7 @@ IUSE="alsa dbus doc examples inotify jack osc smf tk"
 REQUIRED_USE="|| ( alsa jack )"
 
 RDEPEND="${PYTHON_DEPS}
-	>=dev-libs/boost-1.34.1[${PYTHON_USEDEP},threads]
+	>=dev-libs/boost-1.34.1[python,threads,${PYTHON_USEDEP}]
 	dev-libs/glib:2
 	dev-python/decorator[${PYTHON_USEDEP}]
 	alsa? ( media-libs/alsa-lib )
@@ -36,9 +36,9 @@ PATCHES=( "${FILESDIR}"/${P}-boost_python.patch )
 
 python_configure_all() {
 	mydistutilsargs=(
-		$(use alsa && echo "--enable-alsa-seq" || echo "--disable-alsa-seq")
-		$(use jack && echo "--enable-jack-midi" || echo "--disable-jack-midi")
-		$(use smf && echo "--enable-smf" || echo "--disable-smf")
+		$(use_enable alsa alsa-seq)
+		$(use_enable jack jack-midi)
+		$(use_enable smf)
 	)
 }
 
