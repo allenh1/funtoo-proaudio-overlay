@@ -1,6 +1,24 @@
 # ChangeLog for media-sound/supercollider
-# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*supercollider-3.6.3 (19 Apr 2013)
+
+  19 Apr 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -files/70scel-gentoo.el, -supercollider-3.3.1.ebuild,
+  -supercollider-3.4.3.ebuild, +supercollider-3.6.3.ebuild,
+  supercollider-99999999.ebuild, +files/README.gentoo,
+  -files/README-gentoo.txt, metadata.xml:
+  Version bump and remove old ebuilds.
+  Move to EAPI 5.
+  Move to new build system; CMake.
+  Remove the special elisp file.
+  Add and remove USE flags and their descriptions.
+  Remove no-herd from metadata.
+  Rename and update the README-gentoo.txt (new name README.gentoo).
+  Depend on virtual/pkgconfig.
+  Thanks to turion for reporting this bug so that these deprecations could 
+  be spotted. Closes #0000162.
 
 *supercollider-3.4.3 (15 Jun 2011)
 

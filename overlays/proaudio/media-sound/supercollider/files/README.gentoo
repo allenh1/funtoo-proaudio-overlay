@@ -7,8 +7,13 @@ To make sure that the SuperCollider install is working properly:
  2) Ensure that you're going to run these commands from a directory
     which contains the subdirectories sounds/ and synthdefs/
     (these directories can be initially empty)
- 3) execute the following command:
-      sclang @DOCBASE@/examples/onetwoonetwo.sc -
+ 3) Make sure you know where you have onetwoonetwo.sc, which will
+    usually reside in the documentations directory, usually
+    /usr/share/doc/supercollider-<VERSION>/. If it is compressed please
+    uncompress it somewhere.
+ 4) execute the following command, adjusting the path to onetwoonetwo.sc
+    of course:
+      sclang <path/to/onetwoonetwo.sc> -
 
 If all goes well, you'll get some scrolling output, and then you'll
 hear a looping synth line.  If the sclang command just sits there after
@@ -29,19 +34,6 @@ first add the following line to ~/.emacs:
 
 And then run emacs as "emacs -sclang"
 
-Configuration Files
--------------------
-
-The main configuration file which loads the various libraries that
-SuperCollider will use is located at /etc/supercollider/sclang.cfg
-Values from this file can be overridden in ~/.sclang.cfg, or in
-.sclang.cfg in the directory sclang is being run from.
-
-Another configuration file which controls how SuperCollider
-connects to Jack, among other miscellaneous functions, can be created
-as ~/.sclang.sc  -  Creating this file shouldn't be necessary, but an
-example is provided in @DOCBASE@/examples
-
 Running in General
 ------------------
 
@@ -51,22 +43,11 @@ sounds/ and synthdefs/.  (Technically, you could alternatively start
 sclang with the "-d" option to select a different directory
 containing those two subdirs.)
 
-Other Documentation in This Directory
--------------------------------------
-Included in the SuperCollider source tree are quite a few .rtf files
-which seem to serve as documentation.  I'm not sure exactly how useful
-these files are, because they may pertain more to the GUI aspects of
-the older Mac versions of SuperCollider, but they're included in
-the install tree anyway.
-
 More Information
 ----------------
 
 The Official SuperCollider Homepage
-http://www.audiosynth.com/
-This page may not actually provide too much help, because it's still
-geared for the Mac versions of SuperCollider, not the Linux versions.
-Still, it's the official page.
+http://supercollider.sourceforge.net
 
 SuperCollider Wiki
 http://swiki.hfbk-hamburg.de:8888/MusicTechnology/6
