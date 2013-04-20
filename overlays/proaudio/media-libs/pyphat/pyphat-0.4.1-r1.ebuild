@@ -4,17 +4,15 @@
 
 EAPI=5
 PYTHON_COMPAT=( python2_{6,7} )
-AUTOTOOLS_AUTORECONF=true
-AT_M4DIR="m4"
-inherit subversion autotools-utils python-r1
+inherit autotools-utils python-r1
 
 DESCRIPTION="python binding for phat"
 HOMEPAGE="http://phat.berlios.de/"
-ESVN_REPO_URI="svn://svn.berlios.de/phat/trunk/pyphat"
+SRC_URI="mirror://berlios/phat/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="${PYTHON_DEPS}
