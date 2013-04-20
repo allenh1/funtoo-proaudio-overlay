@@ -4,7 +4,7 @@
 
 EAPI="5"
 
-inherit cmake-utils eutils exteutils git-2 versionator
+inherit cmake-utils eutils exteutils git-2 multilib versionator
 
 DESCRIPTION="An environment and a programming language for real time audio synthesis."
 HOMEPAGE="http://supercollider.sourceforge.net"
@@ -96,6 +96,9 @@ src_configure() {
 
 src_install() {
 	cmake-utils_src_install
+
+	# Do not violate multilib strict
+	mv "${ED}/usr/lib" "${ED}/usr/$(get_libdir)" || die "mv failed"
 
 	use emacs && newdoc editors/scel/README README.emacs
 	use gedit && newdoc editors/sced/README README.gedit

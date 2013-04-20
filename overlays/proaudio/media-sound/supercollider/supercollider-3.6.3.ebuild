@@ -4,7 +4,7 @@
 
 EAPI="5"
 
-inherit cmake-utils eutils exteutils versionator
+inherit cmake-utils eutils exteutils multilib versionator
 
 MY_PN="SuperCollider"
 MY_P="${MY_PN}-${PV}"
@@ -102,6 +102,9 @@ src_configure() {
 
 src_install() {
 	cmake-utils_src_install
+
+	# Do not violate multilib strict
+	mv "${ED}/usr/lib" "${ED}/usr/$(get_libdir)" || die "mv failed"
 
 	use emacs && newdoc editors/scel/README README.emacs
 	use gedit && newdoc editors/sced/README README.gedit
