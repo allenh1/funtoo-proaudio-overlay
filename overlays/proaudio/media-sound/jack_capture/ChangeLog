@@ -1,6 +1,19 @@
 # ChangeLog for media-sound/jack_capture
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*jack_capture-0.9.70 (20 Apr 2013)
+
+  20 Apr 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -jack_capture-0.9.56.ebuild, -files/jack_capture-0.9.56-Makefile.patch,
+  -jack_capture-0.9.69.ebuild, +jack_capture-0.9.70.ebuild,
+  +files/jack_capture-0.9.70-Makefile.patch, metadata.xml:
+  Version bump and remove old ebuilds.
+  Move to EAPI 5.
+  Use base eclass.
+  Use emake instead of make.
+  Depend on virtual/pkgconfig.
+  Remove no-herd from metadata.
 
 *jack_capture-0.9.69 (23 Nov 2012)
 
