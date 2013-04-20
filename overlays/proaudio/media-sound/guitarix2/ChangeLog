@@ -2,6 +2,16 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*guitarix2-0.27.1 (20 Apr 2013)
+
+  20 Apr 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -files/guitarix2-0.25.2-no-ldconfig.patch,
+  -files/guitarix2-0.25.2-no-update-desktop-database.patch,
+  -files/guitarix2-0.25.2-respect-libdir.patch, -guitarix2-0.26.1.ebuild,
+  +guitarix2-0.27.1.ebuild, -files:
+  Version bump and remove old ebuild.
+  Remove old patches.
+
 *guitarix2-0.26.1 (09 Apr 2013)
 
   09 Apr 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
