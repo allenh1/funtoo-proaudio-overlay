@@ -7,13 +7,12 @@
  Target       = "fastbreederserver"
  PyTarget    = ["scripts/fastbreeder", "scripts/gpy.py", "scripts/osc.py"]
  Install      = "/usr/local/bin"
-@@ -23,7 +26,17 @@
+@@ -23,7 +26,16 @@
  				src/FastBreeder.cpp \
  				src/main.cpp")					
  
 -env = Environment(CCFLAGS = '-pipe -Wall -O3 -ggdb -ffast-math -Wno-unused  -fPIC')
-+#env = Environment(CCFLAGS = '-pipe -Wall -O3 -ggdb -ffast-math -Wno-unused  -fPIC')
-+env = Environment()
++env = Environment(CXXFLAGS = '-Wall -O3 -ggdb -ffast-math -fPIC')
 +
 +if os.environ.has_key('CXX'):
 +	env['CXX'] = os.environ['CXX']
