@@ -36,8 +36,9 @@ RDEPEND=">=media-sound/jack-audio-connection-kit-0.100.0
 	portaudio? ( media-libs/portaudio )
 	qt4? (
 		>=dev-qt/qtcore-4.7
-		>=dev-qt/qtgui-4.7
 		>=dev-qt/qtwebkit-4.7
+		ide? ( >=dev-qt/qtgui-4.7[gtkstyle] )
+		!ide? ( >=dev-qt/qtgui-4.7 )
 	)
 	sndfile? ( >=media-libs/libsndfile-1.0.16 )
 	system-boost? ( dev-libs/boost )
