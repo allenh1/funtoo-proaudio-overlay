@@ -76,11 +76,6 @@ pkg_postinst() {
 	einfo "Many applications can extend functionality of fvwm-crystal."
 	einfo "They are listed in /usr/share/doc/${PF}/INSTALL.gz."
 	einfo
-	einfo "If you want gnome-session support if FVWM-Crystal, please"
-	einfo "emerge this program with USE=session."
-	einfo "Read addons/session-management.README, it contain important"
-	einfo "information about session management support in FVWM-Crystal"
-	einfo
 	einfo "Some icons fixes was committed recently to the svn"
 	einfo "To archive the same fixes on your private icon files,"
 	einfo "please read /usr/share/doc/${PF}/INSTALL.gz."
