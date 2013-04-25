@@ -4,7 +4,9 @@
 
   25 Apr 2013; Dominique Michel <dominique_libre@users.sourceforge.net> files/fvwm-crystal:
   fixed typo in Session file
-  fvwm-crystal-9999.ebuild: removed the info about Gnome 2 session management
+  fvwm-crystal-9999.ebuild: removed the info about Gnome 2 session management;
+  removed X Session and desktop file installation
+-files/fvwm-crystal: not needed any more 
 
   21 Apr 2013; Dominique Michel <dominique_libre@users.sourceforge.net> fvwm-crystal-9999.ebuild:
   Added awk, sed and xed into DEPEND

@@ -59,12 +59,6 @@ src_install() {
 
 	dodoc AUTHORS README Export.README INSTALL NEWS ChangeLog doc/*
 	cp -r addons "${D}"/usr/share/doc/"${PF}"/
-
-	exeinto /etc/X11/Sessions
-	doexe "${FILESDIR}"/fvwm-crystal
-
-	insinto /usr/share/xsessions
-	doins addons/fvwm-crystal.desktop
 }
 
 pkg_postinst() {
