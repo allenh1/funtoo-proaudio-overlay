@@ -85,7 +85,6 @@ media-sound/jack_mixer
 media-sound/reshaked
 media-sound/minicomputer
 media-sound/zynaddsubfx-converter
-media-sound/jack_convolve
 media-sound/paulstretch
 media-sound/drc
 media-sound/traverso

@@ -1514,13 +1514,6 @@
 	Homepage:    http://zynaddsubfx.sourceforge.net/
 
 
-#------- media-sound/jack_convolve --------
-	jack_convolve-0.0.13	arch: x86
-	Description: jack_convolve - a simple commandline convolution
-		 engine for jackd
-	Homepage:    http://tapas.affenbande.org/?page_id=5
-
-
 #------- media-sound/aqualung --------
 	aqualung-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: Aqualung is a music player capable of gapless
