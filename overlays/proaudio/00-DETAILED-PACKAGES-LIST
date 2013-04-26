@@ -576,13 +576,6 @@
 	Homepage:    http://lvtoolkit.org/
 
 
-#------- media-libs/libdsp --------
-	libdsp-5.0.2	arch: x86 ~amd64 -sparc
-	Description: C++ class library of common digital signal
-		 processing functions.
-	Homepage:    http://.sourceforge.net/
-
-
 #------- media-libs/stk --------
 	stk-4.3.1	arch: ~x86 ~amd64
 	stk-4.4.2	arch: ~amd64 ~x86
