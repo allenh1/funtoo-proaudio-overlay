@@ -1248,12 +1248,6 @@
 	Homepage:    http://www.nongnu.org/tutka
 
 
-#------- media-sound/dssi_convolve --------
-	dssi_convolve-0.0.4	arch: x86
-	Description: A convolution plugin for linux/DSSI
-	Homepage:    http://tapas.affenbande.org/wordpress/?page_id=36
-
-
 #------- media-sound/drobilla --------
 	drobilla-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: Patchage is a modular patchbay for Jack audio
