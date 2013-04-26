@@ -724,13 +724,6 @@
 	Homepage:    http://www.ffado.org
 
 
-#------- media-libs/libconvolve --------
-	libconvolve-0.0.8	arch: x86
-	Description: A simple C library for partitioned convolution
-		
-	Homepage:    http://tapas.affenbande.org/?page_id=9
-
-
 #------- media-libs/naspro-core --------
 	naspro-core-0.4.0	arch: ~amd64 ~x86
 	Description: Portable runtime library at the bottom of
