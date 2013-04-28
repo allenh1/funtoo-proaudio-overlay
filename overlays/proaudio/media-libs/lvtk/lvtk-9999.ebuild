@@ -22,7 +22,10 @@ RDEPEND="media-libs/lv2
 	ui? ( >=dev-cpp/gtkmm-2.4 )"
 DEPEND="${RDEPEND}
 	${PYTHON_DEPS}
-	doc? ( app-doc/doxygen )
+	doc? (
+		app-doc/doxygen
+		media-gfx/graphviz
+	)
 	virtual/pkgconfig"
 
 DOCS=( AUTHORS ChangeLog README )
@@ -46,7 +49,10 @@ src_configure() {
 
 src_install() {
 	waf-utils_src_install
+
 	# It does not respect docdir properly, reported upstream
-	mv "${ED}/usr/share/doc/${PF}/lvtk-1.0/html" "${ED}/usr/share/doc/${PF}/html"
-	rmdir "${ED}/usr/share/doc/${PF}/lvtk-1.0"
+	if use doc; then
+		mv "${ED}/usr/share/doc/${PF}/lvtk-1.0/html" "${ED}/usr/share/doc/${PF}/html"
+		rmdir "${ED}/usr/share/doc/${PF}/lvtk-1.0"
+	fi
 }

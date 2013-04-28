@@ -2,6 +2,11 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  28 Apr 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  lvtk-1.1.0.ebuild, lvtk-9999.ebuild:
+  Do not fix documentation install directory if documentation is not built.
+  Graphviz is needed to build docs (the dot program is needed).
+
 *lvtk-9999 (28 Apr 2013)
 *lvtk-1.1.0 (28 Apr 2013)
 
