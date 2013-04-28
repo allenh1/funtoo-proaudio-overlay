@@ -9,4 +9,8 @@
 A set C++ wrappers around the LV2 C API.
 The included libraries ease writing LV2 plugins and UIs in C++ by inheriting from easy to use template classes.
 	</longdescription>
+	<use>
+		<flag name="tools">Build tools</flag>
+		<flag name="ui">Build UI libraries</flag>
+	</use>
 </pkgmetadata>
