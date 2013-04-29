@@ -186,7 +186,6 @@ media-libs/rtmidi
 media-libs/gmerlin
 media-libs/zita-alsa-pcmi
 media-libs/alsaplayer-python
-media-libs/libsoundtouch
 media-libs/libclam
 media-libs/vst-sdk
 media-libs/asio-sdk

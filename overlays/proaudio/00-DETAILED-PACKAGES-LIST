@@ -80,12 +80,6 @@
 	Homepage:    http://mjambon.com/.html
 
 
-#------- dev-ml/ocaml-soundtouch --------
-	ocaml-soundtouch-0.1.7	arch: ~x86 ~amd64
-	Description: OCaml interface for libsoundtouch.
-	Homepage:    http://savonet.sourceforge.net/
-
-
 #------- dev-ml/ocaml-portaudio --------
 	ocaml-portaudio-0.2.0	arch: ~x86 ~amd64
 	Description: OCaml interface for the portable audio I/O
