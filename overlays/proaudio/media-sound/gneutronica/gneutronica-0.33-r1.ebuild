@@ -16,6 +16,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="gnome-base/libgnomecanvas
+	media-libs/alsa-lib
 	x11-libs/gtk+:2"
 
 RESTRICT="mirror"
