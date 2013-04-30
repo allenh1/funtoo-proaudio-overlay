@@ -1,0 +1,27 @@
+diff --git a/Makefile b/Makefile
+index 484720f..490be42 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,3 +1,4 @@
++CC=gcc
+ 
+ ALL= noise_1921.so noise_1922.so eir_1923.so risset_1924.so
+ 
+@@ -11,13 +12,13 @@ clean:
+ 	rm $(ALL)
+ 
+ noise_1921.so: noise_1921.c
+-	gcc -Wall -shared -Xlinker -Bdynamic -O2 -fPIC -o noise_1921.so noise_1921.c -lm
++	$(CC) $(LDFLAGS) -Wall -shared -Xlinker -Bdynamic -O2 $(CFLAGS) -fPIC -o noise_1921.so noise_1921.c -lm
+ 
+ noise_1922.so: noise_1922.c
+-	gcc -Wall -shared -Xlinker -Bdynamic -O2 -fPIC -o noise_1922.so noise_1922.c -lm
++	$(CC) $(LDFLAGS) -Wall -shared -Xlinker -Bdynamic -O2 $(CFLAGS) -fPIC -o noise_1922.so noise_1922.c -lm
+ 
+ eir_1923.so: eir_1923.c
+-	gcc -Wall -shared -Xlinker -Bdynamic -O2 -fPIC -o eir_1923.so eir_1923.c -lm
++	$(CC) $(LDFLAGS) -Wall -shared -Xlinker -Bdynamic -O2 $(CFLAGS) -fPIC -o eir_1923.so eir_1923.c -lm
+ 
+ risset_1924.so: risset_1924.c
+-	gcc -Wall -shared -Xlinker -Bdynamic -O2 -fPIC -o risset_1924.so risset_1924.c -lm
++	$(CC) $(LDFLAGS) -Wall -shared -Xlinker -Bdynamic -O2 $(CFLAGS) -fPIC -o risset_1924.so risset_1924.c -lm
