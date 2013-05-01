@@ -2605,13 +2605,6 @@
 	Homepage:    http://freebob.sf.net
 
 
-#------- sys-libs/libraw1394 --------
-	libraw1394-2.0.0	arch: ~alpha ~amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~sh ~sparc ~x86
-	Description: library that provides direct access to the
-		 IEEE 1394 bus
-	Homepage:    http://www.linux1394.org/
-
-
 #------- sys-libs/libmagic --------
 	libmagic-0_alpha	arch: ~x86 ~amd64
 	Description: Lbrary for automatically determining the
