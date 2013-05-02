@@ -1,0 +1,19 @@
+diff --git a/Makefile b/Makefile
+index 7e8eac2..87f41c2 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,5 +1,4 @@
+ PROG = amidimap
+-CFLAGS = -g -O2 -Wall
+ CC = gcc
+ LIBS = -lasound
+ 
+@@ -7,7 +6,7 @@ OBJS = \
+ 	amidimap.o
+ 
+ $(PROG): $(OBJS)
+-	$(CC) -o $(PROG) $(OBJS) $(LIBS)
++	$(CC) $(LDFLAGS) -o $(PROG) $(OBJS) $(LIBS)
+ 
+ clean:
+ 	$(RM) $(PROG) $(OBJS)
