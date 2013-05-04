@@ -10,7 +10,7 @@ EAPI="5"
 inherit autotools-utils
 
 DESCRIPTION="An old-school all-digital 4-oscillator subtractive polyphonic synthesizer with stereo fx."
-HOMEPAGE="http://${PN}.sourceforge.net/"
+HOMEPAGE="http://synthv1.sourceforge.net/"
 
 if [[ "${PV}" = "9999" ]]; then
 	ESVN_REPO_URI="http://svn.code.sf.net/p/${PN}/code/trunk"
@@ -21,11 +21,10 @@ else
 	KEYWORDS="~amd64 ~ppc ~x86"
 fi
 
-IUSE="alsa debug jack +jackmidi jacksession lv2 nsm osc"
-# Build fails with jack or jackmidi disabled
+IUSE="alsa debug jack jackmidi jacksession lv2 nsm osc"
+# Build fails with jack disabled
 # See https://sourceforge.net/p/synthv1/tickets/6/
-# and https://sourceforge.net/p/synthv1/tickets/7/
-REQUIRED_USE="jack jackmidi"
+REQUIRED_USE="jack"
 #	jackmidi? ( jack )
 #	jacksession? ( jack )"
 
