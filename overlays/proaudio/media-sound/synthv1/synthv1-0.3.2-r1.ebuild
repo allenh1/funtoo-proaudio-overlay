@@ -21,10 +21,11 @@ else
 	KEYWORDS="~amd64 ~ppc ~x86"
 fi
 
-IUSE="alsa debug jack jackmidi jacksession lv2 nsm osc"
-REQUIRED_USE="
-	jackmidi? ( jack )
-	jacksession? ( jack )"
+IUSE="alsa debug jack +jackmidi jacksession lv2"
+# Build fails with jack or jackmidi disabled (fixed upstream)
+REQUIRED_USE="jack jackmidi"
+#	jackmidi? ( jack )
+#	jacksession? ( jack )"
 
 LICENSE="GPL-2"
 
@@ -34,8 +35,7 @@ RDEPEND="dev-qt/qtcore
 	dev-qt/qtgui
 	alsa? ( media-libs/alsa-lib )
 	jack? ( media-sound/jack-audio-connection-kit )
-	lv2? ( media-libs/lv2 )
-	osc? ( media-libs/liblo )"
+	lv2? ( media-libs/lv2 )"
 DEPEND="${RDEPEND}"
 
 AUTOTOOLS_IN_SOURCE_BUILD="1"
@@ -57,8 +57,6 @@ src_configure() {
 		$(use_enable jackmidi jack-midi)
 		$(use_enable jacksession jack-session)
 		$(use_enable lv2)
-		$(use_enable osc liblo)
-		$(use_enable nsm)
 	)
 	autotools-utils_src_configure
 }
