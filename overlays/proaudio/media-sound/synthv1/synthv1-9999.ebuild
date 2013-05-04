@@ -23,6 +23,7 @@ fi
 
 IUSE="alsa debug jack jackmidi jacksession lv2 nsm osc"
 REQUIRED_USE="
+	|| ( jack lv2 )
 	jack? ( || ( alsa jackmidi ) )
 	jackmidi? ( jack )
 	jacksession? ( jack )"

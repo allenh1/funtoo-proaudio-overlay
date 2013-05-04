@@ -3,6 +3,10 @@
 # $Header: $
 
   04 May 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  synthv1-9999.ebuild:
+  Require jack or lv2 to be built.
+
+  04 May 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   synthv1-0.3.2-r1.ebuild, synthv1-9999.ebuild:
   Remove reduntant DOCS variable.
   Require alsa or jackmidi if jack stand-alone client is built.
