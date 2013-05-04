@@ -22,8 +22,7 @@ else
 fi
 
 IUSE="alsa debug jack +jackmidi jacksession lv2"
-# Build fails with jack or jackmidi disabled (jackmidi fixed upstream)
-# See https://sourceforge.net/p/synthv1/tickets/6/
+# Build fails with jack or jackmidi disabled (fixed upstream)
 REQUIRED_USE="jack jackmidi"
 #	jackmidi? ( jack )
 #	jacksession? ( jack )"

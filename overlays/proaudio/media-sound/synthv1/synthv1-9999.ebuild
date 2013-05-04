@@ -22,11 +22,9 @@ else
 fi
 
 IUSE="alsa debug jack jackmidi jacksession lv2 nsm osc"
-# Build fails with jack disabled
-# See https://sourceforge.net/p/synthv1/tickets/6/
-REQUIRED_USE="jack"
-#	jackmidi? ( jack )
-#	jacksession? ( jack )"
+REQUIRED_USE="
+	jackmidi? ( jack )
+	jacksession? ( jack )"
 
 LICENSE="GPL-2"
 
