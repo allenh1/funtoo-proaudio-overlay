@@ -28,7 +28,6 @@ REQUIRED_USE="jack jackmidi"
 #	jacksession? ( jack )"
 
 LICENSE="GPL-2"
-
 SLOT="0"
 
 RDEPEND="dev-qt/qtcore
@@ -39,7 +38,6 @@ RDEPEND="dev-qt/qtcore
 DEPEND="${RDEPEND}"
 
 AUTOTOOLS_IN_SOURCE_BUILD="1"
-DOCS=( AUTHORS ChangeLog README )
 
 src_unpack() {
 	[[ "${PV}" = "9999" ]] && subversion_src_unpack

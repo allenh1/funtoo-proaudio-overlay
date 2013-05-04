@@ -23,11 +23,11 @@ fi
 
 IUSE="alsa debug jack jackmidi jacksession lv2 nsm osc"
 REQUIRED_USE="
+	jack? ( || ( alsa jackmidi ) )
 	jackmidi? ( jack )
 	jacksession? ( jack )"
 
 LICENSE="GPL-2"
-
 SLOT="0"
 
 RDEPEND="dev-qt/qtcore
@@ -39,7 +39,6 @@ RDEPEND="dev-qt/qtcore
 DEPEND="${RDEPEND}"
 
 AUTOTOOLS_IN_SOURCE_BUILD="1"
-DOCS=( AUTHORS ChangeLog README )
 
 src_unpack() {
 	[[ "${PV}" = "9999" ]] && subversion_src_unpack
