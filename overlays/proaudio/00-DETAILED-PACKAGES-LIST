@@ -1990,14 +1990,6 @@
 	Homepage:    http://www.frinika.com
 
 
-#------- media-sound/lilypond --------
-	lilypond-2.10.20	arch: ~amd64 ~sparc ~x86
-	lilypond-2.10.4	arch: x86 amd64 ~sparc
-	lilypond-2.8.8	arch: amd64 ~sparc x86
-	Description: GNU Music Typesetter
-	Homepage:    http://lilypond.org/
-
-
 #------- media-sound/abraca --------
 	abraca-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: Abraca is a GTK2 client for the XMMS2 music
