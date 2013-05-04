@@ -6,6 +6,8 @@
 		<name>pro-audio overlay team</name>
 	</maintainer>
 	<use>
+		<flag name="jacksession">Enable JACK session support</flag>
 		<flag name="lv2">Add support for Ladspa V2</flag>
+		<flag name="nsm">Build with non-session management support</flag>
 	</use>
 </pkgmetadata>

@@ -5,6 +5,8 @@
 EAPI="5"
 
 [[ "${PV}" = "9999" ]] && inherit subversion
+
+[[ "${PV}" = "9999" ]] && AUTOTOOLS_AUTORECONF="1"
 inherit autotools-utils
 
 DESCRIPTION="An old-school all-digital 4-oscillator subtractive polyphonic synthesizer with stereo fx."
@@ -19,20 +21,26 @@ else
 	KEYWORDS="~amd64 ~ppc ~x86"
 fi
 
-IUSE="alsa debug jack lv2"
+IUSE="alsa debug jack +jackmidi jacksession lv2 nsm osc"
+# Build fails with jack or jackmidi disabled
+# See https://sourceforge.net/p/synthv1/tickets/6/
+# and https://sourceforge.net/p/synthv1/tickets/7/
+REQUIRED_USE="jack jackmidi"
+#	jackmidi? ( jack )
+#	jacksession? ( jack )"
 
 LICENSE="GPL-2"
 
 SLOT="0"
 
 RDEPEND="dev-qt/qtcore
-dev-qt/qtgui
-alsa? ( media-libs/alsa-lib )
-jack? ( media-sound/jack-audio-connection-kit )
-lv2? ( media-libs/lv2 )"
+	dev-qt/qtgui
+	alsa? ( media-libs/alsa-lib )
+	jack? ( media-sound/jack-audio-connection-kit )
+	lv2? ( media-libs/lv2 )
+	osc? ( media-libs/liblo )"
 DEPEND="${RDEPEND}"
 
-[[ "${PV}" = "9999" ]] && AUTOTOOLS_AUTORECONF="1"
 AUTOTOOLS_IN_SOURCE_BUILD="1"
 DOCS=( AUTHORS ChangeLog README )
 
@@ -41,7 +49,11 @@ src_configure() {
 		$(use_enable alsa alsa-midi)
 		$(use_enable debug)
 		$(use_enable jack)
+		$(use_enable jackmidi jack-midi)
+		$(use_enable jacksession jack-session)
 		$(use_enable lv2)
+		$(use_enable osc liblo)
+		$(use_enable nsm)
 	)
 	autotools-utils_src_configure
 }
