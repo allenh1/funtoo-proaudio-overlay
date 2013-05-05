@@ -2,6 +2,19 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*drumkv1-0.3.2-r1 (05 May 2013)
+
+  05 May 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  drumkv1-0.3.2.ebuild, +drumkv1-0.3.2-r1.ebuild, drumkv1-9999.ebuild,
+  metadata.xml:
+  Only raw text in HOMEPAGE.
+  AUTOTOOLS_AUTORECONF before inherit.
+  Use qt4-r2 eclass to respect common variables.
+  Restrict mirror.
+  Add more USE flags.
+  Some cosmetics.
+  Remove redundant DOCS variable.
+
   08 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   drumkv1-0.3.2.ebuild, drumkv1-9999.ebuild:
   modify depends x11-libs/qt-* -> dev-qt/qt*
