@@ -12,6 +12,8 @@ inherit base qt4-r2 autotools-utils
 DESCRIPTION="An old-school all-digital 4-oscillator subtractive polyphonic synthesizer with stereo fx."
 HOMEPAGE="http://synthv1.sourceforge.net/"
 
+RESTRICT="mirror"
+
 if [[ "${PV}" = "9999" ]]; then
 	ESVN_REPO_URI="http://svn.code.sf.net/p/${PN}/code/trunk"
 	SRC_URI=""
