@@ -4,8 +4,10 @@ x11-misc/xanalyser
 dev-python/wmdocklib
 dev-python/python-poppler-qt4
 app-portage/euses
+dev-util/premake
 app-emulation/wineasio
 dev-libs/libinstpatch
+dev-libs/libwhy
 dev-libs/xerces-c
 dev-libs/icu
 games-misc/linthesia
@@ -17,9 +19,11 @@ sys-kernel/rt-sources
 media-plugins/nekobee
 media-plugins/dssi-vst
 media-plugins/invada-studio-plugins
+media-plugins/abGate
 media-plugins/gst-buzztard
 media-plugins/frei0r-plugins
 media-plugins/holap
+media-plugins/sfxr-dssi
 media-plugins/vocproc
 media-plugins/avw-lv2
 media-plugins/njl-plugins
@@ -50,6 +54,7 @@ sys-process/rt-exec
 sys-process/set_rlimits
 media-sound/rakarrack
 media-sound/goattracker
+media-sound/mididings
 media-sound/qsampler
 media-sound/jack_capture
 media-sound/meterbridge
@@ -74,7 +79,6 @@ media-sound/museseq
 media-sound/ceres
 media-sound/jacker
 media-sound/jost
-media-sound/guitarix2
 media-sound/gwc
 media-sound/ninjam-server
 media-sound/jnoisemeter
@@ -86,6 +90,7 @@ media-sound/reshaked
 media-sound/minicomputer
 media-sound/zynaddsubfx-converter
 media-sound/paulstretch
+media-sound/remid
 media-sound/drc
 media-sound/traverso
 media-sound/jackctlmmc
@@ -176,8 +181,6 @@ media-sound/freqtweak
 media-sound/mixxx
 media-sound/xwax
 media-sound/chordata
-x11-themes/crystal-artwork
-x11-themes/fvwm-crystal
 media-libs/zynaddsubfx-extras
 media-libs/libclxclient
 media-libs/rtmidi
