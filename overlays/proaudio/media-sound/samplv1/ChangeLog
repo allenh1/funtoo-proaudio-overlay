@@ -2,6 +2,10 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  05 May 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  samplv1-0.3.2-r1.ebuild, samplv1-9999.ebuild:
+  Restrict mirror.
+
   04 May 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   samplv1-9999.ebuild:
   Require jack or lv2 to be enabled.
