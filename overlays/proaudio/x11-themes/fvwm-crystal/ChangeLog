@@ -4,8 +4,9 @@
 
   05 May 2013; Dominique Michel <dominique_libre@users.sourceforge.net> fvwm-crystal-9999.ebuild:
   updated to pyrhon-r1 eclass and EAPI 5. Removed non needed USE flags.
-  metadata.xml: removed non needed USE flag.
-
+  metadata.xml: removed non needed USE flag. Changed einfo to show correct
+  addons path.
+  
   25 Apr 2013; Dominique Michel <dominique_libre@users.sourceforge.net> files/fvwm-crystal:
   fixed typo in Session file
   fvwm-crystal-9999.ebuild: removed the info about Gnome 2 session management;

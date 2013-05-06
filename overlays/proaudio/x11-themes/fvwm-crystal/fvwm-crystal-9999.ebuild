@@ -46,8 +46,8 @@ src_install() {
 pkg_postinst() {
 	einfo
 	einfo "After installation, execute following commands:"
-	einfo " $ cp -r /usr/share/doc/${PF}/addons/Xresources ~/.Xresources"
-	einfo " $ cp -r /usr/share/doc/${PF}/addons/Xsession ~/.xinitrc"
+	einfo " $ cp -r /usr/share/${PN}/addons/Xresources ~/.Xresources"
+	einfo " $ cp -r /usr/share/${PN}/addons/Xsession ~/.xinitrc"
 	einfo
 	einfo "Many applications can extend functionality of fvwm-crystal."
 	einfo "They are listed in /usr/share/doc/${PF}/INSTALL.gz."
@@ -59,6 +59,6 @@ pkg_postinst() {
 	einfo
 	einfo "The color themes was updated to Fvwm InfoStore."
 	einfo "To know how to update your custom color themes, please run"
-	einfo "	/usr/share/doc/${PN}/addons/convert_colorsets."
+	einfo "	/usr/share/${PN}/addons/convert_colorsets."
 	einfo ""
 }
