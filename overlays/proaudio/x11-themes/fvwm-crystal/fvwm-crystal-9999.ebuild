@@ -39,26 +39,26 @@ src_unpack() {
 src_install() {
 	emake \
 		DESTDIR="${D}" \
-		docdir="/usr/share/doc/${PF}" \
-		prefix="/usr" install
+		docdir="${EPREFIX}/usr/share/doc/${PF}" \
+		prefix="${EPREFIX}/usr" install
 }
 
 pkg_postinst() {
 	einfo
 	einfo "After installation, execute following commands:"
-	einfo " $ cp -r /usr/share/${PN}/addons/Xresources ~/.Xresources"
-	einfo " $ cp -r /usr/share/${PN}/addons/Xsession ~/.xinitrc"
+	einfo " $ cp -r ${EPREFIX}/usr/share/${PN}/addons/Xresources ~/.Xresources"
+	einfo " $ cp -r ${EPREFIX}/usr/share/${PN}/addons/Xsession ~/.xinitrc"
 	einfo
 	einfo "Many applications can extend functionality of fvwm-crystal."
-	einfo "They are listed in /usr/share/doc/${PF}/INSTALL.gz."
+	einfo "They are listed in ${EPREFIX}/usr/share/doc/${PF}/INSTALL.gz."
 	einfo
 	einfo "Some icons fixes was committed recently to the svn"
 	einfo "To archive the same fixes on your private icon files,"
-	einfo "please read /usr/share/doc/${PF}/INSTALL.gz."
+	einfo "please read ${EPREFIX}/usr/share/doc/${PF}/INSTALL.gz."
 	einfo "This will fix the libpng warnings at stderr."
 	einfo
 	einfo "The color themes was updated to Fvwm InfoStore."
 	einfo "To know how to update your custom color themes, please run"
-	einfo "	/usr/share/${PN}/addons/convert_colorsets."
+	einfo "	${EPREFIX}/usr/share/${PN}/addons/convert_colorsets."
 	einfo ""
 }
