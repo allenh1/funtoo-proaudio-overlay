@@ -2,6 +2,24 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*jack-audio-connection-kit-1.9.9.5-r1 (10 May 2013)
+
+  10 May 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +jack-audio-connection-kit-1.9.9.5-r1.ebuild,
+  jack-audio-connection-kit-2.9999.ebuild, metadata.xml:
+  Move to python-single-r1 eclass.
+  Make src_configure more readable by using usex and a bash array.
+  Use DOCS and HTML_DOCS variable.
+  Changed warning message. The problem will be fixed when we can use a 
+  multilib eclass to build 32-bit libraries in a clean way.
+  Added warning message to version 2.9999.
+  No hard dependency on alsa-lib in version 2.9999.
+  Removded the classic USE flag from version 2.9999. Mixing dbus and 
+  classic is discouraged by upstream. Assume classic build if dbus is 
+  unset, which is the same behaviour as in 1.9.9.5-r1.
+  Build docs manually in 1.9.9.5-r1.
+  Added missing dependencies to 1.9.9.5-r1.
+
   23 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   jack-audio-connection-kit-1.9.9.5.ebuild:
   Move EAPI 5 and waf-utils eclass.

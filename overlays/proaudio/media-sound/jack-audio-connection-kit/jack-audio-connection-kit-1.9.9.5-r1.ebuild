@@ -5,31 +5,36 @@
 EAPI="5"
 
 PYTHON_COMPAT=( python2_7 )
-inherit eutils git-2 python-single-r1 waf-utils
+inherit eutils python-single-r1 waf-utils
 
+RESTRICT="mirror"
 DESCRIPTION="Jackdmp jack implemention for multi-processor machine"
-HOMEPAGE="http://jackaudio.org/"
-
-EGIT_REPO_URI="git://github.com/jackaudio/jack2.git"
+HOMEPAGE="http://www.jackaudio.org"
+SRC_URI="https://dl.dropbox.com/u/28869550/jack-${PV}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
-IUSE="alsa debug doc dbus freebob ieee1394 mixed opus pam"
+KEYWORDS="~amd64 ~ppc ~x86"
+IUSE="alsa dbus debug doc freebob ieee1394 mixed"
 
 RDEPEND="media-libs/libsamplerate
 	>=media-libs/libsndfile-1.0.0
-	alsa? ( >=media-libs/alsa-lib-1.0.24 )
+	alsa? ( >=media-libs/alsa-lib-0.9.1 )
 	dbus? ( sys-apps/dbus )
 	freebob? ( sys-libs/libfreebob !media-libs/libffado )
-	ieee1394? ( media-libs/libffado !sys-libs/libfreebob )
-	opus? ( media-libs/opus[custom-modes] )"
+	ieee1394? ( media-libs/libffado !sys-libs/libfreebob )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	doc? ( app-doc/doxygen )"
 RDEPEND="${RDEPEND}
-	dbus? ( dev-python/dbus-python )
-	pam? ( sys-auth/realtime-base )"
+	dbus? ( dev-python/dbus-python )"
+
+S="${WORKDIR}/jack-${PV}"
+
+PATCHES=(
+	"${FILESDIR}/jack2-no-self-connect-1.9.9.5.patch"
+	"${FILESDIR}/jack-1.9.9.5-opus_custom.patch"
+)
 
 DOCS=( ChangeLog README README_NETJACK2 TODO )
 
@@ -39,10 +44,6 @@ pkg_pretend() {
 		ewarn 'The build will probably fail.'
 		ewarn 'This is a known issue and a fix is coming eventually.'
 	fi
-}
-
-src_unpack() {
-	git-2_src_unpack
 }
 
 src_configure() {
