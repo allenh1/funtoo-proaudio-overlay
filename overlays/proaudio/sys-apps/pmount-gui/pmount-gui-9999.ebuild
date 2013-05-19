@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS=""
 IUSE=""
 
-DEPEND="sys-fs/udev
+DEPEND="virtual/udev
 	sys-apps/pmount
 	x11-libs/gtk+:2"
 RDEPEND="${DEPEND}"
