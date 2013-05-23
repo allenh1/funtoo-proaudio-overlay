@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=4
+EAPI=5
 
 inherit bzr eutils multilib scons-utils toolchain-funcs
 
@@ -13,10 +13,10 @@ EBZR_REPO_URI="lp:mixxx/1.11"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="aac debug doc mp3 mp4 pulseaudio shout wavpack"
+IUSE="aac debug doc hid mp3 mp4 pulseaudio shout wavpack"
 
 RDEPEND="dev-libs/protobuf
-	media-libs/fidlib
+	>=media-libs/fidlib-0.9.10-r1
 	media-libs/flac
 	media-libs/libid3tag
 	media-libs/libogg
@@ -39,6 +39,7 @@ RDEPEND="dev-libs/protobuf
 		media-libs/faad2
 		media-libs/libmp4v2:0
 	)
+	hid? ( dev-libs/hidapi )
 	mp3? ( media-libs/libmad )
 	mp4? ( media-libs/libmp4v2 )
 	pulseaudio? ( media-sound/pulseaudio )
@@ -51,8 +52,7 @@ S=${S}/${PN}
 
 src_prepare() {
 	epatch "${FILESDIR}"/${P}-cflags.patch
-	# doesn't apply anymore
-#	epatch "${FILESDIR}"/${P}-system-libs.patch
+	epatch "${FILESDIR}"/${P}-system-libs.patch
 	epatch "${FILESDIR}"/${P}-docs.patch
 	epatch "${FILESDIR}"/${P}-no-bzr.patch
 
@@ -65,27 +65,32 @@ src_prepare() {
 	fi
 }
 
+src_configure() {
+	myesconsargs=(
+		prefix="${EPREFIX}/usr"
+		qtdir="${EPREFIX}/usr/$(get_libdir)/qt4"
+		hifieq=1
+		vinylcontrol=1
+		optimize=0
+		$(use_scons aac faad)
+		$(use_scons debug qdebug)
+		$(use_scons hid hid)
+		$(use_scons mp3 mad)
+		$(use_scons mp4 m4a)
+		$(use_scons shout shoutcast)
+		$(use_scons wavpack wv)
+	)
+}
+
 src_compile() {
 	CC="$(tc-getCC)" CXX="$(tc-getCXX)" LINKFLAGS="${LDFLAGS}" \
-	LIBPATH="/usr/$(get_libdir)" escons \
-		prefix=/usr \
-		qtdir=/usr/$(get_libdir)/qt4 \
-		hifieq=1 \
-		vinylcontrol=1 \
-		optimize=0 \
-		$(use_scons aac faad) \
-		$(use_scons debug qdebug) \
-		$(use_scons mp3 mad) \
-		$(use_scons mp4 m4a) \
-		$(use_scons shout shoutcast) \
-		$(use_scons wavpack wv)
+	LIBPATH="${EPREFIX}/usr/$(get_libdir)" escons
 }
 
 src_install() {
 	CC="$(tc-getCC)" CXX="$(tc-getCXX)" LINKFLAGS="${LDFLAGS}" \
-	LIBPATH="/usr/$(get_libdir)" escons install \
-		prefix=/usr \
-		install_root="${D}"/usr
+	LIBPATH="${EPREFIX}/usr/$(get_libdir)" escons \
+		install_root="${ED}"/usr install
 
 	dodoc README Mixxx-Manual.pdf
 }

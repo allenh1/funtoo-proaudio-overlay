@@ -1,5 +1,5 @@
---- mixxx/src/SConscript	2012-09-07 21:48:19 +0000
-+++ mixxx/src/SConscript	2012-09-13 04:47:25 +0000
+--- mixxx/src/SConscript	2013-05-20 20:40:21 +0000
++++ mixxx/src/SConscript	2013-05-22 02:58:18 +0000
 @@ -12,8 +12,8 @@
  from build import util, depends
  
@@ -13,7 +13,7 @@
  plugins = []
 
 --- mixxx/src/SConscript.env	2012-09-06 08:04:47 +0000
-+++ mixxx/src/SConscript.env	2012-09-13 04:46:47 +0000
++++ mixxx/src/SConscript.env	2013-05-22 03:00:12 +0000
 @@ -20,19 +20,6 @@
      print "Deleting deprecated build file: %s" % defs
      os.remove(defs)

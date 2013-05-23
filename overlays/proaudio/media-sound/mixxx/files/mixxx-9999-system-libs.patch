@@ -1,7 +1,7 @@
 === modified file 'mixxx/build/depends.py'
---- mixxx-9999/build/depends.py	2012-04-22 17:33:25 +0000
-+++ mixxx-9999/build/depends.py	2012-04-23 23:49:03 +0000
-@@ -189,25 +189,10 @@
+--- mixxx/build/depends.py	2013-01-19 09:47:43 +0000
++++ mixxx/build/depends.py	2013-02-06 00:25:30 +0000
+@@ -290,25 +290,10 @@
  
  class FidLib(Dependence):
  
@@ -30,7 +30,7 @@
  
  class ReplayGain(Dependence):
  
-@@ -218,7 +203,6 @@
+@@ -319,7 +304,6 @@
          build.env.Append(CPPPATH="#lib/replaygain")
  
  class SoundTouch(Dependence):
@@ -38,7 +38,7 @@
  
      def sse_enabled(self, build):
          optimize = int(util.get_flags(build.env, 'optimize', 1))
-@@ -227,42 +211,13 @@
+@@ -328,30 +312,7 @@
                  (build.toolchain_is_gnu and optimize > 1))
  
      def sources(self, build):
@@ -68,17 +68,19 @@
 -        return sources
 +        return ['engine/enginebufferscalest.cpp']
  
-     def configure(self, build, conf):
--        if build.platform_is_windows:
--            # Regardless of the bitwidth, ST checks for WIN32
--            build.env.Append(CPPDEFINES = 'WIN32')
--        build.env.Append(CPPPATH=['#lib/%s' % self.SOUNDTOUCH_PATH])
+     def configure(self, build, conf, env=None):
+         if env is None:
+@@ -359,13 +320,10 @@
+         if build.platform_is_windows:
+             # Regardless of the bitwidth, ST checks for WIN32
+             env.Append(CPPDEFINES = 'WIN32')
+-        env.Append(CPPPATH=['#lib/%s' % self.SOUNDTOUCH_PATH])
 -
 -        # Check if the compiler has SSE extention enabled
 -        # Allways the case on x64 (core instructions)
--        optimize = int(util.get_flags(build.env, 'optimize', 1))
+-        optimize = int(util.get_flags(env, 'optimize', 1))
 -        if self.sse_enabled(build):
--            build.env.Append(CPPDEFINES='SOUNDTOUCH_ALLOW_X86_OPTIMIZATIONS')
+-            env.Append(CPPDEFINES='SOUNDTOUCH_ALLOW_X86_OPTIMIZATIONS')
 +        if not conf.CheckLib(['SoundTouch','libSoundTouch']):
 +            raise Exception('Did not find SoundTouch library, exiting!')
 +        build.env.Append(CPPPATH=[SCons.ARGUMENTS.get('prefix') + '/include/soundtouch'])
@@ -87,9 +89,54 @@
  class TagLib(Dependence):
      def configure(self, build, conf):
 
---- mixxx-9999/build/features.py	2011-12-08 11:47:54 +0000
-+++ mixxx-9999/build/features.py	2012-03-21 20:41:47 +0000
-@@ -595,25 +595,15 @@
+=== modified file 'mixxx/build/features.py'
+--- mixxx/build/features.py	2012-11-22 14:14:06 +0000
++++ mixxx/build/features.py	2013-02-06 00:54:37 +0000
+@@ -48,7 +48,6 @@
+                 'controllers/midi/hss1394enumerator.cpp']
+ 
+ class HID(Feature):
+-    HIDAPI_INTERNAL_PATH = '#lib/hidapi-0.8.0-pre'
+     def description(self):
+         return "HID controller support"
+ 
+@@ -64,9 +63,6 @@
+     def configure(self, build, conf):
+         if not self.enabled(build):
+             return
+-        # TODO(XXX) allow external hidapi install, but for now we just use our
+-        # internal one.
+-        build.env.Append(CPPPATH=[os.path.join(self.HIDAPI_INTERNAL_PATH, 'hidapi')])
+ 
+         if build.platform_is_linux:
+             build.env.ParseConfig('pkg-config libusb-1.0 --silence-errors --cflags --libs')
+@@ -86,19 +82,17 @@
+ 
+         build.env.Append(CPPDEFINES = '__HID__')
+ 
++        if not conf.CheckLib('hidapi-libusb'):
++            raise Exception('Did not find HID API library, exiting!')
++        build.env.Append(CPPPATH=[SCons.ARGUMENTS.get('prefix') + '/include/hidapi'])
++        build.env.Append(LIBS='hidapi-libusb')
++
++
+     def sources(self, build):
+         sources = ['controllers/hid/hidcontroller.cpp',
+                    'controllers/hid/hidenumerator.cpp',
+                    'controllers/hid/hidcontrollerpresetfilehandler.cpp']
+ 
+-        if build.platform_is_windows:
+-            # Requires setupapi.lib which is included by the above check for
+-            # setupapi.
+-            sources.append(os.path.join(self.HIDAPI_INTERNAL_PATH, "windows/hid.c"))
+-        elif build.platform_is_linux:
+-            sources.append(os.path.join(self.HIDAPI_INTERNAL_PATH, 'linux/hid-libusb.c'))
+-        elif build.platform_is_osx:
+-            sources.append(os.path.join(self.HIDAPI_INTERNAL_PATH, 'mac/hid.c'))
+         return sources
+ 
+ class Bulk(Feature):
+@@ -722,25 +716,15 @@
          test_env.Append(CCFLAGS = '-pthread')
          test_env.Append(LINKFLAGS = '-pthread')
  
@@ -125,25 +172,28 @@
  class Shoutcast(Feature):
      def description(self):
 
---- mixxx-9999/src/engine/enginefilter.h	2011-07-24 21:50:31 +0000
-+++ mixxx-9999/src/engine/enginefilter.h	2012-03-21 20:41:47 +0000
+=== modified file 'mixxx/src/engine/enginefilter.h'
+--- mixxx/src/engine/enginefilter.h	2011-07-24 21:50:31 +0000
++++ mixxx/src/engine/enginefilter.h	2013-02-06 00:34:16 +0000
 @@ -20,7 +20,7 @@
  
  #define MIXXX
  #include "engine/engineobject.h"
 -#include "../lib/fidlib-0.9.10/fidlib.h"
-+#include "fidlib.h"
++#include <fidlib.h>
  #include "defs.h"
  
  enum filterType{
 
---- mixxx-9999/src/engine/enginefilterbutterworth8.cpp	2011-07-24 21:50:31 +0000
-+++ mixxx-9999/src/engine/enginefilterbutterworth8.cpp	2012-03-21 20:41:47 +0000
-@@ -20,7 +20,6 @@
+=== modified file 'mixxx/src/engine/enginefilterbutterworth8.cpp'
+--- mixxx/src/engine/enginefilterbutterworth8.cpp	2011-07-24 21:50:31 +0000
++++ mixxx/src/engine/enginefilterbutterworth8.cpp	2013-02-06 00:34:01 +0000
+@@ -20,7 +20,7 @@
  #include "engine/enginefilterbutterworth8.h"
  #include "engine/enginefilter.h"
  #include "engine/engineobject.h"
 -#include "../lib/fidlib-0.9.10/fidlib.h"
++#include <fidlib.h>
  
  /* Local Prototypes */
  inline double _processLowpass(double *coef, double *buf, register double val);

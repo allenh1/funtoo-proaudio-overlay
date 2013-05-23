@@ -1,23 +1,19 @@
-=== modified file 'mixxx/src/SConscript'
---- mixxx/src/SConscript	2013-05-20 20:40:21 +0000
-+++ mixxx/src/SConscript	2013-05-22 02:58:18 +0000
-@@ -12,9 +12,9 @@
+--- mixxx/src/SConscript	2012-09-07 21:48:19 +0000
++++ mixxx/src/SConscript	2012-09-13 04:47:25 +0000
+@@ -12,8 +12,8 @@
  from build import util, depends
  
  mixxx_version = util.get_mixxx_version()
--branch_name = util.get_branch_name()
--vcs_revision = util.get_revision()
--vcs_name = util.get_current_vcs()
-+branch_name = "gentoo"
-+vcs_revision = 9999
-+vcs_name = "none"
+-branch_name = util.get_bzr_branch_name()
+-bazaar_revision = util.get_bzr_revision()
++#branch_name = util.get_bzr_branch_name()
++#bazaar_revision = util.get_bzr_revision()
  print "WE ARE IN:", os.getcwd()
- print "Building ", branch_name, " - rev.", vcs_revision
  
+ plugins = []
 
-=== modified file 'mixxx/src/SConscript.env'
 --- mixxx/src/SConscript.env	2012-09-06 08:04:47 +0000
-+++ mixxx/src/SConscript.env	2013-05-22 03:00:12 +0000
++++ mixxx/src/SConscript.env	2012-09-13 04:46:47 +0000
 @@ -20,19 +20,6 @@
      print "Deleting deprecated build file: %s" % defs
      os.remove(defs)

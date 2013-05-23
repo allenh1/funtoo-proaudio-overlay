@@ -4,19 +4,20 @@
 
 EAPI=5
 
-inherit bzr eutils multilib scons-utils toolchain-funcs
+inherit eutils multilib scons-utils toolchain-funcs
 
 DESCRIPTION="A Qt based Digital DJ tool"
 HOMEPAGE="http://mixxx.sourceforge.net"
-EBZR_REPO_URI="lp:mixxx"
+SRC_URI="http://downloads.${PN}.org/${P}/${P}-src.tar.gz"
+
+RESTRICT="mirror"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="aac debug doc hid mp3 mp4 pulseaudio shout wavpack"
 
 RDEPEND="dev-libs/protobuf
-	media-libs/chromaprint
 	>=media-libs/fidlib-0.9.10-r1
 	media-libs/flac
 	media-libs/libid3tag
@@ -28,7 +29,6 @@ RDEPEND="dev-libs/protobuf
 	media-libs/portmidi
 	media-libs/taglib
 	media-libs/vamp-plugin-sdk
-	sci-libs/fftw:3.0
 	virtual/glu
 	virtual/opengl
 	dev-qt/qtgui:4
@@ -49,8 +49,6 @@ RDEPEND="dev-libs/protobuf
 	wavpack? ( media-sound/wavpack )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
-
-S=${S}/${PN}
 
 src_prepare() {
 	epatch "${FILESDIR}"/${P}-cflags.patch
