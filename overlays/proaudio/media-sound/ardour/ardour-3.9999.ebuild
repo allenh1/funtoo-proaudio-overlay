@@ -4,12 +4,12 @@
 
 EAPI="5"
 
-inherit eutils fdo-mime git-2 python waf-utils
+inherit eutils fdo-mime git-2 waf-utils
 
 DESCRIPTION="multi-track hard disk recording software"
 HOMEPAGE="http://ardour.org/"
 
-EGIT_REPO_URI="git://git.ardour.org/ardour/ardour.git"
+EGIT_REPO_URI="git://git.${PN}.org/${PN}/${PN}.git"
 
 LICENSE="GPL-2"
 SLOT="3"
@@ -24,7 +24,7 @@ RDEPEND="dev-cpp/cairomm
 	>=dev-libs/libsigc++-2.0
 	>=dev-libs/libxml2-2.6.0
 	dev-libs/libxslt
-	|| ( ( dev-libs/serd =media-sound/drobilla-9999 ) )
+	|| ( dev-libs/serd =media-sound/drobilla-9999 )
 	gnome-base/libgnomecanvas
 	>=media-libs/alsa-lib-1.0.14a-r1
 	media-libs/aubio
@@ -45,7 +45,7 @@ RDEPEND="dev-cpp/cairomm
 	x11-themes/gtk-engines
 	freesound? ( net-misc/curl )
 	lv2? ( || (
-		( >=media-libs/lilv-0.14.0 )
+		>=media-libs/lilv-0.14.0
 		=media-sound/drobilla-9999
 	) )
 	wiimote? ( app-misc/cwiid )"
@@ -58,30 +58,29 @@ DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )
 	nls? ( sys-devel/gettext )"
 
-pkg_setup() {
-	python_set_active_version 2
-	python_pkg_setup
-}
-
 src_unpack() {
 	git-2_src_unpack
 }
 
 src_configure() {
 
-	local myconf="--freedesktop --noconfirm --prefix=/usr"
-		use debug     && myconf="$myconf --debug"
-		use nls       && myconf="$myconf --nls"
-		use lv2       && myconf="$myconf --lv2" || myconf="$myconf --no-lv2"
-		use freesound || myconf="$myconf --no-freesound"
-		use wiimote   && myconf="$myconf --wiimote"
-		use vst       && myconf="$myconf --windows-vst"
-		use doc       && myconf="$myconf --docs"
+	local myconf=(
+		--freedesktop
+		--noconfirm
+		$(usex debug --debug "")
+		$(usex nls --nls "")
+		$(usex lv2 --lv2 --no-lv2)
+		$(usex freesound "" --no-freesound)
+		$(usex wiimote --wiimote "")
+		$(usex vst --windows-vst "")
+		$(usex doc --docs "")
+	)
+
 	if use sse || use altivec ;then
-		myconf="$myconf --fpu-optimization"
+		myconf+=( --fpu-optimization )
 	fi
 
-	waf-utils_src_configure $myconf
+	waf-utils_src_configure ${myconf[@]}
 }
 
 src_install() {

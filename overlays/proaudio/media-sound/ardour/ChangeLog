@@ -2,6 +2,13 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  02 Jun 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  ardour-3.9999.ebuild:
+  Removed parantheses that pulled in =media-sound/drobilla-9999.
+  Removed python inherit (the source compiles with any python 
+  implementation).
+  usex in src_configure makes the code more concise.
+
   21 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   ardour-3.9999.ebuild:
   Use python eclass so that the correct python ABI is used.
