@@ -2,6 +2,17 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*idjc-0.8.9 (02 Jun 2013)
+
+  02 Jun 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +idjc-0.8.9.ebuild, idjc-9999.ebuild, metadata.xml:
+  Version bump.
+  Move to autotools-utils, python-single-r1 and EAPI="5".
+  Depend on virtual/pkgconfig.
+  Add and remove USE flags (update to comply with configure.ac).
+  Let the doc USE flag trigger installation of docs.
+  Remove ffmpeg hack; it is fixed upstream.
+
 *idjc-9999 (10 Nar 2013)
 
   10 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
