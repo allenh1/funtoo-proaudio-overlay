@@ -2,6 +2,14 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*jackmix-0.4.2-r1 (04 Jun 2013)
+
+  04 Jun 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +jackmix-0.4.2-r1.ebuild:
+  Add virtual/liblash to dependencies. Closes #163. Thanks to aline for the bug
+  report.
+  More use of PN variable.
+
   09 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
   jackmix-0.4.2.ebuild: ;oved QT depends to dev-qt/*
   -jackmix-0.2.ebuild
