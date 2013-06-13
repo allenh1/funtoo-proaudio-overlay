@@ -20,7 +20,7 @@ RDEPEND="dev-libs/boost
 	media-libs/libsamplerate
 	media-libs/libsndfile
 	media-sound/jack-audio-connection-kit
-	osc? ( media-libs/liblo )
+	osc? ( media-libs/liblo[threads] )
 	rubberband? ( media-libs/rubberband )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
