@@ -2,6 +2,10 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  13 Jun 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  ardour-3.9999.ebuild:
+  Pull in threads USE flag in liblo, else compile fails.
+
   02 Jun 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   ardour-3.9999.ebuild:
   Removed parantheses that pulled in =media-sound/drobilla-9999.

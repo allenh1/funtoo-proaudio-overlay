@@ -29,7 +29,7 @@ RDEPEND="dev-cpp/cairomm
 	>=media-libs/alsa-lib-1.0.14a-r1
 	media-libs/aubio
 	media-libs/flac
-	media-libs/liblo
+	media-libs/liblo[threads]
 	>=media-libs/liblrdf-0.4.0
 	>=media-libs/libsamplerate-0.1.1-r1
 	>=media-libs/libsndfile-1.0.18_pre24
