@@ -24,7 +24,7 @@ RDEPEND="dev-qt/qtcore
 	>=media-libs/alsa-lib-1.0
 	>=media-libs/ladspa-cmt-1.14
 	>=media-libs/ladspa-sdk-1.1
-	>=media-libs/liblo-0.23
+	>=media-libs/liblo-0.23[threads(+)]
 	media-libs/liblrdf
 	>=media-libs/libsamplerate-0.1.4
 	>=media-sound/jack-audio-connection-kit-0.109
@@ -46,6 +46,8 @@ RDEPEND="dev-qt/qtcore
 	lirc? ( >=app-misc/lirc-0.8 )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
+
+PATCHES=( "${FILESDIR}/${PN}-12.12.25-debug.patch" )
 
 pkg_setup(){
 	if ! use export && \
