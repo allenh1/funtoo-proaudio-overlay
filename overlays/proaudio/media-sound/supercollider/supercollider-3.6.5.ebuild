@@ -4,16 +4,20 @@
 
 EAPI="5"
 
-inherit cmake-utils eutils exteutils git-2 multilib versionator
+inherit cmake-utils eutils exteutils multilib versionator
+
+MY_PN="SuperCollider"
+MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="An environment and a programming language for real time audio synthesis."
 HOMEPAGE="http://supercollider.sourceforge.net"
-EGIT_REPO_URI="git://${PN}.git.sourceforge.net/gitroot/${PN}/${PN}"
-EGIT_HAS_SUBMODULES="1"
+SRC_URI="mirror://sourceforge/${PN}/Source/$(get_version_component_range 1-2)/${MY_P}-Source-linux.tar.bz2"
+
+RESTRICT="mirror"
 
 LICENSE="GPL-2 gpl3? ( GPL-3 )"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~x86 ~amd64"
 
 IUSE="+avahi coreaudio curl debug doc emacs +fftw gedit +gpl3 ide jack portaudio qt4 server +sndfile sse sse4 static-libs system-boost system-yaml test vim wiimote"
 REQUIRED_USE="
@@ -46,6 +50,8 @@ DEPEND="${RDEPEND}
 	emacs? ( virtual/emacs )
 	gedit? ( app-editors/gedit )
 	vim? ( app-editors/vim )"
+
+S="${WORKDIR}/${MY_PN}-Source"
 
 DOCS=( AUTHORS README_LINUX.txt "${FILESDIR}/README.gentoo" )
 

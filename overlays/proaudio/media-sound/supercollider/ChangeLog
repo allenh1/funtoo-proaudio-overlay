@@ -2,6 +2,13 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*supercollider-3.6.5 (16 Jun 2013)
+
+  16 Jun 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +supercollider-3.6.5.ebuild, supercollider-9999.ebuild:
+  Version bump.
+  Correct info message in live ebuild.
+
   21 Apr 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   supercollider-3.6.3.ebuild, supercollider-9999.ebuild:
   Require qtgui to be built with the gtkstyle flag if IDE is to be built. 
