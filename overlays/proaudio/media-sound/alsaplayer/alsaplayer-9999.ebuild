@@ -40,6 +40,9 @@ DEPEND="${RDEPEND}
 	gtk? ( >=x11-libs/gtk+-2.8 )
 	systray? ( >=x11-libs/gtk+-2.10 )"
 
+# Don't install the dekstop file otherwise
+AUTOTOOLS_IN_SOURCE_BUILD=1
+
 DOCS=( AUTHORS ChangeLog README TODO docs/wishlist.txt )
 
 src_prepare() {
