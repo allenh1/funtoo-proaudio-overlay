@@ -2,6 +2,14 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  21 Jun 2013; Dominique Michel <dominique_libre@users.sourceforge.net> fvwm-crystal-9999.ebuild:
++ files/fvwm-crystal-build.patch: remove the license form the installed files;
+  not needed on gentoo
+  fvwm-crystal-9999.ebuild: introduced license patch; reverted EPREFIX change, the gentoo devs
+  don't want this see big 468680; introduced python_replicate_script but commented it
+  because of shebang change in the source, this must be solved between the gentoo devs
+  and upstream.
+ 
   07 May 2013; Dominique Michel <dominique_libre@users.sourceforge.net> fvwm-crystal-9999.ebuild:
   introduced EPREFIX in install phase and in the einfo.
 

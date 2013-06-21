@@ -36,11 +36,22 @@ src_unpack() {
 	subversion_src_unpack
 }
 
+src_prepare() {
+	epatch "${FILESDIR}"/${PN}-build.patch
+
+	epatch_user
+}
+
 src_install() {
 	emake \
 		DESTDIR="${D}" \
-		docdir="${EPREFIX}/usr/share/doc/${PF}" \
-		prefix="${EPREFIX}/usr" install
+		docdir="/usr/share/doc/${PF}" \
+		prefix="/usr" \
+		install
+
+#	python_replicate_script \
+#		"${D}/usr/bin/${PN}".{apps,wallpaper} \
+#		"${D}/usr/share/${PN}"/fvwm/scripts/FvwmMPD/*.py
 }
 
 pkg_postinst() {
