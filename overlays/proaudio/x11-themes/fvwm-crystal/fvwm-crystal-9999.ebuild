@@ -49,9 +49,9 @@ src_install() {
 		prefix="/usr" \
 		install
 
-#	python_replicate_script \
-#		"${D}/usr/bin/${PN}".{apps,wallpaper} \
-#		"${D}/usr/share/${PN}"/fvwm/scripts/FvwmMPD/*.py
+	python_replicate_script \
+		"${D}/usr/bin/${PN}".{apps,wallpaper} \
+		"${D}/usr/share/${PN}"/fvwm/scripts/FvwmMPD/*.py
 }
 
 pkg_postinst() {

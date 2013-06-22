@@ -3,6 +3,10 @@
 # $Header: $
 
   21 Jun 2013; Dominique Michel <dominique_libre@users.sourceforge.net> fvwm-crystal-9999.ebuild:
+  uncommented python_replicate_script, it was fixed upstream.
+  TODO: make it work with python-2.{5,6} too.
+
+  21 Jun 2013; Dominique Michel <dominique_libre@users.sourceforge.net> fvwm-crystal-9999.ebuild:
 + files/fvwm-crystal-build.patch: remove the license form the installed files;
   not needed on gentoo
   fvwm-crystal-9999.ebuild: introduced license patch; reverted EPREFIX change, the gentoo devs
