@@ -36,12 +36,6 @@ src_unpack() {
 	subversion_src_unpack
 }
 
-src_prepare() {
-	epatch "${FILESDIR}"/${PN}-build.patch
-
-	epatch_user
-}
-
 src_install() {
 	emake \
 		DESTDIR="${D}" \

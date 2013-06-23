@@ -1,9 +1,0 @@
---- Makefile.orig	2013-05-26 22:51:26.000000000 +0200
-+++ Makefile	2013-05-27 01:55:50.000000000 +0200
-@@ -214,5 +214,5 @@
- install-doc:
- 	mkdir -p $(DESTDIR)$(addondir) $(DESTDIR)$(docdir)/html
- 	install -m 644 addons/* $(DESTDIR)$(addondir)
--	install -m 644 AUTHORS Contribute COPYING NEWS ChangeLog Export.README README INSTALL $(DESTDIR)$(docdir)
-+	install -m 644 AUTHORS Contribute NEWS ChangeLog Export.README README INSTALL $(DESTDIR)$(docdir)
- 	cp -d -r doc/* $(DESTDIR)$(docdir)

@@ -3,6 +3,10 @@
 # $Header: $
 
   21 Jun 2013; Dominique Michel <dominique_libre@users.sourceforge.net> fvwm-crystal-9999.ebuild:
+  removed the build patch
+- files/fvwm-crystal-build.patch
+
+  21 Jun 2013; Dominique Michel <dominique_libre@users.sourceforge.net> fvwm-crystal-9999.ebuild:
   uncommented python_replicate_script, it was fixed upstream.
   TODO: make it work with python-2.{5,6} too.
 
