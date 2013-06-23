@@ -17,7 +17,7 @@ IUSE="aac debug doc hid mp3 mp4 pulseaudio shout wavpack"
 
 RDEPEND="dev-libs/protobuf
 	media-libs/chromaprint
-	>=media-libs/fidlib-0.9.10-r1
+	>=media-libs/fidlib-0.9.10
 	media-libs/flac
 	media-libs/libid3tag
 	media-libs/libogg
