@@ -4,7 +4,9 @@
 
 EAPI="5"
 
-inherit subversion eutils autotools-utils
+AUTOTOOLS_AUTORECONF="1"
+AUTOTOOLS_IN_SOURCE_BUILD="1"
+inherit autotools-utils eutils subversion
 
 IUSE="alsa cdda cddb debug encode flac ffmpeg ifp jack ladspa lame
 libsamplerate loop-playback lua mac mad modplug musepack oss podcast
@@ -12,10 +14,9 @@ pulseaudio sndfile speex systray vorbis wavpack"
 
 DESCRIPTION="Aqualung is a music player capable of gapless playback. \
 Not very suitable for eye candy seekers."
-HOMEPAGE="http://aqualung.sourceforge.net"
+HOMEPAGE="http://aqualung.factorial.hu/"
 
-ESVN_REPO_URI="https://aqualung.svn.sourceforge.net/svnroot/aqualung/trunk"
-ESVN_PROJECT="aqualung"
+ESVN_REPO_URI="svn://svn.code.sf.net/p/${PN}/code/trunk"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -49,8 +50,6 @@ DEPEND="${RDEPEND}
 	dev-libs/libxml2
 	media-libs/raptor"
 
-AUTOTOOLS_AUTORECONF="1"
-AUTOTOOLS_IN_SOURCE_BUILD="1"
 DOCS=( AUTHORS ChangeLog NEWS README )
 
 src_prepare() {
