@@ -545,13 +545,6 @@
 	Homepage:    http://www.rossbencina.com/code/
 
 
-#------- media-libs/musicbrainz --------
-	musicbrainz-4.0.0_beta2	arch: ~amd64 ~x86
-	Description: Client library to access metadata of mp3/vorbis/CD
-		 media
-	Homepage:    http://musicbrainz.org/
-
-
 #------- media-libs/libflashsupport-jack --------
 	libflashsupport-jack-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: libflashsupport.so for Adobe Flash with jack
