@@ -7,7 +7,7 @@ EAPI="5"
 [[ "${PV}" = "9999" ]] && inherit subversion
 
 [[ "${PV}" = "9999" ]] && AUTOTOOLS_AUTORECONF="1"
-inherit base qt4-r2 autotools-utils
+inherit base fdo-mime flag-o-matic qt4-r2 autotools-utils
 
 DESCRIPTION="An old-school all-digital drum-kit sampler synthesizer with stereo fx."
 HOMEPAGE="http://drumkv1.sourceforge.net/"
@@ -63,9 +63,20 @@ src_configure() {
 		$(use_enable osc liblo)
 		$(use_enable nsm)
 	)
+
+	append-cppflags -I"${EPREFIX}"/usr/include/qt4
+
 	autotools-utils_src_configure
 }
 
 src_install() {
 	autotools-utils_src_install INSTALL_ROOT="${D}"
+}
+
+pkg_postinst() {
+	fdo-mime_mime_database_update
+}
+
+pkg_postrm() {
+	fdo-mime_mime_database_update
 }
