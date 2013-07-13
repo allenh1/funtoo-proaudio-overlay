@@ -7,19 +7,19 @@ EAPI="5"
 # We cannot use waf-utils eclass because the waf binary is old!
 # Version is 1.5.18. Written April 09 2013
 PYTHON_COMPAT=( python2_7 )
-inherit base eutils git-2 multilib multiprocessing python-any-r1
+inherit base eutils multilib multiprocessing python-any-r1
 
 DESCRIPTION="A simple Linux Guitar Amplifier for jack with one input and two outputs"
-EGIT_REPO_URI="git://git.code.sf.net/p/guitarix/git/"
+SRC_URI="mirror://sourceforge/guitarix/guitarix/${P}.tar.bz2"
 HOMEPAGE="http://guitarix.sourceforge.net/"
 
 RESTRICT="mirror"
 
 SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 
-IUSE="avahi +capture custom-cflags +convolver debug faust ladspa lv2 +meterbridge nls"
+IUSE="+capture custom-cflags +convolver debug faust ladspa lv2 +meterbridge nls"
 
 RDEPEND="
 	>=dev-cpp/glibmm-2.24.0
@@ -33,7 +33,6 @@ RDEPEND="
 	media-sound/vorbis-tools
 	>=sci-libs/fftw-3.1.2
 	>=x11-libs/gtk+-2.20.0
-	avahi? ( net-dns/avahi )
 	capture? ( media-sound/jack_capture )
 	convolver? ( media-libs/zita-convolver )
 	faust? ( dev-lang/faust )
@@ -45,8 +44,7 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	nls? ( dev-util/intltool )"
 
-EGIT_SOURCEDIR="${S}"
-S="${S}/trunk"
+S="${WORKDIR}/guitarix-${PV}"
 
 DOCS=( changelog README )
 
@@ -62,7 +60,6 @@ src_configure() {
 		$(use_enable nls)
 		"--libdir=${EPREFIX}/usr/$(get_libdir)"
 	)
-	use avahi || mywafconfargs+=( "--no-avahi" )
 	use custom-cflags || mywafconfargs+=( --cxxflags-release="-DNDEBUG" )
 	use custom-cflags || mywafconfargs+=( --cxxflags="" )
 	use debug && mywafconfargs+=( --debug )

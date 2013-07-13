@@ -2,6 +2,14 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*guitarix2-0.27.1-r1 (13 Jul 2013)
+
+  13 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +guitarix2-0.27.1-r1.ebuild, guitarix2-9999.ebuild:
+  Use python-any-r1 to build with python2.7 (build fails with python3.3,
+  atleast).
+  New avahi USE flag with appurtenant dependency in live ebuild.
+
 *guitarix2-0.27.1 (20 Apr 2013)
 
   20 Apr 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
