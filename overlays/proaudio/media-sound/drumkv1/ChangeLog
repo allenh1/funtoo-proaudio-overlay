@@ -2,6 +2,15 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*drumkv1-0.3.4 (16 Jul 2013)
+
+  16 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -drumkv1-0.3.2.ebuild, -drumkv1-0.3.2-r1.ebuild, +drumkv1-0.3.4.ebuild,
+  drumkv1-9999.ebuild:
+  Version bump.
+  Removed qt4 fix.
+  Removed old ebuilds.
+
   07 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   drumkv1-9999.ebuild:
   Make sure configure finds qt.
