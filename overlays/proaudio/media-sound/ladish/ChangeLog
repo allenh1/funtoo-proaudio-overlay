@@ -2,6 +2,17 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*ladish-9999-r1 (22 Jul 2013)
+*ladish-1-r1 (22 Jul 2013)
+
+  22 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +ladish-1-r1.ebuild, +ladish-9999-r1.ebuild:
+  Use python-single-r1 eclass.
+  Use waf-utils eclass.
+  Restrict mirror
+  Added a doc useflag with corresponding app-doc/doxygen dependency.
+  Use usex for cleaner configure code.
+
   03 Feb 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   ladish-1.ebuild:
   keyword for ~amd64 ~ppc ~x86
