@@ -4,11 +4,12 @@
 
 EAPI=5
 
-inherit bzr eutils multilib scons-utils toolchain-funcs
+inherit eutils git-2 multilib scons-utils toolchain-funcs
 
 DESCRIPTION="A Qt based Digital DJ tool"
-HOMEPAGE="http://mixxx.sourceforge.net"
-EBZR_REPO_URI="lp:mixxx"
+HOMEPAGE="http://www.mixxx.org/"
+EGIT_REPO_URI="git://github.com/mixxxdj/${PN}.git"
+EGIT_BRANCH="master"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -17,7 +18,7 @@ IUSE="aac debug doc hid mp3 mp4 pulseaudio shout wavpack"
 
 RDEPEND="dev-libs/protobuf
 	media-libs/chromaprint
-	>=media-libs/fidlib-0.9.10
+	>=media-libs/fidlib-0.9.10-r1
 	media-libs/flac
 	media-libs/libid3tag
 	media-libs/libogg

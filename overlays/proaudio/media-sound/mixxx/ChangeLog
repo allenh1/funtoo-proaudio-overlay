@@ -2,6 +2,14 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  25 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  mixxx-1.11.0.ebuild, mixxx-1.11.9999.ebuild, mixxx-9999.ebuild:
+  Correct HOMEPAGE (www.mixxx.org).
+  Depend on >=media-libs/fidlib-0.9.10-r1.
+  Follow mixxx's git repository in mixxx-9999.ebuild.
+  Comment out non-working mixxx-1.11.9999-no-bzr.patch.
+  Thanks to Alex Barker for the fixed ebuild.
+
   23 Jun 2013; Hakan Demiralp (keenblade) <keenblade@tuxfamily.org>
   mixxx-1.11.0.ebuild, mixxx-1.11.9999.ebuild, mixxx-9999.ebuild:
   mixxx: for all mixxx ebuilds, fidlib dependency version is adjusted to the

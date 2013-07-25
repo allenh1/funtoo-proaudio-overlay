@@ -7,7 +7,7 @@ EAPI=5
 inherit eutils multilib scons-utils toolchain-funcs
 
 DESCRIPTION="A Qt based Digital DJ tool"
-HOMEPAGE="http://mixxx.sourceforge.net"
+HOMEPAGE="http://www.mixxx.org/"
 SRC_URI="http://downloads.${PN}.org/${P}/${P}-src.tar.gz"
 
 RESTRICT="mirror"
@@ -18,7 +18,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="aac debug doc hid mp3 mp4 pulseaudio shout wavpack"
 
 RDEPEND="dev-libs/protobuf
-	>=media-libs/fidlib-0.9.10
+	>=media-libs/fidlib-0.9.10-r1
 	media-libs/flac
 	media-libs/libid3tag
 	media-libs/libogg

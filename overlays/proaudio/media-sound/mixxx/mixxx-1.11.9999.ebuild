@@ -7,7 +7,7 @@ EAPI=5
 inherit bzr eutils multilib scons-utils toolchain-funcs
 
 DESCRIPTION="A Qt based Digital DJ tool"
-HOMEPAGE="http://mixxx.sourceforge.net"
+HOMEPAGE="http://www.mixxx.org/"
 EBZR_REPO_URI="lp:mixxx/1.11"
 
 LICENSE="GPL-2"
@@ -16,7 +16,7 @@ KEYWORDS=""
 IUSE="aac debug doc hid mp3 mp4 pulseaudio shout wavpack"
 
 RDEPEND="dev-libs/protobuf
-	>=media-libs/fidlib-0.9.10
+	>=media-libs/fidlib-0.9.10-r1
 	media-libs/flac
 	media-libs/libid3tag
 	media-libs/libogg
@@ -54,7 +54,9 @@ src_prepare() {
 	epatch "${FILESDIR}"/${P}-cflags.patch
 	epatch "${FILESDIR}"/${P}-system-libs.patch
 	epatch "${FILESDIR}"/${P}-docs.patch
-	epatch "${FILESDIR}"/${P}-no-bzr.patch
+
+#	The patch does no longer apply
+#	epatch "${FILESDIR}"/${P}-no-bzr.patch
 
 	# use multilib compatible directory for plugins
 	sed -i -e "/unix_lib_path =/s/'lib'/'$(get_libdir)'/" src/SConscript || die
