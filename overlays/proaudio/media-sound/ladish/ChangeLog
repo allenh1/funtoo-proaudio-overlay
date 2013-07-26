@@ -2,6 +2,13 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*ladish-1-r2 (26 Jul 2013)
+
+  26 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +ladish-1-r2.ebuild, ladish-9999-r1.ebuild:
+  Require lash use flag if python bindings are to be built. Thanks to Wayne
+  DePrince Jr. for ebuild and report.
+
 *ladish-9999-r1 (22 Jul 2013)
 *ladish-1-r1 (22 Jul 2013)
 

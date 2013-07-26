@@ -5,15 +5,17 @@
 EAPI="5"
 
 PYTHON_COMPAT=( python2_7 )
-inherit git-2 python-single-r1 waf-utils
+inherit python-single-r1 waf-utils
 
 DESCRIPTION="LADI Session Handler - a session management system for JACK applications"
 HOMEPAGE="http://ladish.org/"
-EGIT_REPO_URI="git://repo.or.cz/${PN}.git"
+SRC_URI="http://${PN}.org/download/${P}.tar.bz2"
+
+RESTRICT="mirror"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="doc lash python"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}
 	python? ( lash )"
@@ -35,11 +37,10 @@ DEPEND="${RDEPEND}
 
 DOCS=( AUTHORS NEWS README )
 
-src_unpack() {
-	git-2_src_unpack
-}
+PATCHES=( "${FILESDIR}/${P}-include.patch" )
 
 src_configure() {
+	NO_WAF_LIBDIR="yes"
 	local mywafconfargs=(
 		$(usex doc --doxygen "")
 		$(usex lash --enable-liblash "")
