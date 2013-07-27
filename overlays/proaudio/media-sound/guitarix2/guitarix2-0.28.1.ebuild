@@ -22,8 +22,8 @@ KEYWORDS="~amd64 ~x86"
 IUSE="avahi +capture custom-cflags +convolver debug faust ladspa lv2 +meterbridge nls"
 
 RDEPEND="
-	>=dev-cpp/glibmm-2.24.0
-	>=dev-cpp/gtkmm-2.20.0
+	>=dev-cpp/glibmm-2.24.0:2
+	>=dev-cpp/gtkmm-2.20.0:2.4
 	>=dev-libs/boost-1.38
 	dev-libs/glib
 	media-libs/liblrdf

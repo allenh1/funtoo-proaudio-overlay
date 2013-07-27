@@ -2,6 +2,11 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  27 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  guitarix2-0.28.1.ebuild, guitarix2-9999.ebuild:
+  Use slotted dependencies on glibmm and gtkmm as suggestet by nitm at the
+  Gentoo Forums.
+
 *guitarix2-0.28.1 (21 Jul 2013)
 
   21 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
