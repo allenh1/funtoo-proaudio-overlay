@@ -5,7 +5,7 @@
 EAPI="5"
 
 AUTOTOOLS_AUTORECONF="1"
-inherit autotools-utils subversion
+inherit autotools-multilib subversion
 
 DESCRIPTION="An open-source cross platform audio API."
 HOMEPAGE="http://www.portaudio.com/"
@@ -17,8 +17,9 @@ SLOT="0"
 KEYWORDS=""
 IUSE="alsa +cxx debug jack oss static-libs"
 
-RDEPEND="alsa? ( media-libs/alsa-lib )
-	jack? ( media-sound/jack-audio-connection-kit )"
+RDEPEND="!app-emulation/emul-linux-x86-soundlibs[-abi_x86_32(-)]
+	alsa? ( media-libs/alsa-lib[${MULTILIB_USEDEP}] )
+	jack? ( media-sound/jack-audio-connection-kit[${MULTILIB_USEDEP}] )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
@@ -28,7 +29,7 @@ HTML_DOCS=( index.html )
 PATCHES=( "${FILESDIR}"/${P}-parallel-make.patch )
 
 src_prepare() {
-	autotools-utils_src_prepare
+	autotools-multilib_src_prepare
 }
 
 src_configure() {
@@ -39,5 +40,5 @@ src_configure() {
 		$(use_with jack)
 		$(use_with oss)
 	)
-	autotools-utils_src_configure
+	autotools-multilib_src_configure
 }

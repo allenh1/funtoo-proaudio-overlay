@@ -2,6 +2,16 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*portaudio-9999-r1 (30 Jul 2013)
+
+  30 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  portaudio-9999.ebuild, +portaudio-9999-r1.ebuild,
+  +files/portaudio-9999-parallel-make.patch:
+  Add patch to allow parallel build with USE="cxx".
+  Add a multilib compatible ebuild.
+  AUTOTOOLS_AUTORECONF before inherit.
+  Minor cleanup.
+
   10 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   -portaudio-19_pre20071207.ebuild, -portaudio-19-r4.ebuild,
   portaudio-9999.ebuild, -files, metadata.xml:
