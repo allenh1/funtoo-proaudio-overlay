@@ -7,6 +7,11 @@
 # here. If in doubt put a record here!
 
   31 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net> package.mask:
+  Added the experimental multilib'd jack ebuilds to the list of experimental
+  multilib'd ebuilds.
+  BIG FAT WARNING: These ebuilds are *experimental* and under developement!
+
+  31 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net> package.mask:
   Added an entry about packages that should not be used because they use the
   old python eclass and there are newer migrated ebuilds.
 

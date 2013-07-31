@@ -2,6 +2,21 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*jack-audio-connection-kit-2.9999-r1 (31 Jul 2013)
+*jack-audio-connection-kit-1.9999-r1 (31 Jul 2013)
+*jack-audio-connection-kit-1.9.9.5-r2 (31 Jul 2013)
+*jack-audio-connection-kit-0.121.3-r2 (31 Jul 2013)
+
+  31 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +jack-audio-connection-kit-0.121.3-r2.ebuild,
+  +jack-audio-connection-kit-1.9.9.5-r2.ebuild,
+  +jack-audio-connection-kit-1.9999-r1.ebuild,
+  +jack-audio-connection-kit-2.9999-r1.ebuild:
+  Initial experimental multilib compatible ebuilds.
+    Freebob dropped.
+    Firewire support not done yet (multilib ffado is missing).
+    Python fixes (PYTHON_REQUIRED_USE, PYTHON_DEPS).
+
 *jack-audio-connection-kit-0.121.3-r1 (31 Jul 2013)
 
   31 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
