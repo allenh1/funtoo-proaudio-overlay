@@ -6,6 +6,10 @@
 # Only typo fixes which don't affect portage/repoman behaviour could be avoided
 # here. If in doubt put a record here!
 
+  31 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net> package.mask:
+  Added an entry about packages that should not be used because they use the
+  old python eclass and there are newer migrated ebuilds.
+
   2 Apr 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
   proaudio 13.9; proaudio-kde 13.0: added USE flags for xfce.
 
