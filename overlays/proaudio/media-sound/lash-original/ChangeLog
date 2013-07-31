@@ -2,6 +2,10 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  31 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -lash-original-0.6.0_rc2.ebuild:
+  Removed old non-python-r1-migrated ebuild.
+
 *lash-original-0.6.0_rc2-r1 (06 Jun 2013)
 
   06 Jun 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
