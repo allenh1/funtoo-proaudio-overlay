@@ -2,6 +2,18 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*ntk-9999-r1 (31 Jul 2013)
+
+  31 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +ntk-9999-r1.ebuild, +files/ntk-9999-noldconfig-r1.patch,
+  +files/ntk-9999-nooptimize.patch:
+  Added patch to not add optimization flags to the build system.
+  Migrarted to python-any-r1 eclass.
+  Updated DESCRIPTION, HOMEPAGE and LICENSE.
+  Restrict test.
+  Add opengl and png USE flags.
+  Fixed dependencies.
+
   11 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   ntk-9999.ebuild, +files/ntk-9999-noldconfig.patch, metadata.xml:
   Update EAPI.
