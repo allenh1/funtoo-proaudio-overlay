@@ -1,10 +1,11 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-sound/jack-audio-connection-kit/jack-audio-connection-kit-0.121.3.ebuild,v 1.14 2012/07/15 17:57:38 armin76 Exp $
+# $Header: $
 
 EAPI="5"
 
-inherit flag-o-matic eutils autotools-utils
+AUTOTOOLS_AUTORECONF="1"
+inherit autotools-utils eutils flag-o-matic
 
 RESTRICT="mirror"
 DESCRIPTION="A low-latency audio server"
@@ -30,32 +31,14 @@ DEPEND="${RDEPEND}
 RDEPEND="${RDEPEND}
 	pam? ( sys-auth/realtime-base )"
 
-DOCS=( AUTHORS TODO README )
 PATCHES=(
 	"${FILESDIR}/${PN}-sparc-cpuinfo.patch"
 	"${FILESDIR}/${PN}-freebsd.patch"
 	"${FILESDIR}/${P}-respect-march.patch"
 	"${DISTDIR}/${P}-dbus.patch"
 )
-AUTOTOOLS_AUTORECONF="1"
 
 src_configure() {
-	local myconf=""
-
-	# CPU Detection (dynsimd) uses asm routines which requires 3dnow, mmx and sse.
-	if use cpudetection && use 3dnow && use mmx && use sse ; then
-		einfo "Enabling cpudetection (dynsimd). Adding -mmmx, -msse, -m3dnow and -O2 to CFLAGS."
-		myconf="${myconf} --enable-dynsimd"
-		append-flags -mmmx -msse -m3dnow -O2
-	fi
-
-	# Neither SSE or MMX will be used if --enable-optimize is not given 
-	if use mmx || use sse;  then
-		myconf="${myconf} --enable-optimize"
-	fi
-
-	use doc || export ac_cv_prog_HAVE_DOXYGEN=false
-
 	local myeconfargs=(
 		$(use_enable altivec)
 		$(use_enable alsa)
@@ -69,9 +52,22 @@ src_configure() {
 		$(use_enable sse)
 		--disable-portaudio
 		--with-html-dir=/usr/share/doc/${PF}
-		--disable-dependency-tracking
-		${myconf}
 	)
+
+	# CPU Detection (dynsimd) uses asm routines which requires 3dnow, mmx and sse.
+	if use cpudetection && use 3dnow && use mmx && use sse ; then
+		einfo "Enabling cpudetection (dynsimd). Adding -mmmx, -msse, -m3dnow and -O2 to CFLAGS."
+		myeconfargs+=( --enable-dynsimd )
+		append-flags -mmmx -msse -m3dnow -O2
+	fi
+
+	# Neither SSE nor MMX will be used if --enable-optimize is not given 
+	if use mmx || use sse;  then
+		myeconfargs+=( --enable-optimize )
+	fi
+
+	use doc || export ac_cv_prog_HAVE_DOXYGEN=false
+
 	autotools-utils_src_configure
 }
 

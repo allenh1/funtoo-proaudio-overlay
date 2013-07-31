@@ -2,6 +2,13 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  31 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  jack-audio-connection-kit-0.121.3.ebuild:
+  Minor cleanup.
+  AUTOTOOLS_AUTORECONF before inherit.
+  Don't declare DOCS; they are already default.
+  EAPI>4 passes --disable-dependency-tracking to econf by default.
+
 *jack-audio-connection-kit-1.9.9.5-r1 (10 May 2013)
 
   10 May 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
