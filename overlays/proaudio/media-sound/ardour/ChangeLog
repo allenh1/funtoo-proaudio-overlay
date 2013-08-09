@@ -3,6 +3,18 @@
 # $Header: $
 
   09 Aug 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  ardour-3.9999.ebuild, metadata.xml:
+  Remove debug USE flag.
+  Add phone-home USE flag.
+  Specify minimum version and SLOT of dependencies where possible.
+  Don't pull in libsoundtouch (upstream switched to rubberband).
+  Don't pull in suil or serd if lv2 is not requested.
+  Depend on media-libs/lv2 if USE="lv2".
+  Specify --no-fpu-optimization if neither sse nor altivec is requested.
+  Trigger fdo functions on remove too.
+  Order flags in metadata.xml and add phone-home.
+
+  09 Aug 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   ardour-3.9999.ebuild:
   Remove freesound USE flag.
 
