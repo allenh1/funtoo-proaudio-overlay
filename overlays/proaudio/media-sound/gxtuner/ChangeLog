@@ -1,6 +1,17 @@
 # ChangeLog for media-sound/gxtuner
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*gxtuner-2.1 (09 Aug 2013)
+
+  09 Aug 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +gxtuner-2.1.ebuild, metadata.xml:
+  Version bump and EAPI bump to 5.
+  Depend on libX11.
+  Respect CXX.
+  Order dependencies.
+  virtual/pkgconfig in favor of dev-util/pkgconfig.
+  Removed no-herd from metadata.xml.
 
   10 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
   +ChangeLog: Initial ChangeLog
