@@ -14,7 +14,7 @@ EGIT_REPO_URI="git://git.${PN}.org/${PN}/${PN}.git"
 LICENSE="GPL-2"
 SLOT="3"
 KEYWORDS=""
-IUSE="altivec debug doc freesound nls sse lv2 vst wiimote"
+IUSE="altivec debug doc nls sse lv2 vst wiimote"
 
 RDEPEND="dev-cpp/cairomm
 	>=dev-cpp/gtkmm-2.8.0
@@ -38,12 +38,12 @@ RDEPEND="dev-cpp/cairomm
 	|| ( >=media-libs/suil-0.6.2 =media-sound/drobilla-9999 )
 	>=media-libs/taglib-1.5
 	>=media-sound/jack-audio-connection-kit-0.120.1
+	net-misc/curl
 	=sci-libs/fftw-3*
 	virtual/libusb
 	>=x11-libs/gtk+-2.12.1
 	x11-libs/pango
 	x11-themes/gtk-engines
-	freesound? ( net-misc/curl )
 	lv2? ( || (
 		>=media-libs/lilv-0.14.0
 		=media-sound/drobilla-9999
@@ -70,7 +70,6 @@ src_configure() {
 		$(usex debug --debug "")
 		$(usex nls --nls "")
 		$(usex lv2 --lv2 --no-lv2)
-		$(usex freesound "" --no-freesound)
 		$(usex wiimote --wiimote "")
 		$(usex vst --windows-vst "")
 		$(usex doc --docs "")
