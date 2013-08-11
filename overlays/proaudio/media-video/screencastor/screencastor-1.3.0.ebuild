@@ -15,7 +15,7 @@ SRC_URI="http://hizo.fr/linux/${PN}/${PN}_${PV}.tar.gz"
 LICENSE="CC-BY-NC-SA-3.0"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE=""
+IUSE="jack"
 
 RDEPEND="${PYTHON_DEPS}
 	dev-python/pygtk
@@ -24,16 +24,21 @@ RDEPEND="${PYTHON_DEPS}
 	media-gfx/imagemagick
 	x11-apps/xwininfo
 	virtual/ffmpeg
-	dev-python/pygtksourceview"
+	dev-python/pygtksourceview
+	jack? ( media-sound/jack-audio-connection-kit )"
 	# portage ebuild doesn't have the python bilding => no tray icon
 	# dev-libs/libappindicator"
 
 S="${WORKDIR}/${PN}_test"
 
 src_prepare() {
-	# fix python shebang, gettext call, add jack support
+	# fix python shebang and gettext calls
 	epatch \
-		"${FILESDIR}"/${P}_jack.patch
+		"${FILESDIR}"/${P}_python+gettext.patch
+	# add jack support
+	if use jack ; then
+		epatch "${FILESDIR}"/${P}_jack.patch
+	fi
 }
 
 src_install() {
