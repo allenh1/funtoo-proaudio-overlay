@@ -1,5 +1,6 @@
 media-video/openmovieeditor
 media-video/xjadeo
+media-video/screencastor
 x11-misc/xanalyser
 dev-python/wmdocklib
 dev-python/python-poppler-qt4
@@ -9,6 +10,7 @@ app-emulation/wineasio
 dev-libs/libinstpatch
 dev-libs/libwhy
 dev-libs/xerces-c
+dev-libs/hidapi
 dev-libs/icu
 games-misc/linthesia
 sys-apps/das_watchdog
@@ -140,6 +142,7 @@ media-sound/gnusound
 media-sound/xmms2
 media-sound/gneutronica
 media-sound/jamin
+media-sound/rosegarden
 media-sound/mammut
 media-sound/tkeca
 media-sound/louderbox
@@ -181,6 +184,7 @@ media-sound/freqtweak
 media-sound/mixxx
 media-sound/xwax
 media-sound/chordata
+media-libs/fidlib
 media-libs/zynaddsubfx-extras
 media-libs/libclxclient
 media-libs/rtmidi
@@ -199,6 +203,7 @@ media-libs/stk
 media-libs/aubio
 media-libs/phat
 media-libs/zynaddsubfx-banks
+media-libs/portaudio
 media-libs/libclthreads
 media-libs/lv2dynparam1
 media-libs/fst

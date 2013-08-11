@@ -51,6 +51,14 @@
 	Homepage:    http://xerces.apache.org/xerces-c/
 
 
+#------- dev-libs/hidapi --------
+	hidapi-0.8.0_pre20130121	arch: ~amd64 ~x86
+	hidapi-9999	arch: ~amd64 ~x86
+	Description: A multi-platform library for USB and Bluetooth
+		 HID-Class devices
+	Homepage:    http://www.signal11.us/oss/hidapi/
+
+
 #------- dev-libs/rollendurchmesserzeitsammler --------
 	rollendurchmesserzeitsammler-0.1.6	arch: ~amd64 ~x86
 	Description: The Rollendurchmesserzeitsamler conservative
@@ -374,6 +382,13 @@
 	Homepage:    http://linthesia.sourceforge.net/
 
 
+#------- media-libs/fidlib --------
+	fidlib-0.9.10-r1	arch: ~amd64 ~x86
+	Description: Run-time filter design and execution library
+		
+	Homepage:    http://uazu.net/fidlib/
+
+
 #------- media-libs/zynaddsubfx-extras --------
 	zynaddsubfx-extras-20060419	arch: ~amd64 ~ppc ~x86
 	zynaddsubfx-extras-20060615	arch: ~amd64 ~ppc ~x86
@@ -612,6 +627,7 @@
 
 #------- media-libs/portaudio --------
 	portaudio-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	portaudio-9999-r1	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: An open-source cross platform audio API.
 	Homepage:    http://www.portaudio.com/
 
@@ -690,6 +706,14 @@
 	Description: libraries that provide support for the Resource
 		 Description Framework (RDF)
 	Homepage:    http://www.hakenaudio.com/Loris
+
+
+#------- media-libs/libltc --------
+	libltc-1.1.1	arch: ~amd64 ~x86
+	libltc-9999	arch: ~amd64 ~x86
+	Description: Linear/Logitudinal Time Code (LTC) Library
+		
+	Homepage:    https://github.com/x42/libltc
 
 
 #------- media-libs/gavl --------
@@ -1394,6 +1418,8 @@
 
 #------- media-sound/guitarix2 --------
 	guitarix2-0.27.1	arch: ~amd64 ~x86
+	guitarix2-0.27.1-r1	arch: ~amd64 ~x86
+	guitarix2-0.28.1	arch: ~amd64 ~x86
 	guitarix2-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: A simple Linux Guitar Amplifier for jack
 		 with one input and two outputs
@@ -1447,6 +1473,7 @@
 
 #------- media-sound/supercollider --------
 	supercollider-3.6.3	arch: ~x86 ~amd64
+	supercollider-3.6.5	arch: ~x86 ~amd64
 	supercollider-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: An environment and a programming language
 		 for real time audio synthesis.
@@ -1520,7 +1547,7 @@
 	Description: Aqualung is a music player capable of gapless
 		 playback. Not very suitable for eye candy seekers.
 		
-	Homepage:    http://aqualung.sourceforge.net
+	Homepage:    http://aqualung.factorial.hu/
 
 
 #------- media-sound/paulstretch --------
@@ -1626,8 +1653,8 @@
 
 
 #------- media-sound/synthv1 --------
-	synthv1-0.3.2	arch: ~amd64 ~ppc ~x86
-	synthv1-0.3.2-r1	arch: ~amd64 ~ppc ~x86
+	synthv1-0.3.3	arch: ~amd64 ~ppc ~x86
+	synthv1-0.3.4	arch: ~amd64 ~ppc ~x86
 	synthv1-9999	arch: ~amd64 ~ppc ~x86
 	Description: An old-school all-digital 4-oscillator subtractive
 		 polyphonic synthesizer with stereo fx.
@@ -1656,6 +1683,7 @@
 
 #------- media-sound/yoshimi --------
 	yoshimi-1.0.0	arch: ~amd64 ~x86
+	yoshimi-1.1.0	arch: ~amd64 ~x86
 	Description: A software synthesizer for Linux, based on
 		 ZynAddSubFX
 	Homepage:    http://yoshimi.sourceforge.net
@@ -1689,6 +1717,7 @@
 
 #------- media-sound/jackmix --------
 	jackmix-0.4.2	arch: ~amd64 ~x86
+	jackmix-0.4.2-r1	arch: ~amd64 ~x86
 	Description: A mixer app for jack
 	Homepage:    http://www.arnoldarts.de/JackMix%3Aintro
 
@@ -1723,7 +1752,7 @@
 
 
 #------- media-sound/lash-original --------
-	lash-original-0.6.0_rc2	arch: ~amd64 ~ppc ~x86
+	lash-original-0.6.0_rc2-r1	arch: ~amd64 ~ppc ~x86
 	Description: LASH Audio Session Handler
 	Homepage:    http://www.nongnu.org/lash/
 
@@ -1945,8 +1974,8 @@
 
 
 #------- media-sound/drumkv1 --------
-	drumkv1-0.3.2	arch: ~amd64 ~ppc ~x86
-	drumkv1-0.3.2-r1	arch: ~amd64 ~ppc ~x86
+	drumkv1-0.3.3	arch: ~amd64 ~ppc ~x86
+	drumkv1-0.3.4	arch: ~amd64 ~ppc ~x86
 	drumkv1-9999	arch: ~amd64 ~ppc ~x86
 	Description: An old-school all-digital drum-kit sampler
 		 synthesizer with stereo fx.
@@ -1955,9 +1984,11 @@
 
 #------- media-sound/qmidiarp --------
 	qmidiarp-0.5.1	arch: ~amd64 x86
+	qmidiarp-0.5.2	arch: ~amd64 ~x86
 	qmidiarp-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: MIDI Arpeggiator QMidiArp
-	Homepage:    http://alsamodular.sourceforge.net/
+	Description: An arpeggiator, sequencer and MIDI LFO for
+		 ALSA and JACK
+	Homepage:    http://qmidiarp.sourceforge.net/
 
 
 #------- media-sound/lmms --------
@@ -2050,6 +2081,7 @@
 
 #------- media-sound/idjc --------
 	idjc-0.8.8	arch: ~x86 ~amd64
+	idjc-0.8.9	arch: ~x86 ~amd64
 	idjc-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: Internet DJ Console has two media players,
 		 jingles player, crossfader, VoIP and streaming
@@ -2110,8 +2142,8 @@
 
 
 #------- media-sound/samplv1 --------
-	samplv1-0.3.2	arch: ~amd64 ~ppc ~x86
-	samplv1-0.3.2-r1	arch: ~amd64 ~ppc ~x86
+	samplv1-0.3.3	arch: ~amd64 ~ppc ~x86
+	samplv1-0.3.4	arch: ~amd64 ~ppc ~x86
 	samplv1-9999	arch: ~amd64 ~ppc ~x86
 	Description: An old-school all-digital polyphonic sampler
 		 synthesizer with stereo fx.
@@ -2203,6 +2235,7 @@
 
 #------- media-sound/gxtuner --------
 	gxtuner-2.0	arch: ~amd64 ~x86
+	gxtuner-2.1	arch: ~amd64 ~x86
 	Description: Simple Tuner Interface for jack
 	Homepage:    http://sourceforge.net/projects/guitarix/files/gxtuner/
 
@@ -2320,8 +2353,6 @@
 #------- media-sound/laditools --------
 	laditools-1.0.1-r1	arch: ~amd64 ~x86
 	laditools-1.0.1-r2	arch: ~amd64 ~x86
-	laditools-1.0	arch: ~amd64 ~x86
-	laditools-1.0_rc1	arch: ~amd64 ~x86
 	laditools-1.0_rc8	arch: ~amd64 ~x86
 	laditools-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	laditools-9999-r1	arch: -> live ebuild: [svn|cvs|...]<-
@@ -2370,6 +2401,14 @@
 		 Connection Kit and ALSA sequencer connections.
 		
 	Homepage:    http://qjackctl.sourceforge.net/
+
+
+#------- media-sound/ltc-tools --------
+	ltc-tools-0.6.3	arch: ~amd64 ~x86
+	ltc-tools-9999	arch: ~amd64 ~x86
+	Description: Linear/Logitudinal Time Code (LTC) Library
+		 tools
+	Homepage:    https://github.com/x42/ltc-tools
 
 
 #------- media-sound/sfc --------
@@ -2432,7 +2471,10 @@
 
 #------- media-sound/ladish --------
 	ladish-1	arch: ~amd64 ~ppc ~x86
+	ladish-1-r1	arch: ~amd64 ~ppc ~x86
+	ladish-1-r2	arch: ~amd64 ~ppc ~x86
 	ladish-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	ladish-9999-r1	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: LADI Session Handler - a session management
 		 system for JACK applications
 	Homepage:    http://ladish.org/
@@ -2472,12 +2514,18 @@
 
 #------- media-sound/jack-audio-connection-kit --------
 	jack-audio-connection-kit-0.121.3	arch: ~amd64 ~ppc ~x86
+	jack-audio-connection-kit-0.121.3-r1	arch: ~amd64 ~ppc ~x86
+	jack-audio-connection-kit-0.121.3-r2	arch: ~amd64 ~ppc ~x86
 	jack-audio-connection-kit-1.9.9.5	arch: ~amd64 ~ppc ~x86
+	jack-audio-connection-kit-1.9.9.5-r1	arch: ~amd64 ~ppc ~x86
+	jack-audio-connection-kit-1.9.9.5-r2	arch: ~amd64 ~ppc ~x86
 	jack-audio-connection-kit-1.9999	arch: -> live ebuild: [svn|cvs|...]<-
+	jack-audio-connection-kit-1.9999-r1	arch: -> live ebuild: [svn|cvs|...]<-
 	jack-audio-connection-kit-2.9999	arch: -> live ebuild: [svn|cvs|...]<-
+	jack-audio-connection-kit-2.9999-r1	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: Jackdmp jack implemention for multi-processor
 		 machine
-	Homepage:    http://www.grame.fr/~letz/jackdmp.html
+	Homepage:    http://jackaudio.org/
 
 
 #------- media-sound/ghostess --------
@@ -2520,10 +2568,11 @@
 
 
 #------- media-sound/mixxx --------
+	mixxx-1.11.0	arch: ~amd64 ~x86
 	mixxx-1.11.9999	arch: -> live ebuild: [svn|cvs|...]<-
 	mixxx-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: A Qt based Digital DJ tool
-	Homepage:    http://mixxx.sourceforge.net
+	Homepage:    http://www.mixxx.org/
 
 
 #------- media-sound/xwax --------
@@ -2574,6 +2623,13 @@
 	Description: a simple video player that is synchronized
 		 to jack transport.
 	Homepage:    http://.sourceforge.net/
+
+
+#------- media-video/screencastor --------
+	screencastor-1.3.0	arch: ~amd64 ~ppc ~ppc64 ~x86
+	Description: capture audio/video of the screen via FFmpeg
+		 with GUI
+	Homepage:    https://launchpad.net/~hizo/+archive/
 
 
 #------- sys-apps/das_watchdog --------
@@ -2683,9 +2739,11 @@
 
 #------- x11-libs/ntk --------
 	ntk-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: The Non Things: Non-DAW, Non-Mixer, Non-Sequencer
-		 and Non-Session-Manager
-	Homepage:    http://non.tuxfamily.org
+	ntk-9999-r1	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: A fork of the Fast Light ToolKit library,
+		 adding improved graphics rendering via Cairo
+		
+	Homepage:    http://non.tuxfamily.org/wiki/NTK
 
 
 #------- x11-libs/qwt --------
