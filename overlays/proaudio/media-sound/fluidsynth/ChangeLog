@@ -1,6 +1,15 @@
 # ChangeLog for media-sound/fluidsynth
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  05 Sep 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  fluidsynth-9999.ebuild, metadata.xml:
+  EAPI 5.
+  Updated repository URI.
+  The autotools build system has been made deprecated upstream, so the 
+  CMake build system is used instead.
+  oss USE flag removed.
+  double USE flag replaced with float (this is what upstream uses).
 
   13 Dec 2012; Karl Lindén <lilrc@users.sourceforge.net>
   fluidsynth-9999.ebuild:

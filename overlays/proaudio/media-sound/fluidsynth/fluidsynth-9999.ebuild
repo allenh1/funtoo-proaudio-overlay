@@ -1,15 +1,16 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="4"
-inherit autotools subversion
+EAPI="5"
+inherit cmake-utils subversion
 
-IUSE="alsa dbus debug doc double jack ladspa lash oss portaudio pulseaudio readline sndfile"
+IUSE="alsa dbus debug doc float jack ladspa lash portaudio pulseaudio \
+	readline sndfile"
 
 DESCRIPTION="Fluidsynth is a software real-time synthesizer based on the Soundfont 2 specifications."
 HOMEPAGE="http://www.fluidsynth.org/"
-ESVN_REPO_URI="https://${PN}.svn.sourceforge.net/svnroot/${PN}/trunk/${PN}"
+ESVN_REPO_URI="https://svn.code.sf.net/p/${PN}/code/trunk/${PN}"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -17,65 +18,58 @@ KEYWORDS=""
 
 RDEPEND="
 	>=dev-libs/glib-2.6.5
+	alsa? ( media-libs/alsa-lib )
+	dbus? ( sys-apps/dbus )
 	jack? ( media-sound/jack-audio-connection-kit )
 	ladspa? ( >=media-libs/ladspa-sdk-1.12
-		  >=media-libs/ladspa-cmt-1.15 )
-	alsa? ( media-libs/alsa-lib
-		lash? ( virtual/liblash ) )
-	pulseaudio? ( >=media-sound/pulseaudio-0.9.8 )
+		>=media-libs/ladspa-cmt-1.15 )
+	lash? ( virtual/liblash )
 	portaudio? ( >=media-libs/portaudio-19_pre )
+	pulseaudio? ( >=media-sound/pulseaudio-0.9.8 )
 	readline? ( sys-libs/readline )
-	dbus? ( sys-apps/dbus )
 	sndfile? ( media-libs/libsndfile )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	doc? ( app-doc/doxygen )"
 
-pkg_setup() {
-	if use lash && ! use alsa; then
-		ewarn "ALSA support is required for lash support to be enabled."
-		ewarn "Continuing with lash support disabled."
-	fi
-}
+DOCS=( AUTHORS README THANKS TODO )
 
-src_prepare() {
-	eautoreconf
+# Convenience function needed because the build system is not very
+# standardized.
+# Usage: fluid_use() <USE-flag> [flag name]
+fluid_use() {
+	[[ -z ${1} ]] && die "enable_arg(): too few arguments"
+	if [[ ! -z ${2} ]]; then
+		echo "-Denable-${2}=$(usex ${1} on off)"
+	else
+		echo "-Denable-${1}=$(usex ${1} on off)"
+	fi
 }
 
 src_configure() {
-	local myopts=""
+	local mycmakeargs=(
+		$(fluid_use alsa)
+		$(fluid_use dbus)
+		$(fluid_use debug)
+		$(fluid_use float floats)
+		$(fluid_use jack)
+		$(fluid_use ladspa)
+		$(fluid_use lash)
+		$(fluid_use portaudio)
+		$(fluid_use pulseaudio)
+		$(fluid_use readline)
+		$(fluid_use sndfile libsndfile)
+	)
 
-	if use alsa; then
-		myopts="$(use_enable lash)"
-	else
-		myopts="--disable-lash"
-	fi
-
-	myopts+="
-	$(use_enable double)
-	$(use_enable ladspa)
-	$(use_enable debug)
-	$(use_enable sndfile libsndfile-support)
-	$(use_enable pulseaudio pulse-support)
-	$(use_enable alsa alsa-support)
-	$(use_enable portaudio portaudio-support)
-	$(use_enable jack jack-support)
-	$(use_with readline)
-	$(use_enable dbus dbus-support)"
-
-	econf $myopts
+	cmake-utils_src_configure
 }
 
 src_install() {
-	emake DESTDIR="${D}" install || die "emake install"
-	dodoc AUTHORS NEWS README THANKS TODO doc/*.txt
-	insinto /usr/share/doc/${PF}/pdf
-	doins doc/*.pdf
-
 	if use doc; then
-		cd doc
-		make doxygen
-		insinto /usr/share/doc/${PF}/html
-		doins api/html/*
+		cd "${BUILD_DIR}"
+		emake doxygen
+		HTML_DOCS=( "${BUILD_DIR}"/doc/api/html/ )
 	fi
+
+	cmake-utils_src_install
 }

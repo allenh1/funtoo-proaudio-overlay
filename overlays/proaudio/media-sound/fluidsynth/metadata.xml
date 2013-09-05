@@ -6,6 +6,6 @@
 		<name>pro-audio overlay team</name>
 	</maintainer>
 	<use>
-		<flag name="double">Enable type double float instead of float for DSP samples</flag>
+		<flag name="float">Enable type float instead of double for DSP samples</flag>
 	</use>
 </pkgmetadata>
