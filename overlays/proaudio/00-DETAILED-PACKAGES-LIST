@@ -1008,7 +1008,7 @@
 #------- media-plugins/whysynth --------
 	whysynth-20120903	arch: ~amd64 ~x86
 	Description: A versatile DSSI Softsynth Plugin
-	Homepage:    http://www.smbolton.com/whysynth.html
+	Homepage:    http://smbolton.com/whysynth.html
 
 
 #------- media-plugins/azr3-lv2 --------
