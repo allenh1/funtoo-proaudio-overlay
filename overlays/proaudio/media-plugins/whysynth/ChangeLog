@@ -1,6 +1,14 @@
 # ChangeLog for media-plugins/whysynth
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  08 Sep 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  whysynth-20120903.ebuild:
+  EAPI 5.
+  Depend on linux-headers, because alsa-headers are removed. Thanks to Matt
+  Henley for the report.
+  Corrected HOMEPAGE and SRC_URI to avoid redirection.
+  Remove redundant DOCS variable.
 
 *whysynth-20120903 (08 Sep 2012)
 
