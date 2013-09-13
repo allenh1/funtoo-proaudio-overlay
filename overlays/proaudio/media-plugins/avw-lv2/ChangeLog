@@ -2,6 +2,18 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*avw-lv2-1.0.4 (13 Sep 2013)
+*avw-lv2-0.1.3-r1 (13 Sep 2013)
+
+  13 Sep 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +avw-lv2-0.1.3-r1.ebuild, +avw-lv2-1.0.4.ebuild:
+  Revision bump for 0.1.3 and version bump to 1.0.4.
+  Remove python2_5 as it is no longer in tree.
+  Use python-any-r1 eclass as python is only needed at build time.
+  Restrict mirror.
+  Corrected dependencies.
+  Depend on lvtk[ui] as suggested by Arve Barsnes.
+
 *avw-lv2-0.1.3 (02 Feb 2013)
 
   02 Feb 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
