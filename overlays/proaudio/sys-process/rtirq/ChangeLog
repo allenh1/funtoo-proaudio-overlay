@@ -2,6 +2,15 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*rtirq-20130909 (26 Oct 2013)
+
+  26 Oct 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -rtirq-20130402.ebuild, +rtirq-20130909.ebuild:
+  Version bump.
+  EAPI 5.
+  Updated the information message.
+  Thanks to Allan Klinbail for the report.
+
 *rtirq-20130402 (13 Apr 2013)
 
   13 Apr 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>

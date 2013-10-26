@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="4"
+EAPI="5"
 
 inherit exteutils
 
@@ -17,7 +17,7 @@ KEYWORDS="~amd64 ~ppc ~x86"
 IUSE=""
 
 DEPEND=">=sys-apps/util-linux-2.13
-		sys-apps/sysvinit"
+	sys-apps/sysvinit"
 
 src_prepare() {
 	#gzip -cdf "${FILESDIR}/rt-initscript.gz" >  rtirq
@@ -50,11 +50,11 @@ pkg_postinst(){
 	elog "config-file: /etc/conf.d/rtirq"
 	elog
 	elog "You need an realtime-kernel to use this init-script:"
-	elog "kernel-patch: redhat.com/~mingo/realtime-preempt"
+	elog "kernel-patch: https://www.kernel.org/pub/linux/kernel/projects/rt/"
 	elog "select: (X) Complete Preemption (Real-Time) in kernel-config."
-	elog "Easy way to get an realtime kernel try:"
-	elog "emerge rt-sources from the proaudio overlay"
+	elog "Easy way to get a realtime kernel try:"
+	elog "emerge rt-sources"
 	elog
-	elog "To display the full status of the rtirq script use:"
-	elog "/etc/init.d/rtirq fullstatus"
+	elog "To display the status of the rtirq script use:"
+	elog "/etc/init.d/rtirq status"
 }
