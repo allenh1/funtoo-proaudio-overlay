@@ -23,7 +23,7 @@ IUSE=""
 
 RDEPEND=">=dev-cpp/gtkmm-2.24.0:2.4
 	>=media-libs/lv2-1.2.0
-	>=media-libs/lvtk-1.0.3[ui]
+	>=media-libs/lvtk-1.1.1[ui]
 	>=media-sound/jack-audio-connection-kit-0.120
 	>=x11-libs/cairo-1.0.0
 	>=x11-libs/gtk+-2.24:2"
