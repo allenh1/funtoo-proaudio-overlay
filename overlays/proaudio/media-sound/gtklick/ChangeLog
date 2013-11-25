@@ -2,6 +2,16 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*gtklick-0.6.4-r1 (25 Nov 2013)
+
+  25 Nov 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +gtklick-0.6.4-r1.ebuild, +files/gtklick:
+  Added a modified (fixed) version of the runner script. Thanks Zlobin Nikita
+  for reporting the issue.
+  No variables in HOMEPAGE.
+  Corrected DESCRIPTION.
+  Added PYTHON_REQUIRED_USE to REQUIRED_USE.
+
 *gtklick-0.6.4 (26 Mar 2013)
 
   26 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
