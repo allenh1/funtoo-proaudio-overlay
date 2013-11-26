@@ -8,4 +8,7 @@
 	<longdescription lang="en">
 QMidiArp is an advanced MIDI arpeggiator, programmable step sequencer and LFO. It can hold any number of arpeggiator, sequencer, or LFO modules running in parallel.
 	</longdescription>
+	<use>
+		<flag name="nsm">Build with non-session management support</flag>
+	</use>
 </pkgmetadata>
