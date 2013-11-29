@@ -2,6 +2,19 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  29 Nov 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  jack-audio-connection-kit-0.121.3-r2.ebuild,
+  -jack-audio-connection-kit-1.9.9.5.ebuild,
+  jack-audio-connection-kit-1.9.9.5-r2.ebuild,
+  jack-audio-connection-kit-1.9999-r1.ebuild,
+  jack-audio-connection-kit-2.9999-r1.ebuild:
+  Make sure all ebuilds have the celt USE flag and that the opus flag is 
+  available when possible. Thanks to Zlobin Nikita for reporting the 
+  issue.
+  Updated celt dependency in 1.9.9.5-r1.
+  Correct dbus-python dependency.
+  Remove old python eclass ebuild.
+
 *jack-audio-connection-kit-2.9999-r1 (31 Jul 2013)
 *jack-audio-connection-kit-1.9999-r1 (31 Jul 2013)
 *jack-audio-connection-kit-1.9.9.5-r2 (31 Jul 2013)

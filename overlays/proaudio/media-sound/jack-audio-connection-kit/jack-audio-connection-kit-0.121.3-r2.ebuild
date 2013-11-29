@@ -31,12 +31,13 @@ SRC_URI="http://www.jackaudio.org/downloads/${P}.tar.gz
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
-IUSE="3dnow alsa altivec coreaudio cpudetection dbus debug doc examples ieee1394 mmx oss pam sse"
+IUSE="3dnow alsa altivec celt coreaudio cpudetection dbus debug doc examples ieee1394 mmx oss pam sse"
 
 RDEPEND="media-libs/libsamplerate[${MULTILIB_USEDEP}]
 	>=media-libs/libsndfile-1.0.0
 	sys-libs/ncurses
 	alsa? ( >=media-libs/alsa-lib-1.0.18[${MULTILIB_USEDEP}] )
+	celt? ( media-libs/celt[${MULTILIB_USEDEP}] )
 	dbus? ( sys-apps/dbus )
 	ieee1394? ( media-libs/libffado )
 	abi_x86_32? ( !<=app-emulation/emul-linux-x86-soundlibs-20130224-r7
@@ -46,6 +47,7 @@ DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )"
 RDEPEND="${RDEPEND}
 	${PYTHON_DEPS}
+	dbus? ( dev-python/dbus-python[${PYTHON_USEDEP}] )
 	pam? ( sys-auth/realtime-base )"
 
 PATCHES=(

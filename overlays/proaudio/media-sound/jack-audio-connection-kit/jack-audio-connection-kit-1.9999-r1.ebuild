@@ -7,8 +7,6 @@
 # * When libffado has been migrated to multilib eclasses
 #   media-libs/libffado should be
 #   media-libs/libffado[${MULTILIB_USEDEP}]
-# * When media-libs/celt has been migrated to multilib eclasses the
-#   dependency should me multilib'd (as with libffado).
 # * More testing is definitely needed because this revision incorporates
 #   more changes to the 1.9999 ebuild than just multilib!
 # [NOTE]
@@ -39,7 +37,7 @@ IUSE="3dnow altivec alsa celt coreaudio cpudetection doc debug examples mmx oss 
 
 RDEPEND=">=media-libs/libsndfile-1.0.0
 	sys-libs/ncurses
-	celt? ( >=media-libs/celt-0.5.0 )
+	celt? ( media-libs/celt[${MULTILIB_USEDEP}] )
 	alsa? ( >=media-libs/alsa-lib-0.9.1[${MULTILIB_USEDEP}] )
 	ieee1394? ( media-libs/libffado )
 	netjack? ( media-libs/libsamplerate[${MULTILIB_USEDEP}] )
@@ -52,10 +50,9 @@ DEPEND="${RDEPEND}
 
 pkg_setup() {
 	ewarn "You are about to install a very experimental ebuild!"
-	ewarn "If you emerge this ebuild with USE='ieee1394' or USE='celt'"
-	ewarn "in conjunction with ABI_X86='32' and you are on amd64 you"
-	ewarn "might experience some strange and yet unknown things"
-	ewarn "happening."
+	ewarn "If you emerge this ebuild with USE='ieee1394' in conjunction"
+	ewarn "with ABI_X86='32' and you are on amd64 you might experience"
+	ewarn "some strange and yet unknown things happening."
 	ewarn "You have been warned."
 }
 

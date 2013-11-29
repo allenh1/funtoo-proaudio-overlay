@@ -26,7 +26,7 @@ EGIT_REPO_URI="git://github.com/jackaudio/jack2.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="alsa debug doc dbus ieee1394 opus pam"
+IUSE="alsa celt debug doc dbus ieee1394 opus pam"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -40,6 +40,7 @@ RDEPEND="media-libs/libsamplerate[${MULTILIB_USEDEP}]
 	>=media-libs/libsndfile-1.0.0[${MULTILIB_USEDEP}]
 	${PYTHON_DEPS}
 	alsa? ( >=media-libs/alsa-lib-1.0.24[${MULTILIB_USEDEP}] )
+	celt? ( media-libs/celt[${MULTILIB_USEDEP}] )
 	dbus? ( sys-apps/dbus )
 	ieee1394? ( media-libs/libffado )
 	opus? ( media-libs/opus[custom-modes,${MULTILIB_USEDEP}] )
@@ -49,7 +50,7 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	doc? ( app-doc/doxygen )"
 RDEPEND="${RDEPEND}
-	dbus? ( dev-python/dbus-python )
+	dbus? ( dev-python/dbus-python[${PYTHON_USEDEP}] )
 	pam? ( sys-auth/realtime-base )"
 
 DOCS=( ChangeLog README README_NETJACK2 TODO )

@@ -26,7 +26,7 @@ SRC_URI="https://dl.dropbox.com/u/28869550/jack-${PV}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
-IUSE="alsa dbus debug doc ieee1394"
+IUSE="alsa celt dbus debug doc ieee1394 opus"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -40,15 +40,17 @@ RDEPEND="media-libs/libsamplerate[${MULTILIB_USEDEP}]
 	>=media-libs/libsndfile-1.0.0[${MULTILIB_USEDEP}]
 	${PYTHON_DEPS}
 	alsa? ( >=media-libs/alsa-lib-0.9.1[${MULTILIB_USEDEP}] )
+	celt? ( media-libs/celt[${MULTILIB_USEDEP}] )
 	dbus? ( sys-apps/dbus )
 	ieee1394? ( media-libs/libffado )
+	opus? ( media-libs/opus[custom-modes,${MULTILIB_USEDEP}] )
 	abi_x86_32? ( !<=app-emulation/emul-linux-x86-soundlibs-20130224-r7
 					!app-emulation/emul-linux-x86-soundlibs[-abi_x86_32(-)] )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	doc? ( app-doc/doxygen )"
 RDEPEND="${RDEPEND}
-	dbus? ( dev-python/dbus-python )"
+	dbus? ( dev-python/dbus-python[${PYTHON_USEDEP}] )"
 
 S="${WORKDIR}/jack-${PV}"
 
