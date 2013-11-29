@@ -3,20 +3,9 @@
 # NOTE: Please add your entry at the top!
 #
 
-# Karl Linden (lilrc) <lilrc@users.sourceforge.net> (31 Jul 2013)
-# These ebuilds use the old and deprecated python eclass. Masked for
-# removal. There are newer (migrated) ebuilds available to which you
-# should update.
-=media-libs/libffado-2.1.0
-=media-libs/libffado-9999
-=media-sound/jack-audio-connection-kit-1.9.9.5
-=media-sound/ladish-1
-=media-sound/ladish-9999
-=x11-libs/ntk-9999
-
 # Karl Linden (lilrc) <lilrc@users.sourceforge.net> (30 Jul 2013)
-# Highly experimental multilib compatible ebuilds. Some might even be under
-# active developement.
+# Highly experimental multilib compatible ebuilds. Some might even be
+# under active developement.
 =media-libs/portaudio-9999-r1
 =media-sound/jack-audio-connection-kit-0.121.3-r2
 =media-sound/jack-audio-connection-kit-1.9.9.5-r2
