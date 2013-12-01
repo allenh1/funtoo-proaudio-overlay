@@ -5,16 +5,15 @@
 EAPI="5"
 
 PYTHON_COMPAT=( python2_7 )
-
-inherit distutils-r1 git-2
+inherit distutils-r1
 
 DESCRIPTION="a set of tools to improve desktop integration and user workflow of Linux audio systems"
 HOMEPAGE="https://launchpad.net/laditools"
-EGIT_REPO_URI="git://repo.or.cz/${PN}.git"
+SRC_URI="https://launchpad.net/${PN}/1.0/${PV}/+download/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE="wmaker"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
