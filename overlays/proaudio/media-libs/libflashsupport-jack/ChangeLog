@@ -1,9 +1,0 @@
-# ChangeLog for media-libs/libflashsupport-jack
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
-
-  13 Feb 2010; Dominique Michel <sominique@tuxfamily.org> Initial commit
-
-  22 Oct 2011; Dominique Michel <dominique_libre@sourceforge.net>
-    Removed v4l1; patch from Goran Mekic
-    Added warning and link to the loopback stuff
