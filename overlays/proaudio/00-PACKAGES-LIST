@@ -197,7 +197,6 @@ media-libs/asio-sdk
 media-libs/libgig
 media-libs/hydrogen-drumkits
 media-libs/oscpack
-media-libs/libflashsupport-jack
 media-libs/zita-resampler
 media-libs/stk
 media-libs/aubio
