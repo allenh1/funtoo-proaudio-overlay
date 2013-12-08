@@ -27,6 +27,7 @@ RDEPEND="dev-libs/protobuf
 	media-libs/libvorbis
 	>=media-libs/portaudio-19_pre
 	media-libs/portmidi
+	media-libs/rubberband
 	media-libs/taglib
 	media-libs/vamp-plugin-sdk
 	sci-libs/fftw:3.0
