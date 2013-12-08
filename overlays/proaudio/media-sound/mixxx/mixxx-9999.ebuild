@@ -37,6 +37,7 @@ RDEPEND="dev-libs/protobuf
 	dev-qt/qtopengl:4
 	dev-qt/qtsql:4
 	dev-qt/qtsvg:4
+	dev-qt/qttest:4
 	dev-qt/qtwebkit:4
 	dev-qt/qtxmlpatterns:4
 	aac? (
@@ -58,7 +59,6 @@ src_prepare() {
 	epatch "${FILESDIR}"/${P}-cflags.patch
 	epatch "${FILESDIR}"/${P}-system-libs.patch
 	epatch "${FILESDIR}"/${P}-docs.patch
-	epatch "${FILESDIR}"/${P}-no-bzr.patch
 
 	# use multilib compatible directory for plugins
 	sed -i -e "/unix_lib_path =/s/'lib'/'$(get_libdir)'/" src/SConscript || die
