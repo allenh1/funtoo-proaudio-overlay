@@ -2,7 +2,11 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-*juce-1.53 (24 Jan 2012)
+
+*juce-1.53 (10 Dec 2013)
+  10 Dec 2013; Xavier Miller <alchemist@tuxfamily.org>: changed SRC_URI to
+  GittHub release tags; fixed dependencies for ~amd64 (removed the
+  emul-linux dep)
 
   24 Jan 2012; Willy <willy@tuxfamily.org> -juce-1.31.ebuild,
   -files/juce-1.31-gcc-4.1.patch, -files/juce-1.31-vorbis_header.patch,

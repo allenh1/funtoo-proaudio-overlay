@@ -2,32 +2,30 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI=5
 
 inherit eutils multilib flag-o-matic
 
-MY_P="${P/-/_}"
-MY_P="${MY_P/./_}"
+MY_PV="${PV/./_}_release"
+MY_P="JUCE-${MY_PV}"
 
 DESCRIPTION="JUCE is an all-encompassing C++
 class library for developing cross-platform applications."
-HOMEPAGE=" http://www.rawmaterialsoftware.com/juce"
-SRC_URI="mirror://sourceforge/juce/${MY_P}.zip "
-RESTRICT="mirror"
+HOMEPAGE=" http://www.juce.com"
+SRC_URI="https://github.com/julianstorer/JUCE/archive/${MY_PV}.tar.gz -> ${MY_P}.tar.gz"
 
-S="${WORKDIR}/${PN}"
+S=${WORKDIR}/${MY_P}
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~x86 ~amd64-linux"
+KEYWORDS="~x86 ~amd64"
 IUSE="debug xinerama flac vorbis opengl jucer demo"
 
 RDEPEND="=media-libs/freetype-2*
 	>=media-libs/alsa-lib-0.9
 	flac? ( media-libs/flac )
 	vorbis? ( media-libs/libvorbis )
-	>=x11-libs/libX11-1.0.1-r1
-	amd64? ( app-emulation/emul-linux-x86-xlibs )"
+	>=x11-libs/libX11-1.0.1-r1"
 
 DEPEND="${RDEPEND}
 	app-arch/unzip
