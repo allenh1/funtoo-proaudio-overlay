@@ -1,0 +1,20 @@
+--- "extras/the jucer/build/linux/Jucer.make"	2011-06-24 12:43:38.000000000 +0200
++++ "extras/the jucer/build/linux/Jucer.make"	2013-12-11 11:13:57.442912983 +0100
+@@ -16,7 +16,7 @@
+   CPPFLAGS := $(DEPFLAGS) -D "LINUX=1" -D "DEBUG=1" -D "_DEBUG=1" -I "/usr/include" -I "/usr/include/freetype2"
+   CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -g -march=native -D_DEBUG -ggdb
+   CXXFLAGS += $(CFLAGS)
+-  LDFLAGS += -L$(BINDIR) -L$(LIBDIR) -mwindows -L"/usr/X11R6/lib/" -L"../../../../bin" -lfreetype -lpthread -lX11 -lGL -lGLU -lXinerama -lasound
++  LDFLAGS += -L$(BINDIR) -L$(LIBDIR) -L"/usr/X11R6/lib/" -L"../../../../bin" -lfreetype -lpthread -lX11 -lGL -lGLU -lXinerama -lXext -lasound -ldl
+   LDDEPS :=
+   RESFLAGS := -D "LINUX=1" -D "DEBUG=1" -D "_DEBUG=1" -I "/usr/include" -I "/usr/include/freetype2"
+   TARGET := jucer
+@@ -31,7 +31,7 @@
+   CPPFLAGS := $(DEPFLAGS) -D "LINUX=1" -D "NDEBUG=1" -I "/usr/include" -I "/usr/include/freetype2"
+   CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -O2 -march=native
+   CXXFLAGS += $(CFLAGS)
+-  LDFLAGS += -L$(BINDIR) -L$(LIBDIR) -mwindows -s -L"/usr/X11R6/lib/" -L"../../../../bin" -lfreetype -lpthread -lX11 -lGL -lGLU -lXinerama -lasound
++  LDFLAGS += -L$(BINDIR) -L$(LIBDIR) -s -L"/usr/X11R6/lib/" -L"../../../../bin" -lfreetype -lpthread -lX11 -lGL -lGLU -lXinerama -lXext -lasound -ldl
+   LDDEPS :=
+   RESFLAGS := -D "LINUX=1" -D "NDEBUG=1" -I "/usr/include" -I "/usr/include/freetype2"
+   TARGET := jucer

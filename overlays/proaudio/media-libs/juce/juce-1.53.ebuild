@@ -19,18 +19,23 @@ S=${WORKDIR}/${MY_P}
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-IUSE="debug xinerama flac vorbis opengl jucer demo"
+IUSE="debug xinerama flac vorbis opengl jucer demo multilib"
 
 RDEPEND="=media-libs/freetype-2*
 	>=media-libs/alsa-lib-0.9
 	flac? ( media-libs/flac )
 	vorbis? ( media-libs/libvorbis )
-	>=x11-libs/libX11-1.0.1-r1"
+	>=x11-libs/libX11-1.0.1-r1
+	multilib? ( app-emulation/emul-linux-x86-xlibs )"
 
 DEPEND="${RDEPEND}
 	app-arch/unzip
 	x11-libs/libXinerama
 	opengl? ( media-libs/freeglut )"
+
+src_prepare() {
+	epatch "${FILESDIR}/juce-1_53_release-Jucer.make.patch"
+}
 
 src_compile() {
 	# demo fails with --as-needed
@@ -50,20 +55,20 @@ src_compile() {
 	cd "${S}"/Builds/Linux
 	# debug
 	einfo "Running CFLAGS=${CFLAGS} make ${myconf} ..."
-	make ${myconf} || die "compiling the juce library failed"
+	emake ${myconf}
 
 	if use demo; then
 		cd "${S}/extras/JuceDemo/Builds/Linux"
-		make ${myconf} || die "compiling the juce demo failed"
+		emake ${myconf}
 	fi
 
 	if use jucer; then
 		cd "${S}/extras/the jucer/build/linux"
-		make ${myconf} || die "compiling jucer failed"
+		emake ${myconf}
 	fi
 
-	# compile 32bit too on amd64
-	if use amd64; then
+	# compile 32bit too on amd64/multilib
+	if use multilib; then
 		einfo "Compiling 32bit lib too..."
 
 		# move 32bit lib out of the way
@@ -72,16 +77,16 @@ src_compile() {
 		rm -rf "${S}"/bin/*
 		# and compile the lib again
 		cd "${S}"/Builds/Linux
-		make clean || die
+		emake clean
 		CFLAGS="${CFLAGS} -m32"
 		# debug
-		einfo "Running CFLAGS=${CFLAGS} make ${myconf} ..."
-		make ${myconf} || die
+		einfo "Running CFLAGS=${CFLAGS} emake ${myconf} ..."
+		emake ${myconf}
 	fi
 }
 
 src_install() {
-	if use amd64; then
+	if use multilib; then
 		insinto /usr/lib32
 		doins bin/libjuce.a
 		insinto /usr/lib64

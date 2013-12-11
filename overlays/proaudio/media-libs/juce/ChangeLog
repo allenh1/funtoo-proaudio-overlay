@@ -4,6 +4,9 @@
 
 
 *juce-1.53 (10 Dec 2013)
+  11 Dec 2013; Xavier Miller <alchemist@tuxfamily.org>: fixed multilib 
+  and jucer builds
+
   10 Dec 2013; Xavier Miller <alchemist@tuxfamily.org>: changed SRC_URI to
   GittHub release tags; fixed dependencies for ~amd64 (removed the
   emul-linux dep)
