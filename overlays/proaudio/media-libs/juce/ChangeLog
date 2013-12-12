@@ -3,7 +3,9 @@
 # $Header: $
 
 
-*juce-1.53 (10 Dec 2013)
+*juce-1.53 (12 Dec 2013)
+  12 Dec 2013; Xavier Miller <alchemist@tuxfamily.org>: don't patch if USE=-jucer
+
   11 Dec 2013; Xavier Miller <alchemist@tuxfamily.org>: fixed multilib 
   and jucer builds
 

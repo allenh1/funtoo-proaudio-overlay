@@ -34,7 +34,9 @@ DEPEND="${RDEPEND}
 	opengl? ( media-libs/freeglut )"
 
 src_prepare() {
-	epatch "${FILESDIR}/juce-1_53_release-Jucer.make.patch"
+	if use jucer; then
+		epatch "${FILESDIR}/juce-1_53_release-Jucer.make.patch"
+	fi
 }
 
 src_compile() {
