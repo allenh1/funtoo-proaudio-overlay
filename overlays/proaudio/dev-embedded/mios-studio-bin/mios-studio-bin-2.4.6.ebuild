@@ -10,6 +10,7 @@ DESCRIPTION="uCApps.de MIOS Studio"
 SRC_URI="http://ucapps.de/mios_studio/MIOS_Studio_2_4_6.tar.gz"
 HOMEPAGE="http://ucapps.de/"
 
+#TODO: license !!!
 LICENSE=""
 KEYWORDS="-* ~amd64 ~x86"
 SLOT="0"
@@ -18,14 +19,13 @@ IUSE=""
 RESTRICT="strip mirror"
 
 DEPEND=""
+
+#TODO: add needed dependencies
 RDEPEND="amd64? ( app-emulation/emul-linux-x86-baselibs )"
 
 INSTALLDIR=/opt
 
 S="${WORKDIR}"
-
-# remove bundled libs to force use of system version, bug 340527
-REMOVELIBS="libcrypto libssl"
 
 src_install() {
 	exeinto /opt/mios-studio-${PV}/bin
