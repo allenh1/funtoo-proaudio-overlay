@@ -1,4 +1,4 @@
-# ChangeLog for media-video/screencaptor
+# ChangeLog for media-video/screencastor
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
@@ -6,6 +6,18 @@
 +files/screencastor-1.3.0_python+gettext.patch (11 Aug 2013)
 +files/screencaptor-1.3.0_jack.patch (11 Aug 2013)
 "files/screencastor (11 Aug 2013)
+
+*screencastor-1.3.0-r1 (14 Dec 2013)
+
+  14 Dec 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +screencastor-1.3.0-r1.ebuild:
+  
+  Specify required use flag "xml" on python interpreter.
+  Replace python-r1 with python-single-r1.
+  PYTHON_REQUIRED_USE in REQUIRDED_USE.
+  Order dependencies alphabetically.
+  Depend on x11-libs/vte:0. Thanks to Zlobin Nikita for the report.
+  Use PYTHON_USEDEP for some dependencies.
 
   11 Aug 2013; Dominique Michel <dominique_libre@sourceforge.net>
   Initial ebuild for the tar.gz archive, Work fine here.
