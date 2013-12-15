@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -21,6 +21,7 @@ DEPEND=">=media-sound/jack-audio-connection-kit-0.100
 	>=media-libs/libclxclient-3.6.1"
 
 S="${S}/source"
+RDEPEND="$DEPEND"
 
 src_prepare() {
 	epatch "${FILESDIR}/${P}-Makefile.patch"
@@ -29,6 +30,8 @@ src_prepare() {
 
 src_compile() {
 	tc-export CC CXX
+	CFLAGS="$(pkg-config --cflags gthread-2.0) $CFLAGCS" \
+	LDLIBS="$(pkg-config --libs gthread-2.0)" \
 	emake PREFIX="/usr" LIBDIR="$(get_libdir)" || die "make failed"
 }
 
