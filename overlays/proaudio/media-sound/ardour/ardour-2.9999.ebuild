@@ -129,7 +129,7 @@ src_install() {
 	dodoc DOCUMENTATION/*
 
 	newicon "${S}/icons/icon/ardour_icon_mac.png" "ardour2.png"
-	make_desktop_entry "ardour2" "Ardour2" "ardour2" "AudioVideo;Audio"
+	make_desktop_entry "ardour2" "Ardour2" "ardour2" "AudioVideo;Audio;"
 }
 
 pkg_postinst() {
