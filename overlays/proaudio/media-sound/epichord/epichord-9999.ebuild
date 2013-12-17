@@ -4,7 +4,7 @@
 
 EAPI=1
 
-inherit base flag-o-matic multilib git
+inherit base flag-o-matic multilib git-r3
 
 DESCRIPTION="a classical multi-track midi sequencer"
 HOMEPAGE="http://repo.or.cz/w/epichord.git"

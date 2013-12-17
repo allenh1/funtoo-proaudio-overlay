@@ -2,7 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit cmake-utils eutils exteutils git-2
+EAPI="2"
+
+inherit cmake-utils eutils git-2
 
 DESCRIPTION="OpenOctave MIDI sequencer"
 HOMEPAGE="http://www.openoctave.org"

@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-inherit git
+inherit git-r3
 
 DESCRIPTION="RSound is a networked audio system. It allows applications to
 transfer their audio data to a different computer."

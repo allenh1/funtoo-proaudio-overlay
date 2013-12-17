@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI="2"
-inherit toolchain-funcs git
+inherit toolchain-funcs git-r3
 
 DESCRIPTION="Digital vinyl emulation software"
 HOMEPAGE="http://www.xwax.co.uk/"

@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-inherit git
+inherit git-r3
 
 DESCRIPTION="a simple mixer for the Jack Audio Connection Kit with an OSC based
 control interface"

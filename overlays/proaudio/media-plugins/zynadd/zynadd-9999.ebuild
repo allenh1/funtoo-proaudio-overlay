@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit git
+inherit git-r3
 
 DESCRIPTION="synth engines from ZynAddSubFX and pack them in LV2 plugin format"
 HOMEPAGE="http://home.gna.org/zyn"

@@ -4,7 +4,7 @@
 
 EAPI=1
 
-inherit eutils git autotools
+inherit eutils git-r3 autotools
 
 DESCRIPTION="JACK based, GTK (2.x) host for LV2 synths"
 HOMEPAGE="http://home.gna.org/zynjacku/"
@@ -34,7 +34,7 @@ pkg_setup() {
 }
 
 src_unpack() {
-	git_src_unpack
+	git-r3_src_unpack
 	cd "${S}"
 	chmod +x gen_py_constants.py
 	./bootstrap

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils git
+inherit eutils git-r3
 
 DESCRIPTION="FreeST audio plugin VST container library"
 HOMEPAGE="http://joebutton.co.uk/fst/"
@@ -18,11 +18,8 @@ KEYWORDS=""
 DEPEND="lash? ( media-sound/lash )
 	>=x11-libs/gtk+-2.0
 	>=app-emulation/wine-0.9.5
-	>=media-sound/jack-audio-connection-kit-0.98.1"
-
-src_unpack() {
-	git_src_unpack
-}
+	>=media-sound/jack-audio-connection-kit-0.98.1
+	app-emulation/emul-linux-x86-gtklibs"
 
 src_compile() {
 	emake LASH_EXISTS="$(use lash && echo yes || echo no)" || die
@@ -30,5 +27,6 @@ src_compile() {
 
 src_install() {
 	exeinto /usr/bin
-	doexe fst fst.exe.so
+	doexe fst.exe.so
+	newexe fst.exe fst
 }

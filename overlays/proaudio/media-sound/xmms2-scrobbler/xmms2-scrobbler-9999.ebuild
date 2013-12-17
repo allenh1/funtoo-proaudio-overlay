@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils base git
+inherit eutils base git-r3
 
 DESCRIPTION="XMMS2 AudioScrobbler client"
 HOMEPAGE="http://code-monkey.de/pages/xmms2-scrobbler"

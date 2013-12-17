@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils toolchain-funcs git
+inherit eutils toolchain-funcs git-r3
 
 DESCRIPTION="X(cross)platform Music Multiplexing System. The new generation of the XMMS player."
 HOMEPAGE="http://xmms2.xmms.org"

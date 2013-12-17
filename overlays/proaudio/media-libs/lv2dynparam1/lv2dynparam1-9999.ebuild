@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-inherit eutils git autotools
+inherit eutils git-r3 autotools
 
 DESCRIPTION="LV2 dynparam extension"
 HOMEPAGE="http://home.gna.org/lv2dynparam/"
@@ -22,7 +22,7 @@ DEPEND="|| ( >=media-libs/lv2-1.2.0 >=media-libs/lv2core-1 )
 RDEPEND=""
 
 src_unpack() {
-	git_src_unpack
+	git-r3_src_unpack
 	cd "${S}"
 	export WANT_AUTOMAKE="1.10"
 	export WANT_AUTOCONF="2.61"
