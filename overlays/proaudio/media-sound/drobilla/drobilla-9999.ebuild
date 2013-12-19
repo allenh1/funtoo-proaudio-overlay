@@ -7,7 +7,7 @@ EAPI=2
 inherit subversion toolchain-funcs multilib
 
 RESTRICT="mirror"
-IUSE="alsa debug doc gir gtk qt4 +session"
+IUSE="alsa auto-arrange debug doc gir gtk qt4 +session"
 DESCRIPTION="Patchage is a modular patchbay for Jack audio and Alsa sequencer."
 HOMEPAGE="http://drobilla.net/software/patchage"
 
@@ -49,6 +49,7 @@ RDEPEND="=media-plugins/omins-9999
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	dev-lang/python
+	auto-arrange? ( <=media-gfx/graphviz-2.28.0 )
 	doc? ( app-doc/doxygen )"
 
 pkg_setup() {
@@ -71,6 +72,7 @@ src_configure() {
 		--libdir="/usr/$(get_libdir)" \
 		$(use debug && echo "--debug") \
 		$(use alsa || echo "--no-alsa") \
+		$(use auto-arrange || echo "--no-graphviz") \
 		$(use gir && echo "--gir") \
 		$(use session || echo "--no-jack-session") \
 		$(use doc && echo "--docs --docdir=/usr/share/doc/${P}/html") \
