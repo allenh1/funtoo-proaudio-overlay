@@ -10,8 +10,7 @@ DESCRIPTION="uCApps.de MIOS Studio"
 SRC_URI="http://ucapps.de/mios_studio/MIOS_Studio_2_4_6.tar.gz"
 HOMEPAGE="http://ucapps.de/"
 
-#TODO: license !!!
-LICENSE=""
+LICENSE="TAPR-NCL"
 KEYWORDS="-* ~amd64 ~x86"
 SLOT="0"
 IUSE=""
