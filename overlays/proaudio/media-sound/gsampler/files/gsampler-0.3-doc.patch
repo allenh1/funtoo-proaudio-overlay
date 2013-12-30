@@ -1,0 +1,19 @@
+--- Makefile.am.old	2012-01-03 07:54:29.000000000 +0100
++++ Makefile.am	2013-12-30 18:51:11.720584188 +0100
+@@ -2,16 +2,6 @@
+ 
+ SUBDIRS = src po data debian
+ 
+-gsamplerdocdir = ${prefix}/doc/gsampler
+-gsamplerdoc_DATA = \
+-	README\
+-	COPYING\
+-	AUTHORS\
+-	ChangeLog\
+-	INSTALL\
+-	NEWS
+-
+-
+ INTLTOOL_FILES = intltool-extract.in \
+ 	intltool-merge.in \
+ 	intltool-update.in

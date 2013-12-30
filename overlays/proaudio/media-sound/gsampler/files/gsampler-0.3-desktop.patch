@@ -1,0 +1,11 @@
+--- data/gsampler.desktop.in.old	2012-01-03 07:54:29.000000000 +0100
++++ data/gsampler.desktop.in	2013-12-30 19:32:08.018494562 +0100
+@@ -6,5 +6,5 @@
+ Exec=/usr/bin/gsampler
+ Icon=/usr/share/gsampler/gsampler.svg
+ Terminal=false
+-Categories=GTK;Audio;Multimedia;AudioVideo
+-StartupNotify=true
+\ No newline at end of file
++Categories=AudioVideo;Audio;
++StartupNotify=true
