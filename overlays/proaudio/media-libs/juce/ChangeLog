@@ -3,7 +3,11 @@
 # $Header: $
 
 
-*juce-1.53 (12 Dec 2013)
+*juce-1.53 (01 Jan 2014)
+  01 Jan 2014; Xavier Miller <alchemist@tuxfamily.org>: added introjucer
+	USE flag and build ; filtered "-march=native" CFLAGS + add needed
+	libraries in the Makefiles
+
   12 Dec 2013; Xavier Miller <alchemist@tuxfamily.org>: don't patch if USE=-jucer
 
   11 Dec 2013; Xavier Miller <alchemist@tuxfamily.org>: fixed multilib 

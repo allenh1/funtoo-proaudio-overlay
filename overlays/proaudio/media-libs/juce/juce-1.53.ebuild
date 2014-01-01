@@ -19,7 +19,7 @@ S=${WORKDIR}/${MY_P}
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-IUSE="debug xinerama flac vorbis opengl jucer demo multilib"
+IUSE="debug xinerama flac vorbis opengl jucer introjucer demo multilib"
 
 RDEPEND="=media-libs/freetype-2*
 	>=media-libs/alsa-lib-0.9
@@ -34,9 +34,18 @@ DEPEND="${RDEPEND}
 	opengl? ( media-libs/freeglut )"
 
 src_prepare() {
-	if use jucer; then
-		epatch "${FILESDIR}/juce-1_53_release-Jucer.make.patch"
+	if use introjucer; then
+		epatch "${FILESDIR}/juce_linux_NativeIncludes.h.patch"
 	fi
+
+	einfo "Removing -march=native in makefiles..."
+	find . '(' -name Makefile -o -name jucer_ProjectExport_Make.h -o -name \*.make ')' -exec grep -q '\-march=native' '{}' ';' -print -exec sed -i -e 's/-march=native//g' '{}' ';' || die
+
+	einfo "Removing -mwindows in makefiles..."
+	find . '(' -name Makefile -o -name jucer_ProjectExport_Make.h -o -name \*.make ')' -exec grep -q '\-mwindows' '{}' ';' -print -exec sed -i -e 's/-mwindows//g' '{}' ';' || die
+
+	einfo "Adding LDFLAGS in makefiles..."
+	find . '(' -name Makefile -o -name jucer_ProjectExport_Make.h -o -name \*.make ')' -exec grep -q '\-lasound' '{}' ';' -print -exec sed -i -e 's/-lasound/-lXext -lasound -ldl/g' '{}' ';' || die
 }
 
 src_compile() {
@@ -54,17 +63,24 @@ src_compile() {
 		sed -i -e "s://  #define JUCE_OPENGL 1:  #define JUCE_OPENGL 1:" juce_Config.h
 	fi
 
+	if use introjucer; then
+		einfo "Building The Introjucer"
+		cd "${S}/extras/Introjucer/Builds/Linux"
+		emake ${myconf}
+	fi
+
+	einfo "Building JUCE libraries..."
 	cd "${S}"/Builds/Linux
-	# debug
-	einfo "Running CFLAGS=${CFLAGS} make ${myconf} ..."
 	emake ${myconf}
 
 	if use demo; then
+		einfo "Building demos..."
 		cd "${S}/extras/JuceDemo/Builds/Linux"
 		emake ${myconf}
 	fi
 
 	if use jucer; then
+		einfo "Building Jucer..."
 		cd "${S}/extras/the jucer/build/linux"
 		emake ${myconf}
 	fi
@@ -82,7 +98,6 @@ src_compile() {
 		emake clean
 		CFLAGS="${CFLAGS} -m32"
 		# debug
-		einfo "Running CFLAGS=${CFLAGS} emake ${myconf} ..."
 		emake ${myconf}
 	fi
 }
@@ -98,6 +113,7 @@ src_install() {
 	fi
 	use demo && dobin "extras/JuceDemo/Builds/Linux/build/JuceDemo"
 	use jucer && dobin "extras/the jucer/build/linux/build/jucer"
+	use introjucer && dobin "extras/Introjucer/Builds/Linux/build/Introjucer"
 	insinto /usr/share/doc/"${P}"
 	doins docs/*.html docs/*.css docs/*.txt
 	mv docs/images "${D}"/usr/share/doc/"${P}"

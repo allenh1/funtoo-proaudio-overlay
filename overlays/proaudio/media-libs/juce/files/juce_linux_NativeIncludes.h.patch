@@ -1,0 +1,12 @@
+--- src/native/linux/juce_linux_NativeIncludes.h	2011-06-24 12:43:38.000000000 +0200
++++ src/native/linux/juce_linux_NativeIncludes.h	2013-12-31 12:54:03.936677238 +0100
+@@ -60,6 +60,9 @@
+ #include <sys/prctl.h>
+ #include <signal.h>
+ 
++// For Introjucer
++#include <unistd.h>
++
+ /* Got a build error here? You'll need to install the freetype library...
+    The name of the package to install is "libfreetype6-dev".
+ */
