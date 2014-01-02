@@ -2,6 +2,10 @@
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  02 Jan 2014; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  qmidiarp-9999.ebuild:
+  Don't patch live ebuild. Patch applied upstream.
+
 *qmidiarp-0.6.0 (02 Jan 2014)
 
   02 Jan 2014; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
