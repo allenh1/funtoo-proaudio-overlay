@@ -2,6 +2,12 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  17 Jan 2014; Dominique Michel <dominique_libre@users.sourceforge.net>
+  metadata.xml,
+  jack-audio-connection-kit-1.9999.ebuild,
+  jack-audio-connection-kit-1.9999-r1.ebuild:
+  Add support for multiple devices via zita libraries and zalsa USE flag.
+
   29 Nov 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   jack-audio-connection-kit-0.121.3-r2.ebuild,
   -jack-audio-connection-kit-1.9.9.5.ebuild,

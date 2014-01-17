@@ -1,4 +1,4 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -33,7 +33,7 @@ EGIT_HAS_SUBMODULES="example-clients"
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="3dnow altivec alsa celt coreaudio cpudetection doc debug examples mmx oss sse netjack ieee1394"
+IUSE="3dnow altivec alsa celt coreaudio cpudetection doc debug examples mmx oss sse netjack ieee1394 zalsa"
 
 RDEPEND=">=media-libs/libsndfile-1.0.0
 	sys-libs/ncurses
@@ -41,6 +41,8 @@ RDEPEND=">=media-libs/libsndfile-1.0.0
 	alsa? ( >=media-libs/alsa-lib-0.9.1[${MULTILIB_USEDEP}] )
 	ieee1394? ( media-libs/libffado )
 	netjack? ( media-libs/libsamplerate[${MULTILIB_USEDEP}] )
+	zalsa? ( media-libs/zita-alsa-pcmi
+		    media-libs/zita-resampler )
 	abi_x86_32? ( !<=app-emulation/emul-linux-x86-soundlibs-20130224-r7
 					!app-emulation/emul-linux-x86-soundlibs[-abi_x86_32(-)] )"
 DEPEND="${RDEPEND}
@@ -72,6 +74,7 @@ multilib_src_configure() {
 		$(use_enable ieee1394 firewire)
 		$(use_enable oss)
 		$(use_enable sse)
+		$(use_enable zalsa)
 	)
 
 	# CPU Detection (dynsimd) uses asm routines which requires 3dnow, mmx and sse.

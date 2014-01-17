@@ -1,4 +1,4 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -16,7 +16,7 @@ EGIT_HAS_SUBMODULES="example-clients"
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
 KEYWORDS=""
-IUSE="3dnow altivec alsa celt coreaudio cpudetection doc debug examples mmx oss sse netjack freebob ieee1394"
+IUSE="3dnow altivec alsa celt coreaudio cpudetection doc debug examples mmx oss sse netjack freebob ieee1394 zalsa"
 
 RDEPEND=">=media-libs/libsndfile-1.0.0
 	sys-libs/ncurses
@@ -24,7 +24,9 @@ RDEPEND=">=media-libs/libsndfile-1.0.0
 	alsa? ( >=media-libs/alsa-lib-0.9.1 )
 	freebob? ( sys-libs/libfreebob !media-libs/libffado )
 	ieee1394? ( media-libs/libffado !sys-libs/libfreebob )
-	netjack? ( media-libs/libsamplerate )"
+	netjack? ( media-libs/libsamplerate )
+	zalsa? ( media-libs/zita-alsa-pcmi
+		    media-libs/zita-resampler )"
 
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
@@ -57,6 +59,7 @@ src_configure() {
 		$(use_enable mmx) \
 		$(use_enable oss) \
 		$(use_enable sse)  \
+		$(use_enable zalsa)  \
 		--disable-dependency-tracking \
 		--with-default-tmpdir=/dev/shm \
 		${myconf} || die "configure failed"
