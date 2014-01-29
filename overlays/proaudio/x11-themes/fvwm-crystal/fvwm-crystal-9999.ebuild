@@ -1,4 +1,4 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -27,8 +27,7 @@ RDEPEND="${PYTHON_DEPS}
 	sys-devel/bc
 	virtual/awk
 	x11-apps/xwd
-	!x11-themes/crystal-audio
-	!x11-misc/habak"
+	x11-misc/xdg-user-dirs"
 
 S="${WORKDIR}/${PN}"
 
