@@ -3,7 +3,7 @@
 # $Header: $
 
   29 Jan 2014; Dominique Michel <dominique_libre@users.sourceforge.net> fvwm-crystal-9999.ebuild:
-  removed non nedded depends, added depend on x11-misc/xdg-user-dirs.
+  removed non nedded depends, added conditional depend on x11-misc/xdg-user-dirs with USE flag.
 
   21 Jun 2013; Dominique Michel <dominique_libre@users.sourceforge.net> fvwm-crystal-9999.ebuild:
   removed the build patch

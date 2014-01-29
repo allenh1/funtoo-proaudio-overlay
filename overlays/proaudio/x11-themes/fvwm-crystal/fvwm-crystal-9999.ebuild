@@ -14,7 +14,7 @@ SRC_URI=""
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE=""
+IUSE="+xdg"
 
 ESVN_REPO_URI="svn://svn.code.sf.net/p/fvwm-crystal/code"
 
@@ -27,7 +27,7 @@ RDEPEND="${PYTHON_DEPS}
 	sys-devel/bc
 	virtual/awk
 	x11-apps/xwd
-	x11-misc/xdg-user-dirs"
+	xdg? ( x11-misc/xdg-user-dirs )"
 
 S="${WORKDIR}/${PN}"
 

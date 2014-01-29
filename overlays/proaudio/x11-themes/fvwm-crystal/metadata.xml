@@ -5,4 +5,7 @@
 		<email>proaudio@tuxfamily.org</email>
 		<name>pro-audio overlay team</name>
 	</maintainer>
+	<use>
+		<flag name="xdg">Enable xdg localized user directories support via x11-misc/xdg-user-dirs</flag>
+	</use>
 </pkgmetadata>
