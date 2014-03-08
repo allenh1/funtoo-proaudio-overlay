@@ -2,6 +2,10 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  08 Mar 2014; Matt Henley (nwmatt) <nwmatt@gmail.com>
+  mixxx-9999-docs.patch: updated for new offset.
+  Thanks to Alex Barker for updated patch.
+
   08 Dec 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   mixxx-9999.ebuild, files/mixxx-9999-cflags.patch,
   -files/mixxx-9999-no-bzr.patch, files/mixxx-9999-system-libs.patch:
