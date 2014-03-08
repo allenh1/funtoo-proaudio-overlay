@@ -2,6 +2,12 @@
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*drumkv1-0.4.0 (08 Mar 2014)
+
+  08 Mar 2014; Matt Henley (nwmatt) <nwmatt@gmail.com>
+  +drumkv1-0.4.0.ebuild:
+  Version bump.
+
 *drumkv1-0.3.6 (01 Jan 2014)
 
   01 Jan 2014; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
