@@ -1,4 +1,4 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -9,7 +9,7 @@ inherit cmake-utils git-2
 DESCRIPTION="free alternative to popular programs such as FruityLoops, Cubase and Logic"
 HOMEPAGE="http://lmms.sourceforge.net"
 
-EGIT_REPO_URI="git://git.code.sf.net/p/${PN}/code"
+EGIT_REPO_URI="https://github.com/LMMS/${PN}.git"
 
 LICENSE="GPL-2 LGPL-2"
 SLOT="0"
