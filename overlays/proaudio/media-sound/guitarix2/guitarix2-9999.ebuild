@@ -33,6 +33,7 @@ RDEPEND="
 	media-sound/vorbis-tools
 	>=sci-libs/fftw-3.1.2
 	>=x11-libs/gtk+-2.20.0
+	dev-cpp/eigen
 	avahi? ( net-dns/avahi )
 	capture? ( media-sound/jack_capture )
 	convolver? ( media-libs/zita-convolver )
