@@ -10,6 +10,7 @@ DESCRIPTION="free alternative to popular programs such as FruityLoops, Cubase an
 HOMEPAGE="http://lmms.sourceforge.net"
 
 EGIT_REPO_URI="https://github.com/LMMS/${PN}.git"
+EGIT_BRANCH="stable-0.4"
 
 LICENSE="GPL-2 LGPL-2"
 SLOT="0"
