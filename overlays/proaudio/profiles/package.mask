@@ -3,6 +3,10 @@
 # NOTE: Please add your entry at the top!
 #
 
+# Dominique Michel <dominique_libre@users.sourceforge.net> (31 March 2014)
+# Work, but some work is needed on the configure phase.
+=media-sound/zynaddsubfx-99999999-r1
+
 # Karl Linden (lilrc) <lilrc@users.sourceforge.net> (30 Jul 2013)
 # Highly experimental multilib compatible ebuilds. Some might even be
 # under active developement.
