@@ -777,6 +777,12 @@
 	Homepage:    http://csa.sourceforge.net/index/index_en.html
 
 
+#------- media-plugins/midifilter-lv2 --------
+	midifilter-lv2-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: LV2 plugins to filter MIDI events
+	Homepage:    http://github.com/x42/midifilter.lv2
+
+
 #------- media-plugins/wah-plugins --------
 	wah-plugins-0.0.2	arch: amd64 x86
 	Description: Auto-WAH plugin.
@@ -888,6 +894,13 @@
 	azr3-lv2-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: AZR3
 	Homepage:    
+
+
+#------- media-plugins/meters-lv2 --------
+	meters-lv2-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: A colletion of audio level meters with GUI
+		 in LV2 plugin format
+	Homepage:    http://github.com/x42/meters.lv2
 
 
 #------- media-plugins/calf --------
