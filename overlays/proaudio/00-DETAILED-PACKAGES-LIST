@@ -763,6 +763,13 @@
 	Homepage:    http://x42.github.io/sisco.lv2
 
 
+#------- media-plugins/convoLV2 --------
+	convoLV2-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: convoLV2 is a lv2 plugin to convolve audio
+		 signals
+	Homepage:    http://github.com/x42/convoLV2
+
+
 #------- media-plugins/csa --------
 	csa-0.5.100810	arch: ~amd64
 	Description: Control Signal Audio. A group of LADSPA Audio
