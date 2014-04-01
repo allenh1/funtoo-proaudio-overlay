@@ -26,11 +26,6 @@ src_configure() {
 	echo "Nothing to configure"
 }
 
-#src_compile() {
-#	# you may change the font here
-#	emake FONTFILE="/usr/share/fonts/freefont/FreeSans.ttf"
-#}
-
 src_install() {
 	emake DESTDIR="${D}" PREFIX="/usr" LIBDIR="$(get_libdir)" install
 }
