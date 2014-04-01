@@ -952,6 +952,13 @@
 	Homepage:    http://eq10q.sourceforge.net/
 
 
+#------- media-plugins/tuna-lv2 --------
+	tuna-lv2-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: A musical instrument tuner with strobe characteristic
+		 in LV2 plugin formt
+	Homepage:    http://github.com/x42/tuna.lv2
+
+
 #------- media-plugins/triceratops-lv2 --------
 	triceratops-lv2-0.1.1d	arch: ~amd64
 	triceratops-lv2-0.1.7	arch: ~amd64
