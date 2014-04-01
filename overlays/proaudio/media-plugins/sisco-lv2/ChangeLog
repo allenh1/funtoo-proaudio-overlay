@@ -7,4 +7,4 @@
   1 Apr 2014; Dominique Michel <dominique_libre@users.sourceforge.net>
   +sisco-lv2-9999.ebuild, +metadata.xml, +ChangeLog;
   Initial ebuild.
-
+  Add base eclass to install the doc.

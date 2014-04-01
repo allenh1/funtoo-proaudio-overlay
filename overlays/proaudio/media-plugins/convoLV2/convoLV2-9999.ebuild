@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=5
-inherit git-2 multilib
+inherit base git-2 multilib
 
 DESCRIPTION="convoLV2 is a lv2 plugin to convolve audio signals"
 HOMEPAGE="http://github.com/x42/convoLV2"
@@ -22,10 +22,13 @@ DEPEND="media-libs/lv2
 	x11-libs/gtk+:2"
 RDEPEND=""
 
+DOCS=( README.md )
+
 src_configure() {
 	echo "Nothing to configure"
 }
 
 src_install() {
 	emake DESTDIR="${D}" PREFIX="/usr" LIBDIR="$(get_libdir)" install
+	base_src_install_docs
 }

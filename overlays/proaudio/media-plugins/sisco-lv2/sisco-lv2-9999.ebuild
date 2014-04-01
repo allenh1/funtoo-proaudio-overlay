@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=5
-inherit git-2 multilib
+inherit base git-2 multilib
 
 DESCRIPTION="Simple LV2 audio oscilloscope"
 HOMEPAGE="http://x42.github.io/sisco.lv2"
@@ -22,6 +22,8 @@ DEPEND="media-libs/lv2
 	virtual/opengl"
 RDEPEND=""
 
+DOCS=( README.md )
+
 src_unpack() {
 	git-2_src_unpack
 	cd "${S}"
@@ -34,4 +36,5 @@ src_configure() {
 
 src_install() {
 	emake DESTDIR="${D}" PREFIX="/usr" LIBDIR="$(get_libdir)" install
+	base_src_install_docs
 }

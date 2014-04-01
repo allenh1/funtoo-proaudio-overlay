@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=5
-inherit git-2 multilib
+inherit base git-2 multilib
 
 DESCRIPTION="Stereo balance control with optional per channel delay"
 HOMEPAGE="http://github.com/x42/balance.lv2"
@@ -22,6 +22,8 @@ DEPEND="media-libs/lv2
 	media-fonts/freefont"
 RDEPEND=""
 
+DOCS=( README.md )
+
 src_configure() {
 	echo "Nothing to configure"
 }
@@ -33,4 +35,5 @@ src_compile() {
 
 src_install() {
 	emake FONTFILE="/usr/share/fonts/freefont/FreeSans.ttf" DESTDIR="${D}" PREFIX="/usr" LIBDIR="$(get_libdir)" install
+	base_src_install_docs
 }
