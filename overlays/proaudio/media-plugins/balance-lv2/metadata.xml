@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer>
+		<email>proaudio@tuxfamily.org</email>
+		<name>pro-audio overlay team</name>
+	</maintainer>
+	<longdescription>
+		balance-lv2 is an audio plugin for stereo balance control with optional per channel delay.
+		It facilitates adjusting stereo microphone recordings (X-Y, A-B, ORTF).
+		But is is also useful as "Input Channel Conditioner".
+	</longdescription>
+</pkgmetadata>

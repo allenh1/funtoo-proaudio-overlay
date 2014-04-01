@@ -1,0 +1,10 @@
+# ChangeLog for media-sound/balance-lv2
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*balance-lv2-9999 (1 Apr 2014)
+
+  1 Apr 2014; Dominique Michel <dominique_libre@users.sourceforge.net>
+  +balance-lv2-9999.ebuild, +metadata.xml, +ChangeLog;
+  Initial ebuild.
+

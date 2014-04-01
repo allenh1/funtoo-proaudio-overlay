@@ -819,6 +819,13 @@
 	Homepage:    http://naspro.sourceforge.net/
 
 
+#------- media-plugins/balance-lv2 --------
+	balance-lv2-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Stereo balance control with optional per
+		 channel delay
+	Homepage:    http://github.com/x42/balance.lv2
+
+
 #------- media-plugins/amb-plugins --------
 	amb-plugins-0.8.1	arch: amd64 x86
 	Description: AMB-plugins ladspa plugin package. Filters
