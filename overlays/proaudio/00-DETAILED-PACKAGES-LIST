@@ -936,6 +936,13 @@
 	Homepage:    http://code.google.com/p/foo-plugins/
 
 
+#------- media-plugins/mixtri-lv2 --------
+	mixtri-lv2-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: MixTri(x) is a matrix mixer and trigger processor
+		 intended to de used with sisco-lv2
+	Homepage:    http://x42.github.io/mixtri.lv2
+
+
 #------- media-plugins/holap --------
 	holap-2012.10.26	arch: ~amd64 ~x86
 	Description: Holborn Audio Plugins: DSSI and LADSPA audio
