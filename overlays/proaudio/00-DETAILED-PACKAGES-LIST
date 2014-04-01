@@ -854,6 +854,12 @@
 	Homepage:    http://factorial.hu/plugins/lv2/ir
 
 
+#------- media-plugins/xfade-lv2 --------
+	xfade-lv2-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: Stereo DJ X-fade
+	Homepage:    http://github.com/x42/xfade.lv2
+
+
 #------- media-plugins/mda-lv2 --------
 	mda-lv2-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: LV2 port of the MDA plugins by Paul Kellett
