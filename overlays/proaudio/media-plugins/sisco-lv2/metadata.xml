@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer>
+		<email>proaudio@tuxfamily.org</email>
+		<name>pro-audio overlay team</name>
+	</maintainer>
+	<longdescription>
+		sisco-lv2 is a simple audio oscilloscope in LV" plugin format.
+		It comes with variable time scale, triggering, cursors and numeric readout.
+		The minimum grid resolusion is 50 micro-seconds - or a 32 times oversampled signal.
+		The maximum buffer time is 15 seconds.
+	</longdescription>
+</pkgmetadata>
