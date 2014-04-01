@@ -911,6 +911,13 @@
 	Homepage:    http://calf.sf.net/
 
 
+#------- media-plugins/nodelay-lv2 --------
+	nodelay-lv2-9999	arch: -> live ebuild: [svn|cvs|...]<-
+	Description: LV2 audio delay line with latency reporting
+		
+	Homepage:    http://github.com/x42/nodelay.lv2
+
+
 #------- media-plugins/buzzmachines --------
 	buzzmachines-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: Machines for Buzztard
