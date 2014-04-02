@@ -1,4 +1,4 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -25,7 +25,6 @@ RDEPEND="!media-libs/lash
 	sys-apps/dbus
 	>=dev-libs/glib-2.20.3
 	>=x11-libs/gtk+-2.20.0
-	>=gnome-base/libglade-2.6.2
 	>=dev-libs/dbus-glib-0.74
 	>=dev-libs/expat-2.0.1
 	${PYTHON_DEPS}"

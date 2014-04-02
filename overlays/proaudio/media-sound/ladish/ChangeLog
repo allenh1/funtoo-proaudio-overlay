@@ -1,6 +1,10 @@
 # ChangeLog for media-sound/ladish
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  2 Apr 2014; Dominique Michel <dominique_libre@users.sourceforge.net>
+  ladish-9999-r1: remove libglade depend.
+  Thanks to Zlobin Nikita for the fix.
 
   29 Nov 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   -ladish-1.ebuild, -ladish-1-r1.ebuild, -ladish-9999.ebuild:
