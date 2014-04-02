@@ -2,6 +2,10 @@
 # Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  02 Mar 2014; Dominique Michel <dominique_libre@users.sourceforge.net>
+  mixxx-9999-system-libs.patch: updated for new offsets.
+  Thanks to Alex Barker for the updated patch.
+
   08 Mar 2014; Matt Henley (nwmatt) <nwmatt@gmail.com>
   mixxx-9999-docs.patch: updated for new offset.
   Thanks to Alex Barker for updated patch.

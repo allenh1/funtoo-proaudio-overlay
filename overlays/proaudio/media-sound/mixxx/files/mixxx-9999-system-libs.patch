@@ -1,6 +1,6 @@
 --- mixxx-9999/build/depends.py
 +++ mixxx-9999/build/depends.py
-@@ -317,26 +317,10 @@ class Qt(Dependence):
+@@ -377,25 +377,10 @@ class TestHeaders(Dependence):
  
  class FidLib(Dependence):
  
@@ -23,14 +23,13 @@
 -
      def configure(self, build, conf):
 -        build.env.Append(CPPPATH='#lib/fidlib-0.9.10/')
--
 +        if not conf.CheckLib('fidlib'):
 +            raise Exception('Did not find fidlib library, exiting!')
 +        build.env.Append(CPPPATH=[SCons.ARGUMENTS.get('prefix') + '/include/fidlib'])
  
- class ReplayGain(Dependence):
  
-@@ -348,7 +332,6 @@ class ReplayGain(Dependence):
+ class ReplayGain(Dependence):
+@@ -408,7 +393,6 @@ class ReplayGain(Dependence):
  
  
  class SoundTouch(Dependence):
@@ -38,7 +37,7 @@
  
      def sse_enabled(self, build):
          optimize = int(util.get_flags(build.env, 'optimize', 1))
-@@ -357,30 +340,7 @@ class SoundTouch(Dependence):
+@@ -417,30 +401,7 @@ class SoundTouch(Dependence):
                  (build.toolchain_is_gnu and optimize > 1))
  
      def sources(self, build):
@@ -70,7 +69,7 @@
  
      def configure(self, build, conf, env=None):
          if env is None:
-@@ -388,12 +348,11 @@ class SoundTouch(Dependence):
+@@ -448,12 +409,11 @@ class SoundTouch(Dependence):
          if build.platform_is_windows:
              # Regardless of the bitwidth, ST checks for WIN32
              env.Append(CPPDEFINES='WIN32')
@@ -110,7 +109,7 @@
  
          if build.platform_is_linux:
              build.env.ParseConfig(
-@@ -96,22 +91,16 @@ class HID(Feature):
+@@ -95,22 +90,16 @@ class HID(Feature):
  
          build.env.Append(CPPDEFINES='__HID__')
  
@@ -138,41 +137,39 @@
          return sources
  
  
-@@ -817,26 +806,15 @@ class TestSuite(Feature):
+@@ -798,24 +787,15 @@ class TestSuite(Feature):
          test_env.Append(CCFLAGS='-pthread')
          test_env.Append(LINKFLAGS='-pthread')
  
--        test_env.Append(CPPPATH="#lib/gtest-1.5.0/include")
--        gtest_dir = test_env.Dir("#lib/gtest-1.5.0")
+-        test_env.Append(CPPPATH="#lib/gtest-1.7.0/include")
+-        gtest_dir = test_env.Dir("#lib/gtest-1.7.0")
 -        # gtest_dir.addRepository(build.env.Dir('#lib/gtest-1.5.0'))
 -        # build.env['EXE_OUTPUT'] = '#/lib/gtest-1.3.0/bin'  # example,
 -        # optional
--        test_env['LIB_OUTPUT'] = '#/lib/gtest-1.5.0/lib'
+-        test_env['LIB_OUTPUT'] = '#/lib/gtest-1.7.0/lib'
 -
 -        env = test_env
 -        SCons.Export('env')
 -        env.SConscript(env.File('SConscript', gtest_dir))
 -
 -        # build and configure gmock
--        test_env.Append(CPPPATH="#lib/gmock-1.5.0/include")
--        gmock_dir = test_env.Dir("#lib/gmock-1.5.0")
+-        test_env.Append(CPPPATH="#lib/gmock-1.7.0/include")
+-        gmock_dir = test_env.Dir("#lib/gmock-1.7.0")
 -        # gmock_dir.addRepository(build.env.Dir('#lib/gmock-1.5.0'))
--        test_env['LIB_OUTPUT'] = '#/lib/gmock-1.5.0/lib'
+-        test_env['LIB_OUTPUT'] = '#/lib/gmock-1.7.0/lib'
 -
 -        env.SConscript(env.File('SConscript', gmock_dir))
 +        if not conf.CheckLib('gtest'):
 +            raise Exception('Did not find gtest library, exiting!')
 +        test_env.Append(CPPPATH=[SCons.ARGUMENTS.get('prefix') + '/include/gtest'])
 +        test_env.Append(LIBS='gtest')
- 
--        return []
++ 
 +        if not conf.CheckLib('gmock'):
 +            raise Exception('Did not find gmock library, exiting!')
 +        test_env.Append(CPPPATH=[SCons.ARGUMENTS.get('prefix') + '/include/gmock'])
 +        test_env.Append(LIBS='gmock')
  
- 
- class Shoutcast(Feature):
+         return []
 
 
 --- mixxx-9999/src/engine/enginefilter.h
@@ -197,5 +194,5 @@
 -#include "../lib/fidlib-0.9.10/fidlib.h"
 +#include <fidlib.h>
  
- inline double _processLowpass(double *coef, double *buf, register double val);
- inline double _processBandpass(double *coef, double *buf, register double val);
+ inline CSAMPLE _processLowpass(CSAMPLE *coef, CSAMPLE *buf, register CSAMPLE val);
+ inline CSAMPLE _processBandpass(CSAMPLE *coef, CSAMPLE *buf, register CSAMPLE val);
