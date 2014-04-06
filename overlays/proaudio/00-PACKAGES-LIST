@@ -213,6 +213,7 @@ x11-libs/qwt
 x11-libs/ntk
 dev-python/python-poppler-qt4
 dev-python/wmdocklib
+app-portage/update_liveset
 app-portage/euses
 sys-firmware/midisport-firmware
 dev-util/premake

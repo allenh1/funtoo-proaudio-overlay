@@ -8,6 +8,12 @@
 	Homepage:    http://sourceforge.net/projects/wineasio
 
 
+#------- app-portage/update_liveset --------
+	update_liveset-1.0	arch: ~alpha ~amd64 ~hppa ~ppc ~sparc ~x86 ~x86-fbsd
+	Description: update your live ebuild set
+	Homepage:    http://proaudio.tuxfamily.org/wiki/index.php?title=Main_Page
+
+
 #------- app-portage/euses --------
 	euses-2.5.9-r1	arch: ~alpha ~amd64 ~hppa ~ppc ~sparc ~x86 ~x86-fbsd
 	Description: look up USE flag descriptions fast
@@ -887,6 +893,13 @@
 	Description: Open-source project that provides Cross-Platform
 		 Audio Plugins using Juce and Qt4
 	Homepage:    http://distrho.sourceforge.net/
+
+
+#------- media-plugins/ste-plugins --------
+	ste-plugins-0.0.2	arch: ~amd64 ~x86
+	Description: STE LADSPA plugins package. Includes stereo
+		 panner and width adjuster.
+	Homepage:    http://kokkinizita.linuxaudio.org/linuxaudio/
 
 
 #------- media-plugins/gst-buzztard --------
