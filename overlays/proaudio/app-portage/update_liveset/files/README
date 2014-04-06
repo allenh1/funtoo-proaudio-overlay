@@ -1,0 +1,12 @@
+update_liveset for the Gentoo pro-audio overlay.
+
+It will update your live ebuilds and optionaly run
+a depclean and revdep rebuild (recommanded).
+
+Just run 'update_liveset' and you will get the help.
+
+Please, report any problem with this software to the pro-audio mail list,
+or to me.
+
+Enjoy!
+Dominique Michel <dominique_libre@users.sourceforge.net>
