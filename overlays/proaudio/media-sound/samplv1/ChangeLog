@@ -2,6 +2,14 @@
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*samplv1-0.4.1 (15 Apr 2014)
+
+  15 Apr 2014; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -samplv1-0.3.3.ebuild, -samplv1-0.3.4.ebuild, -samplv1-0.3.5.ebuild,
+  +samplv1-0.4.1.ebuild:
+  Version bump.
+  Remove outdated ebuilds.
+
 *samplv1-0.4.0 (08 Mar 2014)
 
   08 Mar 2014; Matt Henley (nwmatt) <nwmatt@gmail.com>
