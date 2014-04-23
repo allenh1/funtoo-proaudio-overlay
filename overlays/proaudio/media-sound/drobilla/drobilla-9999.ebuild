@@ -1,4 +1,4 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -7,7 +7,7 @@ EAPI=2
 inherit subversion toolchain-funcs multilib
 
 RESTRICT="mirror"
-IUSE="alsa auto-arrange debug doc gir gtk qt4 +session"
+IUSE="alsa auto-arrange debug doc gir gtk qt4 +session webkit"
 DESCRIPTION="Patchage is a modular patchbay for Jack audio and Alsa sequencer."
 HOMEPAGE="http://drobilla.net/software/patchage"
 
@@ -35,7 +35,7 @@ RDEPEND="=media-plugins/omins-9999
 	>=dev-cpp/libglademm-2.6.0
 	>=dev-cpp/libgnomecanvasmm-2.6
 	dev-libs/boost
-	>=net-libs/webkit-gtk-1.4.0
+	webkit? ( >=net-libs/webkit-gtk-1.4.0 )
 	dev-libs/boost
 	dev-libs/libpcre
 	>=media-libs/lv2-9999
@@ -75,6 +75,7 @@ src_configure() {
 		$(use auto-arrange || echo "--no-graphviz") \
 		$(use gir && echo "--gir") \
 		$(use session || echo "--no-jack-session") \
+		$(use webkit || echo "--no-webkit") \
 		$(use doc && echo "--docs --docdir=/usr/share/doc/${P}/html") \
 		|| die
 }
