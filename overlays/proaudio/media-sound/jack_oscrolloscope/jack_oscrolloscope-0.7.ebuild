@@ -1,9 +1,9 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI=5
-inherit base toolchain-funcs
+inherit base eutils toolchain-funcs
 
 DESCRIPTION="Simple waveform viewer for JACK"
 HOMEPAGE="http://das.nasophon.de/jack_oscrolloscope/"
@@ -24,7 +24,8 @@ RESTRICT="mirror"
 
 DOCS=(README NEWS)
 
-PATCHES=("${FILESDIR}"/${P}-Makefile.patch)
+PATCHES=("${FILESDIR}"/${P}-Makefile.patch
+	"${FILESDIR}"/${P}-linking.patch)
 
 src_compile() {
 	base_src_make CC="$(tc-getCC)"
@@ -32,4 +33,5 @@ src_compile() {
 
 src_install() {
 	base_src_install PREFIX="${EPREFIX}"/usr
+	make_desktop_entry "${PN}" "Jack_Oscrolloscope" "${PN}" "AudioVideo;Audio;Engineering;"
 }

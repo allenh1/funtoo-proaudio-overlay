@@ -1,0 +1,11 @@
+--- Makefile.orig	2014-04-23 02:23:13.000000000 +0200
++++ Makefile	2014-04-23 10:04:20.316808574 +0200
+@@ -2,7 +2,7 @@
+ CC=gcc
+ 
+ CFLAGS +=	$(shell sdl-config --cflags) $(shell pkg-config --cflags jack) -W -Wall -std=gnu99
+-LIBS =		$(shell sdl-config --libs) $(shell pkg-config --libs jack) -lGL -lX11
++LIBS =		$(shell sdl-config --libs) $(shell pkg-config --libs jack) -lGL -lX11 -lm
+ 
+ CFLAGS +=	-O2
+ 
