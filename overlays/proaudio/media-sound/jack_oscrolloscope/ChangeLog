@@ -1,6 +1,11 @@
 # ChangeLog for media-sound/jack_oscrolloscope
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  21 May 2014; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  jack_oscrolloscope-0.7.ebuild:
+  add virtual/pkgconfig, rename libsdl USE dep audio -> sound.
+  drop base eclass...
 
   23 Apr 2014; Dominique Michel <dominique_libre@users.sourceforge.net>
   +jack_oscrolloscope-0.7-linking.patch:

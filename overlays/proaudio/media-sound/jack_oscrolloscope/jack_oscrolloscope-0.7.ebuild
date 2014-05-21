@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=5
-inherit base eutils toolchain-funcs
+inherit eutils toolchain-funcs
 
 DESCRIPTION="Simple waveform viewer for JACK"
 HOMEPAGE="http://das.nasophon.de/jack_oscrolloscope/"
@@ -14,24 +14,26 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="media-sound/jack-audio-connection-kit
-	media-libs/libsdl[audio,video]
+RDEPEND="media-sound/jack-audio-connection-kit
+	media-libs/libsdl[sound,video]
 	x11-libs/libX11
 	virtual/opengl"
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	virtual/pkgconfig"
 
 RESTRICT="mirror"
 
-DOCS=(README NEWS)
-
-PATCHES=("${FILESDIR}"/${P}-Makefile.patch
-	"${FILESDIR}"/${P}-linking.patch)
+src_prepare() {
+	epatch "${FILESDIR}"/${P}-Makefile.patch
+	epatch "${FILESDIR}"/${P}-linking.patch
+}
 
 src_compile() {
-	base_src_make CC="$(tc-getCC)"
+	emake CC="$(tc-getCC)"
 }
 
 src_install() {
-	base_src_install PREFIX="${EPREFIX}"/usr
+	emake PREFIX="${EPREFIX}"/usr DESTDIR="${D}" install
+	dodoc README NEWS
 	make_desktop_entry "${PN}" "Jack_Oscrolloscope" "${PN}" "AudioVideo;Audio;Engineering;"
 }
