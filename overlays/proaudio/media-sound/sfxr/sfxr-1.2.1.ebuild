@@ -1,9 +1,9 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI=4
-inherit base
+inherit eutils toolchain-funcs
 
 DESCRIPTION="Sound effect generator with SDL GUI"
 HOMEPAGE="http://www.drpetter.se/project_sfxr.html"
@@ -14,15 +14,22 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="media-libs/libsdl[audio,video]"
-RDEPEND="${DEPEND}"
+RDEPEND="media-libs/libsdl[sound,video]
+	x11-libs/gtk+:3"
+DEPEND="${RDEPEND}
+	virtual/pkgconfig"
 
 S=${WORKDIR}/${PN}-sdl-${PV}
 
-DOCS=(ChangeLog readme.txt)
-
-PATCHES=("${FILESDIR}/${P}-Makefile.patch")
+src_prepare() {
+	epatch "${FILESDIR}"/${P}-Makefile.patch
+}
 
 src_compile() {
-	CXX="$(tc-getCXX)" base_src_compile
+	emake CXX="$(tc-getCXX)"
+}
+
+src_install() {
+	emake DESTDIR="${D}" install
+	dodoc ChangeLog readme.txt
 }
