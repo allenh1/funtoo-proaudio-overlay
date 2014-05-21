@@ -1,4 +1,4 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -17,9 +17,10 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="examples"
 
-RDEPEND=">=media-libs/libsdl-1.2.14[audio,video]"
-DEPEND="${DEPEND}
-	app-arch/unzip"
+RDEPEND=">=media-libs/libsdl-1.2.14[sound,video]"
+DEPEND="${RDEPEND}
+	app-arch/unzip
+	virtual/pkgconfig"
 # modified resid is bundled in the source tree
 
 S=${WORKDIR}
