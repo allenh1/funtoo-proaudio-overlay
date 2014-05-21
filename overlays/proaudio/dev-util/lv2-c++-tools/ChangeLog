@@ -1,6 +1,12 @@
 # ChangeLog for dev-util/lv2-c++-tools
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*lv2-c++-tools-1.0.5 (21 May 2014)
+
+  21 May 2014; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  +lv2-c++-tools-1.0.5.ebuild:
+  bump to fix compile. honour CXX/AR, add boost and virtual/pkgconfig dependency
 
   09 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   -lv2-c++-tools-1.0.2.ebuild, lv2-c++-tools-1.0.4.ebuild, metadata.xml:
