@@ -4,24 +4,22 @@
 
 EAPI="5"
 
-AUTOTOOLS_AUTORECONF="1"
 PYTHON_COMPAT=( python2_7 )
-inherit autotools-utils git-2 python-single-r1
+inherit autotools-utils python-single-r1
 
 RESTRICT="mirror"
 DESCRIPTION="Internet DJ Console has two media players, jingles player, crossfader, VoIP and streaming"
 HOMEPAGE="http://idjc.sourceforge.net/"
-EGIT_REPO_URI="git://${PN}.git.sourceforge.net/gitroot/${PN}/${PN}"
+SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~x86 ~amd64"
 
 IUSE="doc ffmpeg flac mad mpg123 mysql nls opus speex twolame"
 
 RDEPEND="dev-python/eyeD3[${PYTHON_USEDEP}]
 	dev-python/pygtk[${PYTHON_USEDEP}]
 	media-libs/libsamplerate
-	media-libs/libshout-idjc
 	>=media-libs/libshout-idjc-2.3.1[speex?]
 	media-libs/libsndfile
 	media-libs/libvorbis
@@ -46,12 +44,6 @@ src_prepare() {
 		-e 's/^TerminalOptions=//' \
 		-e 's/^Path=//' \
 		idjc.desktop.in.in || die "Sed failed!"
-
-	pushd "${S}/docsrc"
-	emake && emake doc
-	popd
-
-	autotools-utils_src_prepare
 }
 
 src_configure() {
@@ -70,7 +62,6 @@ src_configure() {
 
 src_install() {
 	use doc && HTML_DOCS=( doc/ )
-
 	autotools-utils_src_install
 }
 

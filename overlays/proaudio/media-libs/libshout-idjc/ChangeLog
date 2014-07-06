@@ -1,6 +1,12 @@
 # ChangeLog for media-libs/libshout-idjc
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*libshout-idjc-2.3.1 (15 Jun 2014)
+
+  15 Jun 2014; Christian Affolter <c.affolter@stepping-stone.ch>
+  +libshout-idjc-2.3.1.ebuild:
+  Version bump and installation of documentation files.
 
   04 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net> initial commit:
     libshout-idjc-2.3.0.ebuild from Jannis Achstetter

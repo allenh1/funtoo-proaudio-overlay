@@ -1,6 +1,18 @@
 # ChangeLog for media-sound/idjc
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*idjc-0.8.14 (04 Jul 2014)
+
+  15 Jun 2014; Christian Affolter <c.affolter@stepping-stone.ch>
+  +idjc-0.8.14.ebuild, idjc-9999.ebuild:
+  Version bump to 0.8.14.
+  Add mysql-python dependency for Prokyon 3 or Ampache database support.
+  Depend on newer media-sound/jack-audio-connection-kit and
+  media-libs/libshout-idjc according to upstream build dependency list.
+  Remove unsupported and empty keys from the desktop entry file.
+  Inform the user to configure and start the jack daemon.
+  Sorted the dependencies in alphabetical order.
 
 *idjc-0.8.9 (02 Jun 2013)
 
