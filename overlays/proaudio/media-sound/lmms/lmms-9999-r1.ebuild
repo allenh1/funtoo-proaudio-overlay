@@ -10,7 +10,6 @@ DESCRIPTION="free alternative to popular programs such as FruityLoops, Cubase an
 HOMEPAGE="http://lmms.sourceforge.net"
 
 EGIT_REPO_URI="https://github.com/LMMS/${PN}.git"
-EGIT_REPO_URI_ZYNADDSUBFX="https://github.com/LMMS/zynaddsubfx.git"
 
 LICENSE="GPL-2 LGPL-2"
 SLOT="0"
@@ -36,15 +35,6 @@ RDEPEND="dev-qt/qtcore
 DEPEND="${RDEPEND}"
 
 DOCS=( README AUTHORS TODO )
-
-src_unpack() {
-	git-2_src_unpack
-
-	unset EGIT_BRANCH EGIT_COMMIT
-	EGIT_SOURCEDIR="${WORKDIR}/${P}/plugins/zynaddsubfx/zynaddsubfx" \
-		EGIT_REPO_URI="${EGIT_REPO_URI_ZYNADDSUBFX}" \
-		git-2_src_unpack
-}
 
 src_configure() {
 	mycmakeargs=(
