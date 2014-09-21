@@ -15,7 +15,7 @@ KEYWORDS="~x86 ~amd64"
 DESCRIPTION="Faust AUdio STreams is a functional programming language and compiler for fast DSP algorythms."
 HOMEPAGE="http://faudiostream.sourceforge.net"
 SRC_URI="mirror://sourceforge/faudiostream/${P}.zip"
-S=${WORKDIR}
+#S=${WORKDIR}
 
 RDEPEND="sys-devel/bison
 	sys-devel/flex"
