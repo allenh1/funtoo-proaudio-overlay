@@ -1,8 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI="5"
+
+AUTOTOOLS_AUTORECONF="1"
 
 inherit autotools-utils linux-info udev
 
@@ -16,17 +18,19 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="sys-apps/fxload
->=sys-fs/udev-057"
+	virtual/udev"
 DEPEND="${RDEPEND}
-virtual/pkgconfig"
+	virtual/pkgconfig"
 
-CONFIG_CHECK="~SND_USB_AUDIO"
-AUTOTOOLS_AUTORECONF="1"
 AUTOTOOLS_IN_SOURCE_BUILD="1"
-PATCHES=( "${FILESDIR}/${P}-configure.patch" "${FILESDIR}/${P}-rules.patch" )
-DOCS=( "README" )
+CONFIG_CHECK="~SND_USB_AUDIO"
+
+PATCHES=(
+	"${FILESDIR}/${P}-configure.patch"
+	"${FILESDIR}/${P}-rules.patch"
+)
 
 src_configure() {
-	local myeconfargs=(	"--with-udev=$(get_udevdir)" )
+	local myeconfargs=( "--with-udev=$(get_udevdir)" )
 	autotools-utils_src_configure
 }
