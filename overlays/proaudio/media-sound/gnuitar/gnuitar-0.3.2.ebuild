@@ -13,7 +13,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND=">=x11-libs/gtk+-2.0
-		dev-util/pkgconfig"
+		virtual/pkgconfig"
 
 src_compile() {
 	econf --with-gtk2 || die "configure failed"

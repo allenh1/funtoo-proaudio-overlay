@@ -40,7 +40,7 @@ COMMON_DEPEND="x11-libs/wxGTK:2.8[X]
 RDEPEND="${COMMON_DEPEND}
 	mp3? ( >=media-sound/lame-3.70 )"
 DEPEND="${COMMON_DEPEND}
-	dev-util/pkgconfig"
+	virtual/pkgconfig"
 
 REQUIRED_USE="soundtouch? ( midi )"
 

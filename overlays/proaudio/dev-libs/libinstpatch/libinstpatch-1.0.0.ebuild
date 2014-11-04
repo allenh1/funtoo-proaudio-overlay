@@ -22,7 +22,7 @@ RDEPEND=">=media-libs/libsndfile-1.0.0
 	>=dev-libs/glib-2.0
 	python? ( dev-python/pygtk )"
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig"
+	virtual/pkgconfig"
 
 src_configure() {
 	econf --disable-dependency-tracking \

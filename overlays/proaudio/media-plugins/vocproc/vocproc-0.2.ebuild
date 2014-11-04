@@ -20,7 +20,7 @@ RDEPEND=">=dev-cpp/gtkmm-2.20.3:2.4
 	>=dev-util/lv2-c++-tools-1.0.3
 	>=sci-libs/fftw-3.2.2:3.0"
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig"
+	virtual/pkgconfig"
 
 S="${WORKDIR}/${PN}.lv2"
 

@@ -17,7 +17,7 @@ IUSE="python debug nls"
 DEPEND=">=dev-libs/glib-2.0
 	>=media-libs/libsndfile-1.0.0
 	python? ( dev-lang/python )
-	dev-util/pkgconfig"
+	virtual/pkgconfig"
 
 RDEPEND=">=dev-libs/glib-2.0
 	>=media-libs/libsndfile-1.0.0

@@ -25,7 +25,7 @@ RDEPEND=">=dev-libs/glib-2.0
 	>=media-libs/libvorbis-1.0
 	media-sound/madplay"
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig
+	virtual/pkgconfig
 	dev-lang/perl
 	media-libs/ladspa-cmt
 	media-libs/ladspa-sdk

@@ -18,7 +18,7 @@ RDEPEND=">=media-libs/libsdl-1.2.11
 		media-libs/libpng"
 DEPEND="${RDEPEND}
 		dev-util/scons
-		dev-util/pkgconfig"
+		virtual/pkgconfig"
 
 src_compile() {
 	local myconf=""

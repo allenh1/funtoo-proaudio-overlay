@@ -16,7 +16,7 @@ IUSE=""
 DEPEND=">=media-libs/liblo-0.23
 		>=media-libs/libmad-0.15
 		>=media-sound/jack-audio-connection-kit-0.100
-		>=dev-util/pkgconfig-0.9"
+		virtual/pkgconfig"
 
 src_install() {
 	make DESTDIR="${D}" install || die "install failed"

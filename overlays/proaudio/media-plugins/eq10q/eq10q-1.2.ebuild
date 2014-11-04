@@ -20,7 +20,7 @@ RDEPEND=">=dev-cpp/gtkmm-2.20.3:2.4
 	>=sci-libs/plotmm-0.1.2"
 DEPEND="${RDEPEND}
 	>=dev-cpp/pstreams-0.7.0
-	dev-util/pkgconfig"
+	virtual/pkgconfig"
 
 S="${WORKDIR}/EQ10Q"
 

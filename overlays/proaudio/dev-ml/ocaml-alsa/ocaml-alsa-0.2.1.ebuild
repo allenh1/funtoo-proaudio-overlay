@@ -18,7 +18,7 @@ SLOT="0"
 DEPEND="dev-ml/findlib
 		>=dev-lang/ocaml-3.06
 		media-libs/alsa-lib
-		dev-util/pkgconfig"
+		virtual/pkgconfig"
 
 RDEPEND="dev-lang/ocaml
 		media-libs/alsa-lib"

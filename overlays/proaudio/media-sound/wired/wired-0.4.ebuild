@@ -33,7 +33,7 @@ RDEPEND=">=media-libs/libsndfile-1.0
 	!portaudio-internal? ( >=media-libs/portaudio-19 )"
 
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig
+	virtual/pkgconfig
 	sys-devel/libtool
 	sys-devel/make"
 

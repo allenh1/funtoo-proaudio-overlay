@@ -17,7 +17,7 @@ IUSE="alsa debug doc jack oss"
 RDEPEND="alsa? ( media-libs/alsa-lib )
 	jack? ( media-sound/jack-audio-connection-kit )"
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig
+	virtual/pkgconfig
 	dev-lang/perl"
 
 src_prepare() {

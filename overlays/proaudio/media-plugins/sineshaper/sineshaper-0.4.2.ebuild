@@ -18,7 +18,7 @@ RESTRICT="mirror"
 RDEPEND=">=media-libs/dssi-0.9
 	>=dev-cpp/libglademm-2.6.0
 	>=media-libs/liblo-0.18
-	dev-util/pkgconfig"
+	virtual/pkgconfig"
 
 #S="${WORKDIR}/${MY_P}"
 src_unpack() {

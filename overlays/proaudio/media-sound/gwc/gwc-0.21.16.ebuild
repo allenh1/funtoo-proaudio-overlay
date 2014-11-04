@@ -16,7 +16,7 @@ LICENSE="GPL-1"
 KEYWORDS="amd64 ~ppc x86"
 
 DEPEND=">=media-libs/libsndfile-1.0.1
-	>=dev-util/pkgconfig-0.9
+	virtual/pkgconfig
 	=sci-libs/fftw-3*
 	x11-proto/glproto
 	x11-proto/dri2proto

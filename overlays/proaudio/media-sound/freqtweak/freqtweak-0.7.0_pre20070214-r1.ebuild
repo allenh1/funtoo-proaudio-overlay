@@ -19,7 +19,7 @@ RDEPEND="=x11-libs/wxGTK-2.6*
 	dev-libs/libxml2
 	media-sound/jack-audio-connection-kit"
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig"
+	virtual/pkgconfig"
 
 S="${WORKDIR}/${PN}"
 

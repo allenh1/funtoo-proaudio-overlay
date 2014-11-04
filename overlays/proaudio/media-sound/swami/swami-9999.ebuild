@@ -23,7 +23,7 @@ RDEPEND=">=dev-libs/libinstpatch-1.0.0
 	fftw? ( >=sci-libs/fftw-3.1:3.0 )
 	fluidsynth? ( >=media-sound/fluidsynth-1.0.4 )"
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig"
+	virtual/pkgconfig"
 
 DOCS=(AUTHORS ChangeLog NEWS README)
 

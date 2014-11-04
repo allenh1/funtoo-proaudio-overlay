@@ -26,7 +26,7 @@ RDEPEND="
 	sci-libs/fftw:3.0"
 
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig"
+	virtual/pkgconfig"
 
 S="${WORKDIR}/${PN}"
 

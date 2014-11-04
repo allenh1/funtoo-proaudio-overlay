@@ -18,7 +18,7 @@ RDEPEND="media-libs/alsa-lib
 	>=dev-cpp/gtkmm-2.4"
 
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig"
+	virtual/pkgconfig"
 
 src_compile() {
 	sed -ie "s:/usr/local:/usr:" Makefile

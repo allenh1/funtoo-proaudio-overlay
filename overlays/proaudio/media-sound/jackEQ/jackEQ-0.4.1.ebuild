@@ -19,7 +19,7 @@ DEPEND="${RDEPEND}
 		media-plugins/swh-plugins
 		dev-libs/libxml2"
 RDEPEND="=x11-libs/gtk+-2*
-		>=dev-util/pkgconfig-0.8"
+		virtual/pkgconfig"
 
 src_install() {
 	make DESTDIR="${D}" install || die "installation failed"

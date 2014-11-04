@@ -26,7 +26,7 @@ RDEPEND="media-sound/jack-audio-connection-kit
 	media-libs/rubberband
 	sci-libs/fftw:3.0"
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig"
+	virtual/pkgconfig"
 
 src_unpack() {
 	unpack ${A}

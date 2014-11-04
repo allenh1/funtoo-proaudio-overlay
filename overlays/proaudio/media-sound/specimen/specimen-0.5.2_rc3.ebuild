@@ -27,7 +27,7 @@ RDEPEND="media-sound/jack-audio-connection-kit
 
 DEPEND="${RDEPEND}
 	>=gnome-base/libgnomeui-2.0
-	dev-util/pkgconfig"
+	virtual/pkgconfig"
 
 S="${WORKDIR}/${MY_P}"
 

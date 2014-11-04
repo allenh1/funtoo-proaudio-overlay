@@ -24,7 +24,7 @@ RDEPEND=">=x11-libs/gtk+-2.20:2
 	>=dev-libs/libinstpatch-1.0.0[python?]
 	python? ( dev-python/pygtk )"
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig"
+	virtual/pkgconfig"
 
 src_prepare() {
 	# this works around an intermittent build failure where the libswamigui.so

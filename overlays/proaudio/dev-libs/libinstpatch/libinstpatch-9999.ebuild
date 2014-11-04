@@ -21,7 +21,7 @@ RDEPEND=">=dev-libs/glib-2.0
 	python? ( dev-lang/python dev-python/pygtk )
 	media-libs/audiofile"
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig"
+	virtual/pkgconfig"
 
 src_compile() {
 	./autogen.sh

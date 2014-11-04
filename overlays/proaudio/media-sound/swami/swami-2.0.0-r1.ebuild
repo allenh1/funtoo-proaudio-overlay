@@ -25,7 +25,7 @@ RDEPEND=">=dev-libs/libinstpatch-1.0.0
 	fftw? ( >=sci-libs/fftw-3.0:3.0 )
 	fluidsynth? ( >=media-sound/fluidsynth-1.0.4 )"
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig"
+	virtual/pkgconfig"
 
 # bug?
 AUTOTOOLS_IN_SOURCE_BUILD=1

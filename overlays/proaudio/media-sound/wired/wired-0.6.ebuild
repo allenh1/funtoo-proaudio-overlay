@@ -33,7 +33,7 @@ RDEPEND=">=media-libs/libsndfile-1.0
 	!portaudio-internal? ( =media-libs/portaudio-19* )"
 
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig"
+	virtual/pkgconfig"
 
 src_compile() {
 	WX_GTK_VER="2.6"
