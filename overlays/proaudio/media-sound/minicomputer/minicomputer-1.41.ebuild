@@ -1,10 +1,10 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI="5"
 
-inherit eutils toolchain-funcs
+inherit exteutils toolchain-funcs
 
 MY_P="${PN/mini/Mini}V${PV}"
 
@@ -26,16 +26,18 @@ RDEPEND="media-sound/jack-audio-connection-kit
 DEPEND="${RDEPEND}
 	dev-util/scons"
 
-S="${WORKDIR}/${MY_P}"
+S="${WORKDIR}"
 
 src_prepare() {
 	epatch "${FILESDIR}/${PN}-fltk.patch"
 	epatch "${FILESDIR}/${PN}-respect-tc-flags.patch"
+	epatch "${FILESDIR}/${PN}-scons_link_with_libm.patch"
+	esed_check -i -e 's@// *\(.*unistd.*\)@\1@' "${S}/editor/Memory.h"
 }
 
 src_compile() {
 	tc-export CC CXX
-	scons PREFIX=/usr || die
+	escons PREFIX=/usr || die
 }
 
 src_install() {

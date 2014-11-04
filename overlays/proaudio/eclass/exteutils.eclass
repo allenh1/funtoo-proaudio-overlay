@@ -69,14 +69,18 @@ esed() {
 # syntax same as sed
 # ESED=1 emerge pkg # will show the differences produced whith esed_check
 # and placed the pkg in ${S}/esed_patches
+ESED_CHECK_ONLY_WARN=0
 CNT="0"
 esed_check() {
 #	set -x
 	die_msg() {
-		eerror "failed to patch: ${1}"
-		eerror "Sed argument:"
-		eerror "sed ${new_args[@]}"
-		die "sed patching failed"
+		local l_act="$([ "$ESED_CHECK_ONLY_WARN" = 1 ] && echo ewarn || echo eerror)"
+
+		$l_act "esed_check: Failed to patch: ${1}"
+		$l_act "esed_check: Sed argument:"
+		$l_act "esed_check: sed ${new_args[@]}"
+
+		[ "$ESED_CHECK_ONLY_WARN" = 0 ] && die "sed patching failed"
 	}
 
 	local uniq_backup="esed_bac${RANDOM}" # needed to find modified files

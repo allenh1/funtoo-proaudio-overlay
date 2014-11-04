@@ -1,6 +1,11 @@
 # ChangeLog for media-sound/minicomputer
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  04 Nov 2014; Frieder Buerzele <evermind@tuxfamily.org>
+  minicomputer-1.41.ebuild, minicomputer-9999.ebuild,
+  +files/minicomputer-scons_link_with_libm.patch:
+  fix gentoo bug 516710 (thx Marc Joliet for reporting)
 
   08 Jan 2012; Gavin Pryke <gavinlee303@googlemail.com>
   -minicomputer-1.3.ebuild, -files/minicomputer-1.3-fltk.patch,

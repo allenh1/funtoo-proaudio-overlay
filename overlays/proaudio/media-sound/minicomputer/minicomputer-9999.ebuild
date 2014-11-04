@@ -1,10 +1,10 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI="5"
 
-inherit eutils toolchain-funcs subversion
+inherit exteutils toolchain-funcs subversion
 
 MY_P="${PN/mini/Mini}V${PV}"
 
@@ -32,11 +32,12 @@ S="${WORKDIR}"
 src_prepare() {
 	epatch "${FILESDIR}/${PN}-fltk.patch"
 	epatch "${FILESDIR}/${PN}-respect-tc-flags.patch"
+	ESED_CHECK_ONLY_WARN=1 esed_check -i -e 's@// *\(.*unistd.*\)@\1@' "${S}/editor/Memory.h"
 }
 
 src_compile() {
 	tc-export CC CXX
-	scons PREFIX=/usr || die
+	escons PREFIX=/usr || die
 }
 
 src_install() {
