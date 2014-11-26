@@ -1,6 +1,12 @@
 # ChangeLog for sys-process/rtirq
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*rtirq-20140413 (26 Nov 2014)
+
+  26 Nov 2014; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -rtirq-20130909.ebuild, +rtirq-20140413.ebuild:
+  version bump
 
 *rtirq-20130909 (26 Oct 2013)
 
