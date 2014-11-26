@@ -1,37 +1,34 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-# == THIS IS WORK IN PROGRESS ==
-# [TODO]
-# * sys-apps/dbus should be sys-apps/dbus[${MULTILIB_USEDEP}] when dbus
-#   has been migrated to mulilib eclasses.
-# * When libffado has been migrated to multilib eclasses
-#   media-libs/libffado should be
-#   media-libs/libffado[${MULTILIB_USEDEP}]
-# [NOTE]
-# The mixed features in the build system are not used. We let the
-# multilib eclasses do all the work.
+# FIXME: Add [${MULTILIB_USEDEP}] to the libffado dependency when it
+# has been migrated to multilib eclasses
 
 EAPI="5"
 
 PYTHON_COMPAT=( python2_7 )
+[[ "${PV}" = "2.9999" ]] && inherit git-2
 inherit eutils python-single-r1 waf-utils multilib-minimal
 
-RESTRICT="mirror"
 DESCRIPTION="Jackdmp jack implemention for multi-processor machine"
-HOMEPAGE="http://www.jackaudio.org"
-SRC_URI="https://dl.dropbox.com/u/28869550/jack-${PV}.tar.bz2"
+HOMEPAGE="http://jackaudio.org/"
+
+RESTRICT="mirror"
+if [[ "${PV}" = "2.9999" ]]; then
+	EGIT_REPO_URI="git://github.com/jackaudio/jack2.git"
+	SRC_URI=""
+	KEYWORDS=""
+else
+	SRC_URI="https://dl.dropbox.com/u/28869550/jack-${PV}.tar.bz2"
+	KEYWORDS="~amd64 ~ppc ~x86"
+fi
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
-IUSE="alsa celt dbus debug doc ieee1394 opus"
+IUSE="alsa celt dbus debug doc ieee1394 opus pam"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-
-# Remove when multilib dbus is available.
-REQUIRED_USE="${REQUIRED_USE} amd64? ( abi_x86_32? ( !dbus ) )"
 
 # Remove when multilib libffado is available.
 REQUIRED_USE="${REQUIRED_USE} amd64? ( abi_x86_32? ( !ieee1394 ) )"
@@ -39,9 +36,9 @@ REQUIRED_USE="${REQUIRED_USE} amd64? ( abi_x86_32? ( !ieee1394 ) )"
 RDEPEND="media-libs/libsamplerate[${MULTILIB_USEDEP}]
 	>=media-libs/libsndfile-1.0.0[${MULTILIB_USEDEP}]
 	${PYTHON_DEPS}
-	alsa? ( >=media-libs/alsa-lib-0.9.1[${MULTILIB_USEDEP}] )
+	alsa? ( media-libs/alsa-lib[${MULTILIB_USEDEP}] )
 	celt? ( media-libs/celt[${MULTILIB_USEDEP}] )
-	dbus? ( sys-apps/dbus )
+	dbus? ( sys-apps/dbus[${MULTILIB_USEDEP}] )
 	ieee1394? ( media-libs/libffado )
 	opus? ( media-libs/opus[custom-modes,${MULTILIB_USEDEP}] )
 	abi_x86_32? ( !<=app-emulation/emul-linux-x86-soundlibs-20130224-r7
@@ -50,16 +47,20 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	doc? ( app-doc/doxygen )"
 RDEPEND="${RDEPEND}
-	dbus? ( dev-python/dbus-python[${PYTHON_USEDEP}] )"
+	dbus? ( dev-python/dbus-python[${PYTHON_USEDEP}] )
+	pam? ( sys-auth/realtime-base )"
 
-S="${WORKDIR}/jack-${PV}"
-
-PATCHES=(
-	"${FILESDIR}/jack2-no-self-connect-1.9.9.5.patch"
-	"${FILESDIR}/jack-1.9.9.5-opus_custom.patch"
-)
+[[ "${PV}" = "2.9999" ]] || S="${WORKDIR}/jack-${PV}"
 
 DOCS=( ChangeLog README README_NETJACK2 TODO )
+
+src_unpack() {
+	if [[ "${PV}" = "2.9999" ]]; then
+		git-2_src_unpack
+	else
+		default
+	fi
+}
 
 src_prepare() {
 	default
@@ -87,8 +88,8 @@ multilib_src_compile() {
 }
 
 multilib_src_install() {
-	multilib_is_native_abi && use doc && HTML_DOCS=( html/ )
-
+	multilib_is_native_abi && use doc && \
+		HTML_DOCS=( "${BUILD_DIR}"/html/ )
 	WAF_BINARY="${BUILD_DIR}"/waf waf-utils_src_install
 }
 

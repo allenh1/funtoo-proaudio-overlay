@@ -12,9 +12,7 @@
 # under active developement.
 =media-libs/portaudio-9999-r1
 =media-sound/jack-audio-connection-kit-0.121.3-r2
-=media-sound/jack-audio-connection-kit-1.9.9.5-r2
 =media-sound/jack-audio-connection-kit-1.9999-r1
-=media-sound/jack-audio-connection-kit-2.9999-r1
 
 # Dominique Michel <dominique@tuxfamily.ord> 09 Mar (2013)
 # Pld qt3 version, need bump to a qt4 version or removing

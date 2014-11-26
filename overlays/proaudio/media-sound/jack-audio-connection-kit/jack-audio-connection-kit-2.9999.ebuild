@@ -1,74 +1,98 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
+
+# FIXME: Add [${MULTILIB_USEDEP}] to the libffado dependency when it
+# has been migrated to multilib eclasses
 
 EAPI="5"
 
 PYTHON_COMPAT=( python2_7 )
-inherit eutils git-2 python-single-r1 waf-utils
+[[ "${PV}" = "2.9999" ]] && inherit git-2
+inherit eutils python-single-r1 waf-utils multilib-minimal
 
 DESCRIPTION="Jackdmp jack implemention for multi-processor machine"
 HOMEPAGE="http://jackaudio.org/"
 
-EGIT_REPO_URI="git://github.com/jackaudio/jack2.git"
+RESTRICT="mirror"
+if [[ "${PV}" = "2.9999" ]]; then
+	EGIT_REPO_URI="git://github.com/jackaudio/jack2.git"
+	SRC_URI=""
+	KEYWORDS=""
+else
+	SRC_URI="https://dl.dropbox.com/u/28869550/jack-${PV}.tar.bz2"
+	KEYWORDS="~amd64 ~ppc ~x86"
+fi
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
-IUSE="alsa debug doc dbus freebob ieee1394 mixed opus pam"
+IUSE="alsa celt dbus debug doc ieee1394 opus pam"
 
-RDEPEND="media-libs/libsamplerate
-	>=media-libs/libsndfile-1.0.0
-	alsa? ( >=media-libs/alsa-lib-1.0.24 )
-	dbus? ( sys-apps/dbus )
-	freebob? ( sys-libs/libfreebob !media-libs/libffado )
-	ieee1394? ( media-libs/libffado !sys-libs/libfreebob )
-	opus? ( media-libs/opus[custom-modes] )"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
+# Remove when multilib libffado is available.
+REQUIRED_USE="${REQUIRED_USE} amd64? ( abi_x86_32? ( !ieee1394 ) )"
+
+RDEPEND="media-libs/libsamplerate[${MULTILIB_USEDEP}]
+	>=media-libs/libsndfile-1.0.0[${MULTILIB_USEDEP}]
+	${PYTHON_DEPS}
+	alsa? ( media-libs/alsa-lib[${MULTILIB_USEDEP}] )
+	celt? ( media-libs/celt[${MULTILIB_USEDEP}] )
+	dbus? ( sys-apps/dbus[${MULTILIB_USEDEP}] )
+	ieee1394? ( media-libs/libffado )
+	opus? ( media-libs/opus[custom-modes,${MULTILIB_USEDEP}] )
+	abi_x86_32? ( !<=app-emulation/emul-linux-x86-soundlibs-20130224-r7
+					!app-emulation/emul-linux-x86-soundlibs[-abi_x86_32(-)] )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	doc? ( app-doc/doxygen )"
 RDEPEND="${RDEPEND}
-	dbus? ( dev-python/dbus-python )
+	dbus? ( dev-python/dbus-python[${PYTHON_USEDEP}] )
 	pam? ( sys-auth/realtime-base )"
+
+[[ "${PV}" = "2.9999" ]] || S="${WORKDIR}/jack-${PV}"
 
 DOCS=( ChangeLog README README_NETJACK2 TODO )
 
-pkg_pretend() {
-	if use mixed; then
-		ewarn 'You are about to build with "mixed" use flag.'
-		ewarn 'The build will probably fail.'
-		ewarn 'This is a known issue and a fix is coming eventually.'
+src_unpack() {
+	if [[ "${PV}" = "2.9999" ]]; then
+		git-2_src_unpack
+	else
+		default
 	fi
 }
 
-src_unpack() {
-	git-2_src_unpack
+src_prepare() {
+	default
+	multilib_copy_sources
 }
 
-src_configure() {
+multilib_src_configure() {
 	local mywafconfargs=(
 		$(usex alsa --alsa "")
 		$(usex dbus --dbus --classic)
 		$(usex debug --debug "")
-		$(usex freebob --freebob "")
 		$(usex ieee1394 --firewire "")
-		$(usex mixed --mixed "")
 	)
 
-	waf-utils_src_configure ${mywafconfargs[@]}
+	WAF_BINARY="${BUILD_DIR}"/waf waf-utils_src_configure \
+		${mywafconfargs[@]}
 }
 
-src_compile() {
-	waf-utils_src_compile
+multilib_src_compile() {
+	WAF_BINARY="${BUILD_DIR}"/waf waf-utils_src_compile
 
-	if use doc; then
+	if multilib_is_native_abi && use doc; then
 		doxygen || die "doxygen failed"
 	fi
 }
 
-src_install() {
-	use doc && HTML_DOCS=( html/ )
-	waf-utils_src_install
+multilib_src_install() {
+	multilib_is_native_abi && use doc && \
+		HTML_DOCS=( "${BUILD_DIR}"/html/ )
+	WAF_BINARY="${BUILD_DIR}"/waf waf-utils_src_install
+}
 
+multilib_src_install_all() {
 	python_fix_shebang "${ED}"
 }

@@ -1,6 +1,24 @@
 # ChangeLog for media-sound/jack-audio-connection-kit
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*jack-audio-connection-kit-1.9.10 (26 Nov 2014)
+
+  26 Nov 2014; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -jack-audio-connection-kit-1.9.9.5-r1.ebuild,
+  -jack-audio-connection-kit-1.9.9.5-r2.ebuild,
+  +jack-audio-connection-kit-1.9.10.ebuild,
+  jack-audio-connection-kit-2.9999.ebuild,
+  -jack-audio-connection-kit-2.9999-r1.ebuild,
+  -files/jack-1.9.9.5-opus_custom.patch,
+  -files/jack2-no-self-connect-1.9.9.5.patch, metadata.xml:
+  version bump for jack2
+  make ebuilds more identic (to ease maintenance)
+  remove no longer necessary patches
+  remove mixed use flag
+  remove freebob support
+  remove masks from package.mask
+  fixes #183, thanks luo.mai
 
   17 Jan 2014; Dominique Michel <dominique_libre@users.sourceforge.net>
   metadata.xml,
