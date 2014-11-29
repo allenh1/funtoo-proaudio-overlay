@@ -1,15 +1,14 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=3
+EAPI="5"
 
-PYTHON_DEPEND="2:2.4 3:3.1"
-SUPPORT_PYTHON_ABIS="1"
-inherit distutils
+PYTHON_COMPAT=( python{2_7,3_3,3_4} )
+inherit distutils-r1
 
 DESCRIPTION="A Python wrapper for the liblo OSC library"
-HOMEPAGE="http://das.nasophon.de/${PN}"
+HOMEPAGE="http://das.nasophon.de/pyliblo"
 SRC_URI="http://das.nasophon.de/download/${P}.tar.gz"
 
 RESTRICT="mirror"
@@ -18,7 +17,8 @@ LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-RDEPEND=">=media-libs/liblo-0.26"
-DEPEND="${RDEPEND}
-	>=dev-python/cython-0.12"
+RDEPEND=">=media-libs/liblo-0.26
+	${PYTHON_DEPS}"
+DEPEND="${RDEPEND}"
