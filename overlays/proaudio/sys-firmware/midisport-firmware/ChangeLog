@@ -2,6 +2,10 @@
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  29 Nov 2014; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  midisport-firmware-1.2.ebuild:
+  stabilize
+
   21 Sep 2014; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   midisport-firmware-1.2.ebuild:
   Depend on virtual/udev instead of sys-fs/udev.

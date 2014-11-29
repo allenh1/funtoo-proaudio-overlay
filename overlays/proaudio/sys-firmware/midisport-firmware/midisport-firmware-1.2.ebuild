@@ -14,7 +14,7 @@ SRC_URI="http://downloads.sourceforge.net/usb-midi-fw/${P}.tar.gz"
 
 LICENSE="Midisport"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 x86"
 IUSE=""
 
 RDEPEND="sys-apps/fxload
