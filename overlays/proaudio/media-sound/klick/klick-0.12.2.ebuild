@@ -1,4 +1,4 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -8,12 +8,12 @@ inherit base scons-utils toolchain-funcs
 
 RESTRICT="mirror"
 DESCRIPTION="An advanced command-line based metronome for JACK"
-HOMEPAGE="http://das.nasophon.de/${PN}"
+HOMEPAGE="http://das.nasophon.de/klick"
 SRC_URI="http://das.nasophon.de/download/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="amd64 ~ppc ~x86"
 IUSE="debug osc rubberband"
 
 RDEPEND="dev-libs/boost

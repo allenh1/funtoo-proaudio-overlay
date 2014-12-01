@@ -1,6 +1,11 @@
 # ChangeLog for media-sound/klick
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  01 Dec 2014; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  klick-0.12.2.ebuild:
+  stabilize for amd64
+  fix HOMEPAGE
 
   20 Jun 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   klick-0.12.2.ebuild:
