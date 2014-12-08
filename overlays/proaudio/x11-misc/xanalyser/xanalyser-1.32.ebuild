@@ -1,6 +1,8 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
+
+EAPI="5"
 
 inherit eutils
 RESTRICT="mirror"
@@ -13,21 +15,8 @@ SLOT="0"
 KEYWORDS="x86 amd64"
 IUSE=""
 
-DEPEND="sci-libs/fftw
-	x11-libs/openmotif
+DEPEND="media-libs/alsa-lib
+	sci-libs/fftw
 	x11-libs/libXpm
-	media-libs/alsa-lib"
-
+	x11-libs/motif"
 RDEPEND="${DEPEND}"
-
-src_compile() {
-	econf || die "econf failed"
-	emake || die "emake failed"
-}
-
-src_install() {
-	emake DESTDIR="${D}" install || die "emake install failed"
-	dodoc AUTHORS VERSION
-	make_desktop_entry "xanalyser -device plughw:1,0" "xanalyser" \
-	    ${PN} "AudioVideo;Audio"
-}

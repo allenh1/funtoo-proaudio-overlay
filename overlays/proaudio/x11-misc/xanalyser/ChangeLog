@@ -1,6 +1,12 @@
 # ChangeLog for x11-misc/xanalyser
-# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  08 Dec 2014; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  xanalyser-1.32.ebuild, metadata.xml:
+  bump to EAPI 5
+  depend on x11-libs/motif instead of x11-libs/openmotif
+  remove no-herd from metadata
 
   13 Apr 2010; Frieder Buerzele <evermind@tuxfamily.org>
   xanalyser-1.32.ebuild:
