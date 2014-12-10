@@ -1,6 +1,18 @@
 # ChangeLog for media-libs/zita-convolver
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  10 Dec 2014; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -zita-convolver-2.0.0.ebuild, zita-convolver-3.1.0.ebuild,
+  -files/zita-convolver-2.0.0-Makefile.patch,
+  -files/zita-convolver-3.1.0-Makefile.patch,
+  +files/zita-convolver-3.1.0-makefile.patch:
+  make the patch upstream friendly
+  stabilize version 3.1.0
+  remove old ebuild
+  bump to EAPI 5
+  remove version specifier for fftw (there is no older version in tree)
+  simplify some parts and make somewhat more similar to the ebuild in tree
 
 *zita-convolver-3.1.0 (10 Jan 2012)
 
