@@ -1,6 +1,24 @@
 # ChangeLog for media-sound/guitarix2
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*guitarix2-0.32.1 (11 Dec 2014)
+
+  11 Dec 2014; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -guitarix2-0.27.1.ebuild, -guitarix2-0.27.1-r1.ebuild,
+  -guitarix2-0.28.1.ebuild, -guitarix2-0.28.3.ebuild, +guitarix2-0.32.1.ebuild,
+  guitarix2-9999.ebuild, metadata.xml:
+  version bump
+  remove old versions
+  remove unnecessary version specifiers from deps
+  use waf-utils eclass to simplify, it works now
+  remove convolver and custom-cflags use flags
+  hard depend on zita-convolver and zita-resampler to ensure determinism
+  remove dependency on vorbis-tools
+  slot depend on fftw and gtk+
+  move jack_capture and meterbridge deps from DEPEND to RDEPEND
+  make ebuilds identical to ease maintainance
+  pass both --no-ladspa and --no-new-ladspa when USE="-ladspa"
 
   18 Mar 2014; Dominique Michel <dominique_libre@sourceforge.net>
   guitarix2-9999.ebuild:
