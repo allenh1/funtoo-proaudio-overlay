@@ -1,6 +1,23 @@
 # ChangeLog for media-libs/libffado
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  15 Dec 2014; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -libffado-2.1.0-r1.ebuild, libffado-2.2.1.ebuild, libffado-9999-r1.ebuild,
+  -files/libffado-2.1.0, -files/libffado-2.1.0-no-jackd-version.patch,
+  -files/libffado-2.1.0/0001-honour-toolchain-env.patch,
+  -files/libffado-2.1.0/0002-remove-O2.patch,
+  +files/libffado-2.2.1-flags.patch, +files/libffado-2.2.1-jack-detect.patch,
+  -files/libffado-9999, -files/libffado-9999-no-jackd-version.patch,
+  -files/libffado-9999/0001-honour-toolchain-env.patch,
+  -files/libffado-9999/0003-remove-O2.patch:
+  removed old ebuild
+  good patches applied upstream, backported ones used for version 2.2.1
+  make ebuilds almost identic
+  remove version specifiers from deps as there are no older version in tree
+  depend on dev-libs/libconfig[cxx]
+  depend on dev-python/PyQt4[dbus]
+  make sure PYTHON_REQUIRED_USE is used properly
 
   21 Sep 2014; Matt Henley <nwmatt@gmail.com>
   version bump to libffado-2.2.1 ebuild from Allan (sonofzev@iinet.net.au)
