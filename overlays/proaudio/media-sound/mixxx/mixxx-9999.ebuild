@@ -1,4 +1,4 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -18,7 +18,7 @@ IUSE="aac debug doc hid mp3 mp4 pulseaudio shout wavpack"
 
 RDEPEND="dev-libs/protobuf
 	media-libs/chromaprint
-	>=media-libs/fidlib-0.9.10-r1
+	>media-libs/fidlib-0.9.10-r1
 	media-libs/flac
 	media-libs/libid3tag
 	media-libs/libogg
@@ -56,7 +56,6 @@ DEPEND="${RDEPEND}
 S=${S}/${PN}
 
 src_prepare() {
-	epatch "${FILESDIR}"/${P}-cflags.patch
 	epatch "${FILESDIR}"/${P}-system-libs.patch
 	epatch "${FILESDIR}"/${P}-docs.patch
 

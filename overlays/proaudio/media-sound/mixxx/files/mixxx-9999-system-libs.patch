@@ -1,6 +1,8 @@
---- mixxx-9999/build/depends.py
-+++ mixxx-9999/build/depends.py
-@@ -377,25 +377,10 @@ class TestHeaders(Dependence):
+diff --git a/build/depends.py b/build/depends.py
+index ad71733..a33d68e 100644
+--- a/build/depends.py
++++ b/build/depends.py
+@@ -347,25 +347,10 @@ class TestHeaders(Dependence):
  
  class FidLib(Dependence):
  
@@ -25,38 +27,39 @@
 -        build.env.Append(CPPPATH='#lib/fidlib-0.9.10/')
 +        if not conf.CheckLib('fidlib'):
 +            raise Exception('Did not find fidlib library, exiting!')
-+        build.env.Append(CPPPATH=[SCons.ARGUMENTS.get('prefix') + '/include/fidlib'])
++        build.env.Append(CPPPATH=[SCons.ARGUMENTS.get('prefix') + '/include/fidlib']) 
  
  
  class ReplayGain(Dependence):
-@@ -408,7 +393,6 @@ class ReplayGain(Dependence):
+@@ -378,7 +363,6 @@ class ReplayGain(Dependence):
  
  
  class SoundTouch(Dependence):
--    SOUNDTOUCH_PATH = 'soundtouch-1.6.0'
+-    SOUNDTOUCH_PATH = 'soundtouch-1.8.0'
  
      def sse_enabled(self, build):
          optimize = int(util.get_flags(build.env, 'optimize', 1))
-@@ -417,30 +401,7 @@ class SoundTouch(Dependence):
+@@ -387,41 +371,15 @@ class SoundTouch(Dependence):
                  (build.toolchain_is_gnu and optimize > 1))
  
      def sources(self, build):
 -        sources = ['engine/enginebufferscalest.cpp',
--                   '#lib/%s/SoundTouch.cpp' % self.SOUNDTOUCH_PATH,
--                   '#lib/%s/TDStretch.cpp' % self.SOUNDTOUCH_PATH,
--                   '#lib/%s/RateTransposer.cpp' % self.SOUNDTOUCH_PATH,
 -                   '#lib/%s/AAFilter.cpp' % self.SOUNDTOUCH_PATH,
+-                   '#lib/%s/BPMDetect.cpp' % self.SOUNDTOUCH_PATH,
 -                   '#lib/%s/FIFOSampleBuffer.cpp' % self.SOUNDTOUCH_PATH,
 -                   '#lib/%s/FIRFilter.cpp' % self.SOUNDTOUCH_PATH,
+-                   '#lib/%s/InterpolateCubic.cpp' % self.SOUNDTOUCH_PATH,
+-                   '#lib/%s/InterpolateLinear.cpp' % self.SOUNDTOUCH_PATH,
+-                   '#lib/%s/InterpolateShannon.cpp' % self.SOUNDTOUCH_PATH,
 -                   '#lib/%s/PeakFinder.cpp' % self.SOUNDTOUCH_PATH,
--                   '#lib/%s/BPMDetect.cpp' % self.SOUNDTOUCH_PATH]
+-                   '#lib/%s/RateTransposer.cpp' % self.SOUNDTOUCH_PATH,
+-                   '#lib/%s/SoundTouch.cpp' % self.SOUNDTOUCH_PATH,
+-                   '#lib/%s/TDStretch.cpp' % self.SOUNDTOUCH_PATH]
 -
 -        # SoundTouch CPU optimizations are only for x86
 -        # architectures. SoundTouch automatically ignores these files when it is
 -        # not being built for an architecture that supports them.
--        cpu_detection = '#lib/%s/cpu_detect_x86_win.cpp' if build.toolchain_is_msvs else \
--            '#lib/%s/cpu_detect_x86_gcc.cpp'
--        sources.append(cpu_detection % self.SOUNDTOUCH_PATH)
+-        sources.append('#lib/%s/cpu_detect_x86.cpp' % self.SOUNDTOUCH_PATH)
 -
 -        # Check if the compiler has SSE extention enabled
 -        # Allways the case on x64 (core instructions)
@@ -69,16 +72,13 @@
  
      def configure(self, build, conf, env=None):
          if env is None:
-@@ -448,12 +409,11 @@ class SoundTouch(Dependence):
-         if build.platform_is_windows:
-             # Regardless of the bitwidth, ST checks for WIN32
-             env.Append(CPPDEFINES='WIN32')
+             env = build.env
 -        env.Append(CPPPATH=['#lib/%s' % self.SOUNDTOUCH_PATH])
- 
--        # Check if the compiler has SSE extention enabled
--        # Allways the case on x64 (core instructions)
--        if self.sse_enabled(build):
--            env.Append(CPPDEFINES='SOUNDTOUCH_ALLOW_X86_OPTIMIZATIONS')
+-
+-        # If we do not want SSE optimizations (either the architecture does not
+-        # support it or we are running a non-optimized build) then disable them.
+-        if not self.sse_enabled(build):
+-            env.Append(CPPDEFINES='SOUNDTOUCH_DISABLE_X86_OPTIMIZATIONS')
 +        if not conf.CheckLib(['SoundTouch','libSoundTouch']):
 +            raise Exception('Did not find SoundTouch library, exiting!')
 +        build.env.Append(CPPPATH=[SCons.ARGUMENTS.get('prefix') + '/include/soundtouch'])
@@ -86,11 +86,11 @@
  
  
  class RubberBand(Dependence):
-
-
---- mixxx-9999/build/features.py
-+++ mixxx-9999/build/features.py
-@@ -54,7 +54,6 @@ class HSS1394(Feature):
+diff --git a/build/features.py b/build/features.py
+index b61de86..639e143 100644
+--- a/build/features.py
++++ b/build/features.py
+@@ -45,7 +45,6 @@ class HSS1394(Feature):
  
  
  class HID(Feature):
@@ -98,7 +98,7 @@
  
      def description(self):
          return "HID controller support"
-@@ -71,10 +70,6 @@ class HID(Feature):
+@@ -62,10 +61,6 @@ class HID(Feature):
      def configure(self, build, conf):
          if not self.enabled(build):
              return
@@ -109,15 +109,16 @@
  
          if build.platform_is_linux:
              build.env.ParseConfig(
-@@ -95,22 +90,16 @@ class HID(Feature):
+@@ -89,23 +84,17 @@ class HID(Feature):
+             build.env.AppendUnique(FRAMEWORKS=['IOKit', 'CoreFoundation'])
  
          build.env.Append(CPPDEFINES='__HID__')
- 
++        
 +        if not conf.CheckLib('hidapi-libusb'):
 +            raise Exception('Did not find HID API library, exiting!')
 +        build.env.Append(CPPPATH=[SCons.ARGUMENTS.get('prefix') + '/include/hidapi'])
 +        build.env.Append(LIBS='hidapi-libusb')
-+
+ 
      def sources(self, build):
          sources = ['controllers/hid/hidcontroller.cpp',
                     'controllers/hid/hidenumerator.cpp',
@@ -137,7 +138,7 @@
          return sources
  
  
-@@ -798,24 +787,15 @@ class TestSuite(Feature):
+@@ -717,24 +706,15 @@ class TestSuite(Feature):
          test_env.Append(CCFLAGS='-pthread')
          test_env.Append(LINKFLAGS='-pthread')
  
@@ -170,29 +171,4 @@
 +        test_env.Append(LIBS='gmock')
  
          return []
-
-
---- mixxx-9999/src/engine/enginefilter.h
-+++ mixxx-9999/src/engine/enginefilter.h
-@@ -20,7 +20,7 @@
  
- #define MIXXX
- #include "engine/engineobject.h"
--#include "../lib/fidlib-0.9.10/fidlib.h"
-+#include <fidlib.h>
- #include "defs.h"
- 
- #define PREDEF_HP 1
-
-
---- mixxx-9999/src/engine/enginefilterbutterworth8.cpp
-+++ mixxx-9999/src/engine/enginefilterbutterworth8.cpp
-@@ -18,7 +18,7 @@
- #include "engine/enginefilterbutterworth8.h"
- #include "engine/enginefilter.h"
- #include "engine/engineobject.h"
--#include "../lib/fidlib-0.9.10/fidlib.h"
-+#include <fidlib.h>
- 
- inline CSAMPLE _processLowpass(CSAMPLE *coef, CSAMPLE *buf, register CSAMPLE val);
- inline CSAMPLE _processBandpass(CSAMPLE *coef, CSAMPLE *buf, register CSAMPLE val);

@@ -1,6 +1,13 @@
 # ChangeLog for media-sound/mixxx
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  20 Dec 2014; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  mixxx-9999.ebuild, -files/mixxx-9999-cflags.patch,
+  files/mixxx-9999-system-libs.patch:
+  update system-libs patch
+  remove cflags patch
+  depend on newer version of fidlib
 
   02 Mar 2014; Dominique Michel <dominique_libre@users.sourceforge.net>
   mixxx-9999-system-libs.patch: updated for new offsets.
