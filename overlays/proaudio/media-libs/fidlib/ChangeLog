@@ -1,6 +1,14 @@
 # ChangeLog for media-libs/fidlib
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*fidlib-9999 (20 Dec 2014)
+
+  20 Dec 2014; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -fidlib-0.9.10-r1.ebuild, +fidlib-9999.ebuild,
+  -files/fidlib-0.9.10-cpp-extern.patch, -files:
+  add a live ebuild, thanks to Alex Barker for initial ebuild
+  remove old
 
 *fidlib-0.9.10-r1 (29 Jul 2013)
 
