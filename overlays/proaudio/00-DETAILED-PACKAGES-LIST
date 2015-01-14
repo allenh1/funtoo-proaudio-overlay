@@ -757,12 +757,6 @@
 	Homepage:    http://naspro.sourceforge.net/
 
 
-#------- media-libs/aubio --------
-	aubio-0.3.2-r2	arch: ~amd64 ~x86
-	Description: Library for audio labelling
-	Homepage:    http://aubio.piem.org
-
-
 #------- media-plugins/sisco-lv2 --------
 	sisco-lv2-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: Simple LV2 audio oscilloscope

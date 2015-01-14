@@ -1,7 +1,0 @@
-# ChangeLog for media-libs/aubio
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
-# $Header: $
-
-  13 Dec 2012; Karl Lindén (lilrc) <lilrc@users.sourceforge.net>
-  +aubio-0.3.2-r2.ebuild:
-  Initial ebuild (import from ladi)
