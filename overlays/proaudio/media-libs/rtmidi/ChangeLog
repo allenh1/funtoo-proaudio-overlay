@@ -1,6 +1,15 @@
 # ChangeLog for media-libs/rtmidi
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*rtmidi-2.1.0 (19 Feb 2015)
+
+  19 Feb 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +rtmidi-2.1.0.ebuild, +metadata.xml:
+  version bump
+  fix SRC_URI
+  restrict mirror
+  fixes #185
 
   11 Nov 2012: Dominique Michel <dominique_libre@sourceforge.net> Initial rtmidi ebuild:
   +rtmidi-2.0.1.ebuild
