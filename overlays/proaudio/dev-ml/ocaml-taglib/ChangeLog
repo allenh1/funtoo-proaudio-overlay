@@ -1,6 +1,19 @@
 # ChangeLog for dev-ml/ocaml-taglib
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*ocaml-taglib-0.3.1 (16 Mar 2015)
+
+  16 Mar 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -ocaml-taglib-0.2.0.ebuild, +ocaml-taglib-0.3.1.ebuild:
+  version bump
+  remove old
+  eapi 5
+  restrict mirror
+  depend on media-libs/taglib, thanks Denis Sokolovsky for the report
+  remove explicit dep on findlib (it is implied by findlib eclass)
+  remove call to eautomake (automake is not used by the build system)
+  parallelize make (fixes repoman warning)
 
   30 May 2012; Emery Hemingway <emery@vfemail.net> ocaml-taglib-0.2.0.ebuild:
   Deparallized compile
