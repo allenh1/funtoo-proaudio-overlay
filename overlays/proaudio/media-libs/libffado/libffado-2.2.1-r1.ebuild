@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -6,7 +6,7 @@ EAPI="5"
 
 PYTHON_COMPAT=( python2_7 )
 [[ "${PV}" = "9999" ]] && inherit subversion
-inherit base scons-utils eutils toolchain-funcs multilib python-single-r1 udev
+inherit base eutils multilib python-single-r1 scons-utils toolchain-funcs udev
 
 DESCRIPTION="Successor for freebob: Library for accessing BeBoB IEEE1394 devices"
 HOMEPAGE="http://www.ffado.org"
@@ -45,6 +45,12 @@ DEPEND="${RDEPEND}
 
 DOCS=( AUTHORS ChangeLog README )
 
+PATCHES=(
+	"${FILESDIR}"/${P}-flags.patch
+	"${FILESDIR}"/${P}-jack-detect.patch
+	"${FILESDIR}"/${P}-detect-userspace.patch
+)
+
 src_unpack() {
 	if [ "${PV}" = "9999" ]; then
 		subversion_src_unpack
@@ -65,6 +71,7 @@ src_configure() {
 		MANDIR="${EPREFIX}/usr/share/man"
 		UDEVDIR="$(get_udevdir)/rules.d"
 		CUSTOM_ENV=True
+		DETECT_USERSPACE=False
 		$(use_scons debug DEBUG)
 		$(use_scons test-programs BUILD_TESTS)
 		# ENABLE_OPTIMIZATIONS detects cpu type and sets flags accordingly

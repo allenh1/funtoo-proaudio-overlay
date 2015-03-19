@@ -1,6 +1,17 @@
 # ChangeLog for media-libs/libffado
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*libffado-9999 (19 Mar 2015)
+*libffado-2.2.1-r1 (19 Mar 2015)
+
+  19 Mar 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +libffado-2.2.1-r1.ebuild, +libffado-9999.ebuild, -libffado-9999-r1.ebuild,
+  +files/libffado-2.2.1-detect-userspace.patch:
+  patch to avoid detecting userspace (patch sent upstream), thanks to Maurizio
+  Berti for reporting
+  sort inherits lexically
+  revert live revision
 
   15 Dec 2014; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   -libffado-2.1.0-r1.ebuild, libffado-2.2.1.ebuild, libffado-9999-r1.ebuild,
