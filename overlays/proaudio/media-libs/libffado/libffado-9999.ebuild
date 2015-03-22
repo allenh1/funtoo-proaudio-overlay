@@ -45,10 +45,6 @@ DEPEND="${RDEPEND}
 
 DOCS=( AUTHORS ChangeLog README )
 
-PATCHES=(
-	"${FILESDIR}"/${PN}-2.2.1-detect-userspace.patch
-)
-
 src_unpack() {
 	if [ "${PV}" = "9999" ]; then
 		subversion_src_unpack
@@ -69,7 +65,7 @@ src_configure() {
 		MANDIR="${EPREFIX}/usr/share/man"
 		UDEVDIR="$(get_udevdir)/rules.d"
 		CUSTOM_ENV=True
-		DETECT_USERSPACE=False
+		DETECT_USERSPACE_ENV=False
 		$(use_scons debug DEBUG)
 		$(use_scons test-programs BUILD_TESTS)
 		# ENABLE_OPTIMIZATIONS detects cpu type and sets flags accordingly
