@@ -47,7 +47,10 @@ DEPEND="${RDEPEND}
 DOCS=( AUTHORS ChangeLog README )
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-2.2.1-mixer.patch
+	"${FILESDIR}"/${P}-flags.patch
+	"${FILESDIR}"/${P}-jack-detect.patch
+	"${FILESDIR}"/${P}-detect-userspace-env.patch
+	"${FILESDIR}"/${P}-mixer.patch
 )
 
 src_unpack() {

@@ -2,6 +2,14 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*libffado-2.2.1-r2 (26 Mar 2015)
+
+  26 Mar 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +libffado-2.2.1-r2.ebuild, libffado-9999.ebuild,
+  +files/libffado-2.2.1-mixer.patch:
+  patch away automagic dependency on PyQt4 and friends
+  depend on qt4? ( xdg-utils ) too as it is an automagic dependency
+
   22 Mar 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   libffado-2.2.1-r1.ebuild, libffado-9999.ebuild,
   -files/libffado-2.2.1-detect-userspace.patch,
