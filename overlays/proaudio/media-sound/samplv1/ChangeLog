@@ -1,6 +1,17 @@
 # ChangeLog for media-sound/samplv1
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*samplv1-0.6.1 (26 Mar 2015)
+
+  26 Mar 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -samplv1-0.3.6.ebuild, -samplv1-0.4.0.ebuild, -samplv1-0.4.1.ebuild,
+  -samplv1-0.5.1.ebuild, +samplv1-0.6.1.ebuild, samplv1-9999.ebuild:
+  version bump
+  remove old
+  fix HOMEPAGE
+  move to git upstream
+  add qt5 support
 
 *samplv1-0.5.1 (21 Sep 2014)
 
