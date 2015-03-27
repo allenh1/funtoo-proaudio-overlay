@@ -1,39 +1,47 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI="5"
-PYTHON_COMPAT=( python{2_5,2_6,2_7} )
-inherit subversion waf-utils python-single-r1
+PYTHON_COMPAT=( python{2_7,3_3,3_4} )
+PYTHON_REQ_USE="threads(+),xml(+)"
+inherit git-r3 multilib python-single-r1 waf-utils
 
-RESTRICT="mirror"
 DESCRIPTION="A simple but extensible successor of LADSPA"
 HOMEPAGE="http://lv2plug.in/"
-SRC_URI=""
-ESVN_REPO_URI="http://lv2plug.in/repo/trunk"
+EGIT_REPO_URI="http://lv2plug.in/git/lv2.git"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS=""
 IUSE="doc debug plugins"
 
-RDEPEND="!<media-libs/slv2-0.4.2"
+RDEPEND="
+	dev-python/pygments[${PYTHON_USEDEP}]
+	dev-python/rdflib[${PYTHON_USEDEP}]"
 DEPEND="${RDEPEND}
-doc? (	app-doc/doxygen
+	doc? (
+		app-doc/doxygen
 		app-text/asciidoc
-		dev-python/rdflib )"
-
-DOCS=( README )
+	)"
 
 src_unpack() {
-	subversion_src_unpack
+	git-r3_src_unpack
 }
 
 src_configure() {
-	local mywafconfargs=""
-	use debug && mywafconfargs+="--debug "
-	use doc && mywafconfargs+="--docs "
-	use plugins || mywafconfargs+="--no-plugins"
+	local mywafconfargs=(
+		--lv2dir="${EPREFIX}"/usr/$(get_libdir)/lv2
+		--copy-headers
+		$(usex debug --debug "")
+		$(usex doc --docs "")
+		$(usex plugins "" --no-plugins)
+	)
 
-	waf-utils_src_configure ${mywafconfargs}
+	waf-utils_src_configure ${mywafconfargs[@]}
+}
+
+src_install() {
+	waf-utils_src_install
+	python_fix_shebang "${ED}"
 }

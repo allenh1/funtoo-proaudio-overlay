@@ -1,6 +1,17 @@
 # ChangeLog for media-libs/lv2
-# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  27 Mar 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  lv2-9999.ebuild:
+  move to git upstream, thanks to dsonck92 for the report
+  fix waf python warning
+  allow more python implementations and remove old
+  remove useless DOCS variable
+  remove blocker on (nonexistent) slv2
+  add dependencies needed for lv2specgen.py which is installed
+  fix shebang
+  specify --lv2dir and --copy-headers to configure
 
 *lv2-9999 (02 Feb 2013)
 
