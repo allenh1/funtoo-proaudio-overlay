@@ -15,6 +15,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS=""
 IUSE="doc debug plugins"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
 	dev-python/pygments[${PYTHON_USEDEP}]

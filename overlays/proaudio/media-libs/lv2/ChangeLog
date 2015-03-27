@@ -4,6 +4,10 @@
 
   27 Mar 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   lv2-9999.ebuild:
+  add ${PYTHON_REQUIRED_USE} to REQUIRED_USE
+
+  27 Mar 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  lv2-9999.ebuild:
   move to git upstream, thanks to dsonck92 for the report
   fix waf python warning
   allow more python implementations and remove old
