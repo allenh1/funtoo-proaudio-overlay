@@ -203,7 +203,6 @@ media-plugins/abGate
 media-plugins/vocoder-ladspa
 media-plugins/nekobee
 media-plugins/frei0r-plugins
-media-plugins/hexter
 media-plugins/wsynth-dssi
 media-plugins/vocproc
 media-plugins/sfxr-dssi

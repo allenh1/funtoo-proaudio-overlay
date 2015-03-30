@@ -1080,12 +1080,6 @@
 	Homepage:    http://www.piksel.org/frei0r
 
 
-#------- media-plugins/hexter --------
-	hexter-1.0.1	arch: ~amd64 ~x86
-	Description: Yamaha DX7 modeling DSSI plugin
-	Homepage:    http://dssi.sourceforge.net/hexter.html
-
-
 #------- media-plugins/uli-plugins --------
 	uli-plugins-0.2	arch: ~x86 ~amd64
 	Description: Ulis LV2 Insert series plugins. AND NAND
