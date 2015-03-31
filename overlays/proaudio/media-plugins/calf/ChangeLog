@@ -1,8 +1,22 @@
 # ChangeLog for media-plugins/calf
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  13 Dec 2012; Karl Lindén (lilrc) <lilrc@users.sourceforge.net>
+*calf-0.0.60 (31 Mar 2015)
+
+  31 Mar 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  calf-0.0.19.ebuild, +calf-0.0.60.ebuild, calf-9999.ebuild:
+  version bump
+  drop sse USE flag since it only adds -msse -mfpmath=sse
+  fix HOMEPAGE
+  eapi 5
+  move from git-2 to git-r3 eclass
+  drop version specifiers in dependencies
+  make ebuilds identic
+  use_with lash in configure
+  always give --with-lv2-dir to configure
+
+  13 Dec 2012; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   -calf-0.0.17.ebuild, -calf-0.0.18.5, -calf-0.0.18.6-r1,
   calf-0.0.19.ebuild, calf-9999.ebuild:
   cleanup
