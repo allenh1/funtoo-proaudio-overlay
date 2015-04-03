@@ -1,13 +1,14 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI="5"
 
 PYTHON_COMPAT=( python2_7 )
-inherit autotools-utils eutils python-single-r1
+AUTOTOOLS_AUTORECONF=yes
+inherit autotools-utils eutils python-single-r1 multilib-minimal
 
-MY_PV="${PV/_/~}"
+MY_PV="${PV/_/\~}"
 MY_PN="${PN/-original/}"
 MY_P="${MY_PN}-${MY_PV}"
 
@@ -22,40 +23,55 @@ KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="alsa debug gtk python"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
-RDEPEND="alsa? ( media-libs/alsa-lib )
-	media-sound/jack-audio-connection-kit
-	dev-libs/libxml2
-	gtk? ( >=x11-libs/gtk+-2.0 )
+RDEPEND="
+	dev-libs/libxml2[${MULTILIB_USEDEP}]
+	media-sound/jack-audio-connection-kit[${MULTILIB_USEDEP}]
+	sys-apps/dbus[${MULTILIB_USEDEP}]
+	sys-apps/util-linux[${MULTILIB_USEDEP}]
+	alsa? ( media-libs/alsa-lib )
+	gtk? ( x11-libs/gtk+:2 )
 	python? ( ${PYTHON_DEPS} )
-	|| ( sys-libs/readline dev-libs/libedit )"
+	|| ( sys-libs/readline:= dev-libs/libedit )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
-	python? ( >=dev-lang/swig-1.3.31 )"
+	python? ( dev-lang/swig )"
 
 S="${WORKDIR}/${MY_PN}-0.6.0.594"
 
-PATCHES=( "${FILESDIR}/${P}-include.patch" )
+PATCHES=(
+	"${FILESDIR}"/${P}-aclocal.patch
+	"${FILESDIR}"/${P}-include.patch
+	"${FILESDIR}"/${P}-underlinking.patch
+)
 
-src_configure() {
-
+multilib_src_configure() {
 	# Generation of docs does no longer work. Hard disable it.
 	export ac_cv_prog_lash_texi2html="no"
 
 	local myeconfargs=(
 		$(use_enable debug)
-		$(use_with alsa)
-		$(use_with gtk gtk2)
-		$(use_with python)
+		$(multilib_native_use_with alsa)
+		$(multilib_native_use_with gtk gtk2)
+		$(multilib_native_use_with python)
 	)
+
 	autotools-utils_src_configure
 }
 
-src_install() {
-	autotools-utils_src_install
-	python_fix_shebang "${ED}"
+multilib_src_compile() {
+	autotools-utils_src_compile
 }
 
-pkg_postinst(){
+multilib_src_install() {
+	autotools-utils_src_install
+}
+
+multilib_src_install_all() {
+	python_fix_shebang "${ED}"
+	use python && python_optimize
+}
+
+pkg_postinst() {
 	if [ ! $(grep -q ^lash /etc/services) ] || [ $(grep -q ^ladcca /etc/services) ] ; then
 		# cleanup trailing blank lines in /etc/service
 		sed -i -e :a -e '/^\n*$/{$d;N;};/\n$/ba' /etc/services
@@ -73,7 +89,7 @@ EOF
 	fi
 }
 
-pkg_postrm(){
+pkg_postrm() {
 	# cleanup /etc/services
 	if grep -q ^lash /etc/services; then
 		einfo "cleaning lash entries frome /etc/services"
@@ -81,6 +97,4 @@ pkg_postrm(){
 	fi
 	# cleanup trailing blank lines in /etc/service
 	sed -i -e :a -e '/^\n*$/{$d;N;};/\n$/ba' /etc/services
-	einfo "if programs which use lash fails try:"
-	einfo "revdep-rebuild --library="liblash.so.*""
 }

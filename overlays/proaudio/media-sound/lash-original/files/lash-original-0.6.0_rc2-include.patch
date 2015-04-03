@@ -1,4 +1,4 @@
-# Author: Karl Lindén (lilrc) <lilrc@users.sourceforge.net>
+# Author: Karl Linden (lilrc) <lilrc@users.sourceforge.net>
 # A patch to include uuid/uuid.h even when alsa is not built.
 
 diff -ur lash-0.6.0.594.orig/lashd/server.h lash-0.6.0.594/lashd/server.h
