@@ -1,75 +1,77 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI="5"
-inherit cmake-utils subversion
+inherit cmake-utils git-r3
 
-IUSE="alsa dbus debug doc float jack ladspa lash portaudio pulseaudio \
-	readline sndfile"
+IUSE="alsa dbus debug doc examples float ipv6 jack ladspa lash portaudio
+	pulseaudio readline sndfile"
 
 DESCRIPTION="Fluidsynth is a software real-time synthesizer based on the Soundfont 2 specifications."
 HOMEPAGE="http://www.fluidsynth.org/"
-ESVN_REPO_URI="https://svn.code.sf.net/p/${PN}/code/trunk/${PN}"
+EGIT_REPO_URI="git://git.code.sf.net/p/${PN}/code-git"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 
 RDEPEND="
-	>=dev-libs/glib-2.6.5
+	dev-libs/glib:2
 	alsa? ( media-libs/alsa-lib )
 	dbus? ( sys-apps/dbus )
 	jack? ( media-sound/jack-audio-connection-kit )
-	ladspa? ( >=media-libs/ladspa-sdk-1.12
-		>=media-libs/ladspa-cmt-1.15 )
+	ladspa? (
+		media-libs/ladspa-sdk
+		media-libs/ladspa-cmt
+	)
 	lash? ( virtual/liblash )
-	portaudio? ( >=media-libs/portaudio-19_pre )
-	pulseaudio? ( >=media-sound/pulseaudio-0.9.8 )
-	readline? ( sys-libs/readline )
+	portaudio? ( media-libs/portaudio )
+	pulseaudio? ( media-sound/pulseaudio )
+	readline? ( sys-libs/readline:0 )
 	sndfile? ( media-libs/libsndfile )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	doc? ( app-doc/doxygen )"
 
-DOCS=( AUTHORS README THANKS TODO )
-
-# Convenience function needed because the build system is not very
-# standardized.
-# Usage: fluid_use() <USE-flag> [flag name]
-fluid_use() {
-	[[ -z ${1} ]] && die "enable_arg(): too few arguments"
-	if [[ ! -z ${2} ]]; then
-		echo "-Denable-${2}=$(usex ${1} on off)"
-	else
-		echo "-Denable-${1}=$(usex ${1} on off)"
-	fi
-}
+S="${S}/fluidsynth"
 
 src_configure() {
 	local mycmakeargs=(
-		$(fluid_use alsa)
-		$(fluid_use dbus)
-		$(fluid_use debug)
-		$(fluid_use float floats)
-		$(fluid_use jack)
-		$(fluid_use ladspa)
-		$(fluid_use lash)
-		$(fluid_use portaudio)
-		$(fluid_use pulseaudio)
-		$(fluid_use readline)
-		$(fluid_use sndfile libsndfile)
+		-Denable-aufile=ON
+		-Denable-ladcca=OFF
+		-Denable-midishare=OFF
+		$(cmake-utils_use alsa enable-alsa)
+		$(cmake-utils_use dbus enable-dbus)
+		$(cmake-utils_use debug enable-debug)
+		$(cmake-utils_use float enable-floats)
+		$(cmake-utils_use ipv6 enable-ipv6)
+		$(cmake-utils_use jack enable-jack)
+		$(cmake-utils_use ladspa enable-ladspa)
+		$(cmake-utils_use lash enable-lash)
+		$(cmake-utils_use portaudio enable-portaudio)
+		$(cmake-utils_use pulseaudio enable-pulseaudio)
+		$(cmake-utils_use readline enable-readline)
+		$(cmake-utils_use sndfile enable-libsndfile)
 	)
 
 	cmake-utils_src_configure
 }
 
-src_install() {
-	if use doc; then
-		cd "${BUILD_DIR}"
-		emake doxygen
-		HTML_DOCS=( "${BUILD_DIR}"/doc/api/html/ )
-	fi
+src_compile() {
+	cmake-utils_src_compile
+	use doc && cmake-utils_src_make doxygen
+}
 
+src_install() {
+	use doc && HTML_DOCS=( "${BUILD_DIR}"/doc/api/html/* )
 	cmake-utils_src_install
+
+	docinto pdf
+	dodoc doc/*.pdf
+
+	if use examples; then
+		docinto examples
+		dodoc doc/*.c
+	fi
 }
