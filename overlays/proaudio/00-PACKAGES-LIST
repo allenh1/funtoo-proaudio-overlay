@@ -145,7 +145,6 @@ dev-libs/libwhy
 media-libs/libgig
 media-libs/rtmidi
 media-libs/alsaplayer-python
-media-libs/libclxclient
 media-libs/asio-sdk
 media-libs/fidlib
 media-libs/zita-convolver

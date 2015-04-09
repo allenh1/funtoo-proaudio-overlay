@@ -420,13 +420,6 @@
 	Homepage:    http://alsaplayer.sourceforge.net/
 
 
-#------- media-libs/libclxclient --------
-	libclxclient-3.6.1	arch: ~amd64 ~ppc ~sparc ~x86
-	Description: An audio library by Fons Adriaensen <fons.adriaensen@skynet.be>
-		
-	Homepage:    http://kokkinizita.linuxaudio.org/linuxaudio/
-
-
 #------- media-libs/asio-sdk --------
 	asio-sdk-2.2	arch: x86 ~amd64
 	Description: Steinberg ASIO SDK 2.2 - win32
