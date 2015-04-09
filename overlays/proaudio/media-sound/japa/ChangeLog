@@ -2,6 +2,10 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  09 Apr 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -files/japa-0.1.8-makefile.patch, -files:
+  drop old patch
+
 *japa-0.8.4 (09 Apr 2015)
 
   09 Apr 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
