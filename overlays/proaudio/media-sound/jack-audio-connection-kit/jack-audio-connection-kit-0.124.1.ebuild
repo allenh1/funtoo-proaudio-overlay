@@ -4,9 +4,10 @@
 
 EAPI="5"
 
-HAVE_DBUS_PATCH=1
+# HAVE_DBUS_PATCH=1
 
 AUTOTOOLS_AUTORECONF=1
+AUTOTOOLS_IN_SOURCE_BUILD=1 # FIXME: upstream bug
 
 if [[ ${HAVE_DBUS_PATCH} ]]; then
 	PYTHON_COMPAT=( python2_7 )
@@ -38,13 +39,13 @@ fi
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
 
-IUSE="alsa altivec celt coreaudio cpu_flags_x86_3dnow cpu_flags_x86_mmx
-	cpu_flags_x86_sse cpudetection debug doc examples ieee1394 oss pam"
+IUSE="alsa altivec celt coreaudio cpu_flags_x86_3dnow cpu_flags_x86_sse
+	cpu_flags_x86_sse2 cpudetection debug doc examples ieee1394 oss pam zalsa"
 
 REQUIRED_USE="cpudetection? (
 	cpu_flags_x86_3dnow
-	cpu_flags_x86_mmx
 	cpu_flags_x86_sse
+	cpu_flags_x86_sse2
 )"
 
 if [[ ${HAVE_DBUS_PATCH} ]]; then
@@ -59,10 +60,15 @@ REQUIRED_USE="${REQUIRED_USE} amd64? ( abi_x86_32? ( !ieee1394 ) )"
 # FIXME: automagic deps: readline, samplerate, sndfile, celt
 CDEPEND="media-libs/libsamplerate[${MULTILIB_USEDEP}]
 	media-libs/libsndfile
+	sys-libs/db:=[${MULTILIB_USEDEP}]
 	sys-libs/readline:0
 	alsa? ( media-libs/alsa-lib[${MULTILIB_USEDEP}] )
 	celt? ( media-libs/celt:0[${MULTILIB_USEDEP}] )
 	ieee1394? ( media-libs/libffado )
+	zalsa? (
+		media-libs/zita-alsa-pcmi
+		media-libs/zita-resampler
+	)
 	abi_x86_32? ( !app-emulation/emul-linux-x86-soundlibs[-abi_x86_32(-)] )"
 if [[ ${HAVE_DBUS_PATCH} ]]; then
 	CDEPEND="${CDEPEND}
@@ -92,10 +98,15 @@ PATCHES=(
 
 [[ ${HAVE_DBUS_PATCH} ]] && PATCHES+=( "${DISTDIR}/${P}-dbus.patch" )
 
+# FIXME: out-of-source build
+src_prepare() {
+	autotools-utils_src_prepare
+	multilib_copy_sources
+}
+
 multilib_src_configure() {
-	# --enable-mmx and --enable-sse only appends mmx and sse CFLAGS
+	# --enable-sse only appends sse CFLAGS
 	local myeconfargs=(
-		--disable-mmx
 		--disable-portaudio
 		--disable-sse
 		--with-html-dir=/usr/share/doc/${PF}
@@ -106,26 +117,30 @@ multilib_src_configure() {
 		$(use_enable debug)
 		$(use_enable ieee1394 firewire)
 		$(use_enable oss)
+		$(use_enable zalsa)
 	)
 
 	[[ ${HAVE_DBUS_PATCH} ]] && myeconfargs+=( $(use_enable dbus) )
 
 	if use cpudetection; then
-		einfo "Enabling cpudetection (dynsimd). Adding -mmmx, -msse, -m3dnow and -O2 to CFLAGS."
-		append-flags -mmmx -msse -m3dnow -O2
+		einfo "Enabling cpudetection (dynsimd). Adding -msse, -msse2, -m3dnow and -O2 to CFLAGS."
+		append-flags -msse -msse2 -m3dnow -O2
 	fi
 
 	multilib_is_native_abi && use doc || export ac_cv_prog_HAVE_DOXYGEN=false
 
-	autotools-utils_src_configure
+	# FIXME: out-of-source build
+	ECONF_SOURCE="${BUILD_DIR}" autotools-utils_src_configure
 }
 
 multilib_src_compile() {
-	autotools-utils_src_compile
+	# FIXME: out-of-source build
+	ECONF_SOURCE="${BUILD_DIR}" autotools-utils_src_compile
 }
 
 multilib_src_install() {
-	autotools-utils_src_install
+	# FIXME: out-of-source build
+	ECONF_SOURCE="${BUILD_DIR}" autotools-utils_src_install
 }
 
 multilib_src_install_all() {

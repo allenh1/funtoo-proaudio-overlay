@@ -1,14 +1,12 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
-
-# FIXME: Add [${MULTILIB_USEDEP}] to the libffado dependency when it
-# has been migrated to multilib eclasses
 
 EAPI="5"
 
 PYTHON_COMPAT=( python2_7 )
-[[ "${PV}" = "2.9999" ]] && inherit git-2
+PYTHON_REQ_USE="threads(+)"
+[[ "${PV}" = "2.9999" ]] && inherit git-r3
 inherit eutils python-single-r1 waf-utils multilib-minimal
 
 DESCRIPTION="Jackdmp jack implemention for multi-processor machine"
@@ -17,7 +15,6 @@ HOMEPAGE="http://jackaudio.org/"
 RESTRICT="mirror"
 if [[ "${PV}" = "2.9999" ]]; then
 	EGIT_REPO_URI="git://github.com/jackaudio/jack2.git"
-	SRC_URI=""
 	KEYWORDS=""
 else
 	SRC_URI="https://dl.dropbox.com/u/28869550/jack-${PV}.tar.bz2"
@@ -30,19 +27,23 @@ IUSE="alsa celt dbus debug doc ieee1394 opus pam"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-# Remove when multilib libffado is available.
+# FIXME: multilib libffado
 REQUIRED_USE="${REQUIRED_USE} amd64? ( abi_x86_32? ( !ieee1394 ) )"
 
+# FIXME: multilib libffado
+# FIXME: automagic deps: readline, samplerate, sndfile, celt, opus
+# FIXME: even though sndfile is just used for binaries, the check is flawed
+#        making the build fail if multilib libsndfile is not found.
 RDEPEND="media-libs/libsamplerate[${MULTILIB_USEDEP}]
-	>=media-libs/libsndfile-1.0.0[${MULTILIB_USEDEP}]
+	media-libs/libsndfile[${MULTILIB_USEDEP}]
+	sys-libs/readline:0
 	${PYTHON_DEPS}
 	alsa? ( media-libs/alsa-lib[${MULTILIB_USEDEP}] )
-	celt? ( media-libs/celt[${MULTILIB_USEDEP}] )
+	celt? ( media-libs/celt:0[${MULTILIB_USEDEP}] )
 	dbus? ( sys-apps/dbus[${MULTILIB_USEDEP}] )
 	ieee1394? ( media-libs/libffado )
 	opus? ( media-libs/opus[custom-modes,${MULTILIB_USEDEP}] )
-	abi_x86_32? ( !<=app-emulation/emul-linux-x86-soundlibs-20130224-r7
-					!app-emulation/emul-linux-x86-soundlibs[-abi_x86_32(-)] )"
+	abi_x86_32? ( !app-emulation/emul-linux-x86-soundlibs[-abi_x86_32(-)] )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	doc? ( app-doc/doxygen )"
@@ -56,7 +57,7 @@ DOCS=( ChangeLog README README_NETJACK2 TODO )
 
 src_unpack() {
 	if [[ "${PV}" = "2.9999" ]]; then
-		git-2_src_unpack
+		git-r3_src_unpack
 	else
 		default
 	fi
