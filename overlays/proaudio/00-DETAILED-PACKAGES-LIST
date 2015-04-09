@@ -447,13 +447,6 @@
 	Homepage:    http://gmerlin.sourceforge.net/
 
 
-#------- media-libs/libclthreads --------
-	libclthreads-2.4.0	arch: ~amd64 ~ppc ~sparc ~x86
-	Description: An audio library by Fons Adriaensen <fons.adriaensen@skynet.be>
-		
-	Homepage:    http://kokkinizita.linuxaudio.org/linuxaudio/
-
-
 #------- media-libs/pyphat --------
 	pyphat-0.4.1-r1	arch: ~amd64 ~x86
 	pyphat-0.4.1	arch: x86 amd64
