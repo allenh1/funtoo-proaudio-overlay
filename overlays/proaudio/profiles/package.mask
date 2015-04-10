@@ -3,6 +3,11 @@
 # NOTE: Please add your entry at the top!
 #
 
+# Karl Linden <lilrc@users.sourceforge.net> (10 April 2015)
+# Does not fetch, last release seven years ago, superseded by
+# media-libs/libffado, no reverse dependencies. Removal in 30 days.
+sys-libs/libfreebob
+
 # Dominique Michel <dominique_libre@users.sourceforge.net> (31 March 2014)
 # Work, but some work is needed on the configure phase.
 =media-sound/zynaddsubfx-99999999-r1

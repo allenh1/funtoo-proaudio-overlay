@@ -7,6 +7,9 @@
 # here. If in doubt put a record here!
 
   10 Apr 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net> package.mask:
+  mask sys-libs/libfreebob for removal
+
+  10 Apr 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net> package.mask:
   remove media-plugins/azr3-lv2
 
   29 Nov 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net> package.mask:
