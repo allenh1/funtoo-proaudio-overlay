@@ -18,7 +18,3 @@
 =media-sound/zynaddsubfx-20070707-r1
 =media-sound/zynaddsubfx-2.2.1-r8
 =media-sound/zynaddsubfx-2.4.0
-
-# Gavin Pryke (gavlee) <gavinlee303@googlemail.com> (6 May 2011)
-# does not compile with jack 0.118.0, 0.120.1 or 1.9.7, masked for removal
-media-plugins/azr3-lv2

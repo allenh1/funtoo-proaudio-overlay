@@ -186,7 +186,6 @@ media-plugins/amb-plugins
 media-plugins/ll-plugins
 media-plugins/distrho
 media-plugins/gst-buzztard
-media-plugins/azr3-lv2
 media-plugins/calf
 media-plugins/holap
 media-plugins/eq10q

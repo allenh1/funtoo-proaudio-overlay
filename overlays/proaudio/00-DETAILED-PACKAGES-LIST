@@ -889,12 +889,6 @@
 	Homepage:    http://www.buzztard.org
 
 
-#------- media-plugins/azr3-lv2 --------
-	azr3-lv2-9999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: AZR3
-	Homepage:    
-
-
 #------- media-plugins/meters-lv2 --------
 	meters-lv2-9999	arch: -> live ebuild: [svn|cvs|...]<-
 	Description: A colletion of audio level meters with GUI
