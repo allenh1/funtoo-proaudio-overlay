@@ -4,6 +4,12 @@
 #
 
 # Karl Linden <lilrc@users.sourceforge.net> (10 April 2015)
+# Generates warnings about EAPI=4. No commits since 2008-01-26.
+# Latest version in portage (1.2) has all commits; use it instead.
+# Removal in 30 days.
+=media-sound/kenvy24-99999999
+
+# Karl Linden <lilrc@users.sourceforge.net> (10 April 2015)
 # Does not fetch, last release seven years ago, superseded by
 # media-libs/libffado, no reverse dependencies. Removal in 30 days.
 sys-libs/libfreebob
