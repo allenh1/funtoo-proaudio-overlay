@@ -7,7 +7,7 @@
 # Generates repoman warnings. Current versions are maintained in gx86.
 # Probably affected by a bunch of security vulnerabilities (CVE-2013-2094,
 # for example). Removal in 30 days.
-sys-kernel/rt-sources::proaudio
+<sys-kernel/rt-sources-3.0.0
 
 # Karl Linden <lilrc@users.sourceforge.net> (10 April 2015)
 # Generates warnings about EAPI=4. No commits since 2008-01-26.
