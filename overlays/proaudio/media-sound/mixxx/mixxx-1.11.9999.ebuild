@@ -1,4 +1,4 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -41,7 +41,7 @@ RDEPEND="dev-libs/protobuf
 	)
 	hid? ( dev-libs/hidapi )
 	mp3? ( media-libs/libmad )
-	mp4? ( media-libs/libmp4v2 )
+	mp4? ( media-libs/libmp4v2:= )
 	pulseaudio? ( media-sound/pulseaudio )
 	shout? ( media-libs/libshout )
 	wavpack? ( media-sound/wavpack )"

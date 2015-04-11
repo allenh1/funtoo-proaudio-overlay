@@ -2,6 +2,11 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  11 Apr 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  mixxx-1.11.0.ebuild, mixxx-1.11.9999.ebuild, mixxx-9999.ebuild:
+  repoman payment
+  mixxx-9999: added ffmpeg use flag, fixes #184, thanks gerion for report
+
   16 Mar 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   files/mixxx-9999-system-libs.patch:
   updated mixxx-9999-system-libs.patch, thanks to Alex Barker for the patch

@@ -1,4 +1,4 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -14,7 +14,7 @@ EGIT_BRANCH="master"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="aac debug doc hid mp3 mp4 pulseaudio shout wavpack"
+IUSE="aac debug doc ffmpeg hid mp3 mp4 pulseaudio shout wavpack"
 
 RDEPEND="dev-libs/protobuf
 	media-libs/chromaprint
@@ -46,7 +46,8 @@ RDEPEND="dev-libs/protobuf
 	)
 	hid? ( dev-libs/hidapi )
 	mp3? ( media-libs/libmad )
-	mp4? ( media-libs/libmp4v2 )
+	mp4? ( media-libs/libmp4v2:= )
+	ffmpeg? ( virtual/ffmpeg )
 	pulseaudio? ( media-sound/pulseaudio )
 	shout? ( media-libs/libshout )
 	wavpack? ( media-sound/wavpack )"
@@ -80,6 +81,7 @@ src_configure() {
 		$(use_scons hid hid)
 		$(use_scons mp3 mad)
 		$(use_scons mp4 m4a)
+		$(use_scons ffmpeg)
 		$(use_scons shout shoutcast)
 		$(use_scons wavpack wv)
 	)
