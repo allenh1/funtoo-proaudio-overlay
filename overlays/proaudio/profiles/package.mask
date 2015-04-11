@@ -3,6 +3,12 @@
 # NOTE: Please add your entry at the top!
 #
 
+# Karl Linden <lilrc@users.sourceforge.net> (11 April 2015)
+# Generates repoman warnings. Current versions are maintained in gx86.
+# Probably affected by a bunch of security vulnerabilities (CVE-2013-2094,
+# for example). Removal in 30 days.
+sys-kernel/rt-sources::proaudio
+
 # Karl Linden <lilrc@users.sourceforge.net> (10 April 2015)
 # Generates warnings about EAPI=4. No commits since 2008-01-26.
 # Latest version in portage (1.2) has all commits; use it instead.
