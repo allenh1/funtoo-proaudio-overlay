@@ -23,7 +23,7 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="alsa celt dbus debug doc ieee1394 opus pam"
+IUSE="alsa celt dbus doc ieee1394 opus pam"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -34,20 +34,23 @@ REQUIRED_USE="${REQUIRED_USE} amd64? ( abi_x86_32? ( !ieee1394 ) )"
 # FIXME: automagic deps: readline, samplerate, sndfile, celt, opus
 # FIXME: even though sndfile is just used for binaries, the check is flawed
 #        making the build fail if multilib libsndfile is not found.
-RDEPEND="media-libs/libsamplerate[${MULTILIB_USEDEP}]
+CDEPEND="media-libs/libsamplerate[${MULTILIB_USEDEP}]
 	media-libs/libsndfile[${MULTILIB_USEDEP}]
 	sys-libs/readline:0
 	${PYTHON_DEPS}
 	alsa? ( media-libs/alsa-lib[${MULTILIB_USEDEP}] )
 	celt? ( media-libs/celt:0[${MULTILIB_USEDEP}] )
-	dbus? ( sys-apps/dbus[${MULTILIB_USEDEP}] )
+	dbus? (
+		dev-libs/expat[${MULTILIB_USEDEP}]
+		sys-apps/dbus[${MULTILIB_USEDEP}]
+	)
 	ieee1394? ( media-libs/libffado )
 	opus? ( media-libs/opus[custom-modes,${MULTILIB_USEDEP}] )
 	abi_x86_32? ( !app-emulation/emul-linux-x86-soundlibs[-abi_x86_32(-)] )"
-DEPEND="${RDEPEND}
+DEPEND="${CDEPEND}
 	virtual/pkgconfig
 	doc? ( app-doc/doxygen )"
-RDEPEND="${RDEPEND}
+RDEPEND="${CDEPEND}
 	dbus? ( dev-python/dbus-python[${PYTHON_USEDEP}] )
 	pam? ( sys-auth/realtime-base )"
 
@@ -72,12 +75,10 @@ multilib_src_configure() {
 	local mywafconfargs=(
 		$(usex alsa --alsa "")
 		$(usex dbus --dbus --classic)
-		$(usex debug --debug "")
 		$(usex ieee1394 --firewire "")
 	)
 
-	WAF_BINARY="${BUILD_DIR}"/waf waf-utils_src_configure \
-		${mywafconfargs[@]}
+	WAF_BINARY="${BUILD_DIR}"/waf waf-utils_src_configure ${mywafconfargs[@]}
 }
 
 multilib_src_compile() {

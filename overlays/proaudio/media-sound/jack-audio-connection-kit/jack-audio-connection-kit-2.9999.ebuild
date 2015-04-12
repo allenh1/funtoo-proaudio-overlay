@@ -23,7 +23,7 @@ fi
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="alsa celt dbus debug doc ieee1394 opus pam"
+IUSE="alsa celt dbus doc ieee1394 libsamplerate opus pam readline sndfile"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
@@ -31,29 +31,43 @@ REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 REQUIRED_USE="${REQUIRED_USE} amd64? ( abi_x86_32? ( !ieee1394 ) )"
 
 # FIXME: multilib libffado
-# FIXME: automagic deps: readline, samplerate, sndfile, celt, opus
-# FIXME: even though sndfile is just used for binaries, the check is flawed
-#        making the build fail if multilib libsndfile is not found.
-RDEPEND="media-libs/libsamplerate[${MULTILIB_USEDEP}]
-	media-libs/libsndfile[${MULTILIB_USEDEP}]
-	sys-libs/readline:0
-	${PYTHON_DEPS}
+CDEPEND="${PYTHON_DEPS}
 	alsa? ( media-libs/alsa-lib[${MULTILIB_USEDEP}] )
 	celt? ( media-libs/celt:0[${MULTILIB_USEDEP}] )
-	dbus? ( sys-apps/dbus[${MULTILIB_USEDEP}] )
+	dbus? (
+		dev-libs/expat[${MULTILIB_USEDEP}]
+		sys-apps/dbus[${MULTILIB_USEDEP}]
+	)
 	ieee1394? ( media-libs/libffado )
+	libsamplerate? ( media-libs/libsamplerate[${MULTILIB_USEDEP}] )
 	opus? ( media-libs/opus[custom-modes,${MULTILIB_USEDEP}] )
+	readline? ( sys-libs/readline:0 )
+	sndfile? ( media-libs/libsndfile )
 	abi_x86_32? ( !app-emulation/emul-linux-x86-soundlibs[-abi_x86_32(-)] )"
-DEPEND="${RDEPEND}
+DEPEND="${CDEPEND}
 	virtual/pkgconfig
 	doc? ( app-doc/doxygen )"
-RDEPEND="${RDEPEND}
+RDEPEND="${CDEPEND}
 	dbus? ( dev-python/dbus-python[${PYTHON_USEDEP}] )
 	pam? ( sys-auth/realtime-base )"
 
 [[ "${PV}" = "2.9999" ]] || S="${WORKDIR}/jack-${PV}"
 
 DOCS=( ChangeLog README README_NETJACK2 TODO )
+
+# USAGE: jack2_use <flag> [feature]
+jack2_use() {
+	echo "--${2:-${1}}=$(usex ${1})"
+}
+
+# USAGE: jack2_multilib_native_use <flag> [feature]
+jack2_multilib_native_use() {
+	if multilib_is_native_abi; then
+		jack2_use "${@}"
+	else
+		echo "--${2:-${1}}=no"
+	fi
+}
 
 src_unpack() {
 	if [[ "${PV}" = "2.9999" ]]; then
@@ -70,27 +84,30 @@ src_prepare() {
 
 multilib_src_configure() {
 	local mywafconfargs=(
-		$(usex alsa --alsa "")
+		--htmldir="${EPREFIX}"/usr/share/doc/${PF}/html
+		--freebob=no
+		--iio=no
+		--portaudio=no
+		--winmme=no
+		$(jack2_use alsa)
+		$(jack2_use celt)
 		$(usex dbus --dbus --classic)
-		$(usex debug --debug "")
-		$(usex ieee1394 --firewire "")
+		$(jack2_multilib_native_use doc doxygen)
+		$(jack2_use ieee1394 firewire)
+		$(jack2_use libsamplerate samplerate)
+		$(jack2_use opus)
+		$(jack2_multilib_native_use readline)
+		$(jack2_multilib_native_use sndfile)
 	)
 
-	WAF_BINARY="${BUILD_DIR}"/waf waf-utils_src_configure \
-		${mywafconfargs[@]}
+	WAF_BINARY="${BUILD_DIR}"/waf waf-utils_src_configure ${mywafconfargs[@]}
 }
 
 multilib_src_compile() {
 	WAF_BINARY="${BUILD_DIR}"/waf waf-utils_src_compile
-
-	if multilib_is_native_abi && use doc; then
-		doxygen || die "doxygen failed"
-	fi
 }
 
 multilib_src_install() {
-	multilib_is_native_abi && use doc && \
-		HTML_DOCS=( "${BUILD_DIR}"/html/ )
 	WAF_BINARY="${BUILD_DIR}"/waf waf-utils_src_install
 }
 
