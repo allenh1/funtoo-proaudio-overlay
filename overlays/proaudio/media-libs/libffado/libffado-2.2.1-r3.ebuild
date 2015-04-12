@@ -44,6 +44,13 @@ RDEPEND="dev-cpp/libxmlpp[${MULTILIB_USEDEP}]
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
+PATCHES=(
+	"${FILESDIR}"/${P}-flags.patch
+	"${FILESDIR}"/${P}-jack-detect.patch
+	"${FILESDIR}"/${P}-detect-userspace-env.patch
+	"${FILESDIR}"/${P}-mixer.patch
+)
+
 multilib_native_use_scons() {
 	if multilib_is_native_abi; then
 		use_scons "${@}"
