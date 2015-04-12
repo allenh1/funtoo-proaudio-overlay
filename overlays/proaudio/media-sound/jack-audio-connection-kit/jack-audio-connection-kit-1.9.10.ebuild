@@ -27,10 +27,6 @@ IUSE="alsa celt dbus doc ieee1394 opus pam"
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
-# FIXME: multilib libffado
-REQUIRED_USE="${REQUIRED_USE} amd64? ( abi_x86_32? ( !ieee1394 ) )"
-
-# FIXME: multilib libffado
 # FIXME: automagic deps: readline, samplerate, sndfile, celt, opus
 # FIXME: even though sndfile is just used for binaries, the check is flawed
 #        making the build fail if multilib libsndfile is not found.
@@ -44,7 +40,7 @@ CDEPEND="media-libs/libsamplerate[${MULTILIB_USEDEP}]
 		dev-libs/expat[${MULTILIB_USEDEP}]
 		sys-apps/dbus[${MULTILIB_USEDEP}]
 	)
-	ieee1394? ( media-libs/libffado )
+	ieee1394? ( media-libs/libffado[${MULTILIB_USEDEP}] )
 	opus? ( media-libs/opus[custom-modes,${MULTILIB_USEDEP}] )
 	abi_x86_32? ( !app-emulation/emul-linux-x86-soundlibs[-abi_x86_32(-)] )"
 DEPEND="${CDEPEND}

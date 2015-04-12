@@ -3,6 +3,14 @@
 # $Header: $
 
   12 Apr 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  jack-audio-connection-kit-0.121.3-r2.ebuild,
+  jack-audio-connection-kit-0.124.1.ebuild,
+  jack-audio-connection-kit-1.9.10.ebuild,
+  jack-audio-connection-kit-1.9999.ebuild,
+  jack-audio-connection-kit-2.9999.ebuild:
+  multilib libffado
+
+  12 Apr 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
   jack-audio-connection-kit-1.9.10.ebuild,
   jack-audio-connection-kit-2.9999.ebuild:
   remove debug use flag from jack2 since it only triggers CFLAGS

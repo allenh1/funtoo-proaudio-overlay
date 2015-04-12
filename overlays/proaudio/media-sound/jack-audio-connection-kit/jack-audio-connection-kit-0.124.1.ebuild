@@ -53,10 +53,6 @@ if [[ ${HAVE_DBUS_PATCH} ]]; then
 	REQUIRED_USE="dbus? ( ${PYTHON_REQUIRED_USE} )"
 fi
 
-# FIXME: multilib libffado
-REQUIRED_USE="${REQUIRED_USE} amd64? ( abi_x86_32? ( !ieee1394 ) )"
-
-# FIXME: multilib libffado
 # FIXME: automagic deps: readline, samplerate, sndfile, celt
 CDEPEND="media-libs/libsamplerate[${MULTILIB_USEDEP}]
 	media-libs/libsndfile
@@ -64,7 +60,7 @@ CDEPEND="media-libs/libsamplerate[${MULTILIB_USEDEP}]
 	sys-libs/readline:0
 	alsa? ( media-libs/alsa-lib[${MULTILIB_USEDEP}] )
 	celt? ( media-libs/celt:0[${MULTILIB_USEDEP}] )
-	ieee1394? ( media-libs/libffado )
+	ieee1394? ( media-libs/libffado[${MULTILIB_USEDEP}] )
 	zalsa? (
 		media-libs/zita-alsa-pcmi
 		media-libs/zita-resampler
