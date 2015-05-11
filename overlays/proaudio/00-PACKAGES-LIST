@@ -167,7 +167,6 @@ media-libs/oscpack
 media-libs/ld10k1
 media-libs/lv2dynparam1
 media-libs/libclam
-sys-kernel/rt-sources
 sys-apps/jackd-init
 sys-apps/das_watchdog
 media-radio/rivendell

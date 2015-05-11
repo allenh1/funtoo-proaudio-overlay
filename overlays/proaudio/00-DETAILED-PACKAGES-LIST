@@ -2722,28 +2722,6 @@
 	Homepage:    http://usb-midi-fw.sourceforge.net
 
 
-#------- sys-kernel/rt-sources --------
-	rt-sources-2.6.24.7-r17	arch: ~amd64 ~ppc ~ppc64 ~x86
-	rt-sources-2.6.26.8-r12	arch: ~amd64 ~x86
-	rt-sources-2.6.29.6-r23	arch: ~amd64 ~x86
-	rt-sources-2.6.31.12-r21	arch: ~amd64 ~x86
-	rt-sources-2.6.31.6-r19	arch: ~amd64 ~x86
-	rt-sources-2.6.33.2-r13	arch: ~amd64 ~x86
-	rt-sources-2.6.33.3-r16	arch: ~amd64 ~x86
-	rt-sources-2.6.33.3-r17	arch: ~amd64 ~x86
-	rt-sources-2.6.33.3-r19	arch: ~amd64 ~x86
-	rt-sources-2.6.33.5-r22	arch: ~amd64 ~x86
-	rt-sources-2.6.33.5-r23	arch: ~amd64 ~x86
-	rt-sources-2.6.33.6-r26	arch: ~amd64 ~x86
-	rt-sources-2.6.33.6-r27	arch: ~amd64 ~x86
-	rt-sources-2.6.33.7-r29	arch: ~amd64 ~x86
-	rt-sources-2.6.33.7-r30	arch: ~amd64 ~x86
-	rt-sources-2.6.33.9-r31	arch: ~amd64 ~x86
-	Description: Realtime Preemption patched low latency Linux
-		 kernel
-	Homepage:    unknown
-
-
 #------- sys-libs/libmagic --------
 	libmagic-0_alpha	arch: ~x86 ~amd64
 	Description: Lbrary for automatically determining the

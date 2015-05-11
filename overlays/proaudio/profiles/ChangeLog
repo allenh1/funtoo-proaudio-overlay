@@ -7,6 +7,9 @@
 # here. If in doubt put a record here!
 
   11 May 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net> package.mask:
+  remove sys-kernel/rt-sources
+
+  11 May 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net> package.mask:
   remove sys-libs/libfreebob
 
   11 Apr 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net> package.mask:
