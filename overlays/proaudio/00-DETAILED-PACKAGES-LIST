@@ -1921,13 +1921,6 @@
 	Homepage:    http://www.metadecks.org/software/sweep/
 
 
-#------- media-sound/kenvy24 --------
-	kenvy24-99999999	arch: -> live ebuild: [svn|cvs|...]<-
-	Description: VIA Envy24 based sound card control utility
-		 for KDE
-	Homepage:    http://kenvy24.wiki.sourceforge.net/
-
-
 #------- media-sound/softwerk --------
 	softwerk-3.0	arch: ~amd64 ~x86
 	Description: MIDI sequencer based on the Doepfer Schaltwerk

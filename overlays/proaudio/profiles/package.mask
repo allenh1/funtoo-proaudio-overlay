@@ -3,12 +3,6 @@
 # NOTE: Please add your entry at the top!
 #
 
-# Karl Linden <lilrc@users.sourceforge.net> (10 April 2015)
-# Generates warnings about EAPI=4. No commits since 2008-01-26.
-# Latest version in portage (1.2) has all commits; use it instead.
-# Removal in 30 days.
-=media-sound/kenvy24-99999999
-
 # Dominique Michel <dominique_libre@users.sourceforge.net> (31 March 2014)
 # Work, but some work is needed on the configure phase.
 =media-sound/zynaddsubfx-99999999-r1
