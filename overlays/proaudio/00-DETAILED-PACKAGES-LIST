@@ -2752,15 +2752,6 @@
 	Homepage:    http://.sourceforge.net/
 
 
-#------- sys-libs/libfreebob --------
-	libfreebob-1.0.0	arch: x86 sparc amd64 ~ppc ~ppc-macos ~mips
-	libfreebob-1.0.11	arch: x86 sparc amd64 ~ppc ~ppc-macos ~mips
-	libfreebob-1.0.3	arch: x86 sparc amd64 ~ppc ~ppc-macos ~mips
-	Description: Library for accessing BeBoB IEEE1394 devices
-		
-	Homepage:    http://freebob.sf.net
-
-
 #------- sys-libs/pam --------
 	pam-1.0.1	arch: alpha amd64 ~arm hppa ia64 ~m68k ~mips ppc ppc64 ~s390 ~sh sparc x86
 	Description: Linux-PAM (Pluggable Authentication Modules)
