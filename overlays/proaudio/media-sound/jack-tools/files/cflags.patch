@@ -1,0 +1,34 @@
+--- Makefile.orig	2015-05-19 19:04:00.000000000 +0200
++++ Makefile	2015-05-19 19:05:40.070310007 +0200
+@@ -1,26 +1,25 @@
+ prefix=$(HOME)/opt
+ bin=jack-dl jack-osc jack-play jack-plumbing jack-record jack-scope jack-transport jack-udp
+ 
+-CFLAGS=-Wall -D_POSIX_C_SOURCE=200112 -std=c99 -O3 -g
+ LDLIBS=c-common/lib-c-common.a -ljack -lpthread -lm
+ INSTALL=install
+ 
+ all: $(bin)
+ 
+ jack-transport: jack-transport.c
+-	gcc $(CFLAGS) $(LDFLAGS) -o jack-transport jack-transport.c $(LDLIBS) -lcurses
++	gcc $(CFLAGS) -D_POSIX_C_SOURCE=200112 -std=c99  $(LDFLAGS) -o jack-transport jack-transport.c $(LDLIBS) -lcurses
+ 
+ jack-dl: jack-dl.c
+-	gcc $(CFLAGS) $(LDFLAGS) -o jack-dl jack-dl.c $(LDLIBS) -ldl -llo
++	gcc $(CFLAGS) -D_POSIX_C_SOURCE=200112 -std=c99  $(LDFLAGS) -o jack-dl jack-dl.c $(LDLIBS) -ldl -llo
+ 
+ jack-play: jack-play.c
+-	gcc $(CFLAGS) $(LDFLAGS) -o jack-play jack-play.c $(LDLIBS) -lsndfile -lsamplerate
++	gcc $(CFLAGS) -D_POSIX_C_SOURCE=200112 -std=c99  $(LDFLAGS) -o jack-play jack-play.c $(LDLIBS) -lsndfile -lsamplerate
+ 
+ jack-record: jack-record.c
+-	gcc $(CFLAGS) $(LDFLAGS) -o jack-record jack-record.c $(LDLIBS) -lsndfile
++	gcc $(CFLAGS) -D_POSIX_C_SOURCE=200112 -std=c99  $(LDFLAGS) -o jack-record jack-record.c $(LDLIBS) -lsndfile
+ 
+ jack-scope: jack-scope.c
+-	gcc $(CFLAGS) $(LDFLAGS) -o jack-scope jack-scope.c $(LDLIBS) -lX11 -lXext
++	gcc $(CFLAGS) -D_POSIX_C_SOURCE=200112 -std=c99  $(LDFLAGS) -o jack-scope jack-scope.c $(LDLIBS) -lX11 -lXext
+ 
+ clean:
+ 	(cd c-common ; make clean)
