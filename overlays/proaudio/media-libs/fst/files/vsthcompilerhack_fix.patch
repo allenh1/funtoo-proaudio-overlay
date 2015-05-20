@@ -1,7 +1,0 @@
-diff -brN -U0 fst-1.6/vst/aeffectx.h fst-1.6-vsthcompilerhack_fix/vst/aeffectx.h
---- fst-1.6/vst/aeffectx.h	2004-08-22 20:38:01.202291000 -0500
-+++ fst-1.6-vsthcompilerhack_fix/vst/aeffectx.h	2004-08-22 20:42:33.910988000 -0500
-@@ -915,0 +916 @@
-+/* broke-ass compilerhack...   what were they thinking?
-@@ -939,0 +941 @@
-+*/

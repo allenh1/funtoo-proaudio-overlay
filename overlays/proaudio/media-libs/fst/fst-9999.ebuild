@@ -1,6 +1,8 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
+
+EAPI=5
 
 inherit eutils git-r3
 
@@ -15,14 +17,20 @@ IUSE="lash"
 SRC_URI=""
 
 KEYWORDS=""
-DEPEND="lash? ( media-sound/lash )
-	>=x11-libs/gtk+-2.0
-	>=app-emulation/wine-0.9.5
-	>=media-sound/jack-audio-connection-kit-0.98.1
-	app-emulation/emul-linux-x86-gtklibs"
+RDEPEND="
+	lash? ( media-sound/lash[abi_x86_32(-)] )
+	x11-libs/gtk+:2[abi_x86_32(-)]
+	app-emulation/wine[abi_x86_32(-)]
+	media-sound/jack-audio-connection-kit[abi_x86_32(-)]
+"
+
+DEPEND="
+	${RDEPEND}
+	virtual/pkgconfig
+"
 
 src_compile() {
-	emake LASH_EXISTS="$(use lash && echo yes || echo no)" || die
+	emake LASH_EXISTS="$(use lash && echo yes || echo no)"
 }
 
 src_install() {

@@ -1,4 +1,4 @@
-# Copyright 1999-2006 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -16,10 +16,12 @@ SRC_URI="http://galan.sf.net/${P}.tar.gz"
 VST_SDK_VER="2.3"
 
 KEYWORDS="x86"
-DEPEND="media-sound/lash
+RDEPEND="media-sound/lash
 	>=app-emulation/wine-0.9.5
 	>=media-sound/jack-audio-connection-kit-0.98.1
 	=media-libs/vst-sdk-${VST_SDK_VER}*"
+DEPEND="${RDEPEND}
+	virtual/pkgconfig"
 
 pkg_setup() {
 	if [ ! -e "/usr/include/vst/aeffectx.h" -a ! -e \
