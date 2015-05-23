@@ -1,0 +1,15 @@
+# ChangeLog for media-sound/aseqjoy
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  27 Dec 2012; Karl Lindén (lilrc) <lilrc@users.sourceforge.net>
+  aseqjoy-0.0.1.ebuild, metadata.xml, -files:
+  removed herd from metadata.xml
+  added EAPI
+  use autotools-utils
+  mark package as stable
+  cleanup
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

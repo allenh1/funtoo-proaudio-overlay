@@ -1,0 +1,11 @@
+--- a/oper_alsa.c.old	2006-03-16 00:25:43.507504589 +0100
++++ b/oper_alsa.c	2006-03-16 00:26:06.077559705 +0100
+@@ -79,7 +79,7 @@
+ 	{"addr", "subscriber", "--addr client:port or 'subscriber' : ALSA sequencer destination"},
+ 	{"name", DEFAULT_NAME, "--name string : use the specified string as client/port names"},
+ #ifdef HAVE_LASH	
+-	{"lash", "no", "--lash <yes|no> : support LASH (default = no)"},
++	{"lash", "yes", "--lash <yes|no> : support LASH (default = yes)"},
+ #endif
+ 	{NULL},
+ };

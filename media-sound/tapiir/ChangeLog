@@ -1,0 +1,31 @@
+# ChangeLog for media-sound/tapiir
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*tapiir-0.7.3 (16 Nov 2012)
+
+  16 Nov 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -tapiir-0.7.1-r1.ebuild, -files/tapiir-0.7.1-alsa.patch,
+  -files/tapiir-0.7.1-mtd.patch, -files/tapiir-0.7.1-multiline.patch,
+  +files/tapiir-0.7.1/tapiir-0.7.1-alsa.patch,
+  +files/tapiir-0.7.1/tapiir-0.7.1-mtd.patch,
+  +files/tapiir-0.7.1/tapiir-0.7.1-multiline.patch,
+  +files/tapiir-0.7.1/tapiir-buffersizecallback.patch,
+  +files/tapiir-0.7.1/tapiir-gcc4.patch, -tapiir-0.7.2.ebuild,
+  +tapiir-0.7.3.ebuild, +files/tapiir-0.7.3/0000-missing-m4.patch,
+  +files/tapiir-0.7.3/0001-add-missing-fltk-link-flag.patch,
+  +files/tapiir-0.7.3/0002-no-suid-bins.patch,
+  -files/tapiir-buffersizecallback.patch, -files/tapiir-gcc4.patch,
+  metadata.xml:
+  Bump to 0.7.3 updating SRC_URI and HOMEPAGE which were dangling.
+  Migrate to autotools-utils. Add patches for building on Gentoo.
+  Moved old patches to ${FILESDIR}/tapiir-0.7.1 to organise a bit better and
+  keeping those around for now as not sure if some are are still useful.
+
+  09 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  tapiir-0.7.1-r1.ebuild: KEEP: patches with more functionality
+  tapiir-0.7.2.ebuild: KEEP: more deps and useflag
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

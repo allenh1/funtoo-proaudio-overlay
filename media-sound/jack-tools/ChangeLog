@@ -1,0 +1,27 @@
+# ChangeLog for media-sound/jack-tools
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*jack-tools-20131226 (19 May 2015)
+
+  19 May 2015; Dominique Michel <dominique.c.michel@gmail.com>
+  +jack-tools-20131226.ebuild: initial ebuild
+  +files/cflags.patch, +files/commonfiles_cflags.patch: use portage CFLAGS.
+
+*jack-tools-20101210-r1 (26 Mar 2013)
+
+  26 Mar 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -jack-tools-9999.ebuild, -jack-tools-20101210.ebuild,
+  +jack-tools-20101210-r1.ebuild, +metadata.xml,
+  -files/fix_ftbfs_ld_as_needed.patch, -files/fix_ftbfs_with_printf.patch:
+  adjust SRC_URI to pull in tarball and patches from ubuntu repo, cleanup
+  ebuild. remove patches from filesdir which are included in SRC_URI.
+  remove live ebuild because there are missing files which are in another
+  repo upstream called c-common, a new package should be created for that.
+
+  16 June 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  + ChangeLog
+  + jack-tools-20101210.ebuild
+  + html USE flag to install the individual documentations
+  as html files.
+  They want be installed as compressed text files otherwise.

@@ -1,0 +1,36 @@
+# ChangeLog for media-video/openmovieeditor
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  19 Mar 2009; Marcin Deranek <gringo@tuxfamily.org>
+  +files/openmovieeditor-fix-as-needed.patch,
+  +openmovieeditor-0.0.20090105-r1.ebuild:
+  Version bump
+
+  19 Mar 2009; Marcin Deranek <gringo@tuxfamily.org>
+  +files/openmovieeditor-fix-audio-segfault.patch,
+  +openmovieeditor-0.0.20081029.ebuild:
+  Version bump
+
+  19 Mar 2009; Marcin Deranek <gringo@tuxfamily.org>
+  +files/openmovieeditor-fix-linkage.patch,
+  +openmovieeditor-0.0.20080523-r1.ebuild,
+  -openmovieeditor-0.0.20080523.ebuild:
+  Fix for newer ffmpeg and linkage problem
+
+  22 Oct 2008; Frieder Buerzele <evermind@tuxfamily.org;
+  openmovieeditor-0.0.20080523.ebuild:
+  fix dependencies (thx marcin deranek)
+  fixed new ffmpeg api
+
+  25 Jul 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  +openmovieeditor-0.0.20080523.ebuild:
+  bumped openmovieeditor-0.0.20080523
+
+  15 Jan 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  +openmovieeditor-0.0.20080102.ebuild:
+  bumped
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

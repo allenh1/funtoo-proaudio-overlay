@@ -1,0 +1,13 @@
+# ChangeLog for dev-python/PyOSC
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*PyOSC-2013.04.17 (20 Apr 2013)
+
+  20 Apr 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  +PyOSC-2013.04.17.ebuild, +metadata.xml:
+  initial import. this package was imported to work around conflict of osc.py
+  file installed by media-sound/khagan and media-sound/fastbreeder.
+  named PyOSC to differentiate between another package named pyOSC if ever gets
+  imported.
+

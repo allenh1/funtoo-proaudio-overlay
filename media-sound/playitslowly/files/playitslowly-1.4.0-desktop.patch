@@ -1,0 +1,16 @@
+# DESCRIPTION: A patch to remove the QA warning about the deprecated
+#              value Application in Categories.
+# AUTHOR: Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+# STATUS: Not sent upstream. (Oct 9 2013)
+
+diff -ur playitslowly-1.4.0.orig/share/applications/playitslowly.desktop playitslowly-1.4.0/share/applications/playitslowly.desktop
+--- playitslowly-1.4.0.orig/share/applications/playitslowly.desktop	2013-10-09 22:08:36.519991762 +0200
++++ playitslowly-1.4.0/share/applications/playitslowly.desktop	2013-10-09 22:08:54.115991663 +0200
+@@ -5,6 +5,6 @@
+ Comment=A tool to play back a piece of music at a different speed or pitch
+ Icon=playitslowly
+ Type=Application
+-Categories=Application;AudioVideo;
++Categories=AudioVideo;
+ Terminal=false
+ Exec=playitslowly

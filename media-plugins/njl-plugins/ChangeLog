@@ -1,0 +1,19 @@
+# ChangeLog for media-plugins/njl-plugins
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*njl-plugins-0.2.1-r2 (30 Apr 2013)
+
+  30 Apr 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -njl-plugins-0.2.1.ebuild, -njl-plugins-0.2.1-r1.ebuild,
+  +njl-plugins-0.2.1-r2.ebuild, +files/njl-plugins-0.2.1-Makefile.patch,
+  metadata.xml:
+  add patch to honour CC/CFLAGS/LDFLAGS, EAPI=5, inherit base, remove old.
+
+  03 Mar 2011; Frieder Buerzele <evermind@tuxfamily.org>
+  njl-plugins-0.2.1.ebuild, njl-plugins-0.2.1-r1.ebuild:
+  fixup libdir
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

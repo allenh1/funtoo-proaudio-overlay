@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer>
+		<email>proaudio@tuxfamily.org</email>
+		<name>pro-audio overlay team</name>
+	</maintainer>
+	<longdescription>
+		A xdg menu with full support for the additional freedesktop categories. It is designed for use with fvwm but should work with any xdg compliant desktop.
+	</longdescription>
+</pkgmetadata>

@@ -1,0 +1,11 @@
+# ChangeLog for media-plugins/eq10q
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*eq10q-1.2 (04 Feb 2011)
+
+  04 Feb 2011; Gavin Pryke <gavinlee303@googlemail.com> +eq10q-1.2.ebuild,
+  +files/eq10q-1.2-Makefile.patch,
+  +files/eq10q-1.2-pstreams-header-location.patch, +metadata.xml:
+  imported from my overlay
+

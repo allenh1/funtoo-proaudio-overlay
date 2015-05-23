@@ -1,0 +1,14 @@
+# Make sure the -lm is passed to the linker
+
+diff -ur raton_v0.22.orig/configure.in raton_v0.22.a/configure.in
+--- raton_v0.22.orig/configure.in	2005-01-16 14:50:36.000000000 +0100
++++ raton_v0.22.a/configure.in	2013-03-30 21:19:41.959597056 +0100
+@@ -15,6 +15,8 @@
+ AC_SUBST(PACKAGE_CFLAGS)
+ AC_SUBST(PACKAGE_LIBS)
+ 
++AC_CHECK_LIB([m], [sin])
++
+ AC_CHECK_LIB(asound, snd_seq_event_output_direct,alsalib=yes,alsalib=no)
+ AC_CHECK_HEADERS(alsa/asoundlib.h,alsaheader=yes,alsaheader=no)
+ 

@@ -1,0 +1,166 @@
+diff -Naur a/AUTHORS b/AUTHORS
+--- a/AUTHORS	1970-01-01 01:00:00.000000000 +0100
++++ b/AUTHORS	2013-01-13 00:26:34.539928912 +0100
+@@ -0,0 +1,5 @@
++Original author:
++Jens M Andreasen <dev.null@chello.se>
++
++Buildsystem created by:
++Karl Lindén <lilrc@users.sourceforge.net>
+diff -Naur a/ChangeLog b/ChangeLog
+--- a/ChangeLog	1970-01-01 01:00:00.000000000 +0100
++++ b/ChangeLog	2013-01-13 00:26:34.540928912 +0100
+@@ -0,0 +1,3 @@
++  12 Jan 2013; Karl Lindén (lilrc) <lilrc@users.sourceforge.net>
++  Made the source use autotools as build system
++  Created a changelog
+diff -Naur a/Makefile.am b/Makefile.am
+--- a/Makefile.am	1970-01-01 01:00:00.000000000 +0100
++++ b/Makefile.am	2013-01-13 00:26:34.540928912 +0100
+@@ -0,0 +1 @@
++SUBDIRS = src data
+diff -Naur a/configure.ac b/configure.ac
+--- a/configure.ac	1970-01-01 01:00:00.000000000 +0100
++++ b/configure.ac	2013-01-13 00:26:34.540928912 +0100
+@@ -0,0 +1,38 @@
++#                                               -*- Autoconf -*-
++# Process this file with autoconf to produce a configure script.
++
++AC_PREREQ([2.69])
++AC_INIT([mx44], [2], [BUG-REPORT-ADDRESS])
++AC_CONFIG_SRCDIR([src/main.c])
++
++AM_INIT_AUTOMAKE
++
++# Checks for programs.
++AC_PROG_CC
++AM_PROG_CC_C_O
++AC_PROG_INSTALL
++
++m4_ifndef([PKG_PROG_PKG_CONFIG],
++    [m4_fatal([pkg-config is required to build Mx44])])
++PKG_PROG_PKG_CONFIG
++
++# Checks for libraries.
++# FIXME: Replace `main' with a function in `-lm':
++AC_CHECK_LIB([m], [main])
++
++PKG_CHECK_MODULES([alsa], [alsa])
++PKG_CHECK_MODULES([gtk], [gtk+-2.0])
++PKG_CHECK_MODULES([jack], [jack])
++
++# Checks for header files.
++AC_CHECK_HEADERS([fcntl.h limits.h stdlib.h string.h unistd.h])
++
++# Checks for typedefs, structures, and compiler characteristics.
++AC_C_INLINE
++
++# Checks for library functions.
++AC_FUNC_MALLOC
++AC_CHECK_FUNCS([atexit memset pow sqrt strdup strerror])
++
++AC_CONFIG_FILES([Makefile src/Makefile data/Makefile])
++AC_OUTPUT
+diff -Naur a/data/Makefile.am b/data/Makefile.am
+--- a/data/Makefile.am	1970-01-01 01:00:00.000000000 +0100
++++ b/data/Makefile.am	2013-01-13 00:26:34.540928912 +0100
+@@ -0,0 +1,2 @@
++stuffdir = ${datadir}/mx44
++stuff_DATA = mx44patch gtk-2.0/gtkrc
+diff -Naur a/src/Makefile b/src/Makefile
+--- a/src/Makefile	2009-12-27 13:05:38.000000000 +0100
++++ b/src/Makefile	1970-01-01 01:00:00.000000000 +0100
+@@ -1,82 +0,0 @@
+-.SUFFIXES: .c $(SUFFIXES)
+-
+-TARGET		= mx44
+-
+-PREFIX		= /usr/local/
+-
+-DATADIR		= $(PREFIX)share/Mx44/
+-BINDIR		= $(PREFIX)bin/
+-
+-DIR		= Mx44.2
+-
+-CC		= gcc
+-
+-GTK_CFLAGS = `pkg-config --cflags gtk+-2.0` #-DGTK_DISABLE_DEPRECATED -DGDK_DISABLE_DEPRECATED
+-GTK_LIBS   = `pkg-config --libs gtk+-2.0`
+-
+-ALSA_CFLAGS = `pkg-config --cflags alsa`
+-ALSA_LIBS   = `pkg-config --libs alsa`
+-
+-JACK_CFLAGS = `pkg-config --cflags jack`
+-JACK_LIBS   = `pkg-config --libs jack`
+-
+-
+-LIBS		= $(GTK_LIBS) $(ALSA_LIBS) $(JACK_LIBS) -lm 
+-
+-FLAGS		= -O3 -Wall -pipe -mmmx -fomit-frame-pointer -D_REENTRANT \
+-		   -DDATADIR=\"$(DATADIR)\" \
+-		   $(GTK_CFLAGS) $(ALSA_CFLAGS) $(JACK_CFLAGS) 
+-
+-SRCS            =  interface2.c mx44.c stateio.c cmdline_opts.c main.c
+-INCLUDE         =  mx44.h
+-
+-OBJS		= $(SRCS:.c=.o)
+-
+-
+-
+-
+-$(TARGET):	$(OBJS)
+-	$(CC) -D_REENTRANT -o $@ $(OBJS) $(LIBS)
+-
+-.c.o: 
+-	$(CC) -c $(FLAGS) $<
+-
+-install: $(TARGET)
+-	install $(TARGET) $(BINDIR)
+-	install -d $(DATADIR)
+-	install -t $(DATADIR) ../data/mx44patch
+-	install -t $(DATADIR) ../data/gtk-2.0/gtkrc
+-
+-clean:
+-	rm -f $(TARGET) $(OBJS) core core.* *.bak *~
+-
+-depend:
+-	makedepend  -Y  $(SRCS)  &>/dev/null
+-
+-edit:
+-	exec emacs -font 9x15 $(INCLUDE) $(SRCS) Makefile&
+-
+-etag:
+-	rm TAGS;etags --members  $(SRCS) $(INCLUDE)    
+-
+-
+-tar:
+-	cd ../..; 			\
+-	rm -f $(DIR).tar.gz ; 		\
+-	tar -cf $(DIR).tar 		\
+-		$(DIR)/src/*.c 		\
+-		$(DIR)/src/*.h 		\
+-		$(DIR)/README 		\
+-		$(DIR)/src/Makefile 	\
+-		$(DIR)/COPYING 		\
+-		$(DIR)/data/mx44patch 	\
+-		$(DIR)/data/gtk-2.0/gtkrc ;\
+-	gzip $(DIR).tar
+-
+-# DO NOT DELETE
+-
+-interface2.o: mx44.h mmx.h
+-mx44.o: mx44.h mmx.h interface2.h cmdline_opts.h
+-stateio.o: stateio.h mx44.h mmx.h
+-cmdline_opts.o: cmdline_opts.h
+-main.o: mx44.h mmx.h interface2.h stateio.h cmdline_opts.h
+diff -Naur a/src/Makefile.am b/src/Makefile.am
+--- a/src/Makefile.am	1970-01-01 01:00:00.000000000 +0100
++++ b/src/Makefile.am	2013-01-13 00:27:23.192928638 +0100
+@@ -0,0 +1,7 @@
++
++bin_PROGRAMS = mx44
++
++mx44_SOURCES = interface2.c mx44.c stateio.c cmdline_opts.c main.c
++mx44_CFLAGS =	$(alsa_CFLAGS) $(gtk_CFLAGS) $(jack_CFLAGS) $(CLFAGS) \
++				-DDATADIR='"$(datadir)/mx44/"'
++mx44_LDADD = $(alsa_LIBS) $(gtk_LIBS) $(jack_LIBS)

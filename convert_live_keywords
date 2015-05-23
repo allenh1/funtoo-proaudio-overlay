@@ -1,0 +1,143 @@
+#!/bin/bash
+# (c) 2007 Frieder Bürzele
+# licence gnu gpl v2
+
+# exit script if not executed in overlay root
+if [ ! -e  .svn/text-base/generate-detailed-packages-list.svn-base ] ;then
+	echo "please execute this script just inside the overlay root"
+	exit 1
+fi
+#global vars
+gconv_pkz_list="no"
+gconv_ebuilds="no"
+convert_it(){
+	for x in `find -maxdepth 1 -type d -printf '%f\n'|sed '1d'`;do
+	cd $x
+	for i in `find -name files`;do
+		i=${i/\/files/}
+		ebuilds="$(ls $i/*.ebuild)"
+		i=${i/.\//}
+	
+#		echo "#------- $x/$i --------"
+		nr_of_ebuilds="-1"
+		
+		# reset descriptions so if one's is missing we'll see it
+		# in the generated list
+		HOMEPAGE="unknown"
+		DESCRIPTION="unknown"
+		KEYWORDS="unknown"
+		for k in ${ebuilds[@]};do
+			[ ! -z ${k##*9999*} ] && continue
+				
+			source $k &>/dev/null
+			if [ "yes" ==  "${gconv_ebuilds}" ] && [ "${KEYWORDS}" != "" ];then
+				echo "convert EBUILD $k"
+				sed -i 's@KEYWORDS\=.*@KEYWORDS\=\"\"@g' `pwd`/$k
+			fi
+			k="${k##*/}"
+			k=${k/\.ebuild/}
+			nr_of_ebuilds=$(($nr_of_ebuilds + 1))
+
+			if [ "yes" ==  "${gconv_pkz_list}" ];then
+				echo "convert package.keywords: $x/$i"
+				# search for matching content and
+				# convert -* to **
+				grep -q "$x\/$i" $pkg_key && sed -i "s@\(${x}\/${i}.*\).*-\*@\1\*\*@g" $pkg_key
+			fi
+		done
+		# read ebuild infos
+	done
+	cd - &>/dev/null
+	done
+	if [ "yes" ==  "${gconv_pkz_list}" ];then
+		diff -u "$backup_key" "$pkg_key"|less
+		ANSWER="no"
+		echo
+		echo -e "Would you like to keep this changes? [yes/no]"
+		read ANSWER
+		if [ "$ANSWER" == "y" ] || [ "$ANSWER" == "yes" ];then
+			echo "finished"
+		else
+			cp "$backup_key" "$pkg_key"
+			echo "backup file still there:"
+			echo "$backup_key"
+		fi
+	fi
+		
+}
+
+conv_pkz(){
+	pkg_key="/etc/portage/package.keywords"
+	backup_key="/etc/portage/package.keywords.backup"
+	ANSWER="no"
+        echo
+	echo "Would you like to convert the keywords for"
+	echo "live-ebuilds from the gentoo-proaudio overlay in"
+	echo -e "$pkg_key ?"
+	echo 
+	echo "[ A backup file will be named:"
+	echo -e "$backup_key ]\n[yes/no]:"
+	read ANSWER
+	if [ "$ANSWER" == "y" ] || [ "$ANSWER" == "yes" ];then
+		gconv_pkz_list="yes"
+		if [ -e "$backup_key" ];then
+			echo "backup-file exist please delete"
+			echo "$backup_key"
+			exit 1
+		fi
+		if [ ! -e "$pkg_key" ];then
+			echo "no keywords file missing"
+			echo "$pkg_key"
+			exit 1
+		fi
+		cp "$pkg_key" "$backup_key"
+	else
+		exit 0
+	fi
+	convert_it
+}
+
+conv_ebuilds(){
+	ANSWER="no"
+	echo -e "convert all live-ebuild KEYWORDS=\"-*\" to \"\" ?\n[yes/no]"
+	read ANSWER
+	if [ "$ANSWER" == "y" ] || [ "$ANSWER" == "yes" ];then
+		gconv_ebuilds="yes"
+	else
+		exit 0
+	fi
+	convert_it  
+}
+
+helpme(){
+	echo -e "-ce | --conv-ebuilds"
+	echo -e "\t\t --> will convert all live-ebuilds matching filename with pattern 9999"
+	echo -e "\t\t --> only interesting for devs"
+	echo -e "-cp | --conv-pkz"
+	echo -e "\t\t --> will convert /etc/portage/package.keywords"
+	echo -e "\t\t --> scripts need to be executed within the proaudio-overlay root"
+	echo -e "\t\t --> a backup of package.keywords will be generated"
+}
+
+# check for cmdline parameters
+params=${#}
+while [ ${#} -ge 0 ]
+do
+        a=${1}
+        shift
+        case "${a}" in
+	-ce|--conv-ebuilds)
+		conv_ebuilds
+		exit 0
+		;;
+	-cp|--conv-pkz)
+		conv_pkz
+		exit 0
+		;;
+	*|-h|--help) 
+		echo -e "Usage: $0 [option]\n"
+		helpme
+		exit 0
+		;;   # DEFAULT
+	esac
+done

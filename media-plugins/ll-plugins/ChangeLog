@@ -1,0 +1,13 @@
+# ChangeLog for media-plugins/ll-plugins
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*ll-plugins-0.2.8 (26 Feb 2010)
+
+  26 Feb 2010; Frieder Buerzele <evermind@tuxfamily.org>
+  +ll-plugins-0.2.8.ebuild:
+  bumped 
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

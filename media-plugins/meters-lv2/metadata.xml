@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer>
+		<email>proaudio@tuxfamily.org</email>
+		<name>pro-audio overlay team</name>
+	</maintainer>
+	<longdescription>
+		A collection of audio level meters with GUI in LV2 plugin format.
+		It include needle style meters (mono and stareo): IEC 60268-10 1-DIN, 1-Nordic, IIa-BBC, IIb-EBU, IEC 69268-17 VU.
+		Stereo and mono variants of bar-graphe meters: 30 Band IEC 61260, Phase Correlation, ...
+		and other stereo plugins.
+	</longdescription>
+</pkgmetadata>

@@ -1,0 +1,42 @@
+diff -Nur src/FTpresetBlender.cpp.old src/FTpresetBlender.cpp
+--- src/FTpresetBlender.cpp.old	2003-07-16 16:37:12.000000000 +0900
++++ src/FTpresetBlender.cpp	2007-05-13 01:10:01.162941366 +0900
+@@ -102,7 +102,7 @@
+ 			// compare the proctype
+ 
+ 			if (pvec.size() <= n ||  pm->getName() != pvec[n]->getName()) {
+-				fprintf (stderr, "mismatch at %d %d: %s   %u\n", i, n, pm->getName().c_str(), pvec.size());
++				fprintf (stderr, "mismatch at %d %d: %s   %lu\n", i, n, pm->getName().mb_str(), pvec.size());
+ 				delete procvec;
+ 				return false;
+ 			}
+diff -Nur src/FTprocOrderDialog.cpp.old src/FTprocOrderDialog.cpp
+--- src/FTprocOrderDialog.cpp.old	2007-05-13 01:09:23.314688683 +0900
++++ src/FTprocOrderDialog.cpp	2007-05-13 01:09:23.662691006 +0900
+@@ -210,7 +210,7 @@
+ 	for (; mod != mlist.end(); ++mod)
+ 	{
+ 		item.SetText ((*mod)->getName());
+-		item.SetData ((unsigned) (*mod));
++		item.SetData ((unsigned long) (*mod));
+ 		item.SetId(pos++);
+ 		
+ 		_sourceList->InsertItem(item);
+@@ -230,7 +230,7 @@
+ 		for (unsigned int n=0; n < procmods.size(); ++n)
+ 		{
+ 			item.SetText (procmods[n]->getName());
+-			item.SetData ((unsigned) procmods[n]);
++			item.SetData ((unsigned long) procmods[n]);
+ 			item.SetId (n);
+ 			
+ 			_targetList->InsertItem(item);
+@@ -441,7 +441,7 @@
+ 
+ 		if (proc) {
+ 			item.SetText (proc->getName());
+-			item.SetData ((unsigned)proc);
++			item.SetData ((unsigned long)proc);
+ 			item.SetId (_targetList->GetItemCount());
+ 			
+ 			_targetList->InsertItem(item);

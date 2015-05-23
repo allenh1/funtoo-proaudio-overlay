@@ -1,0 +1,61 @@
+#!/bin/bash
+# (c) 2007 Frieder Bürzele
+# licence gnu gpl v2
+# Descrition:
+#	it's basically a wrapper around ebuild which also is useful
+# 	if you've just modified the ebuild a bit and won't want to
+#	recompile the whole pkg
+#	(the magic here is just to change the time of the pkg's WORKDIR)
+# Usage:
+#	same as just the ebuild command
+# it's best to place a symlink into /usr/local/bin/ to run this script
+# eg ln -s `pwd`/ebuild_debug  /usr/local/bin/
+
+
+# get category 
+get_cat() {
+	# go to dirs down (get the root_path for the tree)
+	local lCAT_ONLY="${PWD%/*}"
+	local lROOT_DIR="${lCAT_ONLY%/*}"
+	local lCATEGORY="${lCAT_ONLY/${lROOT_DIR}}"
+	echo $lCATEGORY
+}
+
+get_ebuild_name() {
+	for i in ${args[@]};do
+		if [[ "$i" = *.ebuild* ]];then
+			local lEBUILD="$i"
+			lEBUILD="${lEBUILD##*/}"
+			break
+		fi
+	done
+	echo "${lEBUILD/.ebuild/}"
+}
+
+# programm flow
+
+# launch ebuild binary
+ebuild $@
+[ "$?" != "0" ] && exit 1
+
+args=("$@")
+
+. /etc/make.conf
+[ -z "$PORTAGE_TMPDIR" ] && PORTAGE_TMPDIR="/var/tmp"
+
+CATEGORY="$(get_cat)"
+EBUILD_NAME="$(get_ebuild_name)"
+if [ -z "$CATEGORY" -o -z "$EBUILD_NAME" ];then
+	echo "ERROR: could not determine CATEGORY or EBUILD_NAME"
+	echo -e "CATEGORY was: \"$CATEGORY\""
+	echo -e "EBUILD_NAME was: \"$EBUILD_NAME\""
+	exit 1
+fi
+
+# working_dir to touch 
+gTOUCH_WORKDIR="${PORTAGE_TMPDIR}/portage${CATEGORY}/${EBUILD_NAME}/work"
+if [ -e "$gTOUCH_WORKDIR" ] ;then
+	touch $gTOUCH_WORKDIR
+else
+	echo -e "${0##*/}: could not change mtime as \"$gTOUCH_WORKDIR\" does not exist"
+fi

@@ -1,0 +1,26 @@
+diff --git a/common.mak b/common.mak
+index 9bb7071..c08054a 100644
+--- a/common.mak
++++ b/common.mak
+@@ -1,17 +1,17 @@
+ # TODO include this only once and export variables
+ 
+ PREFIX ?= /usr/local
+-OPTIMIZATIONS ?= -msse -msse2 -mfpmath=sse -ffast-math -fomit-frame-pointer -O3 -fno-finite-math-only
++LIBDIR ?= lib
+ ENABLE_CONVOLUTION ?= no
+ 
+ bindir = $(PREFIX)/bin
+ sharedir = $(PREFIX)/share/setBfree
+-lv2dir = $(PREFIX)/lib/lv2
++lv2dir = $(PREFIX)/$(LIBDIR)/lv2
+ 
+-CFLAGS = $(OPTIMIZATIONS) -Wall -fPIC
++CFLAGS = -Wall -fPIC
+ CFLAGS+= -DVERSION="\"$(VERSION)\""
+ 
+-CXXFLAGS = $(OPTIMIZATIONS) -Wall
++CXXFLAGS = -Wall
+ 
+ # detect Tcl/Tk
+ TCLPREFIX=/usr /usr/local

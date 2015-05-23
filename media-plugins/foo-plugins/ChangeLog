@@ -1,0 +1,23 @@
+# ChangeLog for media-plugins/foo-plugins
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+
+  01 Feb 2013; Dominique Michel <dominique_free@sourceforge.net>
+  -foo-plugins-1.0.ebuild: outdated
+  foo-plugins-1.2.ebuild: changed URI and SRC_URI to new locations
+  added RDEPEND
+
+  03 Mar 2011; Frieder Buerzele <evermind@tuxfamily.org>
+  foo-plugins-1.0.ebuild, foo-plugins-1.2.ebuild:
+  fixup libdir
+
+*foo-plugins-1.2 (16 Jun 2010)
+
+  16 Jun 2010; Frieder Buerzele <evermind@tuxfamily.org>
+  -foo-plugins-0.9.ebuild, foo-plugins-1.0.ebuild, +foo-plugins-1.2.ebuild:
+  bumped
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

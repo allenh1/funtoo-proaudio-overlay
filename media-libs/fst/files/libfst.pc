@@ -1,0 +1,11 @@
+prefix=/usr
+exec_prefix=/usr
+libdir=/usr/lib
+includedir=/usr/include
+
+Name: libfst
+Version: 1.7
+Description: libfst, a library to support the use of win32/x86 plugins within Linux applications
+Requires: 
+Libs: -L${libdir} -lfst -L/usr/lib/wine -lwine -lwine_unicode
+Cflags: -I${includedir} -I${includedir}/vst

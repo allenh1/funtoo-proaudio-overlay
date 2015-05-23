@@ -1,0 +1,17 @@
+# ChangeLog for media-sound/jackmeter
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*jackmeter-0.4 (17 Apr 2013)
+
+  17 Apr 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -jackmeter-0.3.ebuild, +jackmeter-0.4.ebuild, metadata.xml:
+  bump. EAPI=5, inherit autotools-utils, remove no-herd from metadata.xml,
+  adjust description to not include package name, add virtual/pkgconfig dep.
+
+  22 Oct 2010; Viktor Lazarev <taurus101v@gmail.com> jackmeter-0.3.ebuild:
+  Changed HOMEPAGE & SRC_URI
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

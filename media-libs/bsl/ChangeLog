@@ -1,0 +1,23 @@
+# ChangeLog for media-libs/bsl
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  23 Nov 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  bsl-0.6.0.ebuild, bsl-9999.ebuild:
+  remove mime files in install image to avoid collision
+
+*bsl-9999 (22 Nov 2012)
+*bsl-0.6.0 (22 Nov 2012)
+
+  22 Nov 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -bsl-0.4.0.ebuild, +bsl-0.6.0.ebuild, +bsl-9999.ebuild:
+  bump. add live ebuild. cleanup.
+
+  30 Sep 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  bsl-0.4.0.ebuild, +metadata.xml:
+  move EAPI assignment to top for bug 141. add metadata.xml, quote some
+  variables as payment to repoman. all buzztard packages need a version bump.
+
+  27 Nov 2008; Thomas Kuther <gimpel@sonnenkinder.org> +bsl-0.4.0.ebuild:
+  initial ebuild
+

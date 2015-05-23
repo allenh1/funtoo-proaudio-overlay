@@ -1,0 +1,13 @@
+# ChangeLog for media-sound/louderbox
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*louderbox-0.1.0 (25 Feb 2010)
+
+  25 Feb 2010; Frieder Buerzele <evermind@tuxfamily.org>
+  +louderbox-0.1.0.ebuild:
+  bump from audiodef
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

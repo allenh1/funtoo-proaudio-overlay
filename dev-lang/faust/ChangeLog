@@ -1,0 +1,28 @@
+# ChangeLog for dev-lang/faust
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  21 Sep 2014; Matt Henley <nwmatt@gmail.com>
+  faust-0.9.30.ebuild:  Removed as source files are no longer available
+  faust-0.9.58.ebuild:  Re-digest to fix file sums.  Add S=${WORKDIR}
+  faust-0.9.67.ebuild:  Added to reflect latest version on Sourceforge
+
+  29 Jan 2013; Dominique Michel <dominique@tuyfamily.org> faust-0.9.58.eduild:
+  added EAPI=5 -- removed uneeded die calls
+  USE doc install the doxygen documentation
+  some cleanup
+  +metadata.xml
+  
+  09 Jun 2011; Dominique Michel <dominique@tuyfamily.org>
+  bump to faust-0.9.30.eduild:
+  removed unneded sed patches
+  fixed doc USE flag use
+  added examples
+
+  16 Sep 2008; Frieder Buerzele <evermind@tuxfamily.org;
+  faust-0.9.9.4.ebuild:
+  fixup sandboxing
+
+  16 Sep 2008; Frieder Buerzele <evermind@tuxfamily.org; ChangeLog:
+  initial ebuild
+

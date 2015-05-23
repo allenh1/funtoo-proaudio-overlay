@@ -1,0 +1,11 @@
+# ChangeLog for media-sound/xmms2-scrobbler
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  12 Sep 2010; Viktor Lazarev <taurus101v@gmail.com>
+  -xmms2-scrobbler-0.2.2.ebuild, xmms2-scrobbler-9999.ebuild:
+  deleted old ebuild
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

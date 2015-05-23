@@ -1,0 +1,17 @@
+# ChangeLog for media-plugins/lv2fil
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  10 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  -lv2fil-2.0.ebuild:
+  +lv2fil-2.0-r1.ebuild: added python eclass; moved configure into src_configure
+
+  22 Jun 2012; Frieder Buerzele <evermind@tuxfamily.org> lv2fil-2.0.ebuild:
+  depend on lv2core or >=lv2-1.0.0
+
+*lv2fil-2.0 (04 Aug 2010)
+
+  04 Aug 2010; Gavin Pryke <gavinlee303@googlemail.com> +lv2fil-2.0.ebuild,
+  +metadata.xml:
+  Add lv2fil to overlay.
+

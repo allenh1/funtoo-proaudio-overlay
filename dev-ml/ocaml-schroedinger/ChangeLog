@@ -1,0 +1,14 @@
+# ChangeLog for dev-ml/ocaml-schroedinger
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  30 May 2012; Emery Hemingway <emery@vfemail.net>
+  ocaml-schroedinger-0.1.0.ebuild:
+  Deparallized compile
+
+*ocaml-schroedinger-0.1.0 (29 May 2012)
+
+  29 May 2012; Emery Hemingway <emery@vfemail.net>
+  +ocaml-schroedinger-0.1.0.ebuild, +metadata.xml:
+  Based off ebuilds from upstream
+

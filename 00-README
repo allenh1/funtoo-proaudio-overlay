@@ -1,0 +1,71 @@
+Welcome Earthling!
+
+# ABOUT:
+
+This is the pro-audio gentoo overlay containing pro-audio software and libs
+that are not in official portage.
+The ebuilds come from different sources: some of them are written by gimpel,
+lots of them are from evermind's superb pro-audio overlay which can be found
+here: http://forums.gentoo.org/viewtopic-t-427211.html
+
+# DISCLAIMER:
+
+Parts of this overlay contain highly experimental software. USE WITH CARE!
+Do NOT blame us or even worse the gentoo developers if using these ebuilds
+causes your computer to explode, your cat violently attacs you, your girlfriend
+tells you to STFUAPOA or god knows what else.
+
+
+# USAGE:
+
+A: using layman
+
+  install layman
+  $ emerge -av layman
+  include layman to make.conf
+  $ echo "source /usr/portage/local/layman/make.conf" >> /etc/make.conf
+  fetch the overlaylist and add pro-audio overlay
+  $ layman -f -a pro-audio
+
+B: using SVN directly
+
+1.) first checkout the overlay with
+
+  $ cd /usr/local/overlays
+  $ svn co svn://svn.tuxfamily.org/svnroot/proaudio/proaudio
+  
+  Note that you maybe have to create the dir /usr/local/overlays first
+  
+2.) add the overlay to /etc/make.conf. For info on how to do so, 
+  please refer to
+  http://gentoo-wiki.com/HOWTO_Installing_3rd_Party_Ebuilds
+
+3.) to update the overlay:
+
+  $ cd /usr/local/overlays/proaudio
+  $ svn up
+
+
+# TROUBLE?
+
+From time to time it might happen that you get things like "digest verification failed" or similar.
+This is because someone forgot to re-digest the ebuild after commiting changes. Just cd in the
+directory of the ebuild ("foo" in the example) and do:
+
+  $ ebuild foo.ebuild digest
+
+# REPORT BUGS/ MAILING-LIST:
+
+send bugs, questions, contributions to our mailinglist:
+proaudio@lists.tuxfamily.org
+you need to be subscibed to post messages
+
+subscribe: send a email to proaudio-request@lists.tuxfamily.org 
+		with subject: subscribe
+unsubscribe: same as above but subject: unsubscribe
+
+
+# FURTHER INFORMATION:
+
+Notes about some provided ebuilds
+read: 00-OVERLAY-INFO

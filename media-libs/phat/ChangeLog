@@ -1,0 +1,36 @@
+# ChangeLog for media-libs/phat
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  29 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  phat-9999.ebuild, +files/phat-9999-cflags.patch, metadata.xml:
+  Move to EAPI 5 and autotools-utils.
+  Add USE flag description.
+  Remove no-herd from metadata.
+  Add patch to respect our CFLAGS.
+  Disabling doc by default is redundant.
+
+  22 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  -phat-0.4.1.ebuild, phat-9999.ebuild:
+  in portage          fixup doc handling
+
+  10 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>; phat-9999.ebuild:
+  fixup if no docs are build
+
+  06 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  -phat-0.3.1.ebuild, -phat-0.4.0.ebuild, phat-0.4.1.ebuild:
+  en/disable doc via useflag without rm -- remove old ebuild
+
+  13 Jan 2008; Marc-Olivier Barre <mobarre@gmail.com> phat-9999.ebuild::
+  Remove the CFLAGS patch from the SVN ebuild since the patch has been applied
+  upstream
+
+  04 Jan 2008; Marc-Olivier Barre <mobarre@gmail.com> phat-0.4.1.ebuild:
+  New phat release
+
+  04 Jan 2008; Marc-Olivier Barre <mobarre@gmail.com> phat-9999.ebuild:
+  Added a patch and an ebuild fix to get svn to work with gcc 4.2.2 and not
+  munge users CFLAGS
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog

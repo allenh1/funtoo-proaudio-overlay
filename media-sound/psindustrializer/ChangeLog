@@ -1,0 +1,24 @@
+# ChangeLog for media-sound/psindustrializer
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  11 Mar 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  psindustrializer-0.2.5-r1.ebuild:
+  disable esd. dev-util/pkgconfig -> virtual/pkgconfig.
+
+*psindustrializer-0.2.5-r1 (02 Jan 2012)
+
+  02 Jan 2012; Gavin Pryke <gavinlee303@googlemail.com>
+  -psindustrializer-0.2.5.ebuild, +psindustrializer-0.2.5-r1.ebuild,
+  +files/psindustrializer-0.2.5-audiofile-pkgconfig.patch,
+  +files/psindustrializer-0.2.5-missing-m4.patch, metadata.xml:
+  fix alsa dep. add patch for finding newer media-libs/audiofile, eautoreconf
+  also needed missing m4 macros for alsa/esd
+
+  25 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  psindustrializer-0.2.5.ebuild:
+  fix missing dep (thx Frederico)
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

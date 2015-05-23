@@ -1,0 +1,29 @@
+# ChangeLog for media-libs/zynaddsubfx-banks
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  24 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  zynaddsubfx-banks-2.2.1.ebuild, zynaddsubfx-banks-20060419.ebuild,
+  zynaddsubfx-banks-20061031.ebuild, zynaddsubfx-banks-20090520.ebuild,
+  zynaddsubfx-banks-99999999.ebuild, metadata.xml:
+  Make repoman less unhappy.
+  Remove blocker on non-existing zynaddsubfx-cvs.
+
+  04 Mar 2011; Frieder Buerzele <evermind@tuxfamily.org>
+  zynaddsubfx-banks-2.2.1.ebuild, zynaddsubfx-banks-20060419.ebuild,
+  zynaddsubfx-banks-20061031.ebuild, zynaddsubfx-banks-20090520.ebuild,
+  zynaddsubfx-banks-99999999.ebuild:
+  fixed dependecies
+
+*zynaddsubfx-banks-20090520 (09 Jul 2009)
+
+  09 Jul 2009; Frieder Buerzele <evermind@tuxfamily.org
+  +zynaddsubfx-banks-20090520.ebuild:
+  bumped & added SRC_URI
+
+  09 Jul 2009; Frieder Buerzele <evermind@tuxfamily.org; ChangeLog:
+  version bump
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

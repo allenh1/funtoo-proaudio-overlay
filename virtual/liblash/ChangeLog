@@ -1,0 +1,14 @@
+# ChangeLog for virtual/liblash
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  03 Feb 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  liblash-1.ebuild:
+  Keyword for ~amd64 ~ppc ~x86
+
+  28 Dec 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  -liblash-0.ebuild;
+  +liblash-2.ebuild: Changed the lash dependencies to lash-original
+
+  13 Dec 2012; Karl Lindén <lilrc@users.sourceforge.net>
+  Initial release

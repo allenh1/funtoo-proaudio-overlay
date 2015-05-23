@@ -1,0 +1,42 @@
+# ChangeLog for media-sound/jack_oscrolloscope
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  21 May 2014; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  jack_oscrolloscope-0.7.ebuild:
+  add virtual/pkgconfig, rename libsdl USE dep audio -> sound.
+  drop base eclass...
+
+  23 Apr 2014; Dominique Michel <dominique_libre@users.sourceforge.net>
+  +jack_oscrolloscope-0.7-linking.patch:
+  fix linking with -lm. Add desktop file with euses eclass.
+  
+
+*jack_oscrolloscope-0.7 (16 Apr 2013)
+
+  16 Apr 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -jack_oscrolloscope-0.6.ebuild, -files/jack_oscrolloscope-0.6-Makefile.patch,
+  +jack_oscrolloscope-0.7.ebuild, +files/jack_oscrolloscope-0.7-Makefile.patch,
+  metadata.xml:
+  bump. EAPI=5, inherit base. remove old
+
+  09 Nov 2010; Gavin Pryke <gavinlee303@googlemail.com>
+  jack_oscrolloscope-0.6.ebuild,
+  +files/jack_oscrolloscope-0.6-Makefile.patch:
+  respect LDFLAGS
+
+  23 Oct 2010; Gavin Pryke <gavinlee303@googlemail.com>
+  jack_oscrolloscope-0.6.ebuild:
+  add RESTRICT=mirror, add die to dobin, add IUSE="" for repoman.
+
+  18 Jun 2009; Frieder Buerzele <evermind@tuxfamily.org; ChangeLog:
+  simplifiy jack_oscrolloscope-0.6.ebuild
+
+*jack_oscrolloscope-0.6 (17 Jun 2009)
+
+  17 Jun 2009; Stephane Angot <sa@hydre.org>; +jack_oscrolloscope-0.6.ebuild:
+  added jack_oscrolloscope-0.6
+
+  17 Jun 2009; Stephane Angot <sa@hydre.org> ChangeLog:
+  added a changelog
+

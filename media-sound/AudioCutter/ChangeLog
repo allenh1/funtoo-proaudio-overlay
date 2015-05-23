@@ -1,0 +1,14 @@
+# ChangeLog for media-sound/AudioCutter
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  24 Aug 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  AudioCutter-1.2.ebuild, +files/AudioCutter.xpm, -files/AudioCutter.png:
+  replace png with xpm in FILESDIR
+
+  27 Jul 2012; Dominique Michel <dominique@tuyfamily.org> AudioCutter-1.2:
+  Corrected the URI
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

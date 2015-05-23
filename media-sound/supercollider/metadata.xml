@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer>
+		<email>proaudio@tuxfamily.org</email>
+		<name>pro-audio overlay team</name>
+	</maintainer>
+	<use>
+		<flag name="emacs">Enable the SCEL user interface</flag>
+		<flag name="gedit">Enable the SCED user interface</flag>
+		<flag name="gpl3">Build GPL-3 licensed code (recommended)</flag>
+		<flag name="ide">Build QT IDE</flag>
+		<flag name="server">Build with internal server</flag>
+		<flag name="sse4">Enable SSE4 optimizations (both 4.1 and 4.2)</flag>
+		<flag name="system-boost">Use system-wide <pkg>dev-libs/boost</pkg> instead of bundled</flag>
+		<flag name="system-yaml">Use system-wide <pkg>dev-cpp/yaml-cpp</pkg> instead of bundled</flag>
+		<flag name="vim">Enable the SCVIM user interface</flag>
+		<flag name="wiimote">Build sclang with Wii Remote support</flag>
+	</use>
+</pkgmetadata>

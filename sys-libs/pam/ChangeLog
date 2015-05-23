@@ -1,0 +1,10 @@
+# ChangeLog for sys-libs/pam
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  19 Jun 2010; Frieder Buerzele <evermind@tuxfamily.org> pam-1.0.1.ebuild:
+  cleanup ebuilds
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

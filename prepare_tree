@@ -1,0 +1,132 @@
+#!/bin/bash
+# (c) 2006 - 2007 Frieder Bürzele
+# licence gnu gpl v2
+# this script includes some smaller scripts which cleans the repository a bit
+# and remove unneeded files
+# WARNING: beta quality
+
+# exit script it not executed in overlay root or no git/svn tool available
+scm=""
+if git status &> /dev/null ;then
+	scm=git
+elif svn info &> /dev/null ;then
+	scm=svn
+else
+	echo "error: neither git nor svn installed -- OR" 
+	echo "please execute this script just inside the overlay root"
+	exit 1
+fi
+
+# first small script
+# remove digest files with no corresponding ebuild
+# v0.2 with svn-support
+## UPDATE: no longer digest files there
+#[ "x`type svn &>/dev/null && echo yes`" == "xyes" ] && has_svn="1" || has_svn="0"
+#
+#for i in `find -iname 'digest*'|grep -v '.svn'`;do
+#	if [ -e "$i" -a -e "${i/files\/digest-/}.ebuild" ];then
+#		echo -n
+#	else
+#		j=${i/files\/digest-/}
+#		echo "NOT EXIST:${j}.ebuild"
+#		echo digest: ${i##*/}
+#		[ "${has_svn}" == "1" ] && svn --force del "${i}" || rm -f "${i}"
+#		[ "$?" -ne "0" ] && exit 1
+#		sed -i '/files\/'${i##*/}'\ /d' ${j%/*}/Manifest
+#		super="${i/files\/digest-/}.ebuild"
+#		sed -i '/\ '${super##*/}'\ /d'  ${j%/*}/Manifest
+#	fi		
+#done
+
+# second small script
+# remove entries of files which are listed in the Manifest-files
+# but have no corresponding file
+for i in `find -name 'Manifest'|grep -v '.svn'`;do
+	for j in `grep SHA1  $i |awk '{printf "%s;%s\n",$1,$2}'`;do
+		kind=${j%%;*} 
+		case ${kind} in
+			AUX)
+				dir_path=files
+				;;
+			DIST)
+				continue
+				;;
+			EBUILD|MISC)
+				dir_path=./
+				;;
+			*)
+				echo error unknown kind $kind
+				exit 1
+				;;
+		esac			
+			
+		filename=${j##*;}
+
+		n_path="${i%/*}/$dir_path/$filename"
+		if [ ! -e "${n_path}" ];then
+			echo NOT HERE ${n_path}
+			filename=${filename//\//\\/}
+			echo $j
+			sed -i '/\ '${filename}'\ /d'  ${i}
+			#redigest="`ls ${i%/*}/*.ebuild|head -n 1`"
+			#ebuild "$redigest" digest
+		fi
+	done
+done
+
+# third small script
+# redigest if a file exist that is not in Manifest file
+for i in `find -name 'Manifest'|grep -v '.svn'`;do
+	cd  ${i%/*}
+	#echo ${i%/*}
+		for j in `find  -type f |grep -v 'Manifest'|grep -v '.svn'`;do
+			j=${j//\.\//}
+			SHA="`sha256sum ${j}`"
+			FNAME=${j##*/}
+			grep  ''${SHA}'' Manifest |grep -q ''${FNAME}'' 
+			if [ "$?" == "1" ];then
+				pkz="`ls -t *.ebuild|head -n1`"
+				echo "ebuild ${pkz} digest"
+				ebuild ${pkz} digest
+			fi
+	
+		done
+	cd - &>/dev/null
+done
+
+# fourth small script
+# digest if no Manifest file exists
+# v0.2 with svn-support
+[ -n "$scm" ] && scm_tool="$scm add Manifest" || $scm_tool=""
+
+smart="0"
+for i in `find -name '*.ebuild'|grep -v '.svn'`;do
+	if [ ! "$smart" == "${i%/*}" ];then
+		smart="${i%/*}"
+		cd ${i%/*}
+		if [ ! -e "Manifest" ];then
+			pkz="`ls -t *.ebuild|head -n1`"
+			echo "ebuild ${pkz} digest"
+			ebuild ${pkz} digest
+			$scm_tool
+		fi
+		cd - &>/dev/null
+	else
+		echo -n
+	fi
+done
+
+# fifth small script
+# this script check for some vim tmp files and creates 00-PACKAGES-LIST
+# 
+
+# check for swp tmp files
+[ "x" != "x`find -iname '.*.ebuild.swp'`" ] && ( echo "INVALID FILES:" ;find -iname '.*.ebuild.swp' ;  exit 1 ) 
+
+# check Manifests
+for i in `find -iname 'Manifest'`; do
+	grep -i -e '.swp' -e ' ~' -e '~ ' $i && echo "ERROR IN: $i"
+done
+
+# generate 00-PACKAGES-LIST
+for i in `find -name files`;do i=${i/\/files/};echo ${i/.\//};done > 00-PACKAGES-LIST

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd>no-herd</herd>
+	<maintainer>
+		<email>willy@tuxfamily.org</email>
+		<name>Willy WOLFF</name>
+	</maintainer>
+
+	<longdescription lang="en">
+	  Tranches is a midi-controlled multi-(inputs/outputs) live beat repeat/rearrange/redirect tool.
+	</longdescription>
+	
+	<longdescription lang="fr">
+	  Tranches est un outil de répétition/réarrangement/redirection de rythmes en temps-réel avec plusieurs entrées et sorties et contrôlable en MIDI.
+	</longdescription>
+
+	<use>
+	  <flag name="gui">Add gui (fltk)</flag>
+	  <flag name="fr">Add french interface</flag>
+	</use>
+</pkgmetadata>

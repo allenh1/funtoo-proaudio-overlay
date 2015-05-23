@@ -1,0 +1,27 @@
+# ChangeLog for media-sound/canorus
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Mar 2013; Dominique Michel <dominique@tuxfamily.org>
+  canorus-9999.ebuild: moved qt depends to dev-qt/*
+
+  26 Jul 2012; Dominique Michel <dominique@tuxfamily.org>
+  canorus-8888.ebuild: Added doc and userdoc USE flags; added some debian patches.
+  +files/0001-Remove-extra-documentation.patch
+  +files/0003-Reduce-linked-libraries.patch
+  +files/0006-Add-lz-and-lpthread-to-linker-flags.patch
+  +files/0008-Do-not-install-examples.patch
+  The installation of the docs is handled via USE flaags and the ebuild.
+  The exemples are installed into the doc directory.
+  Remplaced outdated warning by a warning about python and ruby.
+  Install the desktop file.
+  °files/canorus-desktop_file.patch
+  Install the help icon as desktop icon.
+
+  07 Sep 2010; Viktor Lazarev <taurus101v@gmail.com> canorus-9999.ebuild,
+  +files/canorus-9999-fix-MAKE_DIRECTORY.patch:
+  cleanup; added patch fixing MAKE_DIRECTORY
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

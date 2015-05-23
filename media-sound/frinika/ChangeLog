@@ -1,0 +1,15 @@
+# ChangeLog for media-sound/frinika
+# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  27 Jul 2012; Dominique Michel <dominique@tuxfamily.org> frinika-20100328.ebuild, finika-20110824.ebuild:
+  Version bump
+  Removed installation of non existing icon.
+
+  29 Mar 2010; Stephane Angot <sa@hydre.org> frinika-0.1.7.ebuild, frinika-0.2.1.ebuild, frinika-0.3.0.ebuild, frinika-20100328.ebuild:
+  Version Bumped
+  eclass corrected for 0.1.7 and 0.2.1
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

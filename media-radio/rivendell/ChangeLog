@@ -1,0 +1,127 @@
+# ChangeLog for media-radio/rivendell
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  rivendell-2.1.2.ebuild: Changed the QT depends to dev-qt/*
+  -rivendell-2.0.2
+  -rivendell-2.1.1
+
+*rivendell-2.1.2 (30 Dec 2011)
+
+  30 Dec 2011; Emery Hemingway <emery@icmlf.net> +rivendell-2.1.2.ebuild:
+  bump
+
+*rivendell-2.1.1 (03 Nov 2011)
+
+  03 Nov 2011; Emery Hemingway <emery@vfemail.net> -rivendell-2.1.0.ebuild,
+  +rivendell-2.1.1.ebuild:
+  bump
+
+*rivendell-2.1.0 (02 Nov 2011)
+
+  02 Nov 2011; Emery Hemingway <emery@vfemail.net> +rivendell-2.1.0.ebuild:
+  Package bump
+
+*rivendell-2.0.2 (01 Jun 2011)
+
+  01 Jun 2011; Emery Hemingway <emery@icmlf.net> -rivendell-2.0.1.ebuild,
+  -rivendell-2.0.1-r1.ebuild, -rivendell-2.0.1-r2.ebuild,
+  +rivendell-2.0.2.ebuild, -files/initscript.patch,
+  -files/rivendell-initscript-r1.patch:
+  Package bump. Initscript patch was committed to upstream.
+
+*rivendell-2.0.1-r2 (02 May 2011)
+
+  02 May 2011; Emery Hemingway <emery@icmlf.net> +rivendell-2.0.1-r2.ebuild:
+  Apache configuration is now handled in the gentoo way.
+
+*rivendell-2.0.1-r1 (20 Apr 2011)
+
+  20 Apr 2011; Emery Hemingway <emery@icmlf.net>
+  +files/rivendell-initscript-r1.patch, +rivendell-2.0.1-r1.ebuild:
+  New initscript, submitted to upstream.
+
+  09 Apr 2011; Emery Hemingway <emery@icmlf.net> rivendell-2.0.1.ebuild:
+  Changed qt dependency to qt-meta, cleaned out some cruft.
+
+*rivendell-2.0.1 (06 Apr 2011)
+
+  06 Apr 2011; Emery Hemingway <emery@icmlf.net>
+  -rivendell-2.0.0_rc1-r1.ebuild, +rivendell-2.0.1.ebuild:
+  First production release of the version 2 series.
+
+  28 Mar 2011; Emery Hemingway <emery@icmlf.net> -rivendell-1.6.0.ebuild,
+  -rivendell-1.7.0.ebuild, -rivendell-1.7.0-r1.ebuild,
+  -rivendell-1.7.1.ebuild, -rivendell-2.0.0_rc1.ebuild,
+  -files/rivendell-init.patch, -files/rivendell-sandbox.patch:
+  Purge non-fuctional and old ebuilds
+
+*rivendell-2.0.0_rc1-r1 (23 Mar 2011)
+
+  23 Mar 2011; Emery Hemingway <emery@icmlf.net>
+  +rivendell-2.0.0_rc1-r1.ebuild:
+  XDG menu entries now installed.
+
+  23 Mar 2011; Emery Hemingway <emery@icmlf.net>
+  -rivendell-2.0.0_beta0.ebuild, -rivendell-2.0.0_beta1.ebuild,
+  -rivendell-2.0.0_rc0.ebuild:
+  Got rid of old pre-release stuff.
+
+*rivendell-2.0.0_rc1 (14 Mar 2011)
+
+  14 Mar 2011; Emery Hemingway <emery@icmlf.net> +rivendell-2.0.0_rc1.ebuild:
+  Bump
+
+*rivendell-2.0.0_rc0 (21 Feb 2011)
+
+  21 Feb 2011; Emery Hemingway <emery@icmlf.net> +rivendell-2.0.0_rc0.ebuild,
+  metadata.xml:
+  bumped the beta to a release canidate
+  added USE flags to metadata
+
+*rivendell-2.0.0_beta1 (12 Oct 2010)
+
+  12 Oct 2010; Emery Hemingway <emery@icmlf.net>
+  +rivendell-2.0.0_beta1.ebuild:
+  Bumped the beta, dropped 1.7.2 until it builds again.
+
+*rivendell-2.0.0_beta0 (28 Aug 2010)
+
+  28 Aug 2010; Emery Hemingway <emery@icmlf.net>
+  +rivendell-2.0.0_beta0.ebuild, +files/sandbox.patch:
+  The rivendell user and group now has uid and guid set to 150. Jack use
+  flag doesn't work right now.
+
+*rivendell-1.7.2 (05 Jun 2010)
+
+  05 Jun 2010; Emery Hemingway <emery@icmlf.net> +rivendell-1.7.2.ebuild:
+  bump
+
+  12 May 2010; Emery Hemingway <emery@icmlf.net> +rivendell-1.7.1.ebuild:
+  bump...
+
+*rivendell-1.7.0-r1 (25 Apr 2010)
+
+  25 Apr 2010; Emery Hemingway <emery@icmlf.net +rivendell-1.7.0-r1.ebuild:
+  Set rivendell user and group UID to 585 to reduce permissions errors in
+  networked systems. Changed /var/snd intial permissions. Moved rivendell
+  CGI stuff to /usr/libexec/rd-bin.
+
+*rivendell-1.6.0 (18 Dec 2009)
+
+  18 Dec 2009; Emery Hemingway <emery@icmlf.net>
+  +rivendell-1.6.0.ebuild:
+  bump to rivendell-1.6, added die message about missing *.la files.
+
+  17 Dec 2009; Emery Hemingway <emery@icmlf.net>
+  bump to rivendell-1.5.2
+
+  22 Aug 2009: Dominique Michel <dominique@tuxfamilly.org;
+  bump to rivendell-1.5.1-r1.ebuild,
+
+  19 Aug 2009: Dominique Michel <dominique@tuxfamilly.org;
+  bump to rivendell-1.5.1.ebuild,
+
+  23 Jul 2009; Dominique Michel <dominique@tuxfamily.org;
+  rivendell-1.5.0.ebuild,

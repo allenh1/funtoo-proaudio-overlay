@@ -1,0 +1,40 @@
+# ChangeLog for media-sound/setbfree
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*setbfree-99999999 (18 Mar 2013)
+*setbfree-20130418 (18 Mar 2013)
+
+  18 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -setbfree-0.5.4.ebuild, -files/setbfree-0.5.5, -setbfree-0.5.5.ebuild,
+  -files/setbfree-0.5.5/0001-multilib-strict.patch,
+  -files/setbfree-0.5.5/0002-respect-ldflags.patch,
+  -files/setbfree-0.5.5/0003-cflags.patch, -setbfree-9999.ebuild,
+  +setbfree-20130418.ebuild, +setbfree-99999999.ebuild,
+  +files/setbfree-multilib-strict-and-cflags.patch,
+  +files/setbfree-respect-ldflags.patch:
+  Merge multilib patch with cflag patch.
+  Move and rename patches.
+  Version bump. There are no versioned archives upstream apart from the 
+  old ones so a manually packaged version is used (with date as version).
+  Change version of live ebuild to 99999999 (>20130418>9999).
+  Remove unused desktop file.
+  Remove the CCPL license.
+  Update EAPI.
+
+*setbfree-0.5.5 (13 Nov 2012)
+
+  13 Nov 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  +setbfree-0.5.5.ebuild, +files/setbfree-0.5.5/0001-multilib-strict.patch,
+  +files/setbfree-0.5.5/0002-respect-ldflags.patch,
+  +files/setbfree-0.5.5/0003-cflags.patch, setbfree-9999.ebuild, metadata.xml:
+  bump. fix multilib-strict, obey toolchain env/flags.
+
+  17 Jul 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  +setbfree-9999.ebuild: live git ebuild for setbfree
+  +setbfree-0.5.4.ebuild: version bump, removed outdated comment
+  about convolution
+  -setbfree-0.5.3.ebuild: removed old version
+
+  16 Jul 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  +setbfree-0.5.3.ebuild: Initial ebuild for setbfree

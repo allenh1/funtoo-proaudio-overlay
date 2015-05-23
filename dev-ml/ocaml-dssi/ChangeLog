@@ -1,0 +1,13 @@
+# ChangeLog for dev-ml/ocaml-dssi
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  30 May 2012; Emery Hemingway <emery@vfemail.net> ocaml-dssi-0.1.0.ebuild:
+  Deparallized make
+
+*ocaml-dssi-0.1.0 (29 May 2012)
+
+  29 May 2012; Emery Hemingway <emery@vfemail.net> +ocaml-dssi-0.1.0.ebuild,
+  +metadata.xml:
+  Based off ebuilds from upstream
+

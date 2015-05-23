@@ -1,0 +1,42 @@
+# ChangeLog for media-sound/qjackctl
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  qjackctl-9999: Moved QT depends to dev-qt/*
+
+  17 Oct 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -qjackctl-0.2.23.ebuild, -qjackctl-0.3.3.ebuild, qjackctl-9999.ebuild,
+  metadata.xml:
+  remove 0.2.23 because of no Qt3, 0.3.3 because it's old and uses qt4 eclass
+  which is no longer in tree and spews error.
+  sync live ebuild from 0.3.9 in portage also fixing qt4 eclass inherit.
+
+  14 Feb 2012: Dominique Michel <dominique@tuxfamily.org>
+  qjackctl-9999.ebuild:
+  replaced "emake" by "make -j1" in src_install
+  
+  09 Feb 2011; Frieder Buerzele <evermind@tuxfamily.org>;
+  qjackctl-0.2.23.ebuild:
+  removed missing inheritance: qt3
+
+  09 Mar 2010; Hakan Demiralp <keenblade@tuxfamily.org>
+  qjackctl-9999.ebuild:
+  upstream now uses subversion instead of cvs. Ebuild is updated accordingly
+
+  08 Aug 2009; Dominique Michel <dominique@tuxfamily>
+  Removed alsa-lib midi USE flag check from all ebuilds
+  
+  06 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  qjackctl-0.2.23.ebuild, -qjackctl-0.3.1a.ebuild, -qjackctl-0.3.2.ebuild,
+  +qjackctl-0.3.3.ebuild:
+  removed old ebuilds
+
+  03 May 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  -qjackctl-0.2.20.ebuild, -qjackctl-0.2.21.ebuild, -qjackctl-0.2.22.ebuild,
+  -qjackctl-0.3.0.ebuild, -qjackctl-0.3.1.ebuild, +qjackctl-0.3.2.ebuild:
+  version bump, add jackmidi
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

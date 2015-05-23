@@ -1,0 +1,18 @@
+# ChangeLog for media-sound/esperanza
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  Changed QT depends to dev-qt/* in both ebuilds; some repoman cleanup too.
+
+  28 Oct 2012; Hakan Demiralp (keenblade) <keenblade@tuxfamily.org>
+  esperanza-0.4.0.ebuild, esperanza-9999.ebuild:
+  moved EAPI assignments to right line wrt #143
+
+  06 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  esperanza-0.4.0.ebuild, esperanza-9999.ebuild:
+  use modular qt4 deps
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

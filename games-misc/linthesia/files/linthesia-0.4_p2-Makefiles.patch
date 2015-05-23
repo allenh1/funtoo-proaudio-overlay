@@ -1,0 +1,46 @@
+--- src/Makefile.orig	2012-01-06 22:36:53.525717440 +0000
++++ src/Makefile	2012-01-06 23:21:41.457211051 +0000
+@@ -2,10 +2,10 @@
+ 
+ GRAPHDIR?=../graphics
+ 
+-CXX = g++
+-CXXFLAGS =  -I . -I libmidi -ggdb -Wall -ansi
++CXX ?= g++
++CXXFLAGS +=  -I . -I libmidi -Wall -ansi
+ CXXFLAGS += `pkg-config --cflags gtkmm-2.4 gconfmm-2.6 gtkglextmm-1.2 alsa` -DGRAPHDIR="\"$(GRAPHDIR)\""
+-LDFLAGS = `pkg-config --libs gtkmm-2.4 gconfmm-2.6 gtkglextmm-1.2 alsa`
++LDLIBS = `pkg-config --libs gtkmm-2.4 gconfmm-2.6 gtkglextmm-1.2 alsa`
+ TARGET = linthesia
+ 
+ all: $(TARGET)
+@@ -16,14 +16,14 @@
+ 	MenuLayout.o DeviceTile.o StringTile.o MidiComm.o \
+ 	TrackSelectionState.o TrackTile.o PlayingState.o \
+ 	StatsState.o KeyboardDisplay.o libmidi/libmidi.a
+-	$(CXX) $(LDFLAGS) -o $@ $^
++	$(CXX) $(LDFLAGS) -o $@ $^ $(LDLIBS)
+ 
+ libmidi/libmidi.a:
+ 	$(MAKE) -C libmidi
+ 
+ install: all
+-	-mkdir -p $(DESTDIR)/usr/games
+-	install -m 755 $(TARGET) -g root -o root $(DESTDIR)/usr/games/
++	-mkdir -p $(DESTDIR)/usr/games/bin
++	install -m 755 $(TARGET) -g root -o root $(DESTDIR)/usr/games/bin
+ 
+ .PHONY:clean
+ clean:
+--- src/libmidi/Makefile.orig	2012-01-06 23:00:25.946224754 +0000
++++ src/libmidi/Makefile	2012-01-06 23:05:09.815316612 +0000
+@@ -1,7 +1,7 @@
+ # -*- mode: makefile-gmake; coding: utf-8 -*-
+ 
+-CXX = g++
+-CXXFLAGS = -I . -I .. -ansi -Wall
++CXX ?= g++
++CXXFLAGS += -I . -I .. -ansi -Wall
+ TARGET = libmidi.a
+ 
+ all: $(TARGET)

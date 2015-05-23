@@ -1,0 +1,20 @@
+# ChangeLog for dev-python/python-poppler-qt4
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*python-poppler-qt4-0.16.2 (16 Jul 2012)
+
+  16 Jul 2010; Dominique Michel <dominique@tuxfamily.org>
+  +python-poppler-qt4-0.16.2-r1.ebuild,
+  +files/python-poppler-qt4-0.16.2-poppler-0.20.0.patch:
+  Added minimal patch that fix compilation with poppler-0.20.0,
+  it doesn't solve the other API changes. See
+  https://bugzilla.redhat.com/show_bug.cgi?format=multiple&id=822412
+
+*python-poppler-qt4-0.16.2 (01 Mar 2012)
+
+  01 Mar 2012; Hakan Demiralp <keenblade@tuxfamily.org>
+  +python-poppler-qt4-0.16.2.ebuild, +metadata.xml:
+  python-poppler-qt4-0.16.2.ebuild: Initial ebuild as a dependency needed for
+  frescobaldi-2.0.3
+

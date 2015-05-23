@@ -1,0 +1,26 @@
+# ChangeLog for media-sound/ambdec
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  15 Dec 2013 Dominique Michel <dominique_libre@users.sourceforge.net>
+  ambdec-0.5.1.ebuild, metadata.xml: make repoman happy; add CFLAGS and LDFLAGS
+  for gthread
+
+  06 Nov 2010; Dominique Michel <dominique_libre@sourceforge.net>
+  +ambdec-0.5.1.ebuild with new SRC_URI, moved to EAPI=2, clean-up
+  -ambdec-0.4.2.ebuild
+  +files/ambdec-0.5.1-Makefile.patch
+  -files/ambdec-0.4.2-Makefile.patch, some tweaks
+  
+  20 Apr 2010; Gavin Pryke <gavinlee303@googlemail.com> ambdec-0.4.2.ebuild,
+  +files/ambdec-0.4.2-Makefile.patch:
+  include a makefile patch, some tweaks
+
+*ambdec-0.4.2 (07 Apr 2010)
+
+  08 Apr 2010; Florian Faber <faber@faberman.de>;
+  +ambdec-0.4.2.ebuild:
+  updated to ambdec 0.4.2
+
+  12 Jan 2009; Florian Faber <faber@faberman.de>;
+  initial ebuild

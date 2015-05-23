@@ -1,0 +1,14 @@
+# ChangeLog for media-plugins/csa
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  02 Feb 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  rsa-0.5.100810.ebuild: added WANT_AUTOMAKE=1.11.1
+  metadata.xml: removed no-herd
+
+*csa-0.5.100810 (22 Jan 2011)
+
+  22 Jan 2011; Gavin Pryke <gavinlee303@googlemail.com>
+  +csa-0.5.100810.ebuild, +metadata.xml:
+  Initial import.
+

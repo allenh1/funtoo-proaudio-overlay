@@ -1,0 +1,195 @@
+# ChangeLog for media-sound/mixxx
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  11 Apr 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  mixxx-1.11.0.ebuild, mixxx-1.11.9999.ebuild, mixxx-9999.ebuild:
+  repoman payment
+  mixxx-9999: added ffmpeg use flag, fixes #184, thanks gerion for report
+
+  16 Mar 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  files/mixxx-9999-system-libs.patch:
+  updated mixxx-9999-system-libs.patch, thanks to Alex Barker for the patch
+
+  20 Dec 2014; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  mixxx-9999.ebuild, -files/mixxx-9999-cflags.patch,
+  files/mixxx-9999-system-libs.patch:
+  update system-libs patch
+  remove cflags patch
+  depend on newer version of fidlib
+
+  02 Mar 2014; Dominique Michel <dominique_libre@users.sourceforge.net>
+  mixxx-9999-system-libs.patch: updated for new offsets.
+  Thanks to Alex Barker for the updated patch.
+
+  08 Mar 2014; Matt Henley (nwmatt) <nwmatt@gmail.com>
+  mixxx-9999-docs.patch: updated for new offset.
+  Thanks to Alex Barker for updated patch.
+
+  08 Dec 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  mixxx-9999.ebuild, files/mixxx-9999-cflags.patch,
+  -files/mixxx-9999-no-bzr.patch, files/mixxx-9999-system-libs.patch:
+  Updated patches and removed 9999-no-bzr patch because it functions 
+  correctly upstream. Thanks to Alex Barker for updated ebuild and patches.
+  Added missing dependency on dev-qt/qttest.
+
+  08 Dec 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  mixxx-9999.ebuild:
+  Added dependency on media-libs/rubberband. Thanks to Alex Barker for updated
+  ebuild.
+
+  25 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  mixxx-1.11.0.ebuild, mixxx-1.11.9999.ebuild, mixxx-9999.ebuild:
+  Correct HOMEPAGE (www.mixxx.org).
+  Depend on >=media-libs/fidlib-0.9.10-r1.
+  Follow mixxx's git repository in mixxx-9999.ebuild.
+  Comment out non-working mixxx-1.11.9999-no-bzr.patch.
+  Thanks to Alex Barker for the fixed ebuild.
+
+  23 Jun 2013; Hakan Demiralp (keenblade) <keenblade@tuxfamily.org>
+  mixxx-1.11.0.ebuild, mixxx-1.11.9999.ebuild, mixxx-9999.ebuild:
+  mixxx: for all mixxx ebuilds, fidlib dependency version is adjusted to the
+  available portage version
+
+*mixxx-1.11.0 (23 May 2013)
+
+  23 May 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +mixxx-1.11.0.ebuild, mixxx-1.11.9999.ebuild, mixxx-9999.ebuild,
+  +files/mixxx-1.11.0-cflags.patch, +files/mixxx-1.11.0-docs.patch,
+  +files/mixxx-1.11.0-no-bzr.patch, +files/mixxx-1.11.0-system-libs.patch,
+  files/mixxx-1.11.9999-no-bzr.patch, files/mixxx-1.11.9999-system-libs.patch,
+  files/mixxx-9999-no-bzr.patch, files/mixxx-9999-system-libs.patch,
+  metadata.xml:
+  Move to EAPI 5.
+  Respect EPREFIX.
+  Use an array for the arguments to escons.
+  Added missing dependencies.
+  Added a hid USE flag.
+  All patches now work.
+  Thanks a lot to Alex Barker for submitting his work on the ML.
+
+  10 Mar 2013; Dominique Michel <dominique@tuxfamily.org>
+  mixx-1.11.9999.ebuild, mixx-9999.ebuild: Commented out system-libs.patch
+  that doesn't apply anymore.
+
+  09 Mar 2013; Dominique Michel <dominique@tuxfamily.org>
+  mixx-1.11.9999.ebuild, mixx-9999.ebuild: Moved QT deps to /dev-qt/*
+
+  01 Oct 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  files/mixxx-1.11.9999-no-bzr.patch, files/mixxx-9999-no-bzr.patch:
+  apply patches thanks to Alex Barker. small repoman payments.
+  dev-util/pkgconfig -> virtual/pkgconfig
+
+  11 Aug 2012; Dominique Michel <dominique@tuxfamily.org>
+  -mixxx-1.10.ebuild: removed outdated version
+  +mixxx-1.11.9999.ebuild, -mixxx-1.10.9999.ebuild: bumped live ebuild
+  mixxx-9999.ebuild: dependencies fix
+  Thanks to Alex Barker for those fixes
+
+  The reason to have to live ebuilds is than the 1.x.9999 is updated more often
+  and than it can contain updates that fix bugs in the last official release 
+
+  25 May 2012; Hakan Demiralp <keenblade@tuxfamily.org> mixxx-1.10.0.ebuild:
+  mixxx-1.10.0: missing fidlib dependency added wrt bug report at f.g.o. by
+  woelfl
+
+  05 May 2012; Hakan Demiralp <keenblade@tuxfamily.org> mixxx-1.10.9999.ebuild:
+  mixxx--1.10.9999: removed keywords. Live ebuilds shoud not define keywords
+
+*mixxx-1.10.9999 (05 May 2012)
+
+  05 May 2012; Hakan Demiralp <keenblade@tuxfamily.org>
+  +mixxx-1.10.9999.ebuild, +files/mixxx-1.10.9999-cflags.patch,
+  +files/mixxx-1.10.9999-docs.patch, +files/mixxx-1.10.9999-no-bzr.patch,
+  +files/mixxx-1.10.9999-system-libs.patch, mixxx-9999.ebuild,
+  -files/mixxx-9999-m4a.patch, -files/mixxx-9999-wavpack.patch:
+  mixxx ebuilds: new ebuild mixxx-1.10.9999. Also m4a and wavpack patch
+  removed. Thanks to Alex Barker
+
+  27 Apr 2012; Hakan Demiralp <keenblade@tuxfamily.org>
+  files/mixxx-9999-docs.patch:
+  mixxx-9999.ebuild: docs.patch is updated. Thanks to Alex Barker
+
+  24 Apr 2012; Hakan Demiralp <keenblade@tuxfamily.org>
+  files/mixxx-9999-system-libs.patch:
+  mixxx-9999.ebuild: system-libs.patch is updated. Thanks to Alex Barker
+
+  21 Apr 2012; Hakan Demiralp <keenblade@tuxfamily.org> mixxx-9999.ebuild,
+  +files/mixxx-9999-m4a.patch, +files/mixxx-9999-wavpack.patch:
+  mixxx-9999.ebuild: ebuild updated and new patches. Thanks to Alex Barker
+
+  21 Apr 2012; Hakan Demiralp <keenblade@tuxfamily.org> mixxx-1.10.0.ebuild,
+  +files/mixxx-1.10.0-cflags.patch, +files/mixxx-1.10.0-docs.patch,
+  +files/mixxx-1.10.0-libmp4v2_r479_compat.patch,
+  +files/mixxx-1.10.0-m4a.patch, +files/mixxx-1.10.0-no-bzr.patch,
+  +files/mixxx-1.10.0-system-libs.patch, +files/mixxx-1.10.0-wavpack.patch:
+  mixxx-1.10.0.ebuild: ebuild updated and added new patches
+
+  21 Apr 2012; Hakan Demiralp <keenblade@tuxfamily.org> -mixxx-1.7.0.ebuild:
+  mixxx: update v1.10.0 and remove v1.7.0 wrt #125 by kwhat
+
+  25 Mar 2012; Hakan Demiralp <keenblade@tuxfamily.org> mixxx-9999.ebuild,
+  +files/mixxx-9999-cflags.patch, +files/mixxx-9999-docs.patch,
+  +files/mixxx-9999-no-bzr.patch, -files/mixxx-9999-qt4_paths.patch,
+  +files/mixxx-9999-system-libs.patch, metadata.xml:
+  mixxx-9999.ebuild: ebuild and patches are updated. Thanks to Alex Barker
+
+*mixxx-1.10.0 (25 Dec 2011)
+
+  25 Dec 2011; Hakan Demiralp <keenblade@tuxfamily.org> +mixxx-1.10.0.ebuild:
+  media-sound/mixxx: version bump to 1.10.0, removed older ebuilds
+
+*mixxx-1.7.0 (28 Aug 2009)
+
+  28 Aug 2009; Gavin Pryke <gavinlee303@googlemail.com> +mixxx-1.7.0.ebuild,
+  mixxx-9999.ebuild:
+  add latest 1.7.0 release, change bzr url in live ebuild, fix some deps
+
+  10 Jun 2009; Gavin Pryke <gavinlee303@googlemail.com> ChangeLog:
+  +mixxx-1.6.1-r1.ebuild: latest stable release with herc support
+  +mixxx-1.7.0_beta1.ebuild: latest beta
+  ~mixxx-9999.ebuild: live ebuild changed from old svn to new bzr 1.7 branch
+  ~mixxx-1.6.1.ebuild: repoman cosmetic fixes
+  -mixxx-1.5.0.1.ebuild, -mixxx-1.6.0_beta4.ebuild: removed older ebuilds
+  amended metadata.xml and USE flags to match what each mixxx version expects
+  and match current gentoo ebuilds
+
+  11 Oct 2008; Frieder Buerzele <evermind@tuxfamily.org;
+  +mixxx-1.6.1.ebuild:
+  bumped
+
+  06 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  mixxx-1.5.0.1.ebuild, mixxx-1.6.0_beta4.ebuild, mixxx-9999.ebuild:
+  fixed qt4_min... QA msg
+
+  26 Jul 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  +files/mixxx-1.6.0_beta4-debug.patch, -mixxx-1.5.0.ebuild,
+  -mixxx-1.6.0_beta1.ebuild, -mixxx-1.6.0_beta2.ebuild,
+  +mixxx-1.6.0_beta4.ebuild:
+  version bump
+
+  09 Apr 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  -mixxx-1.5.0_beta1.ebuild, +mixxx-1.6.0_beta2.ebuild:
+  version bump
+
+  18 Jan 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  mixxx-1.6.0_beta1.ebuild:
+  fixed libdca dependency
+
+  06 Jan 2008; Frieder Buerzele <evermind@tuxfamily.org> ChangeLog:
+  we need to pass the same config to src_install
+  as if not the whole code will be recompiled to
+  met the standard settings
+  fix mixxx-1.6.0beta1 and mixxx-9999
+
+  04 Jan 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  mixxx-1.6.0_beta1.ebuild:
+  fix mixxx-1.6.0beta1 install_root and prefix
+
+  04 Jan 2008; Frieder Buerzele <evermind@tuxfamily.org> ChangeLog:
+  bumped mixxx-1.6.0_beta1
+  	fix own cflags and USE flag selection in (1.6.0_beta1 and 9999)
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

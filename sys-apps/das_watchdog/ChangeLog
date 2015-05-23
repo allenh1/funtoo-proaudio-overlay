@@ -1,0 +1,15 @@
+# ChangeLog for sys-apps/das_watchdog
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  16 Jun 2010; Frieder Buerzele <evermind@tuxfamily.org>
+  das_watchdog-0.2.4.ebuild, das_watchdog-0.2.5.ebuild,
+  das_watchdog-0.3.1.ebuild, das_watchdog-0.9.0.ebuild:
+  fixed license
+
+  18 Dec 2009; Dominique Michel <dominique@tuxfamily.org>
+  Bump to 0.9.0
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

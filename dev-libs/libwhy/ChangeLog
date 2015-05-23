@@ -1,0 +1,14 @@
+# ChangeLog for dev-libs/libwhy
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  04 Apr 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  libwhy-20121103.ebuild:
+  add ~x86 keyword
+
+*libwhy-20121103 (30 Mar 2013)
+
+  30 Mar 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  +libwhy-20121103.ebuild, +files/libwhy-20121103-wscript.patch, +metadata.xml:
+  import
+

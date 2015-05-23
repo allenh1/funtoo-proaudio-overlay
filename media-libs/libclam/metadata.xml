@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer>
+		<email>proaudio@tuxfamily.org</email>
+		<name>pro-audio overlay team</name>
+	</maintainer>
+	<use>
+		<flag name="double">CLAM TData type will be double (and not float)</flag>
+		<flag name="fft">Selects whether to use Numerical Recipes fft algorithm implementation or not; if yes, use fft3</flag>
+		<flag name="lv2">Support for lv2 plugins</flag>
+		<flag name="optimize">Optimize for speed instead of precision</flag>
+		<flag name="portmidi">Support for portmidi</flag>
+		<flag name="rtaudio">Support for rtaudio</flag>
+		<flag name="xercesc">Use dev-libs/xerces-c for xmlbackend</flag>
+		<flag name="xmlpp">Use dev-cpp/libxmlpp for xmlbackend</flag>
+	</use>
+</pkgmetadata>

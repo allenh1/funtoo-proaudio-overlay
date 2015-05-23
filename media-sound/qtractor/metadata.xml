@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer>
+		<email>proaudio@tuxfamily.org</email>
+		<name>pro-audio overlay team</name>
+	</maintainer>
+	<use>
+		<flag name="jacksession">Build with JACK session support</flag>
+		<flag name="lilv">Enable lilv interface</flag>
+		<flag name="lv2">Add support for Ladspa V2</flag>
+		<flag name="nsm">Build with non-session management support</flag>
+		<flag name="rubberband">Enable rubberband interface</flag>
+		<flag name="suil">Enable suil interface</flag>
+	</use>
+</pkgmetadata>

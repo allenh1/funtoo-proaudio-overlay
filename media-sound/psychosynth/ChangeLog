@@ -1,0 +1,40 @@
+# ChangeLog for media-sound/psychosynth
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  26 Mar 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -psychosynth-0.1.6.ebuild, psychosynth-0.3.0.ebuild, psychosynth-9999.ebuild,
+  metadata.xml:
+  remove old ebuild because repoman complains about dependencies.
+  dev-util/pkgconfig -> virtual/pkgconfig
+
+  11 Aug 2012; Dominique Michel <dominique@tuxfamily.org>
+  +psychosynth-0.3.0.ebuild
+  -psychosynth-0.2.0.ebuild
+  psychosynth.9999.ebuild: cleanup, added src_prepare with eautoreconf
+
+*psychosynth-0.2.0 (21 May 2011)
+*psychosynth-0.1.6 (21 May 2011)
+
+  21 May 2011; Gavin Pryke <gavinlee303@googlemail.com>
+  -psychosynth-0.1.1.ebuild, -files/psychosynth-0.1.1-gcc43.patch,
+  -psychosynth-0.1.5.ebuild, +psychosynth-0.1.6.ebuild,
+  +psychosynth-0.2.0.ebuild, psychosynth-9999.ebuild:
+  remove ancient ebuilds repoman complains about. bump to 0.1.6 and 0.2.0,
+  update live ebuild. 0.2.0 and bzr ebuild require >=gcc-4.5
+
+*psychosynth-9999 (28 Aug 2009)
+*psychosynth-0.1.5 (28 Aug 2009)
+
+  28 Aug 2009; Gavin Pryke <gavinlee303@googlemail.com>
+  +psychosynth-0.1.5.ebuild, +psychosynth-9999.ebuild, metadata.xml:
+  add latest release, include a live cvs ebuild
+
+  20 Apr 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  psychosynth-0.1.1.ebuild:
+  add ~amd64
+
+  19 Apr 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  +psychosynth-0.1.1.ebuild, +metadata.xml:
+  initial import into overlay (thx to Gavin)
+

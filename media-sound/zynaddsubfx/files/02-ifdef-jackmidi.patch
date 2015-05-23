@@ -1,0 +1,101 @@
+diff -urN zynaddsubfx/src/Makefile zynaddsubfx/src/Makefile
+--- zynaddsubfx/src/Makefile	2006-11-01 20:05:58.000000000 +0100
++++ zynaddsubfx/src/Makefile	2007-02-04 18:20:43.000000000 +0100
+@@ -75,6 +75,10 @@
+ LIBS+= `pkg-config --libs lash-1.0`
+ endif
+ 
++ifeq ($(LINUX_USE_JACKMIDI),YES)
++CXXFLAGS += -DUSE_JACKMIDI
++endif
++
+ 
+ objects=main.o
+ SUBDIRS=DSP Effects Input Misc Output Params Synth Seq
+diff -urN zynaddsubfx/src/Makefile.inc zynaddsubfx/src/Makefile.inc
+--- zynaddsubfx/src/Makefile.inc	2006-11-01 20:05:59.000000000 +0100
++++ zynaddsubfx/src/Makefile.inc	2007-02-04 18:20:43.000000000 +0100
+@@ -46,6 +46,10 @@
+ LINUX_USE_LASH=YES
+ #LINUX_USE_LASH=NO
+ 
++#Next line sets if Jackmidi support will be enabled
++LINUX_USE_JACKMIDI=NO
++#LINUX_USE_JACKMIDI=YES
++
+ # W I N D O W S   C O N F I G U R A T I O N
+ 
+ #Next line sets the midi input
+diff -urN zynaddsubfx/src/Output/JACKaudiooutput.C zynaddsubfx/src/Output/JACKaudiooutput.C
+--- zynaddsubfx/src/Output/JACKaudiooutput.C	2007-02-04 18:17:24.000000000 +0100
++++ zynaddsubfx/src/Output/JACKaudiooutput.C	2007-02-04 18:21:58.000000000 +0100
+@@ -21,13 +21,19 @@
+ */
+ 
+ #include <stdlib.h>
++#ifdef USE_JACKMIDI
+ #include <jack/midiport.h>
++#endif 
+ #include "JACKaudiooutput.h"
+ 
+ Master *jackmaster;
+ jack_client_t *jackclient;
+ char jackname[100];
++#ifdef USE_JACKMIDI
+ jack_port_t *outport_left,*outport_right,*midi_inport;
++#else
++jack_port_t *outport_left,*outport_right;
++#endif 
+ 
+ int jackprocess(jack_nframes_t nframes,void *arg);
+ int jacksrate(jack_nframes_t nframes,void *arg);
+@@ -61,8 +67,10 @@
+ 	JACK_DEFAULT_AUDIO_TYPE,JackPortIsOutput|JackPortIsTerminal,0);    
+     outport_right=jack_port_register(jackclient,"out_2",
+ 	JACK_DEFAULT_AUDIO_TYPE,JackPortIsOutput|JackPortIsTerminal,0);    
++#ifdef USE_JACKMIDI
+     midi_inport=jack_port_register(jackclient,"midi_input",
+ 	JACK_DEFAULT_MIDI_TYPE,JackPortIsInput|JackPortIsTerminal,0);    
++#endif 
+ 
+     if (jack_activate(jackclient)){
+ 	fprintf(stderr,"Cannot activate jack client\n");
+@@ -81,7 +89,9 @@
+     jack_default_audio_sample_t *outr=(jack_default_audio_sample_t *) jack_port_get_buffer (outport_right, nframes);
+     if (!pthread_mutex_trylock(&jackmaster->initMutex)) {
+       if (!pthread_mutex_lock(&jackmaster->processMutex)) {
++#ifdef USE_JACKMIDI      
+       JACKhandlemidi(nframes);
++#endif
+       jackmaster->GetAudioOutSamples(nframes,jack_get_sample_rate(jackclient),outl,outr);
+       pthread_mutex_unlock(&jackmaster->processMutex);
+     }
+@@ -107,6 +117,7 @@
+ };
+ 
+ 
++#ifdef USE_JACKMIDI
+ void JACKhandlemidi(unsigned long frames) {
+   
+   // We must have the master mutex before we run this function
+@@ -155,6 +166,7 @@
+   }
+   
+ }
++#endif 
+ 
+ 
+ const char* JACKgetname() {
+diff -urN zynaddsubfx/src/Output/JACKaudiooutput.h zynaddsubfx/src/Output/JACKaudiooutput.h
+--- zynaddsubfx/src/Output/JACKaudiooutput.h	2006-11-01 20:06:00.000000000 +0100
++++ zynaddsubfx/src/Output/JACKaudiooutput.h	2007-02-04 18:20:43.000000000 +0100
+@@ -40,7 +40,9 @@
+ 
+ bool JACKaudiooutputinit(Master *master_);
+ void JACKfinish();
++#ifdef USE_JACKMIDI
+ void JACKhandlemidi(unsigned long frames);
++#endif
+ const char* JACKgetname();
+ 
+ #endif

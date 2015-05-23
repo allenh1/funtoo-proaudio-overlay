@@ -1,0 +1,18 @@
+--- EQ10Q/templatewidget.h.old	2011-02-01 15:58:33.260051983 +0000
++++ EQ10Q/templatewidget.h	2011-02-01 15:58:47.543052009 +0000
+@@ -23,7 +23,7 @@
+ #include <fstream>
+ #include <string>
+ 
+-#include <pstreams/pstream.h>
++#include <pstream.h>
+ #include <stdlib.h>
+ 
+ #include <gtkmm/alignment.h>
+@@ -93,4 +93,4 @@
+     //punter a main_window
+     main_window *main_win_ptr;
+ 
+-};
+\ No newline at end of file
++};

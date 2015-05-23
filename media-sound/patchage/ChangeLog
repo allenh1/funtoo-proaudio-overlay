@@ -1,0 +1,35 @@
+# ChangeLog for media-sound/patchage
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  27 Dec 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  +patchage-9999.ebuild: Initial live ebuild. This is a fake ebuild
+  aimed to satisfy portage dependencies with the drobilla ebuild.
+
+  11 Nob 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  -patchage-9999.ebuild: install media-sound/drobilla instead
+
+  07 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  +patchage-0.5.0 from portage with added python eclass by Janis Achstetter
+  -patchage-0.2.3.ebuild
+  -patchage-0.4.0.ebuild
+  -patchage-0.4.1.ebuild
+
+  28 Aug 2009; Gavin Pryke <gavinlee303@googlemail.com>
+  patchage-9999.ebuild:
+  change dep to flowcanvas-9999
+
+  27 Jun 2009; Stephane Angot <sa@hydre.org>; patchage-9999.ebuild:
+  add addpredict to the ebuild for resolving the sandbox issue
+
+  12 Jul 2008; Marc-Olivier Barre <marco@marcochapeau.org> +patchage-0.4.1.ebuild:
+  bump
+
+  13 Jan 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  +patchage-0.4.0.ebuild, patchage-9999.ebuild:
+  bump
+
+  16 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org>
+  patchage-0.2.3.ebuild, patchage-9999.ebuild:
+  added SLOT
+

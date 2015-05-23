@@ -1,0 +1,25 @@
+From 07b109d0655589e84359e43db9b0c160de898d9b Mon Sep 17 00:00:00 2001
+From: "Gavin Pryke (gavlee)" <gavinlee303@googlemail.com>
+Date: Wed, 13 Mar 2013 20:06:41 +0000
+Subject: [PATCH 1/3] fix creation of prefix dir
+
+---
+ SConstruct | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/SConstruct b/SConstruct
+index 6c6535b..bc394f4 100755
+--- a/SConstruct
++++ b/SConstruct
+@@ -4,7 +4,7 @@ import glob
+ import sys
+ 
+ options = Variables('options.cache', ARGUMENTS)
+-options.Add(PathVariable('prefix', 'The prefix where the application will be installed', '/usr/local'))
++options.Add(PathVariable('prefix', 'The prefix where the application will be installed', '/usr/local', PathVariable.PathIsDirCreate))
+ options.Add(PathVariable('clam_prefix', 'The prefix where CLAM was installed', '/usr/local'))
+ options.Add(BoolVariable('release', 'Enabling compiler optimizations', 'no') )
+ options.Add(('qt_plugins_install_path', 'Path component (without the install prefix) where to install designer plugins (tipically /lib/qt4/plugins/designer)','/bin/designer'))
+-- 
+1.7.12.4
+

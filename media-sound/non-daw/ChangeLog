@@ -1,0 +1,11 @@
+# ChangeLog for media-sound/non-daw
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  04 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  non-daw-9999.ebuild: waf support from Tina Cochet with a few cleanup
+
+  04 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  +non-daw-9999.ebuild:
+  From Tina Cochet ebuild with a few clean-up and the addition of
+  the installation of 2 missing files.

@@ -1,0 +1,15 @@
+#!/bin/bash
+# (c) 2007 Frieder Bürzele
+# licence gnu gpl v2
+# grep for untested packages on amd64
+arg=$@
+if [ -z $arg ];then
+	echo "# This script revaeals all unstable/untested ebuild"
+	echo "# for a given arch. You've to specify a stable arch at cmdline"
+	echo "# usage eg.: `basename $0` amd64"
+	exit
+fi
+
+for pkg in `find -name '*.ebuild' |grep -v '.svn'`;do 
+	egrep '^KEYWORDS\=' $pkg |egrep -v '\-\*'|egrep -v '(\"| )'$arg'(^[a-z]| |\")' && echo -e "# ^-<-<-- $pkg \n# not stable/tested on $arg\n"
+done

@@ -1,0 +1,13 @@
+--- SConstruct.orig	2008-07-15 11:29:43.000000000 +0200
++++ SConstruct	2008-07-15 11:51:17.000000000 +0200
+@@ -43,6 +43,10 @@
+ 
+ print"-                    checking dependencies for the editor:"
+ 
++# Gentoo: find fltk
++guienv.Append(CPPPATH = ['/usr/include/fltk-1'])
++guienv.Append(LIBPATH = ['/usr/lib/fltk-1'])
++
+ guiconf = Configure(guienv)
+ if not guiconf.CheckLibWithHeader('lo', 'lo/lo.h','c'):
+ 	print 'Did not find liblo for OSC, exiting!'

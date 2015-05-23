@@ -1,0 +1,11 @@
+# ChangeLog for dev-embedded/mios-studio-bin
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+
+*mios-studio-bin-2.4.6 (29 Dec 2013)
+  29 Dec 2013; Xavier Miller <alchemist@tuxfamily.org>: added licence +
+	licence file (which is like free/OSS)
+
+*mios-studio-bin-2.4.6 (11 Dec 2013)
+  11 Dec 2013; Xavier Miller <alchemist@tuxfamily.org>: initial version

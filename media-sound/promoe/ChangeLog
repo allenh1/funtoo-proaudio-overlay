@@ -1,0 +1,19 @@
+# ChangeLog for media-sound/promoe
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Mar 2013; Dominique Michel <dominique_libre@sourcefirge.net>
+  promoe-9999.ebuild: Moved QT depend to dev-qt/*
+
+  27 Dec 2012; Karl Lindén (lilrc) <lilrc@users.sourceforge.net>
+  promoe-9999.ebuild, metadata.xml:
+  removed herd from metadata, made repoman happy
+  updated from deprecated inherits
+  updated EAPI
+  cleanup
+  The ebuild still won't build due to a build error upstream; the waf
+  script does not include the Qt headers.
+
+  26 Jul 2008; Thomas Kuther <gimpel@sonnenkinder.org> +promoe-9999.ebuild:
+  initial git ebuild
+

@@ -1,0 +1,49 @@
+# ChangeLog for media-sound/lash
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  17 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  lash-9998.ebuild, metadata.xml:
+  Added USE flag description.
+  Fixed typo.
+  Keyworded to not generate repoman warnings.
+  Made repoman happy by adding a license and removing whitespaces.
+
+  27 Dec 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  -Moved all lash stufs to media-sound/lash-original
+  +lash-9998.ebuild; fake virtual ebuild that will depend on one of
+  media-sound/lash-original and media-sound/ladish.
+  This is needed because all the portage ebuilds depend on media-sound/lash
+  and they will block media-sound/ladish. The same block will append if
+  virtual/liblash or some other package want to install ladish.
+  
+  Complex dependencies are needed or portage can get confused
+  during world update.
+  
+  All new ebuilds should depend on virtual/liblash instead of media-sound/lash.
+
+  11 Nov 2012; Karl Lindén <spray.sucks@gmail.com>;
+  lash-0.6.0_rc2.ebuild: added python_convert_shebangs to ebuild
+
+  03 Jun 2012; Hakan Demiralp (keenblade) <keenblade@tuxfamily.org>
+  lash-0.6.0_rc2.ebuild, +files/lash-0.6.0_rc2-texi2html.diff:
+  lash-0.6.0_rc2: added new patch lash-0.6.0_rc2-texi2html.diff wrt texi2htm
+  bug by wol. removed old ebuild and patch
+
+  04 Aug 2009; Dominique Michel <dominique@tuxfamily.org>;
+  Removed midi USE check from alsa-lib depend
+
+  09 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>; lash-0.5.4.ebuild,
+  +files/lash-0.5.4-glibc2.8.patch:
+  KEEP -- imho better /etc/service cleanup handling
+
+  13 Jan 2008; Thomas Kuther <gimpel@sonnenkinder.org> lash-0.5.4.ebuild:
+  add useflags
+
+  13 Jan 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  +lash-0.5.4.ebuild:
+  bump
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

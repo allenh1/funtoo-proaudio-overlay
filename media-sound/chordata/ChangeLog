@@ -1,0 +1,29 @@
+# ChangeLog for media-sound/chordata
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header$
+
+*chordata-1.0.0-r1 (15 Mar 2013)
+
+  15 Mar 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -chordata-1.0.0.ebuild, +chordata-1.0.0-r1.ebuild,
+  +files/chordata-1.0.0/0001-fix-creating-of-packaging-install-dir.patch,
+  +files/chordata-1.0.0/0002-honour-toolchain-environment.patch:
+  update for new EAPI and python eclasses. add patches for failure if prefix
+  dir is not created first and respecting toolchain environment.
+
+  08 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  Moved depend to qt-dev/* in both ebuilds
+
+  17 Oct 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  Updated both ebuilds to qt4-r2 eclass
+
+*chordata-9999 (10 Apr 2010)
+*chordata-1.0.0 (10 Apr 2010)
+
+  17 Jun 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  chordata-9999.ebuild: Fixed libclam DEPEND
+
+  10 Apr 2010; Viktor Lazarev <taurus101v@gmail.com> +chordata-1.0.0.ebuild,
+  +chordata-9999.ebuild, +metadata.xml:
+  initial ebuilds. Requested by Mark Knecht
+

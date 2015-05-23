@@ -1,0 +1,12 @@
+--- a/trunk/SConstruct
++++ b/trunk/SConstruct
+@@ -48,6 +48,9 @@
+ if not conf.CheckLibWithHeader('pthread', 'pthread.h','c'):
+ 	print 'Did not find pthread library, exiting!'
+ 	Exit(1)
++if not conf.CheckLibWithHeader('libm', 'math.h','c'):
++	print 'Did not find libm library, exiting!'
++	Exit(1)
+ env = conf.Finish()
+ 
+ print"-                    checking dependencies for the editor:"

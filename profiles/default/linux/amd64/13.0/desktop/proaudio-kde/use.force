@@ -1,0 +1,4 @@
+# Force consolekit and policykit off, this configurations is not supported
+# by gentoo. Please report issues on the pro-audio overlay email list.
+-consolekit
+-policykit

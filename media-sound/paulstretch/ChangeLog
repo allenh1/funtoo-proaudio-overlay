@@ -1,0 +1,22 @@
+# ChangeLog for media-sound/paulstretch
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  30 Apr 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -paulstretch-1.000.ebuild, -paulstretch-1.024.ebuild, metadata.xml:
+  repoman payment only, remove ebuilds requiring portaudio-18
+
+*paulstretch-2.0 (21 Jul 2010)
+
+  29 May 2012; Dominique Michel <dominique_libre@sourceforge.met>
+  +paulstretch-2.2.2.ebuild.
+  Added a jack USE flag.
+  Fixed the build to work with portage (C++ compiler, CFLAGS LDFLAGS)
+
+  21 Jul 2010; Hakan Demiralp <keenblade@tuxfamily.org>
+  +files/fix-mp3inputs.patch, +paulstretch-2.0.ebuild:
+  Version bump. Added a patch for fixing a compile issue
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

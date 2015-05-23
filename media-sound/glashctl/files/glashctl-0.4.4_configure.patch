@@ -1,0 +1,11 @@
+--- configure-orig	2011-03-03 13:17:35.000000000 +0100
++++ configure	2012-11-10 09:41:35.000000000 +0100
+@@ -37,7 +37,7 @@
+ # Parse parameters
+ echo __path_to_configure = $0 > Makefile.config.tmp
+ for arg in "$@"; do
+-    if [[ "$arg" =~ "--[0-9a-zA-Z_]+=.*" ]]; then
++    if [[ "$arg" != "--[0-9a-zA-Z_]+=.*" ]]; then
+         echo $arg | sed 's/--\([0-9a-zA-Z]\+\)=\(.*\)/\1\ =\ \2/' >> Makefile.config.tmp
+     else
+         echo "'$arg' is not a valid parameter to configure!"

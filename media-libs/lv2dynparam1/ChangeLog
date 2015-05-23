@@ -1,0 +1,27 @@
+# ChangeLog for media-libs/lv2dynparam
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  10 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>;
+  All 3 ebuilds: added depend for media-libs/lv2
+
+*lv2dynparam1-2 (12 Jun 2009)
+
+  12 Jun 2009; Frieder Buerzele <evermind@tuxfamily.org
+  +lv2dynparam1-2.ebuild:
+
+  22 Nov 2008; Frieder Buerzele <evermind@tuxfamily.org;
+  lv2dynparam1-9999.ebuild:
+  switched to git
+
+  09 Feb 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  lv2dynparam1-1.ebuild, lv2dynparam1-9999.ebuild:
+  blocking old package name: media-libs/lv2dynparam
+
+  11 Jan 2008; Marc-Olivier Barre <mobarre@gmail.com> ChangeLog:
+  * Renamed package to lv2dynparam1
+  * made a version 1 ebuild 
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

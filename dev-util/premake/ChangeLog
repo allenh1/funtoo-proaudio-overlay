@@ -1,0 +1,31 @@
+# ChangeLog for dev-util/premake
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
++premake-4.3-r1.ebuid (30 Mar 2013)
+-premake-3.7.ebuid (30 Mar 2013)
++premake-3.7-r1.ebuid (30 Mar 2013)
++premake-3.5-r1.ebuid (30 Mar 2013)
+  
+  30 Mar 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
+  premake-4.3-r1.ebuild, premake-3.7-r1.ebuild, premake-3.5-r1.ebuild: imported
+  portage ebuilds, added slotting in all ebuilds because premake (3) is not
+  compatible with premake4
+
+  27 Dec 2012; Karl Lindén <lilrc@users.sourceforge.net>
+  -premake-4.2.1.ebuild, -files/premake-4.2.1-Makefile.patch, -files,
+  premake-3.7.ebuild, metadata.xml:
+  Remove non-working and outdated ebuild (version 4.3 is in portage).
+  (Keep premake-3.7 because it's needed by media-plugins/distrho).
+  Remove unneeded files.
+  Remove no-herd from metadata.xml
+  Updated copyright notices.
+  Quote all variables. (Fixes repoman warnings)
+
+*premake-4.2.1 (30 Mar 2010)
+
+  30 Mar 2010; Viktor Lazarev <taurus101v@gmail.com> +premake-4.2.1.ebuild:
+  version bump, bgo #60960
+
+  30 Mar 2010; Viktor Lazarev <taurus101v@gmail.com> ChangeLog:
+  added a changelog

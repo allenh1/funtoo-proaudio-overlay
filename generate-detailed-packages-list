@@ -1,0 +1,143 @@
+#!/bin/bash
+# (c) 2006 - 2007 Frieder Bürzele
+# licence gnu gpl v2
+# this script includes some smaller scripts which cleans the repository a bit
+# and remove unneeded files
+
+# generate detailed_package_list (00-DETAILED-PACKAGES-LIST)
+
+# exit script it not executed in overlay root
+if [ ! -e  .svn/text-base/generate-detailed-packages-list.svn-base ] && [ ! -e 00-DETAILED-PACKAGES-LIST ];then
+	echo "please execute this script just inside the overlay root"
+	exit 1
+fi
+
+PORTAGE_TREE=/usr/portage
+OPT_LIST_PORTAGE_ALSO="0"
+OPT_LIST_OVERLAY_ONLY="0"
+OPT_WRITE_LIST="0"
+OPT_SHOW_LIST="0"
+
+function usage
+{
+	echo "$0"
+	echo " -p         list portage same packages also"
+	echo " -o         list only packages from overlay"
+	echo " -w         write list of packages into file"
+	echo " -s         show list of packages only"
+	exit
+}
+
+if [  "${#@}" -lt 1 ];then
+	usage
+	exit
+fi
+
+
+while getopts powsh options; do
+	case ${options} in
+		p) OPT_LIST_PORTAGE_ALSO="1" ;;
+		o) OPT_LIST_OVERLAY_ONLY="1" ;;
+		w) OPT_WRITE_LIST="1" ;;
+		s) OPT_SHOW_LIST="1" ;;
+
+		h) usage;;
+		*) usage;;
+	esac
+done
+
+generate_list(){
+	for x in `find -maxdepth 1 -type d -printf '%f\n'|sed '1d'|sort|uniq|egrep -v '^(profiles|licenses)$'`;do
+	old_pwd=$PWD
+	cd $x
+	for i in `find -maxdepth 1 -type d|sed '1d'`;do
+		i=${i/.\//}
+
+		# reset descriptions so if one's is missing we'll see it
+		# in the generated list
+		HOMEPAGE="unknown"
+		DESCRIPTION="unknown"
+		KEYWORDS="unknown"
+		cat_ebuild_seen=""
+
+		nr_of_ebuilds="-1"
+
+		ebuilds="$(ls $i/*.ebuild)"
+		for k in ${ebuilds[@]};do
+
+		if [ "$OPT_LIST_OVERLAY_ONLY" -eq 1 ] && [ -e $PORTAGE_TREE/$x/$i/$k ];then
+			continue
+		fi
+	
+		if [ -z "$cat_ebuild_seen" ];then
+			echo "#------- $x/$i --------"
+			cat_ebuild_seen=yes
+		fi
+		
+			source $k &>/dev/null
+			k="${k##*/}"
+			k=${k/\.ebuild/}
+			[ "${#KEYWORDS}" -le "0" ] && KEYWORDS="-> live ebuild: [svn|cvs|...]<-"
+			echo -e "\t${k/.\//}\tarch: ${KEYWORDS}"
+			nr_of_ebuilds=$(($nr_of_ebuilds + 1))
+		done
+
+		# if -p list also packages from portage
+		if [ "$OPT_LIST_PORTAGE_ALSO" -eq "1" ] && [ -e $PORTAGE_TREE/$x/$i ];then
+			cd $PORTAGE_TREE/$x/$i > /dev/null	
+			ebuilds="$(ls *.ebuild)"
+			echo -e "\n--> also in PORTAGE"
+			for k in ${ebuilds[@]};do
+				source $k &>/dev/null
+				k="${k##*/}"
+				k=${k/\.ebuild/}
+				[ "${#KEYWORDS}" -le "0" ] && KEYWORDS="-> live ebuild: [svn|cvs|...]<-"
+				echo -e "\t${k/.\//}\tarch: ${KEYWORDS}"
+				nr_of_ebuilds=$(($nr_of_ebuilds + 1))
+			done
+			cd - >/dev/null
+		fi
+		# read ebuild infos
+		## no longer needed as it is read in above loop
+		#source  ${ebuilds[$nr_of_ebuilds]} &>/dev/null
+		
+		# remove line breaks in the ebuild var
+		# if you want to fix the ebuild comment next line and check output with grep '[^ ]'
+		DESCRIPTION="$(echo ${DESCRIPTION})"
+		desc_length=${#DESCRIPTION}
+		start_pnt=0
+		max_line_length=40
+		tmp_descr=""
+		cut_size="0"
+		old_begin="0"
+		from_begin=$max_line_length
+		if [ "$desc_length" -gt "$max_line_length" ];then
+			 while [ "$from_begin" -le "$desc_length" ];do #
+				while [ "${DESCRIPTION:$from_begin:1}" != " " ] && [ "$from_begin" -lt "$desc_length" ];do
+					from_begin=$(( $from_begin + 1 ))
+				done
+				cut_size=$(( $from_begin - $old_begin))
+				tmp_descr="${tmp_descr}${DESCRIPTION:$start_pnt:$cut_size}\n\t\t"
+
+				sucker=$(( $start_pnt + $cut_size))
+				old_begin=$from_begin
+				start_pnt=$(( $start_pnt + $cut_size ))
+				from_begin=$(( $from_begin + $cut_size ))
+			done
+			remain_desc=${DESCRIPTION:$sucker}
+			DESCRIPTION="${tmp_descr}${remain_desc}"
+		fi
+		#echo -e "\n\tTested/Working arch: ${KEYWORDS}\n"
+		echo -e "\tDescription: ${DESCRIPTION}"
+		echo -e "\tHomepage:    ${HOMEPAGE}"
+		echo -e "\n"
+	done
+	cd $old_pwd &>/dev/null
+	done
+}
+if [ "${OPT_SHOW_LIST}" -eq "1" ];then
+	generate_list  
+elif [ "${OPT_WRITE_LIST}" -eq "1" ];then
+	echo 00-DETAILED-PACKAGES-LIST will be created
+	generate_list > 00-DETAILED-PACKAGES-LIST
+fi

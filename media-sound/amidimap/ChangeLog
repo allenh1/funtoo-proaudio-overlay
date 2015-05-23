@@ -1,0 +1,14 @@
+# ChangeLog for media-sound/amidimap
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*amidimap-0.1.1-r1 (02 May 2013)
+
+  02 May 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -amidimap-0.1.1.ebuild, +amidimap-0.1.1-r1.ebuild,
+  +files/amidimap-0.1.1-Makefile.patch, metadata.xml:
+  update HOMEPAGE and SRC_URI, add patch to honour CFLAGS/LDFLAGS
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

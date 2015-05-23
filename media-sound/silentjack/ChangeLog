@@ -1,0 +1,6 @@
+# ChangeLog for media-sound/silentjack
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  14 Feb 2013: Dominique Michel <dominique_libre@sourceforge.net>
+  +silentjack-0.3.ebuild: initial ebuild

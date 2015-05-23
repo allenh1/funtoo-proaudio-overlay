@@ -1,0 +1,285 @@
+--- NO LONGER MAINTAINED LOOK HERE FOR ACTUAL VERSION -- 20070801---
+http://proaudio.tuxfamily.org/wiki/index.php?title=New_Developer/Maintainer_guide
+# Some hints for new Developer/Maintainer
+
+Index:
+
+1. # get a account at tuxfamily.org
+  1.1 # request svn write access
+
+2.0 # basic subversion commands
+  2.1 # checkout the overlay
+  2.2 # howto add a new ebuild to the tree
+  2.3 # just change a ebuild
+  2.4 # delete some files/directories
+  2.5 # move files around (e.g bumping) (if former version is obsolete)
+  2.6 # reverse your local changes to an ebuild/folder
+  2.7 # display the subversion log
+  2.8 # edit the logfile if your message was not correct
+  2.9 # change the repository server location (JFYI)
+  2.10 # generate patches for review something
+  2.11 # login automatically to svn-server
+
+3. # our policy/rules
+  3.1 # read the ebuild documentation at
+  3.1.1 # run svn up
+  3.2 # ebuild license
+  3.3 # check your ebuilds if they are acutally working (repoman) 
+  3.3.1 # ebuild archs (KEYWORDS)
+  3.4 # redigest your ebuild
+  3.5 # update the package list
+  3.6 # add missing apps to 00-TODO
+  3.7 # 00-README 00-OVERLAY-INFO
+  3.8 # change the rules/scripts/ebuilds/readme's/...
+  3.9 # hope this are not to much rules
+
+4.0 # overlay hierarchy:
+  4.1 # example proaudio / proaudio-dev overlays setup
+5.0 # feel free to ask
+6.0 # testing ebuilds on different archs
+7.0 # adding files to the overlay
+
+1. # get a account at tuxfamily.org
+  You need to get a account at http://tuxfamily.org 
+  (they provide the svn-repo and Webspace)
+
+1.1 # request  svn write access
+  Just write to Thomas or me (Frieder) gain
+  write accesss
+
+
+2.0 # basic subversion commands
+  You've to know how to checkout/commit the overlay repository:
+  So here some basics:
+
+2.1 # checkout the overlay
+  # also read 4.0 and 4.1 before doing this step
+  svn co svn+ssh://<your_tuxfamily_login>@svn.tuxfamily.org/svnroot/proaudio/proaudio
+  # or
+  svn co --username <your_tuxfamily_login> svn+ssh://svn.tuxfamily.org/svnroot/proaudio/proaudio
+
+  # for me the subversion server asked me three times before 
+  # accepting my password
+
+2.2 # howto add a new ebuild to the tree   
+  # go inside your repository checkout eg into media-sound
+  cd ~/path/to/proaudio/media-sound
+  mkdir foo
+  cd foo
+  vi foo-0.1.ebuild
+  ebuild foo-0.1.ebuild digest
+  cd ..
+  svn st|status	# see the changes made to local repository
+		# ? - means not added to the tree (svn ci ignore those files)
+		# A - means freshly added to the overlay but not commited
+		# C - means conflicting with a previous revision
+		# 	to avoid this: do a "svn up" to make sure
+		# 	you edit the latest version of a ebuild
+		# D - means files gets deleted with next commit
+		# U - means updated
+
+  svn add foo 	# adds directory foo recurively  to the overlay (only local) 
+  svn ci|commit	# until commit nothing changes in the repository on the 
+   		# svn-server
+  svn ci -m 'what this commit changes' # you could add just in one line what
+  		# your commit actually changes instead of using a vim/nano/...
+
+
+
+2.3 # just change a ebuild 
+  # 1. close the your prefered editor 
+  # 2. redigest your ebuild
+  svn st	# displays the changes made to the overlay 
+  svn ci	# commit changes
+
+2.4 # delete some files/directories
+  svn del foo 	# this changes are just local on your copy of the repository
+		# sometimes svn don't allow to delete things so try with --force
+  svn ci	# commit changes
+
+
+2.5 # move files around (e.g bumping) (if former version is obsolete)
+  svn mv foo/foobar-123.ebuild foo/foobar-124.ebuild
+  # if not obsolete you could also bump with svn cp
+  svn cp foo/foobar-123.ebuild foo/foobar-124.ebuild
+  # or of course with just 'cp' and adding new files afterwards with
+  svn add foo/foobar-124.ebuild
+  
+  # make sure to adjust dependencies (DEPEND RDEPEND) if needed
+  # If you've trouble with the right syntax look at point 3.1
+  # Make sure that if you're bumping to redigest and also add 
+  # the digest of the ebuild to the overlay
+  # for above example:
+  svn st # gives you this
+  ?	files/digest-foobar-124
+  <snip>
+  # so the following step is also needed before a commit
+  svn add files/digest-foobar-124
+  # know svn st shows
+  A	files/digest-foobar-124
+  <snip>
+  # ready for commiting
+
+
+2.6 # reverse your local changes to an ebuild/folder
+  svn revert path/to/file_which_you_want_to_revert # revert a file
+  svn revert -R foo/	# revert recursively all changes made in foo/
+
+
+2.7 # display the subversion log
+  svn log 	# diplays the logfile
+
+
+2.8 # edit the logfile if your message was not correct 
+  # and you feel you should correct it
+  svn propedit svn:log --revprop -r <revision-number>
+
+
+2.9 # change the repository server location (JFYI) :)
+  svn switch --relocate svn://svn.tuxfamily.org/svnroot/ckpp/proaudio svn://svn.tuxfamily.org/svnroot/proaudio/proaudio/
+
+
+2.10 # generate patches for review something 
+  # eg. local modification to last checkout
+  svn diff foo/foobar-123.ebuild
+  # or a diff to a specific revision
+  svn diff -r 3 foo/foobar-123.ebuild
+
+
+2.11 # login automatically to svn-server
+  # put your id_rsa.pub key to the root of your 
+  # (generate one if you don't have already one)
+    --> ssh-keygen -t rsa
+  # ftp-account at ftp.tuxfamily.org you can use ncftpput (emerge ncftp)
+  # or any other ftp-client
+  ncftpput -u <your_tuxfamily_login> -C ftp.tuxfamily.org ~/.ssh/id_rsa.pub ssh_keys
+
+
+3. # our policy/rules
+
+3.1 # read the ebuild documentation at
+   http://proaudio.tuxfamily.org/wiki/index.php?title=Contribute_ebuilds 
+   # and the also the gentoo ebuild manuals :)
+
+
+3.1.1 # run svn up
+  # to avoid double-work always work on the latest checkout with
+  svn up
+
+
+3.2 # ebuild license
+  # All commited ebuild must have to be licensed gnu gpl v2
+  # so contribute with proper header eg.
+  
+  # Copyright 1999-2007 Gentoo Foundation
+  # Distributed under the terms of the GNU General Public License v2
+  # $Header: $
+
+
+3.3 # check your ebuilds if they are acutally working (repoman) 
+  # to ensure correct ebuilds you could run repoman which checks
+  # for invalid syntax, missing vars, ...
+ 
+
+3.3.1 # ebuild archs (KEYWORDS)
+  # put the correct archs into KEYWORDS. I prefer mostly stable keywords
+  # but if a new version of a pkg could break things do ~arch
+  # or if known to not work do KEYWORDS="-*" 
+  # ALL snapshot/live (cvs/svn/...) ebuilds should have KEYWORDS="" 
+  # --> this meaans not known if it will work as it could change quickly
+  # Use -9999 for the ebuild filename:
+  foobar-9999.ebuild
+  # more infos about KEYWORDS available at:
+  # http://dev.gentoo.org/~genone/docs/KEYWORDS.stupid and
+  # http://bugs.gentoo.org/show_bug.cgi?id=160519
+
+
+3.4 # redigest your ebuild
+  # try to assure that you've redigest your ebuild before commit
+  # and also make sure that there are no temporary files laying around
+  # which cause digest failures for other people
+
+
+3.5 # update the package list
+  # please execute both scripts before commiting some bumped or new
+  # ebuilds to the overlay.
+  # Execute this scripts inside the overlay root. They modify two
+  # files inside the overlay.
+  ./prepare_tree	# checks for some digest breakage and
+  			# generates 00-PACKAGES-LIST
+  # and generate with 
+  ./generate-detailed-packages-list # generate 00-DETAILED-PACKAGES-LIST
+
+
+3.6 # add missing apps to 00-TODO
+  # if you've found an nice to have app which is not already in the overlay
+  # and you think there should be a ebuild but hav no time and before
+  # you forget about it add a entry about there.
+  # For every missing app with have a  "block" which needs some details
+  
+  # NAME: 
+  EBUID_STATE: none/working/
+  DEVELOPER: <maybe your name>
+  DESCR: <info about the app>
+  HOMEPAGE: http://foo.bar
+
+  # If you've added a ebuild that's listing in the todo file
+  # please remove its entry
+
+3.7 # 00-README 00-OVERLAY-INFO
+  # this both files gives a bit of introduction to the overlay
+  # should be updated (feel free to edit them)
+
+
+3.8 # change the rules/scripts/ebuilds/readme's/...
+  # you're free to change other peoples ebuilds if you could improve/fix
+  # You could also fix/enhance all scripts at point 3.5
+
+
+3.9 # hope this are not to much rules
+
+
+4.0 # overlay hierarchy:
+  # for absolute experimental ebuild we have a dev branch
+  # in this branch ebuilds could really be broken.
+  # This is also a place where we can collaborate in developing new
+  # ebuilds (add this overlay also to your other overlays see 4.1)
+  # If you put a new ebuild here and the category is missing create it.
+  svn.tuxfamily.org/svnroot/proaudio/trunk/overlays/proaudio-dev
+  
+  # this is our main overlay in which only "working" ebuilds should
+  # be placed
+  svn.tuxfamily.org/svnroot/proaudio/trunk/overlays/proaudio
+
+
+4.1 # example proaudio / proaudio-dev overlays setup
+  # this is how I've organized the proaudio overlay on my box
+  # I've placed the svn checkout in  ~/svn-checkouts/
+  cd  ~/svn-checkouts/
+  # fetch the tree as developer 
+  svn co svn+ssh://<your_tuxfamily_login>@svn.tuxfamily.org/svnroot/proaudio/proaudio
+  # edit /etc/make.conf and add both overlays proaudio and proaudio-dev
+  PORTDIR_OVERLAY="/home/evermind/svn-checkouts/proaudio/trunk/overlays/proaudio /home/evermind/svn-checkouts/proaudio/trunk/overlays/proaudio-dev <other overlays>"
+
+
+5.0 # feel free to ask
+  # if you've questions problems you could always ask on the ml
+  # Communication is everything 
+
+
+6.0 # testing ebuilds on different archs
+  # ebuild which are not already tested on a specific arch 
+  # could be found with the below script which is
+  # inside the proaudio overlay root
+  ./check_ebuild_unstable-untested arch # eg ./check_ebuild_unstable-untested amd64
+  # above script reveals all ebuilds without 'arch'
+  # --> this ebuilds needs testing 
+  # so rekeyword if it builds AND works and check it into the svn repository
+  # (some ebuilds might only work on the given arch)
+
+7.0 # adding files to the overlay
+  # files can be added to the overlay using
+  ftp://ftp.tuxfamily.org/proaudio/proaudio-repository/distfiles
+  # use your favourite ftp client with your tuxfamily username and password
+  # they can be accessed from an ebuild with
+  http://download.tuxfamily.org/proaudio/distfiles

@@ -1,0 +1,29 @@
+# ChangeLog for media-sound/dino
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*dino-0.2.8 (24 Mar 2013)
+
+  24 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -dino-0.2.2.ebuild, -dino-0.2.4.ebuild, +dino-0.2.8.ebuild, dino-9999.ebuild,
+  +files/dino-9999-no-override.patch, -files/jack_midi_api_fix.diff,
+  metadata.xml:
+  Version bump.
+  Move to EAPI 5.
+  Move to git-2 and autotools-utils eclasses.
+  Do not use jackmidi eclass.
+  Do not specify jack version in dependencies.
+  Depend on virtual/liblash.
+  Show warning in live ebuild.
+  Remove old patch.
+  Add patch to not override environment variables in live ebuild.
+
+  17 Avr 2010; Stephane Angot <sa@hydre.org>; +dino-0.2.4.ebuild, dino-0.2.2.ebuid:
+  Fix license, version bump
+
+  23 Oct 2008; Frieder Buerzele <evermind@tuxfamily.org; dino-0.2.2.ebuild:
+  make depend on >=media-sound/jack-audio-connection-kit-0.102.6
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

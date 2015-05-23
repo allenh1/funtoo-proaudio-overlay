@@ -1,0 +1,19 @@
+# ChangeLog for media-sound/pitchtune
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  28 Dec 2012; Karl Lindén (lilrc) <lilrc@users.sourceforge.net>
+  pitchtune-0.0.4.ebuild, metadata.xml, -files:
+  Remove herd from metadata
+  Add a longdescription as the one in the ebuild was too long
+  Added EAPI
+  Use autotools-utils
+  Correct download link
+  Cleanup
+
+  10 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  pitchtune-0.0.4.ebuild: Added icon and desktop files installation
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

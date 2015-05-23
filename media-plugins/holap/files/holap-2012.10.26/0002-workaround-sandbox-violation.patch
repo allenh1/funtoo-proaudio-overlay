@@ -1,0 +1,209 @@
+From 27121bffb2815a8da45695c2a69a22aefc569b37 Mon Sep 17 00:00:00 2001
+From: "Gavin Pryke (gavlee)" <gavinlee303@googlemail.com>
+Date: Fri, 9 Nov 2012 16:43:07 +0000
+Subject: [PATCH 2/3] workaround sandbox violation
+
+---
+ exciter/src/Makefile.am      |    4 ----
+ goomf/src/Makefile.am        |    5 -----
+ harmonizer/src/Makefile.am   |    7 -------
+ harmonizer_l/src/Makefile.am |    4 ----
+ horgand-dssi/src/Makefile.am |    5 -----
+ musicaldelay/src/Makefile.am |    9 ---------
+ zynalienwah/src/Makefile.am  |    9 ---------
+ zynchorus/src/Makefile.am    |    8 --------
+ zyneq10band/src/Makefile.am  |    9 ---------
+ zyneq3par/src/Makefile.am    |    9 ---------
+ zynphaser/src/Makefile.am    |    9 ---------
+ zynreverb/src/Makefile.am    |    9 ---------
+ 12 files changed, 0 insertions(+), 87 deletions(-)
+
+diff --git a/exciter/src/Makefile.am b/exciter/src/Makefile.am
+index 37bbb07..08fa775 100644
+--- a/exciter/src/Makefile.am
++++ b/exciter/src/Makefile.am
+@@ -27,7 +27,3 @@ exciter_la_SOURCES =  exciter.c \
+ exciter_la_LDFLAGS = -module -avoid-version -export-symbols-regex "(ladspa_|dssi_)descriptor"
+ 
+ 
+-install-data-hook:
+-	rm $(plugindir)/exciter.la
+-	rm $(plugindir)/exciter.a
+-	
+\ No newline at end of file
+diff --git a/goomf/src/Makefile.am b/goomf/src/Makefile.am
+index 3b5d726..9109d59 100644
+--- a/goomf/src/Makefile.am
++++ b/goomf/src/Makefile.am
+@@ -26,8 +26,3 @@ goomf_la_SOURCES = goomf.c \
+ 
+ goomf_la_LDFLAGS = -module -avoid-version 
+ 
+-install-data-hook:
+-	rm $(plugindir)/goomf.la
+-	rm $(plugindir)/goomf.a
+-	
+-        
+\ No newline at end of file
+diff --git a/harmonizer/src/Makefile.am b/harmonizer/src/Makefile.am
+index 7be20ad..97267d6 100644
+--- a/harmonizer/src/Makefile.am
++++ b/harmonizer/src/Makefile.am
+@@ -29,10 +29,3 @@ holharm_la_LIBADD = -lm -lpthread
+   
+ holharm_la_LDFLAGS = -module -avoid-version -export-symbols-regex "(ladspa_|dssi_)descriptor"
+ 
+-install-data-hook:
+-	rm $(plugindir)/holharm.la
+-	rm $(plugindir)/holharm.a
+-	               
+-
+-
+-
+diff --git a/harmonizer_l/src/Makefile.am b/harmonizer_l/src/Makefile.am
+index 5979b84..f89c0c2 100644
+--- a/harmonizer_l/src/Makefile.am
++++ b/harmonizer_l/src/Makefile.am
+@@ -15,7 +15,3 @@ holharm_l_la_LDFLAGS = -module -avoid-version -shared -export-symbols-regex "(la
+ 
+ ACLOCAL_AMFLAGS = -I m4
+ 
+-install-data-hook:
+-	rm $(plugindir)/holharm_l.la
+-        
+-
+diff --git a/horgand-dssi/src/Makefile.am b/horgand-dssi/src/Makefile.am
+index e2d52d7..6d597b9 100644
+--- a/horgand-dssi/src/Makefile.am
++++ b/horgand-dssi/src/Makefile.am
+@@ -32,8 +32,3 @@ horgand_la_LIBADD = -lm -lpthread
+ 
+ horgand_la_LDFLAGS = -module -avoid-version 
+ 
+-install-data-hook:
+-	rm $(plugindir)/horgand.la
+-	rm $(plugindir)/horgand.a
+-	
+-        
+\ No newline at end of file
+diff --git a/musicaldelay/src/Makefile.am b/musicaldelay/src/Makefile.am
+index ebbf698..0fe74cb 100644
+--- a/musicaldelay/src/Makefile.am
++++ b/musicaldelay/src/Makefile.am
+@@ -13,12 +13,3 @@ musicaldelay_la_LDFLAGS = -avoid-version -module -shared -export-symbols-regex "
+ 
+ ACLOCAL_AMFLAGS = -I m4
+ 
+-install-data-hook:
+-
+-	rm $(plugindir)/musicaldelay.la
+-	
+-	
+-
+-
+-  
+-
+diff --git a/zynalienwah/src/Makefile.am b/zynalienwah/src/Makefile.am
+index 7e6da83..b733dfd 100644
+--- a/zynalienwah/src/Makefile.am
++++ b/zynalienwah/src/Makefile.am
+@@ -13,12 +13,3 @@ zynalienwah_la_LDFLAGS = -avoid-version -module -shared -export-symbols-regex "l
+ 
+ ACLOCAL_AMFLAGS = -I m4
+ 
+-install-data-hook:
+-
+-	rm $(plugindir)/zynalienwah.la
+-	
+-	
+-
+-
+-  
+-
+diff --git a/zynchorus/src/Makefile.am b/zynchorus/src/Makefile.am
+index 60aa0db..f3f3c32 100644
+--- a/zynchorus/src/Makefile.am
++++ b/zynchorus/src/Makefile.am
+@@ -13,11 +13,3 @@ zynchorus_la_LDFLAGS = -avoid-version -module -shared -export-symbols-regex "lad
+ 
+ ACLOCAL_AMFLAGS = -I m4
+ 
+-install-data-hook:
+-
+-	rm $(plugindir)/zynchorus.la
+-	
+-
+-
+-  
+-
+diff --git a/zyneq10band/src/Makefile.am b/zyneq10band/src/Makefile.am
+index be0971d..5a51649 100644
+--- a/zyneq10band/src/Makefile.am
++++ b/zyneq10band/src/Makefile.am
+@@ -14,12 +14,3 @@ zyneq10band_la_LDFLAGS = -avoid-version -module -shared -export-symbols-regex "l
+ 
+ ACLOCAL_AMFLAGS = -I m4
+ 
+-install-data-hook:
+-
+-	rm $(plugindir)/zyneq10band.la
+-	
+-	
+-
+-
+-  
+-
+diff --git a/zyneq3par/src/Makefile.am b/zyneq3par/src/Makefile.am
+index 6217961..95678fb 100644
+--- a/zyneq3par/src/Makefile.am
++++ b/zyneq3par/src/Makefile.am
+@@ -14,12 +14,3 @@ zyneq3par_la_LDFLAGS = -avoid-version -module -shared -export-symbols-regex "lad
+ 
+ ACLOCAL_AMFLAGS = -I m4
+ 
+-install-data-hook:
+-
+-	rm $(plugindir)/zyneq3par.la
+-	
+-	
+-
+-
+-  
+-
+diff --git a/zynphaser/src/Makefile.am b/zynphaser/src/Makefile.am
+index 7df56bd..9fef3dc 100644
+--- a/zynphaser/src/Makefile.am
++++ b/zynphaser/src/Makefile.am
+@@ -13,12 +13,3 @@ zynphaser_la_LDFLAGS = -avoid-version -module -shared -export-symbols-regex "lad
+ 
+ ACLOCAL_AMFLAGS = -I m4
+ 
+-install-data-hook:
+-
+-	rm $(plugindir)/zynphaser.la
+-	
+-	
+-
+-
+-  
+-
+diff --git a/zynreverb/src/Makefile.am b/zynreverb/src/Makefile.am
+index 246a949..b972def 100644
+--- a/zynreverb/src/Makefile.am
++++ b/zynreverb/src/Makefile.am
+@@ -14,12 +14,3 @@ zynreverb_la_LDFLAGS = -avoid-version -module -shared -export-symbols-regex "lad
+ 
+ ACLOCAL_AMFLAGS = -I m4
+ 
+-install-data-hook:
+-
+-	rm $(plugindir)/zynreverb.la
+-	
+-	
+-
+-
+-  
+-
+-- 
+1.7.8.6
+

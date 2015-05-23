@@ -1,0 +1,25 @@
+# ChangeLog for media-sound/jconvolver
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*jconvolver-0.9.2 (06 Sep 2012)
+
+  06 Sep 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -jconvolver-0.8.7.ebuild, +jconvolver-0.9.2.ebuild,
+  +files/jconvolver-0.9.2-Makefile.patch, +metadata.xml:
+  0.8.7 SRC_URI is 404, bump to new version and include patch for Makefile.
+
+  01 May 2011; Gavin Pryke <gavinlee303@googlemail.com>
+  jconvolver-0.8.7.ebuild:
+  update HOMEPAGE and SRC_URI
+
+*jconvolver-0.8.4 (25 Feb 2010)
+
+  12 Apr 2010: Dominique Michel <dominique@tuxfamilly.org>
+  bump to 0.8.4
+  added examples by Fons with some impulse respons
+
+  25 Feb 2010; Frieder Buerzele <evermind@tuxfamily.org>
+  +jconvolver-0.8.4.ebuild:
+  initial ebuild from bugtracker + some fixes
+

@@ -1,0 +1,28 @@
+# ChangeLog for media-sound/rtsynth
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*rtsynth-1.9.5 (23 Mar 2013)
+
+  23 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  rtsynth-1.9.2.ebuild, +rtsynth-1.9.5.ebuild:
+  Version bump.
+  Specify EAPI.
+  Use base eclass to install docs.
+  Always install the non-jack application.
+  Fix non-jack application install path.
+
+  28 Dec 2012; Karl Lindén (lilrc) <lilrc@users.sourceforge.net>
+  rtsynth-1.9.2.ebuild, metadata.xml:
+  Remove "Synthetisizers;" as this generates a warning
+  Fixed license (licenses/RTSynth)
+  Quoted variables
+  Removed herd from metadata.xml
+
+  29 Jul 2012; Dominique Michel <dominique@tuxfamily.org>
+  rtsynth-1.9.2.ebuild: cleanup; binary package => install in /opt;
+  added desktop entry
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer>
+		<email>proaudio@tuxfamily.org</email>
+		<name>pro-audio overlay team</name>
+	</maintainer>
+	<use>
+		<flag name="doc">Install the depends needed to build the doc</flag>
+		<flag name="dssi">Enable dssi and dssi-vst support</flag>
+		<flag name="fluidsynth">Enable fluidsynth support</flag>
+		<flag name="lash">Enable lash support</flag>
+		<flag name="osc">Enable OSC support</flag>
+		<flag name="vst">Enable vst support through vestige</flag>
+	</use>
+</pkgmetadata>

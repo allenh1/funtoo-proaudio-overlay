@@ -1,0 +1,8 @@
+# ChangeLog for media-sound/epichord
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  16 Dec 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  +epichord-9999.ebuild:
+  initial ebuild
+

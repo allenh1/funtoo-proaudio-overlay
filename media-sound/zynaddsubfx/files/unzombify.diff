@@ -1,0 +1,22 @@
+--- src/Output/JACKaudiooutput.C	2006-05-23 00:42:21.000000000 +0200
++++ src/Output/JACKaudiooutput.C	2006-05-31 21:01:28.000000000 +0200
+@@ -87,10 +87,15 @@
+     jack_default_audio_sample_t *outl=(jack_default_audio_sample_t *) jack_port_get_buffer (outport_left, nframes);
+     jack_default_audio_sample_t *outr=(jack_default_audio_sample_t *) jack_port_get_buffer (outport_right, nframes);
+ 
+-    pthread_mutex_lock(&jackmaster->mutex);
+-    JACKhandlemidi(nframes);
+-    jackmaster->GetAudioOutSamples(nframes,jack_get_sample_rate(jackclient),outl,outr);
+-    pthread_mutex_unlock(&jackmaster->mutex);
++    if (!pthread_mutex_trylock(&jackmaster->mutex)) {
++      JACKhandlemidi(nframes);
++      jackmaster->GetAudioOutSamples(nframes,jack_get_sample_rate(jackclient),outl,outr);
++      pthread_mutex_unlock(&jackmaster->mutex);
++    }
++    else {
++      memset(outl, 0, sizeof(jack_default_audio_sample_t) * nframes);
++      memset(outr, 0, sizeof(jack_default_audio_sample_t) * nframes);
++    }
+     
+     return(0);
+ };

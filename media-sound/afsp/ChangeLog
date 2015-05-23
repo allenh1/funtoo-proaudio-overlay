@@ -1,0 +1,19 @@
+# ChangeLog for media-sound/afsp
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*afsp-9.0 (18 Mar 2013)
+
+  18 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  afsp-8.2.ebuild, +afsp-9.0.ebuild, metadata.xml:
+  version bump
+  add EAPI
+  remove no-herd from metadata.xml
+  don not install unnecessary docs
+
+  16 Avr 2010; Stephane Angot <sa@hydre.org> afsp-8.2.ebuild:
+  Fixed license, fixed download link
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

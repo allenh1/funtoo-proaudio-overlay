@@ -1,0 +1,13 @@
+# ChangeLog for media-sound/vkeybd
+# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  22 Dec 2007; Frieder Buerzele <evermind@tuxfamily.org> ChangeLog:
+  removed old vkeybd-0.1.17-r1 and sync vkeybd-0.1.17a ebuild with portage
+
+  22 Dec 2007; Frieder Buerzele <evermind@tuxfamily.org> ChangeLog:
+  make myconf scope non-local
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

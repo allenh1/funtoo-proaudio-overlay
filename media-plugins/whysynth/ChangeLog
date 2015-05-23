@@ -1,0 +1,35 @@
+# ChangeLog for media-plugins/whysynth
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  08 Sep 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  whysynth-20120903.ebuild:
+  EAPI 5.
+  Depend on linux-headers, because alsa-headers are removed. Thanks to Matt
+  Henley for the report.
+  Corrected HOMEPAGE and SRC_URI to avoid redirection.
+  Remove redundant DOCS variable.
+
+*whysynth-20120903 (08 Sep 2012)
+
+  08 Sep 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -whysynth-20060122.ebuild, -whysynth-20060122-r1.ebuild,
+  -whysynth-20070418.ebuild, -whysynth-20100922.ebuild,
+  +whysynth-20120903.ebuild, -files/whysynth_hacked_eg.patch, metadata.xml:
+  bump. remove 32 KiB patch. repoman clean.
+
+*whysynth-20100922 (03 Mar 2011)
+
+  03 Mar 2011; Frieder Buerzele <evermind@tuxfamily.org>
+  -whysynth-20090608.ebuild, +whysynth-20100922.ebuild:
+  bumped and added amd64 keyword
+
+*whysynth-20090608 (25 Feb 2010)
+
+  25 Feb 2010; Frieder Buerzele <evermind@tuxfamily.org>
+  +whysynth-20090608.ebuild:
+  brought to you by audiodef
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

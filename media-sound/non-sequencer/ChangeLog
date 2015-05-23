@@ -1,0 +1,33 @@
+# ChangeLog for media-sound/non-sequencer
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  18 Nov 2012; Dominique Michel <dominique_free@sourceforge.net>
+  non-sequencer-9999.ebuild (Thanks to Tina Cochet): waf support
+
+  04 Nov 2012; Dominique Michel <dominique_free@sourceforge.net>
+  non-sequencer-9999.ebuild (Thanks to Tina Cochet):
+  A lot of changes again.
+  Added the envd BROWSER init here.
+
+  21 Jul 2012; Dominique Michel <dominique@tuxgamily.org>
+  non-sequencer-9999.ebuild:
+  A lot changed with the build system, so this is a new
+  ebuild from the scratch.
+
+  21 Apr 2010; Gavin Pryke <gavinlee303@googlemail.com>
+  non-sequencer-9999.ebuild:
+  update call to configure as it is a custom shell script. dependency tweak.
+
+  18 Sep 2009; Gavin Pryke <gavinlee303@googlemail.com>
+  +non-sequencer-9999.ebuild, +metadata.xml:
+  rename nonsequencer -> non-sequencer
+
+  24 Nov 2008; Frieder Buerzele <evermind@tuxfamily.org;
+  nonsequencer-9999.ebuild, -files/nonsequencer-makefile-fix.patch:
+  removed redundant patch
+
+  05 Sep 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  +nonsequencer-9999.ebuild, +files/nonsequencer-makefile-fix.patch:
+  initial ebuild thx Jean-Baptiste
+

@@ -1,0 +1,436 @@
+# ChangeLog for media-sound/jack-audio-connection-kit
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  12 Apr 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  jack-audio-connection-kit-0.121.3-r2.ebuild,
+  jack-audio-connection-kit-0.124.1.ebuild,
+  jack-audio-connection-kit-1.9.10.ebuild,
+  jack-audio-connection-kit-1.9999.ebuild,
+  jack-audio-connection-kit-2.9999.ebuild:
+  multilib libffado
+
+  12 Apr 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  jack-audio-connection-kit-1.9.10.ebuild,
+  jack-audio-connection-kit-2.9999.ebuild:
+  remove debug use flag from jack2 since it only triggers CFLAGS
+  depend on expat when USE="dbus"
+  update 2.9999 ebuild to accomodate the upstream changes
+   added libsamplerate, readline and sndfile use flags
+   remove automagic deps
+   let the build system handle doxygen
+
+*jack-audio-connection-kit-0.124.1 (09 Apr 2015)
+
+  09 Apr 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -jack-audio-connection-kit-0.121.3.ebuild,
+  -jack-audio-connection-kit-0.121.3-r1.ebuild,
+  -jack-audio-connection-kit-0.121.3-r2.ebuild,
+  +jack-audio-connection-kit-0.124.1.ebuild,
+  jack-audio-connection-kit-1.9.10.ebuild,
+  jack-audio-connection-kit-1.9999.ebuild,
+  -jack-audio-connection-kit-1.9999-r1.ebuild,
+  jack-audio-connection-kit-2.9999.ebuild,
+  -files/jack-audio-connection-kit-0.121.3-respect-march.patch,
+  -files/jack-audio-connection-kit-2.9999-link-fix.patch, metadata.xml:
+  migrate to cpu_flags_x86_* (repoman payment)
+  move to git-r3
+  slot-depend where possible (repoman payment)
+  drop blocker on old non-existing emul-linux-x86-soundlibs
+  make ebuilds more similar to ease maintenance
+  version bump to 0.124.1
+  remove old ebuilds
+  remove revisioned live ebuilds
+  drop march patch
+  remove old fix link patch
+  jack1 fixes
+    drop netjack use flag
+    depend on sys-libs/db
+    depend on readline insted of ncurses
+    also depend on expat and PYTHON_DEPS if dbus enabled
+    replace warning with REQUIRED_USE
+    unconditionally pass --disable-mmx and --disable-sse since no conditional
+     assembly is toggled
+    use REQUIRED_USE for cpudetection
+    never ever pass --enable-optimize
+    install docs
+  jack2 fixes
+    PYTHON_REQ_USE="threads(+)" as required by waf-utils.eclass
+    drop version specifiers for libsdnfile
+
+*jack-audio-connection-kit-1.9.10 (26 Nov 2014)
+
+  26 Nov 2014; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -jack-audio-connection-kit-1.9.9.5-r1.ebuild,
+  -jack-audio-connection-kit-1.9.9.5-r2.ebuild,
+  +jack-audio-connection-kit-1.9.10.ebuild,
+  jack-audio-connection-kit-2.9999.ebuild,
+  -jack-audio-connection-kit-2.9999-r1.ebuild,
+  -files/jack-1.9.9.5-opus_custom.patch,
+  -files/jack2-no-self-connect-1.9.9.5.patch, metadata.xml:
+  version bump for jack2
+  make ebuilds more identic (to ease maintenance)
+  remove no longer necessary patches
+  remove mixed use flag
+  remove freebob support
+  remove masks from package.mask
+  fixes #183, thanks luo.mai
+
+  17 Jan 2014; Dominique Michel <dominique_libre@users.sourceforge.net>
+  metadata.xml,
+  jack-audio-connection-kit-1.9999.ebuild,
+  jack-audio-connection-kit-1.9999-r1.ebuild:
+  Add support for multiple devices via zita libraries and zalsa USE flag.
+
+  29 Nov 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  jack-audio-connection-kit-0.121.3-r2.ebuild,
+  -jack-audio-connection-kit-1.9.9.5.ebuild,
+  jack-audio-connection-kit-1.9.9.5-r2.ebuild,
+  jack-audio-connection-kit-1.9999-r1.ebuild,
+  jack-audio-connection-kit-2.9999-r1.ebuild:
+  Make sure all ebuilds have the celt USE flag and that the opus flag is 
+  available when possible. Thanks to Zlobin Nikita for reporting the 
+  issue.
+  Updated celt dependency in 1.9.9.5-r1.
+  Correct dbus-python dependency.
+  Remove old python eclass ebuild.
+
+*jack-audio-connection-kit-2.9999-r1 (31 Jul 2013)
+*jack-audio-connection-kit-1.9999-r1 (31 Jul 2013)
+*jack-audio-connection-kit-1.9.9.5-r2 (31 Jul 2013)
+*jack-audio-connection-kit-0.121.3-r2 (31 Jul 2013)
+
+  31 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +jack-audio-connection-kit-0.121.3-r2.ebuild,
+  +jack-audio-connection-kit-1.9.9.5-r2.ebuild,
+  +jack-audio-connection-kit-1.9999-r1.ebuild,
+  +jack-audio-connection-kit-2.9999-r1.ebuild:
+  Initial experimental multilib compatible ebuilds.
+    Freebob dropped.
+    Firewire support not done yet (multilib ffado is missing).
+    Python fixes (PYTHON_REQUIRED_USE, PYTHON_DEPS).
+
+*jack-audio-connection-kit-0.121.3-r1 (31 Jul 2013)
+
+  31 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +jack-audio-connection-kit-0.121.3-r1.ebuild:
+  Use python-single-r1 eclass to make sure jack_control has correct shebang.
+
+  31 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  jack-audio-connection-kit-0.121.3.ebuild:
+  Minor cleanup.
+  AUTOTOOLS_AUTORECONF before inherit.
+  Don't declare DOCS; they are already default.
+  EAPI>4 passes --disable-dependency-tracking to econf by default.
+
+*jack-audio-connection-kit-1.9.9.5-r1 (10 May 2013)
+
+  10 May 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +jack-audio-connection-kit-1.9.9.5-r1.ebuild,
+  jack-audio-connection-kit-2.9999.ebuild, metadata.xml:
+  Move to python-single-r1 eclass.
+  Make src_configure more readable by using usex and a bash array.
+  Use DOCS and HTML_DOCS variable.
+  Changed warning message. The problem will be fixed when we can use a 
+  multilib eclass to build 32-bit libraries in a clean way.
+  Added warning message to version 2.9999.
+  No hard dependency on alsa-lib in version 2.9999.
+  Removded the classic USE flag from version 2.9999. Mixing dbus and 
+  classic is discouraged by upstream. Assume classic build if dbus is 
+  unset, which is the same behaviour as in 1.9.9.5-r1.
+  Build docs manually in 1.9.9.5-r1.
+  Added missing dependencies to 1.9.9.5-r1.
+
+  23 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  jack-audio-connection-kit-1.9.9.5.ebuild:
+  Move EAPI 5 and waf-utils eclass.
+
+  17 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  jack-audio-connection-kit-1.9.9.5.ebuild,
+  jack-audio-connection-kit-2.9999.ebuild:
+  Added dependency on dev-python/dbus-python (closes #0000155). Thanks to 
+  olof for reporting the bug.
+
+  17 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  jack-audio-connection-kit-0.121.3.ebuild,
+  +files/jack-audio-connection-kit-0.121.3-respect-march.patch:
+  Move to EAPI 5.
+  Move to autotools-utils eclass.
+  Enable optimizations if sse or mmx use flags are set.
+  Add patch to respect -march CFLAG.
+
+  03 Feb 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  jack-audio-connection-kit-0.121.3.ebuild,
+  jack-audio-connection-kit-1.9.9.5.ebuild,
+  jack-audio-connection-kit-1.9999.ebuild, metadata.xml:
+  Keyworded ebuilds for ~ppc
+  jack-audio-connection-kit-1.9999:
+  Removed unused inherit
+  Removed dependency on nonexistent jackdmp
+
+  01 Feb 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  jack-audio-connection-kit-1.9.9.5.ebuild:
+  fixed --debug configure option
+
+  29 Jan 2013; Nedko Arnaudov <nedko@arnaudov.name>
+  jack-audio-connection-kit-1.9.9.5.ebuild,
+  +files/jack-1.9.9.5-opus_custom.patch:
+  Fix jack-1.9.9.5 build when opus_custom.h is missing
+
+  https://bugs.gentoo.org/show_bug.cgi?id=453398
+
+  The patch is a backport from the upstream git repo
+
+  21 Jan 2013; Nedko Arnaudov <nedko@arnaudov.name>
+  jack-audio-connection-kit-1.9.9.5.ebuild:
+  set RESTRICT="mirror" for the jack-1.9.9.5 ebuild
+
+  21 Jan 2013; Nedko Arnaudov <nedko@arnaudov.name>
+  jack-audio-connection-kit-1.9.9.5.ebuild:
+  show warning when building with "mixed" use flag
+
+  20 Jan 2013; Nedko Arnaudov <nedko@arnaudov.name>
+  jack-audio-connection-kit-1.9.9.5.ebuild,
+  +files/jack2-no-self-connect-1.9.9.5.patch:
+  build with with no-self-connect patch
+
+  20 Jan 2013; Nedko Arnaudov <nedko@arnaudov.name>
+  jack-audio-connection-kit-1.9.9.5.ebuild:
+  rename the "32bit" use flag to documented "mixed" use flag
+
+*jack-audio-connection-kit-1.9.9.5 (20 Jan 2013)
+
+  20 Jan 2013; Nedko Arnaudov <nedko@arnaudov.name>
+  +jack-audio-connection-kit-1.9.9.5.ebuild: Add ebuild for the latest jack2 release
+  -jack-audio-connection-kit-1.9.8.ebuild: Remove ebuild for obsolete jack2 release
+
+  03 Jan 2012; Karl Lindén (lilrc) <lilrc@users.sourceforge.net>
+  jack-audio-connection-kit-0.121.3.ebuild, jack-audio-connection-kit-1.9.8.ebuild
+  jack-audio-connection-kit-1.9999.ebuild, jack-audio-connection-kit-2.9999.ebuild,
+  metadata.xml:
+  Added dependency on libsndfile
+  Added description for some useflags
+  Minor cleanup
+
+  09 Dec 2012; Karl Lindén <lilrc@users.sourceforge.net>
+  jack-audio-connection-kit-1.9.8:
+    Fixed dependencies
+    Use python_convert_shebangs instead of hack
+  jack-audio-connection-kit-1.9999:
+    Fixed dependencies
+    Added missing EAPI
+    Minor cleanup
+    Updated copyright header
+  jack-audio-connection-kit-2.9999:
+    Fixed dependencies
+    Updated EAPI
+    Minor cleanup
+    Use python_convert_shebangs
+
+  09 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  jack-audio-connection-kit-2.9999.ebuild: fix for the doxygen documenation;
+  added opus support in netjack, will be enabled if media-libs/opus is present;
+  added installation of the missing doc files (README, ...)
+
+  metadata.xml: added the missing USE descriptions for 2-9999
+
+  08 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  jack-audio-connection-kit-1.9.8.ebuild: changed SRC_URI (thanks to Jannis Achstetter
+  jack-audio-connection-kit-1.9999.ebuild: changed to GIT (Jannis)
+  jack-audio-connection-kit-2.9999.ebuild: fix building with python3 (Jannis);
+  removed outdated test for sandbox-1.6 (Jannis); make the ebuild to fail and issue
+  a warning with USE=doc as it fail to compile with it (reported upstream)
+
+  30 Sep 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  jack-audio-connection-kit-0.121.3.ebuild:
+  add back support for freebob and ffado. drop keywords as repoman payment.
+
+*jack-audio-connection-kit-0.121.3 (27 Sep 2012)
+
+  27 Sep 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -files/jack-audio-connection-kit-0.116.1-dbus.patch,
+  -files/jack-audio-connection-kit-0.116.1-dbus_as-needed.patch,
+  -jack-audio-connection-kit-0.116.2.ebuild,
+  -jack-audio-connection-kit-0.118.0.ebuild,
+  +jack-audio-connection-kit-0.121.3.ebuild,
+  -jack-audio-connection-kit-1.9.6.ebuild,
+  -jack-audio-connection-kit-1.9.7.ebuild,
+  +files/jack-audio-connection-kit-freebsd.patch,
+  +files/jack-audio-connection-kit-sparc-cpuinfo.patch, metadata.xml:
+  sync from portage and add 0.121.3 with dbus patch. remove the unreferenced
+  patches and clean up old ebuilds. jack-1.9.x ideally should be a new package.
+
+  11 May 2012; Hakan Demiralp <keenblade@tuxfamily.org>
+  jack-audio-connection-kit-2.9999.ebuild:
+  pam useflag added for realtime setup
+
+  10 May 2012; Hakan Demiralp <keenblade@tuxfamily.org>
+  jack-audio-connection-kit-2.9999.ebuild,
+  +files/jack-audio-connection-kit-2.9999-link-fix.patch:
+  jack-audio-connection-kit-2.9999: ebuild updated and added new patch. Thanks
+  to Natanael and Allan
+
+  29 Feb 2012; Hakan Demiralp <keenblade@tuxfamily.org>
+  jack-audio-connection-kit-2.9999.ebuild:
+  jack-audio-connection-kit-2.9999.ebuild: Fixed QA Notice: The hasq function
+  is deprecated
+
+*jack-audio-connection-kit-1.9.8 (14 Jan 2012)
+
+  14 Jan 2012; Hakan Demiralp <keenblade@tuxfamily.org>
+  +jack-audio-connection-kit-1.9.8.ebuild:
+  jack-audio-connection-kit: version bump to 1.9.8. wrt #124 by realnc
+
+  06 Jan 2012; Gavin Pryke <gavinlee303@googlemail.com> metadata.xml:
+  copy USE descriptions from use.local.desc to metadata.xml
+
+  12 Jun 2011; Dominique Michel <dominique@tuxfamily.org>
+  jack-audio-connection-kit-1.9.7.ebuild:
+  added symlink for doc installation; fix send by
+  Alexandros Diamantidis on the mailing list
+
+*jack-audio-connection-kit-1.9.7 (07 Apr 2011)
+
+  07 Apr 2011; Frieder Buerzele <evermind@tuxfamily.org>
+  +jack-audio-connection-kit-1.9.7.ebuild:
+  bump jack-connection-kit-1.9.7
+
+  04 Dec 2010; Hakan Demiralp <keenblade@tuxfamily.org>
+  jack-audio-connection-kit-2.9999.ebuild:
+  missing dependency libsamplerate is added wrt bug #97 by mif86 at proaudio
+
+  28 Nov 2010; Hakan Demiralp <keenblade@tuxfamily.org>
+  jack-audio-connection-kit-1.9.6.ebuild:
+  jack-audio-connection-kit-1.9.6: fix for missing freebob support and
+  ieee1394 useflag
+
+  16 Nov 2010; Hakan Demiralp <keenblade@tuxfamily.org>
+  jack-audio-connection-kit-1.9.6.ebuild:
+  jack-audio-connection-kit: fixed alsa support. wrt #106 by nilekurt.
+
+*jack-audio-connection-kit-1.9.6 (14 Nov 2010)
+
+  14 Nov 2010; Hakan Demiralp <keenblade@tuxfamily.org>
+  +jack-audio-connection-kit-1.9.6.ebuild:
+  Version bump.
+
+  02 Apr 2010; Hakan Demiralp <keenblade@tuxfamily.org>
+  jack-audio-connection-kit-2.9999.ebuild:
+  ieee1394 useflag added.
+
+  01 Apr 2010; Hakan Demiralp <keenblade@tuxfamily.org>
+  jack-audio-connection-kit-2.9999.ebuild:
+  freebob useflag fixed. It was missing in the src_compile function
+
+  01 Apr 2010; Hakan Demiralp <keenblade@tuxfamily.org>
+  jack-audio-connection-kit-2.9999.ebuild:
+  alsa useflag added. Without it jack does not support alsa driver
+
+  14 Jan 2010; Marc-Olivier Barre <marco@marcochapeau.org>
+  fix a libdir issue with 1.9.4
+  remove monitor option from 1.9.4
+
+  13 Jan 2010; Marc-Olivier Barre <marco@marcochapeau.org>
+  version bump jack-audio-connection-kit-0.118.0
+  version bump jack-audio-connection-kit-1.9.3
+  version bump jack-audio-connection-kit-1.9.4
+  remove the use of the unipatch-001 module in
+  jack-audio-connection-kit-1.9999
+
+  12 Jul 2009; Marc-Olivier Barre <marco@marcochapeau.org>
+  * jack-audio-connection-kit-2.9999: Added the mixed use flag 
+  (necessary to get a working 32 bit jack lib on a 64 bit system)
+
+  22 Jun 2009; Dominique Michel <dominique.michel@vtxnet.ch>
+  JACK2: Added classic USE flag. If you want jackd with USE=dbus, add USE=classic.
+  
+  28 Apr 2009; Marc-Olivier Barre <marco@marcochapeau.org>
+  Remove version 0.116.1. Everyone pro-audio overlay user should use 0.116.2 anyways.
+
+  23 Mar 2009; Marc-Olivier Barre <marco@marcochapeau.org>
+  +jack-audio-connection-kit-0.116.2.ebuild:
+  version bump
+
+  15 Mar 2009; Marc-Olivier Barre <marco@marcochapeau.org>
+  * Renamed jack-audio-connection-kit-9999.ebuild to jack-audio-connection-kit-1.9999.ebuild
+  * Added jack-audio-connection-kit-2.9999.ebuild for Jack 2 SVN (Former jackmp)
+  * Added jack-audio-connection-kit-1.9.1.ebuild (considered to be a stable Jack 2 RC)
+  * You need to play with package.mask to choose between Jack 1 SVN and Jack 2 SVN
+  * Also note that jackdmp package does not exist anymore. This should solve some of the pain :)
+
+  08 Dec 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  +jack-audio-connection-kit-0.116.1.ebuild:
+  version bump
+
+  12 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  -jack-audio-connection-kit-0.100.7-r2.ebuild,
+  -jack-audio-connection-kit-0.100.7-r3.ebuild,
+  jack-audio-connection-kit-0.101.1.ebuild,
+  jack-audio-connection-kit-0.102.20.ebuild,
+  -jack-audio-connection-kit-0.103.0.ebuild,
+  +files/jack-audio-connection-kit-0.103.0-ppc64fix.patch,
+  +files/jack-audio-connection-kit-0.103.0-riceitdown.patch,
+  -jack-audio-connection-kit-0.109.0.ebuild,
+  -jack-audio-connection-kit-0.109.2.ebuild,
+  +jack-audio-connection-kit-0.109.2-r2.ebuild,
+  jack-audio-connection-kit-9999.ebuild:
+  respin against portage -- deleted old ebuilds
+  using unipatch and 
+  http://download.tuxfamily.org/proaudio/distfiles/ for dbus-patches
+
+  23 Mar 2008; Marc-Olivier Barre <marco@marcochapeau.org> jack-audio-connection-kit-9999.ebuild:
+  * Reactivated dbus. jackpatches version 0.12.
+
+  12 Mar 2008; Marc-Olivier Barre <marco@marcochapeau.org> jack-audio-connection-kit-9999.ebuild:
+  * Removed dbus patch which will not work with SVN right now
+  * Remove netjack since it has been implemented as an inprocess client and will be shipped with jack 1.0
+
+  09 Mar 2008; Marc-Olivier Barre <marco@marcochapeau.org> jack-audio-connection-kit-9999.ebuild:
+  * Removed the log patch since it's been applied in SVN
+
+  05 Feb 2008; Marc-Olivier Barre <mobarre@gmail.com> >=jack-audio-connection-kit-0.109.0.ebuild:
+  * Bumped jackpatches to 0.9 : part of the driver control interface was not
+  working properly in 0.8.
+
+  02 Feb 2008; Marc-Olivier Barre <mobarre@gmail.com> >=jack-audio-connection-kit-0.109.0.ebuild:
+  * Bumped jackpatches to 0.8
+
+  31 Jan 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  +jack-audio-connection-kit-0.109.2.ebuild:
+  bump jack-audio-connection-kit-0.109.2
+
+  28 Jan 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  jack-audio-connection-kit-0.109.0.ebuild:
+  QA: run autoreconf in src_unpack()
+
+  21 Jan 2008;  Marc-Olivier Barre <mobarre@gmail.com> jack-audio-connection-kit-0.109.0.ebuild:
+  Bumped jackpatches to 0.7. we now use the puredbus patch for jack dbus
+  support.
+
+  21 Jan 2008;  Marc-Olivier Barre <mobarre@gmail.com> jack-audio-connection-kit-0.109.0.ebuild:
+  Bumped jackpatches to 0.7. we now use the puredbus patch for jack dbus
+  support.
+
+  20 Jan 2008; Marc-Olivier Barre <mobarre@gmail.com> jack-audio-connection-kit-0.109.0.ebuild:
+  Bumped jack to version 0.109.0
+
+  01 Jan 2008; Marc-Olivier Barre <mobarre@gmail.com> jack-audio-connection-kit-9999.ebuild:
+  Bumped jackpatches to 0.5
+
+  01 Jan 2008; Marc-Olivier Barre <mobarre@gmail.com> jack-audio-connection-kit-9999.ebuild:
+  * bumped to jackpatches-0.4
+  * deleted old patches in files/
+  * dbus USE flag only applies necesary dbus patches
+
+  25 Dec 2007; Marc-Olivier Barre <mobarre@gmail.com> jack-audio-connection-kit-9999.ebuild:
+  bumped nedko's jackdbus patches to 0.3
+
+  16 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> jack-audio-connection-kit-9999.ebuild:
+  bumped nedko's jackdbus patches to 0.2
+
+  15 Dec 2007; Marc-Olivier Barre <mobarre@gmail.com> jack-audio-connection-kit-9999.ebuild:
+  Corrected an ebuild issue which prevented dbus/netjack use flags from
+  working right
+
+  15 Dec 2007; Marc-Olivier Barre <mobarre@gmail.com> ChangeLog:
+  Initial ChangeLog creation

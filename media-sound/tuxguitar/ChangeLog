@@ -1,0 +1,19 @@
+# ChangeLog for media-sound/tuxguitar
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  19 Jun 2010; Frieder Buerzele <evermind@tuxfamily.org>
+  tuxguitar-0.5.ebuild, tuxguitar-0.6.ebuild:
+  cleanup ebuilds
+
+  29 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  tuxguitar-0.5.ebuild, tuxguitar-0.6.ebuild, tuxguitar-0.8.ebuild,
+  +tuxguitar-1.0.ebuild:
+  new version (thx Jean-Baptiste)
+
+  19 Feb 2007; Dominique Michel <dominique.michel@citycable.ch> tuxguitar-0.8-r1:
+  added a script to start tuxguitar with the correct path
+  
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

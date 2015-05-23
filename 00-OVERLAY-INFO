@@ -1,0 +1,136 @@
+--- NO LONGER MAINTAINED LOOK HERE FOR ACTUAL VERSION -- 20070801---
+http://proaudio.tuxfamily.org/wiki/index.php?title=Overlay-Info
+# 2006-07-29
+
+# WARNING: all supported apps now uses lash the successor of ladcca.
+# so if you have used ladcca before. Add lash -ladcca to your useflags
+# in /etc/make.conf 
+# You need to remove ladcca package and then install lash.
+# reemerge (if already installed) vkeybd, jack-rack, museseq, etc.
+# to use the lash libraries
+
+# BIG FAT WARNING: these ebuilds are not supported by gentoo-devs
+# and might break your system :)
+
+This overlay is for music-production purposes
+complete list of packages look in file
+00-PACKAGES-LIST (sometimes not complete)
+
+Most packages are not well tested but compile at least on x86
+MOST packages provided uses keywords x86.
+I have no access to others architectures.
+
+# set useflags:
+---------------------
+# if you want to use dssi in rosegarden or vst in ardour
+# or jackmidi in zynaddsubfx:
+# please add dssi vst jackmidi to your useflags
+
+#####################
+###
+# notes on some ebuilds:
+
+# vst-support:
+------------
+# you have to google for vstsdk2.3.zip and put it into your distdir first
+USE=-doc emerge vst-sdk 
+# this will install just the needed headerfiles
+
+# fst-1.6 won't build but fst-1.7 builds and will work as standalone 
+# (fst path/to/instrument.dll) 
+emerge fst
+
+# ardour with vst support: 
+USE=vst emerge ardour / ardour-cvs
+
+# museseq will fail to work correctly with fst-1.7 so up to now:
+USE=-vst emerge museseq
+
+# drobilla
+drobilla-9999 will install all the programs from the git of
+ http://drobila.net/software
+Those are:
+    dev-libs/serd dev-libs/sord media-libs/lilv media-libs/ratom
+    media-libs/ratom media-libs(raul media-libs/suil
+    media-sound/ingen media-sound/jalv media-sound/omins
+    media-sound/patchage x11-libs/flowcanvas
+You have to uninstall those programs before to install them with drobilla.9999
+
+# zynaddsubfx addons:
+-------------------
+###################################
+# from zynaddsubfx-2.2.1-r4 and zynaddsubfx-cvs-2.2.2-r4 on
+# the banks for zynaddsubfx-cvs / zynaddsubfx-2.2.1 are separated
+# to update your current setup do
+emerge -C zynaddsubfx;emerge zynaddsubfx # (please report problems)
+##################################
+
+# banks/instruments can be emerged with (but they will get emerged
+# automatically if you follow above step
+emerge zynaddsubfx-banks
+# short infos on the ebuilds
+media-libs/zynaddsubfx-banks-2.2.1	# banks from last release
+>=media-libs/zynaddsubfx-banks-20060419	# snapshots with add instruments 
+media-libs/zynaddsubfx-banks-99999999	# smart ebuild which try to fetch
+					# the latest snapshot
+# there are also some user contributed instruments in
+# /usr/share/zynaddsubfx/banks/bungee-zyn_instr/
+
+# unsorted paramters for zynaddsubfx (.xmz) some are really beautiful.
+emerge zynaddsubfx-extras 
+# they will be installed in:
+# /usr/share/zynaddsubfx/examples/unsorted_zynaddsubfxParameters*
+
+# short infos on the ebuilds
+>=media-libs/zynaddsubfx-extras-20060419 # snapshots with add instruments
+media-libs/zynaddsubfx-extras-99999999	 # smart ebuild which try to fetch
+					 # the latest snapsho
+
+# Please contribute your instruments made for zynaddsubfx
+# to zynaddsubfx-user@lists.sourceforge.net or [evermind att tuxfamily dot org]
+
+
+# rosegarden dssi-support:
+------------------------
+# dssi needs to be installed so if you want dssi in rosegarden please reemerge
+USE=dssi emerge rosegarden
+
+
+# ghostess dssi host:
+-------------------
+# If you want alsa-seq support for ghostess you have to
+# deactivate the jackmidi use-flag
+USE=-jackmidi emerge ghostess
+###
+######################
+###
+# notes on snapshot (svn/cvs/whatever-ebuilds)
+# we use standard gentoo ebuild scheme for snapshot ebuilds.
+# So there will be no longer ebuilds named: foo-cvs-1.ebuild Instead
+# they are named foo-9999.ebuild. e.g. to compile the latest rosegarden svn
+# checkout you now have to do the following:
+
+echo "media-sound/rosegarden **" >> /etc/portage/package.keywords
+emerge rosegarden
+
+# If you get messages about *-cvs/svn "Blocked Packages" remove the
+# blocked one and try again 
+###
+#####################
+lash.eclass:
+-----------
+I wrote an eclass which tries to convert all ladcca symbols to lash in
+the source-code. So most ladcca-able programs can easily be converted.
+Just look at lash.eclass for further information.
+
+# changes
+----------------
+# read old_ChangeLog
+# svn-log here:
+http://svnweb.tuxfamily.org/log.php?repname=proaudio+%28ckpp%29&path=%2F&rev=0&sc=0&isdir=1
+
+So I hope you enjoy those ebuilds and if you have own ebuilds and want to
+contribute send them to: [evermind att tuxfamily dot org]
+Also suggestion & critics are welcome!
+ --evermind--
+

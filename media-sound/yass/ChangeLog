@@ -1,0 +1,18 @@
+# ChangeLog for media-sound/yass
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  25 Jan 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  yass-0.0.2.ebuild, metadata.xml:
+  Updated EAPI, honor EPREFIX, keyword for ~amd64, remove no-herd from 
+  metadata.xml
+
+  01 May 2011; Gavin Pryke <gavinlee303@googlemail.com> yass-0.0.2.ebuild:
+  update HOMEPAGE and SRC_URI
+
+*yass-0.0.2 (27 Oct 2010)
+
+  27 Oct 2010; Gavin Pryke <gavinlee303@googlemail.com> +yass-0.0.2.ebuild,
+  +files/yass-0.0.2-makefile.patch, +metadata.xml:
+  Initial import.
+

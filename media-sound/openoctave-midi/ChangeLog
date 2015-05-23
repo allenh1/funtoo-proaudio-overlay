@@ -1,0 +1,18 @@
+# ChangeLog for media-sound/openoctave-midi
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  29 Mar 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
+  openoctave-midi-9999: Added missing depend media-sound/linuxsampler-9999
+
+  23 Mar 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
+  openoctave-midi-9999: Fixed header, updated to git-2 eclass, updated
+  EFIT_REPO_URI, fixed pkgconfig DEPEND, removed app-text/ggv stuff.
+  metadata.xml: added description for USE lilypond, export, gnome and kde.
+
+  03 Mar 2011; Frieder Buerzele <evermind@tuxfamily.org>
+  openoctave-midi-9999.ebuild:
+  TODO:kde3/qt3 app
+
+  10 Jul 2009; Florian Faber <faber@faberman.de>;
+  first version

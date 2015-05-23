@@ -1,0 +1,30 @@
+# ChangeLog for media-libs/zynaddsubfx-collection
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  24 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -zynaddsubfx-collection-0.1.ebuild, -zynaddsubfx-collection-0.2.ebuild,
+  -zynaddsubfx-collection-0.3.ebuild, -zynaddsubfx-collection-0.4.ebuild,
+  -zynaddsubfx-collection-0.5.ebuild, -zynaddsubfx-collection-0.6.ebuild,
+  zynaddsubfx-collection-0.7.ebuild, metadata.xml:
+  Remove old versions.
+  Remove stable keywords to make repoman happy.
+  Satisfy repoman.
+
+  30 Jun 2012; Frieder Buerzele <evermind@tuxfamily.org>
+  zynaddsubfx-collection-0.1.ebuild, zynaddsubfx-collection-0.2.ebuild,
+  zynaddsubfx-collection-0.3.ebuild, zynaddsubfx-collection-0.4.ebuild,
+  zynaddsubfx-collection-0.5.ebuild, zynaddsubfx-collection-0.6.ebuild,
+  zynaddsubfx-collection-0.7.ebuild:
+  remove usage of own eclass unpacker() function
+
+  04 Mar 2011; Frieder Buerzele <evermind@tuxfamily.org>
+  zynaddsubfx-collection-0.1.ebuild, zynaddsubfx-collection-0.2.ebuild,
+  zynaddsubfx-collection-0.3.ebuild, zynaddsubfx-collection-0.4.ebuild,
+  zynaddsubfx-collection-0.5.ebuild, zynaddsubfx-collection-0.6.ebuild,
+  zynaddsubfx-collection-0.7.ebuild:
+  updated alternatvie dependency on yoshimi
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

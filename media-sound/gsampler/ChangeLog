@@ -1,0 +1,12 @@
+# ChangeLog for media-sound/gsampler
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*gsampler-0.3 (30 Dec 2013)
+
+  30 Dec 2013 Dominique Michel <dominique_libre@users.sourceforge.net>
+  +gsampler-0.3, +metadata.xml, +ChangeLog: Initial ebuild.
+  +files/gsampler-0.3-desktop.patch: add missing ; at the end of the Caregory key;
+  add missing EOL at the end; remove non needed categories.
+  +files/gsampler-0.3-doc.patch: remove duplicated doc files.
+  +files/qsampler-0.3-gcc47.patch from Nikita Zlobin: remove -wL LDFLAGS.

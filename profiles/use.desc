@@ -1,0 +1,7 @@
+dssi - Enable the DSSI midi synthesizer provider
+freebob - Adds support for the 'BridgeCo enhanced breakout box' aka 'BeBoB'
+freesound - Add support direct searching and download of samples from Freesound
+jackmidi - Enable for the JACK-MIDI API from jack-audio-connection-kit
+lv2 - Add support for Ladspa V2
+postgresql - Adds support for the PostgreSQL database server
+vst - Adds support for win32 vst's (Steinbergs virtual studio technology)

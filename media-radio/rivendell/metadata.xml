@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer>
+		<email>proaudio@tuxfamily.org</email>
+		<name>pro-audio overlay team</name>
+	</maintainer>
+	<longdescription lang="en">
+		Rivendell is a complete radio broadcast automation solution, with
+		facilities for the acquisition, management, scheduling and playout of
+		audio content. It has all of the features one would expect in a modern,
+		fully-fledged radio automation system, including support for both PCM
+		and MPEG audio encoding, full voicetracking and log customization as
+		well as support for a wide variety of third party software and hardware.
+	</longdescription>
+	<use>
+		<flag name="lame">
+			Enable MPEG Layer 3 encoding
+		</flag>
+
+		<flag name="mad">
+			Enable MPEG decoding support
+		</flag>
+
+		<flag name="twolame">
+			Enable MPEG Layer 2 encoding
+		</flag>
+
+		<flag name="gpio">
+			Adds suport for General Purpose Input/Output
+		</flag>
+
+		<flag name="hpi">
+			Adds support for AudioScience HPI hardware
+		</flag>
+	</use>
+</pkgmetadata>

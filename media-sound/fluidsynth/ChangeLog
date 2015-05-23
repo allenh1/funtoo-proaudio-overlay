@@ -1,0 +1,41 @@
+# ChangeLog for media-sound/fluidsynth
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  03 Apr 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  fluidsynth-9999.ebuild:
+  move to upstream git, wrt #191
+  add examples use flag
+  add ipv6 use flag
+  drop version specifiers
+  replace fluid_use calls with cmake-utils_use calls
+  install pdf documentation
+
+  05 Sep 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  fluidsynth-9999.ebuild, metadata.xml:
+  EAPI 5.
+  Updated repository URI.
+  The autotools build system has been made deprecated upstream, so the 
+  CMake build system is used instead.
+  oss USE flag removed.
+  double USE flag replaced with float (this is what upstream uses).
+
+  13 Dec 2012; Karl Lindén <lilrc@users.sourceforge.net>
+  fluidsynth-9999.ebuild:
+  replaced dependency on media-sound/lash with virtual/liblash
+  updated EAPI and copyright notice
+
+*fluidsynth-9999 (31 Aug 2010)
+
+  09 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  fluidsynth-9999.ebuild:
+  - Changed the build system to autotools. cmake is marked as experimental
+  and fail with USE=lash. See bug 736462:
+  <https://bugs.gentoo.org/show_bug.cgi?id=436762>
+  - Make USE=doc to install the API documentation
+  - Changed USE=float to USE=double
+
+  31 Aug 2010; Viktor Lazarev <taurus101v@gmail.com>
+  +fluidsynth-9999.ebuild:
+  Initial commit. This ebuild is based on an ebuild from Portage tree.
+

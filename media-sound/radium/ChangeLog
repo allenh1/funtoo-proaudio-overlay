@@ -1,0 +1,24 @@
+# ChangeLog for media-sound/radium
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  9 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>;
+  radium-1.9.26.ebuild: moved QT depend to dev-qt/*
+
+  29 Jan 2013; Dominique Michel <dominique_libre@sourceforge.net>;
+  +radium-1.9.26.ebuild; -radium-1.9.2.ebuild: version bump;
+  metadata.xml: removed no-herd
+
+  14 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>;
+  -radium-1.9.1-r1.ebuild;+radium-1.9.2.ebuild: version bump; fixed SRC_URI to
+  the final location (Kjetil Matheussen); removed non needed DEPEND (Kjetil M.);
+  make repoman happy, more will follow); use vestige for vst support
+  -files/radium-1.9.1.patch; +files/radium-1.9.2.patch: some bug fixes
+   and improvments from the GIT tarball, including a fix for the menu font size;
+   metadata.xml: added description for calf USE flag.
+
+  12 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>;
+  +radium-1.9.1.ebuild: Initial ebuild; move media-plugins/calf to RDEPEND
+  +files/radium-1.0.1.patch: some bug fixes and improvments from the GIT tarball.
+  -radium-1.9.1.ebuild; +radium-1.9.1-r1.ebuild: move media-plugins/calf to RDEPEND
+  with USE=ladspa.

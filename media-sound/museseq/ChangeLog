@@ -1,0 +1,62 @@
+# ChangeLog for media-sound/museseq
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  22 Mar 2013; Dominique Michel <dominique@tuxfamily.org>
+  museseq-2.9999.ebuild, museseq-2.1.1.ebuild: Reverted blocking depend
+  change from the 21 Mar 2013
+
+  21 Mar 2013; Dominique Michel <dominique@tuxfamily.org>
+  museseq-2.9999.ebuild, museseq-2.1.1.ebuild: Added blocking depend
+  on media-sound/openoctave-midi
+
+*museseq-2.1.1 (10 Mar 2013)
+
+  10 Mar 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -museseq-1.0_rc1.ebuild, -museseq-1.0.1.ebuild, -museseq-1.9999.ebuild,
+  +museseq-2.1.1.ebuild, +files/museseq-2.1.1-cmake-rpath.patch,
+  museseq-2.9999.ebuild, -files/museseq-9999-find_fltk.patch,
+  -files/fix_zyn.patch, metadata.xml:
+  bump to 2.1.1 and freshen live ebuild. add patch for cmake rpath.
+  remove some patches and old 1.x ebuilds requiring qt3.
+
+  09 Mar 2013; Dominique Michel <dominique@tuxfamily.org>
+  Moved QT depend to dev-qt/* in all 4 ebuilds
+
+  12 Aug 2012; Dominique Michel <dominique@tuxfamily.org>
+  museseq-2.9999.ebuild: A lot of changes to make it to work.
+  masqued the other ebuilds: fix needed
+
+*museseq-1.0.1 (30 Apr 2010)
+
+  30 Apr 2010; Viktor Lazarev <taurus101v@gmail.com>
+  -files/1.0.9999/02_all_log2f_aliasing.patch, -museseq-0.9_pre3.ebuild,
+  museseq-1.0_rc1.ebuild, -files/1.0.9999/04_all_asneeded.patch,
+  +museseq-1.0.1.ebuild, museseq-1.9999.ebuild, -files/1.0.9999/amd64.diff,
+  museseq-2.9999.ebuild, metadata.xml:
+  version bump, repoman payment, some cleanup, remove unneeded patches & very
+  old ebuild
+
+  07 Mar 2009; Dominique Michel <dominique.michel@vtxnet.ch>
+  museseq-2.9999: fix for fltk patch to apply
+    
+  05 Feb 2009; Thomas Kuther <gimpel@sonnenkinder.org>
+  -files/0.9.9999/02_all_log2f_aliasing.patch, ++, ++, ++,
+  -files/0.9.9999/04_all_asneeded.patch, -files/0.9.9999/amd64.diff,
+  -museseq-0.9_pre1.ebuild, -museseq-0.9.9999.ebuild,
+  -museseq-0.9_pre2.ebuild, -museseq-1.0_pre1.ebuild,
+  +museseq-1.0_rc1.ebuild, -museseq-9999.ebuild:
+  museseq-1.0-rc1, cleanup, rename live ebuilds
+
+  22 Sep 2008; Frieder Buerzele <evermind@tuxfamily.org; +files/0.9.9999,
+  +museseq-0.9.9999.ebuild, +files/0.9.9999/02_all_log2f_aliasing.patch,
+  +files/0.9.9999/04_all_asneeded.patch, +files/0.9.9999/amd64.diff:
+  added qt3-branch aka later stable 1.0 version
+  see http://forums.gentoo.org/viewtopic-p-5223520.html#5223520
+
+  24 Jan 2008; Thomas Kuther <gimpel@sonnenkinder.org> museseq-9999.ebuild:
+  minor fixes for svn ebuild
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

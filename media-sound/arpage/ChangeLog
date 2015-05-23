@@ -1,0 +1,46 @@
+# ChangeLog for media-sound/arpage
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  24 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  arpage-0.3.3-r1.ebuild, -files/arpage-0.3.3-doc.patch,
+  -files/arpage-0.3.3-gcc47.patch, +files/arpage-9999-makefile-am.patch,
+  +files/arpage-doc.patch, +files/arpage-gcc46.patch,
+  +files/arpage-gcc47.patch, -files/arpage-0.3.3-gcc46.patch,
+  arpage-9999.ebuild:
+  Make the ebuilds identical.
+  Rename patches.
+  Add patch to live ebuild for upstream bugs.
+  Update EAPI.
+  Use ${PN} more often.
+  Let autotools-utils handle install stage too.
+
+  26 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  +files/arpage-0.3.3-gcc46.patch; +files/arpage-0.3.3-gcc47.patch;
+  -arpage-0.3.3.ebuild; +arpage-0.3.3-r1.ebuild; arpage-9999.ebuild:
+  Added patches from Fedora for gcc46 and gcc47; added icon and desktop file installation.
+
+*arpage-0.3.3 (30 Sep 2012)
+
+  30 Sep 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -arpage-0.2.ebuild, -arpage-0.3.ebuild, +arpage-0.3.3.ebuild,
+  +files/arpage-0.3.3-doc.patch, arpage-9999.ebuild, metadata.xml:
+  bump. sync live ebuild and changed repo location to trunk, remove
+  $DISTDIR/svn-src/arpage if there are problems.
+  added patch for not installing duplicate docs in the wrong place under Gentoo.
+
+*arpage-0.3 (16 May 2010)
+
+  16 May 2010; Viktor Lazarev <taurus101v@gmail.com> +arpage-0.3.ebuild:
+  version bump
+
+*arpage-9999 (25 Feb 2010)
+*arpage-0.2 (25 Feb 2010)
+
+  17 Avr 2010; Stephane Angot <sa@hydre.org> arpage-0.2.ebuild, arpage-9999.ebuild:
+  Licence fix, cleanup
+
+  25 Feb 2010; Frieder Buerzele <evermind@tuxfamily.org> +arpage-0.2.ebuild,
+  +arpage-9999.ebuild:
+  added arpage
+

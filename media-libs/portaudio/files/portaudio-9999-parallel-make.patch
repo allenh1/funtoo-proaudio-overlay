@@ -1,0 +1,19 @@
+# Author: Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+# Purpose: Allow portaudio to build with parallel make by ensuring that
+#          the library needed to build C++ bindings is built before
+#          building the bindings.
+# The patch is submitted upstream to the portaudio mailing list.
+
+Index: Makefile.in
+===================================================================
+--- Makefile.in	(revision 1895)
++++ Makefile.in	(working copy)
+@@ -247,7 +247,7 @@
+ Makefile: Makefile.in config.status
+ 	$(SHELL) config.status
+ 
+-all-recursive:
++all-recursive: lib/$(PALIB)
+ 	if test -n "$(SUBDIRS)" ; then for dir in "$(SUBDIRS)"; do $(MAKE) -C $$dir all; done ; fi
+ 
+ install-recursive:

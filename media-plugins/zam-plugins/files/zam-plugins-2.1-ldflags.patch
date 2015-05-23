@@ -1,0 +1,22 @@
+--- zamautosat/Makefile.orig	2014-05-21 14:29:07.598910896 +0100
++++ zamautosat/Makefile	2014-05-21 14:29:45.666760368 +0100
+@@ -6,7 +6,7 @@
+ all: zamautosat.so
+ 
+ zamautosat.so:
+-	$(CXX) $(OPTIMIZATIONS) -fPIC -shared -Dmydsp=zamautosat -I$(FAUSTROOT) zamautosat.dsp.cpp -o zamautosat.so
++	$(CXX) $(LDFLAGS) $(OPTIMIZATIONS) -fPIC -shared -Dmydsp=zamautosat -I$(FAUSTROOT) zamautosat.dsp.cpp -o zamautosat.so
+ 
+ install:
+ 	install -d $(DESTDIR)$(PREFIX)/$(LIBDIR)/ladspa
+--- zamvalve-tanh/Makefile.orig	2014-05-21 14:31:39.363324193 +0100
++++ zamvalve-tanh/Makefile	2014-05-21 14:31:50.750980046 +0100
+@@ -6,7 +6,7 @@
+ all: zamvalve-tanh.so
+ 
+ zamvalve-tanh.so: zamvalve-tanh.dsp.cpp
+-	$(CXX) $(OPTFLAGS) -fPIC -shared -Dmydsp=zamvalve_tanh -I$(FAUSTROOT) zamvalve-tanh.dsp.cpp -o zamvalve-tanh.so
++	$(CXX) $(LDFLAGS) $(OPTFLAGS) -fPIC -shared -Dmydsp=zamvalve_tanh -I$(FAUSTROOT) zamvalve-tanh.dsp.cpp -o zamvalve-tanh.so
+ 
+ install:
+ 	install -d $(DESTDIR)$(PREFIX)/$(LIBDIR)/ladspa

@@ -1,0 +1,103 @@
+# ChangeLog for media-sound/drumkv1
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*drumkv1-0.6.2 (01 May 2015)
+
+  01 May 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +drumkv1-0.6.2.ebuild:
+  version bump
+
+*drumkv1-0.6.1 (26 Mar 2015)
+
+  26 Mar 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -drumkv1-0.3.6.ebuild, -drumkv1-0.4.0.ebuild, -drumkv1-0.4.1.ebuild,
+  -drumkv1-0.5.1.ebuild, +drumkv1-0.6.1.ebuild, drumkv1-9999.ebuild:
+  version bump
+  remove old
+  fix HOMEPAGE
+  move to git upstream
+  add qt5 support
+
+*drumkv1-0.5.1 (21 Sep 2014)
+
+  21 Sep 2014; Matt Henley (nwmatt) <nwmatt@gmail.com>
+  +drumkv1-0.5.1.ebuild:
+  Version bump.
+
+*drumkv1-0.4.1 (15 Apr 2014)
+
+  15 Apr 2014; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -drumkv1-0.3.3.ebuild, -drumkv1-0.3.4.ebuild, -drumkv1-0.3.5.ebuild,
+  +drumkv1-0.4.1.ebuild:
+  Version bump.
+  Removed outdated ebuilds.
+
+*drumkv1-0.4.0 (08 Mar 2014)
+
+  08 Mar 2014; Matt Henley (nwmatt) <nwmatt@gmail.com>
+  +drumkv1-0.4.0.ebuild:
+  Version bump.
+
+*drumkv1-0.3.6 (01 Jan 2014)
+
+  01 Jan 2014; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +drumkv1-0.3.6.ebuild:
+  Version bump.
+
+*drumkv1-0.3.5 (30 Sep 2013)
+
+  30 Sep 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +drumkv1-0.3.5.ebuild:
+  Version bump.
+
+*drumkv1-0.3.4 (16 Jul 2013)
+
+  16 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -drumkv1-0.3.2.ebuild, -drumkv1-0.3.2-r1.ebuild, +drumkv1-0.3.4.ebuild,
+  drumkv1-9999.ebuild:
+  Version bump.
+  Removed qt4 fix.
+  Removed old ebuilds.
+
+  07 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  drumkv1-9999.ebuild:
+  Make sure configure finds qt.
+  Update mime database.
+
+*drumkv1-0.3.3 (31 May 2013)
+
+  31 May 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +drumkv1-0.3.3.ebuild:
+  Version bump.
+
+*drumkv1-0.3.2-r1 (05 May 2013)
+
+  05 May 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  drumkv1-0.3.2.ebuild, +drumkv1-0.3.2-r1.ebuild, drumkv1-9999.ebuild,
+  metadata.xml:
+  Only raw text in HOMEPAGE.
+  AUTOTOOLS_AUTORECONF before inherit.
+  Use qt4-r2 eclass to respect common variables.
+  Restrict mirror.
+  Add more USE flags.
+  Some cosmetics.
+  Remove redundant DOCS variable.
+
+  08 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  drumkv1-0.3.2.ebuild, drumkv1-9999.ebuild:
+  modify depends x11-libs/qt-* -> dev-qt/qt*
+
+*drumkv1-0.3.2 (01 Mar 2013)
+
+  01 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -drumkv1-0.3.1.ebuild, +drumkv1-0.3.2.ebuild:
+  Version bump.
+
+*drumkv1-9999 (16 Feb 2013)
+*drumkv1-0.3.1 (16 Feb 2013)
+
+  16 Feb 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +drumkv1-0.3.1.ebuild, +drumkv1-9999.ebuild, +metadata.xml:
+  Initial ebuild.
+

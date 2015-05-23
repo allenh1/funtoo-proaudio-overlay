@@ -1,0 +1,66 @@
+--- source/makefile.orig	2012-08-25 17:51:53.494609462 +0100
++++ source/makefile	2012-08-29 23:31:39.080093957 +0100
+@@ -4,10 +4,10 @@
+ VERSION=3.1.0
+ 
+ # Where to install
+-INSTALL_PREFIX=$(DESTDIR)/usr/local
++INSTALL_PREFIX?=$(DESTDIR)/usr/local
+ 
+ # Compiler
+-CC=gcc
++CC?=gcc
+ 
+ # Standard optimization settings
+ # Tested also on Mac OS X
+@@ -21,7 +21,6 @@
+ 
+ # Pentium 3 or greater optimizaztions settings with SSE support
+ # Be careful: -mfpmath=sse sometimes causes accuracy problems
+-CFLAGS=-march=pentium3 -O -mfancy-math-387 -msse -mfpmath=sse -mtune=pentium3 -I. 
+ 
+ # Same as above, but tested on recent Mac OS X
+ # Be careful: -mfpmath=sse sometimes causes accuracy problems
+@@ -35,7 +34,6 @@
+ 
+ # GLSweep optimization settings
+ # GLSweep doesn't need SSE based optimization settings
+-GLSCFLAGS=-O -I.
+ 
+ # Debug settings
+ 
+@@ -46,7 +44,7 @@
+ # CFLAGS=-march=pentium3 -O -pg -g -mfancy-math-387 -msse -mfpmath=sse -mtune=pentium3 -I. 
+ 
+ # DRC sources
+-DRCSRC=baselib.cpp drc.cpp fft.cpp hd.cpp slprefilt.cpp bwprefilt.cpp convol.cpp dspwind.cpp spline.cpp fir.cpp level.cpp toeplitz.cpp kirkebyfd.cpp drccfg.cpp psychoacoustic.cpp cmdline.c parsecfg.c fftsg.c gsl/gsl_fft.c gsl/error.c gsl/stream.c
++DRCSRC=baselib.cpp drc.cpp fft.cpp hd.cpp slprefilt.cpp bwprefilt.cpp convol.cpp dspwind.cpp spline.cpp fir.cpp level.cpp toeplitz.cpp kirkebyfd.cpp drccfg.cpp psychoacoustic.cpp cmdline.c parsecfg.c fftsg.c
+ 
+ # DRC sources for systems missing getopt
+ # DRCSRC=baselib.cpp drc.cpp fft.cpp hd.cpp slprefilt.cpp bwprefilt.cpp convol.cpp dspwind.cpp spline.cpp fir.cpp level.cpp toeplitz.cpp kirkebyfd.cpp drccfg.cpp psychoacoustic.cpp cmdline.c parsecfg.c fftsg.c getopt/getopt.c getopt/getopt1.c gsl/gsl_fft.c gsl/error.c gsl/stream.c
+@@ -65,7 +63,7 @@
+ TARGET_TARGETS=target/*
+ MIC_TARGETS=mic/*
+ IMPULSE_TARGETS=../sample/rs.pcm
+-DOC_TARGETS=readme.txt ../doc/text/drc.txt
++DOC_TARGETS=readme.txt
+ BIN_TARGETS=drc lsconv glsweep
+ 
+ # Targets
+@@ -73,13 +71,13 @@
+ ALL: drc glsweep lsconv
+ 
+ drc: $(DRCSRC)
+-	$(CC) $(CFLAGS) -lm -lstdc++ -o drc $(DRCSRC)
++	$(CC) $(CPPFLAGS) $(LDFLAGS) $(CFLAGS) -o drc $(DRCSRC) -lgsl -lgslcblas -lm -lstdc++
+ 
+ glsweep: $(GLSWEEPSRC)
+-	$(CC) $(GLSCFLAGS) -lm -o glsweep $(GLSWEEPSRC)
++	$(CC) $(CPPFLAGS) $(LDFLAGS) $(CFLAGS) -o glsweep $(GLSWEEPSRC) -lm
+ 	
+ lsconv: $(LSCONVSRC)
+-	$(CC) $(CFLAGS) -lm -o lsconv $(LSCONVSRC)
++	$(CC) $(CPPFLAGS) $(LDFLAGS) $(CFLAGS) -o lsconv $(LSCONVSRC) -lm
+ 	
+ clean:
+ 	rm -f $(OBJS)

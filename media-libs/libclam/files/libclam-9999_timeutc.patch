@@ -1,0 +1,12 @@
+diff -ru CLAM_orig/src/System/Threads/xtime.hxx CLAM/src/System/Threads/xtime.hxx
+--- CLAM_orig/src/System/Threads/xtime.hxx	2013-03-11 15:06:28.000000000 +0100
++++ CLAM/src/System/Threads/xtime.hxx	2013-03-11 15:31:19.000000000 +0100
+@@ -30,6 +30,8 @@
+ #endif
+ #include <pthread.h>
+ 
++#undef TIME_UTC
++
+ namespace CLAM
+ {
+ 

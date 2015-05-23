@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer>
+		<email>proaudio@tuxfamily.org</email>
+		<name>pro-audio overlay team</name>
+	</maintainer>
+	<use>
+		<flag name="mjpeg">Support for <pkg>media-video/mjpegtools</pkg></flag>
+		<flag name="plugins">Build plugins for <pkg>media-libs/gmerlin</pkg></flag>
+		<flag name="schroedinger">Dirac video support via <pkg>media-libs/schroedinger</pkg></flag>
+	</use>
+</pkgmetadata>

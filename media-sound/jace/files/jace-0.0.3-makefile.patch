@@ -1,0 +1,44 @@
+--- Makefile.orig	2006-05-24 11:01:26.181993543 +0200
++++ Makefile	2006-05-24 11:04:05.774992230 +0200
+@@ -16,6 +16,9 @@
+ 
+ 
+ PREFIX = /usr
++DESTDIR =
++INSTALL = /usr/bin/install
++RM = rm
+ SUFFIX := $(shell uname -m | sed -e 's/^unknown/$//' -e 's/^i.86/$//' -e 's/^x86_64/$/64/')
+ LIBDIR = lib$(SUFFIX)
+ VERSION = 0.0.3
+@@ -30,7 +33,7 @@
+ JACE_O = main.o audio.o config.o convolve.o mac_sse.o mac_3dn.o fp_opt.o
+ 
+ jace:	$(JACE_O)
+-	g++ $(LDFLAGS) -o $@ $(JACE_O) $(LDLIBS)
++	$(CXX) $(LDFLAGS) -o $@ $(JACE_O) $(LDLIBS)
+ 
+ 
+ main.o:		audio.h convolve.h
+@@ -41,11 +44,12 @@
+ 
+ 
+ install:	jace
+-	/usr/bin/install -m 755 jace $(PREFIX)/bin
++	$(INSTALL) -d $(DESTDIR)$(PREFIX)/bin
++	$(INSTALL) -m 755 jace $(DESTDIR)$(PREFIX)/bin
+ 
+ 
+ clean:
+-	/bin/rm -f *~ *.o *.a *.so jace
++	$(RM) -f *~ *.o *.a *.so jace
+ 
+ 
+ tarball:
+@@ -54,6 +58,6 @@
+ 	svn export jace $(DISTDIR); \
+ 	tar cvf $(DISTDIR).tar $(DISTDIR); \
+ 	bzip2 $(DISTDIR).tar; \
+-	/bin/rm -f -r $(DISTDIR);
++	$(RM) -f -r $(DISTDIR);
+ 
+ 

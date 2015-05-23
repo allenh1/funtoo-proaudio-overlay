@@ -1,0 +1,51 @@
+# A patch created by lilrc to respect cflags and remove deprecated stuff
+
+Index: configure.ac
+===================================================================
+--- configure.ac	(revision 118)
++++ configure.ac	(working copy)
+@@ -1,12 +1,13 @@
+ # -*- autoconf -*-
+ # Process this file with autoconf to produce a configure script.
+ 
+-AC_INIT([phat/phatfanslider.c])
+ 
+ PHAT_VERSION=0.4.1
+ AC_SUBST(PHAT_VERSION)
+ 
+-AM_INIT_AUTOMAKE([phat],${PHAT_VERSION})
++AC_INIT([PHAT], [0.4.1])
++AC_CONFIG_SRCDIR([phat/phatfanslider.c])
++AM_INIT_AUTOMAKE
+ dnl AC_DISABLE_STATIC
+ AC_PROG_LIBTOOL
+ 
+@@ -20,12 +21,8 @@
+     [if test x$enable_debug = xyes; then with_debug=yes ; fi])
+ 
+ if test x$with_debug = xno; then
+-    if test -z $CFLAGS; then
+-        CFLAGS="-O3"
+-    fi
+     AC_DEFINE(DEBUG, 0, [[whether to display debugging output or not]])
+ else
+-    CFLAGS="$CFLAGS -g"
+     AC_DEFINE(DEBUG, 1, [[whether to display debugging output or not]])
+ fi
+ 
+@@ -81,7 +78,7 @@
+ PKG_CHECK_MODULES(MISC, libgnomecanvas-2.0)
+ 
+ # set compilation flags
+-CFLAGS="$CFLAGS $GTK_CFLAGS $MISC_CFLAGS -Wall -Werror"
++CFLAGS="$CFLAGS $GTK_CFLAGS $MISC_CFLAGS"
+ LIBS="$LIBS $GTK_LIBS $MISC_LIBS $SNDFILE_LIBS $SAMPLERATE_LIBS" 
+ 
+ # print build summary
+@@ -133,5 +130,5 @@
+ phat.spec
+ ])
+ 
+-AM_CONFIG_HEADER([phat/config.h])
++AC_CONFIG_HEADERS([phat/config.h])
+ AC_OUTPUT

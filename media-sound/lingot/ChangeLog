@@ -1,0 +1,10 @@
+# ChangeLog for media-sound/lingot
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*lingot-9999 (17 Feb 2015)
+
+  17 Feb 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +lingot-9999.ebuild, +files/lingot-9999-clean-install.patch, +metadata.xml:
+  initial live ebuild
+

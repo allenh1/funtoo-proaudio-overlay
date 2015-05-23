@@ -1,0 +1,20 @@
+# ChangeLog for media-sound/jmess
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Mar 2013: Dominique Michel <dominique_libre@souurceforge.net>
+  jmess-1.0.1: Moved QT depend to dev-qt/*
+
+*jmess-1.0.1 (25 Aug 2012)
+
+  25 Aug 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -jmess-1.ebuild, +jmess-1.0.1.ebuild:
+  make DOCS an array to fix build failure. cleanup and bump ebuild.
+  SRC_URI moved. LICENSE: GPL-2 -> MIT
+
+*jmess-1 (14 Nov 2010)
+
+  14 Nov 2010; Gavin Pryke <gavinlee303@googlemail.com> +jmess-1.ebuild,
+  +metadata.xml:
+  initial import
+

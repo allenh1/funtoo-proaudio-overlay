@@ -1,0 +1,17 @@
+# ChangeLog for media-sound/xwax
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*xwax-9999 (01 Sep 2010)
+
+  01 Sep 2010; Viktor Lazarev <taurus101v@gmail.com> -xwax-0.2.ebuild,
+  -xwax-0.3.ebuild, +xwax-9999.ebuild, metadata.xml:
+  Removed old ebuild. New ebuild was taken from official Gentoo Portage tree
+  and bumped to git-version.
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> +xwax-0.3.ebuild:
+  version bump, adds support for ALSA
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

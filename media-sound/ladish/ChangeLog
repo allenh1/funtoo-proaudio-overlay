@@ -1,0 +1,52 @@
+# ChangeLog for media-sound/ladish
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  2 Apr 2014; Dominique Michel <dominique_libre@users.sourceforge.net>
+  ladish-9999-r1: remove libglade depend.
+  Thanks to Zlobin Nikita for the fix.
+
+  29 Nov 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -ladish-1.ebuild, -ladish-1-r1.ebuild, -ladish-9999.ebuild:
+  Removed old ebuilds.
+
+*ladish-1-r2 (26 Jul 2013)
+
+  26 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +ladish-1-r2.ebuild, ladish-9999-r1.ebuild:
+  Require lash use flag if python bindings are to be built. Thanks to Wayne
+  DePrince Jr. for ebuild and report.
+
+*ladish-9999-r1 (22 Jul 2013)
+*ladish-1-r1 (22 Jul 2013)
+
+  22 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +ladish-1-r1.ebuild, +ladish-9999-r1.ebuild:
+  Use python-single-r1 eclass.
+  Use waf-utils eclass.
+  Restrict mirror
+  Added a doc useflag with corresponding app-doc/doxygen dependency.
+  Use usex for cleaner configure code.
+
+  03 Feb 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  ladish-1.ebuild:
+  keyword for ~amd64 ~ppc ~x86
+
+  28 Dec 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  Imported ladish-1.ebuild and ladish-9999.ebuild from the ladi overlay
+
+  08 Dec 2012; Karl Lindén <lilrc@users.sourceforge.net>
+  ladish-1.ebuild, ladish-9999.ebuild:
+  Added python fixes and an additional python USE flag
+  Updated some dependencies
+  Updated EAPI
+  Updated copyright notice
+
+  10 Oct 2011; Maxim Kachur <mcdebugger@duganet.ru>
+  ladish-9999.ebuild:
+  update dependencies
+  we shouldn't require =x11-libs/flowcanvas-9999 at this time cause ladish will not work with it
+  ladish depends on >=x11-libs/gtk+-2.20.0 (took from waf script)
+
+  28 Dec 2008; Marc-Olivier Barre <marco@marcochapeau.org>
+  ladish-9999.ebuild: add some more precise dependencies to make gladish work

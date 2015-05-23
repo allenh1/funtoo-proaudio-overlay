@@ -1,0 +1,23 @@
+--- Makefile.orig	2006-03-16 22:25:21.536444751 +0100
++++ Makefile	2006-03-16 22:35:47.405718958 +0100
+@@ -1,4 +1,7 @@
+-INSTALL_DIR=/usr/local/lib/dssi
++DESTDIR =
++PREFIX = /usr
++INSTALL_DIR=$(PREFIX)/lib/dssi
++INSTALL = install
+ 
+ all:	ll-scope.so ll-scope_gtk
+ 
+@@ -16,7 +19,7 @@
+ 	rm -f ll-scope.so ll-scope_gtk *.o
+ 
+ install:	ll-scope.so ll-scope_gtk
+-	mkdir -p $(INSTALL_DIR)
+-	cp -f ll-scope.so $(INSTALL_DIR)
+-	mkdir -p $(INSTALL_DIR)/ll-scope
+-	cp -f ll-scope_gtk ll-scope.glade pixmaps/icon.png $(INSTALL_DIR)/ll-scope/
++	$(INSTALL) -d  $(DESTDIR)$(INSTALL_DIR)/ll-scope
++	$(INSTALL) -m755 ll-scope.so $(DESTDIR)$(INSTALL_DIR)
++	$(INSTALL) -m755 ll-scope_gtk $(DESTDIR)$(INSTALL_DIR)/ll-scope/
++	$(INSTALL) -m644 ll-scope.glade pixmaps/icon.png $(DESTDIR)$(INSTALL_DIR)/ll-scope/

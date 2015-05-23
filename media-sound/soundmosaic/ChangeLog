@@ -1,0 +1,10 @@
+# ChangeLog for media-sound/soundmosaic
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*soundmosaic-1.2 (15 Sep 2009)
+
+  15 Sep 2009; Gavin Pryke <gavinlee303@googlemail.com>
+  +soundmosaic-1.2.ebuild, +metadata.xml:
+  initial import of soundmosaic
+

@@ -1,0 +1,14 @@
+diff -Naur gsampler-0.3_old/src/Makefile.am gsampler-0.3_new/src/Makefile.am
+--- gsampler-0.3_old/src/Makefile.am	2012-01-03 12:54:29.000000000 +0600
++++ gsampler-0.3_new/src/Makefile.am	2013-12-20 22:00:56.940499027 +0600
+@@ -82,9 +82,7 @@
+ 	$(WINDRES) $< -o $@
+ 
+ if WINDOWS
+-gsampler_LDFLAGS = -Wl,-subsystem,windows 
+-else
+-gsampler_LDFLAGS = -Wl
++gsampler_LDFLAGS = -subsystem,windows
+ endif
+ 
+ gsampler_LDADD = \

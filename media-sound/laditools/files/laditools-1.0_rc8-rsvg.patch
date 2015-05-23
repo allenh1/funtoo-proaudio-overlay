@@ -1,0 +1,16 @@
+diff -Naur laditools-1.0~rc8.orig/setup.py laditools-1.0~rc8/setup.py
+--- laditools-1.0~rc8.orig/setup.py	2012-03-20 23:48:15.000000000 +0100
++++ laditools-1.0~rc8/setup.py	2012-11-18 14:17:53.300683515 +0100
+@@ -71,10 +71,10 @@
+                 self.spawn(['mkdir', '-p', sizecategorydir])
+                 for filename in os.listdir(os.path.join(scalabledir, category)):
+                     newfilename = filename.rstrip('svg') + 'png'
+-                    self.spawn(['rsvg',
++                    self.spawn(['rsvg-convert',
+                                 '-w', size, '-h', size,
+                                 os.path.join(scalabledir, category, filename),
+-                                os.path.join(sizecategorydir, newfilename)])
++                                "-o", os.path.join(sizecategorydir, newfilename)])
+ 
+         build_icons.build_icons.run(self)
+ 

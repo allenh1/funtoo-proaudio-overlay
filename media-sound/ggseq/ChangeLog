@@ -1,0 +1,11 @@
+# ChangeLog for media-sound/ggseq
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  19 Jun 2010; Frieder Buerzele <evermind@tuxfamily.org> ggseq-0.3.0.ebuild,
+  ggseq-0.3.1.ebuild:
+  cleanup ebuilds
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

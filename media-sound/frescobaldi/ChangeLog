@@ -1,0 +1,20 @@
+# ChangeLog for media-sound/frescobaldi
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  25 Mar 2012; Hakan Demiralp <keenblade@tuxfamily.org>
+  frescobaldi-2.0.4.ebuild, metadata.xml:
+  frescobaldi-2.0.4.ebuild: added portmidi useflag and some clean up
+
+*frescobaldi-2.0.4 (09 Mar 2012)
+
+  09 Mar 2012; Hakan Demiralp <keenblade@tuxfamily.org>
+  -frescobaldi-2.0.3.ebuild, +frescobaldi-2.0.4.ebuild:
+  frescobaldi-2.0.4.ebuild: version bump to 2.0.4
+
+*frescobaldi-2.0.3 (01 Mar 2012)
+
+  01 Mar 2012; Hakan Demiralp <keenblade@tuxfamily.org>
+  +frescobaldi-2.0.3.ebuild:
+  frescobaldi-2.0.3.ebuild: Initial ebuild for frescobaldi version 2
+

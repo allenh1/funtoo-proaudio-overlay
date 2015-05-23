@@ -1,0 +1,14 @@
+# ChangeLog for media-radio/liquidsoap
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*liquidsoap-1.0.1 (17 Nov 2012)
+
+  17 Nov 2012; Emery Hemingway <liquidsoap@emery.neomailbox.net>
+  -liquidsoap-1.0.0.ebuild, +liquidsoap-1.0.1.ebuild, +files/ocaml-4.patch,
+  +files/liquidsoap-at.service, files/liquidsoap.runscript:
+  Bumped ebuild, modified runscript, new systemd service file
+
+  30 May 2012; Emery Hemingway <emery@vfemail.net> liquidsoap-1.0.0.ebuild:
+  Moved to media-radio, minor configure changes
+

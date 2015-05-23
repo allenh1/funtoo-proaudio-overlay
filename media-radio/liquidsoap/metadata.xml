@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+
+<pkgmetadata>
+<herd>proaudio</herd>
+<maintainer>
+	<email>emery@vfemail.net</email>
+</maintainer>
+<use>
+        <flag name="aacplus"><pkg>media-libs/libaacplus</pkg> encoding.</flag>
+        <flag name="dirac">Support for the Ogg/Schroedinger codec.</flag>
+        <flag name="dssi">Support for DSSI sound synthesis.</flag>
+        <flag name="faad"><pkg>media-libs/faad2</pkg> decoding.</flag>
+        <flag name="gavl"><pkg>media-libs/gavl</pkg> video conversion.</flag>
+        <flag name="graphics">Support for graphics in streams.</flag>
+        <flag name="json">Data import and export through json.</flag>
+        <flag name="lastfm">Support for lastfm audioscrobbling and the like.</flag>
+        <flag name="shout">Stream to Shoutcast and Icecast</flag>
+        <flag name="soundtouch"><pkg>media-libs/libsoundtouch</pkg> effects.</flag>
+        <flag name="speech">Speech synthesis support</flag>
+        <flag name="video">Video streaming support</flag>
+        <flag name="voaac"><pkg>media-libs/vo-aacenc</pkg> encoding</flag>        
+</use>
+</pkgmetadata>

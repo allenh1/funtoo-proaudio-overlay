@@ -1,0 +1,15 @@
+# ChangeLog for media-sound/rsound
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*rsound-9999 (11 Sep 2010)
+
+  11 Sep 2010; Viktor Lazarev <taurus101v@gmail.com> +rsound-9999.ebuild:
+  bump
+
+*rsound-1.0_beta1 (11 Sep 2010)
+
+  11 Sep 2010; Viktor Lazarev <taurus101v@gmail.com>
+  +rsound-1.0_beta1.ebuild, +metadata.xml:
+  initial commit
+

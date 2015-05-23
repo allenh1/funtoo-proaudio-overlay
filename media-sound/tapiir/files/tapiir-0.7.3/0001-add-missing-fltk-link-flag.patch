@@ -1,0 +1,25 @@
+From 57367ff9e69d144e12de93770ebd3e95861fdcfb Mon Sep 17 00:00:00 2001
+From: "Gavin Pryke (gavlee)" <gavinlee303@googlemail.com>
+Date: Thu, 15 Nov 2012 18:08:26 +0000
+Subject: [PATCH 1/2] add missing fltk link flag
+
+---
+ configure.in |    2 ++
+ 1 files changed, 2 insertions(+), 0 deletions(-)
+
+diff --git a/configure.in b/configure.in
+index e7fcd1b..9daa3b9 100644
+--- a/configure.in
++++ b/configure.in
+@@ -25,6 +25,8 @@ fi
+ 
+ AM_PATH_FLTK(1.1.0,,AC_MSG_ERROR("missing fltk"))
+ 
++LIBS="$LIBS $FLTK_LIBS"
++
+ dnl Checks for header files.
+ AC_STDC_HEADERS
+ AC_HAVE_HEADERS(stdio.h string.h stdlib.h getopt.h \
+-- 
+1.7.8.6
+

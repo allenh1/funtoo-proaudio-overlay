@@ -1,0 +1,854 @@
+diff -urN zynaddsubfx/src/main.C zynaddsubfx/src/main.C
+--- zynaddsubfx/src/main.C	2006-11-01 20:05:59.000000000 +0100
++++ zynaddsubfx/src/main.C	2007-02-04 18:17:24.000000000 +0100
+@@ -121,13 +121,13 @@
+         note=cmdparams[0];
+ 	vel=cmdparams[1];
+ 	
+-	pthread_mutex_lock(&master->mutex);
++	pthread_mutex_lock(&master->processMutex);
+ 
+ 	if ((cmdtype==MidiNoteON)&&(note!=0)) master->NoteOn(cmdchan,note,vel);
+ 	if ((cmdtype==MidiNoteOFF)&&(note!=0)) master->NoteOff(cmdchan,note);
+ 	if (cmdtype==MidiController) master->SetController(cmdchan,cmdparams[0],cmdparams[1]);
+ 
+-	pthread_mutex_unlock(&master->mutex);
++	pthread_mutex_unlock(&master->processMutex);
+     };
+     
+     return(0);
+@@ -227,12 +227,12 @@
+ 
+ 	
+ 	
+-		    pthread_mutex_lock(&master->mutex);
++		    pthread_mutex_lock(&master->processMutex);
+ 	    	    if (type==1){//note_on or note_off
+ 			if (par2!=0) master->NoteOn(midichan,par1,par2);
+ 			    else master->NoteOff(midichan,par1);
+ 	    	    };
+-		    pthread_mutex_unlock(&master->mutex);
++		    pthread_mutex_unlock(&master->processMutex);
+ 		};
+ 	    } while (again>0);
+ 	    
+@@ -316,7 +316,7 @@
+  * Program exit
+  */
+ void exitprogram(){
+-    pthread_mutex_lock(&master->mutex);
++    pthread_mutex_lock(&master->initMutex);
+ #ifdef OSSAUDIOOUT
+     delete(audioout);
+ #endif
+diff -urN zynaddsubfx/src/Misc/Master.C zynaddsubfx/src/Misc/Master.C
+--- zynaddsubfx/src/Misc/Master.C	2006-11-01 00:03:00.000000000 +0100
++++ zynaddsubfx/src/Misc/Master.C	2007-02-04 18:17:24.000000000 +0100
+@@ -32,7 +32,8 @@
+ Master::Master(){
+     swaplr=0;
+     
+-    pthread_mutex_init(&mutex,NULL);
++    pthread_mutex_init(&initMutex,NULL);
++    pthread_mutex_init(&processMutex,NULL);
+     fft=new FFTwrapper(OSCIL_SIZE);
+ 
+     tmpmixl=new REALTYPE[SOUND_BUFFER_SIZE];
+@@ -55,17 +56,17 @@
+     };
+ 
+     for (int npart=0;npart<NUM_MIDI_PARTS;npart++)
+-	part[npart]=new Part(&microtonal,fft,&mutex);
++	part[npart]=new Part(&microtonal,fft,&processMutex);
+     
+ 
+ 
+     //Insertion Effects init        
+     for (int nefx=0;nefx<NUM_INS_EFX;nefx++)
+-    	insefx[nefx]=new EffectMgr(1,&mutex);
++    	insefx[nefx]=new EffectMgr(1,&processMutex);
+ 
+     //System Effects init        
+     for (int nefx=0;nefx<NUM_SYS_EFX;nefx++) {
+-	sysefx[nefx]=new EffectMgr(0,&mutex);
++	sysefx[nefx]=new EffectMgr(0,&processMutex);
+     };
+ 
+     
+@@ -492,7 +493,8 @@
+     delete [] tmpmixr;
+     delete (fft);
+ 
+-    pthread_mutex_destroy(&mutex);
++    pthread_mutex_destroy(&processMutex);
++    pthread_mutex_destroy(&initMutex);
+ };
+ 
+ 
+@@ -612,9 +614,9 @@
+ 
+     xml->beginbranch("MASTER");
+ 
+-    pthread_mutex_lock(&mutex);
++    pthread_mutex_lock(&processMutex);
+     add2XML(xml);
+-    pthread_mutex_unlock(&mutex);
++    pthread_mutex_unlock(&processMutex);
+ 
+     xml->endbranch();
+ 
+@@ -632,9 +634,9 @@
+     
+     if (xml->enterbranch("MASTER")==0) return;
+ 
+-    pthread_mutex_lock(&mutex);
++    pthread_mutex_lock(&processMutex);
+ 	getfromXML(xml);
+-    pthread_mutex_unlock(&mutex);
++    pthread_mutex_unlock(&processMutex);
+ 
+     xml->exitbranch();
+     
+diff -urN zynaddsubfx/src/Misc/Master.h zynaddsubfx/src/Misc/Master.h
+--- zynaddsubfx/src/Misc/Master.h	2005-03-14 19:13:43.000000000 +0100
++++ zynaddsubfx/src/Misc/Master.h	2007-02-04 18:17:24.000000000 +0100
+@@ -130,7 +130,8 @@
+ 	Bank bank;
+ 	
+ 	FFTwrapper *fft;
+-	pthread_mutex_t mutex;
++	pthread_mutex_t initMutex;
++	pthread_mutex_t processMutex;
+ 
+     private:
+ 	REALTYPE volume;	
+diff -urN zynaddsubfx/src/Misc/Part.C zynaddsubfx/src/Misc/Part.C
+--- zynaddsubfx/src/Misc/Part.C	2007-01-07 23:33:56.000000000 +0100
++++ zynaddsubfx/src/Misc/Part.C	2007-02-04 18:17:24.000000000 +0100
+@@ -962,7 +962,7 @@
+ 
+ void Part::applyparameters(){
+     for (int n=0;n<NUM_KIT_ITEMS;n++){
+-	if ((kit[n].padpars!=NULL)&&(kit[n].Ppadenabled!=0)) kit[n].padpars->applyparameters(true);
++	if ((kit[n].padpars!=NULL)&&(kit[n].Ppadenabled!=0)) kit[n].padpars->applyparameters();
+     };
+ };
+ 
+diff -urN zynaddsubfx/src/Output/JACKaudiooutput.C zynaddsubfx/src/Output/JACKaudiooutput.C
+--- zynaddsubfx/src/Output/JACKaudiooutput.C	2006-11-01 20:06:00.000000000 +0100
++++ zynaddsubfx/src/Output/JACKaudiooutput.C	2007-02-04 18:17:24.000000000 +0100
+@@ -79,18 +79,19 @@
+ int jackprocess(jack_nframes_t nframes,void *arg){
+     jack_default_audio_sample_t *outl=(jack_default_audio_sample_t *) jack_port_get_buffer (outport_left, nframes);
+     jack_default_audio_sample_t *outr=(jack_default_audio_sample_t *) jack_port_get_buffer (outport_right, nframes);
+-
+-    if (!pthread_mutex_trylock(&jackmaster->mutex)) {
++    if (!pthread_mutex_trylock(&jackmaster->initMutex)) {
++      if (!pthread_mutex_lock(&jackmaster->processMutex)) {
+       JACKhandlemidi(nframes);
+       jackmaster->GetAudioOutSamples(nframes,jack_get_sample_rate(jackclient),outl,outr);
+-      pthread_mutex_unlock(&jackmaster->mutex);
+-    }
+-    else {
+-      memset(outl, 0, sizeof(jack_default_audio_sample_t) * nframes);
+-      memset(outr, 0, sizeof(jack_default_audio_sample_t) * nframes);
++      pthread_mutex_unlock(&jackmaster->processMutex);
+     }
++    pthread_mutex_unlock(&jackmaster->initMutex);
++  } else {
++    memset(outl, 0, sizeof(jack_default_audio_sample_t) * nframes);
++    memset(outr, 0, sizeof(jack_default_audio_sample_t) * nframes);
++  }
+     
+-    return(0);
++  return 0;
+ };
+ 
+ void JACKfinish(){
+diff -urN zynaddsubfx/src/Params/PADnoteParameters.C zynaddsubfx/src/Params/PADnoteParameters.C
+--- zynaddsubfx/src/Params/PADnoteParameters.C	2005-09-27 19:42:44.000000000 +0200
++++ zynaddsubfx/src/Params/PADnoteParameters.C	2007-02-04 18:17:24.000000000 +0100
+@@ -447,12 +447,13 @@
+ /*
+  * Applies the parameters (i.e. computes all the samples, based on parameters);
+  */
+-void PADnoteParameters::applyparameters(bool lockmutex){
++void PADnoteParameters::applyparameters() {
+     const int samplesize=(((int) 1)<<(Pquality.samplesize+14));
+     int spectrumsize=samplesize/2;
+     REALTYPE spectrum[spectrumsize];
+     int profilesize=512;
+     REALTYPE profile[profilesize];
++      fprintf(stderr," PADnoteParameters::applyparameters()\n");
+ 
+ 
+     REALTYPE bwadjust=getprofile(profile,profilesize);
+@@ -506,33 +507,22 @@
+         for (int i=0;i<extra_samples;i++) newsample.smp[i+samplesize]=newsample.smp[i];
+ 
+ 	//replace the current sample with the new computed sample
+-	if (lockmutex){
+-	    pthread_mutex_lock(mutex);
+-	     deletesample(nsample);
+-	     sample[nsample].smp=newsample.smp;
+-    	     sample[nsample].size=samplesize;
+-	     sample[nsample].basefreq=basefreq*basefreqadjust;
+-	    pthread_mutex_unlock(mutex);
+-	} else {
+-	    deletesample(nsample);
+-	    sample[nsample].smp=newsample.smp;
+-	    sample[nsample].size=samplesize;
+-	    sample[nsample].basefreq=basefreq*basefreqadjust;
+-	};
++	pthread_mutex_lock(mutex);
++	deletesample(nsample);
++	sample[nsample].smp=newsample.smp;
++	sample[nsample].size=samplesize;
++	sample[nsample].basefreq=basefreq*basefreqadjust;
++	pthread_mutex_unlock(mutex);
+ 	newsample.smp=NULL;
+-    };
++    }
+     delete(fft);
+     deleteFFTFREQS(&fftfreqs);
+     
+     //delete the additional samples that might exists and are not useful
+-    if (lockmutex){
+-        pthread_mutex_lock(mutex);
+-	for (int i=samplemax;i<PAD_MAX_SAMPLES;i++) deletesample(i);
+-        pthread_mutex_unlock(mutex);
+-    } else {
+-	for (int i=samplemax;i<PAD_MAX_SAMPLES;i++) deletesample(i);
+-    };
+-};
++    pthread_mutex_lock(mutex);
++    for (int i=samplemax;i<PAD_MAX_SAMPLES;i++) deletesample(i);
++    pthread_mutex_unlock(mutex);
++}
+ 
+ 
+ void PADnoteParameters::add2XML(XMLwrapper *xml){
+diff -urN zynaddsubfx/src/Params/PADnoteParameters.h zynaddsubfx/src/Params/PADnoteParameters.h
+--- zynaddsubfx/src/Params/PADnoteParameters.h	2005-03-14 19:13:45.000000000 +0100
++++ zynaddsubfx/src/Params/PADnoteParameters.h	2007-02-04 18:17:24.000000000 +0100
+@@ -142,7 +142,7 @@
+ 	REALTYPE setPbandwidth(int Pbandwidth);//returns the BandWidth in cents
+ 	REALTYPE getNhr(int n);//gets the n-th overtone position relatively to N harmonic
+ 
+-	void applyparameters(bool lockmutex);
++	void applyparameters();
+ 
+ 	OscilGen *oscilgen;
+ 	Resonance *resonance;
+diff -urN zynaddsubfx/src/UI/BankUI.fl zynaddsubfx/src/UI/BankUI.fl
+--- zynaddsubfx/src/UI/BankUI.fl	2006-11-01 00:03:01.000000000 +0100
++++ zynaddsubfx/src/UI/BankUI.fl	2007-02-04 18:17:24.000000000 +0100
+@@ -254,9 +254,9 @@
+ };
+ 
+ if ((what==1)&&(mode==1)&&(!bank->emptyslot(slot))){//Reads from slot
+-    pthread_mutex_lock(&master->mutex);
++    pthread_mutex_lock(&master->initMutex);
+      bank->loadfromslot(slot,master->part[*npart]);
+-    pthread_mutex_unlock(&master->mutex);
++    pthread_mutex_unlock(&master->initMutex);
+     master->part[*npart]->applyparameters();
+     snprintf((char *)master->part[*npart]->Pname,PART_MAX_NAME_LEN,"%s",bank->getname(slot));
+      cbwig->do_callback();
+@@ -270,9 +270,9 @@
+      if (!bank->emptyslot(slot)){
+        if (!fl_choice("Overwrite the slot no. %d ?","No","Yes",NULL,slot+1)) goto nooverwriteslot;
+       };
+-       pthread_mutex_lock(&master->mutex);
++       pthread_mutex_lock(&master->initMutex);
+         bank->savetoslot(slot,master->part[*npart]);
+-       pthread_mutex_unlock(&master->mutex);
++       pthread_mutex_unlock(&master->initMutex);
+ 
+        bs[slot]->refresh();
+        mode=1;readbutton->value(1);writebutton->value(0);
+diff -urN zynaddsubfx/src/UI/MasterUI.fl zynaddsubfx/src/UI/MasterUI.fl
+--- zynaddsubfx/src/UI/MasterUI.fl	2006-11-01 20:06:02.000000000 +0100
++++ zynaddsubfx/src/UI/MasterUI.fl	2007-02-04 18:17:24.000000000 +0100
+@@ -60,6 +60,7 @@
+ decl {\#include "../globals.h"} {public
+ } 
+ 
++
+ class VUMeter {: {public Fl_Box}
+ } {
+   Function {VUMeter(int x,int y, int w, int h, const char *label=0):Fl_Box(x,y,w,h,label)} {} {
+@@ -81,7 +82,7 @@
+ 
+ int ox=x(); int oy=y(); int lx=w(); int ly=h();
+ 
+-pthread_mutex_lock(&master->mutex);
++pthread_mutex_lock(&master->processMutex);
+ REALTYPE dbl=rap2dB(master->vuoutpeakl);
+ REALTYPE dbr=rap2dB(master->vuoutpeakr);
+ REALTYPE rmsdbl=rap2dB(master->vurmspeakl);
+@@ -89,7 +90,7 @@
+ REALTYPE maxdbl=rap2dB(master->vumaxoutpeakl);
+ REALTYPE maxdbr=rap2dB(master->vumaxoutpeakr);
+ int clipped=master->vuclipped;
+-pthread_mutex_unlock(&master->mutex);
++pthread_mutex_unlock(&master->processMutex);
+ 
+ dbl=(MIN_DB-dbl)/MIN_DB; 
+ if (dbl<0.0) dbl=0.0;
+@@ -181,9 +182,9 @@
+ int ox=x(); int oy=y(); int lx=w(); int ly=h();
+ 
+ if (!active_r()){
+-  pthread_mutex_lock(&master->mutex);
++  pthread_mutex_lock(&master->processMutex);
+    int fakedb=master->fakepeakpart[npart];
+-  pthread_mutex_unlock(&master->mutex);
++  pthread_mutex_unlock(&master->processMutex);
+   fl_rectf(ox,oy,lx,ly,140,140,140);
+   if (fakedb>0){
+     fakedb=(int)(fakedb/255.0*ly)+4;
+@@ -194,9 +195,9 @@
+ };
+ 
+ //draw the vu lines
+-pthread_mutex_lock(&master->mutex);
++pthread_mutex_lock(&master->processMutex);
+  REALTYPE db=rap2dB(master->vuoutpeakpart[npart]);
+-pthread_mutex_unlock(&master->mutex);
++pthread_mutex_unlock(&master->processMutex);
+ 
+ db=(MIN_DB-db)/MIN_DB; 
+ if (db<0.0) db=0.0;
+@@ -242,9 +243,9 @@
+              break;
+    case FL_PUSH:
+              if (npart>=0) break;
+-             pthread_mutex_lock(&master->mutex);
++             pthread_mutex_lock(&master->processMutex);
+              master->vuresetpeaks();
+-             pthread_mutex_unlock(&master->mutex);
++             pthread_mutex_unlock(&master->processMutex);
+              break;
+ };
+ return(1);} {}
+@@ -351,9 +352,9 @@
+       }
+       Fl_Check_Button partenabled {
+         label 01
+-        callback {pthread_mutex_lock(&master->mutex);
++        callback {pthread_mutex_lock(&master->processMutex);
+  master->partonoff(npart,(int) o->value());
+-pthread_mutex_unlock(&master->mutex);
++pthread_mutex_unlock(&master->processMutex);
+ 
+ if ((int) o->value()==0) panellistitemgroup->deactivate();
+   else {
+@@ -457,13 +458,13 @@
+ filename=fl_file_chooser("Open:","({*.xsz})",NULL,0);
+ if (filename==NULL) return;
+ 
+-pthread_mutex_lock(&master->mutex);
++pthread_mutex_lock(&master->processMutex);
+   //clear all parameters
+   master->microtonal.defaults();
+ 
+   //load the data
+   int result=master->microtonal.loadXML(filename);
+-pthread_mutex_unlock(&master->mutex);
++pthread_mutex_unlock(&master->processMutex);
+ 
+ 
+  delete microtonalui;  
+@@ -490,9 +491,9 @@
+ };
+ 
+ 
+-pthread_mutex_lock(&master->mutex);
++pthread_mutex_lock(&master->processMutex);
+ result=master->microtonal.saveXML(filename);
+-pthread_mutex_unlock(&master->mutex);
++pthread_mutex_unlock(&master->processMutex);
+ 
+ if (result<0) fl_alert("Error: Could not save the file.");
+ 
+@@ -529,9 +530,9 @@
+             label {&Clear Instrument...}
+             callback {if (fl_choice("Clear instrument's parameters ?","No","Yes",NULL)){
+ //       int npart=(int)npartcounter->value()-1;
+-       pthread_mutex_lock(&master->mutex);
++       pthread_mutex_lock(&master->processMutex);
+        master->part[npart]->defaultsinstrument();
+-       pthread_mutex_unlock(&master->mutex);
++       pthread_mutex_unlock(&master->processMutex);
+ 
+        npartcounter->do_callback();
+ };
+@@ -546,7 +547,7 @@
+ if (filename==NULL) return;
+ 
+ 
+-pthread_mutex_lock(&master->mutex);
++pthread_mutex_lock(&master->processMutex);
+ //  int npart=(int)npartcounter->value()-1;
+ 
+   //clear all instrument parameters, first
+@@ -555,7 +556,8 @@
+   //load the instr. parameters
+   int result=master->part[npart]->loadXMLinstrument(filename);
+ 
+-pthread_mutex_unlock(&master->mutex);
++pthread_mutex_unlock(&master->processMutex);
++
+ master->part[npart]->applyparameters();
+ 
+ npartcounter->do_callback();
+@@ -581,9 +583,9 @@
+ };
+ 
+ 
+-pthread_mutex_lock(&master->mutex);
++pthread_mutex_lock(&master->processMutex);
+ result=master->part[npart]->saveXML(filename);
+-pthread_mutex_unlock(&master->mutex);
++pthread_mutex_unlock(&master->processMutex);
+ 
+ if (result<0) fl_alert("Error: Could not save the file.");
+ 
+@@ -671,9 +673,9 @@
+       Fl_Button {} {
+         label {Panic!}
+         callback {virkeyboard->relaseallkeys();
+-pthread_mutex_lock(&master->mutex);
++pthread_mutex_lock(&master->processMutex);
+ master->shutup=1;
+-pthread_mutex_unlock(&master->mutex);}
++pthread_mutex_unlock(&master->processMutex);}
+         xywh {293 29 92 31} box PLASTIC_UP_BOX color 231 labelfont 1
+       }
+       Fl_Group partuigroup {
+@@ -704,9 +706,9 @@
+           }
+           Fl_Choice sysefftype {
+             label EffType
+-            callback {pthread_mutex_lock(&master->mutex);
++            callback {pthread_mutex_lock(&master->processMutex);
+ master->sysefx[nsyseff]->changeeffect((int) o->value());
+-pthread_mutex_unlock(&master->mutex);
++pthread_mutex_unlock(&master->processMutex);
+ syseffectui->refresh(master->sysefx[nsyseff]);}
+             xywh {315 125 70 15} down_box BORDER_BOX labelsize 10
+             code0 {o->value(master->sysefx[nsyseff]->geteffect());}
+@@ -769,9 +771,9 @@
+           }
+           Fl_Button {} {
+             label P
+-            callback {pthread_mutex_lock(&master->mutex);
++            callback {pthread_mutex_lock(&master->processMutex);
+ presetsui->paste(master->sysefx[nsyseff],syseffectui);
+-pthread_mutex_unlock(&master->mutex);}
++pthread_mutex_unlock(&master->processMutex);}
+             xywh {245 124 25 15} box THIN_UP_BOX color 179 labelfont 1 labelsize 11 labelcolor 7
+           }
+         }
+@@ -801,9 +803,9 @@
+           }
+           Fl_Choice insefftype {
+             label EffType
+-            callback {pthread_mutex_lock(&master->mutex);
++            callback {pthread_mutex_lock(&master->processMutex);
+ master->insefx[ninseff]->changeeffect((int) o->value());
+-pthread_mutex_unlock(&master->mutex);
++pthread_mutex_unlock(&master->processMutex);
+ inseffectui->refresh(master->insefx[ninseff]);
+ inseffectui->show();}
+             xywh {315 125 70 15} down_box BORDER_BOX labelsize 10
+@@ -882,9 +884,9 @@
+           }
+           Fl_Button {} {
+             label P
+-            callback {pthread_mutex_lock(&master->mutex);
++            callback {pthread_mutex_lock(&master->processMutex);
+ presetsui->paste(master->insefx[ninseff],inseffectui);
+-pthread_mutex_unlock(&master->mutex);}
++pthread_mutex_unlock(&master->processMutex);}
+             xywh {245 124 25 15} box THIN_UP_BOX color 179 labelfont 1 labelsize 11 labelcolor 7
+           }
+         }
+@@ -1133,7 +1135,7 @@
+ if (filename==NULL) return;
+ 
+ 
+-pthread_mutex_lock(&master->mutex);
++pthread_mutex_lock(&master->processMutex);
+ //  int npart=(int)npartcounter->value()-1;
+ 
+   //clear all instrument parameters, first
+@@ -1142,7 +1144,7 @@
+   //load the instr. parameters
+   int result=master->part[npart]->loadXMLinstrument(filename);
+ 
+-pthread_mutex_unlock(&master->mutex);
++pthread_mutex_unlock(&master->processMutex);
+ master->part[npart]->applyparameters();
+ 
+ simplenpartcounter->do_callback();
+@@ -1274,9 +1276,9 @@
+       }
+       Fl_Check_Button partenabled {
+         label Enabled
+-        callback {pthread_mutex_lock(&master->mutex);
++        callback {pthread_mutex_lock(&master->processMutex);
+  master->partonoff(npart,(int) o->value());
+-pthread_mutex_unlock(&master->mutex);
++pthread_mutex_unlock(&master->processMutex);
+ 
+ if ((int) o->value()==0) simplelistitemgroup->deactivate();
+   else {
+@@ -1320,9 +1322,9 @@
+             }
+             Fl_Choice simplesysefftype {
+               label EffType
+-              callback {pthread_mutex_lock(&master->mutex);
++              callback {pthread_mutex_lock(&master->processMutex);
+ master->sysefx[nsyseff]->changeeffect((int) o->value());
+-pthread_mutex_unlock(&master->mutex);
++pthread_mutex_unlock(&master->processMutex);
+ simplesyseffectui->refresh(master->sysefx[nsyseff]);}
+               xywh {515 80 70 15} down_box BORDER_BOX labelsize 10 align 5
+               code0 {o->value(master->sysefx[nsyseff]->geteffect());}
+@@ -1380,9 +1382,9 @@
+             }
+             Fl_Button {} {
+               label P
+-              callback {pthread_mutex_lock(&master->mutex);
++              callback {pthread_mutex_lock(&master->processMutex);
+ presetsui->paste(master->sysefx[nsyseff],simplesyseffectui);
+-pthread_mutex_unlock(&master->mutex);}
++pthread_mutex_unlock(&master->processMutex);}
+               xywh {560 65 25 15} box THIN_UP_BOX color 179 labelfont 1 labelsize 11 labelcolor 7
+             }
+           }
+@@ -1412,9 +1414,9 @@
+             }
+             Fl_Choice simpleinsefftype {
+               label EffType
+-              callback {pthread_mutex_lock(&master->mutex);
++              callback {pthread_mutex_lock(&master->processMutex);
+ master->insefx[ninseff]->changeeffect((int) o->value());
+-pthread_mutex_unlock(&master->mutex);
++pthread_mutex_unlock(&master->processMutex);
+ simpleinseffectui->refresh(master->insefx[ninseff]);
+ simpleinseffectui->show();}
+               xywh {515 80 70 15} down_box BORDER_BOX labelsize 10 align 5
+@@ -1488,9 +1490,9 @@
+             } {}
+             Fl_Button {} {
+               label P
+-              callback {pthread_mutex_lock(&master->mutex);
++              callback {pthread_mutex_lock(&master->processMutex);
+ presetsui->paste(master->insefx[ninseff],simpleinseffectui);
+-pthread_mutex_unlock(&master->mutex);}
++pthread_mutex_unlock(&master->processMutex);}
+               xywh {560 65 25 15} box THIN_UP_BOX color 179 labelfont 1 labelsize 11 labelcolor 7
+             }
+           }
+@@ -1523,9 +1525,9 @@
+       Fl_Button {} {
+         label {Stop ALL sounds!}
+         callback {virkeyboard->relaseallkeys();
+-pthread_mutex_lock(&master->mutex);
++pthread_mutex_lock(&master->processMutex);
+ master->shutup=1;
+-pthread_mutex_unlock(&master->mutex);}
++pthread_mutex_unlock(&master->processMutex);}
+         xywh {5 149 115 31} box PLASTIC_UP_BOX color 231 labelfont 1 labelsize 11
+       }
+       Fl_Button {} {
+@@ -1694,9 +1696,9 @@
+     code {if (fl_choice("Clear *ALL* the parameters ?","No","Yes",NULL)){
+        delete microtonalui;
+ 
+-       pthread_mutex_lock(&master->mutex);
++       pthread_mutex_lock(&master->processMutex);
+ 	master->defaults();
+-       pthread_mutex_unlock(&master->mutex);
++       pthread_mutex_unlock(&master->processMutex);
+ 	
+        npartcounter->value(1);
+        refresh_master_ui();
+@@ -1716,13 +1718,14 @@
+   }
+ 
+ 
+-pthread_mutex_lock(&master->mutex);
++pthread_mutex_lock(&master->processMutex);
++
+   //clear all parameters
+   master->defaults();
+ 
+   //load the data
+   int result=master->loadXML(filename);
+-pthread_mutex_unlock(&master->mutex);
++pthread_mutex_unlock(&master->processMutex);
+ master->applyparameters();
+ 
+ npartcounter->value(1);
+@@ -1753,9 +1756,9 @@
+   }
+ 
+ 
+-pthread_mutex_lock(&master->mutex);
++pthread_mutex_lock(&master->processMutex);
+ result=master->saveXML(filename);
+-pthread_mutex_unlock(&master->mutex);
++pthread_mutex_unlock(&master->processMutex);
+ 
+ if (result<0) fl_alert("Error: Could not save the file.");
+ 	else setfilelabel(filename);
+diff -urN zynaddsubfx/src/UI/OscilGenUI.fl zynaddsubfx/src/UI/OscilGenUI.fl
+--- zynaddsubfx/src/UI/OscilGenUI.fl	2006-11-01 00:03:01.000000000 +0100
++++ zynaddsubfx/src/UI/OscilGenUI.fl	2007-02-04 18:17:24.000000000 +0100
+@@ -71,10 +71,10 @@
+ REALTYPE spc[n];
+ for (i=0;i<n;i++) spc[i]=0.0;
+ 
+-pthread_mutex_lock(&master->mutex);
++pthread_mutex_lock(&master->processMutex);
+ if (oscbase==0) oscil->getspectrum(n,spc,0);
+     else oscil->getspectrum(n,spc,1);
+-pthread_mutex_unlock(&master->mutex);
++pthread_mutex_unlock(&master->processMutex);
+ 
+ //normalize
+ REALTYPE max=0;
+@@ -178,10 +178,10 @@
+   Function {draw()} {} {
+     code {int ox=x(),oy=y(),lx=w(),ly=h()-1,i;
+ REALTYPE smps[OSCIL_SIZE];
+-pthread_mutex_lock(&master->mutex);
++pthread_mutex_lock(&master->processMutex);
+ if (oscbase==0) oscil->get(smps,-1.0);
+     else oscil->getcurrentbasefunction(smps);
+-pthread_mutex_unlock(&master->mutex);
++pthread_mutex_unlock(&master->processMutex);
+ 
+ if (damage()!=1){
+  fl_color(0,0,0);
+@@ -250,14 +250,14 @@
+ if (x==64) o->selection_color(0);
+     else o->selection_color(222);
+ 
+-pthread_mutex_lock(&master->mutex);
++pthread_mutex_lock(&master->processMutex);
+  oscil->Phmag[n]=x;
+  if (x==64) {
+     oscil->Phphase[n]=64;
+     phase->value(64);
+  };
+  oscil->prepare();
+-pthread_mutex_unlock(&master->mutex);
++pthread_mutex_unlock(&master->processMutex);
+ 
+ display->redraw();
+ oldosc->redraw();
+@@ -276,10 +276,10 @@
+ if (Fl::event_button3()) o->value(x);
+    else x=(int)o->value();
+ 
+-pthread_mutex_lock(&master->mutex);
++pthread_mutex_lock(&master->processMutex);
+  oscil->Phphase[n]=x;
+  oscil->prepare();
+-pthread_mutex_unlock(&master->mutex);
++pthread_mutex_unlock(&master->processMutex);
+ 
+ display->redraw();
+ oldosc->redraw();
+@@ -627,13 +627,13 @@
+    sabutton->do_callback();
+ };
+ 
+-pthread_mutex_lock(&master->mutex);
++pthread_mutex_lock(&master->processMutex);
+  for (int i=0;i<MAX_AD_HARMONICS;i++){
+    if (oscil->Phmag[i]==64) h[i]->mag->selection_color(0);
+       else h[i]->mag->selection_color(222);
+  };
+  oscil->prepare();
+-pthread_mutex_unlock(&master->mutex);
++pthread_mutex_unlock(&master->processMutex);
+ 
+ basefuncdisplaygroup->redraw();
+ redrawoscil();}
+@@ -664,9 +664,9 @@
+ 
+ //harmonics->redraw();
+ 
+-pthread_mutex_lock(&master->mutex);
++pthread_mutex_lock(&master->processMutex);
+  oscil->prepare();
+-pthread_mutex_unlock(&master->mutex);
++pthread_mutex_unlock(&master->processMutex);
+ 
+ redrawoscil();}
+         xywh {670 505 55 15} box THIN_UP_BOX labelfont 1 labelsize 11
+@@ -1020,9 +1020,9 @@
+         label Sine
+         callback {if (!fl_choice("Convert to SINE?","No","Yes",NULL)) return;
+ 
+-pthread_mutex_lock(&master->mutex);
++pthread_mutex_lock(&master->processMutex);
+  oscil->convert2sine(0);
+-pthread_mutex_unlock(&master->mutex);
++pthread_mutex_unlock(&master->processMutex);
+ 
+ redrawoscil();
+ refresh();}
+@@ -1108,9 +1108,9 @@
+ 
+ for (int i=0;i<MAX_AD_HARMONICS;i++) h[i]->refresh();
+ 
+-pthread_mutex_lock(&master->mutex);
++pthread_mutex_lock(&master->processMutex);
+  oscil->prepare();
+-pthread_mutex_unlock(&master->mutex);
++pthread_mutex_unlock(&master->processMutex);
+ 
+ basefuncdisplaygroup->redraw();
+ redrawoscil();} {}
+diff -urN zynaddsubfx/src/UI/PADnoteUI.fl zynaddsubfx/src/UI/PADnoteUI.fl
+--- zynaddsubfx/src/UI/PADnoteUI.fl	2006-10-31 12:13:01.000000000 +0100
++++ zynaddsubfx/src/UI/PADnoteUI.fl	2007-02-04 18:17:24.000000000 +0100
+@@ -147,9 +147,9 @@
+ REALTYPE spc[n];
+ for (int i=0;i<n;i++) spc[i]=0.0;
+ 
+-pthread_mutex_lock(&master->mutex);
++pthread_mutex_lock(&master->processMutex);
+ pars->oscilgen->getspectrum(n,spc,0);
+-pthread_mutex_unlock(&master->mutex);
++pthread_mutex_unlock(&master->processMutex);
+ 
+ 
+ //normalize
+@@ -943,7 +943,7 @@
+       }
+       Fl_Button applybutton {
+         label {Apply Changes}
+-        callback {pars->applyparameters(true);
++        callback {pars->applyparameters();
+ o->color(FL_GRAY);
+ if (oscui!=NULL) {
+ 	oscui->applybutton->color(FL_GRAY);
+@@ -1062,7 +1062,7 @@
+ overtonepos->redraw();
+ 
+ osc->redraw();
+-pars->applyparameters(true);
++pars->applyparameters();
+ applybutton->color(FL_GRAY);
+ applybutton->parent()->redraw();} {}
+   }
+diff -urN zynaddsubfx/src/UI/PartUI.fl zynaddsubfx/src/UI/PartUI.fl
+--- zynaddsubfx/src/UI/PartUI.fl	2006-11-01 00:03:01.000000000 +0100
++++ zynaddsubfx/src/UI/PartUI.fl	2007-02-04 18:17:24.000000000 +0100
+@@ -202,9 +202,9 @@
+         callback {int answer=1;
+ if (o->value()==0) answer=fl_choice("Delete the item?","No","Yes",NULL);
+ if (answer!=0){
+-pthread_mutex_lock(&master->mutex);
++pthread_mutex_lock(&master->processMutex);
+  part->setkititemstatus(n,(int) o->value());
+-pthread_mutex_unlock(&master->mutex);
++pthread_mutex_unlock(&master->processMutex);
+ 
+ if (o->value()==0) partkititemgroup->deactivate();
+ else partkititemgroup->activate();
+@@ -243,9 +243,9 @@
+       callback {int answer=1;
+ if (o->value()==0) answer=fl_choice("Delete the item?","No","Yes",NULL);
+ if (answer!=0){
+-pthread_mutex_lock(&master->mutex);
++pthread_mutex_lock(&master->processMutex);
+  part->setkititemstatus(n,(int) o->value());
+-pthread_mutex_unlock(&master->mutex);
++pthread_mutex_unlock(&master->processMutex);
+ 
+ if (o->value()==0) partkititemgroup->deactivate();
+ else partkititemgroup->activate();
+@@ -446,9 +446,9 @@
+       }
+       Fl_Check_Button {} {
+         label Enabled
+-        callback {pthread_mutex_lock(&master->mutex);
++        callback {pthread_mutex_lock(&master->processMutex);
+ master->partonoff(npart,(int) o->value());
+-pthread_mutex_unlock(&master->mutex);
++pthread_mutex_unlock(&master->processMutex);
+ if (part->Penabled==0) partgroupui->deactivate();
+     else partgroupui->activate();}
+         xywh {90 5 75 20} down_box DOWN_BOX labelfont 1 labelsize 11
+@@ -729,9 +729,9 @@
+       }
+       Fl_Button {} {
+         label P
+-        callback {pthread_mutex_lock(&master->mutex);
++        callback {pthread_mutex_lock(&master->processMutex);
+ presetsui->paste(part->partefx[ninseff],inseffectui);
+-pthread_mutex_unlock(&master->mutex);}
++pthread_mutex_unlock(&master->processMutex);}
+         xywh {120 127 25 15} box THIN_UP_BOX color 179 labelfont 1 labelsize 11 labelcolor 7
+       }
+     }
+diff -urN zynaddsubfx/src/UI/VirKeyboard.fl zynaddsubfx/src/UI/VirKeyboard.fl
+--- zynaddsubfx/src/UI/VirKeyboard.fl	2006-10-31 12:13:01.000000000 +0100
++++ zynaddsubfx/src/UI/VirKeyboard.fl	2007-02-04 18:17:24.000000000 +0100
+@@ -183,9 +183,9 @@
+   vel=midivel*(127.0-rndvelocity)/127.0+RND*rndvelocity;
+ };
+ 
+-pthread_mutex_lock(&master->mutex);
++pthread_mutex_lock(&master->processMutex);
+  master->NoteOn(midich,nk+midioct*12,(int)vel);
+-pthread_mutex_unlock(&master->mutex);} {}
++pthread_mutex_unlock(&master->processMutex);} {}
+   }
+   Function {relasekey(int nk,int type)} {} {
+     code {if ((nk<0)||(nk>=N_OCT*12)) return;
+@@ -197,9 +197,9 @@
+ 
+ damage(1);
+ 
+-pthread_mutex_lock(&master->mutex);
++pthread_mutex_lock(&master->processMutex);
+  master->NoteOff(midich,nk+12*midioct);
+-pthread_mutex_unlock(&master->mutex);} {}
++pthread_mutex_unlock(&master->processMutex);} {}
+   }
+   Function {relaseallkeys(int type)} {} {
+     code {for (int i=0;i<N_OCT*12;i++) relasekey(i,type);} {}
+@@ -272,9 +272,9 @@
+         label Cval
+         callback {int ctl=midictl;
+ 
+-pthread_mutex_lock(&master->mutex);
++pthread_mutex_lock(&master->processMutex);
+  master->SetController(virkeys->midich,ctl,(int) o->value());
+-pthread_mutex_unlock(&master->mutex);
++pthread_mutex_unlock(&master->processMutex);
+ virkeys->take_focus();}
+         tooltip {Controller value} xywh {605 10 15 115} type {Vert Fill} box ENGRAVED_BOX selection_color 229 labelsize 8 align 5 minimum 127 maximum 0 step 1 value 64 textsize 7
+       }
+@@ -354,9 +354,9 @@
+       }
+       Fl_Roller pitchwheelroller {
+         label Pwh
+-        callback {pthread_mutex_lock(&master->mutex);
++        callback {pthread_mutex_lock(&master->processMutex);
+  master->SetController(virkeys->midich,C_pitchwheel,-(int) o->value());
+-pthread_mutex_unlock(&master->mutex);
++pthread_mutex_unlock(&master->processMutex);
+ virkeys->take_focus();}
+         tooltip {Pitch Wheel} xywh {625 10 20 95} box PLASTIC_UP_BOX labelsize 8 align 1 when 3 minimum -8192 maximum 8192 step 64
+       }

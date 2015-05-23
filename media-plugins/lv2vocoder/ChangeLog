@@ -1,0 +1,11 @@
+# ChangeLog for media-plugins/lv2vocoder
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  03 Mar 2011; Frieder Buerzele <evermind@tuxfamily.org>
+  lv2vocoder-1.ebuild:
+  fixup libdir
+
+  11 Jan 2008; Marc-Olivier Barre <mobarre@gmail.com> ChangeLog:
+  Added a ChangeLog
+

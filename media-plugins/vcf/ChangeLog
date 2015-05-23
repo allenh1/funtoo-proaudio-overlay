@@ -1,0 +1,10 @@
+# ChangeLog for media-plugins/vcf
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*vcf-0.0.5 (10 Aug 2010)
+
+  10 Aug 2010; Gavin Pryke <gavinlee303@googlemail.com> +vcf-0.0.5.ebuild,
+  +files/vcf-0.0.5-makefile.patch, +metadata.xml:
+  Add vcf to overlay, smack patches for om/ingen use them.
+

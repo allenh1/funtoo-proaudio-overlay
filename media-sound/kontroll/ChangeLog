@@ -1,0 +1,17 @@
+# ChangeLog for media-sound/kontroll
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*kontroll-20130319 (20 Mar 2013)
+
+  20 Mar 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -kontroll-20060925.ebuild, +kontroll-20130319.ebuild,
+  +files/kontroll-20130319-Makefile.patch, -files/Makefile-destdir.patch,
+  metadata.xml:
+  SRC_URI was not found so updated to new snapshot version from github.
+  edit previous patch for cflags and ldflags. use new EAPI and eclasses.
+  repoman cleanup.
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

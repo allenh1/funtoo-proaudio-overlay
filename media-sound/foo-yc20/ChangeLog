@@ -1,0 +1,8 @@
+# ChangeLog for media-plugins/foo-yc20
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*foo-yc20-1.3.0 (01 Feb 2013)
+
+  01 Feb 2013; Dominique Michel <dominique_free@sourceforge.net>
+  +foo-yc20-1.3.0.ebuild: Initial ebuild

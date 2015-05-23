@@ -1,0 +1,2 @@
+move media-libs/serd dev-libs/serd
+move media-libs/sord dev-libs/sord

@@ -1,0 +1,21 @@
+# ChangeLog for media-libs/naspro-bridge-it
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*naspro-bridge-it-0.5.0 (17 Apr 2013)
+
+  17 Apr 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -naspro-bridge-it-0.4.1.ebuild, +naspro-bridge-it-0.5.0.ebuild, metadata.xml:
+  bump. EAPI=5, inherit autotools-utils, new HOMEPAGE, remove no-herd from
+  metadata.xml, remove old.
+
+  09 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  +naspro-bridge-it-0.4.1.ebuild: version bump; changed depend to media-libs/lv2
+  -naspro-bridge-it-0.2.90
+
+*naspro-bridge-it-0.2.90 (20 Apr 2011)
+
+  20 Apr 2011; Gavin Pryke <gavinlee303@googlemail.com>
+  +naspro-bridge-it-0.2.90.ebuild, +metadata.xml:
+  import media-libs/naspro-bridge-it from my overlay
+

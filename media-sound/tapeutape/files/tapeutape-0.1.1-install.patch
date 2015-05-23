@@ -1,0 +1,21 @@
+--- SConstruct.orig	2011-01-04 00:14:55.000000000 +0200
++++ SConstruct	2011-01-04 00:15:12.000000000 +0200
+@@ -88,10 +88,14 @@
+ 		env['LINKCOMSTR'] = "Linking $TARGET"
+ 
+ # INSTALL
+-bin = env.Install('/usr/local/bin', 'tapeutape')
+-desktop = env.Install('/usr/local/share/applications', 'data/tapeutape.desktop')
+-icon = env.Install('/usr/local/share/pixmaps', 'data/tapeutape.png')
+-env.Alias('install', [bin,desktop,icon])
++bin_dir = ARGUMENTS.get('bin_dir', '/usr/local/bin')
++desktop_dir = ARGUMENTS.get('desktop_dir', '/usr/local/share/applications')
++icon_dir = ARGUMENTS.get('icon_dir', '/usr/local/share/pixmaps')
++
++bin = env.Install(bin_dir, 'tapeutape')
++desktop = env.Install(desktop_dir, 'data/tapeutape.desktop')
++icon = env.Install(icon_dir, 'data/tapeutape.png')
++env.Alias('install', [bin_dir, desktop_dir, icon_dir])
+ 
+ # HELP
+ if (optlang=='fr'):

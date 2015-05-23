@@ -1,0 +1,11 @@
+# ChangeLog for media-sound/azr3-jack
+# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  28 Mar 2010; Stephane Angot <sa@hydre.org> azr3-jack-0.1.666.ebuild, azr3-jack-1.0.3.ebuild, azr3-jack-1.2.3.ebuild :
+  version bump
+  corrected an non-ASCII character in DESCRIPTION (from repoman)
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

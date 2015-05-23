@@ -1,0 +1,47 @@
+Subject: [PATCH] honour CC, LDFLAGS, fix install sandbox violation
+
+---
+ Makefile | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index cee2b56..82e23e9 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,4 +1,5 @@
+ PREFIX =	/usr/local
++CC=gcc
+ 
+ CFLAGS +=	$(shell sdl-config --cflags) $(shell pkg-config --cflags jack) -W -Wall -std=gnu99
+ LIBS =		$(shell sdl-config --libs) $(shell pkg-config --libs jack) -lGL -lX11
+@@ -12,23 +13,23 @@ BIN =		jack_oscrolloscope
+ all:		$(BIN)
+ 
+ $(BIN): $(OBJS)
+-		gcc -o $(BIN) $(OBJS) $(LIBS)
++		$(CC) $(LDFLAGS) -o $(BIN) $(OBJS) $(LIBS)
+ 
+ %.o: %.c
+-		gcc -c -o $@ $(CFLAGS) $*.c
++		$(CC) -c -o $@ $(CFLAGS) $*.c
+ 
+ clean:
+ 		rm -f $(BIN) $(OBJS) .dep
+ 
+ install: $(BIN)
+-	/usr/bin/install -m 755 $(BIN) $(PREFIX)/bin
++	/usr/bin/install -Dm 755 $(BIN) $(DESTDIR)/$(PREFIX)/bin/$(BIN)
+ 
+ 
+ dep:
+ 	rm -f .dep; \
+ 	for f in *.c; \
+ 	do \
+-	    gcc -MM $$f $(CFLAGS) >> .dep || exit 1; \
++	    $(CC) -MM $$f $(CFLAGS) >> .dep || exit 1; \
+ 	done
+ 
+ ifeq (.dep,$(wildcard .dep))
+-- 
+1.8.1.5
+

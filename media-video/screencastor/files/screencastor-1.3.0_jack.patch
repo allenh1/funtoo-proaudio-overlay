@@ -1,0 +1,40 @@
+diff -ur screencastor_test.orig/go_screencastor.sh screencastor_test/go_screencastor.sh
+--- screencastor_test.orig/go_screencastor.sh	2013-06-09 18:01:50.000000000 +0200
++++ screencastor_test/go_screencastor.sh	2013-08-11 15:11:56.000000000 +0200
+@@ -191,12 +191,14 @@
+ --combobox='@@_audio_provenance@@col
+ pulse
+ /dev/dsp1
++screencastorjack
+ hw:0,0
+ hw:1,0' \
+ --combobox="@@_pref_liste@@col
+ $(find "${HOME}/.config/screencastor" -iname "*.cfg" -print | sort | sed 's/0Defaut.cfg/Defaut/ ; s@.*/@@')" \
+ --combobox='@@_audio_serveur@@col
+ alsa
++jack
+ oss' \
+ --combobox="@@_video_vpre@@col
+ ${liste_preset}" \
+diff -ur screencastor_test.orig/screencastor.sh screencastor_test/screencastor.sh
+--- screencastor_test.orig/screencastor.sh	2013-06-09 18:01:49.000000000 +0200
++++ screencastor_test/screencastor.sh	2013-08-11 15:13:03.000000000 +0200
+@@ -1292,13 +1292,15 @@
+ case "${G2S_audio_provenance}" in
+ 	0) G2S_audio_provenance=pulse ;;
+ 	1) G2S_audio_provenance=/dev/dsp1 ;;
+-	2) G2S_audio_provenance=hw:0,0 ;;
+-	3) G2S_audio_provenance=hw:1,0 ;;
++	2) G2S_audio_provenance=screencastorjack ;;
++	3) G2S_audio_provenance=hw:0,0 ;;
++	4) G2S_audio_provenance=hw:1,0 ;;
+ esac
+ 
+ case "${G2S_audio_serveur}" in
+ 	0) G2S_audio_serveur=alsa ;;
+-	1) G2S_audio_serveur=oss ;;
++	1) G2S_audio_serveur=jack ;;
++	2) G2S_audio_serveur=oss ;;
+ esac
+ 
+ case "${G2S_langue}" in

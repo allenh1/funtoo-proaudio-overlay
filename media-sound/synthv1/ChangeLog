@@ -1,0 +1,131 @@
+# ChangeLog for media-sound/synthv1
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*synthv1-0.6.2 (01 May 2015)
+
+  01 May 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +synthv1-0.6.2.ebuild:
+  version bump
+
+*synthv1-0.6.1 (26 Mar 2015)
+
+  26 Mar 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -synthv1-0.3.6.ebuild, -synthv1-0.4.0.ebuild, -synthv1-0.4.1.ebuild,
+  -synthv1-0.5.1.ebuild, +synthv1-0.6.1.ebuild, synthv1-9999.ebuild:
+  version bump
+  remove old
+  move to git upstream
+  add qt5 support
+
+*synthv1-0.5.1 (21 Sep 2014)
+  21 SEP 2014; Matt Henley (nwmatt) <nwmatt@gmail.com>
+  +synthv1-0.5.1.ebuild:
+  Version bump.
+
+
+*synthv1-0.4.1 (15 Apr 2014)
+
+  15 Apr 2014; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -synthv1-0.3.3.ebuild, -synthv1-0.3.4.ebuild, -synthv1-0.3.5.ebuild,
+  +synthv1-0.4.1:
+  Version bump.
+  Removed outdated ebuilds.
+
+*synthv1-0.4.0 (08 Mar 2014)
+
+  08 Mar 2014; Matt Henley (nwmatt) <nwmatt@gmail.com>
+  +synthv1-0.4.0.ebuild:
+  Version bump.
+
+*synthv1-0.3.6 (01 Jan 2014)
+
+  01 Jan 2014; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +synthv1-0.3.6.ebuild:
+  Version bump.
+
+*synthv1-0.3.5 (30 Sep 2013)
+
+  30 Sep 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +synthv1-0.3.5.ebuild:
+  Version bump.
+
+*synthv1-0.3.4 (16 Jul 2013)
+
+  16 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -synthv1-0.3.2.ebuild, -synthv1-0.3.2-r1.ebuild, +synthv1-0.3.4.ebuild,
+  synthv1-9999.ebuild:
+  Removed qt4 fix.
+  Version bump.
+  Removed old ebuilds.
+
+  07 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  synthv1-9999.ebuild:
+  Make sure configure finds qt.
+  Update mime database.
+
+*synthv1-0.3.3 (31 May 2013)
+
+  31 May 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +synthv1-0.3.3.ebuild:
+  Version bump.
+
+  05 May 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  synthv1-0.3.2-r1.ebuild, synthv1-9999.ebuild:
+  Restrict mirror.
+
+  04 May 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  synthv1-9999.ebuild:
+  Require jack or lv2 to be built.
+
+  04 May 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  synthv1-0.3.2-r1.ebuild, synthv1-9999.ebuild:
+  Remove reduntant DOCS variable.
+  Require alsa or jackmidi if jack stand-alone client is built.
+
+*synthv1-0.3.2-r1 (04 May 2013)
+
+  04 May 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +synthv1-0.3.2-r1.ebuild, synthv1-9999.ebuild:
+  Use qt4-r2 eclass to respect common variables.
+
+  04 May 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  synthv1-0.3.2.ebuild, synthv1-9999.ebuild:
+  Removed hard-enabled jack USE flag (fixed upstream).
+
+  04 May 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  synthv1-0.3.2.ebuild, synthv1-9999.ebuild:
+  Only raw text in HOMEPAGE.
+  Remove hard-enabled jackmidi use flag (fixed upstream).
+
+  04 May 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  synthv1-0.3.2.ebuild, synthv1-9999.ebuild, metadata.xml:
+  Add more useflags.
+  Force-enable jack and jackmidi use flags.
+  Declare AUTOTOOLS_AUTORECONF before inherit.
+
+  04 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  synthv1-0.3.2.ebuild, synthv1-9999.ebuild:
+  modify depends x11-libs/qt-* -> dev-qt/qt*
+
+*synthv1-0.3.2 (01 Mar 2013)
+
+  01 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -synthv1-0.3.1.ebuild, +synthv1-0.3.2.ebuild:
+  Version bump.
+
+  16 Feb 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  synthv1-0.3.1.ebuild, synthv1-9999.ebuild:
+  Correct configure arguments.
+
+  10 Feb 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  synthv1-0.3.1.ebuild, synthv1-9999.ebuild:
+  Substitute name for name variable. Shorten HOMEPAGE. 
+
+*synthv1-9999 (10 Feb 2013)
+*synthv1-0.3.1 (10 Feb 2013)
+
+  10 Feb 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +synthv1-0.3.1.ebuild, +synthv1-9999.ebuild, +metadata.xml:
+  Initial ebuild
+

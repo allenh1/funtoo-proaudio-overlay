@@ -1,0 +1,42 @@
+# ChangeLog for media-sound/japa
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Apr 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -files/japa-0.1.8-makefile.patch, -files:
+  drop old patch
+
+*japa-0.8.4 (09 Apr 2015)
+
+  09 Apr 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -japa-0.6.0.ebuild, +japa-0.8.4.ebuild:
+  version bump, wrt #192
+  eapi 5
+  update dependencies
+  drop exteutils eclass and use sed directly
+  respect EPREFIX
+
+  04 Jan 2012; Gavin Pryke <gavinlee303@googlemail.com> -japa-0.1.8.ebuild,
+  japa-0.6.0.ebuild, metadata.xml:
+  SRC_URI was 404, changed to upstream links with new HOMEPAGE. drop x86
+  keyword as libclxclient is only ~x86. repoman payments.
+
+  03 Mar 2011; Hakan Demiralp <keenblade@tuxfamily.org> japa-0.6.0.ebuild:
+  japa-0.6.0: src uri is updated. Thx to audiodef at f.g.o.
+
+*japa-0.6.0 (08 Apr 2010)
+
+  08 Apr 2010; Frieder Buerzele <evermind@tuxfamily.org> -japa-0.4.0.ebuild:
+  cleanup
+
+  08 Apr 2010; Florian Faber <faber@faberman.de>;
+  +japa-0.6.0.ebuild:
+  version bump
+
+  11 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  -japa-0.2.1.ebuild, +japa-0.4.0.ebuild:
+  bumped and fixup PREFIX
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

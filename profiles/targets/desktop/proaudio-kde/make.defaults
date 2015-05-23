@@ -1,0 +1,7 @@
+# Copyright 1999-2012 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+# This profile will not install *kit, semantic-desktop and the related programs.
+# Use claws-mail instead of kmail.
+
+USE="alsa -arts audiofile cddb cdparanoia -consolekit declarative dri dssi ffmpeg fftw jack jackmidi ladspa lame lash libsamplerate kde kipi lv2 midi mikmod mms mmx modplug musepack osc phonon plasma -policykit -raptor -raw -redland -semantic-desktop sndfile sse taglib theora threads timidity -udisks -udisks2 unicode -upower twolame vcd wavpack xcomposite xft xinerama xscreensaver -virtuoso"

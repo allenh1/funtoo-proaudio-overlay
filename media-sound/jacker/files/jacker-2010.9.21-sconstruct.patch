@@ -1,0 +1,61 @@
+--- jacker-2010.9.21/SConstruct.old	2010-10-25 12:34:57.000000000 +0100
++++ jacker-2010.9.21/SConstruct	2010-10-25 14:29:11.000000000 +0100
+@@ -76,15 +76,21 @@
+                     "-g",
+                     "-DDEBUG",
+                     "-fno-strict-aliasing",
+-                    "-fwrapv",
++#                    "-fwrapv",
+                     "-Wall",
+                     "-Wno-deprecated",
+-                    '-march=core2', #x86_64: we need to take this out
+-                    '-mfpmath=sse',
+-                    '-msse',
++#                    '-march=core2', #x86_64: we need to take this out
++#                    '-mfpmath=sse',
++#                    '-msse',
+                     '-ffast-math',
+                 ],
+             )
++            if os.environ.has_key('CXX'):
++	        self.Replace(CXX = os.environ['CXX'])
++            if os.environ.has_key('CXXFLAGS'):
++	        self.Append(CXXFLAGS = SCons.Util.CLVar(os.environ['CXXFLAGS']))
++            if os.environ.has_key('LDFLAGS'):
++		self.Append(LINKFLAGS = SCons.Util.CLVar(os.environ['LDFLAGS']))
+     
+     def release(self):
+         if win32():
+@@ -104,19 +110,25 @@
+             self.Append(
+                 CXXFLAGS=[
+                     "-fno-strict-aliasing",
+-                    "-fwrapv",
++#                    "-fwrapv",
+                     "-Wall",
+                     "-Wno-deprecated",
+-                    '-march=core2', #x86_64: we need to take this out
+-                    '-mfpmath=sse',
+-                    '-msse',
+-                    '-O3',
+-                    '-funroll-loops',
+-                    '-fomit-frame-pointer',
++#                    '-march=core2', #x86_64: we need to take this out
++#                    '-mfpmath=sse',
++#                    '-msse',
++#                    '-O3',
++#                    '-funroll-loops',
++#                    '-fomit-frame-pointer',
+                     '-ffast-math',
+                     '-DNDEBUG',
+                 ],
+             )
++            if os.environ.has_key('CXX'):
++	        self.Replace(CXX = os.environ['CXX'])
++            if os.environ.has_key('CXXFLAGS'):
++	        self.Append(CXXFLAGS = SCons.Util.CLVar(os.environ['CXXFLAGS']))
++            if os.environ.has_key('LDFLAGS'):
++		self.Append(LINKFLAGS = SCons.Util.CLVar(os.environ['LDFLAGS']))
+ 
+     def install(self, target, source, perm=None):
+         if self['IDDQD']:

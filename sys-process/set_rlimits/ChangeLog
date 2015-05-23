@@ -1,0 +1,15 @@
+# ChangeLog for sys-process/set_rlimits
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  19 Jun 2010; Frieder Buerzele <evermind@tuxfamily.org>
+  set_rlimits-1.3.0.ebuild:
+  cleanup ebuilds
+
+  30 Sep 2008; Frieder Buerzele <evermind@tuxfamily.org;
+  -set_rlimits-1.2.0.ebuild, +set_rlimits-1.3.0.ebuild:
+  bumped
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

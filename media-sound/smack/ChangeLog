@@ -1,0 +1,15 @@
+# ChangeLog for media-sound/smack
+# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  27 Mar 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
+  smack-0.2.1.ebuild, smack-0.3.ebuild, smack-9999.ebuild: changed
+  media-plugins/om depend to media-plugins/ingen, converted to EAPI=5
+  smack-0.3.ebuild, smack-9999.ebuild: changed media-plugins/omins depend
+  to media-plugins/omins-9999.ebuild;
+  removed non needed files dir
+
+  16 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> smack-0.2.1.ebuild,
+  smack-0.3.ebuild, smack-9999.ebuild:
+  added SLOT
+

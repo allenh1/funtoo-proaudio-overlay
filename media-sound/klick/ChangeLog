@@ -1,0 +1,23 @@
+# ChangeLog for media-sound/klick
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  01 Dec 2014; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  klick-0.12.2.ebuild:
+  stabilize for amd64
+  fix HOMEPAGE
+
+  20 Jun 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  klick-0.12.2.ebuild:
+  No longer depend on media-libs/liblo[threads] (USE flag is removed)
+
+  13 Jun 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  klick-0.12.2.ebuild:
+  dependency on media-libs/liblo[threads]
+
+*klick-0.12.2 (25 Mar 2013)
+
+  25 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +klick-0.12.2.ebuild, +files/klick-0.12.2-sconstruct.patch, +metadata.xml:
+  Initial ebuild. Thanks to goatee for the inclusion request.
+

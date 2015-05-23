@@ -1,0 +1,74 @@
+# ChangeLog for sys-process/rtirq
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*rtirq-20140413 (26 Nov 2014)
+
+  26 Nov 2014; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -rtirq-20130909.ebuild, +rtirq-20140413.ebuild:
+  version bump
+
+*rtirq-20130909 (26 Oct 2013)
+
+  26 Oct 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -rtirq-20130402.ebuild, +rtirq-20130909.ebuild:
+  Version bump.
+  EAPI 5.
+  Updated the information message.
+  Thanks to Allan Klinbail for the report.
+
+*rtirq-20130402 (13 Apr 2013)
+
+  13 Apr 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -rtirq-20121105.ebuild, +rtirq-20130402.ebuild:
+  Version bump.
+
+*rtirq-20121105 (27 Jan 2013)
+
+  27 Jan 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -rtirq-20120505.ebuild, +rtirq-20121105.ebuild:
+  Remove obsolete ebuild and add new version.
+
+*rtirq-20120505 (22 May 2012)
+
+  22 May 2012; Hakan Demiralp <keenblade@tuxfamily.org> -rtirq-20111007.ebuild,
+  +rtirq-20120505.ebuild, metadata.xml:
+  rtirq-20120505.ebuild: version bump. Thanks to naelolaiz wrt bug
+  #127
+
+*rtirq-20111007 (21 Jan 2012)
+
+  21 Jan 2012; Frieder Buerzele <evermind@tuxfamily.org>
+  -rtirq-20090920.ebuild, +rtirq-20111007.ebuild:
+  bumped
+
+*rtirq-20090920 (17 May 2010)
+
+  17 May 2010; Viktor Lazarev <taurus101v@gmail.com>
+  -rtirq-20050914-r2.ebuild, -files/rtirq-20050914-v0.1.bz2,
+  -rtirq-20060218-r1.ebuild, -rtirq-20060819-r1.ebuild,
+  -rtirq-20070101.ebuild, -rtirq-20071012.ebuild, -rtirq-20090131.ebuild,
+  +rtirq-20090920.ebuild, -files/pidof_workaround.patch,
+  -files/rt-initscript.gz, -files/rtirq-quick_fix.patch,
+  -files/rtirq-quick_fix2.patch:
+  version bump, change SRC_URI, move to EAPI2, delete old ebuils & files
+
+*rtirq-20090131 (03 Mar 2009)
+
+  03 Mar 2009; Frieder Buerzele <evermind@tuxfamily.org
+  +rtirq-20090131.ebuild:
+  bumped
+
+  14 Oct 2008; Frieder Buerzele <evermind@tuxfamily.org
+  rtirq-20071012.ebuild:
+  use fullstatus to see whats going on
+
+  13 Oct 2008; Frieder Buerzele <evermind@tuxfamily.org;
+  rtirq-20050914-r2.ebuild, rtirq-20060218-r1.ebuild,
+  rtirq-20060819-r1.ebuild, rtirq-20070101.ebuild, +rtirq-20071012.ebuild:
+  fixup QA messages,
+  include fix to work with different kernels (thx Steve and Dominique)
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

@@ -1,0 +1,21 @@
+# ChangeLog for media-libs/liblscp
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  03 Apr 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  liblscp-9999.ebuild:
+  merge doc install fixes and description from portage. inherit autotools-utils.
+
+  30 Mar 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
+  liblscp-9999.ebuild: Updated to EAPI=5; use portage autotools eclass;
+  cleanup
+
+  10 May 2012; Hakan Demiralp <keenblade@tuxfamily.org> liblscp-9999.ebuild:
+  liblscp-9999: ebuild updated. Thanks to Natanael
+
+  02 Sep 2010; Viktor Lazarev <taurus101v@gmail.com> liblscp-9999.ebuild:
+  brushed up
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

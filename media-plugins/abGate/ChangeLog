@@ -1,0 +1,16 @@
+# ChangeLog for media-plugins/abGate
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*abGate-1.1.6 (17 Apr 2013)
+
+  17 Apr 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -abGate-1.1.3.ebuild, +abGate-1.1.6.ebuild,
+  +files/abGate-1.1.6-Makefile.patch, metadata.xml:
+  bump, respect LDFLAGS by calling eqmake4 and patching out of Makefile, also
+  patch CXX/CXXFLAGS, workaround multilib-strict, remove no-herd from
+  metadata.xml.
+
+  10 Nov 2912; Dominique Michel <dominique_libre@sourceforge.net>
+  Added a ChangeLog
+  abGate-1.1.3.ebuild: added depend to media-libs/lv2

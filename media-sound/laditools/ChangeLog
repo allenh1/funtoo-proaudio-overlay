@@ -1,0 +1,69 @@
+# ChangeLog for media-sound/laditools
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*laditools-1.0.1-r3 (01 Dec 2013)
+
+  01 Dec 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -laditools-1.0.1-r1.ebuild, +laditools-1.0.1-r3.ebuild,
+  -laditools-9999.ebuild, laditools-9999-r1.ebuild:
+  Introduce a small hack to remove wmladi no matter how the python 
+  wrappings work. Thanks to Zlobin Nikita for reporting the issue.
+  Removed old ebuilds.
+  Update DESCRIPTION and HOMEPAGE.
+  PYTHON_REQUIRED_USE in REQUIRED_USE.
+  Use slots for more accurate dependencies.
+  Some ordering (alphabetically).
+
+  31 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -laditools-1.0.ebuild, -laditools-1.0_rc1.ebuild:
+  Removed very old ebuilds.
+
+*laditools-9999-r1 (31 Mar 2013)
+*laditools-1.0.1-r2 (31 Mar 2013)
+
+  31 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +laditools-1.0.1-r2.ebuild, +laditools-9999-r1.ebuild:
+  Depend on the USE flags to ensure the correct implementation is used.
+  Drop dependency on dev-lang/python it is handled by distutils-r1.
+
+  26 Mar 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
+  -laditools-1.0.1.ebuild
+  +laditools-1.0.1-r1.ebuild
+  laditools-9999.rbuild, laditools-1.0.1-r1.ebuild: added missing depend for
+  window maker dock app and related USE flag.
+  laditools-1.0.ebuild: changed KEYWORD to ~x86 (repoman)
+
+  29 Jan 2013; Nedko Arnaudov <nedko@arnaudov.name> laditools-1.0.ebuild:
+  Make laditools-1.0 depend on wmdocklib
+
+  wmdocklib is used by wmladi
+
+  28 Dec 2012; Dominique Michel <dominique_libre@users.sourceforge.net>
+  Import from the ladi overlay
+  
+  26 Dec 2012; Karl Lindén <lilrc@users.sourceforge.net>
+  laditools-1.0_rc8-ebuild, laditools_1.0.1.ebuild, laditools-9999.ebuild:
+  Replace deprecated python-distutils-ng with python-r1 + distutils-r1
+  Fix dependency on pygobject
+
+  09 Dec 2012; Karl Lindén <lilrc@users.sourceforge.net>
+  +laditools-1.0.1.ebuild, +laditools-1.0_rc8.ebuild, laditools-9999.ebuild
+  +files/laditools-1.0_rc8-rsvg.patch:
+  Updated ebuilds
+    Use EAPI 5
+    Use python-distutils-ng instead of python and distutils
+    Updated dependencies
+  Updated copyright notices
+
+  28 Dec 2008; Marc-Olivier Barre <marco@marcochapeau.org>
+  laditools-9999.ebuild now depends on dev-python/pyyaml
+
+  27 Dec 2008; Marc-Olivier Barre <marco@marcochapeau.org>
+  laditools-9999.ebuild now uses the git repository
+  no more pyxml dependency
+
+  15 Dec 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  +laditools-1.0_rc1.ebuild:
+  initial ebuild
+

@@ -1,0 +1,18 @@
+# ChangeLog for media-libs/libgig
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  03 Apr 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  libgig-9999.ebuild, metadata.xml:
+  make use of autotools-utils eclass; ready for autotools-multilib if needed.
+  repoman cleanup.
+
+  10 May 2012; Hakan Demiralp <keenblade@tuxfamily.org> libgig-9999.ebuild:
+  libgig-9999: ebuild updated. Thanks to Natanael
+
+  02 Sep 2010; Viktor Lazarev <taurus101v@gmail.com> libgig-9999.ebuild:
+  brushed up
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

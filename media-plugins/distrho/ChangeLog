@@ -1,0 +1,20 @@
+# ChangeLog for media-plugins/distrho
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  04 Mar 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  distrho-20120518.ebuild:
+  modify qt4 deps from x11-libs/qt* to dev-qt/
+  add missing dep sys-apps/findutils for prepare phase
+
+*distrho-20120518 (01 Nov 2012)
+
+  01 Nov 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  +distrho-20120518.ebuild, +files/distrho-20120518-verbose-makefiles.patch,
+  +metadata.xml:
+  Initial import. Attempted to merge my ebuild and the one created thanks to
+  Tina Cochet. Added patch for verbose makefiles and tried to sed out the
+  forced compiler flags and stripping. premake dep forced to 3.7 as this is
+  the only premake version that I could get distrho to build with, see bug
+  #435744. Big source package so no doubt needs more review/testing.
+

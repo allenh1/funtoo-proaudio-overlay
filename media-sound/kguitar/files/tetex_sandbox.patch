@@ -1,0 +1,11 @@
+--- a/configure.orig	2005-03-28 14:35:10.000000000 +0200
++++ b/configure	2006-04-14 15:32:26.982220606 +0200
+@@ -32274,7 +32274,7 @@
+ 	else
+ 		echo "$as_me:$LINENO: checking for TeTeX directory" >&5
+ echo $ECHO_N "checking for TeTeX directory... $ECHO_C" >&6
+-		TEXMF="`kpsetool -v '$TEXMF' | sed 's/!//g'`"
++    		TEXMF="`kpsetool -v '$TEXMF' | sed 's/.*!!//; s/}$//'`"
+ 		echo "$as_me:$LINENO: result: found in $TEXMF" >&5
+ echo "${ECHO_T}found in $TEXMF" >&6
+ 		INSTALLKGTABS="install-kgtabs"

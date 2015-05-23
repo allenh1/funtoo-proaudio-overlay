@@ -1,0 +1,15 @@
+# ChangeLog for media-libs/vst-sdk
+# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  13 Mob 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  +vst-sdk-2.3-r4.ebuild: renamed the license according to glep-0023;
+  removed the outdated and non working check_license stuff (use ACCEPT_LICENSE in
+  /etc/make.conf instead)
+
+  22 Dec 2007; Frieder Buerzele <evermind@tuxfamily.org> ChangeLog:
+  small enhancements
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

@@ -1,0 +1,35 @@
+# ChangeLog for media-sound/jost
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  30 Mar 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
+  jost-0.5.2.ebuild, jost-0.5.4.ebuild: updated dev-util/premake DEPEND
+  to slot 3
+  
+  20 Nov 2012; Karl Lindén (lilrc) <spray.sucks@gmail.com>
+  jost-0.4.5.ebuild, jost-0.5.2.ebuild, jost-0.5.4.ebuild:
+  Updated EAPI from 1 to 3.
+
+  19 Nov 2012; Karl Lindén (lilrc) <spray.sucks@gmail.com>
+  jost-0.4.5.ebuild, jost-0.5.2, jost-0.5.4.ebuild:
+  Minor cleanup that made repoman less unhappy.
+  Removed libX11-checks; libX11 does no longer have the use flag "xcb" 
+
+  24 Aug 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  jost-0.4.6.ebuild, jost-0.5.2.ebuild, jost-0.5.4.ebuild, +files/jost.xpm,
+  -files/jost.png:
+  replace png with xpm in FILESDIR
+
+  16 Mar 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  +files/jost-0.4.6-elf_i386.patch, +jost-0.4.6.ebuild:
+  bump Jost, broken on amd64 now
+
+  24 Feb 2008; Thomas Kuther <gimpel@sonnenkinder.org> +jost-0.4.4.ebuild:
+  version bump, new build procedure
+
+  08 Jan 2008; Thomas Kuther <gimpel@sonnenkinder.org> jost-0.4.3-r1.ebuild:
+  add libxcb checks/warnings/notes
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

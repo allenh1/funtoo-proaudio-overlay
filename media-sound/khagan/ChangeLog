@@ -1,0 +1,18 @@
+# ChangeLog for media-sound/khagan
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*khagan-0.1.2-r2 (20 Apr 2013)
+
+  20 Apr 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -khagan-0.1.2-r1.ebuild, +khagan-0.1.2-r2.ebuild,
+  +files/khagan-0.1.2-missing-xml-dom-ext.patch, metadata.xml:
+  update for distutils-r1, workaround collision with khagan, add patch to
+  workaround missing xml.dom.ext python module
+
+  28 Jul 2012; Dominique Michel <dominique@tuxfamily.org>
+  khafan-0.1.2-r1: fixed EAPI usage, fixed python version
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

@@ -1,0 +1,110 @@
+# ChangeLog for media-sound/samplv1
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*samplv1-0.6.2 (01 May 2015)
+
+  01 May 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +samplv1-0.6.2.ebuild:
+  version bump
+
+*samplv1-0.6.1 (26 Mar 2015)
+
+  26 Mar 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -samplv1-0.3.6.ebuild, -samplv1-0.4.0.ebuild, -samplv1-0.4.1.ebuild,
+  -samplv1-0.5.1.ebuild, +samplv1-0.6.1.ebuild, samplv1-9999.ebuild:
+  version bump
+  remove old
+  fix HOMEPAGE
+  move to git upstream
+  add qt5 support
+
+*samplv1-0.5.1 (21 Sep 2014)
+
+  21 Sep 2014; Matt Henley (nwmatt) <nwmatt@gmail.com>
+  +samplv1-0.5.1.ebuild:
+  Version bump.
+
+*samplv1-0.4.1 (15 Apr 2014)
+
+  15 Apr 2014; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -samplv1-0.3.3.ebuild, -samplv1-0.3.4.ebuild, -samplv1-0.3.5.ebuild,
+  +samplv1-0.4.1.ebuild:
+  Version bump.
+  Remove outdated ebuilds.
+
+*samplv1-0.4.0 (08 Mar 2014)
+
+  08 Mar 2014; Matt Henley (nwmatt) <nwmatt@gmail.com>
+  +samplv1-0.4.0.ebuild:
+  Version bump.
+
+*samplv1-0.3.6 (01 Jan 2014)
+
+  01 Jan 2014; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +samplv1-0.3.6.ebuild:
+  Version bump.
+
+*samplv1-0.3.5 (30 Sep 2013)
+
+  30 Sep 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +samplv1-0.3.5.ebuild:
+  Version bump.
+
+*samplv1-0.3.4 (16 Jul 2013)
+
+  16 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -samplv1-0.3.2.ebuild, -samplv1-0.3.2-r1.ebuild, +samplv1-0.3.4.ebuild,
+  samplv1-9999.ebuild:
+  Version bump.
+  Removed qt4 fix.
+  Removed old ebuilds.
+
+  07 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  samplv1-9999.ebuild:
+  Make sure configure finds qt.
+  Update mime database.
+
+*samplv1-0.3.3 (31 May 2013)
+
+  31 May 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +samplv1-0.3.3.ebuild:
+  Version bump.
+
+  05 May 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  samplv1-0.3.2-r1.ebuild, samplv1-9999.ebuild:
+  Restrict mirror.
+
+  04 May 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  samplv1-9999.ebuild:
+  Require jack or lv2 to be enabled.
+  Only require midi (alsa or jackmidi) support if jack is built.
+
+*samplv1-0.3.2-r1 (04 May 2013)
+
+  04 May 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  samplv1-0.3.2.ebuild, +samplv1-0.3.2-r1.ebuild, samplv1-9999.ebuild,
+  metadata.xml:
+  Only raw text in HOMEPAGE.
+  Declare AUTOTOOLS_AUTORECONF before inherit.
+  Add more USE flags.
+  Remove redundant DOCS variable.
+  Use qt4-r2 eclass to respect common variables.
+
+  08 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  samplv1-0.3.2.ebuild, samplv1-9999.ebuild:
+  modify depends x11-libs/qt-* -> dev-qt/qt*
+
+*samplv1-0.3.2 (01 Mar 2013)
+
+  01 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -samplv1-0.3.1.ebuild, +samplv1-0.3.2.ebuild:
+  Version bump.
+
+*samplv1-9999 (16 Feb 2013)
+*samplv1-0.3.1 (16 Feb 2013)
+
+  16 Feb 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +samplv1-0.3.1.ebuild, +samplv1-9999.ebuild, +metadata.xml:
+  Initial ebuild.
+

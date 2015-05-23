@@ -1,0 +1,142 @@
+# ChangeLog for app-portage/euses
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+TODO: Add a reading pipe to obtain a (list of) string(s).
+TODO: With that pipe, implement the option of stripping only the USE flags
+TODO:	from emerge -p and then do the usual stuff.
+TODO: (Optionally) highlight STRING in DESC (when -c).
+TODO: Additionally search profiles.desc.
+TODO: Build a struct with line numbers and all elements of a description
+TODO:   and build a database of matching lines before doing any output.
+
+*euses-2.5.9-r1 (04 Jan 2013)
+
+  04 Jan 2013; Frieder Buerzele <evermind@tuxfamily.org>
+  -euses-2.5.5-r1.ebuild, +euses-2.5.9-r1.ebuild:
+  overlay patches adjusted to new version
+
+  04 May 2010; Viktor Lazarev <taurus101v@gmail.com> euses-2.5.5-r1.ebuild:
+  repoman payment
+
+2.5.5 - 2008-08-25
+	Few bugfixes: Close file descriptors after use. Adhere to custom
+	LDFLAGS in Makefile (bug #237070).
+
+2.5.4 - 2006-12-08
+	Minor enhancements (changed snprintf to strncpy here and there).
+
+2.5.3 - 2006-11-24
+	Fixed build / use problems on BSD (gentoo bug #140321)..
+
+2.5.2 - 2006-11-22
+	Corrected some major errors in the getportdir() code. This will help
+	euses not segfault so much. Also built in a sanity check: if PORTDIR
+	is not a directory, it defaults to /usr/portage.
+
+2.5.1 - 2006-11-20
+	Fixed most of the problems for Gentoo/Alt as reported in bug #140321.
+
+	Improved check for lines that are comments.
+
+2.5.0 - 2006-11-18
+	Implemented the beginnings of a --pedantic mode.
+	
+	Changed a lot of the command line options around, notably removing
+	--local and --global in favour of printing the filename in the output
+	through the --verbose option. Implemented this because the number of
+	*.desc files has grown enormously: with this release everything in
+	PORTDIR/profiles/{,desc/}*.desc can be searched as well through the
+	--allfiles -A option. Without -A, only use.{,local.}desc are searched.
+
+	I also added a $(which bash) check to Makefile.in to find the bash
+	executable whereever it happens to be, /usr/local/bin/bash for
+	example.
+
+	I masked profiles.desc as it doesn't use a proper format and since I
+	started globbing for all {,desc/}*.desc files.
+	
+	In other news, I removed the PHP script. It's silly. :)
+
+	Cleaned up the code a lot. It's reasonably legible now.
+
+2.5.0_pre2 - 2006-02-02
+	Added -S, --strip, which makes euses take output from emerge, like
+	ipv6* -gtk -qt% (and even old-style <+flag>) and strips that annoying
+	punctuation. Users can simply copy and paste what emerge says after
+	something like `euses -cS` and euses will explain the USE flags
+	without any need to remove all that fluff. I also made euses bail out
+	in case of conflicting USE flags, like --strict with --ignorecase or
+	--allfields, before it goes on the hunt for combinations that cannot,
+	nay should not exist.
+
+2.5.0_pre1 - 2006-02-01
+	Added -L, --language to enable searching lang.desc and -A, --allfiles
+	to enable searching all of use[.local].desc and lang.desc. Updated the
+	man page and usage output to reflect that but didn't alter euses.php
+	yet. CAREFUL: The -a, --all long option lost its meaning and was changed
+	to --allfields.
+
+2.4.3 - 2006-01-03
+	Fixes a bug where a stale pkg string was printed inadvertently before
+	a UD line.
+
+2.4.2 - 2005-11-19
+	Submitted as bug 113017 <http://bugs.gentoo.org/113017>.
+
+2.4.2 - 2005-11-11
+	Added -s, --strict option to match only complete fields (package,
+	flag, description).
+
+2.4.1 - 2005-11-07
+	Changed -n, --noformat to -F, --format and changed the behaviour
+	accordingly: the prefixes are now a true option as they should be.
+
+2.4.0 - 2005-11-06
+	Changed the code so that UD and ULD are only opened and closed once.
+
+2.3.9 - 2005-11-01
+	Fixed some formatting errors in the usage() output.
+	Improved the PHP page to look up the euses version itself.
+
+2.3.8 - 2005-10-28
+	Fixed the issue where I had forgotten to reimplement -n, --noformat,
+	and had no prefixes at all except for 'X', so that the PHP script was
+	broken as well. 8-)
+	Updated the PHP file with form options for the new search options.
+
+2.3.7 - 2005-10-27
+	Implemented -i, --ignorecase: case-insensitive search. Will still
+	default to sensitive search as the user is expected to know the flag,
+	not probe for a flag, even though -f, --flag is now implemented as
+	well along with -d, --description and -a, --all and -p, --package.
+	Which is nice...
+
+2.3.6 - 2005-10-27
+	Finally got ahead with the string search replacements... Now to
+	implement them in said version. <-- Done
+	Went on to implement only packages, only descriptions or full lines.
+	Code is a lot cleaner now with just a couple of functions left.
+
+2.3.5 - 2005-10-24
+	Changed some of the externals quite a bit: I dropped the isatty()
+	stuff and now just check for the -c option. *sigh of relief*
+	Updated the man page.
+	Promised to start checking for the NOCOLOR variable soon.
+	Cleaned up the mess. ;)
+	Changed versioning scheme to a.b.c.
+
+2.3.* - <2005-10-24
+	Replaced all the ugly strncat()s with sprintf()s.
+
+2.3 - 2005-10-*
+	lol - This one made it into Portage!
+	As to all the previous versions, I never bothered to write a ChangeLog
+	entry for any of them. *shrug*
+
+  30 Sep 2008; Frieder Buerzele <evermind@tuxfamily.org;
+  -files/08-remove-redundant-code.patch, -euses-2.5.4-r3.ebuild,
+  +euses-2.5.5-r1.ebuild, -files/euses-overlay-patches-2.tar.gz,
+  -files/euses-overlay-patches.tar.gz:
+  respin overlay aware patches against 2.5.5
+

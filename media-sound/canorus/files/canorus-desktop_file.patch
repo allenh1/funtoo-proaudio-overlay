@@ -1,0 +1,18 @@
+--- canorus.desktop.orig	2012-07-26 22:47:56.000000000 +0200
++++ canorus.desktop	2012-07-26 22:53:36.000000000 +0200
+@@ -1,5 +1,5 @@
+ [Desktop Entry]
+-Encoding=UTF-8
++Version=1.0
+ Name=Canorus
+ GenericName=Music score editor
+ GenericName[sl]=Program za pisanje not
+@@ -9,6 +9,6 @@
+ Icon=canorus
+ Terminal=false
+ Type=Application
+-Categories=Application;AudioVideo;
++Categories=AudioVideo;Audio;AudioVideoEditing;MIDI;
+ StartupNotify=true
+-MimeType=application/x-notes
++MimeType=application/x-notes;

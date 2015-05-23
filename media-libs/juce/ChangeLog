@@ -1,0 +1,34 @@
+# ChangeLog for media-libs/juce
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+
+*juce-1.53 (01 Jan 2014)
+  01 Jan 2014; Xavier Miller <alchemist@tuxfamily.org>: added introjucer
+	USE flag and build ; filtered "-march=native" CFLAGS + add needed
+	libraries in the Makefiles
+
+  12 Dec 2013; Xavier Miller <alchemist@tuxfamily.org>: don't patch if USE=-jucer
+
+  11 Dec 2013; Xavier Miller <alchemist@tuxfamily.org>: fixed multilib 
+  and jucer builds
+
+  10 Dec 2013; Xavier Miller <alchemist@tuxfamily.org>: changed SRC_URI to
+  GittHub release tags; fixed dependencies for ~amd64 (removed the
+  emul-linux dep)
+
+  24 Jan 2012; Willy <willy@tuxfamily.org> -juce-1.31.ebuild,
+  -files/juce-1.31-gcc-4.1.patch, -files/juce-1.31-vorbis_header.patch,
+  -juce-1.35.ebuild, -juce-1.40.ebuild, -juce-1.41.ebuild, -juce-1.44.ebuild,
+  -juce-1.45.ebuild, -juce-1.46.ebuild, +juce-1.53.ebuild, metadata.xml:
+  remover old, add new ebuild
+
+  16 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> juce-1.45.ebuild:
+  make jucer and demo optional, remove unneeded headers
+
+  15 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> +juce-1.45.ebuild:
+  version bump. also link a 32bit libjuce for multilib
+
+  15 Dec 2007; <tom@gentoo.org> +juce-1.45.ebuild:
+  version bump. also link a 32bit libjuce for multilib
+

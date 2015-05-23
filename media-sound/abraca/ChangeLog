@@ -1,0 +1,39 @@
+# ChangeLog for media-sound/abraca
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  30 Mar 2013; Dominique Michel ydominique_libre@users.sourceforge.net>
+  abraca-9999.ebuild: changed dev-libs/libgee depend to slot 0
+
+  29 Dec 2012; Dominique Michel <dominique_libre@users.sourceforge.net>
+  abraca-9999.ebuild: changed build system to waf
+
+  29 Nov 2012; Dominique Michel <dominique_libre@users.sourceforge.net>
+  -abraca-0.4.3.ebuild, -files/abraca-0.4.3-site_init.patch
+  abraca-9999.ebuild: updated to git-2 eclass, updated HOMEPAGE and EGIT_REPO_URI,
+  added pkg_setup for correct handling of VALAC, updated DEPENDS
+
+  23 Oct 2010; Gavin Pryke <gavinlee303@googlemail.com>
+  -abraca-0.2-r1.ebuild, -abraca-0.3.ebuild, abraca-0.4.3.ebuild,
+  abraca-9999.ebuild:
+  add RESTRICT=mirror. misc minor syntax fixes. remove ancient ebuilds.
+  not tested. needs a version bump, 0.5.0 is out.
+
+*abraca-0.4.3 (13 Mar 2010)
+
+  13 Mar 2010; Frieder Buerzele <evermind@tuxfamily.org>
+  +abraca-0.4.3.ebuild, +files/abraca-0.4.3-site_init.patch:
+  bumped
+
+  26 Jul 2008; Thomas Kuther <gimpel@sonnenkinder.org> +abraca-9999.ebuild:
+  add git ebuild
+
+  28 May 2008; Thomas Kuther <gimpel@sonnenkinder.org> +abraca-0.3.ebuild:
+  version bump
+
+  14 Dec 2007; Marc-Olivier Barre <mobarre@gmail.com> ChangeLog:
+  created an initial ChangeLog
+
+  14 Dec 2007; Marc-Olivier Barre <mobarre@gmail.com> abraca-0.2-r1.ebuild:
+  ebuild taken from the x4x-portage overlay
+

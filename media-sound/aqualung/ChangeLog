@@ -1,0 +1,45 @@
+# ChangeLog for media-sound/aqualung
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  01 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  aqualung-9999.ebuild:
+  Define autotools variables before inherit.
+  Reorded inherits (alphabetically).
+  Correct SVN repository URI.
+  Correct homepage.
+
+  04 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  aqualung-9999.ebuild:
+  Remove versioned dependency on libcdio, issue fixed upstream
+
+  20 Jan 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  aqualung-9999:
+  added EAPI
+  added desktop entry with icon
+  replaced revision-hack with cleaner code
+  fixed use flags (+lame, +encode, -mp3; corrected non-working ones)
+  added versioned dependency on <dev-libs/libcdio-0.90
+  cleanup
+
+  21 Sep 2012; Hakan Demiralp <keenblade@tuxfamily.org> aqualung-9999.ebuild:
+  aqualung-9999: alsa and musepack deps fixed
+
+  03 May 2011; Hakan Demiralp <keenblade@tuxfamily.org aqualung-9999.ebuild:
+  aqualung also works with libav, so switching to virtual/ffmpeg
+
+  30 Aug 2010; Hakan Demiralp <keenblade@tuxfamily.org aqualung-9999.ebuild,
+  metadata.xml:
+  fixed invalid useflags. Ebuild is updated by referencing from portage one
+
+  15 Jul 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  +files/new-ffmpeg-headers.patch, aqualung-9999.ebuild:
+  fix for ffmpeg headers
+
+  24 Feb 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  aqualung-9999.ebuild:
+  updated ebuid (thx Maarten Maathuis)
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer>
+		<email>proaudio@tuxfamily.org</email>
+		<name>pro-audio overlay team</name>
+	</maintainer>
+	<longdescription lang="en">
+A set C++ wrappers around the LV2 C API.
+The included libraries ease writing LV2 plugins and UIs in C++ by inheriting from easy to use template classes.
+	</longdescription>
+	<use>
+		<flag name="tools">Build tools</flag>
+		<flag name="ui">Build UI libraries</flag>
+	</use>
+</pkgmetadata>

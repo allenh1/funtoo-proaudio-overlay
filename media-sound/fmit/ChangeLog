@@ -1,0 +1,29 @@
+# ChangeLog for media-sound/fmit
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  04 Mar 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  fmit-0.99.2.ebuild, fmit-9999.ebuild:
+  modify depends x11-libs/qt-* -> dev-qt/
+
+*fmit-0.99.2 (17 Oct 2012)
+
+  17 Oct 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  +fmit-0.99.2.ebuild, fmit-9999.ebuild, metadata.xml:
+  add 0.99.2. freshen live ebuild, remove redundant qt4 inherit: it's not in
+  tree any more and spews error.
+
+  17 Jun 2012; Dominique Michel <dominique@tuxfamily.org> Oops:
+  qt4 eclass instead of kde eclass.
+
+  17 Aor 2011; Dominique Michel <dominique@tuxfamily.org> Fixed merge with kde eclass
+
+*fmit-9999 (27 Jan 2011)
+
+  27 Jan 2011; Gavin Pryke <gavinlee303@googlemail.com> -fmit-0.97.6.ebuild,
+  +fmit-9999.ebuild:
+  remove older Qt3 ebuild and add cmake based live cvs version for Qt4
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

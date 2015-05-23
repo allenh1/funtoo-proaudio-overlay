@@ -1,0 +1,35 @@
+# ChangeLog for media-libs/lvtk
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*lvtk-1.1.1 (03 Nov 2013)
+
+  03 Nov 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +lvtk-1.1.1.ebuild:
+  Version bump. Thanks to Matt Henley for reporting.
+
+  28 Apr 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  lvtk-1.1.0.ebuild, lvtk-9999.ebuild:
+  Do not fix documentation install directory if documentation is not built.
+  Graphviz is needed to build docs (the dot program is needed).
+
+*lvtk-9999 (28 Apr 2013)
+*lvtk-1.1.0 (28 Apr 2013)
+
+  28 Apr 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -lvtk-1.0.4.ebuild, +lvtk-1.1.0.ebuild, +lvtk-9999.ebuild, metadata.xml:
+  Version bump and removed old ebuild.
+  Added live ebuild.
+  Python is only needed at build time.
+  Added USE flags.
+  Added workaround for unrespected docdir.
+
+*lvtk-1.0.4 (02 Feb 2013)
+
+  03 Feb 2913; Dominique Michel <dominique.michel@sourceforge.net>
+  lvtk-1.0.4.ebuild: changed SRC_URI to overlay's distfiles
+
+  02 Feb 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +lvtk-1.0.4.ebuild, +metadata.xml:
+  Initial ebuild
+

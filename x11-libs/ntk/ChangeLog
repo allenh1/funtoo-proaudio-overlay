@@ -1,0 +1,34 @@
+# ChangeLog for x11-libs/ntk
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  29 Nov 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -ntk-9999.ebuild:
+  Removed old python eclass ebuild.
+
+*ntk-9999-r1 (31 Jul 2013)
+
+  31 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +ntk-9999-r1.ebuild, +files/ntk-9999-noldconfig-r1.patch,
+  +files/ntk-9999-nooptimize.patch:
+  Added patch to not add optimization flags to the build system.
+  Migrarted to python-any-r1 eclass.
+  Updated DESCRIPTION, HOMEPAGE and LICENSE.
+  Restrict test.
+  Add opengl and png USE flags.
+  Fixed dependencies.
+
+  11 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  ntk-9999.ebuild, +files/ntk-9999-noldconfig.patch, metadata.xml:
+  Update EAPI.
+  Fix python_pkg_setup.
+  Added patch to not call ldconfig from within src_install. (This is 
+  handled by portage)
+  Cleanup.
+  Remove no-herd from metadata.xml.
+
+  18 Nov 2012: Dominique Michel <dominique_libre@sourceforgen.net>
+  ntk-9999.enuild: waf szpport from Tina Cochet's ebuild with some cleanup
+
+  04 Nov 2012: Dominique Michel <dominique_libre@sourceforgen.net> Initial ntk ebuild
+  +ntk-9999.enuild: From Tina Cochet's ebuild with some clean-up

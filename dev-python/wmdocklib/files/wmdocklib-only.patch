@@ -1,0 +1,25 @@
+--- setup.py	2009-11-15 04:37:53.000000000 +0200
++++ setup.py	2009-11-15 04:42:43.000000000 +0200
+@@ -13,7 +13,7 @@
+                     include_dirs = [XIncludes],
+                     sources = ['wmdocklib/pywmgeneral.c'])
+ 
+-setup(name="pywmdockapps",
++setup(name="wmdocklib",
+       version = "$Revision: 1.21 $"[11:-2],
+ 
+       description='''
+@@ -25,13 +25,5 @@
+       license="(L)GPL",
+       packages=['wmdocklib',
+                 ],
+-      scripts=['examples/pywmdatetime.py',
+-               'examples/pywmhdmon.py',
+-               'examples/pywmseti.py',
+-               'examples/pywmsysmon.py',
+-               'examples/pywmphoto.py',
+-               'examples/pywmwet.py',
+-               'examples/pywmradio.py',
+-               'examples/pywmgeneric.py'],
+       package_data={'wmdocklib': ['*.xpm']},
+       ext_modules = [module1])

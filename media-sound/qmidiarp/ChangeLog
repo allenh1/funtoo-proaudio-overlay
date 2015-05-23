@@ -1,0 +1,54 @@
+# ChangeLog for media-sound/qmidiarp
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  02 Jan 2014; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  qmidiarp-9999.ebuild:
+  Don't patch live ebuild. Patch applied upstream.
+
+*qmidiarp-0.6.0 (02 Jan 2014)
+
+  02 Jan 2014; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -qmidiarp-0.5.1.ebuild, -qmidiarp-0.5.2.ebuild, qmidiarp-0.5.3.ebuild,
+  +qmidiarp-0.6.0.ebuild, qmidiarp-9999.ebuild,
+  +files/qmidiarp-0.6.0-respect-destdir.patch:
+  Version bump.
+  Stabilize version 0.5.3.
+  Use the git-r3 eclass in the live ebuild.
+  Fixed git repository URI in live ebuild.
+  Added lv2 and nls USE flags.
+  Remove old ebuilds.
+
+*qmidiarp-0.5.3 (26 Nov 2013)
+
+  26 Nov 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +qmidiarp-0.5.3.ebuild, qmidiarp-9999.ebuild, metadata.xml:
+  Version bump.
+  Add nsm USE flag.
+
+*qmidiarp-0.5.2 (09 May 2013)
+
+  09 May 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +qmidiarp-0.5.2.ebuild, qmidiarp-9999.ebuild:
+  Version bump.
+  Added a doc USE flag.
+  Moved EAPI 5 and autotools-utils.
+
+  09 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  qmidiarp-9999.ebuild, qmidiarp-0.5.1.ebuild: Moved QT depends to dev-qt/*
+  qmidiarp-0.5.1.ebuild: use virtual/pkgconfig
+  -qmidiarp-0.5.0.ebuild
+  -qmidiarp-0.4.5.ebuild
+  -qmidiarp-0.4.4.ebuild
+  -qmidiarp-0.4.3.ebuild
+
+  22 Apr 2010; Frieder Buerzele <evermind@tuxfamily.org>
+  qmidiarp-9999.ebuild:
+  fixup deps and workaround buggy configure.ac
+
+*qmidiarp-9999 (21 Apr 2010)
+
+  21 Apr 2010; Frieder Buerzele <evermind@tuxfamily.org>
+  +qmidiarp-9999.ebuild:
+  initial ebuild
+

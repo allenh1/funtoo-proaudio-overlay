@@ -1,0 +1,16 @@
+# ChangeLog for media-plugins/buzzmachines
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  22 Nov 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  buzzmachines-9999.ebuild, metadata.xml:
+  move to git and autotools-utils
+
+  17 Sep 2010; Viktor Lazarev <taurus101v@gmail.com>
+  buzzmachines-9999.ebuild, +metadata.xml:
+  cleanup a bit
+
+  28 Mar 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  +buzzmachines-9999.ebuild:
+  initial ebuild
+

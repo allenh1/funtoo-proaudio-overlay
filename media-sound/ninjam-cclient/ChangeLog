@@ -1,0 +1,14 @@
+# ChangeLog for media-sound/ninjam-cclient
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  26 Oct 2010; Gavin Pryke <gavinlee303@googlemail.com>
+  ninjam-cclient-0.01a.ebuild, +files/ninjam-cclient-0.01a-Makefile.patch,
+  +files/ninjam-cclient-0.01a-add-jack-with-fixes.patch,
+  -files/add-jack-with-fixes.patch:
+  reformat jack patch to make it smaller (390K -> 14K) and add another patch
+  for the Makefile for respecting CXX/CXXFLAGS. LDFLAGS may need looking at.
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

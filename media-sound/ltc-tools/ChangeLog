@@ -1,0 +1,15 @@
+# ChangeLog for media-sound/ltc-tools
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  29 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  ltc-tools-0.6.3.ebuild, ltc-tools-9999.ebuild:
+  Specify PREFIX to not install into /usr/local.
+
+*ltc-tools-9999 (28 Jul 2013)
+*ltc-tools-0.6.3 (28 Jul 2013)
+
+  28 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +ltc-tools-0.6.3.ebuild, +ltc-tools-9999.ebuild, +metadata.xml:
+  Initial commit. Thanks to Jannis Achstetter for initial ebuild.
+

@@ -1,0 +1,21 @@
+# ChangeLog for media-sound/ebumeter
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  04 Oct 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  ebumeter-0.2.0.ebuild:
+  add PREFIX in compile stage to locate pixmaps reported by
+  Jannis Achstetter
+
+*ebumeter-0.2.0 (26 Sep 2012)
+
+  26 Sep 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -ebumeter-0.1.0.ebuild, +ebumeter-0.2.0.ebuild,
+  +files/ebumeter-0.2.0-Makefile.patch, metadata.xml:
+  SRC_URI 404. bump.
+
+  03 Jun 2011; Dominique Michel <dominique@tuxfamily.org>;
+  +ebumeter-0.1.0.ebuild, +metadata.xml:
+  initial ebuild
+
+

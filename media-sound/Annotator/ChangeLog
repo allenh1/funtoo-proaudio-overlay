@@ -1,0 +1,40 @@
+# ChangeLog for media-sound/Annotator
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  Annotator-9999.ebuild; Annotator-0.5.0.ebuild: Moved qt depends to dev-qt/*;
+  repoman cleanup
+  -Annotator-0.3.8-r1.ebuild
+  -Annotator-0.3.9.ebuild
+  -Annotator-0.3.10.ebuild
+
+  17+18 Jun 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  Annotator-9999.ebuild: Removed non needed and wrong subversion DEPEND,
+  Changed URI.
+  9999 + 0.5.0: Fixed python setup
+
+  20 Jan 2012; Gavin Pryke <gavinlee303@googlemail.com>
+  Annotator-0.3.8-r1.ebuild, Annotator-0.3.9.ebuild, Annotator-0.3.10.ebuild,
+  Annotator-0.5.0.ebuild, Annotator-9999.ebuild:
+  update HOMEPAGE and SRC_URI thanks to chris.c.hogan on forums.gentoo.org
+
+  09 Nay 2010; Dominique Michel <dominique@tuxfamily.org>;
+  Bump to Annotator-0.5.0
+
+  18 Jan 2009; Dominique Michel <dominique.michel@tuxfamily.org>;
+  Annotator-0.3.8-r1.ebuild, Annotator-0.3.9.ebuild,
+  Annotator-0.3.10.ebuild, Annotator-9999.ebuild:
+  fixed DEPEND - RDEPEND
+  
+  06 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  Annotator-0.3.8-r1.ebuild, Annotator-0.3.9.ebuild,
+  Annotator-0.3.10.ebuild, Annotator-9999.ebuild:
+  use modular qt4 deps
+
+  09 Feb 2008; Dominique Michel <dominique.michel@citycable.ch> Version
+  bump to 0.3.10
+  
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

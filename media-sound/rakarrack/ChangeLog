@@ -1,0 +1,49 @@
+# ChangeLog for media-sound/rakarrack
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  15 Apr 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  rakarrack-9999.ebuild, -files/rakarrack-9999-assume-fltk.patch:
+  Removed patch for live ebuild. Applied upstream.
+
+  07 Apr 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  rakarrack-0.6.1.ebuild, +files/rakarrack-0.6.1-assume-fltk.patch,
+  -files/rakarrack-0.6.1_configure.patch, rakarrack-9999.ebuild,
+  +files/rakarrack-9999-assume-fltk.patch, metadata.xml:
+  Add useflags and description.
+  Add patches and remove the old one.
+  Move to EAPI 5 and autotools-utils.
+  Remove unused inherits.
+  Repoman payment.
+
+*rakarrack-0.6.1 (02 Jun 2012)
+
+  02 Jun 2012; Hakan Demiralp <keenblade@tuxfamily.org>
+  -rakarrack-0.1.2.ebuild, -rakarrack-0.3.0.ebuild, -rakarrack-0.5.8.ebuild,
+  +rakarrack-0.6.1.ebuild, metadata.xml:
+  rakarrack-0.6.1: version bump. Remove old ebuilds
+
+  30 Apr 2011; Dominique Michel <dominique@tuxfamily.org>
+  rakarrack-9999 + 0.5.8: Very crude "workaround" against failing fltk test during configure.
+  In fact, it introduce a bug in configure, so don't complain if it fail.
+  The real bug is somewhere else, in fltk, in pkgconfig or on the moon...
+
+  25 Mar 2011; Hakan Demiralp <keenblade@tuxfamily.org> rakarrack-9999.ebuild:
+  rakarrack-0.5.8: fltk slot changed from 1.1 to 1
+
+  24 Mar 2011; Hakan Demiralp <keenblade@tuxfamily.org> rakarrack-0.5.8.ebuild:
+  rakarrack-0.5.8: fltk dep is updated to slot 1
+
+*rakarrack-9999 (22 Jun 2010)
+*rakarrack-0.5.8 (22 Jun 2010)
+
+  22 Jun 2010; Viktor Lazarev <taurus101v@gmail.com>
+  +rakarrack-0.5.8.ebuild, +rakarrack-9999.ebuild:
+  version bump
+
+  01 Dec 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  +rakarrack-0.3.0.ebuild:
+  version bump
+
+  21 May 2008; Dominique Michel <dominique.michel@citycable.ch> Version
+  rakarrack initial commit : v 0.1.2

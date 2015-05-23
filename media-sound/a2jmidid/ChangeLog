@@ -1,0 +1,25 @@
+# ChangeLog for media-sound/a2jmidid
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  11 May 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  a2jmidid-99999.ebuild:
+  Move to python-single-r1 eclass.
+  Specify NO_WAF_LIBDIR to avoid passing invalid option --libdir to waf.
+  Clean up in src_configure
+  Rearrange DOCS.
+
+  18 Mar 2013; Dominique Michel <dominique_libre@users.sourveforge.net>
+  a2jmidid-99999.ebuild: Added dbus USE flag
+
+  03 Jan 2013; Karl Lindén (lilrc) <lilrc@users.sourceforge.net>
+  metadata.xml:
+  Removed herd from metadata.
+
+  30 Jul 2012; Dominique Michel <dominique@tuxfamily.org>
+  +a2jmidid-99999.ebuild: Fixed python shebangs and other changes from bug313931
+  -a2jmidid-9999.ebuild: Can fail with syntax error. See bug428462
+
+  28 Jul 2012; Dominique Michel <dominique@tuxfamily.org> +ChangeLog:
+  initial ChangeLog
+  a2jmidid-9999.ebuild: Added python eclass and fixed compiling when python3 is installed.

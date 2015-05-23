@@ -1,0 +1,34 @@
+# ChangeLog for media-sound/composite
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header$
+
+  31 Mar 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
+  -composite-9999.ebuild: According to upstrem, the GIT repository
+  is mean only for development and not interesting at all for users.
+
+*composite-0.006.2 (30 Mar 2013)
+
+  30 Mar 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
+  composite-9999.ebuild: added fix for compilation with USE=ladspa using
+  flag-o-matic and chaintools-funcs eclass; moved to git-2 eclass;
+  added info message abut the GUI
+  -composite-0.006: fail to build and outadated
+  +composte-0.006.2: added with the same ladspa fix
+
+  09 Mar 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
+  Moved QT depends to dev-qt/* in both ebuilds
+
+*composite-9999 (10 Oct 2010)
+
+  10 Oct 2010; Viktor Lazarev <taurus101v@gmail.com>
+  +composite-0.006.ebuild, +composite-9999.ebuild, +metadata.xml:
+  Bump to git-version
+
+*composite-0.006 (08 Apr 2010)
+
+  08 Apr 2010; Viktor Lazarev <taurus101v@gmail.com>
+  +composite-0.006.ebuild, +metadata.xml:
+  initial ebuild
+  TODO: add `doc` use-flag & handler,
+		find lv2-plugin,
+		correct desktop-file

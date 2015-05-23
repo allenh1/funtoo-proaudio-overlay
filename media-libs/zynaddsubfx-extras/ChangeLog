@@ -1,0 +1,24 @@
+# ChangeLog for media-libs/zynaddsubfx-extras
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  24 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  zynaddsubfx-extras-20060419.ebuild, zynaddsubfx-extras-20060615.ebuild,
+  zynaddsubfx-extras-20101203.ebuild, zynaddsubfx-extras-99999999.ebuild,
+  metadata.xml:
+  Remove stable keywords to make repoman less unhappy.
+
+  30 Jun 2012; Frieder Buerzele <evermind@tuxfamily.org>
+  zynaddsubfx-extras-99999999.ebuild:
+  use internal unpacker and fixup $S usage
+
+*zynaddsubfx-extras-20101203 (04 Mar 2011)
+
+  04 Mar 2011; Frieder Buerzele <evermind@tuxfamily.org>
+  zynaddsubfx-extras-20060419.ebuild, zynaddsubfx-extras-20060615.ebuild,
+  +zynaddsubfx-extras-20101203.ebuild, zynaddsubfx-extras-99999999.ebuild:
+  bumped
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

@@ -1,0 +1,10 @@
+# ChangeLog for media-sound/mpadec
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*mpadec-9999 (04 Dec 2010)
+
+  04 Dec 2010; Hakan Demiralp <keenblade@tuxfamily.org> +mpadec-9999.ebuild,
+  +metadata.xml:
+  mpadec-9999: initial ebuild ebuild referenced from csound-wii overlay
+

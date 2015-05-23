@@ -1,0 +1,22 @@
+# ChangeLog for media-sound/glashctl
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  10 Nov 2012; Dominique Michel <dominique_libre@soourceforge.net>
+  -glasjctl-0.4.4.ebuild
+  +glashctl-0.4.4-r1.ebuild: fix bug 135: glashctl fail to start with 'Glib::FileError'
+  +files/glashctl-0.4.4_configure.patch: apply the fix
+
+  27 Jul 2012; Dominique Michel <dominique@tuxfamily.org>
+  -glashctl-0.2.0.ebuild, glashctl-0.4.2.ebuild, glashctl-0.4.3.ebuild:
+  Removed old ebuilds. They don't copile anymore.
+  +glashctl-0.4.4.ebuild: added -j1 to make (compilation break with -j>1)
+  Added installation of menu icon and desktop file
+
+  19 Jun 2010; Frieder Buerzele <evermind@tuxfamily.org>
+  glashctl-0.2.0.ebuild, glashctl-0.4.2.ebuild, glashctl-0.4.3.ebuild:
+  cleanup ebuilds
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

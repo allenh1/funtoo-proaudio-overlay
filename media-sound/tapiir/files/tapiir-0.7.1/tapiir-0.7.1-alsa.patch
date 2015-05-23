@@ -1,0 +1,11 @@
+--- tapiir-0.7.1/src/alsaio.cxx~	2003-11-12 16:42:58.000000000 -0800
++++ tapiir-0.7.1/src/alsaio.cxx	2003-11-12 16:44:05.000000000 -0800
+@@ -23,6 +23,8 @@
+ #include <sched.h>
+ #include <errno.h>
+ #include <getopt.h>
++#define ALSA_PCM_OLD_HW_PARAMS_API
++#define ALSA_PCM_OLD_SW_PARAMS_API
+ #include <alsa/asoundlib.h>
+ #include <sys/time.h>
+ #include <math.h>

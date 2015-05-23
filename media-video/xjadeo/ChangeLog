@@ -1,0 +1,42 @@
+# ChangeLog for media-video/xjadeo
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  24 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -files/xjadeo-0.4.1-use_sws_scale.patch, xjadeo-0.6.4.ebuild,
+  +files/xjadeo-0.6.4-no-libporttime.patch, metadata.xml:
+  Add alsa, portmidi, midi, osc and imlib USE flags.
+  Install more tools when tools flag is enabled.
+  Remove redundancy in description.
+  Remove obsolete patch.
+  Add patch to disable linking against non-existing libporttime.
+
+  08 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  yjadeo-0.6.4.ebuild: moved depend to dev-qt/*
+
+*xjadeo-0.6.4 (30 Dec 2012)
+
+  30 Dec 2012; Karl Lindén <lilrc@users.sourceforge.net>
+  -xjadeo-0.4.10.ebuild, +xjadeo-0.6.4.ebuild, metadata.xml:
+  Removed herd from metadata.xml
+  Added local useflags to metadata.xml
+  Drop qt3 support (the x11-libs/qt-3 doesn't exist)
+  Add conditional dependency on qt-test
+  Use autotools-utils
+  Updated EAPI
+  Cleanup
+  Thanks to Jannis Achstetter for submitting the original xjadeo-0.6.4.ebuild!
+
+*xjadeo-0.4.10 (19 Jun 2010)
+
+  19 Jun 2010; Frieder Buerzele <evermind@tuxfamily.org>
+  -xjadeo-0.4.1.ebuild, +xjadeo-0.4.10.ebuild:
+  cleanup and bumped ebuilds
+
+  06 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  xjadeo-0.4.1.ebuild:
+  use modular qt4 deps
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

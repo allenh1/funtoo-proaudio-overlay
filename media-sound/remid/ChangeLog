@@ -1,0 +1,11 @@
+# ChangeLog for media-sound/remid
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*remid-0.9.1 (04 Apr 2013)
+
+  04 Apr 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  +remid-0.9.1.ebuild, +files/remid-0.9.1-Makefile.patch,
+  +files/remid-0.9.1-printf-include.patch, +metadata.xml:
+  import
+

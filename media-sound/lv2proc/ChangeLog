@@ -1,0 +1,10 @@
+# ChangeLog for media-sound/lv2proc
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*lv2proc-0.5.0 (17 Apr 2013)
+
+  17 Apr 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  +lv2proc-0.5.0.ebuild, +metadata.xml:
+  import
+

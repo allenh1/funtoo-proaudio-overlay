@@ -1,0 +1,13 @@
+# ChangeLog for media-sound/specimen
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  -specimen-0.5.1.ebuild, -specimen-0.5.1-r1.ebuild,
+  -specimen-0.5.1.1.ebuild: removed old ebuilds
+  specimen-0.5.2_rc3.ebuild:
+  KEEP: debug USE
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

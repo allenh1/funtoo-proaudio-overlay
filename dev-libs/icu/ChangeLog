@@ -1,0 +1,10 @@
+# ChangeLog for dev-libs/icu
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*icu-3.6-r2 (09 Oct 2010)
+
+  09 Oct 2010; Viktor Lazarev <taurus101v@gmail.com> +icu-3.6-r2.ebuild,
+  +files/icu-3.6-regexp-CVE-2007-4770+4771.diff:
+  Initial commit. Taken from official CVS tree. Needed by xerces-c-2.8.0
+

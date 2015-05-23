@@ -1,0 +1,37 @@
+# ChangeLog for media-sound/acoustid-fingerprinter
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*acoustid-fingerprinter-0.6 (10 Mar 2013)
+
+  10 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  -acourstid-fingerprinter-0.5.1
+  +acoustid-fingerprinter-0.6: version bump; added ~x86 KEYWORD
+
+  09 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  acourstid-fingerprinter-0.5.1: Moved QT depends to dev-qt/*; repoman cleanup
+
+*acoustid-fingerprinter-0.5.1 (14 Mar 2012)
+
+  14 Mar 2012; Emery Hemingway <emery@vfemail.net>
+  -acoustid-fingerprinter-0.4-r1.ebuild, +acoustid-fingerprinter-0.5.1.ebuild:
+  Package bump
+
+*acoustid-fingerprinter-0.4-r1 (18 Dec 2011)
+
+  18 Dec 2011; <emery@gentoo.org> acoustid-fingerprinter-0.4.ebuild,
+  +acoustid-fingerprinter-0.4-r1.ebuild:
+  needed to depend media-libs/taglib
+
+*acoustid-fingerprinter-0.4 (26 Oct 2011)
+
+  26 Oct 2011; Emery Hemingway <emery@vfemail.net>
+  -acoustid-fingerprinter-0.1.ebuild, +acoustid-fingerprinter-0.4.ebuild:
+  Bump
+
+*acoustid-0.1 (11 May 2011)
+
+  11 May 2011; Emery Hemingway <emery@icmlf.net> +acoustid-0.1.ebuild,
+  +metadata.xml:
+  New package.
+

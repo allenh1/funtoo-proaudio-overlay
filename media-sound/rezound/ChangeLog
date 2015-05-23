@@ -1,0 +1,24 @@
+# ChangeLog for media-sound/rezound
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  rezound-9999.ebuild: Moved QT depends to dev-qt/*; repoman cleanup
+
+  21 Jan 2012; Frieder Buerzele <evermind@tuxfamily.org>
+  +files/0001-fix-ladspa-path.patch, +files/0002-add-support-for-fftw3.patch,
+  +files/0004-pkg-config-and-the-audiofile-library.patch, rezound-9999.ebuild,
+  +files/0003-autotools-patch.patch:
+  fix rezound-9999 qt4 port (fftw,audiofile-lib,ladspa,autotools)
+
+  19 Mar 2011; Hakan Demiralp <keenblade@tuxfamily.org> rezound-9999.ebuild,
+  +files/rezound-9999-O2.patch:
+  rezound-9999: added O2.patch at b.g.o 334797 by John 
+
+  18 Mar 2011; Hakan Demiralp <keenblade@tuxfamily.org> rezound-9999.ebuild,
+  +files/rezound-9999-missing_includes.patch:
+  rezound-9999: fixed missing includes, wrt msg03879 by alex
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

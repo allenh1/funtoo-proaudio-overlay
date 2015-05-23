@@ -1,0 +1,20 @@
+####################################################################
+#
+# NOTE: Please add your entry at the top!
+#
+
+# Dominique Michel <dominique_libre@users.sourceforge.net> (31 March 2014)
+# Work, but some work is needed on the configure phase.
+=media-sound/zynaddsubfx-99999999-r1
+
+# Dominique Michel <dominique@tuxfamily.ord> 09 Mar (2013)
+# Pld qt3 version, need bump to a qt4 version or removing
+=media-sound/rivendell-2.1.2
+
+# Frieder Buerzele <evermind@tuxfamily.org> (21 Jan 2012)
+# they are old ebuild, but they separate the banks into another ebuild.
+# so there needs to be a review  later on those ebuilds. But for now masked
+=media-sound/zynaddsubfx-20070707
+=media-sound/zynaddsubfx-20070707-r1
+=media-sound/zynaddsubfx-2.2.1-r8
+=media-sound/zynaddsubfx-2.4.0

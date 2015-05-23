@@ -1,0 +1,21 @@
+# ChangeLog for media-sound/gneutronica
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  23 Apr 2014; Dominique Michel <dominique_libre@users.sourceforge.net>
+  +files/gneutronica-0.33-linking.patch:
+  fix linking with -lm; add desktop file with eutils eclass.
+
+*gneutronica-0.33-r1 (30 Apr 2013)
+
+  30 Apr 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -gneutronica-0.28.ebuild, -files/gneutronica-0.28-makefile.patch,
+  -gneutronica-0.29.ebuild, -gneutronica-0.33.ebuild,
+  +gneutronica-0.33-r1.ebuild, files/gneutronica-0.33-makefile.patch,
+  metadata.xml:
+  edit patch to honour CC/CFLAGS/LDFLAGS, fix linking alsa with as-needed,
+  shorten description, remove no-herd from metadata.xml, remove old.
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

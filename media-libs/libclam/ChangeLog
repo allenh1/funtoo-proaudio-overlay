@@ -1,0 +1,80 @@
+# ChangeLog for media-libs/libclam
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*libclam-1.4.0-r1 (15 Mar 2013)
+
+  15 Mar 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  +libclam-1.4.0-r1.ebuild,
+  +files/libclam-1.4.0/0001-fix-creation-of-packaging-install-dir.patch,
+  +files/libclam-1.4.0/0002-fix-compile-with-gcc-4.6.patch,
+  +files/libclam-1.4.0/0003-honour-toolchain-environment.patch,
+  +files/libclam-1.4.0/0004-add-libdir-option-for-multilib-strict.patch,
+  +files/libclam-1.4.0/0005-remove-fomit-frame-pointer-cflags.patch,
+  +files/libclam-1.4.0/0006-correct-prefix-in-.pc-files-building-modules.patch:
+  in addition to patch descriptions: migrate to scons-utils.eclass and EAPI=5
+  to simplify installing of examples with recursive dodoc. trim dependencies.
+  adjust USE. include doxygen html docs. remove old with bad deps on
+  dev-libs/xerces-c and media-libs/portaudio-19 because _pre is less than 19.
+
+  11 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  libclam-9999-r1.ebuild: Added fix for compilation failure with recent glibx
+  +libclam-9999_timeutc.patch: Fix preprocessor macro with recent glibc
+
+  09 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  libclam-9999-r1.ebuild: Changed QT depends to dev-qt/3; dropped qt3 support
+  libclam-1.4.0.ebuild: Changed QT depends to dev-qt/*
+  libclam-1.3.0.ebuild: dropped qt3 support
+  -libclam-1.2.0.ebuild
+  -libclam-1.1.0.ebuild
+  -libclam-1.0.0-r1.ebuild
+  
+  17+18 Jun 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  libclam-1.0.0-r1.ebuild, libclam-1.1.0.ebuild, libclam-1.2.0.ebuild,
+  libclam-1.3.0.ebuild, libclam-1.4.0.ebuild, libclam-9999-r1.ebuild:
+  updated libjpeg DEPEND to virtual/jpeg
+  libclam-1.4.0.ebuild, libclam-9999-r1.ebuild: Fixed python setup
+
+  20 Jan 2012; Gavin Pryke <gavinlee303@googlemail.com>
+  libclam-1.0.0-r1.ebuild, libclam-1.1.0.ebuild, libclam-1.2.0.ebuild,
+  libclam-1.3.0.ebuild, libclam-9999-r1.ebuild, metadata.xml:
+  update HOMEPAGE and SRC_URI thanks to chris.c.hogan on forums.gentoo.org
+
+  06 Jan 2012; Gavin Pryke <gavinlee303@googlemail.com> metadata.xml:
+  copy USE descriptions from use.local.desc into metadata.xml
+
+  09 Oct 2010; Viktor Lazarev <taurus101v@gmail.com> libclam-1.4.0.ebuild:
+  Set xmlpp as default XML backend
+
+  03 Sep 2010; Viktor Lazarev <taurus101v@gmail.com> libclam-1.4.0.ebuild:
+  Added 'xercesc' & 'xmlpp' USE-flags and removed 'sndfile' one. Libsndfile
+  is hard-depend now, otherwise compile fails.
+
+  16 Jun 2010; Frieder Buerzele <evermind@tuxfamily.org>
+  libclam-1.0.0-r1.ebuild, libclam-1.1.0.ebuild, libclam-1.2.0.ebuild,
+  libclam-1.3.0.ebuild, libclam-1.4.0.ebuild, libclam-9999-r1.ebuild:
+  fix repoman complaines
+
+*libclam-1.4.0 (05 Apr 2010)
+
+  05 Apr 2010; Viktor Lazarev <taurus101v@gmail.com> +libclam-1.4.0.ebuild:
+  version bump
+
+  18 Jan 2009; Dominique Michel <dominique.michel@btxnet.ch>M
+  in all the ebuids but .9999:
+  fixed xerces-c dependency to 2.7 version; libclam will fail with 3*
+  
+  16 Sep 2008; Frieder Buerzele <evermind@tuxfamily.org;
+  +libclam-1.3.0.ebuild:
+  added libclam-1.3.0 it maybe fails if NOT using sndfile
+
+  11 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  libclam-1.2.0.ebuild:
+  workaround enable id3 if mad USE is set
+
+  09 Feb 2008; Dominique Michel <dominique.michel@citycable.ch> version
+  bump to 1.2.0
+  
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

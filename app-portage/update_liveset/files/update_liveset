@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# This script will update your live ebuild.
+# Version:	1.0
+# License:	GPL-3
+# Author:	Dominique Michel <dominique_libre@users.sourceforge.net>
+# Created:	2014-04-06
+# Last modifed:	2114-04-06
+
+# --update and --newuse give 0 packages here:
+merge_options="--with-bdeps y --deep -a"
+packages=""
+
+usage() {
+echo "usage:"
+echo "    $0 <y/n>"
+echo "where <y/n> is y if you want to run emerge --depclean and revdep-rebuild, and n otherwise."
+}
+
+merge_live_set() {
+echo "scanning live set"
+for i in `equery list '*9999' | cut -d " " -f 2`; do
+	packages="${packages} =${i}"
+done
+echo "emerge ${merge_options} ${packages}"
+emerge ${merge_options} ${packages}
+}
+
+revdep() {
+emerge --depclean -a
+RETVAL="$?"
+[ $RETVAL -ne 0 ] && exit 1
+revdep-rebuild
+}
+
+if [ -z $1 ]
+then
+    usage
+else
+    if [ "$1" = "y" ]
+    then
+	merge_live_set
+	RETVAL="$?"
+	[ $RETVAL -ne 0 ] && exit 1
+	revdep
+    else
+	merge_live_set
+    fi
+fi

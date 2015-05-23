@@ -1,0 +1,8 @@
+# ChangeLog for media-plugins/ams-lv2
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*ams-lv2-1.0.2 (15 Feb 2014)
+  15 Feb 2014; Matt Henley (nwmatt) <nwmatt@gmail.com>
+  Create new ebuild for ams-lv2 based on avw-lv2 which was renamed by author. 
+

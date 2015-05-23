@@ -1,0 +1,23 @@
+# ChangeLog for media-sound/schism-tracker
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*schism-tracker-99999999 (24 Mar 2013)
+*schism-tracker-20120105 (24 Mar 2013)
+
+  24 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -schism-tracker-9999.ebuild, +schism-tracker-20120105.ebuild,
+  +schism-tracker-99999999.ebuild, -files, metadata.xml:
+  Use mercurial instead of cvs, fix repo uri.
+  Fix homepage.
+  Move to EAPI 5 and autotools-utils.
+  Add versioned ebuild and rename live ebuild.
+  Cleanup.
+
+  05 Sep 2010; Viktor Lazarev <taurus101v@gmail.com>
+  schism-tracker-9999.ebuild:
+  Now source fetched from CVS-server (sf.net) instead of gzipped snapshot
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

@@ -1,0 +1,22 @@
+# ChangeLog for media-sound/raton
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  30 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  raton-0.22.ebuild, +files/raton-0.22-arguments.patch,
+  +files/raton-0.22-include-math.patch, +files/raton-0.22-libm.patch:
+  Patch to get rid of all warnings.
+  Patch to get -lm to linker options.
+  Move to autotools-utils.
+
+  30 Mar 2013; Dominique Michel <dominique_libre@users.sourceforge.net> raton-0.22.ebuild:
+  Updated to EAPI=5; added autotools eclass to fix the build system; fixed Midi
+  category into the desktop file
+  metadata.xml: removed no-herd
+
+  27 Jul 2012; Dominique Michel <dominique_libre@users.sourceforge.net> raton-0.22.ebuild:
+  Added a make_desktop_entry
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

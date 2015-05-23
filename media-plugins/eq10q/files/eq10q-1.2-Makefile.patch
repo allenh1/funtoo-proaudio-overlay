@@ -1,0 +1,15 @@
+--- EQ10Q/Makefile.old	2011-02-01 15:36:55.960052010 +0000
++++ EQ10Q/Makefile	2011-02-01 16:00:46.508052032 +0000
+@@ -9,10 +9,10 @@
+ 	cp -R combopix $(BUNDLE)
+ 
+ paramEQ.so: plugin.cpp
+-	g++ -O3 -shared -fPIC -DPIC plugin.cpp `pkg-config --cflags --libs lv2-plugin` -o paramEQ.so
++	$(CXX) $(LDFLAGS) -shared -fPIC -DPIC plugin.cpp `pkg-config --cflags --libs lv2-plugin` -o paramEQ.so
+ 
+ parameq_gui.so: main_window.cpp band_ctl.cpp ctlbutton.cpp bodeplot.cpp vuwidget.cpp templatewidget.cpp pixmapcombo.cpp
+-	g++ -O3 -shared -fPIC -DPIC  bodeplot.cpp templatewidget.cpp vuwidget.cpp pixmapcombo.cpp ctlbutton.cpp  band_ctl.cpp main_window.cpp `pkg-config --cflags --libs lv2-gui plotmm`  -o parameq_gui.so
++	$(CXX) $(LDFLAGS) -shared -fPIC -DPIC  bodeplot.cpp templatewidget.cpp vuwidget.cpp pixmapcombo.cpp ctlbutton.cpp  band_ctl.cpp main_window.cpp `pkg-config --cflags --libs lv2-gui plotmm`  -o parameq_gui.so
+ 
+ 
+ install: $(BUNDLE)

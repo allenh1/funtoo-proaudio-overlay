@@ -1,0 +1,63 @@
+# ChangeLog for media-sound/NetworkEditor
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  01 Par 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
+  NetworkEditor-9999.ebuild: Moved to EAPI=5; added dev-python/shiboken DEPEND;
+  added src_prepare section to fix shiboken config and boost_pythoon linking
+
+*NetworkEditor-1.4.0-r1 (15 Mar 2013)
+
+  15 Mar 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -NetworkEditor-1.4.0.ebuild, +NetworkEditor-1.4.0-r1.ebuild,
+  +files/NetworkEditor-1.4.0/0001-fix-creation-of-prefix-dir.patch,
+  +files/NetworkEditor-1.4.0/0002-add-libdir-option-for-multilib-strict.patch,
+  +files/NetworkEditor-1.4.0/0003-honour-toolchain-environment.patch:
+  add patches pulled in from debian through SRC_URI fixinng build with recent
+  compilers. update for new libclam-1.4.0-r1 with multilib-strict fixes.
+
+  09 Mart 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
+  NetworkEditor-9999.ebuild; NetworkEditor-1.4.0.ebuild: Moved QT depends to dev-qt/*
+  -NetworkEditor-1.0.0
+  -NetworkEditor-1.1.0
+  -NetworkEditor-1.2.0
+  -NetworkEditor-1.3.0
+
+  17 Oct 2012; Dominique Michel <dominique_libre@users.sourceforge.net>
+  Updated all the ebuilds to the qt4-r2.eclass
+
+  17+18 Jun 2012; Dominique Michel <dominique_libre@susers.ourceforge.net>
+  NetworkEditor-9999.ebuild: Fixed depend to libclam
+  9999 + 1.4.0: FixedPythn setup
+
+  20 Jan 2012; Gavin Pryke <gavinlee303@googlemail.com>
+  NetworkEditor-1.0.0.ebuild, NetworkEditor-1.1.0.ebuild,
+  NetworkEditor-1.2.0.ebuild, NetworkEditor-1.3.0.ebuild,
+  NetworkEditor-9999.ebuild:
+  update HOMEPAGE and SRC_URI thanks to chris.c.hogan on forums.gentoo.org
+
+*NetworkEditor-1.4.0 (05 Apr 2010)
+
+  05 Apr 2010; Viktor Lazarev <taurus101v@gmail.com>
+  +NetworkEditor-1.4.0.ebuild:
+  version bump
+
+  18 Jan 2009; Dominique Michel <dominique_libre@users.sourceforge.net>;
+  NetworkEditor-1.0.0.ebuild, NetworkEditor-1.1.0.ebuild,
+  NetworkEditor-1.2.0.ebuild, NetworkEditor-9999.ebuild,
+  NetworkEditor-1.3.0.ebuild:
+  fixed DEPEND - RDEPEND;
+  NetworkEditor-1.3.0.ebuild:
+  fixed qt dependency to qt-4.4
+  
+  06 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  NetworkEditor-1.0.0.ebuild, NetworkEditor-1.1.0.ebuild,
+  NetworkEditor-1.2.0.ebuild, NetworkEditor-9999.ebuild:
+  use modular qt4 deps
+
+  09 Feb 2007; Dominique Michel <dominique_libre@users.sourceforge.net> Version
+  bump to 1.2.0
+  
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

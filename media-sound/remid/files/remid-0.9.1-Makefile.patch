@@ -1,0 +1,76 @@
+From fee317b6265fb8d8ba8a678ac6f80da2e4812408 Mon Sep 17 00:00:00 2001
+From: "Gavin Pryke (gavlee)" <gavinlee303@googlemail.com>
+Date: Thu, 4 Apr 2013 14:37:11 +0100
+Subject: [PATCH 2/2] honour toolchain environment
+ (CFLAGS/CXXFLAGS/CPPFLAGS/LDFLAGS)
+
+---
+ src/Makefile | 21 +++++++++++----------
+ 1 file changed, 11 insertions(+), 10 deletions(-)
+
+diff --git a/src/Makefile b/src/Makefile
+index 08fd550..ee2d710 100644
+--- a/src/Makefile
++++ b/src/Makefile
+@@ -8,39 +8,39 @@ APP=reMID
+ 
+ CC=gcc
+ 
+-CFLAGS= -g \
++CPPFLAGS+= \
+ 	$(shell pkg-config jack --cflags) \
+ 	$(shell pkg-config glib-2.0 --cflags)
+ 
+ ifeq ($(ALSA_MIDI), yes)
+-	CFLAGS+=-D ALSA_MIDI $(shell pkg-config alsa --cflags)
++	CPPFLAGS+=-D ALSA_MIDI $(shell pkg-config alsa --cflags)
+ endif
+ 
+ ifeq ($(JACK_MIDI), yes)
+-	CFLAGS+=-D JACK_MIDI
++	CPPFLAGS+=-D JACK_MIDI
+ endif
+ 
+-CPPFLAGS=-I/usr/include/resid
++CPPFLAGS+=-I/usr/include/resid
+ 
+-LDFLAGS= \
++LDLIBS= \
+ 	$(shell pkg-config jack --libs) \
+ 	$(shell pkg-config glib-2.0 --libs) \
+ 	-lstdc++
+ 
+ ifeq ($(ALSA_MIDI), yes)
+-	LDFLAGS+=$(shell pkg-config alsa --libs)
++	LDLIBS+=$(shell pkg-config alsa --libs)
+ endif
+ 
+-LIBS=-lresid
++LDLIBS+=-lresid
+ 
+ TARGETS=$(APP)
+ 
+ ifeq ($(GUI), yes)
+ 	GUI_OBJ=gui.o
+-	CFLAGS+=-DGUI \
++	CPPFLAGS+=-DGUI \
+ 		$(shell pkg-config gtk+-2.0 --cflags) \
+ 		$(shell pkg-config libglade-2.0 --cflags)
+-	LDFLAGS+= \
++	LDLIBS+= \
+ 		$(shell pkg-config gmodule-export-2.0 --libs) \
+ 		$(shell pkg-config libglade-2.0 --libs)
+ endif
+@@ -56,7 +56,8 @@ OBJS+=prefs.o
+ 
+ all: $(TARGETS)
+ 
+-$(APP): $(OBJS) $(LIBS)
++$(APP): $(OBJS)
++	$(CC) $(LDFLAGS) $^ $(LDLIBS) -o $@
+ 
+ clean:
+ 	rm -f $(TARGETS) *.o
+-- 
+1.8.1.5
+

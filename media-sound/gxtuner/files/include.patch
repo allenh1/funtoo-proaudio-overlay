@@ -1,0 +1,11 @@
+--- pitchtracker.h.orig	2012-01-01 11:42:34.000000000 +0100
++++ pitchtracker.h	2012-11-10 22:53:10.000000000 +0100
+@@ -35,7 +35,7 @@
+ #include <cmath>
+ #include <cstdlib>
+ 
+-#include <zita-resampler.h>
++#include <zita-resampler/resampler.h>
+ 
+ /* ------------- Pitch Tracker ------------- */
+ 

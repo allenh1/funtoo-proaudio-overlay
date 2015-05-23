@@ -1,0 +1,11 @@
+--- tapiir-0.7.1/src/jackio.cxx~	2003-02-25 05:24:53.000000000 -0800
++++ tapiir-0.7.1/src/jackio.cxx	2003-03-06 16:47:03.000000000 -0800
+@@ -150,7 +150,7 @@
+ 	}
+ 
+ 	jack_set_process_callback (client, process, 0);
+-	jack_set_buffer_size_callback (client, bufsize, 0);
++	/* jack_set_buffer_size_callback (client, bufsize, 0); */
+ 	jack_set_sample_rate_callback (client, srate, 0);
+ 
+ 	printf ("engine sample rate: %lu\n", jack_get_sample_rate (client));

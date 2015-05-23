@@ -1,0 +1,22 @@
+# ChangeLog for media-libs/pyphat
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*pyphat-0.4.1-r1 (20 Apr 2013)
+
+  20 Apr 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  pyphat-0.4.1.ebuild, +pyphat-0.4.1-r1.ebuild, pyphat-9999.ebuild,
+  metadata.xml:
+  update for distutils-r1, repoman cleanup.
+
+  12 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  pyphat-0.4.1.ebuild, pyphat-9999.ebuild: fix for pygtk depend by
+  Karl Lindén.
+
+  19 Jun 2010; Frieder Buerzele <evermind@tuxfamily.org>
+  pyphat-0.4.1.ebuild, pyphat-9999.ebuild:
+  cleanup the ebuilds
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

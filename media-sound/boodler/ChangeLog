@@ -1,0 +1,46 @@
+# ChangeLog for media-sound/boodler
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*boodler-2.0.4-r1 (11 Mar 2013)
+
+  11 Mar 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -boodler-2.0.4.ebuild, +boodler-2.0.4-r1.ebuild, metadata.xml:
+  attempt move to distutils-r1 eclass. fix rename of bash-completion-r1
+  install command. force disable esd.
+
+  02 Jun 2012; Hakan Demiralp <keenblade@tuxfamily.org> boodler-2.0.4.ebuild:
+  boodler-2.0.4: fix missing python_pkg_setup() call wrt bug #106 by 3rx9o
+
+  20 May 2012; Hakan Demiralp <keenblade@tuxfamily.org> boodler-2.0.4.ebuild:
+  boodler-2.0.4: now ebuild selects python-2 even when Python-3 is set as
+  system python wrt bug #106 by 3rx9o
+
+*boodler-2.0.4 (15 Apr 2011)
+
+  15 Apr 2011; Gavin Pryke <gavinlee303@googlemail.com>
+  -boodler-2.0.2.ebuild, -boodler-2.0.3.ebuild, -boodler-2.0.3-r1.ebuild,
+  +boodler-2.0.4.ebuild:
+  bump, remove older ebuilds as payment to repoman
+
+*boodler-2.0.3-r1 (22 Oct 2010)
+
+  22 Oct 2010; Gavin Pryke <gavinlee303@googlemail.com>
+  +boodler-2.0.3-r1.ebuild, +files/boodle-ui-qt.py:
+  add ~amd64 keyword. add coreaudio and doc USE flags. include a pyqt4 gui with
+  USE=qt4. work around selection of default audio driver. remove python inherit
+  as distutils is already inherited.
+
+*boodler-2.0.3 (15 Oct 2010)
+
+  15 Oct 2010; Gavin Pryke <gavinlee303@googlemail.com>
+  +boodler-2.0.3.ebuild, +files/boodler:
+  bump to 2.0.3, add bash-completion script and USE flag, add jack USE flag
+  that requires =media-libs/bio2jack-0.9 (thx to Tim Harder for Gentoo bump)
+
+*boodler-2.0.2 (15 Sep 2009)
+
+  15 Sep 2009; Gavin Pryke <gavinlee303@googlemail.com>
+  +boodler-2.0.2.ebuild, +metadata.xml:
+  initial import of boodler
+

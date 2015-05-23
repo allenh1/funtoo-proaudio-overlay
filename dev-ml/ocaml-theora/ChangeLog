@@ -1,0 +1,13 @@
+# ChangeLog for dev-ml/ocaml-theora
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  30 May 2012; Emery Hemingway <emery@vfemail.net> ocaml-theora-0.3.0.ebuild:
+  Deparallized compile
+
+*ocaml-theora-0.3.0 (29 May 2012)
+
+  29 May 2012; Emery Hemingway <emery@vfemail.net> +ocaml-theora-0.3.0.ebuild,
+  +metadata.xml:
+  Based of ebuilds from upstream
+

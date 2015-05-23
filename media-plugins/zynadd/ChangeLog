@@ -1,0 +1,16 @@
+# ChangeLog for media-plugins/zynadd
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  10 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>;
+  Added depennd to media-libs/lv2 to the ebuilds
+
+  03 Mar 2011; Frieder Buerzele <evermind@tuxfamily.org> zynadd-1.ebuild:
+  fixup libdir
+
+  11 Jan 2008; Marc-Olivier Barre <mobarre@gmail.com> zynadd-1.ebuild:
+  First stable release of zynadd
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

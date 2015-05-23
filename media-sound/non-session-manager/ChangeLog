@@ -1,0 +1,18 @@
+# ChangeLog for media-sound/non-session-manager
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  11 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  non-session-manager-9999.ebuild, metadata.xml:
+  Remove circular dependency thanks to James Cloos.
+  Update EAPI.
+  Sort dependencies.
+  Cleanup.
+  Remove no-herd from metadata.xml.
+
+  18 Nov 2012; Dominique Michel <dominique@tuxgamily.org>
+  non-session-manager-9999.ebuild: waf support from Tina Cochet; clean-up
+
+  04 Nov 2012; Dominique Michel <dominique@tuxgamily.org>
+  +non-session-manager-9999.ebuild:
+  From Tina Cochet's ebuild with a little clean-up

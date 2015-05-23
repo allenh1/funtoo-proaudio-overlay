@@ -1,0 +1,14 @@
+# ChangeLog for dev-ml/ocaml-pulseaudio
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  30 May 2012; Emery Hemingway <emery@vfemail.net>
+  ocaml-pulseaudio-0.1.2.ebuild:
+  Deparallized compile
+
+*ocaml-pulseaudio-0.1.2 (29 May 2012)
+
+  29 May 2012; Emery Hemingway <emery@vfemail.net>
+  +ocaml-pulseaudio-0.1.2.ebuild, +metadata.xml:
+  Based off ebuilds from upstream
+

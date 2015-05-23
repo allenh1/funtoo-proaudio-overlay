@@ -1,0 +1,19 @@
+# ChangeLog for media-sound/simplesysexxer
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  simplesysexxer-0.3.ebuild:
+  Moved QT depend to dev-qt/*; changed as-is license to HPND
+
+*simplesysexxer-0.3 (17 Aug 2010)
+
+  17 Aug 2010; Gavin Pryke <gavinlee303@googlemail.com>
+  -simplesysexxer-0.1.1.ebuild, +simplesysexxer-0.3.ebuild:
+  Remove old ebuild with non-existant SRC_URI, move SRC_URI and HOMEPAGE to
+  sourceforge based site, convert bumped version to make use of qt4-r2 eclass.
+  Thanks to heidenreck for the report.
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

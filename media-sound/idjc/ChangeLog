@@ -1,0 +1,64 @@
+# ChangeLog for media-sound/idjc
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*idjc-0.8.14 (04 Jul 2014)
+
+  15 Jun 2014; Christian Affolter <c.affolter@stepping-stone.ch>
+  +idjc-0.8.14.ebuild, idjc-9999.ebuild:
+  Version bump to 0.8.14.
+  Add mysql-python dependency for Prokyon 3 or Ampache database support.
+  Depend on newer media-sound/jack-audio-connection-kit and
+  media-libs/libshout-idjc according to upstream build dependency list.
+  Remove unsupported and empty keys from the desktop entry file.
+  Inform the user to configure and start the jack daemon.
+  Sorted the dependencies in alphabetical order.
+
+*idjc-0.8.9 (02 Jun 2013)
+
+  02 Jun 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +idjc-0.8.9.ebuild, idjc-9999.ebuild, metadata.xml:
+  Version bump.
+  Move to autotools-utils, python-single-r1 and EAPI="5".
+  Depend on virtual/pkgconfig.
+  Add and remove USE flags (update to comply with configure.ac).
+  Let the doc USE flag trigger installation of docs.
+  Remove ffmpeg hack; it is fixed upstream.
+
+*idjc-9999 (10 Nar 2013)
+
+  10 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  +idjc-9999.ebuild: Initial git ebuild
+
+*idjc-0.8.8 (04 Nov 2012)
+
+  04 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  +idjc-0.8.8.ebuild from Jannis Achstetter
+  -idjc-0.8.4.ebuild
+  -idjc-0.8.3.ebuild
+
+*idjc-0.8.4 (08 Nov 2010)
+
+  08 Nov 2010; Gavin Pryke <gavinlee303@googlemail.com> +idjc-0.8.4.ebuild:
+  bump
+
+  06 Nov 2010; Gavin Pryke <gavinlee303@googlemail.com> idjc-0.8.3.ebuild:
+  add media-libs/mutagen build dependency
+
+*idjc-0.8.3 (11 Aug 2010)
+
+  11 Aug 2010; Gavin Pryke <gavinlee303@googlemail.com> -idjc-0.6.10.ebuild,
+  -idjc-0.6.11_pre1.ebuild, -idjc-0.6.11.ebuild, -idjc-0.6.12.ebuild,
+  -idjc-0.7.0.ebuild, -idjc-0.7.2a.ebuild, +idjc-0.8.3.ebuild, metadata.xml:
+  remove ebuilds with non-existant SRC_URI, move HOMEPAGE and SRC_URI to
+  sourceforge based site. add wma USE flag to metadata. bump to 0.8.3.
+
+  15 Apr 2008; Thomas Kuther <gimpel@sonnenkinder.org> +idjc-0.7.2a.ebuild:
+  version bump
+
+  02 Feb 2008; Thomas Kuther <gimpel@sonnenkinder.org> +idjc-0.7.0.ebuild:
+  version bump
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

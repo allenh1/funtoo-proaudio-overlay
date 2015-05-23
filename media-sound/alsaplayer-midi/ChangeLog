@@ -1,0 +1,11 @@
+# ChangeLog for media-sound/alsaplayer-midi
+# Copyright 1999-2007 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  27 Mar 2011; Dominique Michel <dominique@tuxfamily.org>
+  Use the new git repo
+  Updated the DEPEND on alsaplayer
+  
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

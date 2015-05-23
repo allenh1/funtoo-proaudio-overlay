@@ -1,0 +1,14 @@
+--- gcc/dwarf2out.c.orig	2007-01-22 19:06:26.701312248 +0100
++++ gcc/dwarf2out.c	2007-01-22 19:07:58.550580495 +0100
+@@ -14361,9 +14361,8 @@
+ 	s->refcount++;
+ 	/* Avoid unnecessarily putting strings that are used less than
+ 	   twice in the hash table.  */
+-	if (s->refcount == 2
+-	    || (s->refcount == 1 
+-		&& (DEBUG_STR_SECTION_FLAGS & SECTION_MERGE) != 0))
++	if (s->refcount
++		== ((DEBUG_STR_SECTION_FLAGS & SECTION_MERGE) ? 1 : 2))
+ 	  {
+ 	    void ** slot;
+ 	    slot = htab_find_slot_with_hash (debug_str_hash, s->str,

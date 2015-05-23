@@ -1,0 +1,27 @@
+# ChangeLog for media-sound/gigedit
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  04 Apr 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -gigedit-0.1.1.ebuild, gigedit-9999.ebuild, +metadata.xml:
+  remove old ebuild with same version in portage, sync live ebuild, inherit
+  autotools-utils. repoman payment.
+
+  27 Jul 2012; Dominique Michel <dominique@tuxfamily.org> gigedit-9999.ebuild:
+  gigedit-9999: Adding make_desktop_entry
+
+  10 May 2012; Hakan Demiralp <keenblade@tuxfamily.org> gigedit-9999.ebuild:
+  gigedit-9999: ebuild updated. Thanks to Natanael
+
+  29 Dec 2010; Hakan Demiralp <keenblade@tuxfamily.org> gigedit-9999.ebuild:
+  media-sound/gigedit-9999: fixed a typo. wrt #109 by distrozapper
+
+*gigedit-9999 (02 Sep 2010)
+
+  02 Sep 2010; Viktor Lazarev <taurus101v@gmail.com> +gigedit-9999.ebuild:
+  Ebuild was taken from http://download.linuxsampler.org/packages/gentoo/
+
+  24 Jan 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  +gigedit-0.1.1.ebuild:
+  inital ebuild
+

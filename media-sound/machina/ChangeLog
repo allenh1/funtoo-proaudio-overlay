@@ -1,0 +1,17 @@
+# ChangeLog for media-sound/machina
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  28 May 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
+  macjina-9999.ebuild: provided by media-sound/drobilla-9999; transformed
+  into a fake ebuild
+
+  05 May 2011; Gavin Pryke <gavinlee303@googlemail.com> machina-9999.ebuild:
+  update for current svn
+
+  04 Aug 2010; Gavin Pryke <gavinlee303@googlemail.com> machina-9999.ebuild:
+  Update to fix build. deps may need looking at but does build for me now.
+
+  16 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> machina-9999.ebuild:
+  added SLOT
+

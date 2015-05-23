@@ -1,0 +1,34 @@
+# ChangeLog for media-plugins/gst-buzztard
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  23 Nov 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  gst-buzztard-0.6.0.ebuild, gst-buzztard-9999.ebuild:
+  add forgotten dev-lang/orc dep, make it default in IUSE
+
+*gst-buzztard-9999 (22 Nov 2012)
+*gst-buzztard-0.6.0 (22 Nov 2012)
+
+  22 Nov 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -gst-buzztard-0.3.0.ebuild, -gst-buzztard-0.4.0.ebuild,
+  -gst-buzztard-0.5.0.ebuild, +gst-buzztard-0.6.0.ebuild,
+  +gst-buzztard-9999.ebuild, metadata.xml:
+  bump. add live ebuild. cleanup.
+
+  23 Oct 2010; Gavin Pryke <gavinlee303@googlemail.com>
+  gst-buzztard-0.5.0.ebuild,
+  +files/gst-buzztard-0.5.0-no-automagic-deps.patch, metadata.xml:
+  add bml and fluidsynth USE flags, media-libs/bml is optional for loading
+  buzz machines. remove mad USE flag.
+
+  30 Mar 2010; Stephane Angot <sa@hydre.org> +gst-buzztard-0.5.0.ebuild:
+  version bump
+  spring cleanup
+
+  27 Nov 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  +gst-buzztard-0.4.0.ebuild:
+  version bump
+
+  28 Mar 2008; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  initial ebuild
+

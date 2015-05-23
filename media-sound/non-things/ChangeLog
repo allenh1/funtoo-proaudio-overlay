@@ -1,0 +1,29 @@
+# ChangeLog for media-sound/non-things
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  04 Nov 2012; Dominique Michel <dominique_libre@sourceforge.met>
+  New complete rewrite. Now, this ebuild will just install the complete non-suite.
+
+  21 Jul 2012; Domiinque Michel <dominique@tuxfamily.org>
+  A lot changed into the build system -> rewrite from the scratch of the ebuild.
+  New USE flags esed to control which part of this suite are installed.
+  Rename non-daw -> non-things
+  -files/non-daw-9999-Makefiles.patch: obsolete
+  +files/non_makefile.patch: add missing fltk flags
+  +files/x-www-browser: srcipt to launch Help -> Manual
+  +files/61browser: set $BROWSER i the environement, used by x-www-browser
+  When doing this ebuild, I found how to launch firefox with portage. lol
+
+  20 May 2010; Gavin Pryke <gavinlee303@googlemail.com> non-daw-9999.ebuild,
+  +files/non-daw-9999-Makefiles.patch:
+  try to get this thing to build. added a patch as well.
+
+  18 Sep 2009; Gavin Pryke <gavinlee303@googlemail.com>
+  +non-daw-9999.ebuild, +metadata.xml:
+  rename nondaw -> non-daw
+
+  15 Sep 2009; Gavin Pryke <gavinlee303@googlemail.com> +nondaw-9999.ebuild,
+  +metadata.xml:
+  initial import of nondaw
+

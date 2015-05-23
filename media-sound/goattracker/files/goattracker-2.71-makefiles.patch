@@ -1,0 +1,82 @@
+--- src/makefile.original	2011-05-06 18:42:13.953015316 +0100
++++ src/makefile	2011-05-06 18:42:51.568015335 +0100
+@@ -2,7 +2,7 @@
+ # Linux makefile
+ #
+ 
+-CFLAGS=`sdl-config --cflags`
++CPPFLAGS=`sdl-config --cflags`
+ PREFIX=../linux/
+ SUFFIX=
+ LIBS=`sdl-config --libs`
+--- src/bme/makefile.original	2011-05-06 17:57:06.365013988 +0100
++++ src/bme/makefile	2011-05-12 18:27:01.605236316 +0100
+@@ -1,10 +1,10 @@
+ all: dat2inc datafile
+ 
+ datafile: datafile.c bme_end.c
+-	gcc -o datafile datafile.c bme_end.c
++	$(CC) $(CFLAGS) -o datafile datafile.c bme_end.c
+ 	strip datafile
+ 
+ dat2inc: dat2inc.c
+-	gcc -o dat2inc dat2inc.c
++	$(CC) $(CFLAGS) -o dat2inc dat2inc.c
+ 	strip dat2inc
+ 
+--- src/makefile.common.original	2011-05-06 17:50:20.645013802 +0100
++++ src/makefile.common	2011-05-12 18:30:57.936236433 +0100
+@@ -1,9 +1,11 @@
+ # common makefile directives for linux and win32 build
+ 
+-CC=gcc
+-CXX=g++
+-CFLAGS+=-O3 -Wall -Ibme -Iasm
+-CXXFLAGS=$(CFLAGS)
++CC ?= gcc
++CXX ?= g++
++CPPFLAGS += -Ibme -Iasm
++EXTFLAGS = -Wall
++CFLAGS ?= -O3
++CXXFLAGS ?= -O3
+ 
+ EXE=	$(PREFIX)goattrk2$(SUFFIX) \
+ 	$(PREFIX)ins2snd2$(SUFFIX) \
+@@ -23,30 +25,30 @@
+ asm/asmtab.o asm/chnkpool.o asm/expr.o asm/lexyy.o asm/log.o asm/membuf.o asm/membufio.o asm/namedbuf.o asm/parse.o \
+ asm/pc.o asm/vec.o \
+ bme/bme_gfx.o bme/bme_snd.o bme/bme_win.o bme/bme_mou.o bme/bme_kbd.o bme/bme_io.o bme/bme_end.o bme/bme.o
+-	$(CXX) -o $@ $^ $(LIBS)
++	$(CXX) $(LDFLAGS) $(EXTFLAGS) -o $@ $^ $(LIBS)
+ 	strip $@
+ 
+ $(PREFIX)mod2sng$(SUFFIX): mod2sng.o bme/bme_end.o
+-	gcc -o $@ $^
++	$(CC) $(LDFLAGS) $(EXTFLAGS) -o $@ $^
+ 	strip $@
+ 
+ $(PREFIX)ins2snd2$(SUFFIX): ins2snd2.o bme/bme_end.o
+-	gcc -o $@ $^
++	$(CC) $(LDFLAGS) $(EXTFLAGS) -o $@ $^
+ 	strip $@
+ 
+ $(PREFIX)sngspli2$(SUFFIX): sngspli2.o bme/bme_end.o
+-	gcc -o $@ $^
++	$(CC) $(LDFLAGS) $(EXTFLAGS) -o $@ $^
+ 	strip $@
+ 
+ $(PREFIX)betaconv$(SUFFIX): betaconv.o bme/bme_end.o
+-	gcc -o $@ $^
++	$(CC) $(LDFLAGS) $(EXTFLAGS) -o $@ $^
+ 	strip $@
+ 
+ goattrk2.dat: player.s altplayer.s chargen.bin palette.bin cursor.bin goattrk2.bmp goattrk2.seq
+-	datafile $@ goattrk2.seq
++	bme/datafile $@ goattrk2.seq
+ 
+ goatdata.c: goattrk2.dat
+-	dat2inc $< $@
++	bme/dat2inc $< $@
+ 
+ clean:
+ 	$(RM) *.o *~

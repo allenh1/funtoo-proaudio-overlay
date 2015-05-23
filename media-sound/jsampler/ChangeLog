@@ -1,0 +1,19 @@
+# ChangeLog for media-sound/jsampler
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  30 Dec 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
+  jsampler-0.9.ebuild, jsampler-0.8a.ebuild, metadata.xml: added sqlite USE
+  flag for sqlite support via linuxsampler.
+  metadata.xml: removed no-herd.
+
+*jsampler-0.9 (05 Sep 2010)
+
+  05 Sep 2010; Viktor Lazarev <taurus101v@gmail.com> jsampler-0.8a.ebuild,
+  +jsampler-0.9.ebuild, +metadata.xml:
+  bumped
+
+  24 Jan 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  +jsampler-0.8a.ebuild:
+  initial ebuild
+

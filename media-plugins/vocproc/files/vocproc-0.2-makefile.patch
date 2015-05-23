@@ -1,0 +1,15 @@
+--- vocproc.lv2/Makefile.old	2011-02-01 16:43:25.132052011 +0000
++++ vocproc.lv2/Makefile	2011-02-01 16:54:02.919052010 +0000
+@@ -30,10 +30,10 @@
+ 	cp $^ $(BUNDLE)
+ 
+ vocproc.so: vocproc.cpp vocproc.peg
+-	g++ -shared -fPIC -DPIC $(DEFINES) vocproc.cpp `pkg-config --cflags --libs lv2-plugin fftw3` -lm -o vocproc.so
++	$(CXX) $(LDFLAGS) -shared -fPIC -DPIC $(DEFINES) vocproc.cpp `pkg-config --cflags --libs lv2-plugin fftw3` -lm -o vocproc.so
+ 
+ vocproc_gui.so: vocproc_gui.cpp vocproc.peg
+-	g++ -shared -fPIC -DPIC $(DEFINES) vocproc_gui.cpp `pkg-config --cflags --libs lv2-gui` -o vocproc_gui.so
++	$(CXX) $(LDFLAGS) -shared -fPIC -DPIC $(DEFINES) vocproc_gui.cpp `pkg-config --cflags --libs lv2-gui` -o vocproc_gui.so
+ 
+ prepare:
+ ifeq ($(DEFINES), -DNO_VOCODER)

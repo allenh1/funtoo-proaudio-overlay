@@ -1,0 +1,72 @@
+# ChangeLog for media-sound/lmms
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  31 Mar 2013; Dominique Michel <dominique_free@users.sourceforge.net>
+  lmms-9999-r1.ebuild:
+  Add built-in zynaddsubfx (Thanks to Miroslav Sulc for the patch).
+
+  29 Mar 2013; Dominique Michel <dominique_free@users.sourceforge.net>
+  lmms-9999-r1.ebuild:
+  Commented EGIT_BRANCH: not needed for Master.
+
+  22 Mar 2013; Matt Henley <nwmatt@gmail.com>
+  lmms-9999-r1.ebuild:
+  Fixed repo URI to pull their equivalent of trunk (Thanks to Miroslav Sulc for the patch).
+
+  18 Mar 2013; Dominique Michel <dominique_free@users.sourceforge.net>
+  lmms-9999-r1.ebuild:
+  Updated repo URI (Thanks to Miroslav Sulc for the patch).
+
+  06 Sep 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  lmms-9999-r1.ebuild:
+  EAPI 5.
+  Some rearranging.
+  Use arrays instead of strings.
+  Updated repo URI (thanks to Miroslav Sulc for the patch).
+
+  09 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  lmms-0.4.9999.ebuild; lmms-9999-r1.ebuild: Moved QT depends to dev-qt/*
+
+*lmms-0.4.9999 (03 Jan 2013)
+
+  03 Jan 2013; Frieder Buerzele <evermind@tuxfamily.org>
+  +files/lmms-0.4.10-unembedfltk.patch, +lmms-0.4.9999.ebuild:
+  live ebuild for the stable branch
+
+  10 Apr 2010; Viktor Lazarev <taurus101v@gmail.com> lmms-9999-r1.ebuild:
+  license, git repo URI & DOCS fixed
+
+  24 Feb 2009; Thomas Kuther <gimpel@sonnenkinder.org>
+  -files/lmms-qt4_configure_gentoo.patch, -files/lmms-9999-acinclude.patch,
+  -lmms-0.3.2.ebuild, lmms-9999-r1.ebuild:
+  lmms goes git, cleanup
+
+  17 Sep 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  -lmms-0.4.0_beta2.ebuild, +lmms-0.4.0_rc1.ebuild:
+  version bump
+
+  24 Aug 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  -lmms-0.4.0_beta1.ebuild, +lmms-0.4.0_beta2.ebuild:
+  version bump
+
+  08 Aug 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  -lmms-0.4.0_alpha2.ebuild, +lmms-0.4.0_beta1.ebuild, lmms-9999-r1.ebuild:
+  version bump, uses cmake now.
+
+  06 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  lmms-9999-r1.ebuild:
+  fixed qt4_min... QA msg
+
+  15 Jul 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  +lmms-0.4.0_alpha2.ebuild:
+  testing ebuild for 0.4.0-aplha
+
+  14 Jun 2008; Thomas Kuther <gimpel@sonnenkinder.org> -lmms-0.1.4.ebuild,
+  -lmms-0.2.1-r1.ebuild, -lmms-0.3.0.ebuild, -lmms-0.3.0-r1.ebuild,
+  +lmms-0.3.2.ebuild:
+  version bump
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

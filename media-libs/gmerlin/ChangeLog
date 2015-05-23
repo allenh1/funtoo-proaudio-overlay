@@ -1,0 +1,27 @@
+# ChangeLog for media-libs/gmerlin
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  29 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -gmerlin-0.3.8.ebuild, gmerlin-1.2.0.ebuild, metadata.xml:
+  Move to EAPI 5 and autotools-utils.
+  Force disable esound support.
+  Remove unused USE flags.
+  Keyword for ~x86.
+  Add USE flag descriptions.
+  Remove old ebuild.
+
+  22 Jun 2012; Frieder Buerzele <evermind@tuxfamily.org> -gmerlin-1.0.0.ebuild,
+  +gmerlin-1.2.0.ebuild:
+  bumped and changed to virtual/jpeg
+
+*gmerlin-1.0.0 (21 Jan 2012)
+
+  21 Jan 2012; Frieder Buerzele <evermind@tuxfamily.org> -gmerlin-0.4.2.ebuild,
+  +gmerlin-1.0.0.ebuild:
+  bumped gmerlin
+
+  19 Mar 2009; Marcin Deranek <gringo@tuxfamily.org>
+  +files/gmerlin-cflags.patch, +gmerlin-0.3.8.ebuild, +gmerlin-0.4.0.ebuild:
+  Initial bump
+

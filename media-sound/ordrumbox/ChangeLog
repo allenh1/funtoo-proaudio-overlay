@@ -1,0 +1,14 @@
+# ChangeLog for media-sound/ordrumbox
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*ordrumbox-9999 (01 Sep 2010)
+*ordrumbox-0.9.02 (01 Sep 2010)
+
+  01 Sep 2010; Viktor Lazarev <taurus101v@gmail.com>
+  +ordrumbox-0.9.02.ebuild, +ordrumbox-9999.ebuild:
+  version bump
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

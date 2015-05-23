@@ -1,0 +1,27 @@
+--- fastbreeder-1.0.1/SConstruct.old	2010-10-22 07:22:18.000000000 +0100
++++ fastbreeder-1.0.1/SConstruct	2010-10-22 07:45:48.000000000 +0100
+@@ -1,3 +1,6 @@
++import os
++import SCons.Util
++
+ Target       = "fastbreederserver"
+ PyTarget    = ["scripts/fastbreeder", "scripts/gpy.py", "scripts/osc.py"]
+ Install      = "/usr/local/bin"
+@@ -23,7 +26,16 @@
+ 				src/FastBreeder.cpp \
+ 				src/main.cpp")					
+ 
+-env = Environment(CCFLAGS = '-pipe -Wall -O3 -ggdb -ffast-math -Wno-unused  -fPIC')
++env = Environment(CXXFLAGS = '-Wall -O3 -ggdb -ffast-math -fPIC')
++
++if os.environ.has_key('CXX'):
++	env['CXX'] = os.environ['CXX']
++if os.environ.has_key('CXXFLAGS'):
++	env['CXXFLAGS'] += SCons.Util.CLVar(os.environ['CXXFLAGS'])
++if os.environ.has_key('LDFLAGS'):
++	env['LINKFLAGS'] += SCons.Util.CLVar(os.environ['LDFLAGS'])
++
++
+ env.Program(source = Source, target = Target, LIBS=Libs, LIBPATH=LibPaths)
+ 
+ env.Install(Install, Target)

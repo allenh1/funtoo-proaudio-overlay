@@ -1,0 +1,28 @@
+# ChangeLog for media-plugins/holap
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  15 Nov 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  +files/holap-2012.10.26/0004-remove-combine.patch:
+  Remove combine flag to attempt fix build with 4.6.x. Thanks to Dominique
+  Michel for build log
+
+  14 Nov 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  holap-2012.10.26.ebuild:
+  move WANT_AUTOCONF above inherit, change 2.59 -> 2.5.
+  add call to _elibtoolize since eautoreconf was dropped and no plugins get
+  installed. add some einfo messages. remove .la files. add ~x86 keyword.
+
+  13 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net> holap-2012.10.26.ebuild:
+  moved to autotools eclass, adding WANT_AUTOCONF and WANT_AUTOMAKE; use the same function
+  as in the original autoconf system instead of eautoreconf
+
+*holap-2012.10.26 (12 Nov 2012)
+
+  12 Nov 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  +holap-2012.10.26.ebuild,
+  +files/holap-2012.10.26/0001-remove-forced-flags.patch,
+  +files/holap-2012.10.26/0002-workaround-sandbox-violation.patch,
+  +files/holap-2012.10.26/0003-respect-ldflags.patch, +metadata.xml:
+  import
+

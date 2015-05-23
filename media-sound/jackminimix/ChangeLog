@@ -1,0 +1,15 @@
+# ChangeLog for media-sound/jackminimix
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*jackminimix-9999 (31 Aug 2010)
+*jackminimix-0.2 (31 Aug 2010)
+
+  31 Aug 2010; Viktor Lazarev <taurus101v@gmail.com>
+  -jackminimix-0.1.ebuild, +jackminimix-0.2.ebuild,
+  +jackminimix-9999.ebuild:
+  cleanup & version bump
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

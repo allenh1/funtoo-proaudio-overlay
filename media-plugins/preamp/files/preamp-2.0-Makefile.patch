@@ -1,0 +1,33 @@
+--- Makefile.orig	2003-10-30 10:56:05.000000000 +0100
++++ Makefile	2007-01-31 19:43:50.474057481 +0100
+@@ -1,8 +1,8 @@
+ PLUG=preamp
+-DEST=/usr/local/lib/ladspa
++DEST:=/usr/lib/ladspa
+ ARCH=`uname -m`
+ 
+-OPTS=-O6 -ffast-math -march=$(ARCH) -mcpu=$(ARCH)
++OPTS=$(CFLAGS)
+ 
+ all: $(PLUG).so
+ 
+@@ -13,16 +13,16 @@
+ 	g++ -Wall $(OPTS) -shared -o $@ $<
+ 
+ .c.s:
+-	gcc -O6 -I/usr/local/include -S $<
++	gcc $(OPTS) -S $<
+ 
+ .cc.o:
+-	g++ -Wall $(OPTS) -I/usr/local/include -c $<
++	g++ -Wall $(OPTS) -fPIC -c $<
+ 
+ tags:
+ 	ctags *.cc *.h
+ 
+ install: all
+-	install -m 644 $(PLUG).so $(DEST)
++	install -m 755 $(PLUG).so $(DESTDIR)/$(DEST)
+ 
+ uninstall:
+ 	rm $(DEST)/$(PLUG).so

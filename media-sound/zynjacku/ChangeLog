@@ -1,0 +1,32 @@
+# ChangeLog for media-sound/zynjacku
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  10 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>;
+  Added depend to media-libs/lv2 into the ebuilds
+
+  3 Jan 2010; Marc-Olivier Barre <marco@marcochapeau.org>;
+  Imported some fixes to zynjacku-5 and zynjacku-9999 from Nedko Arnaudov
+
+*zynjacku-5 (16 Jun 2009)
+
+  16 Jun 2009; Stephane Angot <sa@hydre.org> +zynjacku-5.ebuild:
+  Version bump
+  Remove jackmidi use flag since it's broken for the moment
+
+*zynjacku-4 (12 Jun 2009)
+
+  11 Jun 2009; Stephane Angot <sa@hydre.org> +zynjacku-4.ebuild:
+  Version bump
+
+  22 Nov 2008; Frieder Buerzele <evermind@tuxfamily.org;
+  zynjacku-9999.ebuild:
+  switched to git -- but still fails
+
+  10 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>; zynjacku-1.ebuild,
+  zynjacku-9999.ebuild:
+  changed jack dep to 0.109.0
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

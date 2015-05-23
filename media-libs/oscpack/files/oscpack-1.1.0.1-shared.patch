@@ -1,0 +1,12 @@
+diff -ur oscpack_1_1_0_RC1.orig/CMakeLists.txt oscpack_1_1_0_RC1/CMakeLists.txt
+--- oscpack_1_1_0_RC1.orig/CMakeLists.txt	2013-03-24 15:33:19.806025266 +0100
++++ oscpack_1_1_0_RC1/CMakeLists.txt	2013-03-24 15:33:33.064024829 +0100
+@@ -13,7 +13,7 @@
+  set(IpSystemTypePath ip/posix)
+ ENDIF(WIN32)
+ 
+-ADD_LIBRARY(oscpack 
++ADD_LIBRARY(oscpack SHARED
+ 
+ ip/IpEndpointName.h
+ ip/IpEndpointName.cpp

@@ -1,0 +1,22 @@
+diff -urN tranches-0.1.1.orig/SConstruct tranches-0.1.1/SConstruct
+--- tranches-0.1.1.orig/SConstruct	2008-11-16 12:24:13.000000000 +0100
++++ tranches-0.1.1/SConstruct	2011-02-03 18:13:57.000000000 +0100
+@@ -82,10 +82,14 @@
+ 		env['LINKCOMSTR'] = "Linking $TARGET"
+ 
+ # INSTALL
+-bin = env.Install('/usr/local/bin', 'tranches')
+-desktop = env.Install('/usr/local/share/applications', 'data/tranches.desktop')
+-icon = env.Install('/usr/local/share/pixmaps', 'data/tranches.png')
+-env.Alias('install', [bin,desktop,icon])
++bin_dir = ARGUMENTS.get('bin_dir', '/usr/local/bin')
++desktop_dir = ARGUMENTS.get('desktop_dir', '/usr/local/share/applications')
++icon_dir = ARGUMENTS.get('icon_dir', '/usr/local/share/pixmaps')
++
++bin = env.Install(bin_dir, 'tranches')
++desktop = env.Install(desktop_dir, 'data/tranches.desktop')
++icon = env.Install(icon_dir, 'data/tranches.png')
++env.Alias('install', [bin_dir, desktop_dir, icon_dir])
+ 
+ # HELP
+ if (optlang=='fr'):

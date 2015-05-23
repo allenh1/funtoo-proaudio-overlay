@@ -1,0 +1,29 @@
+# ChangeLog for media-sound/drc
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*drc-3.2.1 (06 Feb 2013)
+
+  06 Feb 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  +drc-3.2.1.ebuild, +files/drc-3.2.1-makefile.patch:
+  bump. patch makefile for toolchain flags and unbundling lib, depend on
+  sci-libs/gsl. remove old, fix html doc install
+
+*drc-3.2.0 (29 Aug 2012)
+
+  29 Aug 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -drc-3.1.1.ebuild, +drc-3.2.0.ebuild, +files/drc-3.2.0-makefile.patch, -fix,
+  metadata.xml:
+  bump. patch makefile for toolchain flags and unbundling lib, depend on
+  sci-libs/gsl. remove old.
+
+  14 Sep 2011; Dominique Michel <dominique_libre@sourceforge.net>
+  Removed 2.5.2 ebuild (doesn't compile anymore)
+  Added 3.1.1 ebuild
+  Added double-precision USE flag
+  Added installation of the contrib and config files. Messy,
+    but it work.
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

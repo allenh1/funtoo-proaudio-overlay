@@ -1,0 +1,41 @@
+# ChangeLog for media-sound/jackmix
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*jackmix-0.4.2-r1 (04 Jun 2013)
+
+  04 Jun 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +jackmix-0.4.2-r1.ebuild:
+  Add virtual/liblash to dependencies. Closes #163. Thanks to aline for the bug
+  report.
+  More use of PN variable.
+
+  09 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  jackmix-0.4.2.ebuild: ;oved QT depends to dev-qt/*
+  -jackmix-0.2.ebuild
+  -jackmix-0.3.1.ebuild
+  -jackmix-0.4.1.ebuild
+  
+  28 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  +jackmix-0.4.2.ebuild: Hope this version will work for everybody
+
+  26 Nov 2012; Karl Lindén <lilrc@users.sourceforge.net>
+  -jackmix-0.4.ebuild, +jackmix-0.4.1.ebuild, jackmix-0.2.ebuild,
+  jackmix-0.3.1.ebuild, metadata.xml:
+  minor cleanup (made repoman happy)
+  updated to qt4-r2 and EAPI 4
+  removed old ebuild
+  added new ebuild
+  
+  06 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  -jackmix-0.1.ebuild, jackmix-0.2.ebuild, jackmix-0.3.1.ebuild,
+  jackmix-0.4.ebuild:
+  fixed qt4_min... QA msg -- removed old ebuilds
+
+  15 Jan 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  jackmix-0.4.ebuild:
+  fixed installation and use cflags now
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

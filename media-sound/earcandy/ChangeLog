@@ -1,0 +1,21 @@
+# ChangeLog for media-sound/earcandy
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  04 May 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  earcandy-0.9.ebuild, earcandy-9999.ebuild:
+  Move to distutils-r1 eclass.
+  Drop dependency on bzr in versioned ebuild.
+
+  27 Dec 2012; Karl Lindén <lilrc@users.sourceforge.net>
+  earcandy-9999.ebuild, +earcandy-0.9.ebuild:
+  added versioned ebuild
+  updated EAPI and fix python version
+  cleanup
+
+*earcandy-9999 (04 Mar 2011)
+
+  04 Mar 2011; Frieder Buerzele <evermind@tuxfamily.org>
+  +earcandy-9999.ebuild:
+  initial ebuild fixes bug #105
+

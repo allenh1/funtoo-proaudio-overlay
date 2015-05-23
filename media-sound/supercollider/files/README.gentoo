@@ -1,0 +1,66 @@
+Testing SuperCollider Installation
+----------------------------------
+
+To make sure that the SuperCollider install is working properly:
+
+ 1) Ensure that Jack is running ("jackd -d alsa")
+ 2) Ensure that you're going to run these commands from a directory
+    which contains the subdirectories sounds/ and synthdefs/
+    (these directories can be initially empty)
+ 3) Make sure you know where you have onetwoonetwo.sc, which will
+    usually reside in the documentations directory, usually
+    /usr/share/doc/supercollider-<VERSION>/. If it is compressed please
+    uncompress it somewhere.
+ 4) execute the following command, adjusting the path to onetwoonetwo.sc
+    of course:
+      sclang <path/to/onetwoonetwo.sc> -
+
+If all goes well, you'll get some scrolling output, and then you'll
+hear a looping synth line.  If the sclang command just sits there after
+complaining about some error, hit Ctrl-C to get out of the loop and
+start reading through the various online docs or filing some bugs
+to see if you can find what the problem is.
+
+Emacs Support
+-------------
+
+The online documentation seems to be largely of the opinion that emacs
+is the preferred interface for working with SuperCollider.  Since emacs
+support is optional, you must have emacs in your USE flags if you want
+to have emacs support compiled in.  To start up emacs in SCLang mode,
+first add the following line to ~/.emacs:
+
+	(require 'sclang)
+
+And then run emacs as "emacs -sclang"
+
+Running in General
+------------------
+
+Once again, it bears repeating that Jack *must* be running, and the
+program *must* be started from inside a directory which contains
+sounds/ and synthdefs/.  (Technically, you could alternatively start
+sclang with the "-d" option to select a different directory
+containing those two subdirs.)
+
+More Information
+----------------
+
+The Official SuperCollider Homepage
+http://supercollider.sourceforge.net
+
+SuperCollider Wiki
+http://swiki.hfbk-hamburg.de:8888/MusicTechnology/6
+This is a very informative Wiki devoted to running and developing
+SuperCollider.  Pages of particular interest here:
+
+  * http://swiki.hfbk-hamburg.de:8888/MusicTechnology/478
+    General SuperCollider-on-Linux information
+  
+  * http://swiki.hfbk-hamburg.de:8888/MusicTechnology/579
+    SuperCollider and Emacs
+
+SuperCollider Mailing List
+http://www.create.ucsb.edu/mailman/listinfo/sc-users
+Probably the best place to go for problems that aren't specifically
+Gentoo-related

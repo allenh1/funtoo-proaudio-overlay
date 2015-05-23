@@ -1,0 +1,537 @@
+diff -ruN ZynAddSubFX-2.2.1/src/Input/ALSAMidiIn.C ZynAddSubFX-2.2.1-lash-and-jackmidi/src/Input/ALSAMidiIn.C
+--- ZynAddSubFX-2.2.1/src/Input/ALSAMidiIn.C	2005-03-14 20:54:28.000000000 +0100
++++ ZynAddSubFX-2.2.1-lash-and-jackmidi/src/Input/ALSAMidiIn.C	2005-10-02 13:51:35.000000000 +0200
+@@ -94,3 +94,14 @@
+ };
+ 
+ 
++int ALSAMidiIn::getalsaid() {
++  if (midi_handle) {
++    snd_seq_client_info_t* seq_info;
++    snd_seq_client_info_malloc(&seq_info);
++    snd_seq_get_client_info(midi_handle, seq_info);
++    int id = snd_seq_client_info_get_client(seq_info);
++    snd_seq_client_info_free(seq_info);
++    return id;
++  }
++  return -1;
++}
+diff -ruN ZynAddSubFX-2.2.1/src/Input/ALSAMidiIn.h ZynAddSubFX-2.2.1-lash-and-jackmidi/src/Input/ALSAMidiIn.h
+--- ZynAddSubFX-2.2.1/src/Input/ALSAMidiIn.h	2005-03-14 20:54:19.000000000 +0100
++++ ZynAddSubFX-2.2.1-lash-and-jackmidi/src/Input/ALSAMidiIn.h	2005-10-02 13:51:35.000000000 +0200
+@@ -32,6 +32,7 @@
+ 	ALSAMidiIn();
+ 	~ALSAMidiIn();
+ 	void getmidicmd(MidiCmdType &cmdtype,unsigned char &cmdchan,int *cmdparams);
++	int getalsaid();
+ 
+     private:
+ 	snd_seq_t *midi_handle;
+diff -ruN ZynAddSubFX-2.2.1/src/main.C ZynAddSubFX-2.2.1-lash-and-jackmidi/src/main.C
+--- ZynAddSubFX-2.2.1/src/main.C	2005-04-28 02:15:28.000000000 +0200
++++ ZynAddSubFX-2.2.1-lash-and-jackmidi/src/main.C	2005-10-02 13:51:35.000000000 +0200
+@@ -83,6 +83,10 @@
+ OSSaudiooutput *audioout;
+ #endif
+ 
++#include "Misc/LASHClient.h"
++LASHClient *lash;
++
++
+ MidiIn *Midi;
+ int Pexitprogram=0;//if the UI set this to 1, the program will exit
+ 
+@@ -180,7 +184,20 @@
+ void *thread3(void *arg){
+ #ifndef DISABLE_GUI
+     ui->showUI();
+-    while (Pexitprogram==0) Fl::wait();
++    while (Pexitprogram==0) {
++      std::string filename;
++      switch (lash->checkevents(filename)) {
++      case LASHClient::Save:
++	ui->do_save_master(const_cast<char*>(filename.c_str()));
++	lash->confirmevent(LASHClient::Save);
++	break;
++      case LASHClient::Restore:
++	ui->do_load_master(filename.c_str());
++	lash->confirmevent(LASHClient::Restore);
++	break;
++      }
++      Fl::wait();
++    }
+ #endif
+     return(0);
+ };
+@@ -312,6 +329,8 @@
+     delete(Midi);
+     delete(master); 
+ 
++    delete(lash);
++
+ //    pthread_mutex_unlock(&master->mutex);
+     delete(denormalkillbuf);
+     delete(OscilGen::tmpsmps);
+@@ -345,6 +364,9 @@
+ 
+ #ifndef VSTAUDIOOUT
+ int main(int argc, char *argv[]){
++
++    lash = new LASHClient(&argc, &argv, &Pexitprogram);
++
+     config.init();
+     int noui=0;
+ #ifdef JACKAUDIOOUT
+@@ -488,7 +510,13 @@
+     //---------
+     
+     initprogram();
+-
++    
++    ALSAMidiIn* alsamidi = dynamic_cast<ALSAMidiIn*>(Midi);
++    if (alsamidi) {
++      lash->setalsaid(alsamidi->getalsaid());
++      lash->setjackname(JACKgetname());
++    }
++    
+     if (strlen(loadfile)>1){
+         int tmp=master->loadXML(loadfile);
+ 	if (tmp<0) {
+diff -ruN ZynAddSubFX-2.2.1/src/Makefile ZynAddSubFX-2.2.1-lash-and-jackmidi/src/Makefile
+--- ZynAddSubFX-2.2.1/src/Makefile	2005-04-28 01:45:52.000000000 +0200
++++ ZynAddSubFX-2.2.1-lash-and-jackmidi/src/Makefile	2005-10-02 13:51:35.000000000 +0200
+@@ -70,6 +70,9 @@
+ LIBS+= `pkg-config --libs jack`
+ endif
+ 
++CXXFLAGS += `pkg-config --cflags lash-1.0`
++LIBS += `pkg-config --libs lash-1.0`
++
+ objects=main.o
+ SUBDIRS=DSP Effects Input Misc Output Params Synth Seq
+ 
+diff -ruN ZynAddSubFX-2.2.1/src/Makefile.inc ZynAddSubFX-2.2.1-lash-and-jackmidi/src/Makefile.inc
+--- ZynAddSubFX-2.2.1/src/Makefile.inc	2005-04-28 02:21:35.000000000 +0200
++++ ZynAddSubFX-2.2.1-lash-and-jackmidi/src/Makefile.inc	2005-10-02 13:51:35.000000000 +0200
+@@ -29,9 +29,9 @@
+ #parameters (run 'zynaddsubfx --help' for help) 
+ 
+ #LINUX_AUDIOOUT=OSS_AND_JACK
+-LINUX_AUDIOOUT=OSS
++#LINUX_AUDIOOUT=OSS
+ #LINUX_AUDIOOUT=NONE
+-#LINUX_AUDIOOUT=JACK
++LINUX_AUDIOOUT=JACK
+ #LINUX_AUDIOOUT=JACK_RT     JACK_RT support is broken
+ #for PortAudio (PA)
+ #LINUX_AUDIOOUT=PA
+diff -ruN ZynAddSubFX-2.2.1/src/Misc/lash/lash.h ZynAddSubFX-2.2.1-lash-and-jackmidi/src/Misc/lash/lash.h
+--- ZynAddSubFX-2.2.1/src/Misc/lash/lash.h	1970-01-01 01:00:00.000000000 +0100
++++ ZynAddSubFX-2.2.1-lash-and-jackmidi/src/Misc/lash/lash.h	2005-10-02 13:51:35.000000000 +0200
+@@ -0,0 +1 @@
++dummy
+diff -ruN ZynAddSubFX-2.2.1/src/Misc/LASHClient.C ZynAddSubFX-2.2.1-lash-and-jackmidi/src/Misc/LASHClient.C
+--- ZynAddSubFX-2.2.1/src/Misc/LASHClient.C	1970-01-01 01:00:00.000000000 +0100
++++ ZynAddSubFX-2.2.1-lash-and-jackmidi/src/Misc/LASHClient.C	2005-10-02 13:56:16.000000000 +0200
+@@ -0,0 +1,78 @@
++#include <unistd.h>
++#include <iostream>
++#include <string>
++
++#include "LASHClient.h"
++
++
++LASHClient::LASHClient(int* argc, char*** argv, int* exitflag) {
++  this->exitflag = exitflag;
++  client = lash_init(lash_extract_args(argc, argv), "ZynAddSubFX",
++		    LASH_Config_File, LASH_PROTOCOL(2, 0));
++  lash_event_t* event = lash_event_new_with_type(LASH_Client_Name);
++  lash_event_set_string(event, "ZynAddSubFX");
++  lash_send_event(client, event);			
++}
++
++
++void LASHClient::setalsaid(int id) {
++  if (lash_enabled(client)) {
++    if (id != -1)
++      lash_alsa_client_id(client, id);
++  }
++}
++
++
++void LASHClient::setjackname(const char* name) {
++  if (lash_enabled(client)) {
++    if (name != NULL)
++      lash_jack_client_name(client, name);
++  }
++}
++
++
++LASHClient::Event LASHClient::checkevents(std::string& filename) {
++  
++  if (!lash_enabled(client))
++    return NoEvent;
++  
++  Event received = NoEvent;
++  lash_event_t* event;
++  while (event = lash_get_event(client)) {
++    
++    // save
++    if (lash_event_get_type(event) == LASH_Save_File) {
++      std::cerr<<"LASH event: LASH_Save_File"<<std::endl;
++      filename = std::string(lash_event_get_string(event)) + "/master.xmz";
++      received = Save;
++      break;
++    }
++      
++    // restore
++    else if (lash_event_get_type(event) == LASH_Restore_File) {
++      std::cerr<<"LASH event: LASH_Restore_File"<<std::endl;
++      filename = std::string(lash_event_get_string(event)) +  "/master.xmz";
++      received = Restore;
++      break;
++    }
++      
++    // quit
++    else if (lash_event_get_type(event) == LASH_Quit) {
++      std::cerr<<"LASH event: LASH_Quit"<<std::endl;
++      *(exitflag) = 1;
++      received = Quit;
++      break;
++    }
++    
++    lash_event_destroy(event);
++  }
++  return received;
++}
++
++
++void LASHClient::confirmevent(Event event) {
++  if (event == Save)
++    lash_send_event(client, lash_event_new_with_type(LASH_Save_File));
++  else if (event == Restore)
++    lash_send_event(client, lash_event_new_with_type(LASH_Restore_File));
++}
+diff -ruN ZynAddSubFX-2.2.1/src/Misc/LASHClient.h ZynAddSubFX-2.2.1-lash-and-jackmidi/src/Misc/LASHClient.h
+--- ZynAddSubFX-2.2.1/src/Misc/LASHClient.h	1970-01-01 01:00:00.000000000 +0100
++++ ZynAddSubFX-2.2.1-lash-and-jackmidi/src/Misc/LASHClient.h	2005-10-02 13:51:35.000000000 +0200
+@@ -0,0 +1,35 @@
++#ifndef LASHClient_h
++#define LASHClient_h
++
++#include <string>
++#include <pthread.h>
++#include <lash/lash.h>
++
++
++class LASHClient {
++ public:
++  
++  enum Event {
++    Save,
++    Restore,
++    Quit,
++    NoEvent
++  };
++  
++  LASHClient(int* argc, char*** argv, int* exitflag);
++  
++  void setalsaid(int id);
++  void setjackname(const char* name);
++  Event checkevents(std::string& filename);
++  void confirmevent(Event event);
++  
++ private:
++  
++  lash_client_t* client;
++  pthread_t thread;
++  int* exitflag;
++};
++
++
++#endif
++
+diff -ruN ZynAddSubFX-2.2.1/src/Misc/Makefile ZynAddSubFX-2.2.1-lash-and-jackmidi/src/Misc/Makefile
+--- ZynAddSubFX-2.2.1/src/Misc/Makefile	2005-03-12 19:16:26.000000000 +0100
++++ ZynAddSubFX-2.2.1-lash-and-jackmidi/src/Misc/Makefile	2005-10-02 13:51:35.000000000 +0200
+@@ -1,6 +1,6 @@
+ include ../Makefile.inc
+ 
+-objects=Bank.o Master.o Microtonal.o Part.o Util.o Config.o Dump.o XMLwrapper.o
++objects=Bank.o Master.o Microtonal.o Part.o Util.o Config.o Dump.o XMLwrapper.o LASHClient.o
+ 
+ 
+ all: $(objects)
+diff -ruN ZynAddSubFX-2.2.1/src/Misc/Master.C ZynAddSubFX-2.2.1-lash-and-jackmidi/src/Misc/Master.C
+--- ZynAddSubFX-2.2.1/src/Misc/Master.C	2005-03-14 20:57:26.000000000 +0100
++++ ZynAddSubFX-2.2.1-lash-and-jackmidi/src/Misc/Master.C	2005-10-02 13:51:35.000000000 +0200
+@@ -640,7 +640,7 @@
+     delete(xml);
+ };
+ 
+-int Master::saveXML(char *filename){
++int Master::saveXML(const char *filename){
+     XMLwrapper *xml=new XMLwrapper();
+ 
+     xml->beginbranch("MASTER");
+@@ -654,7 +654,7 @@
+ 
+ 
+ 
+-int Master::loadXML(char *filename){
++int Master::loadXML(const char *filename){
+     XMLwrapper *xml=new XMLwrapper();
+     if (xml->loadXMLfile(filename)<0) {
+ 	delete(xml);
+diff -ruN ZynAddSubFX-2.2.1/src/Misc/Master.h ZynAddSubFX-2.2.1-lash-and-jackmidi/src/Misc/Master.h
+--- ZynAddSubFX-2.2.1/src/Misc/Master.h	2005-03-14 20:57:29.000000000 +0100
++++ ZynAddSubFX-2.2.1-lash-and-jackmidi/src/Misc/Master.h	2005-10-02 13:51:35.000000000 +0200
+@@ -43,7 +43,7 @@
+ 
+ 	//saves all settings to a XML file
+ 	//returns 0 for ok  or <0 if there is an error
+-	int saveXML(char *filename);
++	int saveXML(const char *filename);
+ 
+ 	//this adds the parameters to the XML data
+ 	void add2XML(XMLwrapper *xml);
+@@ -53,7 +53,7 @@
+ 
+ 	//loads all settings from a XML file
+ 	//returns 0 for ok or -1 if there is an error
+-	int loadXML(char *filename);
++	int loadXML(const char *filename);
+ 	void applyparameters();
+ 
+ 	void getfromXML(XMLwrapper *xml);
+diff -ruN ZynAddSubFX-2.2.1/src/Misc/XMLwrapper.C ZynAddSubFX-2.2.1-lash-and-jackmidi/src/Misc/XMLwrapper.C
+--- ZynAddSubFX-2.2.1/src/Misc/XMLwrapper.C	2005-04-13 00:09:34.000000000 +0200
++++ ZynAddSubFX-2.2.1-lash-and-jackmidi/src/Misc/XMLwrapper.C	2005-10-02 13:51:35.000000000 +0200
+@@ -162,7 +162,7 @@
+ 
+ /* SAVE XML members */
+ 
+-int XMLwrapper::saveXMLfile(char *filename){
++int XMLwrapper::saveXMLfile(const char *filename){
+     char *xmldata=getXMLdata();
+     if (xmldata==NULL) return(-2);
+ 
+diff -ruN ZynAddSubFX-2.2.1/src/Misc/XMLwrapper.h ZynAddSubFX-2.2.1-lash-and-jackmidi/src/Misc/XMLwrapper.h
+--- ZynAddSubFX-2.2.1/src/Misc/XMLwrapper.h	2005-03-14 20:57:17.000000000 +0100
++++ ZynAddSubFX-2.2.1-lash-and-jackmidi/src/Misc/XMLwrapper.h	2005-10-02 13:51:35.000000000 +0200
+@@ -43,7 +43,7 @@
+ 	/********************************/
+ 
+ 	//returns 0 if ok or -1 if the file cannot be saved
+-	int saveXMLfile(char *filename);
++	int saveXMLfile(const char *filename);
+ 
+ 	//returns the new allocated string that contains the XML data (used for clipboard)
+ 	//the string is NULL terminated
+diff -ruN ZynAddSubFX-2.2.1/src/Output/JACKaudiooutput.C ZynAddSubFX-2.2.1-lash-and-jackmidi/src/Output/JACKaudiooutput.C
+--- ZynAddSubFX-2.2.1/src/Output/JACKaudiooutput.C	2005-03-12 19:16:26.000000000 +0100
++++ ZynAddSubFX-2.2.1-lash-and-jackmidi/src/Output/JACKaudiooutput.C	2005-10-02 14:23:46.000000000 +0200
+@@ -21,11 +21,17 @@
+ */
+ 
+ #include <stdlib.h>
++extern "C" {
++#include <jack/midiport.h>
++}
++
+ #include "JACKaudiooutput.h"
+ 
++
+ Master *jackmaster;
+ jack_client_t *jackclient;
+-jack_port_t *outport_left,*outport_right;
++char jackname[100];
++jack_port_t *outport_left,*outport_right,*midi_inport;
+ 
+ int jackprocess(jack_nframes_t nframes,void *arg);
+ int jacksrate(jack_nframes_t nframes,void *arg);
+@@ -34,12 +40,11 @@
+ bool JACKaudiooutputinit(Master *master_){
+     jackmaster=master_;
+     jackclient=0;
+-    char tmpstr[100];
+ 
+     for (int i=0;i<15;i++){
+-	if (i!=0) snprintf(tmpstr,100,"ZynAddSubFX_%d",i);
+-	    else snprintf(tmpstr,100,"ZynAddSubFX");
+-	jackclient=jack_client_new(tmpstr);
++	if (i!=0) snprintf(jackname,100,"ZynAddSubFX_%d",i);
++	    else snprintf(jackname,100,"ZynAddSubFX");
++	jackclient=jack_client_new(jackname);
+ 	if (jackclient!=0) break;
+     };
+ 
+@@ -60,6 +65,8 @@
+ 	JACK_DEFAULT_AUDIO_TYPE,JackPortIsOutput|JackPortIsTerminal,0);    
+     outport_right=jack_port_register(jackclient,"out_2",
+ 	JACK_DEFAULT_AUDIO_TYPE,JackPortIsOutput|JackPortIsTerminal,0);    
++    midi_inport=jack_port_register(jackclient,"midi_input",
++	JACK_DEFAULT_MIDI_TYPE,JackPortIsInput|JackPortIsTerminal,0);    
+ 
+     if (jack_activate(jackclient)){
+ 	fprintf(stderr,"Cannot activate jack client\n");
+@@ -78,6 +85,7 @@
+     jack_default_audio_sample_t *outr=(jack_default_audio_sample_t *) jack_port_get_buffer (outport_right, nframes);
+ 
+     pthread_mutex_lock(&jackmaster->mutex);
++    JACKhandlemidi(nframes);
+     jackmaster->GetAudioOutSamples(nframes,jack_get_sample_rate(jackclient),outl,outr);
+     pthread_mutex_unlock(&jackmaster->mutex);
+     
+@@ -97,4 +105,58 @@
+ };
+ 
+ 
++const char* JACKgetname() {
++  if (jackclient != NULL)
++    return jackname;
++  return NULL;
++}
++
++
++void JACKhandlemidi(unsigned long frames) {
++  
++  // We must have the master mutex before we run this function
++  
++  // XXX This is really nasty, not only do we lose the sample accuracy of
++  // JACK MIDI, but any accuracy at all below the buffer size
++  
++  void* midi_buf = jack_port_get_buffer(midi_inport, frames);
++  jack_midi_event_t jack_midi_event;
++  jack_nframes_t event_index = 0;
++  jack_nframes_t event_count = 
++    jack_midi_port_get_info(midi_buf, frames)->event_count;
++  unsigned char* midi_data;
++  unsigned char type, chan;
++  
++  while (event_index < event_count) {
++    
++    jack_midi_event_get(&jack_midi_event, midi_buf, event_index, frames);
++    midi_data = jack_midi_event.buffer;
++    type = midi_data[0] & 0xF0;
++    chan = midi_data[0] & 0x0F;
++    
++    switch (type) {
++
++    case 0x80: /* note-off */
++      jackmaster->NoteOff(chan, midi_data[1]);
++      break;
++      
++    case 0x90: /* note-on */
++      jackmaster->NoteOn(chan, midi_data[1], midi_data[2]);
++      break;
++    
++    case 0xB0: /* controller */
++      jackmaster->SetController(chan, midi_data[1], midi_data[2]);
++      break;
++    
++    case 0xE0: /* pitch bend */
++      jackmaster->SetController(chan, C_pitchwheel,
++				((midi_data[2] << 7) | midi_data[1]));
++      break;
+ 
++    /* XXX TODO: handle MSB/LSB controllers and RPNs and NRPNs */
++    }    
++    
++    event_index++;
++  }
++  
++}
+diff -ruN ZynAddSubFX-2.2.1/src/Output/JACKaudiooutput.h ZynAddSubFX-2.2.1-lash-and-jackmidi/src/Output/JACKaudiooutput.h
+--- ZynAddSubFX-2.2.1/src/Output/JACKaudiooutput.h	2005-03-12 19:16:26.000000000 +0100
++++ ZynAddSubFX-2.2.1-lash-and-jackmidi/src/Output/JACKaudiooutput.h	2005-10-02 14:05:34.000000000 +0200
+@@ -40,6 +40,8 @@
+ 
+ bool JACKaudiooutputinit(Master *master_);
+ void JACKfinish();
++const char* JACKgetname();
++void JACKhandlemidi(unsigned long frames);
+ 
+ #endif
+ 
+diff -ruN ZynAddSubFX-2.2.1/src/UI/MasterUI.fl ZynAddSubFX-2.2.1-lash-and-jackmidi/src/UI/MasterUI.fl
+--- ZynAddSubFX-2.2.1/src/UI/MasterUI.fl	2005-04-08 21:50:53.000000000 +0200
++++ ZynAddSubFX-2.2.1-lash-and-jackmidi/src/UI/MasterUI.fl	2005-10-02 13:51:35.000000000 +0200
+@@ -413,7 +413,8 @@
+   decl {BankUI *bankui;} {}
+ } 
+ 
+-class MasterUI {} {
++class MasterUI {open
++} {
+   Function {make_window()} {} {
+     Fl_Window masterwindow {
+       label zynaddsubfx
+@@ -424,7 +425,7 @@
+     config.save();
+     *exitprogram=1;
+ };
+-\#endif} selected
++\#endif}
+       xywh {353 127 390 465} type Double hide
+     } {
+       Fl_Menu_Bar mastermenu {
+@@ -1701,11 +1702,16 @@
+ 
+ updatepanel();} {}
+   }
+-  Function {do_load_master()} {} {
+-    code {char *filename;
+-filename=fl_file_chooser("Open:","({*.xmz})",NULL,0);
+-if (filename==NULL) return;
+-
++  Function {do_load_master(const char* file = NULL)} {selected
++  } {
++    code {const char *filename;
++  if (file == NULL) {
++    filename=fl_file_chooser("Open:","({*.xmz})",NULL,0);
++    if (filename==NULL) return;
++  }
++  else {
++    filename = file;
++  }
+ 
+ pthread_mutex_lock(&master->mutex);
+   //clear all parameters
+@@ -1725,20 +1731,23 @@
+ if (result==-10) fl_alert("Error: Could not load the file\\nbecause it is not a zynaddsubfx parameters file.");
+       else if (result<0) fl_alert("Error: Could not load the file.");} {}
+   }
+-  Function {do_save_master()} {} {
++  Function {do_save_master(char* file = NULL)} {} {
+     code {char *filename;
+-int result=0;
+-
+-filename=fl_file_chooser("Save:","({*.xmz})",NULL,0);
+-if (filename==NULL) return;
+-filename=fl_filename_setext(filename,".xmz");
+-
+-result=fileexists(filename);
+-if (result) {
+-    result=0;
+-   if (!fl_ask("The file exists. \\nOverwrite it?")) return;
+-       
+-};
++  int result=0;
++  if (file == NULL) {
++    filename=fl_file_chooser("Save:","({*.xmz})",NULL,0);
++    if (filename==NULL) return;
++    filename=fl_filename_setext(filename,".xmz");
++    result=fileexists(filename);
++    if (result) {
++      result=0;
++      if (!fl_ask("The file exists. Overwrite it?")) return;
++      
++    }
++  }
++  else {
++    filename = file;
++  }
+ 
+ 
+ pthread_mutex_lock(&master->mutex);

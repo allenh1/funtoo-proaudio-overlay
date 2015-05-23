@@ -1,0 +1,40 @@
+# ChangeLog for media-sound/freqtweak
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  22 Oct 2011: Dominique Michel <dominique_libre@sourceforge.net>
+  freqtweak-0.7.2-r1.ebuild: fixed autotools, added a desktop file
+  freqtweak-9999.ebuild: updated DEPEND to wkgtk-2.8, added a desktop file
+
+  03 Mar 2011; keenblade <keenblade@tuxfamily.org> freqtweak-0.7.2.ebuild:
+  freqtweak-0.7.2: libsigc++ dependency reverted to slot 1.2
+
+  19 Jan 2011; Hakan Demiralp <keenblade@tuxfamily.org> freqtweak-0.7.2.ebuild,
+  +files/freqtweak_wxGTK-2.8.patch:
+  freqtweak-0.7.2: new patch to compile with wxGTK-2.8 by Torben Hohn. wrt
+  #336160 at b.g.o by Reuben Martin. And some clean up for the ebuild
+
+  29 Apr 2010; Viktor Lazarev <taurus101v@gmail.com>
+  +files/10_configure-fixes.patch, freqtweak-0.7.0_pre20070214-r1.ebuild,
+  +files/20_wx-strings.patch.tar.bz2, freqtweak-0.7.2.ebuild,
+  +files/30_64bit-safe.patch, -files/freqtweak-patches-1.tar.bz2,
+  +files/40_manpage.patch, freqtweak-9999.ebuild:
+  cleanup, repoman payment, fix patchset
+
+*freqtweak-9999 (09 Mar 2010)
+
+  09 Mar 2010; Frieder Buerzele <evermind@tuxfamily.org>
+  +freqtweak-9999.ebuild:
+  bumped thx Viktor
+
+*freqtweak-0.7.2 (07 Mar 2010)
+
+  07 Mar 2010; Frieder Buerzele <evermind@tuxfamily.org>
+  +freqtweak-0.7.2.ebuild:
+  bumping 
+
+  02 Jan 2008; Frieder Buerzele <evermind@tuxfamily.org> ChangeLog:
+  use new ebuild from portage + patches
+  closes bug#30 (thx reuben
+
+*freqtweak-0.7.0_pre20070214-r1 (02 Jan 2008)

@@ -1,0 +1,23 @@
+# ChangeLog for media-sound/linuxsampler
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  03 Apr 2013; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  linuxsampler-9999.ebuild, metadata.xml:
+  merge changes from portage, dropped dependency on liblscp, move to
+  autotools-utils eclass, repoman payment. Add REQUIRED_USE for alsa/jack.
+
+  10 May 2012; Hakan Demiralp <keenblade@tuxfamily.org>
+  linuxsampler-9999.ebuild:
+  linuxsampler-9999: ebuild updated. Thanks to
+
+  Natanael
+
+  02 Sep 2010; Viktor Lazarev <taurus101v@gmail.com>
+  linuxsampler-9999.ebuild, metadata.xml:
+  Added 'doc', 'dssi' & 'lv2' USE flags and removed 'arts' one. Corrected in
+  accordance to EAPI2
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

@@ -1,0 +1,21 @@
+diff --git a/khagan.py b/khagan.py
+index 24183fd..6863cdc 100755
+--- a/khagan.py
++++ b/khagan.py
+@@ -8,7 +8,6 @@ import phat
+ import osc
+ import os.path
+ import xml.dom.minidom
+-import xml.dom.ext
+ import khagan_globals as pglobals
+ 
+ class Khagan:
+@@ -175,7 +174,7 @@ class Khagan:
+ 	dialog = gtk.FileChooserDialog('Save as', self.window, gtk.FILE_CHOOSER_ACTION_SAVE, buttons=(gtk.STOCK_CANCEL,gtk.RESPONSE_CANCEL,gtk.STOCK_SAVE,gtk.RESPONSE_OK))
+ 	if dialog.run() == gtk.RESPONSE_OK:
+ 	    outfile = file(dialog.get_filename(), 'w')
+-	    xml.dom.ext.Print(doc, outfile)
++	    outfile.write(doc.toxml())
+ 	    #xml.dom.ext.PrettyPrint(doc, outfile)
+ 	dialog.destroy()
+ 	return

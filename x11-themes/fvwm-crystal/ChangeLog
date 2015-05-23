@@ -1,0 +1,76 @@
+# ChangeLog for x11-themes/fvwm-crystal
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  29 Jan 2014; Dominique Michel <dominique_libre@users.sourceforge.net> fvwm-crystal-9999.ebuild:
+  removed non nedded depends, added conditional depend on x11-misc/xdg-user-dirs with USE flag.
+
+  21 Jun 2013; Dominique Michel <dominique_libre@users.sourceforge.net> fvwm-crystal-9999.ebuild:
+  removed the build patch
+- files/fvwm-crystal-build.patch
+
+  21 Jun 2013; Dominique Michel <dominique_libre@users.sourceforge.net> fvwm-crystal-9999.ebuild:
+  uncommented python_replicate_script, it was fixed upstream.
+  TODO: make it work with python-2.{5,6} too.
+
+  21 Jun 2013; Dominique Michel <dominique_libre@users.sourceforge.net> fvwm-crystal-9999.ebuild:
++ files/fvwm-crystal-build.patch: remove the license form the installed files;
+  not needed on gentoo
+  fvwm-crystal-9999.ebuild: introduced license patch; reverted EPREFIX change, the gentoo devs
+  don't want this see big 468680; introduced python_replicate_script but commented it
+  because of shebang change in the source, this must be solved between the gentoo devs
+  and upstream.
+ 
+  07 May 2013; Dominique Michel <dominique_libre@users.sourceforge.net> fvwm-crystal-9999.ebuild:
+  introduced EPREFIX in install phase and in the einfo.
+
+  05 May 2013; Dominique Michel <dominique_libre@users.sourceforge.net> fvwm-crystal-9999.ebuild:
+  updated to pyrhon-r1 eclass and EAPI 5. Removed non needed USE flags.
+  metadata.xml: removed non needed USE flag. Changed einfo to show correct
+  addons path.
+  
+  25 Apr 2013; Dominique Michel <dominique_libre@users.sourceforge.net> files/fvwm-crystal:
+  fixed typo in Session file
+  fvwm-crystal-9999.ebuild: removed the info about Gnome 2 session management;
+  removed X Session and desktop file installation
+-files/fvwm-crystal: not needed any more 
+
+  21 Apr 2013; Dominique Michel <dominique_libre@users.sourceforge.net> fvwm-crystal-9999.ebuild:
+  Added awk, sed and xed into DEPEND
+
+  15 Apr 2013; Dominique Michel <dominique_libre@users.sourceforge.net> fvwm-crystal-9999.ebuild:
+  added Export.README in dodoc.
+
+  7 Apr 2013; Dominique Michel <dominique_libre@users.sourceforge.net> fvwm-crystal-9999.ebuild:
+  updated post install message to reflect current issues. 
+
+  3 Apr 2013; Dominique Michel <dominique_libre@users.sourceforge.net> fvwm-crystal-9999.ebuild:
+  Replaced habak by feh in DEPEND, added bloking on habak; make repoman happy;
+  changed the post install message to reflect current issue. 
+  
+  13 Jan 2013; Dominique Michel <dominique_libre@sourceforge.net> fvwm-crystal-9999.ebuild:
+  Changed ESVN_UTI to the updated sf repository
+  
+  28 Oct 2012; Hakan Demiralp <keenblade@tuxfamily.org> fvwm-crystal-9999.ebuild:
+  fixed EAPI assignment to be on a valid line wrt #143 by Evi1M4chine
+
+  20 Feb 2011; Dominique Michel <dominique_libre@users.sourceforge.net>
+  The Makefile respect DESTDIR now. Changed the ebuild accordingly.
+  Fixed the Python shebangs. Fixed fvwm depend on USE=png.
+  Improved ImageMagick depend.
+  
+  23 Jun 2008; Dominique Michel <dominique.michel@citycable.ch> The posix bug
+  is fixed into the svn, removed the warning and added info about what is needed
+  to do to the user config.
+  
+  22 Jun 2008; Dominique Michel <dominique.michel@citycable.ch> Added
+  important warning about bug 210580: http://bugs.gentoo.org/show_bug.cgi?=210580
+  Changed the fvwm-crystal session file in order to use the new and correct
+  gentoo executable name.
+  
+  19 Jun 2008; Dominique Michel <dominique.michel@citycable.ch> use
+  the new svn repository on sourceforge.
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

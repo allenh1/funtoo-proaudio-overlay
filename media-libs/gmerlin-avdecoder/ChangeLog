@@ -1,0 +1,38 @@
+# ChangeLog for media-libs/gmerlin-avdecoder
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  29 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -gmerlin-avdecoder-0.1.8.ebuild, gmerlin-avdecoder-1.2.0.ebuild,
+  metadata.xml:
+  Move to EAPI 5 and autotools-utils.
+  Add new and rename USE flags.
+  Keyword for ~x86.
+  Install doc properly.
+  Remove no-herd from metadata.
+  Add USE flag descriptions.
+  Remove old ebuild.
+
+*gmerlin-avdecoder-1.2.0 (22 Jun 2012)
+
+  22 Jun 2012; Frieder Buerzele <evermind@tuxfamily.org>
+  -gmerlin-avdecoder-1.1.0.ebuild, +gmerlin-avdecoder-1.2.0.ebuild:
+  bumped to version 1.2.0
+
+*gmerlin-avdecoder-1.1.0 (21 Jan 2012)
+
+  21 Jan 2012; Frieder Buerzele <evermind@tuxfamily.org>
+  -gmerlin-avdecoder-1.0.2.ebuild, +gmerlin-avdecoder-1.1.0.ebuild:
+  bumped gmerlin-avdecoder
+
+*gmerlin-avdecoder-1.0.2 (25 Feb 2010)
+
+  25 Feb 2010; Frieder Buerzele <evermind@tuxfamily.org>
+  -gmerlin-avdecoder-1.0.0.ebuild, +gmerlin-avdecoder-1.0.2.ebuild:
+  bumped
+
+  19 Mar 2009; Marcin Deranek <gringo@tuxfamily.org>
+  +files/gmerlin-avdecoder-cflags.patch, +gmerlin-avdecoder-0.1.8.ebuild,
+  +gmerlin-avdecoder-1.0.0.ebuild:
+  Initial bump
+

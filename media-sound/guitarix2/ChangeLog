@@ -1,0 +1,144 @@
+# ChangeLog for media-sound/guitarix2
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*guitarix2-0.32.3 (03 Feb 2015)
+
+  03 Feb 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +guitarix2-0.32.3.ebuild:
+  version bump
+  fix python-r1 related warnings from waf-utils eclass
+
+*guitarix2-0.32.1 (11 Dec 2014)
+
+  11 Dec 2014; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -guitarix2-0.27.1.ebuild, -guitarix2-0.27.1-r1.ebuild,
+  -guitarix2-0.28.1.ebuild, -guitarix2-0.28.3.ebuild, +guitarix2-0.32.1.ebuild,
+  guitarix2-9999.ebuild, metadata.xml:
+  version bump
+  remove old versions
+  remove unnecessary version specifiers from deps
+  use waf-utils eclass to simplify, it works now
+  remove convolver and custom-cflags use flags
+  hard depend on zita-convolver and zita-resampler to ensure determinism
+  remove dependency on vorbis-tools
+  slot depend on fftw and gtk+
+  move jack_capture and meterbridge deps from DEPEND to RDEPEND
+  make ebuilds identical to ease maintainance
+  pass both --no-ladspa and --no-new-ladspa when USE="-ladspa"
+
+  18 Mar 2014; Dominique Michel <dominique_libre@sourceforge.net>
+  guitarix2-9999.ebuild:
+  Add dev-cpp/eigen dependency.
+
+*guitarix2-0.28.3 (23 Feb 2014)
+
+  23 Feb 2014; Matt Henley (nwmatt) <nwmatt@gmail.com>
+  +guitarix2-0.28.3.ebuild:
+  Version bump.
+
+  27 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  guitarix2-0.28.1.ebuild, guitarix2-9999.ebuild:
+  Use slotted dependencies on glibmm and gtkmm as suggestet by nitm at the
+  Gentoo Forums.
+
+*guitarix2-0.28.1 (21 Jul 2013)
+
+  21 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +guitarix2-0.28.1.ebuild, guitarix2-9999.ebuild:
+  Version bump.
+  Use the usex function to increase readability.
+
+*guitarix2-0.27.1-r1 (13 Jul 2013)
+
+  13 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +guitarix2-0.27.1-r1.ebuild, guitarix2-9999.ebuild:
+  Use python-any-r1 to build with python2.7 (build fails with python3.3,
+  atleast).
+  New avahi USE flag with appurtenant dependency in live ebuild.
+
+*guitarix2-0.27.1 (20 Apr 2013)
+
+  20 Apr 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -files/guitarix2-0.25.2-no-ldconfig.patch,
+  -files/guitarix2-0.25.2-no-update-desktop-database.patch,
+  -files/guitarix2-0.25.2-respect-libdir.patch, -guitarix2-0.26.1.ebuild,
+  +guitarix2-0.27.1.ebuild, -files:
+  Version bump and remove old ebuild.
+  Remove old patches.
+
+*guitarix2-0.26.1 (09 Apr 2013)
+
+  09 Apr 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -guitarix2-0.25.2.ebuild, +guitarix2-0.26.1.ebuild, guitarix2-9999.ebuild:
+  Version bump and remove old ebuild.
+  Drop python and glade USE flags as those give developer only 
+  functionalities. The flags can be re-added if other packages start 
+  depending on this package with those functionalities.
+
+  31 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  guitarix2-9999.ebuild, -files/guitarix2-9999-desktop-entry.patch:
+  Disable live ebuild patch. It should be working upstream now.
+
+  31 Mar 2013; Dominique Michel <dominique_libbre@users.sourceforge.net>
+  guitarix2-0.25.2.ebuild, guitarix2-9999: initial support for python eclass;
+  added custom-cflags and debug USE flags
+  metadata.xml: added custom-cflags USE description
+
+  31 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  guitarix2-0.25.2.ebuild, guitarix2-9999.ebuild,
+  +files/guitarix2-9999-desktop-entry.patch:
+  Added einfos and replaced echo with einfo.
+  Removed force enabled nls USE flag from live ebuild.
+  Added patch for live ebuild to install desktop entry correctly.
+
+  31 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  guitarix2-0.25.2.ebuild, guitarix2-9999.ebuild,
+  -files/guitarix2-9999-wscript.patch:
+  Force enable nls USE flag until intltool is not called from a source where
+  nls has been disabled. It will be reported upstream. Thanks to shiznix for
+  reporting the issue.
+  Remove patches for wscript on live ebuild. The same behaviour is now achieved
+  by passing flags to configure.
+
+  30 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -files/guitarix2-0.18.0-LINGUAS.patch, guitarix2-0.25.2.ebuild,
+  +files/guitarix2-0.25.2-no-ldconfig.patch,
+  +files/guitarix2-0.25.2-no-update-desktop-database.patch,
+  +files/guitarix2-0.25.2-respect-libdir.patch, guitarix2-9999.ebuild,
+  +files/guitarix2-9999-wscript.patch, metadata.xml:
+  Move to EAPI 5 and base eclass.
+  Enable parallel build.
+  Add more use flags and their descriptions when needed.
+  Add missing dependencies.
+  Import some code from waf-utils eclass to respect toolchain programs.
+  Remove old patch.
+  Add patch to respect libdir for 0.25.2.
+  Add patches to disable calling unecessary funcions from the build 
+  system; portage does so automatically.
+
+*guitarix2-9999 (30 Mar 2013)
+
+  30 Mar 2013; Dominique Michel <dominique_libbre@users.sourceforge.net>
+  guitarix-0.25.2.ebuild: added addpredict to resolve access violation at
+  first time install; removed blocking with old guitarix
+  +guitarix-9999.ebuild: live ebuild with lv2 support; more add predict;
+  removed blocking with old guitarix
+
+*guitarix2-0.25.2 (29 Jul 2013)
+
+
+  29 Jul 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
+  +guitarix2-0.25.2.ebuild, -guitarix2-0.23.3.ebuild:
+  version bump; depend - virtual/pkgconfig instead of dev-util/pkgconfig
+  metadata.xml: removed no-herd, added use description
+
+*guitarix2-0.23.3 (30 Jul 2012)
+
+  removing of the old ebuild, version bump, fixed ladspa path
+
+  01 Jul 2011; Hakan Demiralp <keenblade@tuxfamily.org
+  +guitarix2-0.16.0.ebuild, +metadata.xml:
+  initial ebuild. Ebuild is converted from guitarix ebuild wrt audiodef at
+  b.g.o
+

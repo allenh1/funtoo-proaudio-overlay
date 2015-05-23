@@ -1,0 +1,59 @@
+# ChangeLog for media-sound/jack_mixer
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  19 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net> metadata.xml:
+  remove unnecessary lash use flag description from metadata.xml
+
+  13 Dec 2012; Karl Lindén (lilrc) <lilrc@users.sourceforge.net>;
+  jack_mixer-9.ebuild, jack_mixer-9-r1.ebuild, jack_mixer-9999.ebuild:
+  updated to EAPI 5
+  updated lash dependency to depend virtual/liblash[python]
+
+  12 Nov 2012; Karl Lindén <spray.sucks@gmail.com>;
+  jack_mixer-9.ebuild: updated to EAPI 3
+
+  10 Nov 2012; Karl Lindén <spray.sucks@gmail.com>;
+  jack_mixer-9.ebuild: added inherit python
+
+  10 Nov 2012; Karl Lindén <spray.sucks@gmail.com>;
+  jack_mixer-9.ebuild, jack_mixer-9-r1.ebuild, jack_mixer-9999.ebuild:
+  added python_convert_shebangs to ebuild
+
+*jack_mixer-9-r1 (08 Feb 2012)
+
+  08 Feb 2012; Gavin Pryke <gavinlee303@googlemail.com>
+  +files/missing-gconf-2.m4.patch, -jack_mixer-8.ebuild,
+  +jack_mixer-9-r1.ebuild, jack_mixer-9999.ebuild, metadata.xml:
+  add patch to fix live ebuild without gconf. bump to EAPI=3. utilise
+  python.eclass. add gconf USE flag. tidy up ebuild a bit wrt deps.
+  remove older ebuild as repoman payment.
+  Thanks to Ede Wolf and Nedko Arnaudov
+
+  05 Jul 2011; Hakan Demiralp <keenblade@tuxfamily.org jack_mixer-9.ebuild:
+  jack_mixer-9: gnome-python is now USE-Conditional Dependency
+
+  01 Jul 2011; Hakan Demiralp <keenblade@tuxfamily.org jack_mixer-9.ebuild:
+  jack_mixer-9: gnome-python dep is adjusted to be a runtime dep
+
+*jack_mixer-9999 (10 Oct 2010)
+*jack_mixer-9 (10 Oct 2010)
+
+  10 Oct 2010; Viktor Lazarev <taurus101v@gmail.com> jack_mixer-8.ebuild,
+  +jack_mixer-9.ebuild, +jack_mixer-9999.ebuild:
+  Bumped
+
+*jack_mixer-8 (23 Apr 2010)
+
+  23 Apr 2010; Frieder Buerzele <evermind@tuxfamily.org>
+  -jack_mixer-2.ebuild, -files/jack_mixer-2-destdir.patch,
+  -jack_mixer-5.ebuild, -jack_mixer-6.ebuild, +jack_mixer-8.ebuild:
+  bumped thx (Raphaël)
+
+  25 Sep 2008; Frieder Buerzele <evermind@tuxfamily.org;
+  +jack_mixer-6.ebuild:
+  bumped closes bug#55
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

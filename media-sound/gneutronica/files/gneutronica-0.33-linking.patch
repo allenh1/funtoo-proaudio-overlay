@@ -1,0 +1,11 @@
+--- Makefile.orig	2014-04-23 02:27:01.000000000 +0200
++++ Makefile	2014-04-23 10:45:33.397915239 +0200
+@@ -38,7 +38,7 @@
+ 		old_fileformats.o sched.o \
+ 		midi_reader.o midi_file.o fractions.o drumtab.o \
+ 		midioutput_raw.o midioutput_alsa.o \
+-		gneutronica.c `pkg-config --cflags --libs gtk+-2.0` -lasound \
++		gneutronica.c `pkg-config --cflags --libs gtk+-2.0` -lasound -lm \
+ 
+ midi_reader.o:	midi_reader.c midi_reader.h
+ 

@@ -1,0 +1,45 @@
+diff --git a/Makefile b/Makefile
+index f0a3ac1..5a6d90e 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,13 +1,10 @@
+-COMPILE_FLAGS = -Wall `pkg-config alsa libglade-2.0 gtk+-2.0 liblo --cflags`
+-#COMPILE_FLAGS += -g -O2 
+-COMPILE_FLAGS += -O3
+-
++CXXFLAGS += -Wall `pkg-config alsa libglade-2.0 gtk+-2.0 liblo --cflags`
+ 
+ LINK_FLAGS    = `pkg-config alsa libglade-2.0 gtk+-2.0 liblo --libs ` -export-dynamic
+ 
+ #if you do not have LASH support, comment out the next two line
+-COMPILE_FLAGS +=  `pkg-config --cflags lash-1.0` 
+-LINK_FLAGS += `pkg-config --libs lash-1.0` 
++#COMPILE_FLAGS +=  `pkg-config --cflags lash-1.0` 
++#LINK_FLAGS += `pkg-config --libs lash-1.0` 
+ 
+ 
+ TARGET = kontroll
+@@ -21,10 +18,10 @@ HEADERS = $(STUFF:%=%.h)
+ all: $(TARGET)
+ 
+ $(TARGET): $(OBJECTS)
+-	$(CXX) -o $(TARGET) $(OBJECTS) $(LINK_FLAGS)
++	$(CXX) $(LDFLAGS) -o $(TARGET) $(OBJECTS) $(LINK_FLAGS)
+ 
+ $(OBJECTS): %.o: %.cc $(SOURCES) $(HEADERS)
+-	$(CXX) -c $< $(COMPILE_FLAGS) -DPREFIX=\"$(PREFIX)\"
++	$(CXX) -c $< $(CXXFLAGS) -DPREFIX=\"$(PREFIX)\"
+ 
+ .PHONY: clean
+ clean:
+@@ -32,6 +29,7 @@ clean:
+ 
+ .PHONY: install
+ install: $(TARGET)
+-	install $(TARGET) $(PREFIX)/bin/
+-	install -d $(PREFIX)/share/kontroll/
+-	install $(TARGET).glade $(PREFIX)/share/kontroll
++	install -d $(DESTDIR)$(PREFIX)/bin/
++	install $(TARGET) $(DESTDIR)$(PREFIX)/bin/
++	install -d $(DESTDIR)$(PREFIX)/share/kontroll/
++	install $(TARGET).glade $(DESTDIR)$(PREFIX)/share/kontroll

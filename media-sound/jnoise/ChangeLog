@@ -1,0 +1,26 @@
+# ChangeLog for media-sound/jnoise
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*jnoise-0.6.0 (29 Apr 2011)
+
+  29 Apr 2011; Gavin Pryke <gavinlee303@googlemail.com>
+  -jnoise-0.4.0.ebuild, -files/jnoise-0.4.0-makefile.patch,
+  +jnoise-0.6.0.ebuild, +files/jnoise-0.6.0-makefile.patch:
+  changed download location, update makefile patch, bump
+
+  11 Apr 2010; Gavin Pryke <gavinlee303@googlemail.com> jnoise-0.4.0.ebuild,
+  files/jnoise-0.4.0-makefile.patch:
+  simplify more, update makefile patch
+
+  11 Apr 2010; Gavin Pryke <gavinlee303@googlemail.com> jnoise-0.4.0.ebuild,
+  +files/jnoise-0.4.0-makefile.patch, metadata.xml:
+  patch for Makefile to work around sandbox errors, add sed tricks from
+  jaaa/japa
+
+*jnoise-0.4.0 (07 Apr 2010)
+
+  12 Jan 2009; Florian Faber <faber@faberman.de>;
+  +jnoise-0.4.0.ebuild:
+  initial ebuild
+

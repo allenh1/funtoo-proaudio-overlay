@@ -1,0 +1,25 @@
+# ChangeLog for media-libs/oscpack
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*oscpack-1.1.0.1 (24 Mar 2013)
+
+  24 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -oscpack-1.0.2.ebuild, -oscpack-1.0.2-r1.ebuild, -oscpack-1.0.2-r2.ebuild,
+  -files/oscpack-1.0.2-gcc43.patch, +oscpack-1.1.0.1.ebuild,
+  +files/oscpack-1.1.0.1-shared.patch, metadata.xml:
+  Version bump.
+  Switched to MIT license. Thanks Nico R for reporting the bug.
+  Remove old versions and old patch.
+  Make repoman happy.
+
+  19 Jun 2010; Frieder Buerzele <evermind@tuxfamily.org>
+  oscpack-1.0.2.ebuild, oscpack-1.0.2-r1.ebuild:
+  cleanup the ebuilds
+
+  10 Jun 2009; Gavin Pryke <gavinlee303@googlemail.com> ChangeLog:
+  +oscpack-1.0.2-r2.ebuild: add patch to compile with gcc-4.3
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

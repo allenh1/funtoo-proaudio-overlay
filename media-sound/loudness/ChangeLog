@@ -1,0 +1,28 @@
+# ChangeLog for media-sound/loudness
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  +metadata.xml: initial file
+  loudness-9999.ebuild: Moved AT depends to dev-qt/*
+
+*loudness-9999 (25 Mar 2012)
+
+  25 Mar 2012; Emery Hemingway <emery@vfemail.net> +loudness-9999.ebuild:
+  r128-scanner is now loudness
+
+*r128-scanner-0.4.0 (11 May 2011)
+
+  11 May 2011; Emery Hemingway <emery@icmlf.net> +r128-scanner-0.4.0.ebuild:
+  Renamed libebur128 to r128-scanner, as that is now the only binary we
+  install.
+
+*libebur128-0.3.2-r1 (09 Apr 2011)
+
+  09 Apr 2011; Emery Hemingway <emery@icmlf.net> -libebur128-0.3.2.ebuild,
+  +libebur128-0.3.2-r1.ebuild:
+  Fixed embarrassing install path.
+
+  09 Apr 2011; Emery Hemingway <emery@icmlf.net> libebur128-0.3.2.ebuild:
+  New package.
+

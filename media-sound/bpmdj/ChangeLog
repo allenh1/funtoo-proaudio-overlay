@@ -1,0 +1,42 @@
+# ChangeLog for media-sound/bpmdj
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Mar 2013; Dominique Michel <dominique_ibre@sourceforge.net>
+  bpmdj-2.4.2.ebuild: Moved QT depends to dev-qt/*
+  -bpmdj-3.6.ebuild
+  -bpmdj-4.1.ebuild
+  -bpmdj-4.1-r1.ebuild
+
+  04 Nov 2012; Dominique Michel <dominique_ibre@sourceforge.net>
+  + bpmdj-2.4.2.ebuild
+  bpmdj-3.6.ebuild, bpmdj-4.1.ebuild, bpmdj-4.1-r1.ebuild: fixed qt4-r2 eclass
+
+  24 Aug 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  bpmdj-3.6.ebuild, bpmdj-4.1.ebuild, bpmdj-4.1-r1.ebuild, +files/bpmdj.xpm,
+  -files/bpmdj.png:
+  replace png with xpm in FILESDIR
+
+*bpmdj-4.1-r1 (15 May 2010)
+
+  15 May 2010; Emery Hemingway <emery@icmlf.net> +bpmdj-4.1-r1.ebuild:
+  Now requires qt3support USE flag. Added an einfo note so we know how 
+  this release broke the documentation.
+
+*bpmdj-4.1 (31 Mar 2010)
+
+  31 Mar 2010; Viktor Lazarev <taurus101v@gmail.com> -bpmdj-2.9.ebuild,
+  -bpmdj-3.2.ebuild, bpmdj-3.6.ebuild, +files/bpmdj-3.6-include.patch,
+  +files/bpmdj-3-defines.gentoo, +bpmdj-4.1.ebuild,
+  +files/bpmdj-4-defines.gentoo, -files/Makefile-destdir.patch,
+  -files/Makefile-make_install.patch, -files/Makefile-nostrip.patch,
+  -files/Makefile-prefix.patch, -files/defines.gentoo:
+  Version bump. Corrected defines. Fix include in bpmdj-3.6.
+  Remove old ebuilds, patches & define
+
+  06 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>; bpmdj-3.6.ebuild:
+  fixed qt4_min... QA msg
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

@@ -1,0 +1,25 @@
+# ChangeLog for media-libs/alsaplayer-python
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*alsaplayer-python-0.3.1-r2 (11 Mar 2013)
+
+  11 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -alsaplayer-python-0.3.1-r1.ebuild, +alsaplayer-python-0.3.1-r2.ebuild,
+  +files/alsaplayer-python-0.3.1-libboost.patch,
+  +files/alsaplayer-python-0.3.1-undefined.patch, metadata.xml:
+  Clear cvs header.
+  Use EAPI 5.
+  Move to distutils-r1 eclass.
+  Keyword for ~x86 and ~amd64.
+  Fix boost dependency.
+  Patch to remove undefined symbols.
+  Patch to find correct boost library.
+  Remove no-herd from metadata.xml.
+
+  10 Nov 2010; Dominique Michel <dominique#tuxfamily.org> :
+  Updated python version variable
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

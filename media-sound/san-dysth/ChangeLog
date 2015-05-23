@@ -1,0 +1,11 @@
+# ChangeLog for media-sound/san-dysth
+# Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  08 Mar 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  +san-dysth-0.1.1.ebuild:
+  bumped
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

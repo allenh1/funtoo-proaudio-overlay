@@ -1,0 +1,59 @@
+# ChangeLog for profile directory
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+#
+# This ChangeLog should include records for all changes in profiles directory.
+# Only typo fixes which don't affect portage/repoman behaviour could be avoided
+# here. If in doubt put a record here!
+
+  11 May 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net> package.mask:
+  remove media-sound/kenvy24
+
+  11 May 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net> package.mask:
+  remove sys-kernel/rt-sources
+
+  11 May 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net> package.mask:
+  remove sys-libs/libfreebob
+
+  11 Apr 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net> package.mask:
+  mask sys-kernel/rt-sources from the overlay for removal
+
+  10 Apr 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net> package.mask:
+  mask media-sound/kenvy-99999999 for removal
+
+  10 Apr 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net> package.mask:
+  mask sys-libs/libfreebob for removal
+
+  10 Apr 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net> package.mask:
+  remove media-plugins/azr3-lv2
+
+  29 Nov 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net> package.mask:
+  Update package.mask.
+
+  31 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net> package.mask:
+  Added the experimental multilib'd jack ebuilds to the list of experimental
+  multilib'd ebuilds.
+  BIG FAT WARNING: These ebuilds are *experimental* and under developement!
+
+  31 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net> package.mask:
+  Added an entry about packages that should not be used because they use the
+  old python eclass and there are newer migrated ebuilds.
+
+  2 Apr 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
+  proaudio 13.9; proaudio-kde 13.0: added USE flags for xfce.
+
+  20 Fev 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
+  Added proaudio and proaudio-kde 13.0 profiles.
+
+  18 Nov 2012; Dominique Michel <dominique_libre@users.sourceforge.net>
+  Initial release of 2 desktop profiles: proaudio and proaudio-kde.
+  
+  * desktop/proaudio: based on portage desktop profile with the addition of
+  audio related USE flag as well the mmx and sse USE flags, and the
+  removal of policykit, consolekit, udisks, udisk2 and upower.
+  
+  * desktop/proaudio-kde: based on portage desktop/kde profile with the same
+  features than desktop/proaudio and the additional removal of raptor,
+  redland, semantic-desktop and virtuoso.
+  
+  Added a ChangeLog

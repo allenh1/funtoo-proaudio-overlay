@@ -1,0 +1,18 @@
+--- jacker-2010.5.4/main.cpp.old	2010-08-06 23:29:55.000000000 +0100
++++ jacker-2010.5.4/main.cpp	2010-08-07 00:05:14.000000000 +0100
+@@ -644,7 +644,7 @@
+     void run() {
+         init_player();       
+         
+-        builder = Gtk::Builder::create_from_file("jacker.glade");
++        builder = Gtk::Builder::create_from_file("/usr/share/jacker/jacker.glade");
+         assert(builder);
+         
+         builder->get_widget("main", window);
+@@ -754,4 +754,4 @@
+ ) {
+     return main(__argc, __argv);
+ }
+-#endif
+\ No newline at end of file
++#endif

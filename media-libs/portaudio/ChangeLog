@@ -1,0 +1,58 @@
+# ChangeLog for media-libs/portaudio
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*portaudio-9999-r1 (30 Jul 2013)
+
+  30 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  portaudio-9999.ebuild, +portaudio-9999-r1.ebuild,
+  +files/portaudio-9999-parallel-make.patch:
+  Add patch to allow parallel build with USE="cxx".
+  Add a multilib compatible ebuild.
+  AUTOTOOLS_AUTORECONF before inherit.
+  Minor cleanup.
+
+  10 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -portaudio-19_pre20071207.ebuild, -portaudio-19-r4.ebuild,
+  portaudio-9999.ebuild, -files, metadata.xml:
+  Remove old ebuilds (newer version in portage).
+  Update EAPI.
+  Switch to MIT license (as-is is deprecated).
+  Depend on virtual/pkgconfig.
+  Remove no-herd from metadata.xml.
+  Cleanup.
+
+  MIT license
+
+  23 Jun 2012; Hakan Demiralp (keenblade) <keenblade@tuxfamily.org>
+  portaudio-9999.ebuild:
+  portaudio-9999: upstream repo address is changed
+
+  06 Jul 2011; Hakan Demiralp <keenblade@tuxfamily.org> portaudio-19-r4.ebuild:
+  portaudio: updated v19-r4 and changed slot 19 to 0. removed old ebuilds
+
+  06 Jul 2011; Hakan Demiralp <keenblade@tuxfamily.org> portaudio-9999.ebuild:
+  portaudio-9999: changed slot 19 to 0
+
+  03 Jul 2011; Hakan Demiralp <keenblade@tuxfamily.org> portaudio-9999.ebuild:
+  portaudio-9999: now using autotools instead of unmaintained scons
+
+*portaudio-19_pre20071207 (01 Jul 2011)
+
+  01 Jul 2011; Hakan Demiralp <keenblade@tuxfamily.org>
+  +portaudio-19_pre20071207.ebuild, -portaudio-19.20071207.ebuild:
+  portaudio-19_pre20071207: ebuild renamed and updated to be compatible with
+  portage tree wrt bug#116 at proaudio bug tracker
+
+  07 Feb 2011; Hakan Demiralp <keenblade@tuxfamily.org> portaudio-9999.ebuild:
+  upstream changed svn repo uri, so ebuild is adjusted accordingly wrt msg03826
+  by yermandu
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> -portaudio-19.ebuild,
+  -portaudio-19-r1.ebuild, -portaudio-19-r2.ebuild,
+  +portaudio-19.20071207.ebuild:
+  version bump to current stable
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

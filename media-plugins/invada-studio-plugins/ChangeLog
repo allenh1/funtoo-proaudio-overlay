@@ -1,0 +1,14 @@
+# ChangeLog for media-plugins/invada-studio-plugins
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  02 Feb 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  invada-studio-plugins-0.3.1.ebuild: changed URI and SRC_URI to the new
+  locations
+  metadata.xml: removed no-herd
+
+  05 Feb 2011; Gavin Pryke <gavinlee303@googlemail.com>
+  invada-studio-plugins-0.3.1.ebuild, +metadata.xml:
+  multilib-strict workaround and repoman payment, add missing ChangeLog and
+  metadata.xml
+

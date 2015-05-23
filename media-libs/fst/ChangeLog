@@ -1,0 +1,23 @@
+# ChangeLog for media-libs/fst
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  20 May 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -fst-1.6-r1.ebuild, -fst-1.6-r2.ebuild, -fst-1.7-r5.ebuild, -fst-1.8.ebuild,
+  -fst-1.8-r1.ebuild, -fst-1.8-r2.ebuild, fst-1.8-r3.ebuild, fst-9999.ebuild,
+  -files/fst-1.6-wineliblocfix.patch, -files/vsthcompilerhack_fix.patch,
+  metadata.xml:
+  use multilib to make live ebuild work on amd64, thanks to merlin-vrn for
+   the updated ebuild, wrt #194
+  explicitly state RDEPEND in 1.8-r3
+  remove no-herd from metadata.xml
+  remove old
+
+*fst-9999 (14 Mar 2009)
+
+  14 Mar 2009; Frieder Buerzele <evermind@tuxfamily.org +fst-9999.ebuild:
+  added live ebuild version
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

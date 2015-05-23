@@ -1,0 +1,218 @@
+# ChangeLog for media-sound/ardour
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  18 Dec 2013; Dominique Michel <dominique.michel@users.sourceforge.net>
+  ardour-*.ebuild: add ; at the end of the category field into the
+  make_desktop_entry functions. This field is a list and must end with ;
+  
+  09 Aug 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  ardour-3.9999.ebuild, metadata.xml:
+  Remove debug USE flag.
+  Add phone-home USE flag.
+  Specify minimum version and SLOT of dependencies where possible.
+  Don't pull in libsoundtouch (upstream switched to rubberband).
+  Don't pull in suil or serd if lv2 is not requested.
+  Depend on media-libs/lv2 if USE="lv2".
+  Specify --no-fpu-optimization if neither sse nor altivec is requested.
+  Trigger fdo functions on remove too.
+  Order flags in metadata.xml and add phone-home.
+
+  09 Aug 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  ardour-3.9999.ebuild:
+  Remove freesound USE flag.
+
+  20 Jun 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  ardour-3.9999.ebuild:
+  No longer depend om media-libs/liblo[threads] (USE flag removed)
+
+  13 Jun 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  ardour-3.9999.ebuild:
+  Pull in threads USE flag in liblo, else compile fails.
+
+  02 Jun 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  ardour-3.9999.ebuild:
+  Removed parantheses that pulled in =media-sound/drobilla-9999.
+  Removed python inherit (the source compiles with any python 
+  implementation).
+  usex in src_configure makes the code more concise.
+
+  21 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  ardour-3.9999.ebuild:
+  Use python eclass so that the correct python ABI is used.
+
+  18 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  ardour-3.9999.ebuild:
+  Fix version of some dependencies (closes #0000142). Thanks to jauthu for
+  reporting the bug.
+
+  16 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  ardour-3.9999.ebuild:
+  Move to the new git repository.
+  Move to waf-utils eclass.
+  Remove unneeded eclasses.
+  Update EAPI to 5.
+  Cleanup.
+
+  08 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  ardour-3.9999.ebuild:
+  Sorted dependencies. Added dependency on dev-libs/serd. Removed bad 
+  characters from my ChangeLog messages.
+
+  30 Dec 2012; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  ardour-3.9999.ebuild:
+  Fixed the ambigous "--doc" flag, replaced with "--docs"
+  Thanks to Jannis Achstetter for reporting this
+
+  28 Dec 2012; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  ardour-2.9999.ebuild:
+  Fixed some dependencies (depend on virtual packages)
+
+  09 Dec 2012; Karl Linden <lilrc@users.sourceforge.net>
+  ardour-3.9999.ebuild: fixed broken wiimote support and made ebuild
+  more verbose. Thanks to Ulrich-Lorenz Schlüter
+
+  21 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  ardour-3.9999.ebuild: renamed icon file to ardour3.png due to file collision
+  with ardour2 from portage
+
+  21 Nov 2012; Karl Linden (lilrc) <spray.sucks@gmail.com>
+  ardour-3.9999.ebuild, metadata.xml:
+  Fixed some dependencies (depend on virtual packages and added conditional
+    dependency on drobilla-9999)
+  Removed the "lxvst" USE flag and added the "doc" USE flag
+  Added desktop entry and made ebuild install icons
+  Removed "no-herd" from metadata
+
+  22 Jun 2012; Frieder Buerzele <evermind@tuxfamily.org> ardour-3.9999.ebuild:
+  fixed some USE flags
+
+  22 Jun 2012; Frieder Buerzele <evermind@tuxfamily.org> ardour-3.9999.ebuild:
+  remove tranzport flag -- fixes bug #128
+
+  03 Jun 2012; Hakan Demiralp (keenblade) <keenblade@tuxfamily.org>
+  ardour-3.9999.ebuild:
+  ardour-3.9999: suil dependency added wrt bug #129 by rsevero and mikkl
+
+  30 May 2012; Hakan Demiralp <keenblade@tuxfamily.org> ardour-3.9999.ebuild:
+  ardour-3.9999: dependency change from lv2 to lilv
+
+  30 May 2012; Hakan Demiralp <keenblade@tuxfamily.org> ardour-3.9999.ebuild:
+  ardour-3.9999: dependency change from slv2 to lv2 wrt bug #129 by rsevero
+
+  01 Jul 2011; Hakan Demiralp <keenblade@tuxfamily.org ardour-2.8.11.ebuild:
+  ardour-2.8.11: fixed src uri wrt bug#112 byMarSoft
+
+  07 Apr 2011; Frieder Buerzele <evermind@tuxfamily.org> ardour-3.9999.ebuild:
+  fixup jack-audio-connection deps (>=0.120.1) as of new latency api
+
+  11 Jan 2011; Willy <willy@tuxfamily.org> ardour-2.8.11.ebuild:
+  Missing dependencies
+
+  10 Jan 2011; Willy <willy@tuxfamily.org> ardour-2.8.11.ebuild:
+  Missing dependencies for use wiimote
+
+  09 Jan 2011; Willy <willy@tuxfamily.org> ChangeLog:
+  Oups, active upercase in useflag to scons
+
+*ardour-2.8.11 (09 Jan 2011)
+
+  09 Jan 2011; Willy <willy@tuxfamily.org> -ardour-2.7.1.ebuild,
+  -ardour-2.8.ebuild, +ardour-2.8.11.ebuild, metadata.xml:
+  repoman, add 2.8.11 release ebuild
+
+  05 Dec 2010; Hakan Demiralp <keenblade@tuxfamily.org> ardour-2.9999.ebuild:
+  missing dep libgnomecanvas added and FREESOUND support is fixed wrt bug no#95
+  by darkbasic
+
+  17 Nov 2010; Hakan Demiralp <keenblade@tuxfamily.org>
+  ardour-3.9999.ebuild:
+  ardour-3.9999: added curl useflag to a dep, wrt #102 by denysonique.
+
+  30 Mar 2010; Viktor Lazarev <taurus101v@gmail.com>  ardour-3.9999.ebuild:
+  added creating libs/ardour/svn_revision.cc file;
+  cleanup
+
+  10 Sep 2009; Frieder Buerzele <evermind@tuxfamily.org
+  ardour-3.9999.ebuild:
+  using waf buildsystem
+
+  04 Aug 2009; Dominique Michel <dominique@tuxfamily.org>;
+  * Removed midi USE check from alsa-lib depend into all the ebuilds
+  * Commented out sndfile patch into ardour-2.9999
+
+  28 Apr 2009; Marc-Olivier Barre <marco@marcochapeau.org>; 
+  * bump to ardour-2.8.ebuild
+  * note: 2.8 voluntarily has no keyworkds yet
+  * Try to make all the ebuilds look a litle more homogeneous
+  * Version 2.7.1 remains the same. It'll be removed when 2.8 works right
+  * First attempt to get a sys-libs flag everywhere so the devs are happy (see gentoo bug #263364))
+  * Disable the cflag patch for now (non working with 2.8, still needed ?)
+  * Remove some old unused patches:
+    -ardour-2.4-gcc43.patch
+    -ardour-2.4-find_soundtouch.patch
+    -ardour-2.3.1-find_soundtouch.patch
+    -ardour-2.4.1-find_soundtouch.patch
+    -ardour-2.0.3-cflags.patch
+
+  14 Mar 2009; Frieder Buerzele <evermind@tuxfamily.org
+  ardour-3.9999.ebuild:
+  fix added taglib dep (thx Olof)
+
+  09 Dec 2008; Thomas Kuther <gimpel@sonnenkinder.org> +ardour-2.7.1.ebuild:
+  lv2 enabled version bump
+
+  25 Sep 2008; Frieder Buerzele <evermind@tuxfamily.org; ardour-2.5.ebuild,
+  ardour-2.9999.ebuild, ardour-99992.ebuild:
+  MAKEOPT aware scons
+
+  07 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>; ardour-2.5.ebuild:
+  missing aubio dep gcc-4.3 fix (thx Philipp)
+
+  05 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  +ardour-2.5.ebuild:
+  enhanced use-flags
+
+  03 May 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  +files/ardour-2.4-cflags.patch, +files/ardour-2.4-gcc43.patch,
+  ardour-2.4.1.ebuild:
+  add gcc-4.3 patch, make custom-cflags optional
+
+  10 Apr 2008; Marc-Olivier Barre <marco@marcochapeau.org>; ardour-2.4.1.ebuild:
+  * Version bump
+  * Disabled the CFLAGS patch until it's fixed
+
+  04 Apr 2008; Frieder Buerzele <evermind@tuxfamily.org>; ardour-2.4.ebuild:
+  added custom cflags patch again + USE freesound
+
+  04 Apr 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  ardour-2.3.1.ebuild, +ardour-2.4.ebuild,
+  +files/ardour-2.4-find_soundtouch.patch:
+  bumped ardour-2.4 and use versionator eclass
+
+  07 Feb 2008; Thomas Kuther <gimpel@sonnenkinder.org> +ardour-2.3.1.ebuild:
+  version bump
+
+  07 Feb 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  -files/ardour-syslib_mod2.patch, -ardour-2.0.99992.ebuild,
+  -ardour-2.1.9999.ebuild, +ardour-2.9999.ebuild:
+  rename 2.1.9999 to 2.9999 to avoid weird unmasking
+
+  12 Jan 2008; Thomas Kuther <gimpel@sonnenkinder.org> +ardour-2.2.ebuild:
+  version bump
+
+  18 Dec 2007; <tom@gentoo.org> ardour-2.0.99992.ebuild,
+  +ardour-2.1.9999.ebuild:
+  copy 2.0.99992 to 2.1.9999 to avoid weird unmasking with 2.1
+  add media-libs/rubberband to depend for sys-libs
+
+  16 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org>
+  +files/ardour-2.0.3-cflags.patch, -files/ardour-vst-support_1_1.patch,
+  +files/ardour-2.0.3-sndfile-external.patch,
+  -files/ardour-vst-support_0_1.patch, +ardour-2.0.5.ebuild,
+  -ardour-2.0.5-r0.ebuild, +ardour-2.1.ebuild, -ardour-2.1-r0.ebuild:
+  ardour cleanups, part 3
+  * move vst header preparation to vst.eclass
+  * adopt in-portage ebuilds and add our changes
+  * die un USE="vst" for amd64 - it won't compile anyway
+

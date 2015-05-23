@@ -1,0 +1,76 @@
+# ChangeLog for media-sound/drobilla
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  23 Apr 2014; Dominique Michel <dominique_libre@users.sourceforge.net>
+  drobilla-9999.ebuild:
+  added webkit USE flag for plugin documentation
+
+  19 Dec 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
+  drobilla-9999.ebuild: added auto-arrange USE flag for graphviz support
+  Note that graphviz broke the API between 2.28 and 2.34, so 2.34 is not supported
+  at that time.
+
+  28 Mar 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
+  drobilla-9999.ebuild: added media-sound/machina-9999 in the dependencies
+
+  27 Mar 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
+  drobilla-9999.ebuild: changed media/plugins/omins depend to 9999
+  in order to satisgy the dependencies from other package like
+  media-sound/smack
+
+  18 Mar 2013; Dominique Michel <dominique_libre@users.sourceforge.net>
+  drobilla-9999.ebuild: added multilib support; USE flags: removed lash,
+  added session for jack-session support.
+  metadata.xml; USE flags: added session description, removed lash desvription.
+
+  07 Mar 2013; Matt Henley (nwmatt) <nwmatt@gmail.com>
+  drobilla-9999.ebuild:
+  Fix typo in previous change. Tested properly this time. 
+
+  07 Mar 2013; Matt Henley (nwmatt) <nwmatt@gmail.com>
+  drobilla-9999.ebuild:
+  Fix typo in previous change.
+
+  05 Mar 2013; Matt Henley (nwmatt) <nwmatt@gmail.com>
+  drobilla-9999.ebuild:
+  modify qt4 deps from x11-libs/qt* to dev-qt/
+
+  02 Feb 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  drobilla-9999.ebuild:
+  Drobilla will not build against <lv2-1.3.1, dependency on lv2-9999 is 
+  therefore added.
+
+  27 Dec 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  drobilla-9999.ebuild: Removed the herd from metadata.xml, this
+  made repoman happy
+  Changed the depends from drobilla.net from blocking to fake *-9999
+  depends. This is needed to avoid circular dependencies with portage
+  because we don't control the packages outside of the overlay.
+
+  06 Dec 2012; Karl Lindén <lilrc@users.sourceforge.net>
+  drobilla-9999.ebuild: Removed block for x11-libs/flowcanvas since
+  the ebuild does not provide it
+  Updated copyright header
+  metadata.xml: added the gir useflag
+
+  11 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  drobilla-9999.ebuild: Added block for media-plugins/mda-lv2;
+  fixed typo.
+
+  08 Nov 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  +drobilla-9999.ebuild:
+  Initial ebuild. It will install everything from http://drobilla.net/software
+  By everything, I mean everything:
+    dev-libs/serd
+    dev-libs/sord
+    media-libs/lilv
+    media-libs/ratom
+    media-libs/raul
+    media-libs/suil
+    media-sound/ingen
+    media-sound/jalv
+    media-sound/omins
+    media-sound/patchage
+    x11-libs/flowcanvas
+  You will have to uninstall those packages to install the software with this ebuild.

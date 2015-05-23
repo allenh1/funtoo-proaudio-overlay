@@ -1,0 +1,10 @@
+# ChangeLog for sys-apps/jackd-init
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  19 Jun 2010; Frieder Buerzele <evermind@tuxfamily.org>
+  jackd-init-0.5.ebuild:
+  cleanup ebuilds
+
+  27 Jan 2009; Doinique Michel <dominique.michel@vtxnet.ch> ChangeLog:
+  Initial commit

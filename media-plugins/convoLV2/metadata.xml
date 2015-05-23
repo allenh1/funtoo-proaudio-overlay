@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer>
+		<email>proaudio@tuxfamily.org</email>
+		<name>pro-audio overlay team</name>
+	</maintainer>
+	<longdescription>
+		convoLV2 is a LV2 plugin to convolve audio signals.
+		It provides latency-free convolution.
+		Works with jalv >= 1.2.0.
+	</longdescription>
+</pkgmetadata>

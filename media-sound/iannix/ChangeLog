@@ -1,0 +1,29 @@
+# ChangeLog for media-sound/iannix
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 Mar 2013; Dominique Michel <dominique@tuxfamily.org>
+  iannix-9999.ebuild: Moved QT depends to dev-qt/*
+
+  12 Aug 2012; Dominique Michel <dominique@tuxfamily.org>
+  -iannix-0.640_beta.ebuild: outdated, don't work anymore.
+  +iannix-9999.ebuild: a lot of changes.
+
+  28 Mar 2010; Stephane Angot <sa@hydre.org>:
+  fix some typo thx to repoman
+
+  20 Oct 2008; Frieder Buerzele <evermind@tuxfamily.org;
+  iannix-0.640_beta.ebuild:
+  fix amd64 build
+
+  11 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  -iannix-0.638_beta.ebuild, +iannix-0.640_beta.ebuild:
+  bumped
+
+  06 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  iannix-0.638_beta.ebuild:
+  use modular qt4 deps
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

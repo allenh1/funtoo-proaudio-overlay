@@ -1,0 +1,53 @@
+# ChangeLog for media-sound/yoshimi
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*yoshimi-1.1.0 (08 May 2013)
+
+  08 May 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +yoshimi-1.1.0.ebuild:
+  Version bump.
+  Added missing dependencies.
+
+*yoshimi-1.0.0 (15 Jul 2012)
+
+  15 Jul 2010; Dominique Michel <dominique@tuxfamily.org>
+  -yoshimi-0.060.12, it is in portage for now
+  +yoshimi-1.0.0.ebuild, version bump
+
+*yoshimi-0.060.12 (08 Jan 2012)
+
+  08 Jan 2012; Gavin Pryke <gavinlee303@googlemail.com>
+  -yoshimi-0.058.1.ebuild, -yoshimi-0.060.10.ebuild, +yoshimi-0.060.12.ebuild,
+  metadata.xml:
+  bump. remove older ebuilds that fail to compile.
+
+*yoshimi-0.060.10 (08 May 2011)
+
+  08 May 2011; <willy@gentoo.org> -yoshimi-0.056.ebuild, -yoshimi-0.058.ebuild,
+  yoshimi-0.058.1.ebuild, +yoshimi-0.060.10.ebuild:
+  remove older 0.056 0.058, update to new 0.060.10
+
+  25 Mar 2011; Hakan Demiralp <keenblade@tuxfamily.org> yoshimi-0.058.1.ebuild:
+  yoshimi-0.058.1: fltk slot changed from 1.1 to 1
+
+*yoshimi-0.058.1 (08 Aug 2010)
+
+  08 Aug 2010; Viktor Lazarev <taurus101v@gmail.com>
+  +yoshimi-0.058.1.ebuild:
+  Version bump
+
+*yoshimi-0.058 (05 Jun 2010)
+
+  05 Jun 2010; Viktor Lazarev <taurus101v@gmail.com> +yoshimi-0.058.ebuild:
+  version bump
+
+*yoshimi-0.055.6 (28 Mar 2010)
+
+  12 Apr 2010: Dominique Michel <dominique@tuxfamilly.org>
+  bump to 0.056
+
+  28 Mar 2010; Hakan Demiralp <keenblade@tuxfamily.org>
+  +yoshimi-0.055.6.ebuild, +metadata.xml:
+  Initial ebuild for bug 311709 at bgo
+

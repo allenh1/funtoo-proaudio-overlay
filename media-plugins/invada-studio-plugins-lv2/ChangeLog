@@ -1,0 +1,13 @@
+# ChangeLog for media-plugins/invada-studio-plugins-lv2
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  02 Feb 2013; Dominique Michel <dominique_libre@sourceforge.met>
+  invada-studio-plugins-lv2-1.2.0.0.ebuild:
+  fixed URI and SRC_URI
+  +metadata.xml
+
+  03 Mar 2011; Frieder Buerzele <evermind@tuxfamily.org>
+  invada-studio-plugins-lv2-1.2.0.0.ebuild:
+  fixup libdir
+

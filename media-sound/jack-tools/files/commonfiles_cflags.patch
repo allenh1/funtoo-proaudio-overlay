@@ -1,0 +1,11 @@
+--- c-common/Makefile.orig	2014-01-05 21:00:39.000000000 +0100
++++ c-common/Makefile	2015-05-19 18:58:44.216325180 +0200
+@@ -47,7 +47,7 @@
+ 	xregcomp.o
+ 
+ %.o : %.c %.h
+-	gcc -Wall -O2 -c $*.c
++	gcc $(CFLAGS) -c $*.c
+ 
+ all: $(obj)
+ 	ar -rcs lib-c-common.a $(obj)

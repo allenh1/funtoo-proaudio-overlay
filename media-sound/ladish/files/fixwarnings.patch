@@ -1,0 +1,25 @@
+diff -ru ladish-0.1.orig/daemon/studio.c ladish-0.1/daemon/studio.c
+--- ladish-0.1.orig/daemon/studio.c	2009-08-31 04:17:50.000000000 +0300
++++ ladish-0.1/daemon/studio.c	2009-11-20 01:59:08.000000000 +0200
+@@ -872,7 +872,7 @@
+   char * p;
+   const char * src;
+   char * filename_ptr;
+-  char * backup_filename_ptr;
++  char * backup_filename_ptr = NULL;
+ 
+   len_dir = strlen(g_studios_dir);
+ 
+Only in ladish-0.1/daemon: studio.c~
+diff -ru ladish-0.1.orig/jack_proxy.c ladish-0.1/jack_proxy.c
+--- ladish-0.1.orig/jack_proxy.c	2009-08-27 23:01:58.000000000 +0300
++++ ladish-0.1/jack_proxy.c	2009-11-20 01:58:36.000000000 +0200
+@@ -585,7 +585,7 @@
+     value_ptr = &boolean;
+     break;
+   default:
+-    lash_error("Unknown jack parameter type %i", (int)type);
++    lash_error("Unknown jack parameter type %i", (int)parameter_ptr->type);
+     return false;
+   }
+ 

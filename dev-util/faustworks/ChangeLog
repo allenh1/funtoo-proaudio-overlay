@@ -1,0 +1,11 @@
+# ChangeLog for app-emulation/wineasio
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  08 Mar 2013: Dominique Michel <dominique_libre@sourceforge.net
+  faustworks-9999.ebuild: Moved QT depends to dev-qt/*
+
+*faustworks-9999.ebuild (02 Feb 2013)
+
+  02 Feb 2013: Dominique Michel <dominique_libre@sourceforge.net
+  +faustworks-9999.ebuild: Initial ebuild

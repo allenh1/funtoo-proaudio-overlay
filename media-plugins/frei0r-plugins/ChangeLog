@@ -1,0 +1,19 @@
+# ChangeLog for media-plugins/frei0r-plugins
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  30 Mar 2010; Stephane Angot <sa@hydre.org> freiOr-plugins-1.1.19.ebuild:
+  DESCRIPTION and HOMEPAGE added
+  Spring cleanup
+
+  19 Mar 2009; Marcin Deranek <gringo@tuxfamily.org>
+  +frei0r-plugins-1.1.22.ebuild:
+  Version bump
+
+  06 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  frei0r-plugins-1.1.20.ebuild:
+  gcc 4.3 fixed
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

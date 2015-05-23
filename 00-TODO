@@ -1,0 +1,105 @@
+--- NO LONGER MAINTAINED LOOK HERE FOR ACTUAL VERSION -- 20070801---
+http://proaudio.tuxfamily.org/wiki/index.php?title=TODO
+# this is our todo list feel free to assign you to programs you'd like to
+# write a ebuild for and also feel free to add usefull apps which need a 
+# ebuild :) A template is at the end of that file
+
+# NAME:	Buzztard
+EBUILD_STATE: none
+DEVELOPER: none
+DESCR: Tracker and more  # is this software ready? 
+HOMEPAGE: http://www.buzztard.org 
+
+# NAME: CLAM Music Annotator
+EBUID_STATE: none
+DEVELOPER: none
+DESCR: Music Annotator
+HOMEPAGE:  http://clam.iua.upf.edu/
+
+# NAME: silentjack
+EBUID_STATE: none
+DEVELOPER: none
+DESCR: silence/dead air detector
+HOMEPAGE: http://www.ecs.soton.ac.uk/~njh/silentjack/
+
+# NAME:qmadjack 
+EBUID_STATE: none
+DEVELOPER: none
+DESCR: madjack qt4 gui
+HOMEPAGE: http://www.ecs.soton.ac.uk/~njh/madjack/
+
+ 
+# NAME: kluge
+EBUID_STATE: none
+DEVELOPER: none
+DESCR: whats that
+HOMEPAGE: 
+
+
+# NAME: Sonic Visualiser plugins
+EBUID_STATE: none
+DEVELOPER: none
+DESCR: add more plugins??
+HOMEPAGE: http://sourceforge.net/projects/sv1/
+
+
+# NAME:  tapestrea
+EBUID_STATE: none
+DEVELOPER: none
+DESCR:
+HOMEPAGE: http://taps.cs.princeton.edu/
+
+
+# NAME: SuperCollider 3 'svn'
+EBUID_STATE: none
+DEVELOPER: none
+DESCR: I find that a SuperCollider 3 'svn' ebuild would be a great idea, not? Details can be found here:
+Also, it would be great to include some of its plugins in the overlay 
+(freeverb, munger, rossler..), the two GUI servers SCUM and SwingOSC
+plus the some of the class library extensions, which are also on swiki.
+I can't write the ebuild, but I could give advice on how I would do it 
+if I could :D Anyone interested? 
+HOMEPAGE: http://swiki.hfbk-hamburg.de:8888/MusicTechnology/6
+
+
+# NAME: hypermammut 
+EBUID_STATE: none
+DEVELOPER: none
+DESCR:
+HOMEPAGE: http://hypermammut.sourceforge.net/
+
+
+# NAME: KCorreMeter
+EBUID_STATE: none
+DEVELOPER: none
+DESCR:
+HOMEPAGE:
+
+# NAME: canorus
+EBUID_STATE: in tree
+DEVELOPER: evermind
+DESCR: frontend to lilypond
+HOMEPAGE: https://canorus.berlios.de
+
+# NAME: G. JACK Transport
+EBUID_STATE: none
+DEVELOPER: none
+DESCR:
+HOMEPAGE: http://gjacktransport.sourceforge.net/
+
+# NAME: kguitar needs fdo updates (installin in obsolete path)
+EBUID_STATE: none
+DEVELOPER: none
+DESCR:
+HOMEPAGE:
+
+# ebuild don't compile sonic-visualizer
+
+--template--
+# NAME: 
+EBUID_STATE: none
+DEVELOPER: none
+DESCR:
+HOMEPAGE:
+
+

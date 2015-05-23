@@ -1,0 +1,28 @@
+--- python.orig/setup.py	2007-07-08 21:46:19.000000000 +0200
++++ python/setup.py	2013-03-11 19:14:11.084906745 +0100
+@@ -2,6 +2,8 @@
+ 
+ from distutils.core import setup, Extension
+ 
++import sys
++
+ long_description='''
+ A set of python bindings for the alsaplayer libraries. These are written in
+ C++ using boost.python and are intended to provide a minimal level of
+@@ -9,6 +11,8 @@
+ can then be written purely in python.
+ '''
+ 
++boost_lib = 'boost_python-{0}.{1}'.format(sys.version_info[0], sys.version_info[1])
++
+ classifiers=[
+     'Development Status :: 4 - Beta',
+     'Intended Audience :: Developers',
+@@ -29,6 +33,6 @@
+                              ['control.cc'],
+                              include_dirs=[],
+                              library_dirs=[],
+-                             libraries=['alsaplayer', 'boost_python'])
++                             libraries=['alsaplayer', boost_lib])
+                    ]
+      )

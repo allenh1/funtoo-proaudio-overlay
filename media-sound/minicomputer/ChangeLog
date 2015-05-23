@@ -1,0 +1,43 @@
+# ChangeLog for media-sound/minicomputer
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  04 Nov 2014; Frieder Buerzele <evermind@tuxfamily.org>
+  minicomputer-1.41.ebuild, minicomputer-9999.ebuild,
+  +files/minicomputer-scons_link_with_libm.patch:
+  fix gentoo bug 516710 (thx Marc Joliet for reporting)
+
+  08 Jan 2012; Gavin Pryke <gavinlee303@googlemail.com>
+  -minicomputer-1.3.ebuild, -files/minicomputer-1.3-fltk.patch,
+  -files/minicomputer-1.3-respect-tc-flags.patch, minicomputer-1.41.ebuild,
+  -files/minicomputer-1.41-fltk.patch,
+  -files/minicomputer-1.41-respect-tc-flags.patch, minicomputer-9999.ebuild,
+  -files/minicomputer-9999-fltk.patch,
+  -files/minicomputer-9999-respect-tc-flags.patch,
+  +files/minicomputer-fltk.patch, +files/minicomputer-respect-tc-flags.patch,
+  metadata.xml:
+  edit patch to compile with fltk-1.3, rename it and clean the mess up
+
+  27 Apr 2011; Gavin Pryke <gavinlee303@googlemail.com>
+  minicomputer-1.3.ebuild, minicomputer-1.41.ebuild,
+  minicomputer-9999.ebuild:
+  change fltk slot deps from 1.1 to 1, repoman payment
+
+*minicomputer-9999 (10 Jun 2010)
+*minicomputer-1.41 (10 Jun 2010)
+
+  10 Jun 2010; Gavin Pryke <gavinlee303@googlemail.com>
+  -minicomputer-1.2.ebuild, -files/minicomputer-1.2-fltk.patch,
+  -files/minicomputer-1.2-gcc43.patch, minicomputer-1.3.ebuild,
+  +files/minicomputer-1.3-respect-tc-flags.patch, +minicomputer-1.41.ebuild,
+  +files/minicomputer-1.41-fltk.patch,
+  +files/minicomputer-1.41-respect-tc-flags.patch,
+  +minicomputer-9999.ebuild, +files/minicomputer-9999-fltk.patch,
+  +files/minicomputer-9999-respect-tc-flags.patch, +metadata.xml:
+  bump to 1.41. add a live svn ebuild. add patches to utilise toolchain
+  flags. some cleanups.
+
+  15 Jul 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  minicomputer-1.2.ebuild:
+  initial ebuild
+

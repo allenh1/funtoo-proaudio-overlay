@@ -1,0 +1,63 @@
+# ChangeLog for media-sound/qtractor
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  07 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  qtractor-9999.ebuild, metadata.xml:
+  New jacksession and nsm USE flags.
+  qt4-r2 eclass for eqmake4.
+  Some required USE.
+  Autotools variables before inherit.
+
+  09 Mar 2013; Dominique Michel <dominique_libre@sourceforge.net>
+  qtractor-9999.ebuild: Moved QT depends to dev-qt/*
+
+  17 Feb 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  qtractor-9999.ebuild, metadata.xml:
+  Added use flag descriptions
+  Removed no-herd from metadata.xml
+  Updated EAPI
+  Removed unused inherits
+  Shortened DESCRIPTION
+  Corrected svn repository URI
+  Added lilv use flag
+  Use autotools-utils
+  Minor cleanup
+
+  12 Nov 2012; Karl Linden <spray.sucks@gmail.com>
+  qtractor-9999.ebuild:
+  fixed copyright notice
+  moved to EAPI 3
+  moved to http instead of https
+  removed bugfix for issue #111 as it is no longer needed
+  added supported USE flags and reordered them alphabetically
+  updated dependencies (removed deprecated and added depend on drobilla-9999)
+
+  04 Mar 2011; Frieder Buerzele <evermind@tuxfamily.org>
+  qtractor-9999.ebuild:
+  fixes bug #111 thx nilekurt
+
+*qtractor-9999 (10 Oct 2010)
+
+  10 Oct 2010; Viktor Lazarev <taurus101v@gmail.com> +qtractor-9999.ebuild,
+  -qtractor-9999-r1.ebuild:
+  Content of the ebuild synced with one from the official tree
+
+  04 Aug 2009; Dominique Michel <dominique@tuxfamily.org>
+  Removed alsa-lib midi USE check
+
+  06 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  -qtractor-9999.ebuild, qtractor-9999-r1.ebuild:
+  fixed qt4_min... QA msg -- removed old ebuilds
+
+  02 May 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  +qtractor-9999-r1.ebuild:
+  update to reflect in-portage version
+
+  24 Feb 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  qtractor-9999.ebuild:
+  added vst support (thx Lucio)
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

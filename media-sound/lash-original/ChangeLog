@@ -1,0 +1,70 @@
+# ChangeLog for media-sound/lash-original
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  03 Apr 2015; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  lash-original-0.6.0_rc2-r1.ebuild,
+  +files/lash-original-0.6.0_rc2-aclocal.patch,
+  files/lash-original-0.6.0_rc2-include.patch,
+  -files/lash-0.6.0_rc2-texi2html.diff,
+  +files/lash-original-0.6.0_rc2-underlinking.patch:
+  add multilib support
+  fix fetching
+  fix underlinking
+  fix repoman warnings
+  drop version specifiers
+  drop unnecessary uninstall message
+  remove unused patch
+
+  31 Jul 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -lash-original-0.6.0_rc2.ebuild:
+  Removed old non-python-r1-migrated ebuild.
+
+*lash-original-0.6.0_rc2-r1 (06 Jun 2013)
+
+  06 Jun 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  +lash-original-0.6.0_rc2-r1.ebuild,
+  +files/lash-original-0.6.0_rc2-include.patch:
+  Move to autotools-utils and python-single-r1 eclass.
+  Move to EAPI 5.
+  Restrict mirror.
+  Building of documentation fails even with previous patch applied. The 
+  documentation is therefore hard disabled.
+  Fix faulty arguments to configure.
+  Add patch to compile properly with alsa disabled.
+
+  03 Feb 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  lash-original-0.6.0_rc2.ebuild:
+  keyword for ~ppc, depend on virtual/pkgconfig
+
+  27 Dec 2012; Dominique Michel <dominique_libre@sourceforge.net>
+  Renamed media-sound/lash to media-sound/lash-original
+  due to media-sound/ladish import and blocking with packages 
+  depending on media-sound/lash.
+  For new ebuilds, please use (R)DEPEND="virtual/liblash" instead.
+
+  11 Nov 2012; Karl Lindén <spray.sucks@gmail.com>;
+  lash-0.6.0_rc2.ebuild: added python_convert_shebangs to ebuild
+
+  03 Jun 2012; Hakan Demiralp (keenblade) <keenblade@tuxfamily.org>
+  lash-0.6.0_rc2.ebuild, +files/lash-0.6.0_rc2-texi2html.diff:
+  lash-0.6.0_rc2: added new patch lash-0.6.0_rc2-texi2html.diff wrt texi2htm
+  bug by wol. removed old ebuild and patch
+
+  04 Aug 2009; Dominique Michel <dominique@tuxfamily.org>;
+  Removed midi USE check from alsa-lib depend
+
+  09 Aug 2008; Frieder Buerzele <evermind@tuxfamily.org>; lash-0.5.4.ebuild,
+  +files/lash-0.5.4-glibc2.8.patch:
+  KEEP -- imho better /etc/service cleanup handling
+
+  13 Jan 2008; Thomas Kuther <gimpel@sonnenkinder.org> lash-0.5.4.ebuild:
+  add useflags
+
+  13 Jan 2008; Frieder Buerzele <evermind@tuxfamily.org>;
+  +lash-0.5.4.ebuild:
+  bump
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

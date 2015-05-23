@@ -1,0 +1,25 @@
+--- ninjam/cursesclient/Makefile.old	2010-10-26 18:24:21.000000000 +0100
++++ ninjam/cursesclient/Makefile	2010-10-26 18:28:12.000000000 +0100
+@@ -2,7 +2,7 @@
+ # CPU optimization section
+ #############################################################
+ 
+-OPTFLAGS =  -O2
++OPTFLAGS ?=  -O2
+ 
+ ifdef MAC
+ OPTFLAGS += -D_MAC -mcpu=7450
+@@ -17,10 +17,10 @@
+ #############################################################
+ 
+ # we MUST have -fomit-frame-pointer and -lm, otherwise we hate life
+-CFLAGS = $(OPTFLAGS) -s 
++#CFLAGS = $(OPTFLAGS) -s 
+ # CFLAGS += -Wshadow
+-CC=gcc
+-CXX=g++
++CC ?= gcc
++CXX ?= g++
+ 
+ OBJS = ../../WDL/jnetlib/asyncdns.o
+ OBJS += ../../WDL/jnetlib/connection.o

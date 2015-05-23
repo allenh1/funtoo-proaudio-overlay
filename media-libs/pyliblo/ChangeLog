@@ -1,0 +1,43 @@
+# ChangeLog for media-libs/pyliblo
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*pyliblo-0.9.2 (29 Nov 2014)
+
+  29 Nov 2014; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  -pyliblo-0.8.1.ebuild, -pyliblo-0.9.1.ebuild, pyliblo-0.9.1-r1.ebuild,
+  +pyliblo-0.9.2.ebuild:
+  remove old ebuilds
+  stabilize version 0.9.1-r1
+  bump PYTHON_COMPAT
+  fix HOMEPAGE
+  do not forget required use
+  version bump
+
+*pyliblo-0.9.1-r1 (26 Mar 2013)
+
+  26 Mar 2013; Karl Linden (lilrc) <lilrc@users.sourceforge.net>
+  pyliblo-0.8.1.ebuild, pyliblo-0.9.1.ebuild, +pyliblo-0.9.1-r1.ebuild,
+  metadata.xml:
+  Move to EAPI 5 and distutils-r1.
+  Use PN variable more often.
+  Remove no-herd from metadata.
+  Shorten description.
+
+*pyliblo-0.9.1 (15 Apr 2011)
+
+  15 Apr 2011; Gavin Pryke <gavinlee303@googlemail.com>
+  -pyliblo-0.9.0_pre1.ebuild, +pyliblo-0.9.1.ebuild:
+  bump, remove prerelease ebuild
+
+  03 Mar 2011; Frieder Buerzele <evermind@tuxfamily.org>
+  pyliblo-0.8.1.ebuild:
+  added amd64 keyword
+
+*pyliblo-0.9.0_pre1 (04 Aug 2010)
+*pyliblo-0.8.1 (04 Aug 2010)
+
+  04 Aug 2010; Gavin Pryke <gavinlee303@googlemail.com>
+  +pyliblo-0.8.1.ebuild, +pyliblo-0.9.0_pre1.ebuild, +metadata.xml:
+  Addition of media-libs/pyliblo to overlay.
+

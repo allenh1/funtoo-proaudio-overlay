@@ -1,0 +1,25 @@
+From 1842b2f87a78c05fca082768b70c52775e6bbb33 Mon Sep 17 00:00:00 2001
+From: "Gavin Pryke (gavlee)" <gavinlee303@googlemail.com>
+Date: Fri, 23 Nov 2012 17:20:41 +0000
+Subject: [PATCH 1/2] multilib-strict
+
+---
+ Makefile.src.am |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/Makefile.src.am b/Makefile.src.am
+index a73e93b..4940959 100644
+--- a/Makefile.src.am
++++ b/Makefile.src.am
+@@ -161,7 +161,7 @@ libbuzztard_core_HEADERS = \
+ #
+ 
+ # -- songio plugins
+-songiodir = ${exec_prefix}/lib/buzztard-songio
++songiodir = ${libdir}/buzztard-songio
+ songio_LTLIBRARIES = libbtbsl.la
+ libbtbsl_la_LIBADD = \
+ 	libbuzztard-core.la \
+-- 
+1.7.8.6
+

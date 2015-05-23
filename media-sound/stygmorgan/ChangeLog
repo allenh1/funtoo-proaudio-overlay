@@ -1,0 +1,15 @@
+# ChangeLog for media-sound/stygmorgan
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  28 Dec 2012; Karl Lindén (lilrc) <lilrc@users.sourceforge.net>
+  removed herd from metadata.xml
+  added EAPI
+  ebuild now uses autotools-utils
+  fixed SRC_URI (berlios is in thirdpartymirrors)
+  cleanup
+  the program still fails to build because of a bug upstream
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

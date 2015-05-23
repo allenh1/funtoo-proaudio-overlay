@@ -1,0 +1,33 @@
+# ChangeLog for media-sound/buzztard
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  23 Nov 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  buzztard-0.6.0.ebuild, buzztard-9999.ebuild,
+  +files/buzztard-9999/0001-multilib-strict.patch,
+  +files/buzztard-9999/0002-strip-march-native.patch:
+  remove -march=native for distcc and work around multilib-strict, git now
+  contains media-libs/bsl
+
+*buzztard-9999 (22 Nov 2012)
+*buzztard-0.6.0 (22 Nov 2012)
+
+  22 Nov 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  -buzztard-0.3.0.ebuild, -buzztard-0.4.0.ebuild, -buzztard-0.5.0.ebuild,
+  -files/buzztard-0.5.0-as-needed.patch, +buzztard-0.6.0.ebuild,
+  +buzztard-9999.ebuild, metadata.xml:
+  bump. add live ebuild. cleanup.
+
+*buzztard-0.5.0 (23 Oct 2010)
+
+  23 Oct 2010; Gavin Pryke <gavinlee303@googlemail.com>
+  +buzztard-0.5.0.ebuild, +files/buzztard-0.5.0-as-needed.patch:
+  bump to 0.5.0. as-needed fix diff'ed from svn.
+
+  27 Nov 2008; Thomas Kuther <gimpel@sonnenkinder.org>
+  +buzztard-0.4.0.ebuild:
+  version bump
+
+  28 Mar 2008; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  initial ebuild
+

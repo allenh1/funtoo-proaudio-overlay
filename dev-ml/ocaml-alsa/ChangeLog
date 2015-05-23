@@ -1,0 +1,13 @@
+# ChangeLog for dev-ml/ocaml-alsa
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  30 May 2012; Emery Hemingway <emery@vfemail.net> ocaml-alsa-0.2.1.ebuild:
+  Deparallized make
+
+*ocaml-alsa-0.2.1 (29 May 2012)
+
+  29 May 2012; Emery Hemingway <emery@vfemail.net> +ocaml-alsa-0.2.1.ebuild,
+  +metadata.xml:
+  Initial packaging
+

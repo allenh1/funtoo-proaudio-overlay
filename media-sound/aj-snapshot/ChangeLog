@@ -1,0 +1,11 @@
+# ChangeLog for media-sound/aj-snapshot
+# Copyright 1999-2013 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  16 Jun 2012; Dominique Michel <dominique_libre@users.sourceforge.net>
+  aj-snapshot-0.9.6.ebuild: added flag-o-matic eclass; filter out 
+  as-needed from LDFLAGS; updated to EAPI 5
+  metadata.xml: removed no-herd
+
+  16 Jun 2012; Dominique Michel <dominique_libre@users.sourceforge.net>
+  + Initial aj-snapshot-0.9.6.ebuild

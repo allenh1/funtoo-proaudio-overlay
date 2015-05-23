@@ -1,0 +1,15 @@
+# ChangeLog for media-sound/wired
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  24 Aug 2012; Gavin Pryke (gavlee) <gavinlee303@googlemail.com>
+  wired-0.4.ebuild, wired-0.5.ebuild, wired-0.6.ebuild, wired-9999.ebuild,
+  +files/wired.xpm, -files/wired.png:
+  replace png with xpm in FILESDIR
+
+  02 Jan 2008; Frieder Buerzele <evermind@tuxfamily.org> ChangeLog:
+  bumped to wired-0.6 closes bug#35
+
+  17 Dec 2007; Thomas Kuther <gimpel@sonnenkinder.org> ChangeLog:
+  added a changelog
+

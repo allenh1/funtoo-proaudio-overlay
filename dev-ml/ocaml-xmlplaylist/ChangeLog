@@ -1,0 +1,14 @@
+# ChangeLog for dev-ml/ocaml-xmlplaylist
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  30 May 2012; Emery Hemingway <emery@vfemail.net>
+  ocaml-xmlplaylist-0.1.3.ebuild:
+  Deparallized compile
+
+*ocaml-xmlplaylist-0.1.3 (29 May 2012)
+
+  29 May 2012; Emery Hemingway <emery@vfemail.net>
+  +ocaml-xmlplaylist-0.1.3.ebuild, +metadata.xml:
+  Based of ebuilds from upstream
+

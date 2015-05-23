@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 17e82ee..c4d2340 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -136,7 +136,7 @@ if ( MODULES_BUILD_STATIC )
+ else ( MODULES_BUILD_STATIC )
+       SET(MODULES_BUILD SHARED )
+       SET(CMAKE_BUILD_WITH_INSTALL_RPATH ON)
+-      SET(CMAKE_INSTALL_RPATH ${MusE_MODULES_DIR})
++      SET(CMAKE_INSTALL_RPATH ${CMAKE_INSTALL_PREFIX}/${MusE_MODULES_DIR})
+ endif ( MODULES_BUILD_STATIC )
+ 
+ ##
