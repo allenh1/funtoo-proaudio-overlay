@@ -25,14 +25,12 @@ KEYWORDS="*"
 # >=libX11-1.3.1 needed for X Generic Event support
 # do not depend on tslib, it does not build and is disable by default upstream
 # <dev-libs/libinput-0.8 due to Gnome bugzilla #742829
-# IMPORTANT!!!
-# add dep >=media-libs/cogl-1.20.0=[introspection?,pango,wayland?]
 RDEPEND="
 	>=dev-libs/glib-2.37.3:2
 	>=dev-libs/atk-2.5.3[introspection?]
 	>=dev-libs/json-glib-0.12[introspection?]
+	>=media-libs/cogl-1.18.0:=[introspection?,pango,wayland?]
 	>=x11-libs/cairo-1.12:=[aqua?,glib]
-	>=dev-libs/input-0.8.0
 	>=x11-libs/pango-1.30[introspection?]
 
 	virtual/opengl
@@ -51,7 +49,6 @@ RDEPEND="
 		>=x11-libs/libX11-1.3.1
 		x11-libs/libXext
 		x11-libs/libXdamage
-		
 		x11-proto/inputproto
 		>=x11-libs/libXi-1.3
 		>=x11-libs/libXcomposite-0.4 )

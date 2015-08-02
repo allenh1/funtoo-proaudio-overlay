@@ -18,7 +18,7 @@ if [[ "${PV}" = "9999" ]] ; then
 	EGIT_REPO_URI="git://repo.or.cz/calf.git"
 	KEYWORDS=""
 else
-	SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
+	SRC_URI="http://calf-studio-gear.org/files/${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
 fi
 
