@@ -4,21 +4,24 @@
 
 EAPI="2"
 
-inherit eutils toolchain-funcs
+inherit eutils toolchain-funcs git-r3
 
 RESTRICT="mirror"
 DESCRIPTION="extreme sound stretching of the audio"
 HOMEPAGE="http://hypermammut.sourceforge.net/paulstretch"
 
-MY_P="${PN}-2.2-2"
-SRC_URI="mirror://sourceforge/hypermammut/${MY_P}.tar.bz2"
+EGIT_REPO_URI="https://github.com/paulnasca/paulstretch_cpp.git"
+EGIT_COMMIT="7f5c399"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="x86 ~amd64"
 
 IUSE="fftw jack"
-DEPEND="media-libs/portaudio
+DEPEND="dev-libs/mini-xml
+		media-libs/libmad
+		media-libs/libvorbis
+		media-libs/portaudio
 		media-libs/audiofile
 		>=x11-libs/fltk-1.1.7
 		fftw? ( =sci-libs/fftw-3* )
@@ -27,8 +30,6 @@ DEPEND="media-libs/portaudio
 			=sci-libs/fftw-3*
 			)"
 RDEPEND="${DEPEND}"
-
-S="${WORKDIR}/${PN}-2.2-2"
 
 src_prepare() {
 	epatch "${FILESDIR}/fix-mp3inputs.patch"
